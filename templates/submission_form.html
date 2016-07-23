@@ -1,0 +1,18 @@
+{% extends "overall_layout.html" %}
+{% block overall_layout_body %}
+  <div id="submission-body">
+    <p>{{ solvable_id }}</p>
+    <form action="/submissions/{{ solvable_id }}" method="post">
+        <p><input type=text name=submission>
+        <p><input type=submit value=Submit>
+    </form>
+    <div id="previous-submissions">
+      <ul>
+        {% for submission in submissions %}
+          <li>{{ submission.submission }} at {{ submission.timestamp|datetime }} - {{submission.status}}
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+{% endblock %}
+
