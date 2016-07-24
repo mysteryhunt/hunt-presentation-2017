@@ -36,7 +36,8 @@ def unauthorized(e):
 @app.route('/')
 def index():
     if 'username' in session:
-        return 'Logged in as %s' % escape(session['username'])
+        visibilities = get_visibilities_for_team(session['username'])
+        return render_template("hunt.html", username = session['username'], visibilities_for_team = visibilities)
     return 'You are not logged in'
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -77,7 +78,7 @@ def secure_asset(solvable_id, filename):
 @app.route("/puzzles/<solvable_id>")
 def puzzle(solvable_id):
     if is_authorized(solvable_id):
-        return render_template("cr_1_puzzle_a.html")
+        return render_template("round_1/cr_1_puzzle_a.html")
     else:
         abort(403)
    
@@ -98,6 +99,20 @@ def is_authorized(solvable_id):
     if status == 'UNLOCKED' or status == 'SOLVED':
         return True
     return False
+    
+    
+def get_visibilities_for_team(team_id):
+    visibilities = service_get_call(session['username'], session['password'], '/visibilities?teamId=%s' % team_id)
+    visibilities = visibilities['visibilities']
+    visibilities = {v['puzzleId']: v['status'] for v in visibilities}
+    return visibilities
+    
+@app.context_processor
+def utility_processor():
+    def is_unlocked(puzzleId, visibilities_for_team):
+        return puzzleId in visibilities_for_team and \
+                (visibilities_for_team[puzzleId] == 'UNLOCKED' or visibilities_for_team[puzzleId] == 'SOLVED')
+    return dict(is_unlocked=is_unlocked)
     
 @app.template_filter('datetime')
 def format_datetime(value):

@@ -1,0 +1,29 @@
+{% extends "overall_layout.html" %}
+{% block overall_layout_body %}
+  <div id="header">
+    <p>Logged in as {{ username }}</p>
+  </div>
+  <div id="hunt-body">
+    {% if is_unlocked('puzzle1', visibilities_for_team) %}
+      <p><a href="{{ url_for('puzzle', solvable_id='puzzle1') }}">Puzzle 1</a></p>
+    {% endif %}
+    {% if is_unlocked('puzzle2', visibilities_for_team) %}
+      <p><a href="{{ url_for('puzzle', solvable_id='puzzle2') }}">Puzzle 2</a></p>
+    {% endif %}
+    {% if is_unlocked('puzzle3', visibilities_for_team) %}
+      <p><a href="{{ url_for('puzzle', solvable_id='puzzle3') }}">Puzzle 3</a></p>
+    {% endif %}
+    {% if is_unlocked('puzzle4', visibilities_for_team) %}
+      <p><a href="{{ url_for('puzzle', solvable_id='puzzle4') }}">Puzzle 4</a></p>
+    {% endif %}
+    {% if is_unlocked('puzzle5', visibilities_for_team) %}
+      <p><a href="{{ url_for('puzzle', solvable_id='puzzle5') }}">Puzzle 5</a></p>
+    {% endif %}
+    {% if is_unlocked('puzzle6', visibilities_for_team) %}
+      <p><a href="{{ url_for('puzzle', solvable_id='puzzle6') }}">Puzzle 6</a></p>
+    {% endif %}
+    {% if is_unlocked('puzzle7', visibilities_for_team) %}
+      <p><a href="{{ url_for('puzzle', solvable_id='puzzle7') }}">Puzzle 7</a></p>
+    {% endif %}
+  </div>
+{% endblock %}
