@@ -78,7 +78,7 @@ def secure_asset(solvable_id, filename):
 @app.route("/puzzles/<solvable_id>")
 def puzzle(solvable_id):
     if is_authorized(solvable_id):
-        return render_template("round_1/cr_1_puzzle_a.html")
+        return render_template("round_1/" + solvable_id + ".html", solvable_id = solvable_id)
     else:
         abort(403)
    
