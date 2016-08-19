@@ -3,6 +3,11 @@
   <div id="puzzle-body">
     <p>Puzzle 1</p>
     <p>Specific puzzle content</p>
-    <p><a href="/assets/cr_1_puzzle_a/audio01.mp3">Audio link</a></p>
+    <p><a href="/assets/cr_1_puzzle_a/audio01.mp3">Standard audio link</a></p>
+    <p>
+      <audio controls="controls">
+        <source src="https://s3.amazonaws.com/eastern-toys-sandbox/audio01.mp3" type="audio/mp3">
+      </audio>
+    </p>
   </div>
 {% endblock %}
