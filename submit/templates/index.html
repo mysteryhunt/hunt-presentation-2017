@@ -1,0 +1,6 @@
+<h2>answer submission app</h2>
+<ul>
+{% for puzzle_id in puzzle_ids %}
+<li><a href="{{ url_for('puzzle', puzzle_id=puzzle_id) }}">{{ puzzle_id }}</a></li>
+{% endfor %}
+</ul>

@@ -1,9 +1,0 @@
-{% extends "overall_layout.html" %}
-{% block overall_layout_body %}
-  <div id="round-1-header">
-    <a href="{{ url_for('submissions', solvable_id = solvable_id) }}">Submit answer</a>
-  </div>
-  <div id="round-1-layout-body">
-    {% block round_1_layout_body %}{% endblock %}
-  </div>
-{% endblock %}

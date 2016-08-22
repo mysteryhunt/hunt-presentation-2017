@@ -4,6 +4,7 @@
   </head>
   <body>
     <div id="overall-layout-header">
+      <p>Logged in as {{ session["username"] }}</p>
     </div>
     <div id="overall-layout-body">
       {% block overall_layout_body %}{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "overall_layout.html" %}
+{% block overall_layout_body %}
+<div id="hunt-body">
+  {% if "puzzle1" in visible_puzzle_ids %}
+  <p><a href="{{ url_for('puzzle', puzzle_id='puzzle1') }}">Puzzle 1</a></p>
+  {% endif %}
+  {% if "puzzle2" in visible_puzzle_ids %}
+  <p><a href="{{ url_for('puzzle', puzzle_id='puzzle2') }}">Puzzle 2</a></p>
+  {% endif %}
+  {% if "puzzle3" in visible_puzzle_ids %}
+  <p><a href="{{ url_for('puzzle', puzzle_id='puzzle3') }}">Puzzle 3</a></p>
+  {% endif %}
+  {% if "puzzle4" in visible_puzzle_ids %}
+  <p><a href="{{ url_for('puzzle', puzzle_id='puzzle4') }}">Puzzle 4</a></p>
+  {% endif %}
+  {% if "puzzle5" in visible_puzzle_ids %}
+  <p><a href="{{ url_for('puzzle', puzzle_id='puzzle5') }}">Puzzle 5</a></p>
+  {% endif %}
+  {% if "puzzle6" in visible_puzzle_ids %}
+  <p><a href="{{ url_for('puzzle', puzzle_id='puzzle6') }}">Puzzle 6</a></p>
+  {% endif %}
+  {% if "puzzle7" in visible_puzzle_ids %}
+  <p><a href="{{ url_for('puzzle', puzzle_id='puzzle7') }}">Puzzle 7</a></p>
+  {% endif %}
+</div>
+{% endblock %}
