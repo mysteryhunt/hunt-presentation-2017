@@ -1,0 +1,10 @@
+<h2>{{ puzzle_id }}</h2>
+<form action="{{ url_for('puzzle', puzzle_id=puzzle_id) }}" method="post">
+  <input type="text" name="submission">
+  <input type="submit" value="Submit">
+</form>
+<ul>
+  {% for submission in submissions %}
+  <li>{{ submission.submission }} at {{ submission.timestamp | datetime }} - {{ submission.status }}
+  {% endfor %}
+</ul>
