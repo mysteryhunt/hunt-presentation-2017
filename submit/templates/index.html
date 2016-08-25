@@ -1,6 +1,11 @@
 <h2>answer submission app</h2>
 <ul>
-{% for puzzle_id in puzzle_ids %}
-<li><a href="{{ url_for('puzzle', puzzle_id=puzzle_id) }}">{{ puzzle_id }}</a></li>
+{% for v in puzzle_visibilities %}
+<li>
+  <a href="{{ url_for('puzzle', puzzle_id=v['puzzleId']) }}">{{ v['puzzleDisplayName'] }}</a>
+  {% if v['status'] == 'SOLVED' %}
+  &ndash; SOLVED
+  {% endif %}
+</li>
 {% endfor %}
 </ul>

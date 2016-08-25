@@ -1,8 +1,11 @@
-<h2>{{ puzzle_id }}</h2>
+<h2>{{ visibility['puzzleDisplayName'] }}</h2>
+{% if visibility['status'] != 'SOLVED' %}
 <form action="{{ url_for('puzzle', puzzle_id=puzzle_id) }}" method="post">
+  <span>Submit an answer:</span>
   <input type="text" name="submission">
   <input type="submit" value="Submit">
 </form>
+{% endif %}
 <ul>
   {% for submission in submissions %}
   <li>{{ submission.submission }} at {{ submission.timestamp | datetime }} - {{ submission.status }}

@@ -8,8 +8,8 @@ def index():
     if "username" not in session:
         return redirect(url_for("login.login"))
 
-    puzzle_ids = cube.get_visible_puzzle_ids(app)
-    return render_template("index.html", puzzle_ids=puzzle_ids)
+    puzzle_visibilities = cube.get_puzzle_visibilities(app)
+    return render_template("index.html", puzzle_visibilities=puzzle_visibilities)
 
 @app.route("/puzzle/<puzzle_id>", methods=["GET", "POST"])
 def puzzle(puzzle_id):
@@ -23,7 +23,9 @@ def puzzle(puzzle_id):
         cube.create_submission(app, puzzle_id, request.form["submission"])
 
     submissions = cube.get_submissions(app, puzzle_id)
+    visibility = cube.get_puzzle_visibility(app, puzzle_id)
     return render_template(
         "puzzle.html",
         puzzle_id=puzzle_id,
-        submissions=submissions)
+        submissions=submissions,
+        visibility=visibility)

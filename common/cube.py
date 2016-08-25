@@ -30,7 +30,11 @@ def authorized(app, permission):
 
 def get_visible_puzzle_ids(app):
     response = get(app, "/visibilities?teamId=%s" % session["username"])
-    return sorted([v["puzzleId"] for v in response["visibilities"]])
+    return [v["puzzleId"] for v in response["visibilities"]]
+
+def get_puzzle_visibilities(app):
+    response = get(app, "/visibilities?teamId=%s" % session["username"])
+    return sorted(response["visibilities"], key=lambda v: v["puzzleDisplayName"])
 
 def get_puzzle_visibility(app, puzzle_id):
     return get(app, "/visibilities/%s/%s" % (session["username"], puzzle_id))
