@@ -1,13 +1,22 @@
 from present import app
 
-from common import cube
+from common import cube, s3
 from flask import redirect, render_template, request, send_from_directory, session, url_for
 
 @app.context_processor
 def utility_processor():
     def submit_url_for(puzzle_id):
         return app.config["SUBMIT_URL"] % puzzle_id
-    return dict(submit_url_for=submit_url_for)
+
+    def asset_url_for(asset_path):
+      bucket = app.config["AWS_ASSET_BUCKET"]
+      access_key = app.config["AWS_ASSET_ACCESS_KEY"]
+      secret_key = app.config["AWS_ASSET_SECRET_KEY"]
+      return s3.sign(bucket, asset_path, access_key, secret_key, True)
+
+    return dict(submit_url_for=submit_url_for, asset_url_for=asset_url_for)
+    
+
 
 @app.route("/")
 def index():
