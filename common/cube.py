@@ -31,7 +31,7 @@ def authorized(app, permission):
 def get_visible_puzzle_ids(app):
     response = get(app, "/visibilities?teamId=%s" % session["username"])
     return [v["puzzleId"] for v in response["visibilities"]]
-
+    
 def get_puzzle_visibilities(app):
     response = get(app, "/visibilities?teamId=%s" % session["username"])
     return sorted(response["visibilities"], key=lambda v: v["puzzleDisplayName"])
@@ -41,6 +41,10 @@ def get_puzzle_visibility(app, puzzle_id):
 
 def is_puzzle_unlocked(app, puzzle_id):
     return get_puzzle_visibility(app, puzzle_id)["status"] in ["UNLOCKED", "SOLVED"]
+    
+def get_team_properties(app):
+    response = get(app, "/teams/%s" % session["username"])
+    return response
 
 def get_submissions(app, puzzle_id):
     response = get(app, "/submissions?teamId=%s&puzzleId=%s" % (session["username"], puzzle_id))
