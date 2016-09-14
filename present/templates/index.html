@@ -1,0 +1,33 @@
+{% extends "overall_layout.html" %}
+{% block overall_layout_body %}
+<div id="left-sidebar">
+  <div id="characters">
+    <div id="character-header"><span class="enscrolled"><span>Characters</span></span></div>
+    <div id="character-total">
+      <div>
+        Total party level: <span class="level-number">{{ team_properties.teamProperties.CharacterLevelsProperty.levels.values()|sum }}</span>
+      </div>
+    </div>
+    
+    {% for character_class in ["wizard","fighter","cleric","linguist","chemist","economist"] if character_class in visible_puzzle_ids %}
+      <a href="{{ character_class }}.html">
+        <div id="character-{{ character_class }}" class="individual-character">
+          <div class="individual-character-status-container">
+            <span class="individual-character-class">{{ character_class }}</span>
+            <span class="individual-character-level">{{ team_properties.teamProperties.CharacterLevelsProperty.levels[character_class]|default(0) }}</span>
+          </div>
+        </div>
+      </a>
+    {% endfor %}
+    
+  </div>
+</div>
+
+<div id="world-map-container">
+  
+</div>
+
+<div id="right-sidebar">
+  
+</div>
+{% endblock %}

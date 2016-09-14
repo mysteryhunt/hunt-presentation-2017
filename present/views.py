@@ -24,7 +24,8 @@ def index():
         return redirect(url_for("login.login"))
 
     visible_puzzle_ids = set(cube.get_visible_puzzle_ids(app))
-    return render_template("rounds/round_1.html", visible_puzzle_ids=visible_puzzle_ids)
+    team_properties = cube.get_team_properties(app)
+    return render_template("index.html", visible_puzzle_ids=visible_puzzle_ids, team_properties=team_properties)
 
 @app.route("/puzzle/<puzzle_id>")
 def puzzle(puzzle_id):
