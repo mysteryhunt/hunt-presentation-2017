@@ -56,3 +56,14 @@ def create_submission(app, puzzle_id, submission):
         "puzzleId": puzzle_id,
         "submission": submission,
     })
+
+def get_hints(app, puzzle_id):
+    response = get(app, "/hintrequests?teamId=%s&puzzleId=%s" % (session["username"], puzzle_id))
+    return response["hintRequests"]
+
+def create_hint_request(app, puzzle_id, request):
+    post(app, "/hintrequests", {
+        "teamId": session["username"],
+        "puzzleId": puzzle_id,
+        "request": request,
+    })

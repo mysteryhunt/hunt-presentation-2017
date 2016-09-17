@@ -5,9 +5,23 @@
   <input type="text" name="submission">
   <input type="submit" value="Submit">
 </form>
+<form action="{{ url_for('puzzle', puzzle_id=puzzle_id) }}" method="post">
+  <span>Ask for a hint:</span>
+  <input type="text" name="hintrequest">
+  <input type="submit" value="Submit">
+</form>
 {% endif %}
 <ul>
   {% for submission in submissions %}
   <li>{{ submission.submission }} at {{ submission.timestamp | datetime }} - {{ submission.status }}
   {% endfor %}
 </ul>
+{% if hints %}
+<h3>Hints</h3>
+<ul>
+  {% for hint in hints %}
+  <li>{{ hint.request }} at {{ hint.timestamp | datetime }} - {{ hint.status }}
+    {% if hint.response %}<br>{{ hint.response }}{% endif %}
+  {% endfor %}
+</ul>
+{% endif %}
