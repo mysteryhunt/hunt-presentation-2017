@@ -25,7 +25,10 @@ def index():
 
     visible_puzzle_ids = set(cube.get_visible_puzzle_ids(app))
     team_properties = cube.get_team_properties(app)
-    return render_template("index.html", visible_puzzle_ids=visible_puzzle_ids, team_properties=team_properties)
+    character_classes = app.config['PUZZLES']['character_classes']
+    print(character_classes)
+    return render_template("index.html", visible_puzzle_ids=visible_puzzle_ids, team_properties=team_properties,
+        character_classes = character_classes)
 
 @app.route("/puzzle/<puzzle_id>")
 def puzzle(puzzle_id):

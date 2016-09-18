@@ -5,16 +5,16 @@
     <div id="character-header"><span class="enscrolled"><span>Characters</span></span></div>
     <div id="character-total">
       <div>
-        Total party level: <span class="level-number">{{ team_properties.teamProperties.CharacterLevelsProperty.levels.values()|sum }}</span>
+        Total party level: <span class="level-number">{{ team_properties.get('teamProperties',{}).get('CharacterLevelsProperty',{}).get('levels',{}).values()|sum }}</span>
       </div>
     </div>
     
-    {% for character_class in ["wizard","fighter","cleric","linguist","chemist","economist"] if character_class in visible_puzzle_ids %}
-      <a href="{{ character_class }}.html">
-        <div id="character-{{ character_class }}" class="individual-character">
+    {% for character_class in character_classes if character_class.metapuzzle_id in visible_puzzle_ids %}
+      <a href="{{ url_for('puzzle', puzzle_id = character_class.metapuzzle_id) }}">
+        <div id="character-{{ character_class.class_identifier }}" class="individual-character">
           <div class="individual-character-status-container">
-            <span class="individual-character-class">{{ character_class }}</span>
-            <span class="individual-character-level">{{ team_properties.teamProperties.CharacterLevelsProperty.levels[character_class]|default(0) }}</span>
+            <span class="individual-character-class">{{ character_class.class_identifier }}</span>
+            <span class="individual-character-level">{{ team_properties.teamProperties.CharacterLevelsProperty.levels[character_class.class_identifier]|default(0) }}</span>
           </div>
         </div>
       </a>
