@@ -30,6 +30,19 @@ def index():
     return render_template("index.html", visible_puzzle_ids=visible_puzzle_ids, team_properties=team_properties,
         character_classes = character_classes)
 
+@app.route("/round/<round_id>")
+def round(round_id):
+    if "username" not in session:
+        return redirect(url_for("login.login"))
+
+    if not cube.is_puzzle_unlocked(app, round_id):
+        abort(403)
+
+    return render_template(
+        "rounds/%s.html" % round_id,
+        round_id=round_id)
+
+
 @app.route("/puzzle/<puzzle_id>")
 def puzzle(puzzle_id):
     if "username" not in session:

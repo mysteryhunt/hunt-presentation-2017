@@ -1,0 +1,16 @@
+{% extends "overall_layout.html" %}
+{% block overall_layout_body %}
+
+<div id="round-container">
+  <div id="header">
+    <span class="enscrolled"><span>{% block round_name %}{% endblock %}</span></span>
+  </div>
+  <div id="left-sidebar">
+  </div>
+  <div id="puzzle-container">
+    <div id="round-text">
+      {% block round_flavortext %}{% endblock %}
+    </div>
+  </div>
+</div>
+{% endblock %}
