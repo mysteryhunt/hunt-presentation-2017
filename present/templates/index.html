@@ -9,8 +9,8 @@
       </div>
     </div>
     
-    {% for character_class in character_classes if character_class.metapuzzle_id in visible_puzzle_ids %}
-      <a href="{{ url_for('round', round_id = character_class.metapuzzle_id) }}">
+    {% for character_class in character_classes if character_class.round.id in visible_puzzle_ids %}
+      <a href="{{ url_for('round', round_id = character_class.round.id) }}">
         <div id="character-{{ character_class.class_identifier }}" class="individual-character">
           <div class="individual-character-status-container">
             <span class="individual-character-class">{{ character_class.class_identifier }}</span>

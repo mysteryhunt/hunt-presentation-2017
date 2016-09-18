@@ -3,13 +3,45 @@
 
 <div id="round-container">
   <div id="header">
-    <span class="enscrolled"><span>{% block round_name %}{% endblock %}</span></span>
+    <span class="enscrolled"><span>{{ round.puzzleDisplayName }}</span></span>
   </div>
   <div id="left-sidebar">
   </div>
   <div id="puzzle-container">
     <div id="round-text">
       {% block round_flavortext %}{% endblock %}
+    </div>
+    <div id="puzzle-list">
+      {% for puzzle in round_puzzles %}
+        <div class="puzzle-entry">
+          {% if puzzle.status == 'UNLOCKED' or puzzle.status == 'SOLVED' %}
+            <a href="{{ url_for('puzzle', puzzle_id = puzzle.puzzleId) }}">
+              {% if puzzle.status == 'UNLOCKED' %}
+                <div class="prereq-reward-container">
+                  <div class="prereq-reward-label">REWARD</div>
+                  <div class="class-icon-container" style="background-image: url('assets/raw/icon-small-fighter.png')">+1</div>
+                </div>
+                <div class="puzzle-information">
+                  <div class="puzzle-name">{{ puzzle.puzzleDisplayName }}</div>
+                </div>
+              {% else %}
+                <div class="prereq-reward-container">
+                  <div class="prereq-reward-label">SOLVED</div>
+                  <div class="class-icon-container" style="background-image: url('assets/raw/icon-small-fighter.png')">&#x2713;</div>
+                </div>
+                <div class="puzzle-information">
+                  <div class="puzzle-name">{{ puzzle.puzzleDisplayName }}</div>
+                </div>
+              {% endif %}
+            </a>
+          {% elif puzzle.status == 'VISIBLE' %}
+              <div class="prereq-reward-container">
+                <div class="prereq-reward-label">UNLOCK AT</div>
+                <div class="class-icon-container" style="background-image: url('assets/raw/icon-small-fighter.png')">level</div>
+              </div>
+          {% endif %}
+        </div>
+      {% endfor %}
     </div>
   </div>
 </div>

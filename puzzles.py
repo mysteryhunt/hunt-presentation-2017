@@ -1,35 +1,85 @@
-from collections import OrderedDict
+#FIGHTER
 
-fighter = {
+fighter_round = {
+  'id': 'fighter',
+  'puzzles': ['f1', 'f2', 'f3']
+}
+
+fighter_class = {
   'class_identifier': 'FIGHTER',
-  'metapuzzle_id': 'fighter'
+  'round': fighter_round
 }
 
-wizard = {
+
+#WIZARD
+
+wizard_round = {
+  'id': 'wizard',
+  'puzzles': ['w1','w2','w3']
+}
+
+wizard_class = {
   'class_identifier': 'WIZARD',
-  'metapuzzle_id': 'wizard'
+  'round': wizard_round
 }
 
-cleric = {
+
+#CLERIC
+
+cleric_round = {
+  'id': 'cleric',
+  'puzzles': ['cl1','cl2','cl3']
+}
+
+cleric_class = {
   'class_identifier': 'CLERIC',
-  'metapuzzle_id': 'cleric'
+  'round': cleric_round
 }
 
-linguist = {
+#LINGUIST
+
+linguist_round = {
+  'id': 'linguist',
+  'puzzles': []
+}
+
+linguist_class = {
   'class_identifier': 'LINGUIST',
-  'metapuzzle_id': 'linguist'
+  'round': linguist_round
 }
 
-chemist = {
+#CHEMIST
+
+chemist_round = {
+  'id': 'chemist',
+  'puzzles': []
+}
+
+chemist_class = {
   'class_identifier': 'CHEMIST',
-  'metapuzzle_id': 'chemist'
+  'round': chemist_round
 }
 
-economist = {
+#ECONOMIST
+
+economist_round = {
+  'id': 'economist',
+  'puzzles': []  
+}
+
+economist_class = {
   'class_identifier': 'ECONOMIST',
-  'metapuzzle_id': 'economist'
+  'round': economist_round
 }
 
 PUZZLES = {
-  'character_classes': [fighter, wizard, cleric, linguist, chemist, economist]
+  'character_classes': [fighter_class, wizard_class, cleric_class, linguist_class, chemist_class, economist_class],
+  'rounds': {
+    'fighter': fighter_round,
+    'wizard': wizard_round,
+    'cleric': cleric_round,
+    'linguist': linguist_round,
+    'chemist': chemist_round,
+    'economist': economist_round
+  }
 }

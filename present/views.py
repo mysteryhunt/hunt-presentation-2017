@@ -37,10 +37,20 @@ def round(round_id):
 
     if not cube.is_puzzle_unlocked(app, round_id):
         abort(403)
+        
+    round_config = app.config['PUZZLES']['rounds'][round_id]
+    print(round_config)
+    puzzle_visibilities = cube.get_puzzle_visibilities(app)
+    print(puzzle_visibilities)
+    
+    round = [p for p in puzzle_visibilities if p['puzzleId'] == round_config['id']][0]
+    round_puzzles = [p for p in puzzle_visibilities if p['puzzleId'] in round_config['puzzles']]
+    round_puzzles = sorted(round_puzzles, key=lambda puzzle: round_config['puzzles'].index(puzzle['puzzleId']))
 
     return render_template(
         "rounds/%s.html" % round_id,
-        round_id=round_id)
+        round=round,
+        round_puzzles=round_puzzles)
 
 
 @app.route("/puzzle/<puzzle_id>")
