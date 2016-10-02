@@ -8,9 +8,6 @@ try:
 except ImportError:
     pass
     
-import puzzles
-app.config.from_object(puzzles)
-
 from common import login
 app.register_blueprint(login.blueprint)
 

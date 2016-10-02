@@ -1,6 +1,8 @@
 <!doctype html>
   <head>
-    <title>Mystery Hunt</title>
+    <title>{% block title_block %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='hunt.css') }}">
+    {% block styling_block %}{% endblock %}
   </head>
   <body>
     <div id="overall-layout-header">

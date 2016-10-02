@@ -1,0 +1,35 @@
+body {
+  text-align: center;
+}
+
+.enscrolled {
+  background-image: url("raw/scroll-banner-center.png");
+  background-repeat: repeat-x;
+  height: 50px;
+  line-height: 50px;
+  vertical-align: top;
+  display: inline-block;
+}
+
+.enscrolled span {
+  vertical-align: top;
+}
+
+.enscrolled:before {
+  background-image: url("raw/scroll-banner-left.png");
+  content: "";
+  width: 9px;
+  height: 50px;
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.enscrolled:after {
+  background-image: url("raw/scroll-banner-right.png");
+  content: "";
+  width: 9px;
+  height: 50px;
+  margin-left: 10px;
+  display: inline-block;
+}
+

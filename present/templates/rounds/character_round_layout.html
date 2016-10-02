@@ -1,48 +1,72 @@
 {% extends "overall_layout.html" %}
-{% block overall_layout_body %}
+{% block styling_block %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='character-round.css') }}">
+    {% block puzzle_styling_block %}{% endblock %}
+{% endblock %}
 
+{% block overall_layout_body %}
 <div id="round-container">
-  <div id="header">
-    <span class="enscrolled"><span>{{ round.puzzleDisplayName }}</span></span>
-  </div>
   <div id="left-sidebar">
+    <div id="character-display">
+      <img src="{{ url_for('static', filename='raw/stock-fighter-full-200px-wide.jpg') }}">
+      <div id="character-level-container" style="background-image: url({{ url_for('static', filename='raw/icon-small-%s.png' % round_id) }})">{{ team_properties.teamProperties.CharacterLevelsProperty.levels.get(round_id.upper(), 0) }}</div>
+    </div>
+    <div id="navigation">
+      <a href="{{ url_for('index') }}"><span class="enscrolled"><span>Back to World Map</span></span></a>
+    </div>
   </div>
   <div id="puzzle-container">
+    <div id="header">
+      <span class="enscrolled"><span>{% block round_name %}{% endblock %}</span></span>
+    </div>
     <div id="round-text">
       {% block round_flavortext %}{% endblock %}
     </div>
     <div id="puzzle-list">
-      {% for puzzle in round_puzzles %}
-        <div class="puzzle-entry">
-          {% if puzzle.status == 'UNLOCKED' or puzzle.status == 'SOLVED' %}
-            <a href="{{ url_for('puzzle', puzzle_id = puzzle.puzzleId) }}">
-              {% if puzzle.status == 'UNLOCKED' %}
-                <div class="prereq-reward-container">
-                  <div class="prereq-reward-label">REWARD</div>
-                  <div class="class-icon-container" style="background-image: url('assets/raw/icon-small-fighter.png')">+1</div>
-                </div>
-                <div class="puzzle-information">
-                  <div class="puzzle-name">{{ puzzle.puzzleDisplayName }}</div>
-                </div>
-              {% else %}
-                <div class="prereq-reward-container">
-                  <div class="prereq-reward-label">SOLVED</div>
-                  <div class="class-icon-container" style="background-image: url('assets/raw/icon-small-fighter.png')">&#x2713;</div>
-                </div>
-                <div class="puzzle-information">
-                  <div class="puzzle-name">{{ puzzle.puzzleDisplayName }}</div>
-                </div>
-              {% endif %}
-            </a>
-          {% elif puzzle.status == 'VISIBLE' %}
-              <div class="prereq-reward-container">
-                <div class="prereq-reward-label">UNLOCK AT</div>
-                <div class="class-icon-container" style="background-image: url('assets/raw/icon-small-fighter.png')">level</div>
-              </div>
-          {% endif %}
-        </div>
-      {% endfor %}
+      {% block round_puzzle_entries %}{% endblock %}
     </div>
   </div>
 </div>
 {% endblock %}
+
+{% macro puzzle_entry(puzzle_id, puzzle_properties, puzzle_visibilities) %}
+  {% if puzzle_visibilities.get(puzzle_id).status == 'UNLOCKED' %}
+    <div class="puzzle-entry">
+      <a href="{{ url_for('puzzle', puzzle_id = puzzle_id) }}">
+        <span class="prereq-reward-container">
+          {% set solve_reward = single_character_reward(puzzle_properties.get(puzzle_id).puzzleProperties) %}
+          <div class="prereq-reward-label">ON SOLVE</div>
+          <div class="class-icon-container" style="background-image: url({{url_for ('static', filename='raw/icon-small-%s.png' % solve_reward.character) }})">+{{ solve_reward.levels }}</div>
+        </span>
+        <div class="puzzle-information">
+          <div class="puzzle-name">{{ puzzle_properties.get(puzzle_id).puzzleProperties.DisplayNameProperty.displayName }}</div>
+        </div>
+      </a>
+    </div>
+  {% elif puzzle_visibilities.get(puzzle_id).status == 'SOLVED' %}
+    <div class="puzzle-entry">
+      <a href="{{ url_for('puzzle', puzzle_id = puzzle_id) }}">
+        <span class="prereq-reward-container">
+            <div class="prereq-reward-label">SOLVED</div>
+            <div class="class-icon-container" style="background-image: url({{url_for ('static', filename='raw/icon-small-fighter.png') }})">&#x2713;</div>
+        </span>
+        <div class="puzzle-information">
+          <div class="puzzle-name">{{ puzzle_properties.get(puzzle_id).puzzleProperties.DisplayNameProperty.displayName }}</div>
+          <div class="puzzle-solution">{{ puzzle_properties.get(puzzle_id).puzzleProperties.AnswersProperty.answers[0].canonicalAnswer }}</div>
+        </div>
+      </a>
+    </div>
+  {% elif puzzle_visibilities.get(puzzle_id).status == 'VISIBLE' %}
+    <div class="puzzle-entry">
+        <span class="prereq-reward-container">
+            <div class="prereq-reward-label">UNLOCK AT</div>
+            {% set unlock_requirement = single_character_unlock_requirement(puzzle_properties.get(puzzle_id).puzzleProperties) %}
+            <div class="class-icon-container" style="background-image: url({{url_for ('static', filename='raw/icon-small-' + unlock_requirement.character + '.png') }})">
+              {{ unlock_requirement.levels }}
+            </div>
+        </span>
+        <div class="puzzle-information">
+        </div>
+    </div>
+  {% endif %}
+{% endmacro %}

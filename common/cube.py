@@ -34,13 +34,17 @@ def get_visible_puzzle_ids(app):
     
 def get_puzzle_visibilities(app):
     response = get(app, "/visibilities?teamId=%s" % session["username"])
-    return sorted(response["visibilities"], key=lambda v: v["puzzleDisplayName"])
+    return sorted(response["visibilities"], key=lambda v: v["puzzleId"])
 
 def get_puzzle_visibility(app, puzzle_id):
     return get(app, "/visibilities/%s/%s" % (session["username"], puzzle_id))
 
 def is_puzzle_unlocked(app, puzzle_id):
     return get_puzzle_visibility(app, puzzle_id)["status"] in ["UNLOCKED", "SOLVED"]
+    
+def get_all_puzzle_properties(app):
+    response = get(app, "/puzzles?teamId=%s" % session["username"])
+    return response
     
 def get_team_properties(app):
     response = get(app, "/teams/%s" % session["username"])

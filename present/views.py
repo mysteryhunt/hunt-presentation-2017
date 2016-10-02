@@ -13,8 +13,26 @@ def utility_processor():
       access_key = app.config["AWS_ASSET_ACCESS_KEY"]
       secret_key = app.config["AWS_ASSET_SECRET_KEY"]
       return s3.sign(bucket, asset_path, access_key, secret_key, True)
+      
+    def single_character_unlock_requirement(puzzle_properties):
+      sum_constraints = puzzle_properties.get('UnlockedConstraintProperty').get('unlockedConstraint').get('sumConstraints')
+      if len(sum_constraints) != 1:
+        return {}
+      sum_constraint = sum_constraints[0]
+      if len(sum_constraint.get('characters')) != 1:
+        return {}
+      return {'character':sum_constraint.get('characters')[0],'levels':sum_constraint.get('levels')}
 
-    return dict(submit_url_for=submit_url_for, asset_url_for=asset_url_for)
+    def single_character_reward(puzzle_properties):
+      character_reward = puzzle_properties.get('SolveRewardProperty').get('characterLevels')
+      character_reward = [{'character': k, 'levels': v} for k,v in character_reward.iteritems()]
+      if len(character_reward) != 1:
+        return {}
+      return character_reward[0]
+
+    return dict(submit_url_for=submit_url_for, asset_url_for=asset_url_for,
+        single_character_unlock_requirement=single_character_unlock_requirement,
+        single_character_reward=single_character_reward)
     
 
 
@@ -25,10 +43,7 @@ def index():
 
     visible_puzzle_ids = set(cube.get_visible_puzzle_ids(app))
     team_properties = cube.get_team_properties(app)
-    character_classes = app.config['PUZZLES']['character_classes']
-    print(character_classes)
-    return render_template("index.html", visible_puzzle_ids=visible_puzzle_ids, team_properties=team_properties,
-        character_classes = character_classes)
+    return render_template("index.html", visible_puzzle_ids=visible_puzzle_ids, team_properties=team_properties)
 
 @app.route("/round/<round_id>")
 def round(round_id):
@@ -37,20 +52,19 @@ def round(round_id):
 
     if not cube.is_puzzle_unlocked(app, round_id):
         abort(403)
-        
-    round_config = app.config['PUZZLES']['rounds'][round_id]
-    print(round_config)
-    puzzle_visibilities = cube.get_puzzle_visibilities(app)
-    print(puzzle_visibilities)
-    
-    round = [p for p in puzzle_visibilities if p['puzzleId'] == round_config['id']][0]
-    round_puzzles = [p for p in puzzle_visibilities if p['puzzleId'] in round_config['puzzles']]
-    round_puzzles = sorted(round_puzzles, key=lambda puzzle: round_config['puzzles'].index(puzzle['puzzleId']))
 
+    puzzle_properties = cube.get_all_puzzle_properties(app)
+    puzzle_properties = {puzzle.get('puzzleId'): puzzle for puzzle in puzzle_properties.get('puzzles',[])}
+    puzzle_visibilities = cube.get_puzzle_visibilities(app)
+    puzzle_visibilities = {visibility.get('puzzleId'): visibility for visibility in puzzle_visibilities}
+    team_properties = cube.get_team_properties(app)
+    
     return render_template(
         "rounds/%s.html" % round_id,
-        round=round,
-        round_puzzles=round_puzzles)
+        round_id=round_id,
+        puzzle_properties=puzzle_properties,
+        puzzle_visibilities=puzzle_visibilities,
+        team_properties=team_properties)
 
 
 @app.route("/puzzle/<puzzle_id>")
