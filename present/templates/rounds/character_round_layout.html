@@ -8,7 +8,7 @@
 <div id="round-container">
   <div id="left-sidebar">
     <div id="character-display">
-      <img src="{{ url_for('static', filename='raw/stock-fighter-full-200px-wide.jpg') }}">
+      <img src="{{ url_for('static', filename='raw/stock-%s-full-200px-wide.jpg' % round_id) }}">
       <div id="character-level-container" style="background-image: url({{ url_for('static', filename='raw/icon-small-%s.png' % round_id) }})">{{ team_properties.teamProperties.CharacterLevelsProperty.levels.get(round_id.upper(), 0) }}</div>
     </div>
     <div id="navigation">
