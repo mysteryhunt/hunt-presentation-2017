@@ -6,7 +6,8 @@
   </head>
   <body>
     <div id="overall-layout-header">
-      <p>Logged in as {{ session["username"] }}</p>
+      <div id="header-identity">Logged in as {{ session["username"] }}</div>
+      {% block header_content %}{% endblock %}
     </div>
     <div id="overall-layout-body">
       {% block overall_layout_body %}{% endblock %}
