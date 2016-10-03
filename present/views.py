@@ -78,6 +78,12 @@ def puzzle(puzzle_id):
     return render_template(
         "puzzles/%s.html" % puzzle_id,
         puzzle_id=puzzle_id)
+        
+@app.route("/puzzledraft/<puzzle_draft_id>")
+def puzzle_draft(puzzle_draft_id):
+    return render_template(
+        "puzzle-drafts/%s.html" % puzzle_draft_id,
+        puzzle_id=puzzle_draft_id)
 
 @app.route("/assets/<puzzle_id>/<path:filename>")
 def asset(puzzle_id, filename):
