@@ -24,7 +24,13 @@
 </div>
 
 <div id="world-map-container">
-  
+  {% for quest in ['dynast','dungeon'] if quest in visible_puzzle_ids %}
+    <a href="{{ url_for('round', round_id = quest) }}">
+      <div id="quest-{{ quest }}" class="individual-quest">
+        {{ quest }}
+      </div>
+    </a>
+  {% endfor %}
 </div>
 
 <div id="right-sidebar">
