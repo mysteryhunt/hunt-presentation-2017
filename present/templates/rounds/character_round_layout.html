@@ -47,8 +47,9 @@
     <div class="puzzle-entry">
       <a href="{{ url_for('puzzle', puzzle_id = puzzle_id) }}">
         <span class="prereq-reward-container">
+          {% set solve_reward = single_character_reward(puzzle_properties.get(puzzle_id).puzzleProperties) %}
             <div class="prereq-reward-label">SOLVED</div>
-            <div class="class-icon-container" style="background-image: url({{url_for ('static', filename='raw/icon-small-fighter.png') }})">&#x2713;</div>
+            <div class="class-icon-container" style="background-image: url({{url_for ('static', filename='raw/icon-small-%s.png' % solve_reward.character) }})">&#x2713;</div>
         </span>
         <div class="puzzle-information">
           <div class="puzzle-name">{{ puzzle_properties.get(puzzle_id).puzzleProperties.DisplayNameProperty.displayName }}</div>
