@@ -3,7 +3,7 @@ body {
 }
 
 .enscrolled {
-  background-image: url("raw/scroll-banner-center.png");
+  background-image: url("scroll-banner-center.png");
   background-repeat: repeat-x;
   height: 50px;
   line-height: 50px;
@@ -16,7 +16,7 @@ body {
 }
 
 .enscrolled:before {
-  background-image: url("raw/scroll-banner-left.png");
+  background-image: url("scroll-banner-left.png");
   content: "";
   width: 9px;
   height: 50px;
@@ -25,7 +25,7 @@ body {
 }
 
 .enscrolled:after {
-  background-image: url("raw/scroll-banner-right.png");
+  background-image: url("scroll-banner-right.png");
   content: "";
   width: 9px;
   height: 50px;

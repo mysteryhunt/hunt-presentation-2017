@@ -8,8 +8,8 @@
 <div id="round-container">
   <div id="left-sidebar">
     <div id="character-display">
-      <img src="{{ url_for('static', filename='raw/stock-%s-full-200px-wide.jpg' % round_id) }}">
-      <div id="character-level-container" style="background-image: url({{ url_for('static', filename='raw/icon-small-%s.png' % round_id) }})">{{ team_properties.teamProperties.CharacterLevelsProperty.levels.get(round_id.upper(), 0) }}</div>
+      <img src="{{ asset_url_for('general/stock-%s-full-200px-wide.jpg' % round_id) }}">
+      <div id="character-level-container" style="background-image: url({{ asset_url_for('general/icon-small-%s.png' % round_id) }})">{{ team_properties.teamProperties.CharacterLevelsProperty.levels.get(round_id.upper(), 0) }}</div>
     </div>
     <div id="navigation">
       <a href="{{ url_for('index') }}"><span class="enscrolled"><span>Back to World Map</span></span></a>
@@ -36,7 +36,7 @@
         <span class="prereq-reward-container">
           {% set solve_reward = single_character_reward(puzzle_properties.get(puzzle_id).puzzleProperties) %}
           <div class="prereq-reward-label">ON SOLVE</div>
-          <div class="class-icon-container" style="background-image: url({{url_for ('static', filename='raw/icon-small-%s.png' % solve_reward.character) }})">+{{ solve_reward.levels }}</div>
+          <div class="class-icon-container" style="background-image: url({{ asset_url_for ('general/icon-small-%s.png' % solve_reward.character.lower()) }})">+{{ solve_reward.levels }}</div>
         </span>
         <div class="puzzle-information">
           <div class="puzzle-name">{{ puzzle_properties.get(puzzle_id).puzzleProperties.DisplayNameProperty.displayName }}</div>
@@ -49,7 +49,7 @@
         <span class="prereq-reward-container">
           {% set solve_reward = single_character_reward(puzzle_properties.get(puzzle_id).puzzleProperties) %}
             <div class="prereq-reward-label">SOLVED</div>
-            <div class="class-icon-container" style="background-image: url({{url_for ('static', filename='raw/icon-small-%s.png' % solve_reward.character) }})">&#x2713;</div>
+            <div class="class-icon-container" style="background-image: url({{ asset_url_for ('general/icon-small-%s.png' % solve_reward.character.lower()) }})">&#x2713;</div>
         </span>
         <div class="puzzle-information">
           <div class="puzzle-name">{{ puzzle_properties.get(puzzle_id).puzzleProperties.DisplayNameProperty.displayName }}</div>
@@ -62,7 +62,7 @@
         <span class="prereq-reward-container">
             <div class="prereq-reward-label">UNLOCK AT</div>
             {% set unlock_requirement = single_character_unlock_requirement(puzzle_properties.get(puzzle_id).puzzleProperties) %}
-            <div class="class-icon-container" style="background-image: url({{url_for ('static', filename='raw/icon-small-' + unlock_requirement.character + '.png') }})">
+            <div class="class-icon-container" style="background-image: url({{ asset_url_for ('general/icon-small-' + unlock_requirement.character.lower() + '.png') }})">
               {{ unlock_requirement.levels }}
             </div>
         </span>
