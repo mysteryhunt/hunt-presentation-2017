@@ -41,17 +41,27 @@ def get_puzzle_visibility(app, puzzle_id):
 
 def is_puzzle_unlocked(app, puzzle_id):
     return get_puzzle_visibility(app, puzzle_id)["status"] in ["UNLOCKED", "SOLVED"]
-    
+
 def get_all_puzzle_properties(app):
     response = get(app, "/puzzles?teamId=%s" % session["username"])
     return response
-    
-def get_team_properties(app):
-    response = get(app, "/teams/%s" % session["username"])
+
+def get_puzzle(app, puzzle_id):
+    response = get(app, "/puzzles/%s" % puzzle_id)
+    return response
+
+def get_team_properties(app, team_id=None):
+    if not team_id:
+        team_id = session["username"]
+    response = get(app, "/teams/%s" % team_id)
     return response
 
 def get_submissions(app, puzzle_id):
     response = get(app, "/submissions?teamId=%s&puzzleId=%s" % (session["username"], puzzle_id))
+    return response["submissions"]
+
+def get_all_pending_submissions(app):
+    response = get(app, "/submissions?status=SUBMITTED,ASSIGNED")
     return response["submissions"]
 
 def create_submission(app, puzzle_id, submission):
