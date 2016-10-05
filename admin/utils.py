@@ -5,7 +5,7 @@ import pytz
 
 @app.template_filter('datetime')
 def format_datetime(value):
-    fmt = '%Y-%m-%d %H:%M:%S %Z%z'
+    fmt = '%Y-%m-%d %H:%M:%S'
     utc = pytz.utc
     eastern = pytz.timezone('US/Eastern')
     utc_dt = utc.localize(datetime.utcfromtimestamp(value / 1000))

@@ -19,13 +19,13 @@ def login():
         session["username"] = request.form["username"]
         session["password"] = request.form["password"]
         try:
-            if blueprint.config["REQUIRE_TEAM_LOGIN"]:
+            if "REQUIRE_TEAM_LOGIN" in blueprint.config:
                 if not cube.authorized(blueprint, "teams:read:%s" % session["username"]):
                     clear_session()
                     return render_template(
                         "login.html",
                         error="Invalid team login '%s'." % request.form["username"])
-            if blueprint.config["REQUIRE_ADMIN_LOGIN"]:
+            if "REQUIRE_ADMIN_LOGIN" in blueprint.config:
                 if not cube.authorized(blueprint, "teams:read:*"):
                     clear_session()
                     return render_template(

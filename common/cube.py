@@ -64,11 +64,19 @@ def get_all_pending_submissions(app):
     response = get(app, "/submissions?status=SUBMITTED,ASSIGNED")
     return response["submissions"]
 
+def get_submission(app, submission_id):
+    return get(app, "/submissions/%d" % submission_id)
+
 def create_submission(app, puzzle_id, submission):
     post(app, "/submissions", {
         "teamId": session["username"],
         "puzzleId": puzzle_id,
         "submission": submission,
+    })
+
+def update_submission_status(app, submission_id, status):
+    post(app, "/submissions/%d" % submission_id, {
+        "status": status,
     })
 
 def get_hints(app, puzzle_id):

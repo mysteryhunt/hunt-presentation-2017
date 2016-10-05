@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Hunt Admin</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='huntadmin.css') }}">
+  </head>
+  <body>
+    <div class="ha-navbar">
+      {% macro link(route, title) %}
+      <a href="{{ url_for(route) }}" class="{{ 'active' if route in request.url_rule.rule }}">
+	{{ title }}
+      </a>
+      {% endmacro %}
+
+      {{ link('callqueue', 'Call Queue') }}
+      
+      <div className="ha-navbar-title">
+        {{ session["username"] }}
+      </div>
+    </div>
+    {% block page_body %}{% endblock %}
+  </body>
+</html>
