@@ -11,13 +11,13 @@
 {% block overall_layout_body %}
   <div id="puzzle-container">
     <div id="header">
-      <span class="enscrolled"><span>{% block puzzle_name %}{% endblock %}</span></span>
+      <span class="enscrolled"><span>{% block puzzle_name_block %}{% endblock %}</span></span>
     </div>
     <div id="flavortext">
-      {% block puzzle_flavortext %}{% endblock %}
+      {% block puzzle_flavortext_block %}{% endblock %}
     </div>
     <div id="puzzle-content">
-      {% block puzzle_content %}{% endblock %}
+      {% block puzzle_content_block %}{% endblock %}
     </div>
   </div>
 {% endblock %}
