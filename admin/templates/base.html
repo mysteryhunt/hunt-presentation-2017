@@ -13,9 +13,9 @@
       {% endmacro %}
 
       {{ link('callqueue', 'Call Queue') }}
-      
-      <div className="ha-navbar-title">
-        {{ session["username"] }}
+
+      <div class="ha-navbar-title">
+        {{ session["username"] }} -<a href="{{ url_for('login.logout') }}">Log Out</a>
       </div>
     </div>
     {% block page_body %}{% endblock %}
