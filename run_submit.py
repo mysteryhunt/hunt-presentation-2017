@@ -8,6 +8,8 @@ try:
 except ImportError:
     pass
 
+app.config["REQUIRE_TEAM_LOGIN"] = True
+
 from common import login
 app.register_blueprint(login.blueprint)
 

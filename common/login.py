@@ -19,11 +19,18 @@ def login():
         session["username"] = request.form["username"]
         session["password"] = request.form["password"]
         try:
-            if not cube.authorized(blueprint, "teams:read:%s" % session["username"]):
-                clear_session()
-                return render_template(
-                    "login.html",
-                    error="Invalid team login '%s'." % request.form["username"])
+            if "REQUIRE_TEAM_LOGIN" in blueprint.config:
+                if not cube.authorized(blueprint, "teams:read:%s" % session["username"]):
+                    clear_session()
+                    return render_template(
+                        "login.html",
+                        error="Invalid team login '%s'." % request.form["username"])
+            if "REQUIRE_ADMIN_LOGIN" in blueprint.config:
+                if not cube.authorized(blueprint, "teams:read:*"):
+                    clear_session()
+                    return render_template(
+                        "login.html",
+                        error="Invalid admin login '%s'." % request.form["username"])
         except HTTPError, e:
             clear_session()
             if e.code == 401 or e.code == 403:

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block page_body %}
+<div class="ha-page-section">
+  <form action="{{ url_for('team', team_id=team.teamId) }}" method="post">
+    <table>
+      <tr>
+        <td>Team ID</td>
+        <td>{{ team.teamId }}</td>
+      </tr>
+      <tr>
+        <td>Email</td>
+        <td><input type="text" name="email" value="{{ team.email }}"></td>
+      </tr>
+      <tr>
+        <td>Primary Phone</td>
+        <td><input type="text" name="primaryPhone" value="{{ team.primaryPhone }}"></td>
+      </tr>
+      <tr>
+        <td>Secondary Phone</td>
+        <td><input type="text" name="secondaryPhone" value="{{ team.secondaryPhone }}"></td>
+      </tr>
+    </table>
+    <input type="submit" value="Change Contact Info">
+  </form>
+</div>
+{% endblock %}

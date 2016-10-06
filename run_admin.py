@@ -1,4 +1,4 @@
-from present import app
+from admin import app
 
 import default_config
 app.config.from_object(default_config)
@@ -8,7 +8,7 @@ try:
 except ImportError:
     pass
 
-app.config["REQUIRE_TEAM_LOGIN"] = True
+app.config["REQUIRE_ADMIN_LOGIN"] = True
 
 from common import login
 app.register_blueprint(login.blueprint)

@@ -31,7 +31,7 @@ def authorized(app, permission):
 def get_visible_puzzle_ids(app):
     response = get(app, "/visibilities?teamId=%s" % session["username"])
     return [v["puzzleId"] for v in response["visibilities"]]
-    
+
 def get_puzzle_visibilities(app):
     response = get(app, "/visibilities?teamId=%s" % session["username"])
     return sorted(response["visibilities"], key=lambda v: v["puzzleId"])
@@ -41,18 +41,31 @@ def get_puzzle_visibility(app, puzzle_id):
 
 def is_puzzle_unlocked(app, puzzle_id):
     return get_puzzle_visibility(app, puzzle_id)["status"] in ["UNLOCKED", "SOLVED"]
-    
+
 def get_all_puzzle_properties(app):
     response = get(app, "/puzzles?teamId=%s" % session["username"])
     return response
-    
-def get_team_properties(app):
-    response = get(app, "/teams/%s" % session["username"])
+
+def get_puzzle(app, puzzle_id):
+    response = get(app, "/puzzles/%s" % puzzle_id)
+    return response
+
+def get_team_properties(app, team_id=None):
+    if not team_id:
+        team_id = session["username"]
+    response = get(app, "/teams/%s" % team_id)
     return response
 
 def get_submissions(app, puzzle_id):
     response = get(app, "/submissions?teamId=%s&puzzleId=%s" % (session["username"], puzzle_id))
     return response["submissions"]
+
+def get_all_pending_submissions(app):
+    response = get(app, "/submissions?status=SUBMITTED,ASSIGNED")
+    return response["submissions"]
+
+def get_submission(app, submission_id):
+    return get(app, "/submissions/%d" % submission_id)
 
 def create_submission(app, puzzle_id, submission):
     post(app, "/submissions", {
@@ -61,9 +74,21 @@ def create_submission(app, puzzle_id, submission):
         "submission": submission,
     })
 
+def update_submission_status(app, submission_id, status):
+    post(app, "/submissions/%d" % submission_id, {
+        "status": status,
+    })
+
 def get_hints(app, puzzle_id):
     response = get(app, "/hintrequests?teamId=%s&puzzleId=%s" % (session["username"], puzzle_id))
     return response["hintRequests"]
+
+def get_all_pending_hint_requests(app):
+    response = get(app, "/hintrequests")
+    return response["hintRequests"]
+
+def get_hint_request(app, hint_request_id):
+    return get(app, "/hintrequests/%d" % hint_request_id)
 
 def create_hint_request(app, puzzle_id, request):
     post(app, "/hintrequests", {
@@ -71,3 +96,22 @@ def create_hint_request(app, puzzle_id, request):
         "puzzleId": puzzle_id,
         "request": request,
     })
+
+def update_hint_request(app, hint_request_id, status, response):
+    post(app, "/hintrequests/%d" % hint_request_id, {
+        "status": status,
+        "response": response,
+    })
+
+def get_teams(app):
+    response = get(app, "/teams")
+    return response["teams"]
+
+def get_team(app, team_id):
+    return get(app, "/teams/%s" % team_id)
+
+def update_team(app, team_id, team):
+    post(app, "/teams/%s" % team_id, team)
+
+def create_team(app, team):
+    post(app, "/teams", team)
