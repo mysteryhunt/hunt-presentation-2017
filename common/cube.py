@@ -102,3 +102,16 @@ def update_hint_request(app, hint_request_id, status, response):
         "status": status,
         "response": response,
     })
+
+def get_teams(app):
+    response = get(app, "/teams")
+    return response["teams"]
+
+def get_team(app, team_id):
+    return get(app, "/teams/%s" % team_id)
+
+def update_team(app, team_id, team):
+    post(app, "/teams/%s" % team_id, team)
+
+def create_team(app, team):
+    post(app, "/teams", team)

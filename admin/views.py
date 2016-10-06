@@ -68,3 +68,47 @@ def hintrequest(hint_request_id):
         "hintrequest.html",
         hint_request=hint_request,
         team=team)
+
+@app.route("/teams", methods=["GET", "POST"])
+def teams():
+    if "username" not in session:
+        return redirect(url_for("login.login"))
+
+    if request.method == "POST":
+        cube.create_team(app, {
+            "teamId": request.form["teamId"],
+            "password": request.form["password"],
+            "email": request.form["email"],
+            "primaryPhone": request.form["primaryPhone"],
+            "secondaryPhone": request.form["secondaryPhone"],
+        })
+
+    teams = cube.get_teams(app)
+
+    return render_template(
+        "teams.html",
+        teams=teams)
+
+@app.route("/team/<team_id>", methods=["GET", "POST"])
+def team(team_id):
+    if "username" not in session:
+        return redirect(url_for("login.login"))
+
+    if request.method == "POST":
+        if ("email" not in request.form or
+            "primaryPhone" not in request.form or
+            "secondaryPhone" not in request.form):
+            abort(400)
+        cube.update_team(app, team_id, {
+            "teamId": team_id,
+            "email": request.form["email"],
+            "primaryPhone": request.form["primaryPhone"],
+            "secondaryPhone": request.form["secondaryPhone"],
+        })
+        return redirect(url_for("teams"))
+
+    team = cube.get_team(app, team_id)
+
+    return render_template(
+        "team.html",
+        team=team)

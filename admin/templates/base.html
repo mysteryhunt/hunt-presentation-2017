@@ -13,6 +13,7 @@
       {% endmacro %}
 
       {{ link('callqueue', 'Call Queue') }}
+      {{ link('teams', 'Teams') }}
 
       <div class="ha-navbar-title">
         {{ session["username"] }} -<a href="{{ url_for('login.logout') }}">Log Out</a>
