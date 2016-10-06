@@ -31,7 +31,7 @@ def authorized(app, permission):
 def get_visible_puzzle_ids(app):
     response = get(app, "/visibilities?teamId=%s" % session["username"])
     return [v["puzzleId"] for v in response["visibilities"]]
-    
+
 def get_puzzle_visibilities(app):
     response = get(app, "/visibilities?teamId=%s" % session["username"])
     return sorted(response["visibilities"], key=lambda v: v["puzzleId"])
@@ -83,9 +83,22 @@ def get_hints(app, puzzle_id):
     response = get(app, "/hintrequests?teamId=%s&puzzleId=%s" % (session["username"], puzzle_id))
     return response["hintRequests"]
 
+def get_all_pending_hint_requests(app):
+    response = get(app, "/hintrequests")
+    return response["hintRequests"]
+
+def get_hint_request(app, hint_request_id):
+    return get(app, "/hintrequests/%d" % hint_request_id)
+
 def create_hint_request(app, puzzle_id, request):
     post(app, "/hintrequests", {
         "teamId": session["username"],
         "puzzleId": puzzle_id,
         "request": request,
+    })
+
+def update_hint_request(app, hint_request_id, status, response):
+    post(app, "/hintrequests/%d" % hint_request_id, {
+        "status": status,
+        "response": response,
     })

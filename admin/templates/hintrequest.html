@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block page_body %}
+<div class="ha-page-section">
+  <table>
+    <tr>
+      <td>Request Time</td>
+      <td>{{ hint_request.timestamp | datetime }}</td>
+    </tr>
+    <tr>
+      <td>Team</td>
+      <td>{{ hint_request.teamId }}</td>
+    </tr>
+    <tr>
+      <td>Team Primary Phone</td>
+      <td>{{ team.primaryPhone }}</td>
+    </tr>
+    <tr>
+      <td>Team Secondary Phone</td>
+      <td>{{ team.secondaryPhone }}</td>
+    </tr>
+    <tr>
+      <td>Team Email</td>
+      <td>{{ team.email }}</td>
+    </tr>
+    <tr>
+      <td>Puzzle</td>
+      <td>{{ hint_request.puzzleId }}</td>
+    </tr>
+    <tr>
+      <td>Request</td>
+      <td>{{ hint_request.request }}</td>
+    </tr>
+    <tr>
+      <td>Assigned to Caller</td>
+      <td>{{ hint_request.callerUsername }}</td>
+    </tr>
+    <tr>
+      <td>Status</td>
+      <td>{{ hint_request.status }}</td>
+    </tr>
+    <tr>
+      <td>Response</td>
+      <td>{{ hint_request.response }}</td>
+    </tr>
+  </table>
+  {% if hint_request.status == 'REQUESTED' %}
+  <form action="{{ url_for('hintrequest', hint_request_id=hint_request.hintRequestId) }}" method="post">
+    <input type="hidden" name="status" value="ASSIGNED">
+    <input type="submit" value="Claim">
+  </form>
+  {% elif hint_request.status == 'ASSIGNED' %}
+  {% if hint_request.callerUsername == session['username'] %}
+  <form action="{{ url_for('hintrequest', hint_request_id=hint_request.hintRequestId) }}" method="post">
+    <input type="text" name="response" width="80">
+    <select name="status">
+      <option value="ANSWERED">ANSWERED</option>
+      <option value="REJECTED">REJECTED</option>
+    </select>
+    <input type="submit" value="Respond">
+  </form>
+  {% endif %}
+  <form action="{{ url_for('hintrequest', hint_request_id=hint_request.hintRequestId) }}" method="post">
+    <input type="hidden" name="status" value="REQUESTED">
+    <input type="submit" value="Unassign">
+  </form>
+  {% endif %}
+</div>
+{% endblock %}
