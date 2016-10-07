@@ -14,12 +14,28 @@ body {
   clear: both;
 }
 
+@media print {
+  #puzzle-container {
+    border: white none 0px;
+  }
+}
+
+@media screen {
+  #puzzle-container {
+    margin: 20px auto;
+    width: 900px;
+    border: tan solid 5px;
+  }
+}
+
 #puzzle-container {
-  margin: 10px 10px;
+  background-color: white;
+  padding: 20px 20px;
 }
 
 #flavortext {
   font-style: italic;
+  margin-top: 10px;
 }
 
 #puzzle-content {
