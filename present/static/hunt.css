@@ -36,6 +36,20 @@ body {
   display: inline-block;
 }
 
+@media print {
+  #overall-layout-header {
+    display: none;
+  }
+  
+  .enscrolled:before {
+    display: none;
+  }
+  
+  .enscrolled:after {
+    display: none;
+  }
+}
+
 #overall-layout-header {
   background-color: sienna;
   min-height: 30px;

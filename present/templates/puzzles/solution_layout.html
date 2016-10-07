@@ -1,0 +1,20 @@
+{% extends "overall_layout.html" %}
+{% block styling_block %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='puzzle.css') }}">
+    {% block puzzle_head_block %}{% endblock %}
+{% endblock %}
+
+{% block header_content %}
+  <div id="submit"><a href="{{ submit_url_for(puzzle_id) }}">Check answer</a></div>
+{% endblock %}
+
+{% block overall_layout_body %}
+  <div id="puzzle-container">
+    <div id="header">
+      <span class="enscrolled"><span>{% block puzzle_name_block %}{% endblock %}</span></span>
+    </div>
+    <div id="puzzle-content">
+      {% block solution_content_block %}{% endblock %}
+    </div>
+  </div>
+{% endblock %}
