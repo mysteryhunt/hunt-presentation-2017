@@ -1,5 +1,8 @@
 body {
   text-align: center;
+  margin: 0;
+  padding: 0;
+  background-color: papayawhip;
 }
 
 .enscrolled {
@@ -33,3 +36,37 @@ body {
   display: inline-block;
 }
 
+#overall-layout-header {
+  background-color: sienna;
+  min-height: 30px;
+  color: white;
+  font-family: sans-serif;
+}
+
+#overall-layout-header div {
+  height: 100%;
+  padding: 5px 5px;
+}
+
+
+#overall-layout-header a {
+  border: 2px solid white;
+  padding: 2px 2px;
+}
+
+#overall-layout-header a:link {
+  color: white;
+  text-decoration: none;
+}
+
+#overall-layout-header a:visited {
+  color: white;
+}
+
+#header-identity {
+  float: left;
+}
+
+#main-page-content {
+  clear: both;
+}

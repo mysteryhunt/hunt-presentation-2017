@@ -1,39 +1,41 @@
 {% extends "overall_layout.html" %}
 {% block overall_layout_body %}
-<div id="left-sidebar">
-  <div id="characters">
-    <div id="character-header"><span class="enscrolled"><span>Characters</span></span></div>
-    <div id="character-total">
-      <div>
-        Total party level: <span class="level-number">{{ team_properties.get('teamProperties',{}).get('CharacterLevelsProperty',{}).get('levels',{}).values()|sum }}</span>
+<div id="main-page-content">
+  <div id="left-sidebar">
+    <div id="characters">
+      <div id="character-header"><span class="enscrolled"><span>Characters</span></span></div>
+      <div id="character-total">
+        <div>
+          Total party level: <span class="level-number">{{ team_properties.get('teamProperties',{}).get('CharacterLevelsProperty',{}).get('levels',{}).values()|sum }}</span>
+        </div>
       </div>
-    </div>
     
-    {% for character_class in ['fighter','wizard','cleric','linguist','chemist','economist'] if character_class in visible_puzzle_ids %}
-      <a href="{{ url_for('round', round_id = character_class) }}">
-        <div id="character-{{ character_class }}" class="individual-character">
-          <div class="individual-character-status-container">
-            <span class="individual-character-class">{{ character_class }}</span>
-            <span class="individual-character-level">{{ team_properties.teamProperties.CharacterLevelsProperty.levels[character_class.upper()]|default(0) }}</span>
+      {% for character_class in ['fighter','wizard','cleric','linguist','chemist','economist'] if character_class in visible_puzzle_ids %}
+        <a href="{{ url_for('round', round_id = character_class) }}">
+          <div id="character-{{ character_class }}" class="individual-character">
+            <div class="individual-character-status-container">
+              <span class="individual-character-class">{{ character_class }}</span>
+              <span class="individual-character-level">{{ team_properties.teamProperties.CharacterLevelsProperty.levels[character_class.upper()]|default(0) }}</span>
+            </div>
           </div>
+        </a>
+      {% endfor %}
+    
+    </div>
+  </div>
+
+  <div id="world-map-container">
+    {% for quest in ['dynast','dungeon'] if quest in visible_puzzle_ids %}
+      <a href="{{ url_for('round', round_id = quest) }}">
+        <div id="quest-{{ quest }}" class="individual-quest">
+          {{ quest }}
         </div>
       </a>
     {% endfor %}
-    
   </div>
-</div>
 
-<div id="world-map-container">
-  {% for quest in ['dynast','dungeon'] if quest in visible_puzzle_ids %}
-    <a href="{{ url_for('round', round_id = quest) }}">
-      <div id="quest-{{ quest }}" class="individual-quest">
-        {{ quest }}
-      </div>
-    </a>
-  {% endfor %}
-</div>
-
-<div id="right-sidebar">
+  <div id="right-sidebar">
   
+  </div>
 </div>
 {% endblock %}
