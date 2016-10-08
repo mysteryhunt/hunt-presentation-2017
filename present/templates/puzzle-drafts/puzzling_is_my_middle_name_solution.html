@@ -1,0 +1,66 @@
+{% extends "puzzles/solution_layout.html" %}
+{% block title_block %}Puzzling Is My Middle Name: Solution{% endblock %}
+{% block puzzle_name_block %}Puzzling Is My Middle Name: Solution{% endblock %}
+
+{% block solution_content_block %}
+<div>
+    <div>  
+        This puzzle consists of two columns of names. Elements from the two columns can be connected to form the names of famous people with well known middle initials. Each correct pairing crosses three letters. The pairings are show below.</div>
+<img src="{{ asset_url_for('puzzling_is_my_middle_name/solution_image_01.png') }}">
+    <div>Each pair crosses three letters, and there is no obvious way to read these letters in the image. However, solvers may notice that the letters from each of the famous persons' initials are unique, which could be used as an ordering. Ordering the crossed letter triplets by middle initial produces:</div>
+    <table>
+        <tr>
+            <td>FLL</td><td>VIVICA A FOX</td>
+        </tr>
+        <tr>
+            <td>UIO</td><td>SUSAN B ANTHONY</td>
+        </tr>
+        <tr>
+            <td>RGO</td><td>MICHAEL C HALL</td>
+        </tr>
+        <tr>
+            <td>THK</td><td>FRANKLIN D ROOSEVELT</td>
+        </tr>
+        <tr>
+            <td>HTO</td><td>ROBERT E LEE</td>
+        </tr>
+        <tr>
+            <td>EYV</td><td>JOHN F KENNEDY</td>
+        </tr>
+        <tr>
+            <td>REE</td><td>MARY J BLIGE</td>
+        </tr>
+        <tr>
+            <td>TAR</td><td>PHILIP K DICK</td>
+        </tr>
+        <tr>
+            <td>ORT</td><td>SAMUEL L JACKSON</td>
+        </tr>
+        <tr>
+            <td>TOO</td><td>IAIN M BANKS</td>
+        </tr>
+        <tr>
+            <td>HRT</td><td>DAVID O SELZNICK</td>
+        </tr>
+        <tr>
+            <td>EAH</td><td>SALMON P CHASE</td>
+        </tr>
+        <tr>
+            <td>RLE</td><td>EDWARD R MURROW</td>
+        </tr>
+        <tr>
+            <td>IDL</td><td>HARRY S TRUMAN</td>
+        </tr>
+        <tr>
+            <td>GRE</td><td>BOOKER T WASHINGTON</td>
+        </tr>
+        <tr>
+            <td>HIF</td><td>GEORGE W BUSH</td>
+        </tr>
+        <tr>
+            <td>TNT</td><td>FRANCIS X BUSHMAN</td>
+        </tr>
+    </table>
+    The left column reads FURTHER TO THE RIGHT, and the right column reads LOOK OVER TO THE LEFT. In the middle is the clue phrase, LIGHTYEAR OR ALDRIN, which points to the answer BUZZ.
+</div>
+{% endblock %}
