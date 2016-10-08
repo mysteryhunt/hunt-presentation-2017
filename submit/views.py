@@ -12,7 +12,6 @@ def index():
     puzzle_visibilities = [v for v in puzzle_visibilities if v.get('status','') in ['UNLOCKED','SOLVED']]
     puzzle_properties = cube.get_all_puzzle_properties(app)
     puzzle_properties = { puzzle.get('puzzleId'): puzzle for puzzle in puzzle_properties.get('puzzles',[]) }
-    print(puzzle_properties)
     return render_template("index.html",
         puzzle_visibilities=puzzle_visibilities,
         puzzle_properties=puzzle_properties)
