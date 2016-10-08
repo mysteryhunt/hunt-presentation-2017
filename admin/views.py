@@ -112,3 +112,61 @@ def team(team_id):
     return render_template(
         "team.html",
         team=team)
+
+def build_roles_list(form):
+    roles = []
+    for key, value in form.iteritems():
+        if key.startswith("role_") and value:
+            roles.append(key[5:])
+    return roles
+
+@app.route("/users", methods=["GET", "POST"])
+def users():
+    if "username" not in session:
+        return redirect(url_for("login.login"))
+
+    if request.method == "POST":
+        cube.create_user(app, {
+            "username": request.form["username"],
+            "password": request.form["password"],
+            "roles": build_roles_list(request.form),
+        })
+
+    users = cube.get_users(app)
+
+    return render_template(
+        "users.html",
+        users=users)
+
+@app.route("/user/<username>", methods=["GET", "POST"])
+def user(username):
+    if "username" not in session:
+        return redirect(url_for("login.login"))
+
+    if request.method == "POST":
+        update = {
+            "username": username,
+        }
+
+        user = cube.get_user(app, username)
+        roles = build_roles_list(request.form)
+        if user["roles"] != roles:
+            update["roles"] = roles
+
+        logout = False
+        if request.form["password"]:
+            update["password"] = request.form["password"]
+            if username == session["username"]:
+                logout = True
+
+        cube.update_user(app, username, update)
+
+        if logout:
+            return redirect(url_for("login.logout"))
+        return redirect(url_for("users"))
+
+    user = cube.get_user(app, username)
+
+    return render_template(
+        "user.html",
+        user=user)

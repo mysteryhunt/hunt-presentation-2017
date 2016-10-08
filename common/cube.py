@@ -115,3 +115,16 @@ def update_team(app, team_id, team):
 
 def create_team(app, team):
     post(app, "/teams", team)
+
+def get_users(app):
+    response = get(app, "/users")
+    return response["users"]
+
+def get_user(app, username):
+    return get(app, "/users/%s" % username)
+
+def update_user(app, username, user):
+    post(app, "/users/%s" % username, user)
+
+def create_user(app, user):
+    post(app, "/users", user)

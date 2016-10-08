@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block page_body %}
+<div class="ha-control-boxes-container">
+  <form class="ha-column-control-box" action="{{ url_for('user', username=user.username) }}" method="post">
+    <span class="ha-control-box-title">
+      Change User
+    </span>
+    <div class="ha-labeled-input-form">
+      <label>
+        Username
+        <span>{{ user.username }}</span>
+      </label>
+      <label>
+        Password
+        <input type="text" name="password">
+      </label>
+      <label>
+        Roles
+        <label>
+          <input type="checkbox" name="role_writingteam" {% if 'writingteam' in user.roles %} checked {% endif %}>
+          writingteam
+        </label>
+        <label>
+          <input type="checkbox" name="role_admin" {% if 'admin' in user.roles %} checked {% endif %}>
+          admin
+        </label>
+      </label>
+    </div>
+    <input type="submit" value="Change User">
+  </form>
+</div>
+{% endblock %}
