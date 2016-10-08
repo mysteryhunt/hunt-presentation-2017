@@ -46,6 +46,10 @@ def get_all_puzzle_properties(app):
     response = get(app, "/puzzles?teamId=%s" % session["username"])
     return response
 
+def get_puzzles(app):
+    response = get(app, "/puzzles")
+    return response["puzzles"]
+
 def get_puzzle(app, puzzle_id):
     response = get(app, "/puzzles/%s" % puzzle_id)
     return response
@@ -128,3 +132,6 @@ def update_user(app, username, user):
 
 def create_user(app, user):
     post(app, "/users", user)
+
+def create_event(app, event):
+    post(app, "/events", event)

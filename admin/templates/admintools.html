@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block page_body %}
+<div class="ha-control-boxes-container">
+  <form class="ha-column-control-box" action="{{ url_for('admintools') }}" method="post">
+    <span class="ha-control-box-title">
+      Start Hunt
+    </span>
+    <input type="button" value="Yes, I'm sure" onclick="document.getElementById('startHuntButton').removeAttribute('disabled')">
+    <input type="hidden" name="action" value="HuntStart">
+    <input id="startHuntButton" type="submit" value="Start Hunt" disabled>
+  </form>
+  <form class="ha-column-control-box" action="{{ url_for('admintools') }}" method="post">
+    <span class="ha-control-box-title">
+      Full Release
+    </span>
+    <div class="ha-labeled-input-form">
+      <label>
+        Puzzle
+        <select name="puzzleId">
+          {% for puzzle in puzzles %}
+          <option value="{{ puzzle.puzzleId }}">
+            {% if puzzle.puzzleProperties.DisplayNameProperty %}
+            {{ puzzle.puzzleProperties.DisplayNameProperty.displayName }}
+            {% else %}
+            {{ puzzle.puzzleId }}
+            {% endif %}
+          </option>
+          {% endfor %}
+        </select>
+      </label>
+    </div>
+    <input type="hidden" name="action" value="FullRelease">
+    <input type="submit" value="Full Release Puzzle">
+  </form>
+</div>
+{% endblock %}

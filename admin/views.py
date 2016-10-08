@@ -170,3 +170,34 @@ def user(username):
     return render_template(
         "user.html",
         user=user)
+
+@app.route("/admintools", methods=["GET", "POST"])
+def admintools():
+    if "username" not in session:
+        return redirect(url_for("login.login"))
+
+    if request.method == "POST":
+        if request.form["action"] == "HuntStart":
+            cube.create_event(app, {
+                "eventType": "HuntStart",
+            })
+        elif request.form["action"] == "FullRelease":
+            cube.create_event(app, {
+                "eventType": "FullRelease",
+                "puzzleId": request.form["puzzleId"],
+            })
+        else:
+            abort(400)
+
+    puzzles = cube.get_puzzles(app)
+
+    def sortkey(puzzle):
+        if "DisplayNameProperty" in puzzle["puzzleProperties"]:
+            return puzzle["puzzleProperties"]["DisplayNameProperty"]["displayName"]
+        else:
+            return puzzle["puzzleId"]
+    puzzles.sort(key=sortkey)
+
+    return render_template(
+        "admintools.html",
+        puzzles=puzzles)
