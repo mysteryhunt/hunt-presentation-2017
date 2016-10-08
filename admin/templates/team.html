@@ -1,26 +1,35 @@
 {% extends "base.html" %}
 {% block page_body %}
-<div class="ha-page-section">
-  <form action="{{ url_for('team', team_id=team.teamId) }}" method="post">
-    <table>
-      <tr>
-        <td>Team ID</td>
-        <td>{{ team.teamId }}</td>
-      </tr>
-      <tr>
-        <td>Email</td>
-        <td><input type="text" name="email" value="{{ team.email }}"></td>
-      </tr>
-      <tr>
-        <td>Primary Phone</td>
-        <td><input type="text" name="primaryPhone" value="{{ team.primaryPhone }}"></td>
-      </tr>
-      <tr>
-        <td>Secondary Phone</td>
-        <td><input type="text" name="secondaryPhone" value="{{ team.secondaryPhone }}"></td>
-      </tr>
-    </table>
+<div class="ha-control-boxes-container">
+  <form class="ha-column-control-box" action="{{ url_for('team', team_id=team.teamId) }}" method="post">
+    <span class="ha-control-box-title">
+      Change Contact Info
+    </span>
+    <div class="ha-labeled-input-form">
+      <label>
+        Team ID
+        <span>{{ team.teamId }}</span>
+      </label>
+      <label>
+        Email
+        <input type="text" name="email" value="{{ team.email }}">
+      </label>
+      <label>
+        Primary Phone
+        <input type="text" name="primaryPhone" value="{{ team.primaryPhone }}">
+      </label>
+      <label>
+        Secondary Phone
+        <input type="text" name="secondaryPhone" value="{{ team.secondaryPhone }}">
+      </label>
+    </div>
     <input type="submit" value="Change Contact Info">
   </form>
 </div>
+{% if team.teamProperties %}
+<div class="ha-page-section">
+  <h3>Team Properties</h3>
+  <pre>{{ team.teamProperties | tojson(indent=2) }}</pre>
+</div>
+{% endif %}
 {% endblock %}
