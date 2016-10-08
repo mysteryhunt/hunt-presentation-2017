@@ -40,7 +40,7 @@
     {% endfor %}
     <div id="world-map" style="background-image: url({{ asset_url_for('general/hunt-map.png') }})">
         {% for quest in [('dynast',46,50,50,50)] if quest[0] in visible_puzzle_ids %}
-          <a href="{{ url_for('round', round_id = quest) }}">
+          <a href="{{ url_for('round', round_id = quest[0]) }}">
             <div id="quest-map-{{ quest[0] }}" class="individual-quest" style="width:{{ quest[1] }}px; height: {{ quest[2] }}px; position:absolute; top:{{ quest[3] }}px; left:{{ quest[4] }}px; z-index:200; background-image: url({{ asset_url_for('general/stock-%s-icon.jpg' % quest[0]) }})">
             </div>
           </a>
