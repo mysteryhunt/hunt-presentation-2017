@@ -1,4 +1,9 @@
 {% extends "overall_layout.html" %}
+
+{% block styling_block %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='map.css') }}">
+{% endblock %}
+
 {% block overall_layout_body %}
 <div id="main-page-content">
   <div id="left-sidebar">
@@ -25,6 +30,7 @@
   </div>
 
   <div id="world-map-container">
+    <div id="world-map-header"><span class="enscrolled"><span>World Map</span></span></div>
     {% for quest in ['dynast','dungeon'] if quest in visible_puzzle_ids %}
       <a href="{{ url_for('round', round_id = quest) }}">
         <div id="quest-{{ quest }}" class="individual-quest">
@@ -32,10 +38,45 @@
         </div>
       </a>
     {% endfor %}
+    <div id="world-map" style="background-image: url({{ asset_url_for('general/hunt-map.png') }})">
+        {% for quest in [('dynast',46,50,50,50)] if quest[0] in visible_puzzle_ids %}
+          <a href="{{ url_for('round', round_id = quest) }}">
+            <div id="quest-map-{{ quest[0] }}" class="individual-quest" style="width:{{ quest[1] }}px; height: {{ quest[2] }}px; position:absolute; top:{{ quest[3] }}px; left:{{ quest[4] }}px; z-index:200; background-image: url({{ asset_url_for('general/stock-%s-icon.jpg' % quest[0]) }})">
+            </div>
+          </a>
+        {% endfor %}
+    </div>
   </div>
 
   <div id="right-sidebar">
-  
+    <div id="inventory">
+      <div class="inventory-header"><span class="enscrolled"><span>Inventory</span></span></div>
+      <a href="inventory.html">
+        <img src="{{ asset_url_for('general/stock-backpack.jpg') }}">
+      </a>
+      <div>Gold: 13</div>
+    </div>
+    <div id="events">
+      <div class="events-header"><span class="enscrolled"><span>Events</span></span></div>
+      <div class="event-entry">
+        <div class="event-name">Event the First</div>
+        <div class="event-time">Friday 6pm</div>
+      </div>
+      <div class="event-entry">
+        <div class="event-name">Event the Second</div>
+        <div class="event-time">Friday 10pm</div>
+      </div>
+      <div class="event-entry">
+        <div class="event-name">Event the Third</div>
+        <div class="event-time">Saturday 10am</div>
+      </div>
+      <div class="event-entry">
+        <div class="event-name">Event the Fourth</div>
+        <div class="event-time">Saturday 2pm</div>
+      </div>
+    </div>
   </div>
+  
+  <br class="clear-both"/>
 </div>
 {% endblock %}

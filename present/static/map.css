@@ -1,0 +1,30 @@
+#main-page-content {
+  width: 900px;
+  margin: 20px auto;
+  border: tan solid 5px;
+  background-color: white;
+  padding: 20px 20px;
+}
+
+#left-sidebar {
+  float: left;
+  width: 145px;
+}
+
+#world-map-container {
+  float: left;
+  width: 570px;
+  margin: 0 20px;
+}
+
+#right-sidebar {
+  float: left;
+  width: 145px;
+}
+
+#world-map {
+  height: 570px;
+  width: 570px;
+  background-size: 100%;
+  position: relative;
+}
