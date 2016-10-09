@@ -10,10 +10,12 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
+    width: 900px;
+    height: 528px;
   }
 </style>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDkIrVkWdEaOqWe2tPRRmspwL26pU71GI"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key={{ get_google_api_key() }}"></script>
 
 <script>
 var mapCenter = new google.maps.LatLng(27,30);
@@ -55,9 +57,9 @@ function initialize() {
     {lat: 26.08822, lng: -79.23995}
   ];
 
-  colors = ['#FF9999', '#77DD77', '#77AAFF'];
+  var colors = ['#FF9999', '#77DD77', '#77AAFF'];
 
-  messages = [
+  var messages = [
    "First, let's go somewhere in Texas, United States.",
    "Second, let's go somewhere in Mazovia, Poland.",
    "Third, let's go somewhere in East Cape, South Africa."
@@ -100,6 +102,6 @@ Where in the world will you find help in navigating to the right address? You've
 {% block puzzle_content_block %}
 <div>
 <div><span id="whereNext"></span><br/><br/></div>
-<div id="googleMap" style="width:900px;height:528px;"></div>
+<div id="googleMap"></div>
 </div>
 {% endblock %}
