@@ -1,0 +1,48 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}Crossing Your Arms{% endblock %}
+{% block puzzle_name_block %}Crossing Your Arms{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  #puzzle-content {
+    font-size: 16px;
+    font-family: monospace;
+  }
+  ul {
+    list-style-type: none;
+  }
+  #image-container {
+    margin-top: 20px;
+    text-align: center;
+  }
+  img#image01 {
+    width: 800px;
+  }
+</style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+Only an inexperienced fighter goes into battle without the proper equipment.
+{% endblock %}
+
+{% block puzzle_content_block %}
+<div>
+  <div>
+    <ul>
+      <li>AINNATERSRCTATHENYIDENOETDORYALONCALTBLRANYD</li>
+      <li>CSOMYMANMBOLDDALETSOONCATEALLDEDLAANONBDMIELINESK</li>
+      <li>CVOLOLLCEACTNIOONIONNEFWEMPLOBRIYTEEASIN</li>
+      <li>HNIIGHGHTTASPPOTFOERRIDANNGCSIHNOEHGEEL</li>
+      <li>MDOPIONGCYVCLEIQSUTIARCKMLYSANTDRSUDONDGENLY</li>
+      <li>PITWEECNTEYOOFNASEIPNAACASINRAGUOS</li>
+      <li>SSPURGAAYUSERDFREFOERDCHEWIENGFENSGEUM</li>
+      <li>THEIITNAHLUERVMENUINSOUMWRLURACPPIINGFER</li>
+      <li>TJAOMEOLESTAGWNEIYFOTTREOQUIXTAARTISMTPLE</li>
+      <li>TSTHRRAPFAOSHARABBOUTROKWEILNARMDLY</li>
+    </ul>
+  </div>
+  <div id="image-container">
+    <img id="image01" src="{{ asset_url_for('crossing_your_arms/image01.gif') }}">
+  </div>
+</div>
+{% endblock %}
