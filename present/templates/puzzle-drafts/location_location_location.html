@@ -1,0 +1,107 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}location.location.location{% endblock %}
+{% block puzzle_name_block %}location.location.location{% endblock %}
+
+{% block puzzle_head_block %}
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,400italic|Roboto+Mono' rel='stylesheet' type='text/css'>
+
+<style>
+  #googleMap {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 900px;
+    height: 528px;
+  }
+</style>
+
+<script src="https://maps.googleapis.com/maps/api/js?key={{ get_google_api_key() }}"></script>
+
+<script>
+var mapCenter = new google.maps.LatLng(27,30);
+
+function pinSymbol(color) {
+
+  return {
+    path: 'M 0,0 C -2,-20 -10,-22 -10,-30 A 10,10 0 1,1 10,-30 C 10,-22 2,-20 0,0 z',
+    fillColor: color,
+    fillOpacity: 1,
+    strokeColor: '#000',
+    strokeWeight: 1,
+    scale: 1,
+    labelOrigin: new google.maps.Point(0,-28),
+  };
+}
+
+function initialize() {
+
+  var mapProp = {
+    center: mapCenter,
+    zoom: 2,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+
+  var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+
+  var locations = [
+    {lat: 45.39538, lng: 2.57862},
+    {lat: 46.9767, lng: -94.65087},
+    {lat: 40.79564, lng: -78.52946},
+
+    {lat: -51.581730, lng: -77.486668},
+    {lat: -27.345475, lng: 145.898109},
+    {lat: -24.339653, lng: 27.691036},
+
+    {lat: -43.61223, lng: 169.58886},
+    {lat: 70.90422, lng: 97.2252},
+    {lat: 26.08822, lng: -79.23995}
+  ];
+
+  var colors = ['#FF9999', '#77DD77', '#77AAFF'];
+
+  var messages = [
+   "First, let's go somewhere in Texas, United States.",
+   "Second, let's go somewhere in Mazovia, Poland.",
+   "Third, let's go somewhere in East Cape, South Africa."
+  ];
+
+  for (var i = 0; i < locations.length; i++) {
+    var j = Math.floor(i/3);
+    var marker = new google.maps.Marker({
+      position: locations[i],
+      label: '123'[i%3],
+      map: map,
+      message: messages[j],
+      icon: pinSymbol(colors[j]),
+      infoWindow: new google.maps.InfoWindow({
+        content: 'Latitude: ' + locations[i].lat + '<br>Longitude: ' + locations[i].lng
+      })
+    });
+
+    google.maps.event.addListener(marker,'click',function() {
+      this.infoWindow.open(map, this);
+    });
+    google.maps.event.addListener(marker,'mouseover',function() {
+      document.getElementById('whereNext').innerHTML = this.message;
+    });
+    google.maps.event.addListener(marker,'mouseout',function() {
+      document.getElementById('whereNext').innerHTML = '';
+    });
+  }
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+</script>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+Where in the world will you find help in navigating to the right address? You've heard the old joke: "What 3 words are most important in real estate?"
+{% endblock %}
+
+{% block puzzle_content_block %}
+<div>
+<div><span id="whereNext"></span><br/><br/></div>
+<div id="googleMap"></div>
+</div>
+{% endblock %}

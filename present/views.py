@@ -13,6 +13,9 @@ def utility_processor():
       access_key = app.config["AWS_ASSET_ACCESS_KEY"]
       secret_key = app.config["AWS_ASSET_SECRET_KEY"]
       return s3.sign(bucket, asset_path, access_key, secret_key, True)
+    
+    def get_google_api_key():
+      return app.config["GOOGLE_API_KEY"]
       
     def single_character_unlock_requirement(puzzle_properties):
       sum_constraints = puzzle_properties.get('UnlockedConstraintProperty').get('unlockedConstraint').get('sumConstraints')
@@ -31,6 +34,7 @@ def utility_processor():
       return character_reward[0]
 
     return dict(submit_url_for=submit_url_for, asset_url_for=asset_url_for,
+        get_google_api_key=get_google_api_key,
         single_character_unlock_requirement=single_character_unlock_requirement,
         single_character_reward=single_character_reward)
     

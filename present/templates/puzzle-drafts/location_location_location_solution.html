@@ -1,0 +1,38 @@
+{% extends "puzzles/solution_layout.html" %}
+{% block title_block %}location.location.location: Solution{% endblock %}
+{% block puzzle_name_block %}location.location.location: Solution{% endblock %}
+
+{% block solution_content_block %}
+<div>
+The title and the phrase "what 3 words" in the flavortext both clue the website <a href="https://map.what3words.com">What3Words</a>, which is a universal addressing system based on a 3m x 3m global grid. Each of the 57 trillion 3m x 3m squares in the world has been assigned a fixed and unique three-word address. You can use the site to find the three-word address of any point on earth, given the latitude and longitude, and vice versa.<BR>
+<BR>
+Clicking on the pins in the puzzle displays their exact latitude and longitude; mousing over them shows how they are grouped and hints at a further location that each group addresses.<BR>
+<BR>
+Plugging in the <I>(latitude, longitude)</I> coordinates of these pinned locations gives three sets of three-word clues, as follows:<BR>
+<BLOCKQUOTE>
+<B>GROUP 1:</B><BR>
+45.39538,2.57862 = <a href="https://map.what3words.com/45.39538,2.57862">members.adverb.jacket</a> = ONLY <BR>
+46.9767,-94.65087 = <a href="https://map.what3words.com/46.9767,-94.65087">largest.human.organ</a> = SKIN <BR>
+40.79564,-78.52946 = <a href="https://map.what3words.com/40.79564,-78.52946">shallow.polar.opposite</a> = DEEP <BR>
+</BLOCKQUOTE>
+<a href="https://map.what3words.com/only.skin.deep">only.skin.deep</a> maps to a location in Texas, and also clues the word BEAUTY. <BR>
+<BLOCKQUOTE> 
+<B>GROUP 2:</B><BR>
+-51.58173,-77.486668 = <a href="https://map.what3words.com/-51.58173,-77.486668">reaction.gaining.electrons</a> = REDUCTION <BR>
+-27.345475,145.898109 = <a href="https://map.what3words.com/-27.345475,145.898109">foil.balloon.manufacturer</a> = ANAGRAM <BR>
+-24.339653,27.691036 = <a href="https://map.what3words.com/-24.339653,27.691036">irregular.reflexive.transitive</a> = VERB <BR>
+</BLOCKQUOTE>
+<a
+href="https://map.what3words.com/reduction.anagram.verb">reduction.anagram.verb</a>
+maps to a location in Mazovia, Poland, and also clues the word INTRODUCE. <BR>
+<BLOCKQUOTE>
+<B>GROUP 3:</B><BR>
+-43.61223,169.58886 = <a href="https://map.what3words.com/-43.61223,169.58886">rock.blank.scissors</a> = PAPER <BR>
+70.90422,97.2252 = <a href="https://map.what3words.com/70.90422,97.2252">browser.tracking.biscuit</a> = COOKIE <BR>
+26.08822,-79.23995 = <a href="https://map.what3words.com/26.08822,-79.23995">answering.machine.recordings</a> = MESSAGES <BR>
+</BLOCKQUOTE>
+<a href="https://map.what3words.com/paper.cookie.messages">paper.cookie.messages</a> maps to a location in East Cape, South Africa, and also clues the word FORTUNES. <BR>
+<BR>
+Finally, plugging <a href="https://map.what3words.com/beauty.introduce.fortunes">beauty.introduce.fortunes</a> into what3words takes you to that address, directly in the center of the temple of <B>ANGKOR WAT</B> (the answer to the puzzle).
+</div>
+{% endblock %}
