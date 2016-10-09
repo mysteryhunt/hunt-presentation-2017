@@ -28,3 +28,42 @@
   background-size: 100%;
   position: relative;
 }
+
+a:link {
+  color: black;
+  text-decoration: none;
+}
+
+a:visited {
+  color: black;
+}
+
+.individual-character {
+  margin-top: 10px;
+}
+
+.individual-character-status-container {
+  height: 40px;
+  line-height: 40px;
+}
+
+.individual-character-status-container {
+  height: 40px;
+  line-height: 40px;
+  margin-top: -20px;
+}
+
+.individual-character-status-container .individual-character-level {
+  height: 40px;
+  width: 40px;
+  display: inline-block;
+  vertical-align: text-bottom;
+}
+
+.event-entry {
+  margin-top: 15px;
+}
+
+.event-name, .event-time {
+  font-size: 18px;
+}
