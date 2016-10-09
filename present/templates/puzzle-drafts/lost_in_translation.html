@@ -1,0 +1,59 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}Lost in Translation{% endblock %}
+{% block puzzle_name_block %}Lost in Translation{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  @charset "utf-8";
+
+  @font-face {
+    font-family: "Fixedsys";
+    src: url("{{ asset_url_for('lost_in_translation/font.ttf') | safe }}") format("truetype");
+  }
+
+  .unicodetiles {
+    background-color: black;
+    font-size: 14pt;
+    font-family: "Fixedsys", monospace;
+    white-space: pre;
+    text-align: center;
+    line-height: 1;
+    letter-spacing: 0px;
+    display: inline-block;
+  }
+
+  .unicodetiles div {
+    float: left;
+    height: 1em;
+  }
+
+  .unicodetiles br {
+    clear: both;
+  }
+</style>
+
+<script src="{{ asset_url_for('lost_in_translation/unicodetiles.js') }}"></script>
+<script src="{{ asset_url_for('lost_in_translation/ut.WebGLRenderer.js') }}"></script>
+<script src="{{ asset_url_for('lost_in_translation/ut.CanvasRenderer.js') }}"></script>
+<script src="{{ asset_url_for('lost_in_translation/ut.DOMRenderer.js') }}"></script>
+<script src="{{ asset_url_for('lost_in_translation/input.js') }}"></script>
+<script src="{{ asset_url_for('lost_in_translation/puzzle.min.js') }}"></script>
+
+<script>
+  window.onload = function() {
+    initPuzzle();
+  };
+</script>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+The economist studies the underground trade systems of dwarves, elves, goblins and humans.
+{% endblock %}
+
+{% block puzzle_content_block %}
+<div id="container">
+  <div id="game">
+    This puzzle requires JavaScript to be enabled. Enable JavaScript and reload the page.
+  </div>
+</div>
+{% endblock %}
