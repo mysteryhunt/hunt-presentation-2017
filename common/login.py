@@ -12,6 +12,7 @@ def record(setup_state):
 def clear_session():
     session.pop("username", None)
     session.pop("password", None)
+    session.pop("usertype", None)
 
 @blueprint.route("/login", methods=["GET", "POST"])
 def login():
@@ -19,18 +20,11 @@ def login():
         session["username"] = request.form["username"]
         session["password"] = request.form["password"]
         try:
-            if "REQUIRE_TEAM_LOGIN" in blueprint.config:
-                if not cube.authorized(blueprint, "teams:read:%s" % session["username"]):
-                    clear_session()
-                    return render_template(
-                        "login.html",
-                        error="Invalid team login '%s'." % request.form["username"])
-            if "REQUIRE_ADMIN_LOGIN" in blueprint.config:
-                if not cube.authorized(blueprint, "teams:read:*"):
-                    clear_session()
-                    return render_template(
-                        "login.html",
-                        error="Invalid admin login '%s'." % request.form["username"])
+            all_teams_permission = cube.authorized(blueprint, "teams:read:*")
+            if all_teams_permission:
+                session["usertype"] = "writingteam"
+            else:
+                session["usertype"] = "solvingteam"
         except HTTPError, e:
             clear_session()
             if e.code == 401 or e.code == 403:
@@ -45,3 +39,7 @@ def login():
 def logout():
     clear_session()
     return redirect(url_for("index"))
+
+@blueprint.route("/wrongusertype")
+def wrongusertype():
+    return render_template("wrongusertype.html")

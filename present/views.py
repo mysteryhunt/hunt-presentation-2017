@@ -1,6 +1,6 @@
 from present import app
 
-from common import cube, s3
+from common import cube, login_required, s3
 from flask import redirect, render_template, request, send_from_directory, session, url_for
 
 @app.context_processor
@@ -41,19 +41,15 @@ def utility_processor():
 
 
 @app.route("/")
+@login_required.solvingteam
 def index():
-    if "username" not in session:
-        return redirect(url_for("login.login"))
-
     visible_puzzle_ids = set(cube.get_visible_puzzle_ids(app))
     team_properties = cube.get_team_properties(app)
     return render_template("index.html", visible_puzzle_ids=visible_puzzle_ids, team_properties=team_properties)
 
 @app.route("/round/<round_id>")
+@login_required.solvingteam
 def round(round_id):
-    if "username" not in session:
-        return redirect(url_for("login.login"))
-
     if not cube.is_puzzle_unlocked(app, round_id):
         abort(403)
 
@@ -72,10 +68,8 @@ def round(round_id):
 
 
 @app.route("/puzzle/<puzzle_id>")
+@login_required.solvingteam
 def puzzle(puzzle_id):
-    if "username" not in session:
-        return redirect(url_for("login.login"))
-
     if not cube.is_puzzle_unlocked(app, puzzle_id):
         abort(403)
 

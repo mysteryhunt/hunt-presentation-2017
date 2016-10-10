@@ -1,19 +1,16 @@
 from admin import app
 
-from common import cube
+from common import cube, login_required
 from flask import abort, redirect, render_template, request, session, url_for
 
 @app.route("/")
+@login_required.writingteam
 def index():
-    if "username" not in session:
-        return redirect(url_for("login.login"))
     return render_template("index.html")
 
 @app.route("/callqueue")
+@login_required.writingteam
 def callqueue():
-    if "username" not in session:
-        return redirect(url_for("login.login"))
-
     pending_submissions = cube.get_all_pending_submissions(app)
     pending_hint_requests = cube.get_all_pending_hint_requests(app)
 
@@ -23,10 +20,8 @@ def callqueue():
         pending_hint_requests=pending_hint_requests)
 
 @app.route("/submission/<int:submission_id>", methods=["GET", "POST"])
+@login_required.writingteam
 def submission(submission_id):
-    if "username" not in session:
-        return redirect(url_for("login.login"))
-
     if request.method == "POST":
         if "status" in request.form:
             cube.update_submission_status(app, submission_id, request.form["status"])
@@ -46,10 +41,8 @@ def submission(submission_id):
         team=team)
 
 @app.route("/hintrequest/<int:hint_request_id>", methods=["GET", "POST"])
+@login_required.writingteam
 def hintrequest(hint_request_id):
-    if "username" not in session:
-        return redirect(url_for("login.login"))
-
     if request.method == "POST":
         if "status" in request.form:
             response = ""
@@ -70,10 +63,8 @@ def hintrequest(hint_request_id):
         team=team)
 
 @app.route("/teams", methods=["GET", "POST"])
+@login_required.writingteam
 def teams():
-    if "username" not in session:
-        return redirect(url_for("login.login"))
-
     if request.method == "POST":
         cube.create_team(app, {
             "teamId": request.form["teamId"],
@@ -90,10 +81,8 @@ def teams():
         teams=teams)
 
 @app.route("/team/<team_id>", methods=["GET", "POST"])
+@login_required.writingteam
 def team(team_id):
-    if "username" not in session:
-        return redirect(url_for("login.login"))
-
     if request.method == "POST":
         if ("email" not in request.form or
             "primaryPhone" not in request.form or
@@ -121,10 +110,8 @@ def build_roles_list(form):
     return roles
 
 @app.route("/users", methods=["GET", "POST"])
+@login_required.writingteam
 def users():
-    if "username" not in session:
-        return redirect(url_for("login.login"))
-
     if request.method == "POST":
         cube.create_user(app, {
             "username": request.form["username"],
@@ -139,10 +126,8 @@ def users():
         users=users)
 
 @app.route("/user/<username>", methods=["GET", "POST"])
+@login_required.writingteam
 def user(username):
-    if "username" not in session:
-        return redirect(url_for("login.login"))
-
     if request.method == "POST":
         update = {
             "username": username,
@@ -172,10 +157,8 @@ def user(username):
         user=user)
 
 @app.route("/admintools", methods=["GET", "POST"])
+@login_required.writingteam
 def admintools():
-    if "username" not in session:
-        return redirect(url_for("login.login"))
-
     if request.method == "POST":
         if request.form["action"] == "HuntStart":
             cube.create_event(app, {

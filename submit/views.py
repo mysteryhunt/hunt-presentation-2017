@@ -1,13 +1,11 @@
 from submit import app
 
-from common import cube
+from common import cube, login_required
 from flask import abort, redirect, render_template, request, session, url_for
 
 @app.route("/")
+@login_required.solvingteam
 def index():
-    if "username" not in session:
-        return redirect(url_for("login.login"))
-
     puzzle_visibilities = cube.get_puzzle_visibilities(app)
     puzzle_visibilities = [v for v in puzzle_visibilities if v.get('status','') in ['UNLOCKED','SOLVED']]
     puzzle_properties = cube.get_all_puzzle_properties(app)
@@ -17,10 +15,8 @@ def index():
         puzzle_properties=puzzle_properties)
 
 @app.route("/puzzle/<puzzle_id>", methods=["GET", "POST"])
+@login_required.solvingteam
 def puzzle(puzzle_id):
-    if "username" not in session:
-        return redirect(url_for("login.login"))
-
     if not cube.is_puzzle_unlocked(app, puzzle_id):
         abort(403)
 

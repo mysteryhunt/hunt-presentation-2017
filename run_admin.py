@@ -8,8 +8,6 @@ try:
 except ImportError:
     pass
 
-app.config["REQUIRE_ADMIN_LOGIN"] = True
-
 from common import login
 app.register_blueprint(login.blueprint)
 
