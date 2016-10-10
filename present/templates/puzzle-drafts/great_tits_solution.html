@@ -1,0 +1,72 @@
+{% extends "puzzles/solution_layout.html" %}
+{% block title_block %}Great Tits!: Solution{% endblock %}
+{% block puzzle_name_block %}Great Tits!: Solution{% endblock %}
+
+{% block solution_content_block %}
+  <p>
+    This puzzle is titled "Great Tits!" because it is based on
+    the <a href="https://en.wikipedia.org/wiki/Tits_group">Tits group</a>, a
+    finite group named for French mathematician Jacques Tits. (Also, the two
+    birds shown are <a href="https://en.wikipedia.org/wiki/Great_tit">great
+    tits</a>, an Old-World passerine bird).
+  </p>
+
+  <p>
+    The big block of text constitutes a presentation of the Tits group as a
+    permutation group on 1600 elements (the characters of the text). The two
+    birds represent two generators of this group, and clicking on either one
+    applies the generator permutation to the text. So what we have here is
+    essentially a transposition cipher, where the key is the member of the Tits
+    group used to permute the plaintext to produce the ciphertext.
+  </p>
+
+  <p>
+    The Tits group is large, but not intractably so--it has about 18 million
+    elements. On the assumption that the plaintext is English, a brute force
+    enumeration of all the encodings followed by a check to see if the result
+    looks like plausible English can be programmed up. This is a non-trivial
+    programming task because you have to be somewhat careful about memory usage
+    and efficiency.
+  </p>
+
+  <p>
+    The block of text decrypts to what is mostly a sequence of very large numbers written out in English (broken into lines for readability):
+  </p>
+
+  <blockquote>
+    ORDER GROUPS BY ORDER <br><br>
+    FIRST NUMBER EIGHT HUNDRED EIGHT SEXDECILLION SEVENTEEN QUINDECILLION FOUR HUNDRED TWENTY FOUR QUATTUORDECILLION SEVEN HUNDRED NINETY FOUR TREDECILLION FIVE HUNDRED TWELVE DUODECILLION EIGHT HUNDRED SEVENTY FIVE UNDECILLION EIGHT HUNDRED EIGHTY SIX DECILLION FOUR HUNDRED FIFTY NINE NONILLION NINE HUNDRED FOUR OCTILLION NINE HUNDRED SIXTY ONE SEPTILLION SEVEN HUNDRED TEN SEXTILLION SEVEN HUNDRED FIFTY SEVEN QUINTILLION FIVE QUADRILLION SEVEN HUNDRED FIFTY FOUR TRILLION THREE HUNDRED SIXTY EIGHT BILLION <br><br>
+    SECOND NUMBER SEVEN THOUSAND NINE HUNDRED TWENTY <br><br>
+    THIRD NUMBER FIFTY ONE QUADRILLION SEVEN HUNDRED SIXTY FIVE TRILLION ONE HUNDRED SEVENTY NINE BILLION FOUR MILLION <br><br>
+    FOURTH NUMBER NINETY QUADRILLION SEVEN HUNDRED FORTY FIVE TRILLION NINE HUNDRED FORTY THREE BILLION EIGHT HUNDRED EIGHTY SEVEN MILLION EIGHT HUNDRED SEVENTY TWO THOUSAND <br><br>
+    FIFTH NUMBER SEVEN THOUSAND NINE HUNDRED TWENTY <br><br>
+    SIXTH NUMBER FOUR QUINTILLION ONE HUNDRED FIFTY SEVEN QUADRILLION SEVEN HUNDRED SEVENTY SIX TRILLION EIGHT HUNDRED SIX BILLION FIVE HUNDRED FORTY THREE MILLION THREE HUNDRED SIXTY THOUSAND <br><br>
+    SEVENTH NUMBER SEVEN THOUSAND NINE HUNDRED TWENTY <br><br>
+    EIGHTH NUMBER FOUR BILLION THIRTY MILLION THREE HUNDRED EIGHTY SEVEN THOUSAND TWO HUNDRED <br><br>
+    NINTH NUMBER FOUR HUNDRED NINETY FIVE BILLION SEVEN HUNDRED SIXTY SIX MILLION SIX HUNDRED FIFTY SIX THOUSAND <br><br>
+    TENTH NUMBER TWO HUNDRED SEVENTY THREE TRILLION THIRTY BILLION NINE HUNDRED TWELVE MILLION <br><br>
+    ELEVENTH NUMBER SEVEN THOUSAND NINE HUNDRED TWENTY <br><br>
+    TWELFTH NUMBER ONE HUNDRED FORTY FIVE BILLION NINE HUNDRED TWENTY SIX MILLION ONE HUNDRED FORTY FOUR THOUSAND
+  </blockquote>
+
+  <p>
+    These twelve numbers are all orders
+    of <a href="https://en.wikipedia.org/wiki/Sporadic_group">Sporadic
+    groups</a>. (Google searching any of the larger numbers will reveal that
+    fact).  Note that the Tits group is sometimes regarded as an honorary member
+    of the sporadic groups.  There are exactly 26 sporadic groups, and the
+    instruction "ORDER GROUPS BY ORDER" tells solvers that the groups should be
+    ordered from the smallest (lowest order) to the largest. Since there are 26
+    groups, each one can map to a letter of the alphabet, with the smallest
+    group (the Matthieu Group <em>M<sub>11</sub></em>) corresponding to <b>A</b>
+    and the largest group (the monster group <em>M</em>) corresponding
+    to <b>Z</b>.
+  </p>
+
+  <p>
+    Using this mapping, the sequence of twelve order numbers translates
+    to <b>ZASTAVA KORAL</b>, the solution to this puzzle. This is the official
+    make and model of the car usually called the Yugo (confirmed by the "You
+    go..." that begins the flavortext).
+  </p>
+{% endblock %}
