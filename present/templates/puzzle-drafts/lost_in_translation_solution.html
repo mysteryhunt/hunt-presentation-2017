@@ -1,0 +1,192 @@
+{% extends "puzzles/solution_layout.html" %}
+{% block title_block %}Lost in Translation: Solution{% endblock %}
+{% block puzzle_name_block %}Lost in Translation: Solution{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  @charset "utf-8";
+
+  @font-face {
+    font-family: "Fixedsys";
+    src: url("{{ asset_url_for('lost_in_translation/font.ttf') | safe }}") format("truetype");
+  }
+
+  .unicodetiles {
+    background-color: black;
+    font-size: 14pt;
+    font-family: "Fixedsys", monospace;
+    white-space: pre;
+    text-align: center;
+    line-height: 1;
+    letter-spacing: 0px;
+    display: inline-block;
+  }
+
+  .unicodetiles div {
+    float: left;
+    height: 1em;
+  }
+
+  .unicodetiles br {
+    clear: both;
+  }
+</style>
+
+<script src="{{ asset_url_for('lost_in_translation/unicodetiles.js') }}"></script>
+<script src="{{ asset_url_for('lost_in_translation/ut.WebGLRenderer.js') }}"></script>
+<script src="{{ asset_url_for('lost_in_translation/ut.CanvasRenderer.js') }}"></script>
+<script src="{{ asset_url_for('lost_in_translation/ut.DOMRenderer.js') }}"></script>
+<script src="{{ asset_url_for('lost_in_translation/input.js') }}"></script>
+<script src="{{ asset_url_for('lost_in_translation/solution.js') }}"></script>
+
+<script>
+  window.onload = function() {
+    initPuzzle();
+  };
+</script>
+{% endblock %}
+
+{% block solution_content_block %}
+<p>
+  The presentation of this puzzle mimics the user interface of the computer
+  game <a href="http://www.bay12games.com/dwarves/">Dwarf Fortress</a>. Using
+  the arrow and &lt; and &gt; keys, the solver can navigate and move a cursor
+  around a 3 dimensional ASCII-art world representing an underground
+  fortress. The status area on the right side of the interface will reveal
+  information about the location currently under the cursor.
+</p>
+<p>
+  The status area for each location of interest may contain one or two
+  colored words, and maybe the name of a gem. The colors of the words match
+  the background colors of the locations in the world, and indicate
+  direction. The colored words are clues to a 3D criss cross puzzle formed by
+  the locations in the world, with red words indicating an answer should be
+  filled in horizontally, green verticaly, and blue in the Z up/down
+  direction.
+</p>
+<p>
+  All of the clue words are vocabulary words that are defined in all four of
+  the
+  <a href="http://dwarffortresswiki.org/index.php/Language">Dwarf Fortress languages</a>:
+  Dwarven, Elvish, Goblin, and Human. Based on translation
+  length and criss-cross constraints, the solver must figure out which
+  translation should be filled into the puzzle.
+</p>
+<p>For example, the word "loyal" has four five-letter translations: "damèl"
+  in Dwarven, "oyéle" in Elvish, "ezusp" in Goblin, and "omosh" in Human. The
+  first letter of the translation for "dive" intersects with the fourth
+  letter of the translation for "loyal", and "dive" has three six-letter
+  translations: "shoduk" in Dwarven, "fayoba" in Elvish, and "lustot" in
+  Goblin. So we can eliminate "fayoba" because none of the translations for
+  "loyal" contain an F as their fourth letter, and we can eliminate "damèl"
+  because none of the translations for "dive" start with è.
+</p>
+<p>
+  The entire puzzle can be resolved in this way, and you can navigate the
+  grid with all of the translation letters filled in below:
+</p>
+<div id="container">
+  <div id="game">
+    Enable JavaScript and reload the page.
+  </div>
+</div>
+<p>
+  To extract an answer from the puzzle, take the letter associated with the
+  location of each gem, and order these letters alphabetically by gem
+  name. This spells out the phrase "akera english". Looking up "akera" in
+  the Dwarf Fortress language list reveals the answer is <b>DIAMOND</b>.
+</p>
+<table>
+  <tr>
+    <th>Clue word</th>
+    <th>Language</th>
+    <th>Translation</th>
+    <th>Gem</th>
+    <th>Letter under gem</th>
+  </tr>
+  <tr>
+    <td>sugar</td>
+    <td>Human</td>
+    <td>duka</td>
+    <td>aventurine</td>
+    <td>A</td>
+  </tr>
+  <tr>
+    <td>to broil</td>
+    <td>Goblin</td>
+    <td>kusmke</td>
+    <td>banded agate</td>
+    <td>K</td>
+  </tr>
+  <tr>
+    <td>basis</td>
+    <td>Elvish</td>
+    <td>esame</td>
+    <td>chrysoprase</td>
+    <td>E</td>
+  </tr>
+  <tr>
+    <td>released</td>
+    <td>Human</td>
+    <td>sasir</td>
+    <td>dendritic agate</td>
+    <td>R</td>
+  </tr>
+  <tr>
+    <td>simplicity</td>
+    <td>Goblin</td>
+    <td>smästa</td>
+    <td>emerald</td>
+    <td>A</td>
+  </tr>
+  <tr>
+    <td>boulder</td>
+    <td>Dwarven</td>
+    <td>etur</td>
+    <td>fire agate</td>
+    <td>E</td>
+  </tr>
+  <tr>
+    <td>coast</td>
+    <td>Goblin</td>
+    <td>asngek</td>
+    <td>gold opal</td>
+    <td>N</td>
+  </tr>
+  <tr>
+    <td>hall</td>
+    <td>Goblin</td>
+    <td>ngug</td>
+    <td>heliodor</td>
+    <td>G</td>
+  </tr>
+  <tr>
+    <td>rabbit</td>
+    <td>Human</td>
+    <td>obler</td>
+    <td>indigo tourmaline</td>
+    <td>L</td>
+  </tr>
+  <tr>
+    <td>buff</td>
+    <td>Elvish</td>
+    <td>mitho</td>
+    <td>jelly opal</td>
+    <td>I</td>
+  </tr>
+  <tr>
+    <td>malice</td>
+    <td>Dwarven</td>
+    <td>ezost</td>
+    <td>kunzite</td>
+    <td>S</td>
+  </tr>
+  <tr>
+    <td>suffering</td>
+    <td>Dwarven</td>
+    <td>omshit</td>
+    <td>lapis lazuli</td>
+    <td>H</td>
+  </tr>
+</table>
+{% endblock %}
