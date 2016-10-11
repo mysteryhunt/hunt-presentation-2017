@@ -1,0 +1,25 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}Full Index{% endblock %}
+{% block puzzle_name_block %}Full Index{% endblock %}
+
+{% block puzzle_head_block %}
+{% endblock %}
+
+{% macro puzzle_listing(puzzle_id, puzzle_name) %}
+<li><a href="{{ url_for('full_puzzle', puzzle_id=puzzle_id) }}">{{ puzzle_name }}</a> (<a href="{{ url_for('full_solution', puzzle_id=puzzle_id) }}">solution</a>)</li>
+{% endmacro %}
+
+{% block puzzle_content_block %}
+<div>
+  <ul>
+    {{ puzzle_listing('crossing_your_arms','Crossing Your Arms') }}
+    {{ puzzle_listing('great_tits','Great Tits!') }}
+    {{ puzzle_listing('heirplay','Heirplay') }}
+    {{ puzzle_listing('location_location_location','location.location.location') }}
+    {{ puzzle_listing('lost_in_translation','Lost in Translation') }}
+    {{ puzzle_listing('matchbox_twenty','Matchbox Twenty') }}
+    {{ puzzle_listing('puzzling_is_my_middle_name','Puzzling is My Middle Name') }}
+    {{ puzzle_listing('the_sacred_and_the_mundane','The Sacred and the Mundane') }}
+  </ul>
+</div>
+{% endblock %}

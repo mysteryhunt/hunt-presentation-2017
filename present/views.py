@@ -76,6 +76,22 @@ def puzzle(puzzle_id):
     return render_template(
         "puzzles/%s.html" % puzzle_id,
         puzzle_id=puzzle_id)
+
+@app.route("/full/puzzle")
+def full_puzzle_index():
+    return render_template("full_puzzle_index.html")
+        
+@app.route("/full/puzzle/<puzzle_id>")
+def full_puzzle(puzzle_id):
+    return render_template(
+        "puzzles/%s.html" % puzzle_id,
+        puzzle_id=puzzle_id)
+
+@app.route("/full/solution/<puzzle_id>")
+def full_solution(puzzle_id):
+    return render_template(
+        "solutions/%s.html" % puzzle_id,
+        puzzle_id=puzzle_id)
         
 @app.route("/puzzledraft/<puzzle_draft_id>")
 def puzzle_draft(puzzle_draft_id):
@@ -83,9 +99,3 @@ def puzzle_draft(puzzle_draft_id):
         "puzzle-drafts/%s.html" % puzzle_draft_id,
         puzzle_id=puzzle_draft_id)
 
-@app.route("/assets/<puzzle_id>/<path:filename>")
-def asset(puzzle_id, filename):
-    if cube.is_puzzle_unlocked(app, puzzle_id):
-        return send_from_directory("assets/%s" % puzzle_id, filename, as_attachment=True)
-    else:
-        abort(403)
