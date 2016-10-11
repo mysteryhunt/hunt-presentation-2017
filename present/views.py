@@ -78,16 +78,19 @@ def puzzle(puzzle_id):
         puzzle_id=puzzle_id)
 
 @app.route("/full/puzzle")
+@login_required.writingteam
 def full_puzzle_index():
     return render_template("full_puzzle_index.html")
         
 @app.route("/full/puzzle/<puzzle_id>")
+@login_required.writingteam
 def full_puzzle(puzzle_id):
     return render_template(
         "puzzles/%s.html" % puzzle_id,
         puzzle_id=puzzle_id)
 
 @app.route("/full/solution/<puzzle_id>")
+@login_required.writingteam
 def full_solution(puzzle_id):
     return render_template(
         "solutions/%s.html" % puzzle_id,
