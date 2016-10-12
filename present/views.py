@@ -2,7 +2,8 @@ from present import app
 
 from common import cube, login_required, s3
 from flask import redirect, render_template, request, send_from_directory, session, url_for
-from os import listdir
+
+import os
 
 @app.context_processor
 def utility_processor():
@@ -81,7 +82,7 @@ def puzzle(puzzle_id):
 @app.route("/full/puzzle")
 @login_required.writingteam
 def full_puzzle_index():
-    files = listdir('present/templates/puzzles')
+    files = os.listdir(os.path.join(app.root_path, 'templates/puzzles'))
     puzzle_ids = [file.split('.')[0] for file in files]
     puzzle_ids = [puzzle_id for puzzle_id in puzzle_ids if puzzle_id not in ['puzzle_layout','sample_draft']]
     return render_template("full_puzzle_index.html", puzzle_ids=puzzle_ids)
