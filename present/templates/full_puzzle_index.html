@@ -1,0 +1,20 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}Full Index{% endblock %}
+{% block puzzle_name_block %}Full Index{% endblock %}
+
+{% block puzzle_head_block %}
+{% endblock %}
+
+{% macro puzzle_listing(puzzle_id, puzzle_name) %}
+<li><a href="{{ url_for('full_puzzle', puzzle_id=puzzle_id) }}">{{ puzzle_name }}</a> (<a href="{{ url_for('full_solution', puzzle_id=puzzle_id) }}">solution</a>)</li>
+{% endmacro %}
+
+{% block puzzle_content_block %}
+<div>
+  <ul>
+    {% for puzzle_id in puzzle_ids %}
+      {{ puzzle_listing(puzzle_id, puzzle_id) }}
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}

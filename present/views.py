@@ -2,6 +2,7 @@ from present import app
 
 from common import cube, login_required, s3
 from flask import redirect, render_template, request, send_from_directory, session, url_for
+from os import listdir
 
 @app.context_processor
 def utility_processor():
@@ -76,16 +77,25 @@ def puzzle(puzzle_id):
     return render_template(
         "puzzles/%s.html" % puzzle_id,
         puzzle_id=puzzle_id)
-        
-@app.route("/puzzledraft/<puzzle_draft_id>")
-def puzzle_draft(puzzle_draft_id):
-    return render_template(
-        "puzzle-drafts/%s.html" % puzzle_draft_id,
-        puzzle_id=puzzle_draft_id)
 
-@app.route("/assets/<puzzle_id>/<path:filename>")
-def asset(puzzle_id, filename):
-    if cube.is_puzzle_unlocked(app, puzzle_id):
-        return send_from_directory("assets/%s" % puzzle_id, filename, as_attachment=True)
-    else:
-        abort(403)
+@app.route("/full/puzzle")
+@login_required.writingteam
+def full_puzzle_index():
+    files = listdir('present/templates/puzzles')
+    puzzle_ids = [file.split('.')[0] for file in files]
+    puzzle_ids = [puzzle_id for puzzle_id in puzzle_ids if puzzle_id not in ['puzzle_layout','sample_draft']]
+    return render_template("full_puzzle_index.html", puzzle_ids=puzzle_ids)
+        
+@app.route("/full/puzzle/<puzzle_id>")
+@login_required.writingteam
+def full_puzzle(puzzle_id):
+    return render_template(
+        "puzzles/%s.html" % puzzle_id,
+        puzzle_id=puzzle_id)
+
+@app.route("/full/solution/<puzzle_id>")
+@login_required.writingteam
+def full_solution(puzzle_id):
+    return render_template(
+        "solutions/%s.html" % puzzle_id,
+        puzzle_id=puzzle_id)
