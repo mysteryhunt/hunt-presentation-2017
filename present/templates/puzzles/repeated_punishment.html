@@ -1,0 +1,82 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}Repeated Punishment{% endblock %}
+{% block puzzle_name_block %}Repeated Punishment{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    @font-face {
+      font-family: "RepeatedPunishment";
+      src: url("{{ asset_url_for('repeated_punishment/font.ttf') | safe }}") format("truetype");
+    }
+
+    .repeated-punishment {
+      margin-top: 1.5em;
+      font-family: "RepeatedPunishment";
+      word-spacing: 0.5em;
+      line-height: 1.2em;
+    }
+
+    .box {
+      margin-top: 2em;
+    }
+
+    .box span {
+      border: 1px solid black;
+      padding: 0.2em;
+    }
+  </style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+  It seems that someone else has been held captive here before, and has written some messages...
+{% endblock %}
+
+{% block puzzle_content_block %}
+  <div>
+    <p class="repeated-punishment">
+      Z KWQE BTKVF LZV EG SDDM<br>
+      W BBZA CVJTI EMG OE VAAD<br>
+      B KXAC BTMMV PWE RB SRFM<br>
+      X LZZA EMZXF
+    </p>
+    <p class="repeated-punishment">
+      R WAAP EGA QCFTCJIF PFFMA HVX WFUULXSE OOSB B LVJR AI<br>
+      M NASZ BHX TXMHAEZF HPCNX KQE KDPLLPCB PLVW I ZTEI AA<br>
+      W KBPC WOL RSDHSOWG ESXUL ILV KVZIMMFW WZTR Z ZLOF BX<br>
+      Z
+    </p>
+    <p class="repeated-punishment">
+      WPAY JCFMVHEOEN AL LRB TULQFK DNV ZFCFMJHAK<br>
+      ZBQK TXNACYGWGR LA FUN JGVLNY KEX HHGQBDKMA<br>
+      LLLS HEECKAKHVL OM VGX EOJSEA SGB SWATNTWWV<br>
+      TZSJ JM
+    </p>
+    <p class="repeated-punishment">
+      K WTWP QRT KTHIOP TSNERTEQFE OW EFZE<br>
+      B DKLW YSW SLZLJJ IWELIILYGH WO WIUY<br>
+      Q HBSN NZE TOHDBM DQTPZPCNNP XR EAMB<br>
+      L BQWE UQT AW
+    </p>
+    <p class="repeated-punishment">
+      T DK GOE RIIK JCNWOITTTM QZSAHGEY<br>
+      E WO YYB UGBY BTPHHMLDQP OSGSYIPR<br>
+      I OY VBZ NUTP DEILZWIGOI CKXUJBTJ<br>
+      S L
+    </p>
+    <p class="repeated-punishment">
+      YLHSEOTRZ FNTCPO EL KGKR MR HUW XEAVJJ<br>
+      CROHYKWTV QLCHDS SM JUWV SY WOS AGWGHS<br>
+      HFSVZJKFZ WSRBZV UI USFA GC KPR OSAMOH<br>
+      BBVXV
+    </p>
+    <p class="repeated-punishment">
+      U KVZC NWE GOG WBKGUJ RCE AFNMJ<br>
+      K KVOF PHH VMH GVZNOD HCE PIPXM<br>
+      Z IWYZ EOB PCH GKCPZG WAF ZCEEG<br>
+      T YWYO HQM SRF
+    </p>
+    <p class="repeated-punishment box">
+      <span>CQQYMOROZQNVUSXYC</span>
+    </p>
+  </div>
+{% endblock %}

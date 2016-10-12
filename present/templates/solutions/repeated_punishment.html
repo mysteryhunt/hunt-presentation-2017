@@ -1,0 +1,245 @@
+{% extends "solutions/solution_layout.html" %}
+{% block title_block %}Repeated Punishment: Solution{% endblock %}
+{% block puzzle_name_block %}Repeated Punishment: Solution{% endblock %}
+
+{% block solution_content_block %}
+  <div>
+    <p>
+      This puzzle consists of a sequence of encrypted sections of text with
+      spaces preserved (like a cryptogram). The solver may notice that every
+      line within a section of text is the same length, and has its spaces in
+      the same place, which could suggest that each line within a section is
+      actually encoding the same message. The exception is the last line of each
+      section, which has the same pattern of spaces, but is truncated.
+    </p>
+    <p>
+      There's also one additional line of text within a box at the bottom of the
+      puzzle that does not follow this pattern (we'll come back to this later).
+    </p>
+    <p>
+      There are (at least) two different approaches to deciphering the encrypted
+      sections of text.
+    </p>
+    <h3>Approach 1: The Known Plaintext Attack</h3>
+    <p>
+      The font, formatting and repeated nature of the sections of text may
+      suggest to a solver familiar with The Simpsons that the texts are taken
+      from the set of "chalkboard gags" that Bart is writing near the beginning
+      of the credits of most episodes. These phrases are usually different for
+      each episode, and are well-documented online.
+    </p>
+    <p>
+      With the set of known plaintexts, the solver can figure out which
+      plaintext corresponds with each ciphertext based on the lengths of the
+      words. The next step is to break the ciphers. With some analysis of the
+      encrypted texts, the solver can determine that they're not encrypted with
+      a simple single-letter substitution cipher. The general flavor of
+      "repetition" in this puzzle may suggest a Vigenere cipher (where the key
+      is a repeated phrase).
+    </p>
+    <p>
+      With the plaintext chalkboard gags lined up with their ciphertexts, the
+      Vigenere key for each text can be derived by subtracting the plaintext
+      from the ciphertext (modulo 26).
+    </p>
+    <h3>Approach 2: Ciphertext Cryptanalysis</h3>
+    <p>
+      If the solver guesses (correctly) that each line of an encrypted section
+      of text is encoding the same message, and that a Vigenere cipher is being
+      used, then they can take advantage of the fact that each line has the same
+      plaintext to break the cipher, without knowing the plaintexts.
+    </p>
+    <p>
+      Here's a Python program that does this by guessing key lengths, and then
+      setting up the <a href="https://github.com/Z3Prover/z3">z3 theorem
+      prover</a> to search for keys and plaintexts that would result in the
+      given ciphertexts.
+    </p>
+    <pre>
+from z3 import *
+
+def CheckKeyLen(ciphertexts, keylen):
+    ciphertexts = [ciphertext.replace(" ", "") for ciphertext in ciphertexts]
+
+    solver = Solver()
+
+    k = [Int("k%d" % i) for i in xrange(keylen)]
+    for kc in k:
+        solver.add(kc >= 0)
+        solver.add(kc < 26)
+
+    p = [Int("p%d" % i) for i in xrange(len(ciphertexts[0]))]
+    for pc in p:
+        solver.add(pc >= 0)
+        solver.add(pc < 26)
+
+    key_index = 0
+    for ciphertext in ciphertexts:
+        for c_index, c_letter in enumerate(ciphertext):
+            c = ord(c_letter) - ord('A')
+            solver.add((p[c_index] + k[key_index]) % 26 == c)
+            key_index = (key_index + 1) % keylen
+
+    result = solver.check()
+    if result == unsat:
+        return (None, None)
+    else:
+        m = solver.model()
+        key = "".join([chr(m.evaluate(kc).as_long() + ord('A')) for kc in k])
+        plaintext = "".join([chr(m.evaluate(pc).as_long() + ord('A')) for pc in p])
+        return (key, plaintext)
+
+def PrintRotatedKeyAndPlaintext(key, plaintext):
+    def Rotate(s, offset):
+        return "".join([chr((ord(c) - ord('A') + offset) % 26 + ord('A')) for c in s])
+    for offset in xrange(26):
+        print Rotate(key, offset), Rotate(plaintext, (26 - offset) % 26)
+
+def Decipher(ciphertexts):
+    for keylen in xrange(1, 30):
+        print "Testing key length", keylen
+        key, plaintext = CheckKeyLen(ciphertexts, keylen)
+        if key:
+            PrintRotatedKeyAndPlaintext(key, plaintext)
+            return
+
+if __name__ == "__main__":
+    ciphertexts = [
+        "Z KWQE BTKVF LZV EG SDDM",
+        "W BBZA CVJTI EMG OE VAAD",
+        "B KXAC BTMMV PWE RB SRFM",
+    ]
+    Decipher(ciphertexts)
+</pre>
+    <p>
+      The output of this program (configured to solve the first block of encrypted text):
+    </p>
+    <pre>
+Testing key length 1
+Testing key length 2
+Testing key length 3
+Testing key length 4
+Testing key length 5
+Testing key length 6
+Testing key length 7
+Testing key length 8
+Testing key length 9
+Testing key length 10
+Testing key length 11
+Testing key length 12
+Testing key length 13
+Testing key length 14
+Testing key length 15
+Testing key length 16
+Testing key length 17
+ZWWNBWXXZWXZQMBWZ AOADDFWNWJOAFSFWEEQ
+AXXOCXYYAXYARNCXA ZNZCCEVMVINZEREVDDP
+BYYPDYZZBYZBSODYB YMYBBDULUHMYDQDUCCO
+CZZQEZAACZACTPEZC XLXAACTKTGLXCPCTBBN
+DAARFABBDABDUQFAD WKWZZBSJSFKWBOBSAAM
+EBBSGBCCEBCEVRGBE VJVYYARIREJVANARZZL
+FCCTHCDDFCDFWSHCF UIUXXZQHQDIUZMZQYYK
+GDDUIDEEGDEGXTIDG THTWWYPGPCHTYLYPXXJ
+HEEVJEFFHEFHYUJEH SGSVVXOFOBGSXKXOWWI
+IFFWKFGGIFGIZVKFI RFRUUWNENAFRWJWNVVH
+JGGXLGHHJGHJAWLGJ QEQTTVMDMZEQVIVMUUG
+KHHYMHIIKHIKBXMHK PDPSSULCLYDPUHULTTF
+LIIZNIJJLIJLCYNIL OCORRTKBKXCOTGTKSSE
+MJJAOJKKMJKMDZOJM NBNQQSJAJWBNSFSJRRD
+NKKBPKLLNKLNEAPKN MAMPPRIZIVAMRERIQQC
+OLLCQLMMOLMOFBQLO LZLOOQHYHUZLQDQHPPB
+PMMDRMNNPMNPGCRMP KYKNNPGXGTYKPCPGOOA
+QNNESNOOQNOQHDSNQ JXJMMOFWFSXJOBOFNNZ
+ROOFTOPPROPRIETOR IWILLNEVERWINANEMMY
+SPPGUPQQSPQSJFUPS HVHKKMDUDQVHMZMDLLX
+TQQHVQRRTQRTKGVQT GUGJJLCTCPUGLYLCKKW
+URRIWRSSURSULHWRU FTFIIKBSBOTFKXKBJJV
+VSSJXSTTVSTVMIXSV ESEHHJARANSEJWJAIIU
+WTTKYTUUWTUWNJYTW DRDGGIZQZMRDIVIZHHT
+XUULZUVVXUVXOKZUX CQCFFHYPYLQCHUHYGGS
+YVVMAVWWYVWYPLAVY BPBEEGXOXKPBGTGXFFR
+</pre>
+    <h3>Solving the rest of the puzzle</h3>
+    <p>
+      The key phrase used to encrypt each chalkboard gag is a clue to a
+      character featured in the episode with which that chalkboard gag first
+      aired. The solver should note the names of each of these characters.
+    </p>
+    <p>
+      Then, by counting the number of letters used on the last truncated line of
+      each ciphertext, and indexing this many letters into that ciphertext's
+      character's name, the solver can extract the word KWYJIBO (famously played
+      by Bart in a Scrabble game in the second episode of the series, "Bart the
+      Genius").
+    </p>
+    <p>
+      Decrypting the final boxed line of the puzzle using KWYJIBO as the Vigenere key gives the answer <b>SUSPENDED SENTENCE</b>.
+    </p>
+    <table>
+      <tr>
+        <th>Chalkboard gag</th>
+        <th>Simpsons episode</th>
+        <th>Vigenere key</th>
+        <th>Simpsons character</th>
+        <th>Number of last line letters</th>
+        <th>Indexed letter</th>
+      </tr>
+      <tr>
+        <td>I WILL NEVER WIN AN EMMY</td>
+        <td>Homer's Barbershop Quartet</td>
+        <td>ROOFTOPPROPRIETOR</td>
+        <td>Moe Szyslak</td>
+        <td>10</td>
+        <td>K</td>
+      </tr>
+      <tr>
+        <td>I WILL NOT COMPLAIN ABOUT THE SOLUTION WHEN I HEAR IT</td>
+        <td>Who Shot Mr. Burns? (Part Two)</td>
+        <td>JASPERSHOOTER</td>
+        <td>Waylon Smithers</td>
+        <td>1</td>
+        <td>W</td>
+      </tr>
+      <tr>
+        <td>THIS PUNISHMENT IS NOT BORING AND POINTLESS</td>
+        <td>Kamp Krusty</td>
+        <td>DISGUISEDASKRUSTY</td>
+        <td>Barney Gumble</td>
+        <td>6</td>
+        <td>Y</td>
+      </tr>
+      <tr>
+        <td>I WILL NOT PLEDGE ALLEGIANCE TO BART</td>
+        <td>Itchy &amp; Scratchy &amp; Marge</td>
+        <td>CALLEDDAVIDFILTH</td>
+        <td>Helen Lovejoy</td>
+        <td>10</td>
+        <td>J</td>
+      </tr>
+      <tr>
+        <td>I DO NOT HAVE DIPLOMATIC IMMUNITY</td>
+        <td>Marge in Chains</td>
+        <td>LAWTALKINGGUY</td>
+        <td>Lionel Hutz</td>
+        <td>2</td>
+        <td>I</td>
+      </tr>
+      <tr>
+        <td>UNDERWEAR SHOULD BE WORN ON THE INSIDE</td>
+        <td>Flaming Moe's</td>
+        <td>EYEONSPRINGFIELDHOST</td>
+        <td>Kent Brockman</td>
+        <td>5</td>
+        <td>B</td>
+      </tr>
+      <tr>
+        <td>I WILL NOT EAT THINGS FOR MONEY</td>
+        <td>Marge vs. the Monorail</td>
+        <td>MONORAILCONDUCTOR</td>
+        <td>Homer Simpson</td>
+        <td>11</td>
+        <td>O</td>
+      </tr>
+    </table>
+  </div>
+{% endblock %}
