@@ -1,0 +1,81 @@
+{% extends "solutions/solution_layout.html" %}
+{% block title_block %}Stackuro: Solution{% endblock %}
+{% block puzzle_name_block %}Stackuro: Solution{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    .smallgrids {
+      display: block;
+      text-align: center;
+    }
+
+    .smallgrid {
+      width: 400px;
+      display: inline-block;
+    }
+
+    .biggrid {
+      width: 600px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .a p {
+      text-align: center;
+      font-size: 24px;
+    }
+  </style>
+{% endblock %}
+
+{% block solution_content_block %}
+  <div>
+    <p>
+      This puzzle looks like a kakuro (the logic puzzle type in which the solver
+      must place a digit from 1 to 9 in each square so that there are no
+      repeated digits in any across or down entry, and the clue in front of the
+      entry gives the sum of that entry's digits). However, the clues are much
+      too large for the kakuro to be solvable.
+    </p>
+    <p>
+      However, each of the large-number clues has factors that would be small
+      enough to be valid clues. This discovery, the title reference to
+      "stacking," and the flavortext reference to two pages being stuck together
+      (and to a lesser extent, the word "times" in the flavortext) should
+      hopefully suggest that this puzzle is actually two kakuro puzzles
+      combined, and each given clue is the product of the two clues from the two
+      puzzles.
+    </p>
+    <p>
+      There is only one way to deconstruct the clues into two solvable puzzles;
+      the solutions to these are shown below.
+    </p>
+    <div class="smallgrids">
+      <img class="smallgrid" src="{{ asset_url_for('stackuro/stackuro-sol1.gif') }}">
+      <img class="smallgrid" src="{{ asset_url_for('stackuro/stackuro-sol2.gif') }}">
+    </div>
+    <p>
+      The letter equations appear to be asking you to perform arithmetic on the
+      numbers in the solved puzzle... but in which solution? Well, the marked
+      squares are in the combined grid (with product clues), and so the numbers
+      that would go in that grid would logically be the products of the numbers
+      from the two solution grids! That combined product solution is shown
+      below.
+    </p>
+    <img class="biggrid" src="{{ asset_url_for('stackuro/stackuro-sol3.gif') }}">
+    <p>
+      Performing the arithmetic on the products in the lettered squares gives
+      seven numbers from 1 to 26. Interpreting these numbers alphanumerically
+      gives the answer to the puzzle, <b>RIGHT ON</b>.
+    </p>
+    <div class="a">
+      <p>12 + 9 - 3 = 18 = R</p>
+      <p>45 + 12 - 48 = 9 = I</p>
+      <p>16 + 72 - 81 = 7 = G</p>
+      <p>15 + 49 - 56 = 8 = H</p>
+      <p>36 + 8 - 24 = 20 = T</p>
+      <p>14 + 49 - 48 = 15 = O</p>
+      <p>6 + 24 - 16 = 14 = N</p>
+    </div>
+  </div>
+{% endblock %}

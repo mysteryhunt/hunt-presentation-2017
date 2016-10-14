@@ -1,0 +1,38 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}Stackuro{% endblock %}
+{% block puzzle_name_block %}Stackuro{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    .grid {
+      width: 600px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .a p {
+      text-align: center;
+      font-size: 24px;
+    }
+  </style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+  Inspecting the minstrels' sheet music, you find that two pages are stuck together. That happens at times.
+{% endblock %}
+
+{% block puzzle_content_block %}
+  <div>
+    <img class="grid" src="{{ asset_url_for('stackuro/image01.gif') }}">
+    <div class="a">
+      <p>C + L - R = ?</p>
+      <p>N + U - J = ?</p>
+      <p>H + Q - I = ?</p>
+      <p>G + M - S = ?</p>
+      <p>D + O - F = ?</p>
+      <p>E + K - T = ?</p>
+      <p>A + P - B = ?</p>
+    </div>
+  </div>
+{% endblock %}
