@@ -100,3 +100,20 @@ def full_solution(puzzle_id):
     return render_template(
         "solutions/%s.html" % puzzle_id,
         puzzle_id=puzzle_id)
+
+@app.route("/full/round/<round_id>")
+@login_required.writingteam
+def full_round(round_id):
+    puzzle_properties = cube.get_puzzles(app)
+    puzzle_properties = {puzzle.get('puzzleId'): puzzle for puzzle in puzzle_properties}
+    
+    visibility = request.args.get('visibility','VISIBLE')
+    puzzle_visibilities = {puzzle_id: {'status': visibility} for puzzle_id in puzzle_properties.keys()}
+    
+    return render_template(
+        "rounds/%s.html" % round_id,
+        round_id=round_id,
+        puzzle_properties=puzzle_properties,
+        puzzle_visibilities=puzzle_visibilities,
+        full_access = True)
+    
