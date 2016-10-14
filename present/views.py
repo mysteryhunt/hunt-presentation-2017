@@ -93,7 +93,10 @@ def full_puzzle_index():
 @app.route("/full/puzzle/<puzzle_id>")
 @login_required.writingteam
 def full_puzzle(puzzle_id):
-    puzzle = cube.get_puzzle(app, puzzle_id)
+    try:
+        puzzle = cube.get_puzzle(app, puzzle_id)
+    except:
+        puzzle = None
     return render_template(
         "puzzles/%s.html" % puzzle_id,
         puzzle_id=puzzle_id,
@@ -121,4 +124,4 @@ def full_round(round_id):
         puzzle_properties=puzzle_properties,
         puzzle_visibilities=puzzle_visibilities,
         full_access = True)
-    
+
