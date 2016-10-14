@@ -74,10 +74,13 @@ def round(round_id):
 def puzzle(puzzle_id):
     if not cube.is_puzzle_unlocked(app, puzzle_id):
         abort(403)
+        
+    puzzle = cube.get_puzzle(app, puzzle_id)
 
     return render_template(
         "puzzles/%s.html" % puzzle_id,
-        puzzle_id=puzzle_id)
+        puzzle_id=puzzle_id,
+        puzzle=puzzle)
 
 @app.route("/full/puzzle")
 @login_required.writingteam
@@ -90,9 +93,11 @@ def full_puzzle_index():
 @app.route("/full/puzzle/<puzzle_id>")
 @login_required.writingteam
 def full_puzzle(puzzle_id):
+    puzzle = cube.get_puzzle(app, puzzle_id)
     return render_template(
         "puzzles/%s.html" % puzzle_id,
-        puzzle_id=puzzle_id)
+        puzzle_id=puzzle_id,
+        puzzle=puzzle)
 
 @app.route("/full/solution/<puzzle_id>")
 @login_required.writingteam
