@@ -3,6 +3,11 @@
 {% block puzzle_name_block %}Before and After MASH{% endblock %}
 
 {% block puzzle_head_block %}
+<style>
+  audio {
+    min-width: 400px;
+  }
+</style>
 {% endblock %}
 
 {% block puzzle_flavortext_block %}
@@ -14,28 +19,128 @@ The Fighter regrets never finding a theme song worthy of his adventures.
   <p>
     All numbers should be spelled out as words.
   </p>
-  <ul>
-    <li><a href="{{ asset_url_for('before_and_after_mash/track01.mp3') }}">Sound Clip 1</a></li>
-    <li><a href="{{ asset_url_for('before_and_after_mash/track02.mp3') }}">Sound Clip 2</a></li>
-    <li><a href="{{ asset_url_for('before_and_after_mash/track03.mp3') }}">Sound Clip 3</a></li>
-    <li><a href="{{ asset_url_for('before_and_after_mash/track04.mp3') }}">Sound Clip 4</a></li>
-    <li><a href="{{ asset_url_for('before_and_after_mash/track05.mp3') }}">Sound Clip 5</a></li>
-    <li><a href="{{ asset_url_for('before_and_after_mash/track06.mp3') }}">Sound Clip 6</a></li>
-    <li><a href="{{ asset_url_for('before_and_after_mash/track07.mp3') }}">Sound Clip 7</a></li>
-    <li><a href="{{ asset_url_for('before_and_after_mash/track08.mp3') }}">Sound Clip 8</a></li>
-    <li><a href="{{ asset_url_for('before_and_after_mash/track09.mp3') }}">Sound Clip 9</a></li>
-    <li><a href="{{ asset_url_for('before_and_after_mash/track10.mp3') }}">Sound Clip 10</a></li>
-    <li><a href="{{ asset_url_for('before_and_after_mash/track11.mp3') }}">Sound Clip 11</a></li>
-    <li><a href="{{ asset_url_for('before_and_after_mash/track12.mp3') }}">Sound Clip 12</a></li>
-    <li><a href="{{ asset_url_for('before_and_after_mash/track13.mp3') }}">Sound Clip 13</a></li>
-    <li><a href="{{ asset_url_for('before_and_after_mash/track14.mp3') }}">Sound Clip 14</a></li>
-    <li><a href="{{ asset_url_for('before_and_after_mash/track15.mp3') }}">Sound Clip 15</a></li>
-    <li><a href="{{ asset_url_for('before_and_after_mash/track16.mp3') }}">Sound Clip 16</a></li>
-    <li><a href="{{ asset_url_for('before_and_after_mash/track17.mp3') }}">Sound Clip 17</a></li>
-    <li><a href="{{ asset_url_for('before_and_after_mash/track18.mp3') }}">Sound Clip 18</a></li>
-    <li><a href="{{ asset_url_for('before_and_after_mash/track19.mp3') }}">Sound Clip 19</a></li>
-    <li><a href="{{ asset_url_for('before_and_after_mash/track20.mp3') }}">Sound Clip 20</a></li>
-  </ul>
+  <ol>
+    <li>
+      <audio controls>
+        <source src="{{ asset_url_for('before_and_after_mash/track01.mp3') }}" type="audio/mp3"/>
+        <a href="{{ asset_url_for('before_and_after_mash/track01.mp3') }}"Sound Clip 1</a>
+      </audio>
+    </li>
+    <li>
+      <audio controls>
+        <source src="{{ asset_url_for('before_and_after_mash/track02.mp3') }}" type="audio/mp3"/>
+        <a href="{{ asset_url_for('before_and_after_mash/track02.mp3') }}"Sound Clip 2</a>
+      </audio>
+    </li>
+    <li>
+      <audio controls>
+        <source src="{{ asset_url_for('before_and_after_mash/track03.mp3') }}" type="audio/mp3"/>
+        <a href="{{ asset_url_for('before_and_after_mash/track03.mp3') }}"Sound Clip 3</a>
+      </audio>
+    </li>
+    <li>
+      <audio controls>
+        <source src="{{ asset_url_for('before_and_after_mash/track04.mp3') }}" type="audio/mp3"/>
+        <a href="{{ asset_url_for('before_and_after_mash/track04.mp3') }}"Sound Clip 4</a>
+      </audio>
+    </li>
+    <li>
+      <audio controls>
+        <source src="{{ asset_url_for('before_and_after_mash/track05.mp3') }}" type="audio/mp3"/>
+        <a href="{{ asset_url_for('before_and_after_mash/track05.mp3') }}"Sound Clip 5</a>
+      </audio>
+    </li>
+    <li>
+      <audio controls>
+        <source src="{{ asset_url_for('before_and_after_mash/track06.mp3') }}" type="audio/mp3"/>
+        <a href="{{ asset_url_for('before_and_after_mash/track06.mp3') }}"Sound Clip 6</a>
+      </audio>
+    </li>
+    <li>
+      <audio controls>
+        <source src="{{ asset_url_for('before_and_after_mash/track07.mp3') }}" type="audio/mp3"/>
+        <a href="{{ asset_url_for('before_and_after_mash/track07.mp3') }}"Sound Clip 7</a>
+      </audio>
+    </li>
+    <li>
+      <audio controls>
+        <source src="{{ asset_url_for('before_and_after_mash/track08.mp3') }}" type="audio/mp3"/>
+        <a href="{{ asset_url_for('before_and_after_mash/track08.mp3') }}"Sound Clip 8</a>
+      </audio>
+    </li>
+    <li>
+      <audio controls>
+        <source src="{{ asset_url_for('before_and_after_mash/track09.mp3') }}" type="audio/mp3"/>
+        <a href="{{ asset_url_for('before_and_after_mash/track09.mp3') }}"Sound Clip 9</a>
+      </audio>
+    </li>
+    <li>
+      <audio controls>
+        <source src="{{ asset_url_for('before_and_after_mash/track10.mp3') }}" type="audio/mp3"/>
+        <a href="{{ asset_url_for('before_and_after_mash/track10.mp3') }}"Sound Clip 10</a>
+      </audio>
+    </li>
+    <li>
+      <audio controls>
+        <source src="{{ asset_url_for('before_and_after_mash/track11.mp3') }}" type="audio/mp3"/>
+        <a href="{{ asset_url_for('before_and_after_mash/track11.mp3') }}"Sound Clip 11</a>
+      </audio>
+    </li>
+    <li>
+      <audio controls>
+        <source src="{{ asset_url_for('before_and_after_mash/track12.mp3') }}" type="audio/mp3"/>
+        <a href="{{ asset_url_for('before_and_after_mash/track12.mp3') }}"Sound Clip 12</a>
+      </audio>
+    </li>
+    <li>
+      <audio controls>
+        <source src="{{ asset_url_for('before_and_after_mash/track13.mp3') }}" type="audio/mp3"/>
+        <a href="{{ asset_url_for('before_and_after_mash/track13.mp3') }}"Sound Clip 13</a>
+      </audio>
+    </li>
+    <li>
+      <audio controls>
+        <source src="{{ asset_url_for('before_and_after_mash/track14.mp3') }}" type="audio/mp3"/>
+        <a href="{{ asset_url_for('before_and_after_mash/track14.mp3') }}"Sound Clip 14</a>
+      </audio>
+    </li>
+    <li>
+      <audio controls>
+        <source src="{{ asset_url_for('before_and_after_mash/track15.mp3') }}" type="audio/mp3"/>
+        <a href="{{ asset_url_for('before_and_after_mash/track15.mp3') }}"Sound Clip 15</a>
+      </audio>
+    </li>
+    <li>
+      <audio controls>
+        <source src="{{ asset_url_for('before_and_after_mash/track16.mp3') }}" type="audio/mp3"/>
+        <a href="{{ asset_url_for('before_and_after_mash/track16.mp3') }}"Sound Clip 16</a>
+      </audio>
+    </li>
+    <li>
+      <audio controls>
+        <source src="{{ asset_url_for('before_and_after_mash/track17.mp3') }}" type="audio/mp3"/>
+        <a href="{{ asset_url_for('before_and_after_mash/track17.mp3') }}"Sound Clip 17</a>
+      </audio>
+    </li>
+    <li>
+      <audio controls>
+        <source src="{{ asset_url_for('before_and_after_mash/track18.mp3') }}" type="audio/mp3"/>
+        <a href="{{ asset_url_for('before_and_after_mash/track18.mp3') }}"Sound Clip 18</a>
+      </audio>
+    </li>
+    <li>
+      <audio controls>
+        <source src="{{ asset_url_for('before_and_after_mash/track19.mp3') }}" type="audio/mp3"/>
+        <a href="{{ asset_url_for('before_and_after_mash/track19.mp3') }}"Sound Clip 19</a>
+      </audio>
+    </li>
+    <li>
+      <audio controls>
+        <source src="{{ asset_url_for('before_and_after_mash/track20.mp3') }}" type="audio/mp3"/>
+        <a href="{{ asset_url_for('before_and_after_mash/track20.mp3') }}"Sound Clip 20</a>
+      </audio>
+    </li>
+  </ol>
 </p>
 <br>
 <img src="{{ asset_url_for('before_and_after_mash/before-and-after-mash-grid.gif') }}" width=600>
