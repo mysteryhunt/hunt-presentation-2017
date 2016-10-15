@@ -1,0 +1,202 @@
+{% extends "solutions/solution_layout.html" %}
+{% block title_block %}It Takes Two: Solution{% endblock %}
+{% block puzzle_name_block %}It Takes Two: Solution{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  table {
+    font-size: 15px;
+  }
+  .centered {
+    text-align: center;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<div>
+  <p>
+    Each column contains two clues and they are paired across. One of each of the clues clues a word that is a name in something in math/science/politics that is two people’s names hyphenated like Hewlett-Packard. The other clue, which may come first or second, is a transdeletion of the other word. Reading down the transdeleted letters in order spells out NOT EVEN and CANDID OR OPEN. This gives another pair of clues for another hyphenated set. ODD and FRANK… missing a letter gives DODD-FRANK.
+  </p>
+  <table>
+    <tr>
+      <th colspan='2'>&nbsp;</th>
+      <th class="centered">First Clue</th>
+      <th class="centered">Second Clue</th>
+      <th class="centered">One Not There</th>
+      <th class="centered">Missing Letter</th>
+      <th class="centered">Pair</th>
+    </tr>
+    <tr>
+      <td>Capital of Okinawa</td>
+      <td>A red Italian wine grape</td>
+      <td class="centered">Naha</td>
+      <td class="centered">Barbera</td>
+      <td class="centered">Hanna</td>
+      <td class="centered">N</td>
+      <td class="centered">Hanna-Barbera</td>
+    </tr>
+    <tr>
+      <td>Prion disease that affects cows, for short</td>
+      <td>Original surname of Albert Brooks</td>
+      <td class="centered">BSE</td>
+      <td class="centered">Einstein</td>
+      <td class="centered">Bose</td>
+      <td class="centered">O</td>
+      <td class="centered">Bose-Einstein</td>
+    </tr>
+    <tr>
+      <td>Obese</td>
+      <td>Rogers, who taught math at MIT until 2015</td>
+      <td class="centered">Fat</td>
+      <td class="centered">Hartley</td>
+      <td class="centered">Taft</td>
+      <td class="centered">T</td>
+      <td class="centered">Taft-Hartley</td>
+    </tr>
+    <tr>
+      <td>Went through quickly, like someone's luggage</td>
+      <td>Partner of arts</td>
+      <td class="centered">Rifled</td>
+      <td class="centered">Crafts</td>
+      <td class="centered">Friedel</td>
+      <td class="centered">E</td>
+      <td class="centered">Friedel-Crafts</td>
+    </tr>
+    <tr>
+      <td>A cobbler</td>
+      <td>Ron who played Tarzan</td>
+      <td class="centered">Shoemaker</td>
+      <td class="centered">Ely</td>
+      <td class="centered">Levy</td>
+      <td class="centered">V</td>
+      <td class="centered">Shoemaker-Levy</td>
+    </tr>
+    <tr>
+      <td>A small upright piano</td>
+      <td>One-time surname of Roseanne</td>
+      <td class="centered">Spinet</td>
+      <td class="centered">Barr</td>
+      <td class="centered">Epstein</td>
+      <td class="centered">E</td>
+      <td class="centered">Epstein-Barr</td>
+    </tr>
+    <tr>
+      <td>Amber on "Glee"</td>
+      <td>Lasat who manned the starship Ghost</td>
+      <td class="centered">Mercedes</td>
+      <td class="centered">Zeb</td>
+      <td class="centered">Benz</td>
+      <td class="centered">N</td>
+      <td class="centered">Mercedes-Benz</td>
+    </tr>
+    <tr>
+      <td>Tosses some dice</td>
+      <td>Partner of terminer</td>
+      <td class="centered">Rolls</td>
+      <td class="centered">Oyer</td>
+      <td class="centered">Royce</td>
+      <td class="centered">C</td>
+      <td class="centered">Rolls-Royce</td>
+    </tr>
+    <tr>
+      <td>Cobb, the Georgia Peach</td>
+      <td>Follower of Goldman in finance</td>
+      <td class="centered">Ty</td>
+      <td class="centered">Sachs</td>
+      <td class="centered">Tay</td>
+      <td class="centered">A</td>
+      <td class="centered">Tay-Sachs</td>
+    </tr>
+    <tr>
+      <td>Namesake of Northwestern's Business School</td>
+      <td>Afflicted with hydrophobia</td>
+      <td class="centered">Kellogg</td>
+      <td class="centered">Rabid</td>
+      <td class="centered">Briand</td>
+      <td class="centered">N</td>
+      <td class="centered">Kellogg-Briand</td>
+    </tr>
+    <tr>
+      <td>Hawaiian floral garlands</td>
+      <td>The black version of this tree is also called the winterberry</td>
+      <td class="centered">Leis</td>
+      <td class="centered">Alder</td>
+      <td class="centered">Diels</td>
+      <td class="centered">D</td>
+      <td class="centered">Diels-Alder</td>
+    </tr>
+    <tr>
+      <td>Original or recently picked</td>
+      <td>The marked cost of something</td>
+      <td class="centered">Fresh</td>
+      <td class="centered">Price</td>
+      <td class="centered">Fisher</td>
+      <td class="centered">I</td>
+      <td class="centered">Fisher-Price</td>
+    </tr>
+    <tr>
+      <td>Interjection of pain</td>
+      <td>A strong desire for something, usually drugs, slangily</td>
+      <td class="centered">Ow</td>
+      <td class="centered">Jones</td>
+      <td class="centered">Dow</td>
+      <td class="centered">D</td>
+      <td class="centered">Dow-Jones</td>
+    </tr>
+    <tr>
+      <td>Over 50% of</td>
+      <td>It borders Plainfield, Buckland, and Charlemont</td>
+      <td class="centered">Most</td>
+      <td class="centered">Hawley</td>
+      <td class="centered">Smoot</td>
+      <td class="centered">O</td>
+      <td class="centered">Smoot-Hawley</td>
+    </tr>
+    <tr>
+      <td>One who cripples or mutilates</td>
+      <td>Emmanuel Lewis' TV series</td>
+      <td class="centered">Maimer</td>
+      <td class="centered">Webster</td>
+      <td class="centered">Merriam</td>
+      <td class="centered">R</td>
+      <td class="centered">Merriam-Webster</td>
+    </tr>
+    <td>Famed course, with "Le"</td>
+    <td>Police Constable of Dock Green</td>
+    <td class="centered">Mans</td>
+    <td class="centered">Dixon</td>
+    <td class="centered">Mason</td>
+    <td class="centered">O</td>
+    <td class="centered">Mason-Dixon</td>
+    </tr>
+    <tr>
+      <td>In good health and shape</td>
+      <td>A style of Jazz</td>
+      <td class="centered">Hale</td>
+      <td class="centered">Bop</td>
+      <td class="centered">Bopp</td>
+      <td class="centered">P</td>
+      <td class="centered">Hale-Bopp</td>
+    </tr>
+    <tr>
+      <td>An expandable alloy of iron and nickel</td>
+      <td>Prods and stirs up a fire</d>
+        <td class="centered">Invar</td>
+        <td class="centered">Stokes</td>
+        <td class="centered">Navier</td>
+        <td class="centered">E</td>
+        <td class="centered">Navier-Stokes</td>
+    </tr>
+    <tr>
+      <td>Cardinal in the Pac 12</td>
+      <td>Sink your teeth into</td>
+      <td class="centered">Stanford</td>
+      <td class="centered">Bite</td>
+      <td class="centered">Binet</td>
+      <td class="centered">N</td>
+      <td class="centered">Stanford-Binet</td>
+    </tr>
+  </table>
+</div>
+{% endblock %}
