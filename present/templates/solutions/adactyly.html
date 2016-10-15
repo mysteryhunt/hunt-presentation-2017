@@ -1,0 +1,79 @@
+{% extends "solutions/solution_layout.html" %}
+{% block title_block %}Adactyly: Solution{% endblock %}
+{% block puzzle_name_block %}Adactyly: Solution{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  .section {
+    text-align: center;
+  }
+  .solution {
+    padding-top: 4px;
+    text-decoration: underline;
+  }
+  .pair {
+    padding-bottom: 18px;
+  }
+  .digit {
+    text-decoration: underline;
+    font-weight: bold;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<div>
+  <p>"Adactyly" is the condition of missing a digit. Each question is missing one digit that is necessary to get a correct answer that matches one of the enumerations shown:</P>
+  <div class="section">
+    <div class="pair">
+      <div>What movie ranked #3<span class="digit">6</span> on AFI’s 2007 list of 100 Greatest American Movies?</div>
+      <div class="solution">The Bridge on the River Kwai</div>
+    </div>
+    <div class="pair">
+      <div>The Super <span class="digit">8</span> chain was founded in what city?</div>
+      <div class="solution">Aberdeen, South Dakota</div>
+    </div>
+    <div class="pair">
+      <div>What is the first listed ingredient in the product that contains mystery ingredient <span class="digit">7</span>X?</div>
+      <div class="solution">carbonated water</div>
+    </div>
+    <div class="pair">
+      <div>What was the first video ever played on MTV<span class="digit">2</span>?</div>
+      <div class="solution">"Where It's At"</div>
+    </div>
+    <div class="pair">
+      <div>What is the common name for vitamin B1<span class="digit">2</span>?</div>
+      <div class="solution">cobalamin</div>
+    </div>
+    <div class="pair">
+      <div>Who was Ghostface’s second victim in the movie “Scream <span class="digit">4</span>”?</div>
+      <div class="solution">Sherrie Marconi</div>
+    </div>
+    <div class="pair">
+      <div>A<span class="digit">1</span> sauce is, according to its label, primarily intended to be used on what food?</div>
+      <div class="solution">steak</div>
+    </div>
+    <div class="pair">
+      <div>802<span class="digit">7</span>01 is the setting of most of the action in what popular novel?</div>
+      <div class="solution">"The Time Machine"</div>
+    </div>
+    <div class="pair">
+      <div>K-<span class="digit">9</span> is a character in what science fiction entertainment franchise?</div>
+      <div class="solution">"Doctor Who"</div>
+    </div>
+    <div class="pair">
+      <div>Where will I-<span class="digit">4</span> end up if I start in Daytona Beach?</div>
+      <div class="solution">Tampa</div>
+    </div>
+    <div class="pair">
+      <div>"V-<span class="digit">8</span>" represents a number of things (obviously). Which comes last alphabetically?</div>
+      <div class="solution">watercress</div>
+    </div>
+    <div class="pair">
+      <div>What unit of measurement is equal to <span class="digit">3</digit>2 tablespoons?</div>
+  <div class="solution">pint</div>
+</div>
+</div>
+<p>Index into the answers by the added numbers to get the phrase IN A HORSE OPEN ______.  This is also missing a number; it should read "in a one-horse open _____", leading to the answer SLEIGH.</p>
+</div>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}Adactyly{% endblock %}
+{% block puzzle_name_block %}Adactyly{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  .section {
+    text-align: center;
+  }
+  #enumerations {
+    text-decoration: underline;
+    font-size:20px;
+  }
+</style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+The linguist understands all the words in these questions, but there's a problem he can't put his finger on.
+{% endblock %}
+
+{% block puzzle_content_block %}
+<div>
+  <div class="section">
+    <p>What movie was ranked #3 on AFI’s 2007 list of 100 Greatest American Movies?</p>
+    <p>The Super chain was founded in what city?</p>
+    <p>What is the first listed ingredient in the product that contains mystery ingredient X?</p>
+    <p>What was the first video ever played on MTV?</p>
+    <p>What is the common name for vitamin B1?</p>
+    <p>Who was Ghostface’s second victim in the movie “Scream”?</p>
+    <p>A sauce is, according to its label, primarily intended to be used on what food?</p>
+    <p>80201 is the setting of most of the action in what popular novel?</p>
+    <p>K is a character in what science fiction entertainment franchise?</p>
+    <p>Where will I end up if I start in Daytona Beach?</p>
+    <p>"V" represents a number of things (obviously). Which comes last alphabetically?</p>
+    <p>What unit of measurement is equal to 2 tablespoons?</p>
+  </div>
+  <br/>
+  <div class="section">
+    <p id="enumerations">Enumerations</p>
+    <p>3 4 7</p>
+    <p>3 6 2 3 5 4</p>
+    <p>4</p>
+    <p>5</p>
+    <p>5</p>
+    <p>5 3 2</p>
+    <p>6 3</p>
+    <p>7 7</p>
+    <p>8 5 6</p>
+    <p>9</p>
+    <p>10</p>
+    <p>10 5</p>
+  </div>
+  <br/>
+  <div class="section">
+    <p>_ _ _ _ _ _ _ _ _ _ _ _ ______</p>
+  </div>
+</div>
+{% endblock %}
