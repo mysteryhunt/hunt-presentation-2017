@@ -2,19 +2,38 @@
 {% block title_block %}The Cleric{% endblock %}
 {% block round_name %}The Cleric{% endblock %}
 
+{% block puzzle_head_block %}
+<style>
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+table td {
+  width: 50%;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  vertical-align: middle;
+}
+</style>
+{% endblock %}
+
 {% block round_flavortext %}
 Cleric text... Cleric text... Cleric text... Cleric text... Cleric text... Cleric text... Cleric text... Cleric text... Cleric text... Cleric text... Cleric text... Cleric text... Cleric text... Cleric text... Cleric text... Cleric text... Cleric text... Cleric text... Cleric text... Cleric text... Cleric text... Cleric text... Cleric text... Cleric text... Cleric text... Cleric text... Cleric text... Cleric text... Cleric text... Cleric text... Cleric text... Cleric text... Cleric text... Cleric text... Cleric text... 
 {% endblock %}
 
 {% block round_puzzle_entries %}
-<div class="puzzle-list-column" id="puzzle-list-column-left">
-  {% for puzzle_id in ['cl-l1','cl-l2','cl-l3','cl-l4','cl-l5'] %}
-    {{ puzzle_entry(puzzle_id, puzzle_properties, puzzle_visibilities) }}
-  {% endfor %}
-</div>
-<div class="puzzle-list-column" id="puzzle-list-column-right">
-  {% for puzzle_id in ['cl-r1','cl-r2','cl-r3','cl-r4','cl-r5'] %}
-    {{ puzzle_entry(puzzle_id, puzzle_properties, puzzle_visibilities) }}
-  {% endfor %}
-</div>
+<table>
+{% for i in ['1','2','3','4','5'] %}
+<tr>
+<td>
+  {{ puzzle_entry('cl-l' + i, puzzle_properties, puzzle_visibilities) }}
+</td>
+<td>
+  {{ puzzle_entry('cl-r' + i, puzzle_properties, puzzle_visibilities) }}
+</td>  
+</tr>
+{% endfor %}
+</table>
 {% endblock %}

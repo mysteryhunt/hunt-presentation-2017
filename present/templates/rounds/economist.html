@@ -9,12 +9,7 @@ Economist text... Economist text... Economist text... Economist text... Economis
 
 {% block round_puzzle_entries %}
 <div class="puzzle-list-column" id="puzzle-list-column-left">
-  {% for puzzle_id in ['e1','e2','e3','e4'] %}
-    {{ puzzle_entry(puzzle_id, puzzle_properties, puzzle_visibilities) }}
-  {% endfor %}
-</div>
-<div class="puzzle-list-column" id="puzzle-list-column-right">
-  {% for puzzle_id in ['e5','e6','e7','e8'] %}
+  {% for puzzle_id in ['e1','e2','e3','e4','e5','e6','e7','e8'] %}
     {{ puzzle_entry(puzzle_id, puzzle_properties, puzzle_visibilities) }}
   {% endfor %}
 </div>

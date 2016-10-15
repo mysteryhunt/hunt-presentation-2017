@@ -9,12 +9,7 @@ Chemist text... Chemist text... Chemist text... Chemist text... Chemist text... 
 
 {% block round_puzzle_entries %}
 <div class="puzzle-list-column" id="puzzle-list-column-left">
-  {% for puzzle_id in ['ch1','ch2','ch3','ch4','ch5'] %}
-    {{ puzzle_entry(puzzle_id, puzzle_properties, puzzle_visibilities) }}
-  {% endfor %}
-</div>
-<div class="puzzle-list-column" id="puzzle-list-column-right">
-  {% for puzzle_id in ['ch6','ch7','ch8','ch9'] %}
+  {% for puzzle_id in ['ch1','ch2','ch3','ch4','ch5','ch6','ch7','ch8','ch9'] %}
     {{ puzzle_entry(puzzle_id, puzzle_properties, puzzle_visibilities) }}
   {% endfor %}
 </div>
