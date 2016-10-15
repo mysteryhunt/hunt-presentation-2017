@@ -13,6 +13,7 @@ def clear_session():
     session.pop("username", None)
     session.pop("password", None)
     session.pop("usertype", None)
+    session.pop("after_login_url", None)
 
 @blueprint.route("/login", methods=["GET", "POST"])
 def login():
@@ -32,6 +33,10 @@ def login():
                     "login.html",
                     error="Invalid login for user '%s'." % request.form["username"])
             raise e
+        if "after_login_url" in session:
+            after_login_url = session["after_login_url"]
+            session.pop("after_login_url", None)
+            return redirect(after_login_url)
         return redirect(url_for("index"))
     return render_template("login.html")
 
