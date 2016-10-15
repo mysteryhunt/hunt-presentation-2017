@@ -1,0 +1,30 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}School of Mines{% endblock %}
+{% block puzzle_name_block %}School of Mines{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    .start-game {
+      text-align: center;
+    }
+  </style>
+
+  <script>
+    function startGame() {
+      window.open(
+        "{{ asset_url_for('school_of_mines/grade1.html') | safe }}",
+        "Grade1",
+        "toolbar=0,directories=0,menubar=0,scrollbars=0,resizable=1,width=320,height=320,dependent=0,status=0,alwaysRaised=1");
+    }
+  </script>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+  The Wizard goes to school to get a feel for some new magical knowledge.
+{% endblock %}
+
+{% block puzzle_content_block %}
+  <div class="start-game">
+    <button onclick="startGame()">Start Game</button>
+  </div>
+{% endblock %}

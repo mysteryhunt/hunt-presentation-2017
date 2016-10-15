@@ -1,0 +1,52 @@
+{% extends "solutions/solution_layout.html" %}
+{% block title_block %}School of Mines: Solution{% endblock %}
+{% block puzzle_name_block %}School of Mines: Solution{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    .grid {
+      font-family: "monospace";
+    }
+  </style>
+{% endblock %}
+
+{% block solution_content_block %}
+  <div>
+    <p>
+      This puzzle makes you play Minesweeper on the same board until you uncover
+      all the safe squares.
+    </p>
+    <p>
+      On the Grade 1 board, the mine locations, when read in Braille, read
+      "Braille!" -- which is self-confirming.
+    </p>
+    <p class="grid">
+      O.O.O..O<br>
+      O.OO..O.<br>
+      ..O.....<br>
+      O.O.O...<br>
+      O.O..OOO<br>
+      O.O...O.
+    </p>
+    <p>
+      On the Grade 2 board, the mine locations have to be read using Grade 2
+      Braille. Using any reference for Grade 2 Braille leads us to the string
+      "contract_or_therapist" (actually more like "contract or therapist") --
+      which clues <b>SHRINK</b>.
+    </p>
+    <p class="grid">
+      ...OO.O.<br>
+      OOOOOO..<br>
+      ..O.O...<br>
+      OO.O.OO.<br>
+      ..OO...O<br>
+      ..O..OO.<br>
+      O..O.OO.<br>
+      OO..O.OO<br>
+      O..OOOO.<br>
+      O.OO.O.O<br>
+      ..O.O...<br>
+      ..O...O.
+    </p>
+  </div>
+{% endblock %}
