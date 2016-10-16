@@ -1,0 +1,19 @@
+{% extends "rounds/quest_round_layout.html" %}
+{% block title_block %}The Curious Cube{% endblock %}
+{% block round_name %}The Curious Cube{% endblock %}
+
+{% block round_flavortext %}
+<p>After exploring an abandoned castle, you arrive at the only exit, but what appears to be an icy blue wall blocks your way. Curiously, one of you reaches toward it and find that your hand penetrates the surface and begins to burn; you quickly recoil. This is no ice wall; it's a gelatinous cube, blocking the way!</p>
+
+<p>The fighter draws his sword and smoothly cuts the cube down the middle, but within seconds, the two resulting smaller cubes merge back into one and continue to block your path. The creature seems equally impervious to magic and to all of your other anti-cube schemes. This is going to be a problem.</p>
+
+<p><span class="round_question">What can you use to defeat the cube?</span></p>
+{% endblock %}
+
+{% block round_puzzle_entries %}
+<div class="puzzle-list-column">
+  {% for puzzle_id in ['cube1','cube2','cube3','cube4','cube5','cube6','cube7','cube8'] %}
+    {{ puzzle_entry(puzzle_id, puzzle_properties, puzzle_visibilities) }}
+  {% endfor %}
+</div>
+{% endblock %}

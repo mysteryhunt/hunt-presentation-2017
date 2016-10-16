@@ -11,13 +11,8 @@
 {% endblock %}
 
 {% block round_puzzle_entries %}
-<div class="puzzle-list-column" id="puzzle-list-column-left">
-  {% for puzzle_id in ['dynast1','dynast2','dynast3','dynast4','dynast5','dynast6'] %}
-    {{ puzzle_entry(puzzle_id, puzzle_properties, puzzle_visibilities) }}
-  {% endfor %}
-</div>
-<div class="puzzle-list-column" id="puzzle-list-column-right">
-  {% for puzzle_id in ['dynast7','dynast8','dynast9','dynast10','dynast11'] %}
+<div class="puzzle-list-column">
+  {% for puzzle_id in ['dynast1','dynast2','dynast3','dynast4','dynast5','dynast6','dynast7','dynast8','dynast9','dynast10','dynast11'] %}
     {{ puzzle_entry(puzzle_id, puzzle_properties, puzzle_visibilities) }}
   {% endfor %}
 </div>

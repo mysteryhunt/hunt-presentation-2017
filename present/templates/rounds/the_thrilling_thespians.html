@@ -1,0 +1,42 @@
+{% extends "rounds/quest_round_layout.html" %}
+{% block title_block %}The Thrilling Thespians{% endblock %}
+{% block round_name %}The Thrilling Thespians{% endblock %}
+
+{% block puzzle_styling_block %}
+<style>
+#puzzle-list-column-left {
+  float: left;
+  width: 300px;
+}
+#puzzle-list-column-right {
+  margin-left: 300px;
+}
+.stage-direction {
+  font-size: 20px;
+  font-weight: bold;
+}
+</style>
+{% endblock %}
+
+{% block round_flavortext %}
+<p>You have been following a deadly assassin, and his trail leads you to a classical acting troupe. You think you can get close enough to your target if you can infiltrate the troupe as a fellow actor, but that's no easy task.</p>
+
+<p>This particular troupe is very selective, and they are renowned for their stirring versions of Shakespeare's love scenes; whether playing Romeo or Juliet, Anthony or Cleopatra, the performers are deeply convincing. There must be a secret to their success, a secret which you must discover in order to pass the audition and join the troupe.</p>
+
+<p><span class="round_question">What should you tell the casting director?</span></p>
+{% endblock %}
+
+{% block round_puzzle_entries %}
+<div class="puzzle-list-column" id="puzzle-list-column-left">
+  <div class="stage-direction">Stage Left</div>
+  {% for puzzle_id in ['thespians-l1','thespians-l2','thespians-l3','thespians-l4','thespians-l5'] %}
+    {{ puzzle_entry(puzzle_id, puzzle_properties, puzzle_visibilities) }}
+  {% endfor %}
+</div>
+<div class="puzzle-list-column" id="puzzle-list-column-right">
+  <div class="stage-direction">Stage Right</div>
+  {% for puzzle_id in ['thespians-r1','thespians-r2','thespians-r3','thespians-r4','thespians-r5'] %}
+    {{ puzzle_entry(puzzle_id, puzzle_properties, puzzle_visibilities) }}
+  {% endfor %}
+</div>
+{% endblock %}

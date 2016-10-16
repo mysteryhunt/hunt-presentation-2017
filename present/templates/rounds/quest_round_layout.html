@@ -29,42 +29,29 @@
 {% endblock %}
 
 {% macro puzzle_entry(puzzle_id, puzzle_properties, puzzle_visibilities) %}
+  {% set puzzle_link_action = 'full_puzzle' if full_access else 'puzzle' %}
+  {% set link_puzzle_id = puzzle_properties.get(puzzle_id,{}).get('puzzleProperties',{}).get('DisplayIdProperty',{}).get('displayId',puzzle_id) %}
   {% if puzzle_visibilities.get(puzzle_id).status == 'UNLOCKED' %}
     <div class="puzzle-entry">
-      <a href="{{ url_for('puzzle', puzzle_id = puzzle_id) }}">
-        <span class="prereq-reward-container">
-          <div class="prereq-reward-label">ON SOLVE</div>
-          <div class="class-icon-container" style="background-image: url({{ asset_url_for ('general/icon-small-chest.png') }})"></div>
-        </span>
-        <div class="puzzle-information">
-          <div class="puzzle-name">{{ puzzle_properties.get(puzzle_id).puzzleProperties.DisplayNameProperty.displayName }}</div>
-        </div>
+      <a href="{{ url_for(puzzle_link_action, puzzle_id = link_puzzle_id) }}">
+        <span class="puzzle-name">{{ puzzle_properties.get(puzzle_id).puzzleProperties.DisplayNameProperty.displayName }}</span>
       </a>
     </div>
   {% elif puzzle_visibilities.get(puzzle_id).status == 'SOLVED' %}
     <div class="puzzle-entry">
-      <a href="{{ url_for('puzzle', puzzle_id = puzzle_id) }}">
-        <span class="prereq-reward-container">
-            <div class="prereq-reward-label">SOLVED</div>
-            <div class="class-icon-container"><span class="fa fa-check"></span></div>
-        </span>
-        <div class="puzzle-information">
-          <div class="puzzle-name">{{ puzzle_properties.get(puzzle_id).puzzleProperties.DisplayNameProperty.displayName }}</div>
-          <div class="puzzle-solution">{{ puzzle_properties.get(puzzle_id).puzzleProperties.AnswersProperty.answers[0].canonicalAnswer }}</div>
-        </div>
+      <a href="{{ url_for(puzzle_link_action, puzzle_id = link_puzzle_id) }}">
+        <span class="puzzle-name">{{ puzzle_properties.get(puzzle_id).puzzleProperties.DisplayNameProperty.displayName }}</span>
+        <span class="puzzle-solution">{{ puzzle_properties.get(puzzle_id).puzzleProperties.AnswersProperty.answers[0].canonicalAnswer }}</span>
       </a>
     </div>
   {% elif puzzle_visibilities.get(puzzle_id).status == 'VISIBLE' %}
     <div class="puzzle-entry">
-        <span class="prereq-reward-container">
-            <div class="prereq-reward-label">UNLOCK AT</div>
-            {% set unlock_requirement = single_character_unlock_requirement(puzzle_properties.get(puzzle_id).puzzleProperties) %}
-            <div class="class-icon-container" style="background-image: url({{ asset_url_for ('general/icon-small-' + unlock_requirement.character.lower() + '.png') }})">
-              {{ unlock_requirement.levels }}
-            </div>
-        </span>
-        <div class="puzzle-information">
-        </div>
+      <span class="puzzle-name"><span class="fa fa-key"></span>
+        {% set unlock_requirement = single_character_unlock_requirement(puzzle_properties.get(puzzle_id).puzzleProperties) %}
+        {% if unlock_requirement.character %}
+          <span>{{ unlock_requirement.character.capitalize() }} {{ unlock_requirement.levels }}</span>
+        {% endif %}
+      </span>
     </div>
   {% endif %}
 {% endmacro %}

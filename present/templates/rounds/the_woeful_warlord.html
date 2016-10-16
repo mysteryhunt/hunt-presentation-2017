@@ -1,0 +1,39 @@
+{% extends "rounds/quest_round_layout.html" %}
+{% block title_block %}The Woeful Warlord{% endblock %}
+{% block round_name %}The Woeful Warlord{% endblock %}
+
+{% block puzzle_styling_block %}
+<style>
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+table td {
+  width: 33%;
+  border: 1px solid #ddd;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  vertical-align: middle;
+}
+</style>
+{% endblock %}
+
+{% block round_flavortext %}
+<p>The warlord looks sadly at his map of the battlefield. "Thank goodness you're here," he exclaims. "I need a combat strategy. My enemy and I have exhausted every angle, every avenue for attack. It's all so complicated: Where should I attack next? How will my enemy respond?" He collapses in a heap, overwhelmed by the pressure. It doesn't look like he'll be able to win this war on his own.</p>
+
+<p><span class="round_question">Whom can you recruit to help the warlord?</span></p>
+{% endblock %}
+
+{% block round_puzzle_entries %}
+<table>
+  {% for row in ['n','c','s'] %}
+    <tr>
+      {% for col in ['w','c','e'] %}
+        <td>
+          {{ puzzle_entry('warlord-' + row + col, puzzle_properties, puzzle_visibilities) }}
+        </td>
+      {% endfor %}
+    </tr>
+  {% endfor %}  
+</table>
+{% endblock %}

@@ -5,12 +5,26 @@
 {% block puzzle_head_block %}
 {% endblock %}
 
+{% macro round_listing(round_id, round_name) %}
+<li><a href="{{ url_for('full_round', round_id=round_id) }}">{{ round_name }}</a> (<a href="{{ url_for('full_solution', puzzle_id=round_id) }}">solution</a>)</li>
+{% endmacro %}
+
 {% macro puzzle_listing(puzzle_id, puzzle_name) %}
 <li><a href="{{ url_for('full_puzzle', puzzle_id=puzzle_id) }}">{{ puzzle_name }}</a> (<a href="{{ url_for('full_solution', puzzle_id=puzzle_id) }}">solution</a>)</li>
 {% endmacro %}
 
 {% block puzzle_content_block %}
 <div>
+  <h2>Rounds</h2>
+  <ul>
+    {% for round_id in ['fighter','wizard','cleric','linguist','economist','chemist',
+                        'the_despondent_dynast','the_dismal_dungeon','the_thrilling_thespians',
+                        'the_broken_bridge','the_crafty_criminal','the_modest_minstrels',
+                        'the_curious_cube','the_woeful_warlord'] %}
+      {{ round_listing(round_id, round_id) }}
+    {% endfor %}
+  </ul>
+  <h2>Puzzles</h2>
   <ul>
     {% for puzzle_id in puzzle_ids %}
       {{ puzzle_listing(puzzle_id, puzzle_id) }}

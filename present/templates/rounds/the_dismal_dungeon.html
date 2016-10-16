@@ -1,0 +1,17 @@
+{% extends "rounds/quest_round_layout.html" %}
+{% block title_block %}The Dismal Dungeon{% endblock %}
+{% block round_name %}The Dismal Dungeon{% endblock %}
+
+{% block round_flavortext %}
+<p>A fair maiden, to whom you were once betrothed, has been captured and imprisoned in a dark and dismal dungeon! You have a map of your surroundings, but the map is partially obscured, and is not immediately obvious how to use the parts you can see.</p>
+
+<p><span class="round_question">How can you safely traverse the dungeon?</span></p>
+{% endblock %}
+
+{% block round_puzzle_entries %}
+<div class="puzzle-list-column">
+  {% for puzzle_id in ['dungeon1','dungeon2','dungeon3','dungeon4','dungeon5','dungeon6','dungeon7','dungeon8','dungeon9','dungeon10','dungeon11'] %}
+    {{ puzzle_entry(puzzle_id, puzzle_properties, puzzle_visibilities) }}
+  {% endfor %}
+</div>
+{% endblock %}
