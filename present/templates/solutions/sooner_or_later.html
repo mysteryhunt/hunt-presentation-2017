@@ -1,0 +1,144 @@
+{% extends "solutions/solution_layout.html" %}
+{% block title_block %}Sooner or Later: Solution{% endblock %}
+{% block puzzle_name_block %}Sooner or Later: Solution{% endblock %}
+{% block puzzle_head_block %}
+<style>
+  table {
+    font-size: 20px;
+  }
+  #puzzle-body {
+  padding-top: 20px;
+  }
+  td {
+    padding-top: 5px;
+    padding-right: 15px;
+  }
+  span.red {
+    background-color: #D16A6A;
+    font-size: 28px;
+    font-family: monospace;
+    text-decoration: underline;
+  }
+  span.blue {
+    background-color: #76A1E8;
+    font-size: 28px;
+    font-family: monospace;
+    text-decoration: underline;
+  }
+  @media print {
+  span.red {
+    box-shadow: inset 0 0 0 1000px #D16A6A;
+  }
+  @media print {
+  span.blue {
+    box-shadow: inset 0 0 0 1000px #76A1E8;
+  }
+</style>
+{% endblock %}
+{% block solution_content_block %}
+<div>Each clue can be split into two parts, one consisting of letters in the first half of the alphabet (sooner), the other of letters in the second half (later). The coloring for each answer entry reflects which half is which. The letters immediately before the split on each answer spell UNFLEDGED NESTLING PIGEON, which is the clue for the final blank. This answer is SQUAB.</div>
+<div id="puzzle-body">
+  <table>
+    <tr>
+      <td>Mountain pass on Interstate 90 (10)</td>
+      <td><span class="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SNOQU</span><span class="blue">ALMIE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+    </tr>
+    <tr>
+      <td>City on the Nidelva (9)</td>
+      <td><span class="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TRON</span><span class="blue">DHEIM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+    </tr>
+    <tr>
+      <td>Winter visitor (4 5)</td>
+      <td><span class="blue">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JACK F</span><span class="red">ROST&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+    </tr>
+    <tr>
+      <td>1996 Natalie Merchant hit (8)</td>
+      <td><span class="blue">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JEAL</span><span class="red">OUSY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+    </tr>
+    <tr>
+      <td>Disease usually contracted by children (7 3)</td>
+      <td><span class="blue">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CHICKE</span><span class="red">N POX&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+    </tr>
+    <tr>
+      <td>Not coniferous (9)</td>
+      <td><span class="blue">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DECID</span><span class="red">UOUS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+    </tr>
+    <tr>
+      <td>Open to interpretation (9)</td>
+      <td><span class="blue">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AMBIG</span><span class="red">UOUS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+    </tr>
+    <tr>
+      <td>With "modern," a design movement (3-7)</td>
+      <td><span class="blue">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MID-CE</span><span class="red">NTURY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+    </tr>
+    <tr>
+      <td>American Chinese pre-meal selection (3 4 4)</td>
+      <td><span class="blue">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EGG D</span><span class="red">ROP SOUP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+    </tr>
+    <tr>
+      <td>Answer lake in 2002 Hunt (8)</td>
+      <td><span class="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ONON</span><span class="blue">DAGA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+    </tr>
+    <tr>
+      <td>Tom who played Loki (10)</td>
+      <td><span class="blue">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HIDDLE</span><span class="red">STON&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+    </tr>
+    <tr>
+      <td>Hydrogen cyanide (7 4)</td>
+      <td><span class="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRUSS</span><span class="blue">IC ACID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+    </tr>
+    <tr>
+      <td>Catch-y team-building activity (5 4)</td>
+      <td><span class="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TRUST</span><span class="blue"> FALL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+    </tr>
+    <tr>
+      <td>Pok&eacute;mon #069 (10)</td>
+      <td><span class="blue">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BELL</span><span class="red">SPROUT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+    </tr>
+    <tr>
+      <td>February subject of study (5 7)</td>
+      <td><span class="blue">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BLACK HI</span><span class="red">STORY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+    </tr>
+    <tr>
+      <td>Cavalier's opponent (9)</td>
+      <td><span class="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ROUN</span><span class="blue">DHEAD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+    </tr>
+    <tr>
+      <td>Louis Gossett Jr. boxing flop (9)</td>
+      <td><span class="blue">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DIGG</span><span class="red">STOWN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+    </tr>
+    <tr>
+      <td>Can't be halted (11)</td>
+      <td><span class="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UNSTOPP</span><span class="blue">ABLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+    </tr>
+    <tr>
+      <td>Olympic racquet sport (9)</td>
+      <td><span class="blue">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BADMI</span><span class="red">NTON&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+    </tr>
+    <tr>
+      <td><i>Family Ties</i> actor (7 5)</td>
+      <td><span class="blue">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MICHAEL G</span><span class="red">ROSS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+    </tr>
+    <tr>
+      <td>Old receptacle for waste (10)</td>
+      <td><span class="blue">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CHAMBE</span><span class="red">RPOT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+    </tr>
+    <tr>
+      <td>Cruise ship stop (4 2 4)</td>
+      <td><span class="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PORT O</span><span class="blue">F CALL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+    </tr>
+    <tr>
+      <td>Four-ingredient dessert (5 4)</td>
+      <td><span class="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;POUN</span><span class="blue">D CAKE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>(5)</td>
+      <td><span class="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SQU</span><span class="blue">AB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+    </tr>
+  </table>
+</div>
+{% endblock %}
