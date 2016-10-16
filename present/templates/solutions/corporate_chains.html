@@ -1,0 +1,148 @@
+{% extends "solutions/solution_layout.html" %}
+{% block title_block %}Corporate Chains: Solution{% endblock %}
+{% block puzzle_name_block %}Corporate Chains: Solution{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+    td {
+      padding: 2px;
+    }
+    ul {
+      list-style: none;
+    }
+  </style>
+{% endblock %}
+
+{% block solution_content_block %}
+  <div>
+    <p>
+      This puzzle consists of a set of advertising slogans, each with one word
+      replaced. The replacement is a synonym for the replaced word from another
+      slogan, forming a chain. The correct slogans and their associated
+      companies are listed below, along with the replacement word and its
+      synonym.
+    </p>
+    <table>
+      <thead>
+        <tr>
+          <th>Slogan</th>
+          <th>Brand</th>
+          <th>Replaced Word</th>
+          <th>Replaced Word Synonym</th>
+          <th>Replacement Word</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>The original celebrated curiously strong <b>mints</b></td>
+          <td>Altoids</td>
+          <td>mints</td>
+          <td>candy</td>
+          <td>appendages</td>
+        </tr>
+        <tr>
+          <td>A little <b>dab</b>'ll do ya</td>
+          <td>Brylcream</td>
+          <td>dab</td>
+          <td>dollop</td>
+          <td>appliance</td>
+        </tr>
+        <tr>
+          <td>Probably the best <b>beer</b> in the world</td>
+          <td>Carlsberg</td>
+          <td>beer</td>
+          <td>brewski</td>
+          <td>picture</td>
+        </tr>
+        <tr>
+          <td>Exceed your <b>vision</b></td>
+          <td>Epson</td>
+          <td>vision</td>
+          <td>sight</td>
+          <td>future</td>
+        </tr>
+        <tr>
+          <td>Put a <b>tiger</b> in your tank</td>
+          <td>Esso</td>
+          <td>tiger</td>
+          <td>cat</td>
+          <td>dollop</td>
+        </tr>
+        <tr>
+          <td>First man, then <b>machine</b></td>
+          <td>Honda</td>
+          <td>machine</td>
+          <td>appliance</td>
+          <td>brewski</td>
+        </tr>
+        <tr>
+          <td>Solutions for a small <b>planet</b></td>
+          <td>IBM</td>
+          <td>planet</td>
+          <td>world</td>
+          <td>replacement</td>
+        </tr>
+        <tr>
+          <td>At the heart of the <b>image</b></td>
+          <td>Nikon</td>
+          <td>image</td>
+          <td>picture</td>
+          <td>world</td>
+        </tr>
+        <tr>
+          <td>There is no <b>substitute</b></td>
+          <td>Porsche</td>
+          <td>substitute</td>
+          <td>replacement</td>
+          <td>candy</td>
+        </tr>
+        <tr>
+          <td>It gives you <b>wings</b></td>
+          <td>Red Bull</td>
+          <td>wings</td>
+          <td>appendages</td>
+          <td>sight</td>
+        </tr>
+        <tr>
+          <td>In touch with <b>tomorrow</b></td>
+          <td>Toshiba</td>
+          <td>tomorrow</td>
+          <td>future</td>
+          <td>emotion</td>
+        </tr>
+        <tr>
+          <td>Oh, what a <b>feeling</b>!</td>
+          <td>Toyota</td>
+          <td>feeling</td>
+          <td>emotion</td>
+          <td>cat</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>
+      Ordering the company products via the chain produces an acrostic.
+    </p>
+    <ul>
+      <li>Altoids</li>
+      <li>Porsche</li>
+      <li>IBM</li>
+      <li>Nikon</li>
+      <li>Carlsberg</li>
+      <li>Honda</li>
+      <li>Brylcreem</li>
+      <li>Esso</li>
+      <li>Toyota</li>
+      <li>Toshiba</li>
+      <li>Epson</li>
+      <li>Red Bull</li>
+    </ul>
+    <p>
+      The acrostic reads <b>A PINCH BETTER</b>. This is the slogan
+      for <b>SKOAL</b>, which is the answer.
+    </p>
+  </div>
+{% endblock %}
