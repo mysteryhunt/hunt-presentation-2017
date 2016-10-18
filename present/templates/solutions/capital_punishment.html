@@ -1,0 +1,321 @@
+{% extends "solutions/solution_layout.html" %}
+{% block title_block %}Capital Punishment: Solution{% endblock %}
+{% block puzzle_name_block %}Capital Punishment: Solution{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  .capital-name {
+    padding-right: 1em;
+  }
+  .letter {
+    padding-right: 0.6em;
+    padding-left: 0.6em;
+  }
+  .puzzle {
+    border-collapse: collapse;
+  }
+  .puzzle td {
+    padding-top: .3em;
+    padding-bottom: .3em;
+  }
+  .ct {
+    text-align: center;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<div>
+  <p>Each sentence can be completed (phonetically) with the name of a world capital.</p>
+  <table class="puzzle">
+    <tr>
+      <th>Sentence</th>
+      <th>Capital</th>
+      <th>Index</th>
+      <th>Letter</th>
+      <th>Country</th>
+    </tr>
+    <tr>
+      <td>"For makin' me run ‘round and ‘round like a caged ‘amster, damn you!" cried Eliza Doolittle.</td>
+      <td>AMSTERDAM</td>
+      <td class="ct">6</td>
+      <td class="ct">R</td>
+      <td>Netherlands</td>
+    </tr>
+    <tr>
+      <td>In _Alien_, does the android Ash go bad at some point, or is he evil from the start?</td>
+      <td>ASHGABAT</td>
+      <td class="ct">3</td>
+      <td class="ct">H</td>
+      <td>Tajikistan</td>
+    </tr>
+    <tr>
+      <td>Alexander Graham Bell grayed just like any other aging man.</td>
+      <td>BELGRADE</td>
+      <td class="ct">4</td>
+      <td class="ct">G</td>
+      <td>Serbia</td>
+    </tr>
+    <tr>
+      <td>Do you prefer Rip, Laurence or Burl in the role of Big Daddy?</td>
+      <td>BERLIN</td>
+      <td class="ct">4</td>
+      <td class="ct">L</td>
+      <td>Germany</td>
+    </tr>
+    <tr>
+      <td>When disguised as Women from U.N.C.L.E., Napoleon wears the bras Ilya picks out for him.</td>
+      <td>BRASILIA</td>
+      <td class="ct">3</td>
+      <td class="ct">A</td>
+      <td>Brazil</td>
+    </tr>
+    <tr>
+      <td>"Stop reading! Give that book a rest"</td>
+      <td>BUCHAREST</td>
+      <td class="ct">2</td>
+      <td class="ct">U</td>
+      <td>Romania</td>
+    </tr>
+    <tr>
+      <td>Generally speaking, only a mammal can bear a live offspring</td>
+      <td>CANBERRA</td>
+      <td class="ct">1</td>
+      <td class="ct">C</td>
+      <td>Canberra</td>
+    </tr>
+    <tr>
+      <td>I love that Rasta-Disco hit, "Shake Jah Booty"</td>
+      <td>DJIBOUTI</td>
+      <td class="ct">3</td>
+      <td class="ct">I</td>
+      <td>Djibouti</td>
+    </tr>
+    <tr>
+      <td>“I won the bet! So there! I collect all the dough! Hah!"</td>
+      <td>DOHA</td>
+      <td class="ct">4</td>
+      <td class="ct">A</td>
+      <td>Qatar</td>
+    </tr>
+    <tr>
+      <td>During a pause in the Lilliput uprising, while the leader of the coup waits, itty-bitty soliders plot a counteroffensive.</td>
+      <td>KUWAIT CITY</td>
+      <td class="ct">10</td>
+      <td class="ct">Y</td>
+      <td>Kuwait</td>
+    </tr>
+    <tr>
+      <td>Has Liz been retired completely, or will Tina bring back her "30 Rock" character?</td>
+      <td>LISBON</td>
+      <td class="ct">4</td>
+      <td class="ct">B</td>
+      <td>Portugal</td>
+    </tr>
+    <tr>
+      <td>When things get rowdy in the perfume factory, the employees throw ambergris and musk at each other.</td>
+      <td>MUSCAT</td>
+      <td class="ct">2</td>
+      <td class="ct">U</td>
+      <td>Oman</td>
+    </tr>
+    <tr>
+      <td>Jodie Foster wanted _Contact_ to get a PG rating, so she cut all the nude Ellie scenes</td>
+      <td>NEW DEHLI</td>
+      <td class="ct">8</td>
+      <td class="ct">I</td>
+      <td>India</td>
+    </tr>
+    <tr>
+      <td>If you want your hair grey, with a tinge of brown, pour taupe rinse over it. </td>
+      <td>PORT-AU-PRINCE</td>
+      <td class="ct">11</td>
+      <td class="ct">C</td>
+      <td>Haiti</td>
+    </tr>
+    <tr>
+      <td>To pry a door open, use a crowbar</td>
+      <td>PRAIA</td>
+      <td class="ct">1</td>
+      <td class="ct">P</td>
+      <td>Cabo Verde</td>
+    </tr>
+    <tr>
+      <td>For breakdowns south of Ramrod Key, tow trucks won't bring you back to Miami.</td>
+      <td>QUITO</td>
+      <td class="ct">4</td>
+      <td class="ct">T</td>
+      <td>Ecuador</td>
+    </tr>
+    <tr>
+      <td>That club is a real meat market, where the guys just wanna scope ya out.</td>
+      <td>SKOPJE</td>
+      <td class="ct">4</td>
+      <td class="ct">S</td>
+      <td>Macedonia</td>
+    </tr>
+    <tr>
+      <td>Congweve is cwedited wiv writing, "Music has charms to soov a savage bwest".</td>
+      <td>SUVA</td>
+      <td class="ct">4</td>
+      <td class="ct">A</td>
+      <td>Fiji</td>
+    </tr>
+    <tr>
+      <td>For my new reggae-rap single, I'm sampling Peter Tosh, Kent Jones, and, of course, Bob Marley.</td>
+      <td>TASHKENT</td>
+      <td class="ct">1</td>
+      <td class="ct">T</td>
+      <td>Uzbekistan</td>
+    </tr>
+    <tr>
+      <td>Don't bogart that joint, homie! Gimme another toke, yo! </td>
+      <td>TOKYO</td>
+      <td class="ct">1</td>
+      <td class="ct">T</td>
+      <td>Japan</td>
+    </tr>
+    <tr>
+      <td>Seychelles and Greece are the only triple-E countries</td>
+      <td>TRIPOLI</td>
+      <td class="ct">3</td>
+      <td class="ct">I</td>
+      <td>Libya</td>
+    </tr>
+  </table>
+  <br/>
+  <p>Solvers should index into the capital city, then order by country name (A-U): </p>
+  <table>
+    <tr>
+      <td class="capital-name">CANBERRA</td>
+      <td>1</td>
+      <td class="letter">C</td>
+      <td>Australia</td>
+    </tr>
+    <tr>
+      <td class="capital-name">BRASILIA</td>
+      <td>3</td>
+      <td class="letter">A</td>
+      </td>
+      <td>Brazil</td>
+    </tr>
+    <tr>
+      <td class="capital-name">PRAIA</td>
+      <td>1</td>
+      <td class="letter">P</td>
+      <td>Cabo Verde</td>
+    </tr>
+    <tr>
+      <td class="capital-name">DJIBOUTI</td>
+      <td>3</td>
+      <td class="letter">I</td>
+      <td>Djibouti</td>
+    </tr>
+    <tr>
+      <td class="capital-name">QUITO</td>
+      <td>4</td>
+      <td class="letter">T</td>
+      <td>Ecuador</td>
+    </tr>
+    <tr>
+      <td class="capital-name">SUVA</td>
+      <td>4</td>
+      <td class="letter">A</td>
+      <td>Fiji</td>
+    </tr>
+    <tr>
+      <td class="capital-name">BERLIN</td>
+      <td>4</td>
+      <td class="letter">L</td>
+      <td>Germany</td>
+      </td>
+    </tr>
+    <tr>
+      <td class="capital-name">PORT-AU-PRINCE</td>
+      <td>11</td>
+      <td class="letter">C</td>
+      <td>Haiti</td>
+    </tr>
+    <tr>
+      <td class="capital-name">NEW DELHI</td>
+      <td>8</td>
+      <td class="letter">I</td>
+      <td>India</td>
+    </tr>
+    <tr>
+      <td class="capital-name">TOKYO</td>
+      <td>1</td>
+      <td class="letter">T</td>
+      <td>Japan</td>
+    </tr>
+    <tr>
+      <td class="capital-name">KUWAIT CITY</td>
+      <td>10</td>
+      <td class="letter">Y</td>
+      <td>Kuwait</td>
+    </tr>
+    <tr>
+      <td class="capital-name">TRIPOLI</td>
+      <td>3</td>
+      <td class="letter">I</td>
+      <td>Libya</td>
+    </tr>
+    <tr>
+      <td class="capital-name">SKOPJE</td>
+      <td>1</td>
+      <td class="letter">S</td>
+      <td>Macedonia</td>
+    </tr>
+    <tr>
+      <td class="capital-name">AMSTERDAM</td>
+      <td>6</td>
+      <td class="letter">R</td>
+      <td>Netherlands</td>
+    </tr>
+    <tr>
+      <td class="capital-name">MUSCAT</td>
+      <td>2</td>
+      <td class="letter">U</td>
+      <td>Oman</td>
+    </tr>
+    <tr>
+      <td class="capital-name">LISBON</td>
+      <td>4</td>
+      <td class="letter">B</td>
+      <td>Portugal</td>
+    </tr>
+    <tr>
+      <td class="capital-name">DOHA</td>
+      <td>4</td>
+      <td class="letter">A</td>
+      <td>Qatar</td>
+    </tr>
+    <tr>
+      <td class="capital-name">BUCHAREST</td>
+      <td>2</td>
+      <td class="letter">U</td>
+      <td>Romania</td>
+    </tr>
+    <tr>
+      <td class="capital-name">BELGRADE</td>
+      <td>4</td>
+      <td class="letter">G</td>
+      <td>Serbia</td>
+    </tr>
+    <tr>
+      <td class="capital-name">ASHGABAT</td>
+      <td>3</td>
+      <td class="letter">H</td>
+      <td>Tajikistan</td>
+    </tr>
+    <tr>
+      <td class="capital-name">TASHKENT</td>
+      <td>1</td>
+      <td class="letter">T</td>
+      <td>Uzbekistan</td>
+    </tr>
+  </table>
+  <br/>
+  <p>This gives the message CAPITAL CITY IS RUB AUGHT, which, phonetically, translates to RABAT, the capital of <b>MOROCCO</b>, which is the puzzle answer.</p>
+</div>
+{% endblock %}
