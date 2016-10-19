@@ -1,0 +1,39 @@
+{% extends "solutions/solution_layout.html" %}
+{% block title_block %}Pentoku: Solution{% endblock %}
+{% block puzzle_name_block %}Pentoku: Solution{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    .p {
+      width: 800px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 32px;
+      margin-bottom: 32px;
+    }
+    .g {
+      width: 400px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 32px;
+      margin-bottom: 32px;
+    }
+  </style>
+{% endblock %}
+
+{% block solution_content_block %}
+  <div>
+    <p>
+      The three Pentoku puzzles have unique solutions, shown below:
+    </p>
+    <img class="p" src="{{ asset_url_for('pentoku/solution_image01.svg') }}">
+    <p>
+      In each case, the four non-pentomino cells appear in two rows. Taking each
+      row as an ordered pair in the letter grid, those coordinates, in order,
+      spell out the answer, <b>CONDOR</b>.
+    </p>
+    <img class="g" src="{{ asset_url_for('pentoku/solution_image02.svg') }}">
+  </div>
+{% endblock %}

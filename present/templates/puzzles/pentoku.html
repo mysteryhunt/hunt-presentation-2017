@@ -1,0 +1,48 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}Pentoku{% endblock %}
+{% block puzzle_name_block %}Pentoku{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    .p {
+      width: 800px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 32px;
+      margin-bottom: 32px;
+    }
+    .g {
+      width: 400px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 32px;
+      margin-bottom: 32px;
+    }
+  </style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+  The Economist views organizing equal shares as a coordination problem.
+{% endblock %}
+
+{% block puzzle_content_block %}
+  <div>
+    <p>
+      Instructions: Place the twelve pentominoes in the grid, in their given
+      orientations, to make an 8x8 sudoku puzzle, such that, when solved, the
+      digits 1-8 appear in every row, column, and light or dark shaded area. The
+      four squares in each grid not part of a pentomino will never share an
+      edge.
+    </p>
+    <hr>
+    <img class="p" src="{{ asset_url_for('pentoku/image01.svg') }}">
+    <hr>
+    <img class="p" src="{{ asset_url_for('pentoku/image02.svg') }}">
+    <hr>
+    <img class="p" src="{{ asset_url_for('pentoku/image03.svg') }}">
+    <hr>
+    <img class="g" src="{{ asset_url_for('pentoku/image04.svg') }}">
+  </div>
+{% endblock %}
