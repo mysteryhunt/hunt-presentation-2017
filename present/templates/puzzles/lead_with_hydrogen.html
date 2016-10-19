@@ -1,0 +1,60 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}Lead with Hydrogen{% endblock %}
+{% block puzzle_name_block %}Lead with Hydrogen{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  .dir {
+    font-weight: bold;
+    padding-top: 12px;
+  }
+  .clue-list {
+    list-style: none;
+    padding-left: 0;
+  }
+  .clue-list li {
+    padding-top: 3px;
+  }
+</style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+The Linguist wants to go on these quests because she has aspirations of greatness.
+{% endblock %}
+
+{% block puzzle_content_block %}
+<div>
+  <img src="{{ asset_url_for('lead_with_hydrogen/puzzle.png') }}" />
+  <div class="dir">ACROSS</div>
+  <ul class="clue-list">
+    <li>1 That’s final: Peart of Rush introducing cover of KISS’s “Teeth” (5)</li>
+    <li>4 Jack used to make gazpacho, periodically (4)</li>
+    <li>6 Leave out empty cup in airplane (5)</li>
+    <li>8 Place where you’d see coops are not available (5)</li>
+    <li>10 Ice was breaking carriage (6)</li>
+    <li>16 Animal that’s often sopping wet, conclusively orange, and circular (4)</li>
+    <li>17 Follow Teri with the French part of a mosaic (4)</li>
+    <li>21 Declare beard “a natural projection” (6)</li>
+    <li>22 Angry about head of tourism board (5)</li>
+    <li>23 Something in violet heather fades flower (5)</li>
+    <li>24 Male dons lightly bit wild onion (4)</li>
+    <li>25 Sounds of cogs beginning to ooze black fluids (5)</li>
+  </ul>
+  <div class="dir">DOWN</div>
+  <ul class="clue-list">
+    <li>1 True western mischief-maker clipped the sixth calf (7)</li>
+    <li>2 Distinctive place is yurt (7)</li>
+    <li>3 Resident of dell rested near a lion’s tail (5)</li>
+    <li>4 UCLA’s schedule is tome for group of students (5)</li>
+    <li>5 Grouch describes group with the cornets and arcade game (7)</li>
+    <li>7 Cheese sides among wretched Darjeeling (7)</li>
+    <li>9 Once again show anger, rousing excellent holy man (7)</li>
+    <li>11 I give out bands without any flaws (5)</li>
+    <li>13 Ben’s mate put doughnut in list (7)</li>
+    <li>14 Certain Asian can contains letter for Gomer (7)</li>
+    <li>15 They can make you sigh, “Hands off!” around English (7)</li>
+    <li>19 Liking outer parts and rest (5)</li>
+    <li>20 String = 100 + pi after the first (5)</li>
+  </ul>
+</div>
+{% endblock %}
