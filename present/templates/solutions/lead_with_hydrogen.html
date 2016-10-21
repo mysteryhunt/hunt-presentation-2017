@@ -1,0 +1,61 @@
+{% extends "solutions/solution_layout.html" %}
+{% block title_block %}Lead with Hydrogen: Solution{% endblock %}
+{% block puzzle_name_block %}Lead with Hydrogen: Solution{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  .dir {
+    font-weight: bold;
+    padding-top: 12px;
+  }
+  .clue-list {
+    list-style: none;
+    padding-left: 0;
+  }
+  .clue-list li {
+    padding-top: 3px;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<div>
+  <div>
+    One word in each clue must have its first letter changed to an H for the clue to work properly. Once the grid is filled, the two unclued entries are FRIENDS STAR / HOLDS A CABLE, which is a cryptic clue for CO(A)X. Changing the first letter of that answer to an H gives the solution, <b>HOAX</b>.
+  </div>
+  <div class="dir">ACROSS</div>
+  <ul class="clue-list">
+    <li>1 [heart] T + rUSh + KisS</li>
+    <li>4 [hack] gazpaCHO Periodically</li>
+    <li>6 [heave] E + JE(C)T</li>
+    <li>8 [hoops] ARE + N/A</li>
+    <li>10 [has] CHAISE (anagram)</li>
+    <li>16 [hopping] T + O + AD</li>
+    <li>17 [hollow] TerI + LE</li>
+    <li>21 [heard] ALLEGE (“a ledge” homonym)</li>
+    <li>22 [hoard] S(T)ORE</li>
+    <li>23 [Hades] vioLET HEather</li>
+    <li>24 [hit] RA(M)P</li>
+    <li>25 [hogs] O + INKS</li>
+  </ul>
+  <div class="dir">DOWN</div>
+  <ul class="clue-list">
+    <li>1 [half] T + W + ELF + THe</li>
+    <li>2 [hurt] SPECIAL (anagram)</li>
+    <li>3 [Hell] SAT + A + N</li>
+    <li>4 [home] uCLA’S Schedule</li>
+    <li>5 [Hornets] PI(NBA)LL</li>
+    <li>7 [hides] wretCHED DARjeeling</li>
+    <li>9 [housing] R(E + ST.)AGE</li>
+    <li>11 [hands] I + DEAL</li>
+    <li>13 [hen’s] R(O)OSTER</li>
+    <li>14 [Homer] TI(BETA)N</li>
+    <li>15 [high] R(E)EFER’S</li>
+    <li>19 [hiking] SLEEP (peels reversal)</li>
+    <li>20 [hi] C + hELLO</li>
+  </ul>
+  <div>
+    <img src="{{ asset_url_for('lead_with_hydrogen/puzzle-complete.png') }}" />
+  </div>
+</div>
+{% endblock %}
