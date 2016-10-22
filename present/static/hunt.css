@@ -62,12 +62,6 @@ body {
   padding: 5px 5px;
 }
 
-
-#overall-layout-header a {
-  border: 2px solid white;
-  padding: 2px 2px;
-}
-
 #overall-layout-header a:link {
   color: white;
   text-decoration: none;
@@ -79,6 +73,33 @@ body {
 
 #header-identity {
   float: left;
+}
+
+#header-inventory, #header-gold {
+  float: right;
+  margin-right: 20px;
+  position: relative;
+}
+
+#header-inventory-grid {
+  position: absolute;
+  border: 3px solid tan;
+  background-color: white;
+  color: black;
+  right: 0;
+  top: 30px;
+  min-height: 275px;
+  width: 330px;
+}
+
+#header-inventory-grid table {
+  border-collapse: collapse;
+}
+
+#header-inventory-grid td {
+  border: 3px solid sienna;
+  height: 40px;
+  width: 40px;
 }
 
 #main-page-content {

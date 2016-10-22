@@ -2,6 +2,8 @@
   <head>
     <title>{% block title_block %}{% endblock %}</title>
     <script src="https://use.fontawesome.com/7e30e2e185.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='hunt.js') }}"></script>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='hunt.css') }}">
     {% block styling_block %}{% endblock %}
   </head>
@@ -9,6 +11,71 @@
     <div id="overall-layout-header">
       <div id="header-identity">Logged in as {{ session["username"] }}</div>
       {% block header_content %}{% endblock %}
+      <div id="header-gold"><span class="fa fa-circle-o"></span>&nbsp;{{ team_properties.get('teamProperties',{}).get('GoldProperty',{}).get('gold',0) if team_properties else 'NA'}}</div>
+      <div id="header-inventory">
+        <a href="#" id="header-inventory-control">
+          <span id="header-inventory-status">
+            <span class="fa fa-archive"></span>&nbsp;{{ team_properties.get('teamProperties',{}).get('InventoryProperty',{}).get('inventoryItems',[])|length if team_properties else 'NA' }}/40
+          </span>
+        </a>
+        <div id="header-inventory-grid" style="display:none;">
+          <table>
+            <tr>
+              <td>0</td>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+              <td>6</td>
+              <td>7</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>9</td>
+              <td>10</td>
+              <td>11</td>
+              <td>12</td>
+              <td>13</td>
+              <td>14</td>
+              <td>15</td>
+            </tr>
+            <tr>
+              <td>16</td>
+              <td>17</td>
+              <td>18</td>
+              <td>19</td>
+              <td>20</td>
+              <td>21</td>
+              <td>22</td>
+              <td>23</td>
+            </tr>
+            <tr>
+              <td>24</td>
+              <td>25</td>
+              <td>26</td>
+              <td>27</td>
+              <td>28</td>
+              <td>29</td>
+              <td>30</td>
+              <td>31</td>
+            </tr>
+            <tr>
+              <td>32</td>
+              <td>33</td>
+              <td>34</td>
+              <td>35</td>
+              <td>36</td>
+              <td>37</td>
+              <td>38</td>
+              <td>39</td>
+            </tr>
+            <tr>
+              <td colspan="8">Full Inventory</td>
+            </tr>
+          </table>
+        </div>
+      </div>
     </div>
     <div id="overall-layout-body">
       {% block overall_layout_body %}{% endblock %}

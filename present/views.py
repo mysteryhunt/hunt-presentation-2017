@@ -61,6 +61,8 @@ def round(round_id):
     puzzle_visibilities = {visibility.get('puzzleId'): visibility for visibility in puzzle_visibilities}
     team_properties = cube.get_team_properties(app)
     
+    print(puzzle_visibilities)
+    
     return render_template(
         "rounds/%s.html" % round_id,
         round_id=round_id,
