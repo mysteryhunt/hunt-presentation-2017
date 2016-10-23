@@ -1,0 +1,60 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}False Prophets{% endblock %}
+{% block puzzle_name_block %}False Prophets{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  img {
+    width: 200px;
+    height: auto;
+  }
+</style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+The Cleric sometimes gets drawn into sectarian disputes.
+{% endblock %}
+
+{% block puzzle_content_block %}
+<div>
+  <p>
+    Long ago, the High Cleric convened a council with representatives from two rival orders.
+  </p>
+  <p>
+    Both orders agreed that these images were good:
+  </p>
+  <p>
+    <img src="{{ asset_url_for('false_prophets/image01.jpg') }}" />
+    <img src="{{ asset_url_for('false_prophets/image02.jpg') }}" />
+    <img src="{{ asset_url_for('false_prophets/image03.jpg') }}" />
+  </p>
+  <p>
+    Both orders agreed that these images should be forbidden:
+  </p>
+  <p>
+    <img src="{{ asset_url_for('false_prophets/image04.jpg') }}" />
+    <img src="{{ asset_url_for('false_prophets/image05.jpg') }}" />
+    <img src="{{ asset_url_for('false_prophets/image06.jpg') }}" />
+    <img src="{{ asset_url_for('false_prophets/image07.jpg') }}" />
+    <img src="{{ asset_url_for('false_prophets/image08.jpg') }}" />
+    <img src="{{ asset_url_for('false_prophets/image09.jpg') }}" />
+    <img src="{{ asset_url_for('false_prophets/image10.jpg') }}" />
+    <img src="{{ asset_url_for('false_prophets/image11.jpg') }}" />
+    <img src="{{ asset_url_for('false_prophets/image12.jpg') }}" />
+    <img src="{{ asset_url_for('false_prophets/image13.jpg') }}" />
+    <img src="{{ asset_url_for('false_prophets/image14.jpg') }}" />
+    <img src="{{ asset_url_for('false_prophets/image15.jpg') }}" />
+    <img src="{{ asset_url_for('false_prophets/image16.jpg') }}" />
+    <img src="{{ asset_url_for('false_prophets/image17.jpg') }}" />
+  </p>
+  <p>
+    But the two orders could not agree on this image:
+  </p>
+  <p>
+    <img src="{{ asset_url_for('false_prophets/image18.jpg') }}" />
+  </p>
+  <p>
+    The High Cleric tried to assert precedence, but it was too late. A fundamentalist cult formed during this schism, loosely based on basic truths.
+  </p>
+</div>
+{% endblock %}
