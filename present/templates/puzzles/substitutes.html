@@ -1,0 +1,78 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}Substitutes{% endblock %}
+{% block puzzle_name_block %}Substitutes{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    #map {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    #container {
+      margin: 8px;
+      border-radius: 4px;
+      height: 300px;
+      background-color: black;
+    }
+
+    #initial {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 784px;
+    }
+
+    #instructions {
+      text-align: center;
+    }
+
+    .e {
+      margin: 8px;
+      -webkit-transform: translate(0px, 0px) rotate(0);
+      transform: translate(0px, 0px) rotate(0);
+    }
+  </style>
+
+  <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+  <script src="{{ asset_url_for('substitutes/interact.min.js') }}"></script>
+  <script src="{{ asset_url_for('substitutes/puzzle.js') }}"></script>
+
+  <script>
+    window.onload = function() {
+      initPuzzle([
+        "{{ asset_url_for('substitutes/image01.png') | safe }}",
+        "{{ asset_url_for('substitutes/image02.png') | safe }}",
+        "{{ asset_url_for('substitutes/image03.png') | safe }}",
+        "{{ asset_url_for('substitutes/image04.png') | safe }}",
+        "{{ asset_url_for('substitutes/image05.png') | safe }}",
+        "{{ asset_url_for('substitutes/image06.png') | safe }}",
+        "{{ asset_url_for('substitutes/image07.png') | safe }}",
+        "{{ asset_url_for('substitutes/image08.png') | safe }}",
+        "{{ asset_url_for('substitutes/image09.png') | safe }}",
+        "{{ asset_url_for('substitutes/image10.png') | safe }}",
+        "{{ asset_url_for('substitutes/image11.png') | safe }}",
+        "{{ asset_url_for('substitutes/image12.png') | safe }}",
+      ]);
+    };
+  </script>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+The emperor feels sad whenever one of his subjects gets injured. Who can he find to help them?
+{% endblock %}
+
+{% block puzzle_content_block %}
+  <div>
+    <img id="map" src="" width="400px" height="400px">
+    <div id="container">
+      <div id="initial"></div>
+    </div>
+    <div id="instructions">
+      Drag these around, and click on them to rotate. Click
+      <button type="button" onclick="puzzleNext()">next</button>
+      to advance the sequence.
+    </div>
+  </div>
+{% endblock %}
