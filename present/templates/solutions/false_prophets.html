@@ -1,0 +1,79 @@
+{% extends "solutions/solution_layout.html" %}
+{% block title_block %}False Prophets: Solution{% endblock %}
+{% block puzzle_name_block %}False Prophets: Solution{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  ul {
+    list-style-type: none;
+    padding-left: 0px;
+  }
+  li {
+    padding-left: 32px;
+  }
+  pre {
+    font-size: 16px;
+    margin-left: -42px;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<div>
+  <p>Each picture clues a word that looks like two or three single-letter variables joined by simple boolean logic operators (just AND or OR).</p>
+
+  <p>First, identify the pictures!</p>
+  <ul>
+    <li>01 CORE</li>
+    <li>02 LANDLORD</li>
+    <li>03 PANDA</li>
+  </ul>
+  <ul>
+    <li>04 BORG</li>
+    <li>05 FORT ORD</li>
+    <li>06 GORE</li>
+    <li>07 HORRORS</li>
+    <li>08 JANDL</li>
+    <li>09 KORQ</li>
+    <li>10 KORU</li>
+    <li>11 LANDO</li>
+    <li>12 NORMANDY</li>
+    <li>13 TANDOORI</li>
+    <li>14 TORX</li>
+    <li>15 VANDA</li>
+    <li>16 WANDA</li>
+    <li>17 ZORN</li>
+  </ul>
+  <ul>
+    <li>18 SANDWORM
+  </ul>
+
+  <p>Next, assign a truth value to each boolean expression. The first three words are allowed in the temple, because they are True. The second set are all False. Some words, like NORMANDY, may have two different interpretations based on order of operations:
+    "(N|M)&amp;Y" and "N|(M&amp;Y)". For words in these first two sets, both interpretations have the same truth value. But the very last word, SANDWORM, gives different truth values based on the order of operations!</p>
+
+  <p>Third, solve the system of equations to find which letters are True and which are False.</p>
+
+  <p>Quickly and independently from 3, and 4, 5, 6, 7, 9, 10, 14, and 17, we get:</p>
+
+  <pre>
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ
+        tf-fffff--f--f-tfffff--f-f
+  </pre>
+
+  <p>Based on those findings, from 2 we get L = true. Then, from 1, 8, 11, 15, and 16, we get:</p>
+
+  <pre>
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ
+        tftfffff-fft-fftffffffff-f
+  </pre>
+
+  <p>13 gives us I = false, 18 gives M = true, and 12 gives Y = false. That's everything:</p>
+
+  <pre>
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ
+        tftffffffffttfftffffffffff
+  </pre>
+
+  <p>Finally, take the five true letters, arrange them in the only possible way to spell a word, and that's the answer: <b>CLAMP</b>.</p>
+</div>
+{% endblock %}
