@@ -1,0 +1,141 @@
+{% extends "solutions/solution_layout.html" %}
+{% block title_block %}Substitutes: Solution{% endblock %}
+{% block puzzle_name_block %}Substitutes: Solution{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+    th, td {
+      text-align: center;
+      border: 1px solid black;
+      padding: 4px;
+    }
+  </style>
+{% endblock %}
+
+{% block solution_content_block %}
+  <div>
+    <p>
+      The colored segments can be arranged to form seven-segment numeric digit
+      displays. Specifically, they form an association football substitution
+      board (where the red digits indicate the number of the player leaving the
+      match, and the green digits indicate the number of the player joining the
+      match).
+    </p>
+    <p>
+      The locations and colors of the markers on the map clue English Premier
+      League football clubs. By looking up the names of the players indicated on
+      the substitution board, and indexing into each name by the other player's
+      number, a sequence of bigrams is produced that spells THE ANSWER IS
+      <b>PEDIATRICIANS</b>.
+    </p>
+    <table>
+      <tr>
+        <th>Club</th>
+        <th>Player Number 1</th>
+        <th>Player 1</th>
+        <th>Player Number 2</th>
+        <th>Player 2</th>
+        <th>Bigram</th>
+      </tr>
+      <tr>
+        <td>Middlesbrough</td>
+        <td>8</td>
+        <td>Adam Clayton</td>
+        <td>9</td>
+        <td>Jordan Rhodes</td>
+        <td>TH</td>
+      </tr>
+      <tr>
+        <td>Burnley</td>
+        <td>10</td>
+        <td>Ashley Barnes</td>
+        <td>5</td>
+        <td>Michael Keane</td>
+        <td>EA</td>
+      </tr>
+      <tr>
+        <td>Swansea City</td>
+        <td>9</td>
+        <td>Fernando Llorente</td>
+        <td>6</td>
+        <td>Alfie Mawson</td>
+        <td>NS</td>
+      </tr>
+      <tr>
+        <td>Leicester City</td>
+        <td>5</td>
+        <td>Wes Morgan</td>
+        <td>1</td>
+        <td>Kasper Schmeichel</td>
+        <td>WE</td>
+      </tr>
+      <tr>
+        <td>Stoke City</td>
+        <td>3</td>
+        <td>Erik Pieters</td>
+        <td>2</td>
+        <td>Phillip Bardsley</td>
+        <td>RI</td>
+      </tr>
+      <tr>
+        <td>Sunderland</td>
+        <td>7</td>
+        <td>Sebastian Larsson</td>
+        <td>13</td>
+        <td>Jordan Pickford</td>
+        <td>SP</td>
+      </tr>
+      <tr>
+        <td>Southampton</td>
+        <td>6</td>
+        <td>Jose Fonte</td>
+        <td>9</td>
+        <td>Jay Rodriguez</td>
+        <td>ED</td>
+      </tr>
+      <tr>
+        <td>Liverpool</td>
+        <td>2</td>
+        <td>Nathaniel Clyne</td>
+        <td>7</td>
+        <td>James Milner</td>
+        <td>IA</td>
+      </tr>
+      <tr>
+        <td>Hull City</td>
+        <td>6</td>
+        <td>Curtis Davies</td>
+        <td>4</td>
+        <td>Alex Bruce</td>
+        <td>TR</td>
+      </tr>
+      <tr>
+        <td>Chelsea</td>
+        <td>1</td>
+        <td>Asmir Begovic</td>
+        <td>4</td>
+        <td>Cesc Fabregas</td>
+        <td>IC</td>
+      </tr>
+      <tr>
+        <td>West Ham United</td>
+        <td>2</td>
+        <td>Winston Reid</td>
+        <td>10</td>
+        <td>Manuel Lanzini</td>
+        <td>IA</td>
+      </tr>
+      <tr>
+        <td>Everton</td>
+        <td>14</td>
+        <td>Yannick Bolasie</td>
+        <td>3</td>
+        <td>Leighton Baines</td>
+        <td>NS</td>
+      </tr>
+    </table>
+  </div>
+{% endblock %}
