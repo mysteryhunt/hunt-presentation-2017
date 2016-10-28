@@ -1,0 +1,74 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}Spell Casting{% endblock %}
+{% block puzzle_name_block %}Spell Casting{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    audio {
+      min-width: 400px;
+    }
+    ul {
+      list-style: none;
+    }
+    img.p {
+      height: 100px;
+      padding-right: 10px;
+    }
+  </style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+  As a specialist in forbidden magic, the Wizard often recites passages no one
+  else would say out loud.
+{% endblock %}
+
+{% block puzzle_content_block %}
+  <div>
+    <ul>
+      <li>
+        <audio controls>
+          <source src="{{ asset_url_for('spell_casting/audio1.mp3') }}" type="audio/mp3" />
+          <a href="{{ asset_url_for('spell_casting/audio1.mp3') }}">Audio Clip 1</a>
+        </audio>
+      </li>
+      <li>
+        <audio controls>
+          <source src="{{ asset_url_for('spell_casting/audio2.mp3') }}" type="audio/mp3" />
+          <a href="{{ asset_url_for('spell_casting/audio2.mp3') }}">Audio Clip 2</a>
+        </audio>
+      </li>
+      <li>
+        <audio controls>
+          <source src="{{ asset_url_for('spell_casting/audio3.mp3') }}" type="audio/mp3" />
+          <a href="{{ asset_url_for('spell_casting/audio3.mp3') }}">Audio Clip 3</a>
+        </audio>
+      </li>
+      <li>
+        <audio controls>
+          <source src="{{ asset_url_for('spell_casting/audio4.mp3') }}" type="audio/mp3" />
+          <a href="{{ asset_url_for('spell_casting/audio4.mp3') }}">Audio Clip 4</a>
+        </audio>
+      </li>
+      <li>
+        <audio controls>
+          <source src="{{ asset_url_for('spell_casting/audio5.mp3') }}" type="audio/mp3" />
+          <a href="{{ asset_url_for('spell_casting/audio5.mp3') }}">Audio Clip 5</a>
+        </audio>
+      </li>
+      <li>
+        <audio controls>
+          <source src="{{ asset_url_for('spell_casting/audio6.mp3') }}" type="audio/mp3" />
+          <a href="{{ asset_url_for('spell_casting/audio6.mp3') }}">Audio Clip 6</a>
+        </audio>
+      </li>
+    </ul>
+    <div>
+      <img class="p" src="{{ asset_url_for('spell_casting/image1.gif') }}">
+      <img class="p" src="{{ asset_url_for('spell_casting/image2.gif') }}">
+      <img class="p" src="{{ asset_url_for('spell_casting/image3.gif') }}">
+      <img class="p" src="{{ asset_url_for('spell_casting/image4.gif') }}">
+      <img class="p" src="{{ asset_url_for('spell_casting/image5.gif') }}">
+      <img class="p" src="{{ asset_url_for('spell_casting/image6.gif') }}">
+    </div>
+  </div>
+{% endblock %}
