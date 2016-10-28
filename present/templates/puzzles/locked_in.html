@@ -1,0 +1,256 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}Locked In{% endblock %}
+{% block puzzle_name_block %}Locked In{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    .blanks {
+      font-family: monospace;
+      padding-bottom: 24px;
+    }
+
+    .red {
+      padding: 2px;
+      outline: #ff0000 2px solid;
+    }
+
+    .door {
+      display: inline-block;
+      width: 32px;
+      height: 36px;
+      margin-left: 8px;
+      margin-right: 8px;
+      background-image: url('{{ asset_url_for('locked_in/door.png') | safe }}');
+    }
+
+    .finalbox {
+      display: inline-block;
+      border: 1px solid #000000;
+      margin-top: 24px;
+      padding: 8px;
+      font-family: monospace;
+    }
+  </style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+  The Cleric's favorite mantra is "You suppose that you are the lock on the
+  door. But you are the key that opens it."
+{% endblock %}
+
+{% block puzzle_content_block %}
+  <div>
+    <p>
+      You're weightless, floating in a massive space roughly the size of a
+      football stadium. There are some geometric shapes floating here and there,
+      and blue laser beams flying through the air. You try to orient
+      yourself. Okay, you left the last place through the floor, but it seemed
+      like you entered this place through a wall. There's a bright light at the
+      other end of the chamber. A young boy zips past you and shouts "Hey, the
+      gate to escape is down!" That was actually helpful. You point your feet at
+      the bright light, push off the wall, and drift towards the light. Halfway
+      there, you grab a laser gun that's floated by. You play around with it and
+      accidentally shoot yourself in the leg. Oops. You feel your muscles freeze
+      up. But it doesn't matter, because you're on the right course! You drift
+      through the bright light...
+    </p>
+    <div class="blanks">
+      <span class="red">_</span> _ _ _ _ _ <div class="door"></div>
+    </div>
+    <p>
+      The timer on your wrist starts counting down from 60:00, and you begin
+      your journey. Whoa, it's hot. A filthy man with a cockney accent demands
+      to know what you're doing here. You shrug and grab a lump of coal off a
+      pile. You notice some items that seem out of place-- one of those those
+      little metal star-shaped toys with six little knobs, and a red, fragrant,
+      thorny flower. Before you can investigate them, the lights flicker then go
+      out entirely. Water starts flowing in through the walls. Ow ow ow, that is
+      cold! A heavy metal door is now slowly lowering over the only egress. You
+      wade towards it as fast as you can, but you're not going to be fast
+      enough. The filthy man gets there ahead of you and nobly braces his body
+      in the door frame. He slows it down just long enough for you to dive into
+      the water and swim under...
+    </p>
+    <div class="blanks">
+      <span class="red">_</span> _ _ _ _ _ <div class="door"></div>
+    </div>
+    <p>
+      Wherever you are, it is abundantly clear that there is no intercourse
+      allowed. You know this because there are signs. So many signs. Some quite
+      graphic. And they all indicate one thing: no copulation. It's not as if
+      you were planning to... anyhow, it's a pretty nice place. There are some
+      plush couches and a few metal poles that are almost certainly not load
+      bearing. Hmm. Against one wall are a bunch of zodiac signs and a series of
+      morbid horoscopes. Oh, but you find a few typos in them, and together they
+      spell "Make it rain." You're not sure what that means, but you find a
+      bottle of Dom Perignon, so you shake it up, remove the cork, and spray it
+      all over the room. When it splashes up onto a photo of pumas, the fabric
+      tears, and a key falls to your feet. You pick up the key. It's all wet,
+      but you remedy that with an object you've been carrying for almost 40
+      minutes. You use the key to unlock the only door, push it open, and
+      exit...
+    </p>
+    <div class="blanks">
+      _ <span class="red">_</span> _ _ _ _ _ _ _ <div class="door"></div>
+    </div>
+    <p>
+      You're soaking wet. It's very unpleasant. You're in some kind of massive
+      garden, and pretty much everything seems edible. You're about taste some
+      tree bark when a strange group of men file in and perform a rhyming song
+      about your misfortune. One of them brings you a towel, and you dry
+      yourself off. You keep the towel. While exploring, you uncover a keyboard
+      inside a hollow stump. As you start experimenting with it, the men sing
+      the overture from a Mozart opera; you think it's the one about a
+      wedding. You play the tune on the keyboard, and a door swings open. You
+      step through...
+    </p>
+    <div class="blanks">
+      _ _ <span class="red">_</span> _ _ _ _ _ _ <div class="door"></div>
+    </div>
+    <p>
+      You're standing at the beginning of some sort of obstacle course. There's
+      a glassed-in overhanging control booth, and the interior designer must've
+      really loved the letter "X," because it appears on every surface. This
+      place doesn't seem to have been designed for an ordinary human. Everything
+      climbable is unreasonably high, and there are massive gaps that require
+      jumping across. And more lasers. Not those tame muscle-stiffening lasers
+      from five locations ago... these lasers look like they'd cut clean through
+      you. The walls are pretty beat up; some parts are scorched, others seem
+      frozen solid, and there are criss-crossing claw marks all over the place
+      in groups of three. On the closest wall you notice a sequence of them that
+      you could use as handholds. You nervously climb up, wedging your fingers
+      and shoes into these abrasions. When you reach the top you squeeze your
+      way through a hole in the ceiling...
+    </p>
+    <div class="blanks">
+      _ _ _ _ <span class="red">_</span> _ <div class="door"></div>
+    </div>
+    <p>
+      The first thing you notice here is the rug. It's way more interesting than
+      the carpet in the place you just left. It's covered in a zigzag pattern of
+      thick lines alternating burgundy and white. The whole place is ringed by
+      curtains, and there are a few black chairs, two lamps, and the Venus de
+      Milo. You're admiring it when you hear something behind you. There's a
+      very small man. He claps his hands and says, "Let's rock!" His words and
+      movements all seem... off... in a way you can't identify. There's a
+      predatory bird in the corner, looking at you curiously. You get the
+      distinct impression it's not what it seems. You feel something squirming
+      in your pocket that you remember picking up nine locations ago. You
+      release it on the floor, and it heads for the curtains. Just as it gets
+      there, the bird swoops down, catches it in its claws, and crashes into the
+      curtain. In that spot, a shimmering portal appears. You see on your watch
+      that you're down to your last ten seconds, so you sprint towards it. You
+      pass through. On the other side, you're greeted by some guy named Bob. He
+      hands you a deerstalker cap and a chalkboard with "00:01" written on it,
+      and leads you to a wall where he takes your picture.
+    </p>
+    <div class="blanks">
+      _ <span class="red">_</span> _ <div class="door"></div>
+    </div>
+    <p>
+      You're in a totally empty space. You can walk again, but your legs are
+      still pretty sore from what just happened. Before you can explore, a
+      smarmy looking blonde kid wearing black robes busts in, clutching a
+      stick. The space transforms itself into a storage facility, overflowing
+      with towering heaps of junk. For lack of any better ideas, you follow the
+      kid, who occasionally pauses to point his stick at inanimate objects and
+      shout in Latin. He opens a wardrobe, climbs in, and shuts the door behind
+      him. You wait a moment, then yank the door open. He's gone! You follow his
+      example. When the door opens again, you're somewhere else...
+    </p>
+    <div class="blanks">
+      <div class="door"></div> _ _ &nbsp; _ _ _ _ <span class="red">_</span> _ _ _ _ _ _
+    </div>
+    <p>
+      Oh man, this place is just super distressing. There's, like, torture
+      equipment all over the place. Someone could really get hurt on this
+      stuff. That's probably why there are so many security cameras on the
+      walls. Nice to know someone's watching...? A rat scurries across the
+      floor. You think he's cute, so you put him in your pocket. Whoever says
+      rats are the worst thing in the world ought to be shot. One wall is
+      covered in words, including "Thought", "Slavery" , "Duck", "Crime" and
+      many others. On a whim you use something that you picked up two locations
+      ago to connect two of the words-- which also appear in a famous Tolstoy
+      title-- with a crude black mark. A hidden panel pops open, and you hurry
+      out...
+    </p>
+    <div class="blanks">
+      <div class="door"></div> _ _ _ - _ _ - <span class="red">_</span> _ _
+    </div>
+    <p>
+      Ding! You've arrived. The door slides open and you step into a metal
+      chamber. It seems to be a movie theater for one person. You take a seat in
+      an uncomfortable leather chair, and a movie begins. It's not a very good
+      film. Very very quick cuts, some not-so-inspirational slogans and bible
+      references, the moon, a doll, some stairs, gross looking pasta...weird
+      choices. But man, does it have a dope-ass beat. You're starting to groove
+      out when you hear a whisper say, "We have to go back." You look around,
+      but there's no one there. Anyhow, there definitely isn't enough time left
+      to go all the way back to the start. Well, sick drum solo notwithstanding,
+      it's time to get out of this creepy place. You find, against a wall, an
+      octagonal bagua carving. You use clues you picked up in the movie to push
+      some hidden switches, and the whole thing swings open. You crawl
+      through...
+    </p>
+    <div class="blanks">
+      <div class="door"></div> _ _ _ _ _ _ - <span class="red">_</span> _ _ _ _
+    </div>
+    <p>
+      This is the first location where you feel physically comfortable from the
+      start. It's a nice, oak panelled study. Two gentlemen wearing white wigs
+      sit at a table. One of them talks really fast. No one else is in here, but
+      through a window you can see a man singing, dancing, and rapping with
+      great urgency. One of the gentlemen suggests that you can solve one
+      problem with another. They gesture to the table, and you take a seat,
+      diametrically opposed to where they're sitting. There's a map of the US
+      (with only thirteen states) and an elaborate sliding puzzle that involves
+      moving a piece from New York to Washington DC. Once you complete the
+      puzzle, you hear a click, and a trapdoor opens in the floor. You climb
+      through...
+    </p>
+    <div class="blanks">
+      <div class="door"></div> _ _ _ _ _ &nbsp; _ <span class="red">_</span> &nbsp; _ _ _ _ _ _ _
+    </div>
+    <p>
+      You emerge through a hatch in the floor of an elongated space with blue
+      carpeting. You haven't seen any live human actors in the last four
+      locations, but this one more than makes up for it. There are a dozen or so
+      men and women in suits (some decorated with medals and ribbons) walking
+      and talking around the table in pairs and trios. They're yammering so fast
+      you can hardly make out anything they're saying. Something about... the
+      president getting into a bicycle accident? Free college tuition? Someone
+      named Josh being in love with his assistant? There's a map of the world on
+      one wall, covered in symbols. You connect matching symbols with pushpins
+      and string, and find that the strings all overlap over an island in the
+      middle of the Atlantic. You poke your finger into the map at that spot and
+      find a secret button. As you press the button, the map rises into the
+      ceiling, revealing an opening. You step through...
+    </p>
+    <div class="blanks">
+      <span class="red">_</span> _ _ _ _ _ _ _ _ <div class="door"></div>
+    </div>
+    <p>
+      Great, another empty space! Oh, no, wait, there's a large black predatory
+      cat. He's baring some nasty looking fangs at you. Now he's pacing back and
+      forth and arching his back. Crap. You remember that you're carrying two
+      things that could be useful in a situation like this. You pick one, pull
+      the trigger, and the cat goes bounding off into the distance, chasing a
+      blue dot. Phew. Okay, now what? You look at your watch, and a little over
+      half of your time has elapsed. There are no walls visible, so you choose a
+      random direction and start walking. Eventually you reach an elevator, just
+      sitting there. Inside, there are two names embossed on the wall... is this
+      a law firm? There's muzak playing... it sounds like a cover of Neil
+      Young's "Vampire Blues," but with soul. The elevator buttons are flashing
+      intermittently. You play a game of Simon with them, matching the flashing
+      sequence. After several rounds the buttons all give one final flash, and a
+      previously invisible button lights up. You press it, and the elevator
+      descends through the floor...
+    </p>
+    <div class="blanks">
+      _ _ _ <span class="red">_</span> _ <div class="door"></div>
+    </div>
+    <div class="finalbox">
+      _ _ _ _ : _ _ _ :: _ _ _ _ _ : ?
+    </div>
+  </div>
+{% endblock %}

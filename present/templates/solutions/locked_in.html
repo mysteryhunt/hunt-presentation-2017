@@ -1,0 +1,280 @@
+{% extends "solutions/solution_layout.html" %}
+{% block title_block %}Locked In: Solution{% endblock %}
+{% block puzzle_name_block %}Locked In: Solution{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    .center {
+      text-align: center;
+    }
+  </style>
+{% endblock %}
+
+{% block solution_content_block %}
+  <div>
+    <p>
+      The puzzle has three components:
+    </p>
+    <ol>
+      <li>12 passages, each followed by:</li>
+      <li>A phrase, indicated by blanks and a door icon. In each, one blank is marked.</li>
+      <li>An SAT analogy style phrase, marked with blanks.</li>
+    </ol>
+    <p>
+      Based on the title and flavortext, the solver should recognize that this
+      is a room escape related puzzle. Upon reading through the paragraphs, two
+      things should become apparent. First, that each paragraph is alluding to a
+      specific media property. And second, that the paragraphs are out of
+      order. The solver may start identifying some of the allusions, but will
+      notice that none fit into the blanks at the bottom.
+    </p>
+    <p>
+      The key to those blanks is that every section of the room escape
+      walkthrough refers not only to a media property, but to a specific room
+      within it, that is always explicitly named. So, in the example of Harry
+      Potter, that's the Room of Requirement. The door symbols stand in for the
+      word "room" in each ID. This is additionally clued by the Rumi (ie Roomy)
+      quote in the flavortext.
+    </p>
+    <p>
+      As the solver starts to fill in room identifications, they may notice that
+      they’ve been listed in alphabetical order (the 4 that begin with the door
+      symbol could be a tip-off). Given that the narrative's order has been
+      scrambled, the next step is to find the correct order for all rooms.
+    </p>
+    <p>
+      There are a number of clues throughout as to ordering. One path to putting
+      the rooms in order would be as follows:
+    </p>
+    <ol>
+      <li>
+        2 is clearly the first room, what with the timer starting to count down.
+      </li>
+      <li>
+        6 must be the last, given it contains the escape.
+      </li>
+      <li>
+        4 begins with the protagonist soaking wet, so it must come second, after
+        room 2 flooded.
+      </li>
+      <li>
+        6 comes 9 rooms after 8 (based on the use of the rat), so 8 must be 3rd.
+      </li>
+      <li>
+        7 comes after 1, because the protagonist can walk again, and his muscles
+        are sore.
+      </li>
+      <li>
+        2, 4, 7, and 8 were the physically uncomfortable rooms. 7 follows a
+        comfortable room. So 10 must come 4th, after 8.
+      </li>
+      <li>
+        9 must follow 12, given the elevator dinging open (this is the only
+        thing that would plausibly ding at the beginning of a room).
+      </li>
+      <li>
+        There are only two rooms (10 and 12) that involved descending through
+        the floor. 12 is followed by 9, so 1-- which indicates the character
+        left the previous room through the floor-- must follow 10 and come
+        5th. This also places 7 at 6th (see step 5).
+      </li>
+      <li>
+        In 12 the protagonist looks at his watch and sees that he's just over
+        halfway. (Also, this section starts "another empty space"-- naturally
+        following 7). So 12 is 7th, and 9 is 8th (see step 7).
+      </li>
+      <li>
+        5 must be five rooms after 1, from the allusion to "tame, muscle
+        stiffening lasers". This places it 10th.
+      </li>
+      <li>
+        11 alludes to there being no human actors in the past four rooms. This
+        is only possible in position 11.
+      </li>
+      <li>
+        Leaving, by process of elimination, 3 in the 9th position.
+      </li>
+    </ol>
+    <p>
+      There are additional clues in the text, including use of items and
+      allusions to how much time is left. Here is a full list:
+    </p>
+    <table>
+      <tr>
+        <th>Paragraph Number</th>
+        <th>Ordering clues</th>
+      </tr>
+      <tr>
+        <td class="center">1</td>
+        <td>
+          left previous room through floor. Pick up the LASER GUN.
+        </td>
+      </tr>
+      <tr>
+        <td class="center">2</td>
+        <td>
+          timer starts, so must be room 1. Pick up the COAL. End soaking wet.
+        </td>
+      </tr>
+      <tr>
+        <td class="center">3</td>
+        <td>
+          3rd TOWEL use, 40 minutes with towel = 2/3 of the way through the
+          escape = 8 rooms with the towel
+        </td>
+      </tr>
+      <tr>
+        <td class="center">4</td>
+        <td>
+          Start soaking wet-- so immediately after 1st room. Pick up TOWEL.
+        </td>
+      </tr>
+      <tr>
+        <td class="center">5</td>
+        <td>
+          Five after "tame muscle-stiffening lasers" (room 5). Exit through
+          ceiling.
+        </td>
+      </tr>
+      <tr>
+        <td class="center">6</td>
+        <td>
+          clearly ending. use RAT (gained 9 locations ago).
+        </td>
+      </tr>
+      <tr>
+        <td class="center">7</td>
+        <td>
+          Legs are sore and you can walk again (after shooting yourself with
+          the laser gun). Second TOWEL use
+        </td>
+      </tr>
+      <tr>
+        <td class="center">8</td>
+        <td>
+          Pick up RAT (used in final location). Use COAL (picked up 2
+          locations ago)
+        </td>
+      </tr>
+      <tr>
+        <td class="center">9</td>
+        <td>
+          Starts with the elevator "ding" and door sliding open. There isn't
+          enough time to get back to the start-- so it's over halfway through.
+        </td>
+      </tr>
+      <tr>
+        <td class="center">10</td>
+        <td>
+          First physically comfortable room
+        </td>
+      </tr>
+      <tr>
+        <td class="center">11</td>
+        <td>
+          Enter through floor. There haven't been human actors in the last 4
+          rooms.
+        </td>
+      </tr>
+      <tr>
+        <td class="center">12</td>
+        <td>
+          Second empty space in a row. Use LASER GUN. Just over half of the
+          time has elapsed. Leave through an elevator.
+        </td>
+      </tr>
+    </table>
+    <p>
+      Extracting letters from the blanks is a clear matter of taking the red
+      blank in each ID. Ordering by the sequence in the escape will give the
+      string BOOTBITTHESE. The solver can then place these words in the analogy
+      at the bottom of the page to get BOOT : BIT :: THESE : ?  (Boot is to bit,
+      as these are to ?). "These" are ROOMS, so applying the transformation of
+      turning a double O into an I transforms ROOMS into RIMS, which is the
+      answer to the puzzle.
+    </p>
+    <p>
+      Table of all IDs, Room names, and order:
+    </p>
+    <table>
+      <tr>
+        <th>Literary Property</th>
+        <th>Room</th>
+        <th>Extracted Letter</th>
+        <th>Paragraph Number</th>
+      </tr>
+      <tr>
+        <td>Titanic</td>
+        <td>Boiler Room</td>
+        <td class="center">B</td>
+        <td class="center">2</td>
+      </tr>
+      <tr>
+        <td>Charlie and the Chocolate Factory</td>
+        <td>Chocolate Room</td>
+        <td class="center">O</td>
+        <td class="center">4</td>
+      </tr>
+      <tr>
+        <td>1984</td>
+        <td>Room one-oh-one</td>
+        <td class="center">O</td>
+        <td class="center">8</td>
+      </tr>
+      <tr>
+        <td>Hamilton</td>
+        <td>Room where it happens</td>
+        <td class="center">T</td>
+        <td class="center">10</td>
+      </tr>
+      <tr>
+        <td>Ender's Game</td>
+        <td>Battle Room</td>
+        <td class="center">B</td>
+        <td class="center">1</td>
+      </tr>
+      <tr>
+        <td>Harry Potter</td>
+        <td>Room of Requirement</td>
+        <td class="center">I</td>
+        <td class="center">7</td>
+      </tr>
+      <tr>
+        <td>Angel</td>
+        <td>White Room</td>
+        <td class="center">T</td>
+        <td class="center">12</td>
+      </tr>
+      <tr>
+        <td>LOST</td>
+        <td>Room twenty-three</td>
+        <td class="center">T</td>
+        <td class="center">9</td>
+      </tr>
+      <tr>
+        <td>No sex (in the champagne room)</td>
+        <td>Champagne room</td>
+        <td class="center">H</td>
+        <td class="center">3</td>
+      </tr>
+      <tr>
+        <td>X-Men</td>
+        <td>Danger Room</td>
+        <td class="center">E</td>
+        <td class="center">5</td>
+      </tr>
+      <tr>
+        <td>The West Wing</td>
+        <td>Situation Room</td>
+        <td class="center">S</td>
+        <td class="center">11</td>
+      </tr>
+      <tr>
+        <td>Twin Peaks</td>
+        <td>Red Room</td>
+        <td class="center">E</td>
+        <td class="center">6</td>
+      </tr>
+    </table>
+  </div>
+{% endblock %}
