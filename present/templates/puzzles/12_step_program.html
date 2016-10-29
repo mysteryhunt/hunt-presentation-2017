@@ -1,0 +1,54 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}12 Step Program{% endblock %}
+{% block puzzle_name_block %}12 Step Program{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  .stepImg {
+    width: 175px;
+    border: 5px solid #000000;
+    vertical-align: middle;
+  }
+  .stepDiv {
+    display: inline-block;
+    margin: 10px;
+  }
+  .finalImg {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+</style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+The wheel of life turns, year after year (much like the Chemist's centrifuge).
+{% endblock %}
+
+{% block puzzle_content_block %}
+<div>
+  <div>
+    <div>
+      <div class="stepDiv"><img class="stepImg" src="{{ asset_url_for('12_step_program/img01.jpg') }}" /></div>
+      <div class="stepDiv"><img class="stepImg" src="{{ asset_url_for('12_step_program/img02.jpg') }}" /></div>
+      <div class="stepDiv"><img class="stepImg" src="{{ asset_url_for('12_step_program/img03.jpg') }}" /></div>
+      <div class="stepDiv"><img class="stepImg" src="{{ asset_url_for('12_step_program/img04.jpg') }}" /></div>
+    </div>
+    <div>
+      <div class="stepDiv"><img class="stepImg" src="{{ asset_url_for('12_step_program/img05.jpg') }}" /></div>
+      <div class="stepDiv"><img class="stepImg" src="{{ asset_url_for('12_step_program/img06.jpg') }}" /></div>
+      <div class="stepDiv"><img class="stepImg" src="{{ asset_url_for('12_step_program/img07.jpg') }}" /></div>
+      <div class="stepDiv"><img class="stepImg" src="{{ asset_url_for('12_step_program/img08.jpg') }}" /></div>
+    </div>
+    <div>
+      <div class="stepDiv"><img class="stepImg" src="{{ asset_url_for('12_step_program/img09.jpg') }}" /></div>
+      <div class="stepDiv"><img class="stepImg" src="{{ asset_url_for('12_step_program/img10.jpg') }}" /></div>
+      <div class="stepDiv"><img class="stepImg" src="{{ asset_url_for('12_step_program/img11.jpg') }}" /></div>
+      <div class="stepDiv"><img class="stepImg" src="{{ asset_url_for('12_step_program/img12.jpg') }}" /></div>
+    </div>
+  </div>
+  <div>
+    <img class="finalImg" src="{{ asset_url_for('12_step_program/img13.png') }}" />
+  </div>
+</div>
+{% endblock %}
