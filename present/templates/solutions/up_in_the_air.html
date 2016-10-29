@@ -1,0 +1,54 @@
+{% extends "solutions/solution_layout.html" %}
+{% block title_block %}Up in the Air: Solution{% endblock %}
+{% block puzzle_name_block %}Up in the Air: Solution{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  .soltext {
+    padding: 18px 0px;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<div>
+  <div class="soltext">This puzzle consists of a set of images labeled with numbers, which compose 11 different connect-the-dots series. Solvers need to first figure out which images belong in the same series based on visual similarities - each series consists of portions
+    taken from the same photograph. Each connect-the-dots series spells a letter, and ordering these letters by the height of the "1" dots in each series produces the hint STATA CENTER, which indicates that solvers should head to the Stata Center to continue
+    solving the puzzle.</div>
+  <div>
+    <img src="{{ asset_url_for('up_in_the_air/s1.png') }}" style="height:150px">
+    <img src="{{ asset_url_for('up_in_the_air/t2.png') }}" style="height:150px">
+    <img src="{{ asset_url_for('up_in_the_air/a3.png') }}" style="height:150px">
+    <img src="{{ asset_url_for('up_in_the_air/t4.png') }}" style="height:150px">
+    <img src="{{ asset_url_for('up_in_the_air/a5.png') }}" style="height:150px">
+  </div>
+  <div>
+    <img src="{{ asset_url_for('up_in_the_air/c6.png') }}" style="height:150px">
+    <img src="{{ asset_url_for('up_in_the_air/e7.png') }}" style="height:150px">
+    <img src="{{ asset_url_for('up_in_the_air/n8.png') }}" style="height:150px">
+    <img src="{{ asset_url_for('up_in_the_air/t9.png') }}" style="height:150px">
+    <img src="{{ asset_url_for('up_in_the_air/e10.png') }}" style="height:150px">
+    <img src="{{ asset_url_for('up_in_the_air/r11.png') }}" style="height:150px">
+  </div>
+  <div class="soltext">
+    Once in the Stata center, solvers will likely notice that the images are taken from various large canvases from Yann Arthus-Bertrand's "La Terre vue du ciel" photography series. Solvers need to repeat the connect-the-dots process to produce new letters,
+    but this time using the locations of the selected images as they appear in the original photographs. If you order these new letters based on the conspicuous TVDC number label at the bottom of each canvas.
+  </div>
+  <div>
+    <img src="{{ asset_url_for('up_in_the_air/m1.jpg') }}" style="height:150px">
+    <img src="{{ asset_url_for('up_in_the_air/a2.jpg') }}" style="height:150px">
+    <img src="{{ asset_url_for('up_in_the_air/r3.jpg') }}" style="height:150px">
+    <img src="{{ asset_url_for('up_in_the_air/y4.jpg') }}" style="height:150px">
+    <img src="{{ asset_url_for('up_in_the_air/p5.jpg') }}" style="height:150px">
+    <img src="{{ asset_url_for('up_in_the_air/o6.jpg') }}" style="height:150px">
+    <img src="{{ asset_url_for('up_in_the_air/p7.jpg') }}" style="height:150px">
+    <img src="{{ asset_url_for('up_in_the_air/p8.jpg') }}" style="height:150px">
+    <img src="{{ asset_url_for('up_in_the_air/i9.jpg') }}" style="height:150px">
+    <img src="{{ asset_url_for('up_in_the_air/n10.jpg') }}" style="height:150px">
+    <img src="{{ asset_url_for('up_in_the_air/s11.jpg') }}" style="height:150px">
+  </div>
+  <div class="soltext">
+    The letters spell out <b>MARY POPPINS</b>, which is the answer to this puzzle.
+  </div>
+</div>
+{% endblock %}
