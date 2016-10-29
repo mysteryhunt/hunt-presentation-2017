@@ -1,0 +1,71 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}Slay All Day{% endblock %}
+{% block puzzle_name_block %}Slay All Day{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    .circle {
+      cursor: pointer;
+    }
+  </style>
+  <script>
+    var clipSrcs = [
+      {% for i in range(1,18) %}
+      "{{ asset_url_for('slay_all_day/clip%02d.mp3' % i) | safe }}",
+      {% endfor %}
+    ];
+
+    function swapClip(i) {
+      var clip = document.getElementById('clippy');
+      clip.src = clipSrcs[i - 1];
+      var player = document.getElementById('playa');
+      player.load();
+      player.play();
+    };
+  </script>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+  As you strive for victory against the cube, a passerby provides running
+  commentary.
+{% endblock %}
+
+{% block puzzle_content_block %}
+  <div>
+    <center>
+      <p>
+        <img class="circle" border="0" alt="Clip 1" src="{{ asset_url_for('slay_all_day/circle1.png') }}" width="50" height="50" onclick="swapClip(1)">
+        <img class="circle" border="0" alt="Clip 2" src="{{ asset_url_for('slay_all_day/circle1.png') }}" width="50" height="50" onclick="swapClip(2)">
+      </p>
+      <p>
+        <img class="circle" border="0" alt="Clip 3" src="{{ asset_url_for('slay_all_day/circle3.png') }}" width="50" height="50" onclick="swapClip(3)">
+        <img class="circle" border="0" alt="Clip 4" src="{{ asset_url_for('slay_all_day/circle3.png') }}" width="50" height="50" onclick="swapClip(4)">
+        <img class="circle" border="0" alt="Clip 5" src="{{ asset_url_for('slay_all_day/circle1.png') }}" width="50" height="50" onclick="swapClip(5)">
+        <img class="circle" border="0" alt="Clip 6" src="{{ asset_url_for('slay_all_day/circle2.png') }}" width="50" height="50" onclick="swapClip(6)">
+      </p>
+      <p>
+        <img class="circle" border="0" alt="Clip 7" src="{{ asset_url_for('slay_all_day/circle3.png') }}" width="50" height="50" onclick="swapClip(7)">
+        <img class="circle" border="0" alt="Clip 8" src="{{ asset_url_for('slay_all_day/circle2.png') }}" width="50" height="50" onclick="swapClip(8)">
+        <img class="circle" border="0" alt="Clip 9" src="{{ asset_url_for('slay_all_day/circle1.png') }}" width="50" height="50" onclick="swapClip(9)">
+        <img class="circle" border="0" alt="Clip 10" src="{{ asset_url_for('slay_all_day/circle2.png') }}" width="50" height="50" onclick="swapClip(10)">
+        <img class="circle" border="0" alt="Clip 11" src="{{ asset_url_for('slay_all_day/circle3.png') }}" width="50" height="50" onclick="swapClip(11)">
+      </p>
+      <p>
+        <img class="circle" border="0" alt="Clip 12" src="{{ asset_url_for('slay_all_day/circle2.png') }}" width="50" height="50" onclick="swapClip(12)">
+        <img class="circle" border="0" alt="Clip 13" src="{{ asset_url_for('slay_all_day/circle3.png') }}" width="50" height="50" onclick="swapClip(13)">
+        <img class="circle" border="0" alt="Clip 14" src="{{ asset_url_for('slay_all_day/circle1.png') }}" width="50" height="50" onclick="swapClip(14)">
+        <img class="circle" border="0" alt="Clip 15" src="{{ asset_url_for('slay_all_day/circle3.png') }}" width="50" height="50" onclick="swapClip(15)">
+      </p>
+      <p>
+        <img class="circle" border="0" alt="Clip 16" src="{{ asset_url_for('slay_all_day/circle3.png') }}" width="50" height="50" onclick="swapClip(16)">
+        <img class="circle" border="0" alt="Clip 17" src="{{ asset_url_for('slay_all_day/circle3.png') }}" width="50" height="50" onclick="swapClip(17)">
+      </p>
+      <p>
+        <audio id="playa" controls>
+          <source id="clippy" src="" type="audio/mpeg">
+        </audio>
+      </p>
+      <img border="0" alt="World Map" src="{{ asset_url_for('slay_all_day/worldmap.png') }}" width="900">
+    </center>
+  </div>
+{% endblock %}
