@@ -1,0 +1,36 @@
+{% extends "solutions/solution_layout.html" %}
+{% block title_block %}Spell Casting: Solution{% endblock %}
+{% block puzzle_name_block %}Spell Casting: Solution{% endblock %}
+
+{% block solution_content_block %}
+  <div>
+    <p>
+      Each audio file represents the pronunciation of a group of letters, each
+      of which is a common set, minus one letter. The files are presented in
+      alphabetical order:
+    </p>
+    <ol>
+      <li>AEHIKLMNOP[U]W: the letters of the Hawaiian alphabet</li>
+      <li>HBCN[O]FPSKVYIWU: one-letter chemical element symbols</li>
+      <li>KQRB[N]P: chess pieces</li>
+      <li>MDC[L]XVI: Roman numerals</li>
+      <li>OBAFG[K]M: star classification</li>
+      <li>ZX[C]VBNM: bottom row of letters on a standard keyboard</li>
+    </ol>
+    <p>
+      The six images at the bottom of the puzzle are each associated with one of
+      these sets.
+    </p>
+    <ul>
+      <li>Lei - Hawaiian alphabet - U</li>
+      <li>Bishop - Chess pieces - N</li>
+      <li>Column - Roman numerals - L</li>
+      <li>Beaker - Chemical elements - O</li>
+      <li>Keyboard - Row of letters - C</li>
+      <li>Star - Star classifications - K</li>
+    </ul>
+    <p>
+      The omitted letters, in picture order, spell the answer, <b>UNLOCK</b>.
+    </p>
+  </div>
+{% endblock %}
