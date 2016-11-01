@@ -83,6 +83,11 @@ def puzzle(puzzle_id):
         "puzzles/%s.html" % puzzle_id,
         puzzle_id=puzzle_id,
         puzzle=puzzle)
+        
+@app.route("/inventory")
+@login_required.solvingteam
+def inventory():
+    return render_template("inventory.html")
 
 @app.route("/full/puzzle")
 @login_required.writingteam
@@ -126,4 +131,9 @@ def full_round(round_id):
         puzzle_properties=puzzle_properties,
         puzzle_visibilities=puzzle_visibilities,
         full_access = True)
+
+@app.route("/full/inventory")
+@login_required.writingteam
+def full_inventory():
+    return render_template("inventory.html")
 

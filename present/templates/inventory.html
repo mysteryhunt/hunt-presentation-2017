@@ -1,0 +1,9 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}Full Inventory{% endblock %}
+{% block puzzle_name_block %}Full Inventory{% endblock %}
+
+{% block puzzle_content_block %}
+<div>
+  {{ inventory.inventory_listing() }}
+</div>
+{% endblock %}

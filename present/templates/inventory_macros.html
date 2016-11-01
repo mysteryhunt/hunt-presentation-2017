@@ -1,0 +1,116 @@
+{% macro inventory_grid_space(item_id, item_name) %}
+  <td><img src="{{ url_for('static', filename='temp/item' + item_id + '.jpg') }}" style="height:60px; width:60px;"/></td>  
+{% endmacro %}
+
+{% macro inventory_grid() %}
+  {% set item_names = [
+        ('00','Acceptance Letter to MIT'),
+        ('01','Anger Management Book'),
+        ('02','Architect\'s Compass'),
+        ('03','Astral Blade'),
+        ('04','Bargaining Chips'),
+        ('05','Broken Twig'),
+        ('06','Burnt Sulfur Lugnut'),
+        ('07','Cardiac Device'),
+        ('08','Denial of Service Attack Plan'),
+        ('09','Depression-Era Clothing'),
+        ('10','Domestic Avocado'),
+        ('11','Faded Sofa'),
+        ('12','Fancy Pocketwatch'),
+        ('13','Harlequin Doll'),
+        ('14','Iron Shovels'),
+        ('15','Jeweled Helm'),
+        ('16','Knight\'s Shield'),
+        ('17','Leviticus Single'),
+        ('18','Little Statue of Liberty'),
+        ('19','Lottery Numbers'),
+        ('20','Madman\'s Jackal Mask'),
+        ('21','Mint-Flavored Salami'),
+        ('22','Mississippi Collectible'),
+        ('23','Officer\'s Truncheons'),
+        ('24','Old Deuteronomy Sheet Music'),
+        ('25','Pink String Bikini'),
+        ('26','Polyatomic Robot'),
+        ('27','Red Pinafore'),
+        ('28','Sega Genesis'),
+        ('29','Severe Beret'),
+        ('30','Sienna Notebook'),
+        ('31','Soldierly Parasol'),
+        ('32','Sparkling Necklace'),
+        ('33','Super-Accurate Tri-Square'),
+        ('34','Tamil Liqueur'),
+        ('35','Ultima III: Exodus'),
+        ('36','Ultrasonic Boots'),
+        ('37','Unsafe Mtorolite'),
+        ('38','Worn Ring of Gold'),
+        ('39','Zzzzzzzz Final Item Temp')
+        ] %}
+  <table>
+    {% for row_number in range(5) %}
+      <tr>
+      {% for column_number in range(8) %}
+        {{ inventory_grid_space(item_names[row_number * 8 + column_number][0], item_names[row_number * 8 + column_number][1]) }}
+      {% endfor %}
+      </tr>
+    {% endfor %}
+    <tr>
+      <td colspan="8"><a href="{{ url_for('inventory') }}">Full Inventory</a></td>
+    </tr>
+  </table>
+{% endmacro %}
+
+{% macro inventory_individual_listing(item_id, item_name) %}
+  <div style="font-size: 24px; margin-bottom: 30px; text-align:center;">
+    <img src="{{ url_for('static', filename='temp/item' + item_id + '.jpg') }}"/><br/>
+    {{ item_name }}
+  </div>
+{% endmacro %}
+
+{% macro inventory_listing() %}
+  {% set item_names = [
+        ('00','Acceptance Letter to MIT'),
+        ('01','Anger Management Book'),
+        ('02','Architect\'s Compass'),
+        ('03','Astral Blade'),
+        ('04','Bargaining Chips'),
+        ('05','Broken Twig'),
+        ('06','Burnt Sulfur Lugnut'),
+        ('07','Cardiac Device'),
+        ('08','Denial of Service Attack Plan'),
+        ('09','Depression-Era Clothing'),
+        ('10','Domestic Avocado'),
+        ('11','Faded Sofa'),
+        ('12','Fancy Pocketwatch'),
+        ('13','Harlequin Doll'),
+        ('14','Iron Shovels'),
+        ('15','Jeweled Helm'),
+        ('16','Knight\'s Shield'),
+        ('17','Leviticus Single'),
+        ('18','Little Statue of Liberty'),
+        ('19','Lottery Numbers'),
+        ('20','Madman\'s Jackal Mask'),
+        ('21','Mint-Flavored Salami'),
+        ('22','Mississippi Collectible'),
+        ('23','Officer\'s Truncheons'),
+        ('24','Old Deuteronomy Sheet Music'),
+        ('25','Pink String Bikini'),
+        ('26','Polyatomic Robot'),
+        ('27','Red Pinafore'),
+        ('28','Sega Genesis'),
+        ('29','Severe Beret'),
+        ('30','Sienna Notebook'),
+        ('31','Soldierly Parasol'),
+        ('32','Sparkling Necklace'),
+        ('33','Super-Accurate Tri-Square'),
+        ('34','Tamil Liqueur'),
+        ('35','Ultima III: Exodus'),
+        ('36','Ultrasonic Boots'),
+        ('37','Unsafe Mtorolite'),
+        ('38','Worn Ring of Gold'),
+        ('39','Zzzzzzzz Final Item Temp')
+        ] %}
+
+  {% for item_number in range(40) %}
+    {{ inventory_individual_listing(item_names[item_number][0], item_names[item_number][1]) }}
+  {% endfor %}
+{% endmacro %}
