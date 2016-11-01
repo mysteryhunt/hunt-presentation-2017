@@ -1,0 +1,40 @@
+{% extends "solutions/solution_layout.html" %}
+{% block title_block %}Cutting Room Floor: Solution{% endblock %}
+{% block puzzle_name_block %}Cutting Room Floor: Solution{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  .soltext {
+    padding: 10px 0px;
+  }
+  ul {
+    list-style-type: none;
+    padding-left: 16px;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<div>
+  <div class="soltext">
+    Take a two-word movie title where all the letters of the first word appear in the second word in order (but not necessarily contiguously), throw those letters out, then throw out another letter for good measure, and that's what you see here. Nine times.
+    You just need to identify and reverse the process.
+  </div>
+  <div>
+    <ul>
+      <li>TOY Sto(R)y</li>
+      <li>MO moN(E)Y</li>
+      <li>VICTOR victorI(A)</li>
+      <li>THE GO(D)FAtheR</li>
+      <li>LES (M)ISERABles</li>
+      <li>ANNA KaREn(I)na</li>
+      <li>ICE PRi(N)ceSS</li>
+      <li>AN E(D)UCaTIOn</li>
+      <li>HOT (S)hotS</li>
+      <ul>
+  </div>
+  <div class="soltext">
+    The unexpectedly missing letters spell the answer: <b>READ MINDS</b>.
+  </div>
+</div>
+{% endblock %}
