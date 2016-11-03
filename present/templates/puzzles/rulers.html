@@ -5,28 +5,36 @@
 {% block puzzle_head_block %}
   <style>
     @media screen {
-      #puzzle-container {
-        width: 1055px;
+      #image01 {
+        width: 844px;
       }
+
+      .rulers-container img {
+        vertical-align: top;
+        width: 176px;
+      }
+      
     }
 
     @media print {
       #image01container {
         page-break-before: always;
       }
+
       .rulers-container {
         page-break-after: always;
       }
+
+      img#image01 {
+        width: 8in;
+        height: 12.14in;
+      }
+
+      .rulers-container img {
+        width: 1.668in;
+      }
     }
 
-    #image01 {
-      width: 1055px;
-      height: 1600px;
-    }
-
-    .rulers-container img {
-      vertical-align: top;
-    }
   </style>
 {% endblock %}
 
