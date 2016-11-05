@@ -1,0 +1,118 @@
+{% extends "solutions/solution_layout.html" %}
+{% block title_block %}Senior Superlatives: Solution{% endblock %}
+{% block puzzle_name_block %}Senior Superlatives: Solution{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    ul {
+      list-style: none;
+    }
+    table {
+      border-collapse: collapse;
+    }
+    th, td {
+      text-align: center;
+      border: 1px solid black;
+      padding: 4px;
+    }
+  </style>
+{% endblock %}
+
+{% block solution_content_block %}
+  <div>
+    <p>
+      In this puzzle, you identify celebrity high school yearbook photos and
+      match them to a "senior superlative" (e.g. "most likely to succeed").
+    </p>
+    <p>
+      As clued by the 6 blanks for each answer, the flavortext "fill out the SAT
+      forms," and the high school theme, you must identify each of the high
+      schools of the celebrities, and then find the school's 6-digit CEEB code
+      (which is used in taking the SAT and in college admissions). Many CEEB
+      code lookups are available on the web; one can be found here:
+      https://collegereadiness.collegeboard.org/k-12-school-code-search
+    </p>
+    <p>
+      The shaded number in the CEEB code tells you how to index into the notable
+      person's surname.
+    </p>
+    <p>
+      The 25 celebrity photos are presented – as they would be in a yearbook –
+      alphabetically:
+    </p>
+    <ul>
+      <li>Tyra Banks
+      <li>Sandra Bullock
+      <li>Mariah Carey
+      <li>John Cho
+      <li>Bradley Cooper
+      <li>Matt Damon
+      <li>Zooey Deschanel
+      <li>Cameron Diaz
+      <li>Peter Dinklage
+      <li>Jimmy Fallon
+      <li>Bill Gates
+      <li>Ariana Grande
+      <li>John Kerry
+      <li>Avril Lavigne
+      <li>Lucy Liu
+      <li>Rachel Maddow
+      <li>Bill Murray
+      <li>Sheryl Sandberg
+      <li>Blake Shelton
+      <li>Bruce Springsteen
+      <li>Neil deGrasse Tyson
+      <li>Carrie Underwood
+      <li>Anthony Weiner
+      <li>Oprah Winfrey
+      <li>Tiger Woods
+    </ul>
+    <p>
+      Matching the celebrity with the clue and the CEEB code, and indexing in by
+      the appropriate number, you get:
+    </p>
+    <table>
+      <tr>
+        <th>Celeb</th>
+        <th>Surname</th>
+        <th>CEEB</th>
+        <th>Shaded CEEB Position</th>
+        <th>Index</th>
+        <th>Letter</th>
+      </tr>
+      <tr><td>Peter Dinklage</td><td>DINKLAGE</td><td>310835</td><td>6</td><td>5</td><td>L</td></tr>
+      <tr><td>Mariah Carey</td><td>CAREY</td><td>332182</td><td>3</td><td>2</td><td>A</td></tr>
+      <tr><td>John Kerry</td><td>KERRY</td><td>300110</td><td>4</td><td>1</td><td>K</td></tr>
+      <tr><td>Bill Gates</td><td>GATES</td><td>481120</td><td>1</td><td>4</td><td>E</td></tr>
+      <tr><td>Bruce Springsteen</td><td>SPRINGSTEEN</td><td>310405</td><td>2</td><td>1</td><td>S</td></tr>
+      <tr><td>Anthony Weiner</td><td>WEINER</td><td>330630</td><td>5</td><td>3</td><td>I</td></tr>
+      <tr><td>Cameron Diaz</td><td>DIAZ</td><td>051480</td><td>3</td><td>1</td><td>D</td></tr>
+      <tr><td>Blake Shelton</td><td>SHELTON</td><td>370003</td><td>1</td><td>3</td><td>E</td></tr>
+      <tr><td>Matt Damon</td><td>DAMON</td><td>220493</td><td>2</td><td>2</td><td>A</td></tr>
+      <tr><td>Sandra Bullock</td><td>BULLOCK</td><td>470125</td><td>1</td><td>4</td><td>L</td></tr>
+      <tr><td>Lucy Liu</td><td>LIU</td><td>334070</td><td>1</td><td>3</td><td>U</td></tr>
+      <tr><td>Bill Murray</td><td>MURRAY</td><td>144403</td><td>1</td><td>1</td><td>M</td></tr>
+      <tr><td>Tiger Woods</td><td>WOODS</td><td>050092</td><td>2</td><td>5</td><td>S</td></tr>
+      <tr><td>John Cho</td><td>CHO</td><td>051060</td><td>3</td><td>1</td><td>C</td></tr>
+      <tr><td>Bradley Cooper</td><td>COOPER</td><td>393321</td><td>5</td><td>2</td><td>O</td></tr>
+      <tr><td>Zooey Deschanel</td><td>DESCHANEL</td><td>053307</td><td>6</td><td>7</td><td>N</td></tr>
+      <tr><td>Neil deGrasse Tyson</td><td>TYSON</td><td>330480</td><td>2</td><td>3</td><td>S</td></tr>
+      <tr><td>Rachel Maddow</td><td>MADDOW</td><td>050500</td><td>4</td><td>5</td><td>O</td></tr>
+      <tr><td>Jimmy Fallon</td><td>FALLON</td><td>335055</td><td>2</td><td>3</td><td>L</td></tr>
+      <tr><td>Sheryl Sandberg</td><td>SANDBERG</td><td>101236</td><td>6</td><td>6</td><td>E</td></tr>
+      <tr><td>Tyra Banks</td><td>BANKS</td><td>051625</td><td>3</td><td>1</td><td>B</td></tr>
+      <tr><td>Ariana Grande</td><td>GRANDE</td><td>100249</td><td>4</td><td>2</td><td>R</td></tr>
+      <tr><td>Avril Lavigne</td><td>LAVIGNE</td><td>826362</td><td>2</td><td>2</td><td>A</td></tr>
+      <tr><td>Oprah Winfrey</td><td>WINFREY</td><td>431660</td><td>2</td><td>3</td><td>N</td></tr>
+      <tr><td>Carrie Underwood</td><td>UNDERWOOD</td><td>370690</td><td>1</td><td>3</td><td>D</td></tr>
+    </table>
+    <p>
+      This provides the cluephrase LAKESIDE ALUMS CONSOLE BRAND.
+    </p>
+    <p>
+      In this puzzle, solvers found that Bill Gates attended the Lakeside School
+      in Seattle. Of course, Gates went on to found Microsoft, whose video games
+      consoles are marketed with the brand <b>XBOX</b>.
+    </p>
+  </div>
+{% endblock %}
