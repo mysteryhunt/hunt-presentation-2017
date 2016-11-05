@@ -1,0 +1,103 @@
+{% extends "solutions/solution_layout.html" %}
+{% block title_block %}Typecasting: Solution{% endblock %}
+{% block puzzle_name_block %}Typecasting: Solution{% endblock %}
+
+{% block solution_content_block %}
+  <div>
+    <p>
+      Each row has three celebrities, two that starred in a movie, and a third
+      whose punny name sounds like it fits in that movie. Identify the movie!
+      Put its name in the Rotten Tomatoes and take the identified letter.
+    </p>
+    <table>
+      <tr>
+        <td>Alec Baldwin</td>
+        <td><b>Brooklyn Decker</b></td>
+        <td>Michael Madsen</td>
+        <td>Back in the Day</td>
+        <td>D</td>
+      </tr>
+      <tr>
+        <td>Michael Caine</td>
+        <td><b>Minnie Driver</b></td>
+        <td>Benny Hill</td>
+        <td>The Italian Job</td>
+        <td>A</td>
+      </tr>
+      <tr>
+        <td>Lou Ferrigno</td>
+        <td><b>Jim Nabors</b></td>
+        <td>Arnold Schwarzenegger</td>
+        <td>Pumping Iron</td>
+        <td>N</td>
+      </tr>
+      <tr>
+        <td><b>Lake Bell</b></td>
+        <td>Helen Mirren</td>
+        <td>Nigel Terry</td>
+        <td>Excalibur</td>
+        <td>E</td>
+      </tr>
+      <tr>
+        <td><b>Lauren Ash</b></td>
+        <td>Emily Browning</td>
+        <td>Kit Harington</td>
+        <td>Pompeii</td>
+        <td>I</td>
+      </tr>
+      <tr>
+        <td><b>Dustin Diamond</b></td>
+        <td>James Earl Jones</td>
+        <td>Denis Leary</td>
+        <td>The Sandlot</td>
+        <td>N</td>
+      </tr>
+      <tr>
+        <td>Peter Billingsley</td>
+        <td><b>Noel Coward</b></td>
+        <td>Melinda Dillon</td>
+        <td>A Christmas Story</td>
+        <td>R</td>
+      </tr>
+      <tr>
+        <td>Matt Frewer</td>
+        <td>Rick Moranis</td>
+        <td><b>Mike Rowe</b></td>
+        <td>Honey I Shrunk the Kids</td>
+        <td>O</td>
+      </tr>
+      <tr>
+        <td><b>Anne Archer</b></td>
+        <td>Chris Hemsworth</td>
+        <td>Kristin Stewart</td>
+        <td>Snow White and the Huntsman</td>
+        <td>W</td>
+      </tr>
+      <tr>
+        <td>Stephane Audran</td>
+        <td><b>Dane Cook</b></td>
+        <td>Jarl Kulle</td>
+        <td>Babette's Feast</td>
+        <td>T</td>
+      </tr>
+      <tr>
+        <td>Patrick McGoohan</td>
+        <td>Vanessa Redgrave</td>
+        <td><b>French Stewart</b></td>
+        <td>Mary Queen Of Scots</td>
+        <td>E</td>
+      </tr>
+      <tr>
+        <td>Ben Kingsley</td>
+        <td>Liam Neeson</td>
+        <td><b>Christian Slater</b></td>
+        <td>Schindler's List</td>
+        <td>N</td>
+      </tr>
+    </table>
+    <p>
+      The message spells "DANE IN ROW TEN". Audran is French and Kulle is
+      Swedish; the answer must be Dane <b>COOK</b>.
+    </p>
+  </div>
+{% endblock %}
