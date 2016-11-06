@@ -1,0 +1,73 @@
+{% extends "solutions/solution_layout.html" %}
+{% block title_block %}Local Coverage: Solution{% endblock %}
+{% block puzzle_name_block %}Local Coverage: Solution{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    ul {
+      list-style: none;
+    }
+    table, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+    td {
+      padding: 4px;
+    }
+    img.c {
+      width: 200px;
+      margin-right: 8px;
+    }
+  </style>
+{% endblock %}
+
+{% block solution_content_block %}
+  <div>
+    <p>
+      Each of the ten clues refers to a person who has been on the cover
+      of <i>The Improper Bostonian</i> (the logo of which is crudely parodied
+      as <i>The Imprudent Economist</i> at the top of the image).  The magazine
+      is biweekly, and the two-week period for each referenced issue begins in
+      one of the months listed on the yellow spine.
+    </p>
+    <p>
+      For each clue, the rectangle with a letter matching the clue
+      corresponds to a single letter on the cover featuring that person.
+      The covers can be found in the following galleries:
+    </p>
+    <ul>
+      <li><a href="http://www.improper.com/article/2011-covers/">2011</a>
+      <li><a href="http://www.improper.com/article/2012-covers/">2012</a>
+      <li><a href="http://www.improper.com/article/2013-covers/">2013</a>
+      <li><a href="http://www.improper.com/article/2014-covers/">2014</a>
+      <li><a href="http://www.improper.com/article/2015-covers/">2015</a>
+    </ul>
+    <p>
+      When the marked letters are placed in the order of months indicated on the spine, they spell out the answer
+      to this puzzle, <b>CENTENNIAL</b>.
+    </p>
+    <table>
+      <tr><td>H</td><td>Esperanza Spalding</td><td>Aug 10 2011</td><td>STRIKE A (C)HORD</td><td>C</td></tr>
+      <tr><td>F</td><td>Pablo Sandoval</td><td>Apr 8 2015</td><td>PANDA POW(E)R</td><td>E</td></tr>
+      <tr><td>G</td><td>Jenny Slate</td><td>Feb 15 2012</td><td>FUN(N)Y BUSINESS</td><td>N</td></tr>
+      <tr><td>J</td><td>Wendy Williams</td><td>May 8 2013</td><td>STRAIGHT (T)ALK</td><td>T</td></tr>
+      <tr><td>E</td><td>Aly Raisman</td><td>Jul 25 2012</td><td>LET THE GAM(E)S BEGIN</td><td>E</td></tr>
+      <tr><td>C</td><td>Eliza Dushku</td><td>Jun 25 2014</td><td>BRING IT O(N)</td><td>N</td></tr>
+      <tr><td>I</td><td>Jonathan Tucker</td><td>Sep 16 2015</td><td>FIGHTI(N)G WORDS</td><td>N</td></tr>
+      <tr><td>B</td><td>Nate Corddry</td><td>Feb 16 2011</td><td>(I)N FOCUS</td><td>I</td></tr>
+      <tr><td>D</td><td>Jermaine Jones</td><td>Dec 24 2014</td><td>G(A)ME CHANGER</td><td>A</td></tr>
+      <tr><td>A</td><td>Clay Buchholz</td><td>Mar 27 2013</td><td>PLAY BAL(L)</td><td>L</td></tr>
+    </table>
+    <hr>
+    <img class="c" src="{{ asset_url_for('local_coverage/answerh.jpg') }}">
+    <img class="c" src="{{ asset_url_for('local_coverage/answerf.jpg') }}">
+    <img class="c" src="{{ asset_url_for('local_coverage/answerg.jpg') }}">
+    <img class="c" src="{{ asset_url_for('local_coverage/answerj.jpg') }}">
+    <img class="c" src="{{ asset_url_for('local_coverage/answere.jpg') }}">
+    <img class="c" src="{{ asset_url_for('local_coverage/answerc.jpg') }}">
+    <img class="c" src="{{ asset_url_for('local_coverage/answeri.jpg') }}">
+    <img class="c" src="{{ asset_url_for('local_coverage/answerb.jpg') }}">
+    <img class="c" src="{{ asset_url_for('local_coverage/answerd.jpg') }}">
+    <img class="c" src="{{ asset_url_for('local_coverage/answera.jpg') }}">
+  </div>
+{% endblock %}
