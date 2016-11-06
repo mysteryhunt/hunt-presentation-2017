@@ -1,0 +1,202 @@
+{% extends "solutions/solution_layout.html" %}
+{% block title_block %}International Holdings: Solution{% endblock %}
+{% block puzzle_name_block %}International Holdings: Solution{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  ul {
+    list-style-type: none;
+    padding-left: 12px;
+  }
+  td {
+    text-align: center;
+  }
+  .small-col {
+    width: 98px;
+  }
+  .answer-block {
+    padding-top: 25px;
+  }
+</style>
+{% endblock %}
+{% block solution_content_block %}
+<div>
+  <div>
+    Each of the maps combines three countries (without showing borders), where one country sits between two others. The internet codes for the two outer countries can be found as a string in one of the answers to the clues at the top of the page, with an
+    extra letter between them.
+  </div>
+  <div>
+    <h4>CLUE ANSWERS, in clue order:</h4>
+    <ul>
+      <li>BEFIT</li>
+      <li>BOMBS AWAY</li>
+      <li>CARBONARA</li>
+      <li>COOPER</li>
+      <li>FANTASIA BARRINO</li>
+      <li>FRANKFURT AM MAIN</li>
+      <li>I AM JAZZ</li>
+      <li>MY MPG</li>
+      <li>PRAM RACING</li>
+      <li>SALT CRUST</li>
+      <li>SOISSONS</li>
+      <li>TOPSAIL</li>
+      <li>WEBER KETTLE</li>
+    </ul>
+  </div>
+  <div>
+    <h4>ASSOCIATED WITH COUNTRY TRIOS, in map order:</h4>
+    <table>
+      <tr>
+        <th class="small-col">Map Order</th>
+        <th>Countries</th>
+        <th>Answer</th>
+      </tr>
+      <tr>
+        <td>AM</td>
+        <td>Armenia (AM), Georgia (GE), Azerbaijan (AZ)</td>
+        <td>I [AM JAZ]Z</td>
+      </tr>
+      <tr>
+        <td>BE</td>
+        <td>Belgium (BE), France (FR), Italy (IT)</td>
+        <td>[BEFIT]</td>
+      </tr>
+      <tr>
+        <td>BO</td>
+        <td>Bolivia (BO), Chile (CL), Argentina (AR)</td>
+        <td>CAR[BONAR]A</td>
+      </tr>
+      <tr>
+        <td>CO</td>
+        <td>Colombia (CO), Ecuador (EC), Peru (PE)</td>
+        <td>[COOPE]R</td>
+      </tr>
+      <tr>
+        <td>ER</td>
+        <td>Eritrea (ER), Djibouti (DJ), Ethiopia (ET)</td>
+        <td>WEB[ER KET]TLE</td>
+      </tr>
+      <tr>
+        <td>LT</td>
+        <td>Lithuania (LT), Latvia (LV), Russia (RU)</td>
+        <td>SA[LT CRU]ST</td>
+      </tr>
+      <tr>
+        <td>MM</td>
+        <td>Myanmar (MM), Bangladesh (BD), India (IN)</td>
+        <td>FRANKFURT A[M MAIN]</td>
+      </tr>
+      <tr>
+        <td>MR</td>
+        <td>Mauritania (MR), Mali (ML), Cote D'Ivoire (CI)</td>
+        <td>PRA[M RACI]NG</td>
+      </tr>
+      <tr>
+        <td>MY</td>
+        <td>Malaysia (MY), Indonesia (ID), Papua New Guinea (PG)</td>
+        <td>[MY MPG]</td>
+      </tr>
+      <tr>
+        <td>OM</td>
+        <td>Oman (OM), UAE (AE), Saudi Arabia (SA)</td>
+        <td>B[OMBS A]WAY</td>
+      </tr>
+      <tr>
+        <td>PS</td>
+        <td>Palestine (PS), Jordan (JO), Israel (IL)</td>
+        <td>TO[PSAIL]</td>
+      </tr>
+      <tr>
+        <td>SI</td>
+        <td>Slovenia (SI), Croatia (HR), Bosnia and Herzegovina (BA)</td>
+        <td>FANTA[SIA BA]RRINO</td>
+      </tr>
+      <tr>
+        <td>SO</td>
+        <td>Somalia (SO), Kenya (KE), South Sudan (SS)</td>
+        <td>[SOISS]ONS</td>
+      </tr>
+    </table>
+  </div>
+  <div>
+    <h4>Ordered by the middle-country code:</h4>
+    <table>
+      <tr>
+        <th class="small-col">Middle Country Code</th>
+        <th>Countries</th>
+        <th>Word</th>
+        <th class="small-col"> Ans. Letter</th>
+      </tr>
+      <tr>
+        <td>AE</td>
+        <td>Oman (OM), UAE (AE), Saudi Arabia (SA)</td>
+        <td>BOMBS AWAY</td>
+        <td>B</td>
+      </tr>
+      <tr>
+        <td>BD</td>
+        <td>Myanmar (MM), Bangladesh (BD), India (IN)</td>
+        <td>FRANKFURT AM MAIN</td>
+        <td>A</td>
+      </tr>
+      <tr>
+        <td>CL</td>
+        <td>Bolivia (BO), Chile (CL), Argentina (AR)</td>
+        <td>CARBONARA</td>
+        <td>N</td>
+      </tr>
+      <tr>
+        <td>DJ</td>
+        <td>Eritrea (ER), Djibouti (DJ), Ethiopia (ET)</td>
+        <td>WEBER KETTLE</td>
+        <td>K</td>
+      </tr>
+      <tr>
+        <td>EC</td>
+        <td>Colombia (CO), Ecuador (EC), Peru (PE)</td>
+        <td>COOPER</td>
+        <td>O</td>
+      </tr>
+      <tr>
+        <td>FR</td>
+        <td>Belgium (BE), France (FR), Italy (IT)</td>
+        <td>BEFIT</td>
+        <td>F</td>
+      </tr>
+      <tr>
+        <td>GE</td>
+        <td>Armenia (AM), Georgia (GE), Azerbaijan (AZ)</td>
+        <td>I AM JAZZ</td>
+        <td>J</td>
+      </tr>
+      <tr>
+        <td>HR</td>
+        <td>Slovenia (SI), Croatia (HR), Bosnia and Herzegovina (BA)</td>
+        <td>FANTASIA BARRINO</td>
+        <td>A</td>
+      </tr>
+      <tr>
+        <td>KE</td>
+        <td>Somalia (SO), Kenya (KE), South Sudan (SS)</td>
+        <td>SOISSONS</td>
+        <td>I</td>
+      </tr>
+      <tr>
+        <td>LV</td>
+        <td>Lithuania (LT), Latvia (LV), Russia (RU)</td>
+        <td>SALT CRUST</td>
+        <td>C</td>
+      </tr>
+      <tr>
+        <td>MY</td>
+        <td>Mauritania (MR), Mali (ML), Cote D'Ivoire (CI)</td>
+        <td>PRAM RACING</td>
+        <td>A</td>
+      </tr>
+    </table>
+  </div>
+  <div class="answer-block">
+    Taking these extra letters in alphabetical order by the countries with which they are associated spells the answer: <b>BANK OF JAMAICA</b>.
+  </div>
+</div>
+{% endblock %}
