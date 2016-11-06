@@ -1,0 +1,28 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}General Aviation{% endblock %}
+{% block puzzle_name_block %}General Aviation{% endblock %}
+
+{% block puzzle_head_block %}
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+The crafty criminals sell you some stolen frequent-flier miles, but it turns out they're only good for this one weird
+round-trip. You check in at your point of origin, a high-desert suburb, but it doesn't feel like ecotourism any more
+when you're plodding down jetway after jetway after jetway.
+{% endblock %}
+
+{% block puzzle_content_block %}
+<div>
+  <img src="{{ asset_url_for('general_aviation/ticket_a_small.png') }}"><br>
+  <img src="{{ asset_url_for('general_aviation/ticket_allegiant.png') }}"><br>
+  <img src="{{ asset_url_for('general_aviation/ticket_an_asphalt.png') }}"><br>
+  <img src="{{ asset_url_for('general_aviation/ticket_bas_congo.png') }}"><br>
+  <img src="{{ asset_url_for('general_aviation/ticket_cuban.png') }}"><br>
+  <img src="{{ asset_url_for('general_aviation/ticket_jim_wells.png') }}"><br>
+  <img src="{{ asset_url_for('general_aviation/ticket_near_chesterfield.png') }}"><br>
+  <img src="{{ asset_url_for('general_aviation/ticket_on_the_guaiba.png') }}"><br>
+  <img src="{{ asset_url_for('general_aviation/ticket_origin_point.png') }}"><br>
+  <img src="{{ asset_url_for('general_aviation/ticket_remote_island.png') }}"><br>
+  <img src="{{ asset_url_for('general_aviation/ticket_south_of.png') }}"><br>
+</div>
+{% endblock %}
