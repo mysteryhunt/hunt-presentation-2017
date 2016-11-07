@@ -1,0 +1,274 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}Typecasting{% endblock %}
+{% block puzzle_name_block %}Typecasting{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    img {
+      height: auto;
+      vertical-align: top;
+    }
+
+    img.actor {
+      width: 200px;
+    }
+
+    img.tomato {
+      width: 32px;
+    }
+
+    li {
+      margin-bottom: 4em;
+      white-space: nowrap;
+    }
+  </style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+  The Chemist gets frustrated when people just glance at her résumé, then make
+  assumptions about the projects she's had a role in.
+{% endblock %}
+
+{% set s_src = asset_url_for('typecasting/s.png') %}
+{% set f_src = asset_url_for('typecasting/f.png') %}
+
+{% block puzzle_content_block %}
+  <div>
+    <ol>
+      <li>
+        <img class="actor" src="{{ asset_url_for('typecasting/image01a.jpg') }}">
+        <img class="actor" src="{{ asset_url_for('typecasting/image01b.jpg') }}">
+        <img class="actor" src="{{ asset_url_for('typecasting/image01c.jpg') }}">
+        <br>
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ f_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+      </li>
+      <li>
+        <img class="actor" src="{{ asset_url_for('typecasting/image02a.jpg') }}">
+        <img class="actor" src="{{ asset_url_for('typecasting/image02b.jpg') }}">
+        <img class="actor" src="{{ asset_url_for('typecasting/image02c.jpg') }}">
+        <br>
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ f_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+      </li>
+      <li>
+        <img class="actor" src="{{ asset_url_for('typecasting/image03a.jpg') }}">
+        <img class="actor" src="{{ asset_url_for('typecasting/image03b.jpg') }}">
+        <img class="actor" src="{{ asset_url_for('typecasting/image03c.jpg') }}">
+        <br>
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ f_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+      </li>
+      <li>
+        <img class="actor" src="{{ asset_url_for('typecasting/image04a.jpg') }}">
+        <img class="actor" src="{{ asset_url_for('typecasting/image04b.jpg') }}">
+        <img class="actor" src="{{ asset_url_for('typecasting/image04c.jpg') }}">
+        <br>
+        <img class="tomato" src="{{ f_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+      </li>
+      <li>
+        <img class="actor" src="{{ asset_url_for('typecasting/image05a.jpg') }}">
+        <img class="actor" src="{{ asset_url_for('typecasting/image05b.jpg') }}">
+        <img class="actor" src="{{ asset_url_for('typecasting/image05c.jpg') }}">
+        <br>
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ f_src }}">
+        <img class="tomato" src="{{ s_src }}">
+      </li>
+      <li>
+        <img class="actor" src="{{ asset_url_for('typecasting/image06a.jpg') }}">
+        <img class="actor" src="{{ asset_url_for('typecasting/image06b.jpg') }}">
+        <img class="actor" src="{{ asset_url_for('typecasting/image06c.jpg') }}">
+        <br>
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ f_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+      </li>
+      <li>
+        <img class="actor" src="{{ asset_url_for('typecasting/image07a.jpg') }}">
+        <img class="actor" src="{{ asset_url_for('typecasting/image07b.jpg') }}">
+        <img class="actor" src="{{ asset_url_for('typecasting/image07c.jpg') }}">
+        <br>
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ f_src }}">
+        <img class="tomato" src="{{ s_src }}">
+      </li>
+      <li>
+        <img class="actor" src="{{ asset_url_for('typecasting/image08a.jpg') }}">
+        <img class="actor" src="{{ asset_url_for('typecasting/image08b.jpg') }}">
+        <img class="actor" src="{{ asset_url_for('typecasting/image08c.jpg') }}">
+        <br>
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ f_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+      </li>
+      <li>
+        <img class="actor" src="{{ asset_url_for('typecasting/image09a.jpg') }}">
+        <img class="actor" src="{{ asset_url_for('typecasting/image09b.jpg') }}">
+        <img class="actor" src="{{ asset_url_for('typecasting/image09c.jpg') }}">
+        <br>
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ f_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+      </li>
+      <li>
+        <img class="actor" src="{{ asset_url_for('typecasting/image10a.jpg') }}">
+        <img class="actor" src="{{ asset_url_for('typecasting/image10b.jpg') }}">
+        <img class="actor" src="{{ asset_url_for('typecasting/image10c.jpg') }}">
+        <br>
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ f_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+      </li>
+      <li>
+        <img class="actor" src="{{ asset_url_for('typecasting/image11a.jpg') }}">
+        <img class="actor" src="{{ asset_url_for('typecasting/image11b.jpg') }}">
+        <img class="actor" src="{{ asset_url_for('typecasting/image11c.jpg') }}">
+        <br>
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ f_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+      </li>
+      <li>
+        <img class="actor" src="{{ asset_url_for('typecasting/image12a.jpg') }}">
+        <img class="actor" src="{{ asset_url_for('typecasting/image12b.jpg') }}">
+        <img class="actor" src="{{ asset_url_for('typecasting/image12c.jpg') }}">
+        <br>
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ f_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+        <img class="tomato" src="{{ s_src }}">
+      </li>
+    </ol>
+  </div>
+{% endblock %}
