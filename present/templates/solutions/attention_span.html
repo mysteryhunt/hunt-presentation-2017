@@ -1,0 +1,86 @@
+{% extends "solutions/solution_layout.html" %}
+{% block title_block %}Attention Span: Solution{% endblock %}
+{% block puzzle_name_block %}Attention Span: Solution{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  .solved-grids {
+    text-align: center;
+  }
+
+  table {
+    margin-left: auto;
+    margin-right: auto;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<div>
+  <p>The given pieces can be reconstructed to form three <a href="https://en.wikipedia.org/wiki/Hashiwokakero">Hashiwokakero</a>, or Bridges, puzzles, each of which has a unique solution. As illustrated in the example (which spells out EXAMPLE), each boat
+    then spells out a word, as follows:</p>
+  <p>1) The boat begins by carrying an A</p>
+  <p>2) Every time the boat crosses a single bridge, shift the letter on the boat forward in the alphabet by the sum of the two islands connected by that bridge.</p>
+  <p>3) Every time the boat crosses a double bridge, shift the letter on the boat forward in the alphabet by twice the sum of the two islands connected by that bridge.</p>
+  <p>4) Every time the boat reaches a buoy, output the current letter.</p>
+  <p>Doing this for each boat spells out the name of a noted bridge, with one letter missing. These missing letters, ordered by boat number, give the answer
+    <b>CROW'S NEST</b>.
+  </p>
+  <table>
+    <tr>
+      <td>Boat Number</td>
+      <td>Bridge Name</td>
+      <td>Missing Letter</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>MACKINAC</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>HARVARD</td>
+      <td>R</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>BROOKLYN</td>
+      <td>O</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>TOWER</td>
+      <td>W</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>ORESUND</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>LONDON</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>GOLDEN GATE</td>
+      <td>E</tr>
+    <tr>
+      <td>8</td>
+      <td>BOSPHORUS</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>RIALTO</td>
+      <td>T</td>
+    </tr>
+  </table>
+  <div class="solved-grids">
+    <p><img src="{{ asset_url_for('attention_span/grid1_solved.jpg') }}"></p>
+    <p><img src="{{ asset_url_for('attention_span/grid2_solved.jpg') }}"></p>
+    <p><img src="{{ asset_url_for('attention_span/grid3_solved.jpg') }}"></p>
+  </div>
+</div>
+{% endblock %}
