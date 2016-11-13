@@ -1,0 +1,15 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}Trips{% endblock %}
+{% block puzzle_name_block %}Trips{% endblock %}
+
+{% block puzzle_flavortext_block %}
+  You notice some suspicious-looking packages being passed from location to
+  location, and wonder who's responsible for them. Where in the world are they
+  coming from? Where are they going? And when were they sent?
+{% endblock %}
+
+{% block puzzle_content_block %}
+  <div>
+    Download <a href="{{ asset_url_for('trips/trips.pcap') }}">trips.pcap</a>.
+  </div>
+{% endblock %}
