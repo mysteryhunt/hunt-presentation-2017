@@ -19,6 +19,15 @@ def callqueue():
         pending_submissions=pending_submissions,
         pending_hint_requests=pending_hint_requests)
 
+@app.route("/interactionqueue")
+@login_required.writingteam
+def interactionqueue():
+    pending_interaction_requests = cube.get_all_pending_interaction_requests(app)
+
+    return render_template(
+        "interactionqueue.html",
+        pending_interaction_requests=pending_interaction_requests)
+
 @app.route("/submission/<int:submission_id>", methods=["GET", "POST"])
 @login_required.writingteam
 def submission(submission_id):
@@ -60,6 +69,28 @@ def hintrequest(hint_request_id):
     return render_template(
         "hintrequest.html",
         hint_request=hint_request,
+        team=team)
+
+@app.route("/interactionrequest/<int:interaction_request_id>", methods=["GET", "POST"])
+@login_required.writingteam
+def interactionrequest(interaction_request_id):
+    if request.method == "POST":
+        if "status" in request.form:
+            response = ""
+            if "response" in request.form:
+                response = request.form["response"]
+            cube.update_interaction_request(app, interaction_request_id, request.form["status"], response)
+            if request.form["status"] == "REQUESTED":
+                return redirect(url_for("interactionqueue"))
+        else:
+            abort(400)
+
+    interaction_request = cube.get_interaction_request(app, interaction_request_id)
+    team = cube.get_team_properties(app, team_id=interaction_request['teamId'])
+
+    return render_template(
+        "interactionrequest.html",
+        interaction_request=interaction_request,
         team=team)
 
 @app.route("/teams", methods=["GET", "POST"])
