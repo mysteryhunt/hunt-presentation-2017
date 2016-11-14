@@ -32,7 +32,7 @@
 
   <div id="world-map-container">
     <div id="world-map-header"><span class="enscrolled"><span>World Map</span></span></div>
-    <div id="world-map" style="background-image: url({{ asset_url_for('general/hunt-map.png') }})">
+    <div id="world-map" style="content: url({{ asset_url_for('general/hunt-map.png') }})">
         {% for quest in [('dynast',50,50),('dungeon',50,290),('thespians',225,410),('bridge',225,170),('criminal',225,50),('minstrels',400,50),('cube',400,170),('warlord',400,290)] if quest[0] in visible_puzzle_ids %}
           <a href="{{ url_for('round', round_id = quest[0]) }}">
             <div id="quest-map-{{ quest[0] }}" class="individual-quest" style="width:100px; height: 100px; position:absolute; top:{{ quest[1] }}px; left:{{ quest[2] }}px; z-index:200; background-image: url({{ asset_url_for('general/stock-%s-icon.jpg' % quest[0]) }}); background-size:100%;">

@@ -21,7 +21,7 @@
           </span>
         </a>
         <div id="header-inventory-grid" style="display:none;">
-          {{ inventory.inventory_grid() }}
+          {{ inventory.inventory_grid((team_properties.get('teamProperties',{}).get('InventoryProperty',{})) if team_properties else {}) }}
         </div>
       </div>
     </div>

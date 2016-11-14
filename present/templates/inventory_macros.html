@@ -1,13 +1,17 @@
 {% macro filled_inventory_grid_space(item_id, item_name) %}
-  <td>
     <div class="inventory-grid-cell-content">
       <div class="inventory-grid-caption" id="inventory-grid-caption-{{ item_id }}">{{ item_name }}</div>
       <div class="inventory-grid-thumb-image" style="content: url('{{ url_for('static', filename='temp/item' + item_id + '.jpg') }}'); width: 60px; height: 60px;"></div>
     </div>
-  </td>
 {% endmacro %}
 
-{% macro inventory_grid() %}
+{% macro empty_inventory_grid_space() %}
+    <div class="inventory-grid-cell-content">
+      <div class="inventory-grid-thumb-image" style="width: 60px; height: 60px;"></div>
+    </div>
+{% endmacro %}
+
+{% macro inventory_grid(team_inventory) %}
   {% set item_names = [
         ('00','Acceptance Letter to MIT'),
         ('01','Anger Management Book'),
@@ -54,7 +58,13 @@
     {% for row_number in range(5) %}
       <tr>
       {% for column_number in range(8) %}
-        {{ filled_inventory_grid_space(item_names[row_number * 8 + column_number][0], item_names[row_number * 8 + column_number][1]) }}
+        <td>
+          {% if ('ITEM' + item_names[row_number * 8 + column_number][0]) in team_inventory.get('inventoryItems',[]) %}
+            {{ filled_inventory_grid_space(item_names[row_number * 8 + column_number][0], item_names[row_number * 8 + column_number][1]) }}
+          {% else %}
+            {{ empty_inventory_grid_space() }}
+          {% endif %}
+        </td>
       {% endfor %}
       </tr>
     {% endfor %}

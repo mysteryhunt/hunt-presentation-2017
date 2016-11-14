@@ -78,11 +78,13 @@ def puzzle(puzzle_id):
         abort(403)
         
     puzzle = cube.get_puzzle(app, puzzle_id)
+    team_properties = cube.get_team_properties(app)
 
     return render_template(
         "puzzles/%s.html" % puzzle_id,
         puzzle_id=puzzle_id,
-        puzzle=puzzle)
+        puzzle=puzzle,
+        team_properties=team_properties)
         
 @app.route("/inventory")
 @login_required.solvingteam

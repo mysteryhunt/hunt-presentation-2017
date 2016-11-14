@@ -86,6 +86,7 @@ body {
   color: black;
   right: 0;
   top: 30px;
+  z-index: 1000;
 }
 
 #header-inventory-grid table {
@@ -113,9 +114,9 @@ body {
   text-align: initial;
   display: none;
   position: absolute;
-  z-index: 300;
   top: 45px;
   left: 45px;
+  z-index: 1200;
   padding: 3px 3px;
   border: 3px solid black;
   background-color: white;
@@ -133,7 +134,6 @@ body {
 #header-inventory-grid .inventory-grid-full-image {
   display: none;
   position: absolute;
-  z-index: 300;
   top: 80px;
   left: 45px;
   border: 3px solid black;
