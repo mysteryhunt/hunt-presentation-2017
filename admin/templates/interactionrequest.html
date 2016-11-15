@@ -48,13 +48,14 @@
     <input type="hidden" name="status" value="ASSIGNED">
     <input type="submit" value="Claim">
   </form>
-  {% elif interaction_request.status == 'ASSIGNED' %}
+  {% elif interaction_request.status in ['ASSIGNED', 'SCHEDULED'] %}
   {% if interaction_request.callerUsername == session['username'] %}
   <form action="{{ url_for('interactionrequest', interaction_request_id=interaction_request.interactionRequestId) }}" method="post">
-    <input type="text" name="response" width="80">
+    <input type="text" name="response" size="100" value="{{ interaction_request.response }}"><br>
     <select name="status">
-      <option value="ANSWERED">ANSWERED</option>
-      <option value="REJECTED">REJECTED</option>
+      <option value="ASSIGNED" {% if interaction_request.status == 'ASSIGNED' %}selected{% endif %}>ASSIGNED</option>
+      <option value="SCHEDULED" {% if interaction_request.status == 'SCHEDULED' %}selected{% endif %}>SCHEDULED</option>
+      <option value="COMPLETE" {% if interaction_request.status == 'COMPLETE' %}selected{% endif %}>COMPLETE</option>
     </select>
     <input type="submit" value="Respond">
   </form>

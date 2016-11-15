@@ -31,7 +31,7 @@
 	    <input type="hidden" name="status" value="ASSIGNED">
 	    <input type="submit" value="Claim">
 	  </form>
-	  {% elif h.status == 'ASSIGNED' %}
+	  {% elif h.status in ['ASSIGNED', 'SCHEDULED'] %}
 	  <form action="{{ url_for('interactionrequest', interaction_request_id=h.interactionRequestId) }}" method="post">
 	    <input type="hidden" name="status" value="REQUESTED">
 	    <input type="submit" value="Unassign">
