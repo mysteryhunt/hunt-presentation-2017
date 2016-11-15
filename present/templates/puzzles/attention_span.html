@@ -1,0 +1,50 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}Attention Span{% endblock %}
+{% block puzzle_name_block %}Attention Span{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  .puz {
+    text-align: center;
+  }
+
+  .example-text {
+    font-size: 20px;
+  }
+
+  .rarr {
+    font-size: 60pt;
+  }
+</style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+The broken bridge is causing maritime problems because sailors here navigate by keeping track of the bridges they pass under.
+{% endblock %}
+
+{% block puzzle_content_block %}
+<div>
+  <div class="puz">
+      <p class="example-text"><b>EXAMPLE</b></p>
+    <table>
+      <tr>
+        <td><img src="{{ asset_url_for('attention_span/example_piece1.jpg') }}"></td>
+        <td><img src="{{ asset_url_for('attention_span/example_piece2.jpg') }}"></td>
+        <td><span class="rarr">&rarr;</span><br/><br/></td>
+        <td><img src="{{ asset_url_for('attention_span/example_solved_lettered.jpg') }}"></td>
+    </table>
+    <p><img src="{{ asset_url_for('attention_span/piece1-1.jpg') }}"></p>
+    <p><img src="{{ asset_url_for('attention_span/piece1-2.jpg') }}"></p>
+    <p><img src="{{ asset_url_for('attention_span/piece1-3.jpg') }}"></p>
+    <p><img src="{{ asset_url_for('attention_span/piece2-1.jpg') }}"></p>
+    <p><img src="{{ asset_url_for('attention_span/piece2-2.jpg') }}"></p>
+    <p><img src="{{ asset_url_for('attention_span/piece2-3.jpg') }}"></p>
+    <p><img src="{{ asset_url_for('attention_span/piece3-1.jpg') }}"></p>
+    <p><img src="{{ asset_url_for('attention_span/piece3-2.jpg') }}"></p>
+    <p><img src="{{ asset_url_for('attention_span/piece3-3.jpg') }}"></p>
+    <p><img src="{{ asset_url_for('attention_span/piece4-1.jpg') }}"></p>
+    <p><img src="{{ asset_url_for('attention_span/piece4-2.jpg') }}"></p>
+    <p><img src="{{ asset_url_for('attention_span/piece4-3.jpg') }}"></p>
+  </div>
+</div>
+{% endblock %}

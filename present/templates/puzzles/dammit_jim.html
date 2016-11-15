@@ -1,0 +1,355 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}Dammit, Jim{% endblock %}
+{% block puzzle_name_block %}Dammit, Jim{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  #lightbox {
+    background-color: #eee;
+    padding: 10px;
+    border-bottom: 2px solid #666;
+    border-right: 2px solid #666;
+  }
+
+  #lightboxDetails {
+    font-size: 0.8em;
+    padding-top: 0.4em;
+  }
+
+  #lightboxCaption {
+    float: left;
+  }
+
+  #keyboardMsg {
+    float: right;
+  }
+
+  #closeButton {
+    top: 5px;
+    right: 5px;
+  }
+
+  #lightbox img {
+    border: none;
+    clear: both;
+  }
+
+  #overlay img {
+    border: none;
+  }
+
+  #overlay {
+    background-image: url("{{ asset_url_for('dammit_jim/overlay.png') | safe }}");
+  }
+
+  div.cell {
+    position: relative;
+    width: 100%;
+    cursor: pointer;
+  }
+
+  img.tn {
+    width: 82px;
+    height: 82px;
+  }
+
+  img.ov {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .arrow {
+    vertical-align: bottom;
+    width: 80px;
+    height: 80px;
+  }
+
+  .puz {
+    margin-left: auto;
+    margin-right: auto;
+  }
+</style>
+<script type="text/javascript" src="{{ asset_url_for('dammit_jim/lightbox.js') }}"></script>
+<script>
+  closeButton = "{{ asset_url_for('dammit_jim/close.gif') | safe }}";
+  loadingImage = "{{ asset_url_for('dammit_jim/loading.gif') | safe }}";
+</script>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+This battlefield is littered with the remains of the Warlord's vanquished foes.
+{% endblock %}
+
+{% block puzzle_content_block %}
+<div>
+  <table class="puz">
+    <tbody>
+      <tr>
+        <td class="arrow"><img src="{{ asset_url_for('dammit_jim/arrow.png') }}"></td>
+        <td>
+          <div id="tab">
+            <table>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="cell">
+                      <a href="{{ asset_url_for('dammit_jim/crop11.jpg') }}" rel="lightbox"><img class="tn" src="{{ asset_url_for('dammit_jim/crop11.jpg') }}"></a>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="cell">
+                      <a href="{{ asset_url_for('dammit_jim/crop12.jpg') }}" rel="lightbox"><img class="tn" src="{{ asset_url_for('dammit_jim/crop12.jpg') }}"><img class="ov" src="{{ asset_url_for('dammit_jim/plus.png') }}"></a>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="cell">
+                      <a href="{{ asset_url_for('dammit_jim/crop13.jpg') }}" rel="lightbox"><img class="tn" src="{{ asset_url_for('dammit_jim/crop13.jpg') }}"><img class="ov" src="{{ asset_url_for('dammit_jim/plus.png') }}"></a>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="cell">
+                      <a href="{{ asset_url_for('dammit_jim/crop14.jpg') }}" rel="lightbox"><img class="tn" src="{{ asset_url_for('dammit_jim/crop14.jpg') }}"><img class="ov" src="{{ asset_url_for('dammit_jim/minus.png') }}"></a>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="cell">
+                      <a href="{{ asset_url_for('dammit_jim/crop15.jpg') }}" rel="lightbox"><img class="tn" src="{{ asset_url_for('dammit_jim/crop15.jpg') }}"><img class="ov" src="{{ asset_url_for('dammit_jim/plus.png') }}"></a>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="cell">
+                      <a href="{{ asset_url_for('dammit_jim/crop16.jpg') }}" rel="lightbox"><img class="tn" src="{{ asset_url_for('dammit_jim/crop16.jpg') }}"><img class="ov" src="{{ asset_url_for('dammit_jim/plus.png') }}"></a>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="cell">
+                      <a href="{{ asset_url_for('dammit_jim/crop17.jpg') }}" rel="lightbox"><img class="tn" src="{{ asset_url_for('dammit_jim/crop17.jpg') }}"><img class="ov" src="{{ asset_url_for('dammit_jim/minus.png') }}"></a>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="cell">
+                      <a href="{{ asset_url_for('dammit_jim/crop18.jpg') }}" rel="lightbox"><img class="tn" src="{{ asset_url_for('dammit_jim/crop18.jpg') }}"><img class="ov" src="{{ asset_url_for('dammit_jim/plus.png') }}"></a>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="cell">
+                      <a href="{{ asset_url_for('dammit_jim/crop21.jpg') }}" rel="lightbox"><img class="tn" src="{{ asset_url_for('dammit_jim/crop21.jpg') }}"><img class="ov" src="{{ asset_url_for('dammit_jim/plus.png') }}"></a>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="cell">
+                      <a href="{{ asset_url_for('dammit_jim/crop22.jpg') }}" rel="lightbox"><img class="tn" src="{{ asset_url_for('dammit_jim/crop22.jpg') }}"><img class="ov" src="{{ asset_url_for('dammit_jim/minus.png') }}"></a>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="cell">
+                      <a href="{{ asset_url_for('dammit_jim/crop23.jpg') }}" rel="lightbox"><img class="tn" src="{{ asset_url_for('dammit_jim/crop23.jpg') }}"></a>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="cell">
+                      <a href="{{ asset_url_for('dammit_jim/crop24.jpg') }}" rel="lightbox"><img class="tn" src="{{ asset_url_for('dammit_jim/crop24.jpg') }}"></a>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="cell">
+                      <a href="{{ asset_url_for('dammit_jim/crop25.jpg') }}" rel="lightbox"><img class="tn" src="{{ asset_url_for('dammit_jim/crop25.jpg') }}"><img class="ov" src="{{ asset_url_for('dammit_jim/plus.png') }}"></a>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="cell">
+                      <a href="{{ asset_url_for('dammit_jim/crop26.jpg') }}" rel="lightbox"><img class="tn" src="{{ asset_url_for('dammit_jim/crop26.jpg') }}"><img class="ov" src="{{ asset_url_for('dammit_jim/minus.png') }}"></a>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="cell">
+                      <a href="{{ asset_url_for('dammit_jim/crop27.jpg') }}" rel="lightbox"><img class="tn" src="{{ asset_url_for('dammit_jim/crop27.jpg') }}"></a>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="cell">
+                      <a href="{{ asset_url_for('dammit_jim/crop28.jpg') }}" rel="lightbox"><img class="tn" src="{{ asset_url_for('dammit_jim/crop28.jpg') }}"><img class="ov" src="{{ asset_url_for('dammit_jim/plus.png') }}"></a>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="cell">
+                      <a href="{{ asset_url_for('dammit_jim/crop31.jpg') }}" rel="lightbox"><img class="tn" src="{{ asset_url_for('dammit_jim/crop31.jpg') }}"><img class="ov" src="{{ asset_url_for('dammit_jim/minus.png') }}"></a>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="cell">
+                      <a href="{{ asset_url_for('dammit_jim/crop32.jpg') }}" rel="lightbox"><img class="tn" src="{{ asset_url_for('dammit_jim/crop32.jpg') }}"><img class="ov" src="{{ asset_url_for('dammit_jim/minus.png') }}"></a>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="cell">
+                      <a href="{{ asset_url_for('dammit_jim/crop33.jpg') }}" rel="lightbox"><img class="tn" src="{{ asset_url_for('dammit_jim/crop33.jpg') }}"><img class="ov" src="{{ asset_url_for('dammit_jim/plus.png') }}"></a>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="cell">
+                      <a href="{{ asset_url_for('dammit_jim/crop34.jpg') }}" rel="lightbox"><img class="tn" src="{{ asset_url_for('dammit_jim/crop34.jpg') }}"><img class="ov" src="{{ asset_url_for('dammit_jim/plus.png') }}"></a>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="cell">
+                      <a href="{{ asset_url_for('dammit_jim/crop35.jpg') }}" rel="lightbox"><img class="tn" src="{{ asset_url_for('dammit_jim/crop35.jpg') }}"><img class="ov" src="{{ asset_url_for('dammit_jim/minus.png') }}"></a>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="cell">
+                      <a href="{{ asset_url_for('dammit_jim/crop36.jpg') }}" rel="lightbox"><img class="tn" src="{{ asset_url_for('dammit_jim/crop36.jpg') }}"><img class="ov" src="{{ asset_url_for('dammit_jim/plus.png') }}"></a>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="cell">
+                      <a href="{{ asset_url_for('dammit_jim/crop37.jpg') }}" rel="lightbox"><img class="tn" src="{{ asset_url_for('dammit_jim/crop37.jpg') }}"></a>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="cell">
+                      <a href="{{ asset_url_for('dammit_jim/crop38.jpg') }}" rel="lightbox"><img class="tn" src="{{ asset_url_for('dammit_jim/crop38.jpg') }}"><img class="ov" src="{{ asset_url_for('dammit_jim/minus.png') }}"></a>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="cell">
+                      <a href="{{ asset_url_for('dammit_jim/crop41.jpg') }}" rel="lightbox"><img class="tn" src="{{ asset_url_for('dammit_jim/crop41.jpg') }}"><img class="ov" src="{{ asset_url_for('dammit_jim/plus.png') }}"></a>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="cell">
+                      <a href="{{ asset_url_for('dammit_jim/crop42.jpg') }}" rel="lightbox"><img class="tn" src="{{ asset_url_for('dammit_jim/crop42.jpg') }}"></a>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="cell">
+                      <a href="{{ asset_url_for('dammit_jim/crop43.jpg') }}" rel="lightbox"><img class="tn" src="{{ asset_url_for('dammit_jim/crop43.jpg') }}"><img class="ov" src="{{ asset_url_for('dammit_jim/plus.png') }}"></a>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="cell">
+                      <a href="{{ asset_url_for('dammit_jim/crop44.jpg') }}" rel="lightbox"><img class="tn" src="{{ asset_url_for('dammit_jim/crop44.jpg') }}"><img class="ov" src="{{ asset_url_for('dammit_jim/minus.png') }}"></a>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="cell">
+                      <a href="{{ asset_url_for('dammit_jim/crop45.jpg') }}" rel="lightbox"><img class="tn" src="{{ asset_url_for('dammit_jim/crop45.jpg') }}"><img class="ov" src="{{ asset_url_for('dammit_jim/plus.png') }}"></a>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="cell">
+                      <a href="{{ asset_url_for('dammit_jim/crop46.jpg') }}" rel="lightbox"><img class="tn" src="{{ asset_url_for('dammit_jim/crop46.jpg') }}"><img class="ov" src="{{ asset_url_for('dammit_jim/minus.png') }}"></a>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="cell">
+                      <a href="{{ asset_url_for('dammit_jim/crop47.jpg') }}" rel="lightbox"><img class="tn" src="{{ asset_url_for('dammit_jim/crop47.jpg') }}"></a>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="cell">
+                      <a href="{{ asset_url_for('dammit_jim/crop48.jpg') }}" rel="lightbox"><img class="tn" src="{{ asset_url_for('dammit_jim/crop48.jpg') }}"><img class="ov" src="{{ asset_url_for('dammit_jim/plus.png') }}"></a>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="cell">
+                      <a href="{{ asset_url_for('dammit_jim/crop51.jpg') }}" rel="lightbox"><img class="tn" src="{{ asset_url_for('dammit_jim/crop51.jpg') }}"></a>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="cell">
+                      <a href="{{ asset_url_for('dammit_jim/crop52.jpg') }}" rel="lightbox"><img class="tn" src="{{ asset_url_for('dammit_jim/crop52.jpg') }}"><img class="ov" src="{{ asset_url_for('dammit_jim/minus.png') }}"></a>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="cell">
+                      <a href="{{ asset_url_for('dammit_jim/crop53.jpg') }}" rel="lightbox"><img class="tn" src="{{ asset_url_for('dammit_jim/crop53.jpg') }}"><img class="ov" src="{{ asset_url_for('dammit_jim/plus.png') }}"></a>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="cell">
+                      <a href="{{ asset_url_for('dammit_jim/crop54.jpg') }}" rel="lightbox"><img class="tn" src="{{ asset_url_for('dammit_jim/crop54.jpg') }}"><img class="ov" src="{{ asset_url_for('dammit_jim/plus.png') }}"></a>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="cell">
+                      <a href="{{ asset_url_for('dammit_jim/crop55.jpg') }}" rel="lightbox"><img class="tn" src="{{ asset_url_for('dammit_jim/crop55.jpg') }}"><img class="ov" src="{{ asset_url_for('dammit_jim/plus.png') }}"></a>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="cell">
+                      <a href="{{ asset_url_for('dammit_jim/crop56.jpg') }}" rel="lightbox"><img class="tn" src="{{ asset_url_for('dammit_jim/crop56.jpg') }}"></a>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="cell">
+                      <a href="{{ asset_url_for('dammit_jim/crop57.jpg') }}" rel="lightbox"><img class="tn" src="{{ asset_url_for('dammit_jim/crop57.jpg') }}"><img class="ov" src="{{ asset_url_for('dammit_jim/minus.png') }}"></a>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="cell">
+                      <a href="{{ asset_url_for('dammit_jim/crop58.jpg') }}" rel="lightbox"><img class="tn" src="{{ asset_url_for('dammit_jim/crop58.jpg') }}"><img class="ov" src="{{ asset_url_for('dammit_jim/plus.png') }}"></a>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="cell">
+                      <a href="{{ asset_url_for('dammit_jim/crop61.jpg') }}" rel="lightbox"><img class="tn" src="{{ asset_url_for('dammit_jim/crop61.jpg') }}"></a>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="cell">
+                      <a href="{{ asset_url_for('dammit_jim/crop62.jpg') }}" rel="lightbox"><img class="tn" src="{{ asset_url_for('dammit_jim/crop62.jpg') }}"><img class="ov" src="{{ asset_url_for('dammit_jim/plus.png') }}"></a>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="cell">
+                      <a href="{{ asset_url_for('dammit_jim/crop63.jpg') }}" rel="lightbox"><img class="tn" src="{{ asset_url_for('dammit_jim/crop63.jpg') }}"><img class="ov" src="{{ asset_url_for('dammit_jim/minus.png') }}"></a>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="cell">
+                      <a href="{{ asset_url_for('dammit_jim/crop64.jpg') }}" rel="lightbox"><img class="tn" src="{{ asset_url_for('dammit_jim/crop64.jpg') }}"></a>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="cell">
+                      <a href="{{ asset_url_for('dammit_jim/crop65.jpg') }}" rel="lightbox"><img class="tn" src="{{ asset_url_for('dammit_jim/crop65.jpg') }}"><img class="ov" src="{{ asset_url_for('dammit_jim/minus.png') }}"></a>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="cell">
+                      <a href="{{ asset_url_for('dammit_jim/crop66.jpg') }}" rel="lightbox"><img class="tn" src="{{ asset_url_for('dammit_jim/crop66.jpg') }}"></a>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="cell">
+                      <a href="{{ asset_url_for('dammit_jim/crop67.jpg') }}" rel="lightbox"><img class="tn" src="{{ asset_url_for('dammit_jim/crop67.jpg') }}"><img class="ov" src="{{ asset_url_for('dammit_jim/plus.png') }}"></a>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="cell">
+                      <a href="{{ asset_url_for('dammit_jim/crop68.jpg') }}" rel="lightbox"><img class="tn" src="{{ asset_url_for('dammit_jim/crop68.jpg') }}"><img class="ov" src="{{ asset_url_for('dammit_jim/minus.png') }}"></a>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </td>
+        <td class="arrow"><img src="{{ asset_url_for('dammit_jim/arrow.png') }}"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+{% endblock %}

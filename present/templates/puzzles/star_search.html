@@ -1,0 +1,38 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}Star Search{% endblock %}
+{% block puzzle_name_block %}Star Search{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    .p {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 48px;
+      height: 90px;
+    }
+  </style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+  Maybe some musical performances will cheer up the emperor. He loves those
+  shiny 88s!
+{% endblock %}
+
+{% block puzzle_content_block %}
+  <div>
+    <img class="p" src="{{ asset_url_for('star_search/one.gif') }}">
+    <img class="p" src="{{ asset_url_for('star_search/two.gif') }}">
+    <img class="p" src="{{ asset_url_for('star_search/three.gif') }}">
+    <img class="p" src="{{ asset_url_for('star_search/four.gif') }}">
+    <img class="p" src="{{ asset_url_for('star_search/five.gif') }}">
+    <img class="p" src="{{ asset_url_for('star_search/six.gif') }}">
+    <img class="p" src="{{ asset_url_for('star_search/seven.gif') }}">
+    <img class="p" src="{{ asset_url_for('star_search/eight.gif') }}">
+    <img class="p" src="{{ asset_url_for('star_search/nine.gif') }}">
+    <img class="p" src="{{ asset_url_for('star_search/ten.gif') }}">
+    <img class="p" src="{{ asset_url_for('star_search/eleven.gif') }}">
+    <img class="p" src="{{ asset_url_for('star_search/twelve.gif') }}">
+    <img class="p" src="{{ asset_url_for('star_search/thirteen.gif') }}">
+  </div>
+{% endblock %}
