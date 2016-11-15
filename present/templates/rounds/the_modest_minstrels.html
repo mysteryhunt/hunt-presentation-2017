@@ -1,4 +1,39 @@
 {% extends "rounds/quest_round_layout.html" %}
+
+{% macro minstrels_puzzle_entry(puzzle_id, audio_id, puzzle_properties, puzzle_visibilities) %}
+  {% set puzzle_link_action = 'full_puzzle' if full_access else 'puzzle' %}
+  {% set link_puzzle_id = puzzle_properties.get(puzzle_id,{}).get('puzzleProperties',{}).get('DisplayIdProperty',{}).get('displayId',puzzle_id) %}
+  {% if puzzle_visibilities.get(puzzle_id).status == 'UNLOCKED' %}
+    <div class="puzzle-entry">
+      <a href="{{ url_for(puzzle_link_action, puzzle_id = link_puzzle_id) }}">
+        <span class="puzzle-name">{{ puzzle_properties.get(puzzle_id).puzzleProperties.DisplayNameProperty.displayName }}</span><br/>
+        <audio controls>
+          <source src="{{ asset_url_for('modest_minstrels/' + audio_id) }}" type="audio/mpeg"/>
+        </audio>
+      </a>
+    </div>
+  {% elif puzzle_visibilities.get(puzzle_id).status == 'SOLVED' %}
+    <div class="puzzle-entry">
+      <a href="{{ url_for(puzzle_link_action, puzzle_id = link_puzzle_id) }}">
+        <span class="puzzle-name">{{ puzzle_properties.get(puzzle_id).puzzleProperties.DisplayNameProperty.displayName }}</span>
+        <span class="puzzle-solution">{{ puzzle_properties.get(puzzle_id).puzzleProperties.AnswersProperty.answers[0].canonicalAnswer }}</span><br/>
+        <audio controls>
+          <source src="{{ asset_url_for('modest_minstrels/' + audio_id) }}" type="audio/mpeg"/>
+        </audio>
+      </a>
+    </div>
+  {% elif puzzle_visibilities.get(puzzle_id).status == 'VISIBLE' %}
+    <div class="puzzle-entry">
+      <span class="puzzle-name"><span class="fa fa-key"></span>
+        {% set unlock_requirement = single_character_unlock_requirement(puzzle_properties.get(puzzle_id).puzzleProperties) %}
+        {% if unlock_requirement.character %}
+          <span>{{ unlock_requirement.character.capitalize() }} {{ unlock_requirement.levels }}</span>
+        {% endif %}
+      </span>
+    </div>
+  {% endif %}
+{% endmacro %}
+
 {% block title_block %}The Modest Minstrels{% endblock %}
 {% block round_name %}The Modest Minstrels{% endblock %}
 
@@ -14,8 +49,8 @@
 
 {% block round_puzzle_entries %}
 <div class="puzzle-list-column">
-  {% for puzzle_id in ['minstrels1','minstrels2','minstrels3','minstrels4','minstrels5','minstrels6','minstrels7'] %}
-    {{ puzzle_entry(puzzle_id, puzzle_properties, puzzle_visibilities) }}
+  {% for (puzzle_id, audio_id) in [('minstrels1','audio01.mp3'),('minstrels2','audio02.mp3'),('minstrels3','audio03.mp3'),('minstrels4','audio04.mp3'),('minstrels5','audio05.mp3'),('minstrels6','audio06.mp3'),('minstrels7','audio07.mp3')] %}
+    {{ minstrels_puzzle_entry(puzzle_id, audio_id, puzzle_properties, puzzle_visibilities) }}
   {% endfor %}
 </div>
 {% endblock %}

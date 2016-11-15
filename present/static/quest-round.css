@@ -7,6 +7,7 @@
 }
 
 #header {
+  margin-left: 320px;
   font-size: 24px;
 }
 
@@ -25,8 +26,12 @@ a:visited {
   color: black;
 }
 
+#puzzle-content {
+  margin-left: 320px;
+}
+
 #puzzle-list {
-  margin-left: 300px;
+  margin-left: 320px;
   padding-top: 10px;
 }
 
