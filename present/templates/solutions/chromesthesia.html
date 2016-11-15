@@ -10,10 +10,6 @@
       border-spacing: 0;
     }
 
-    .small-font {
-      font-size: 0.7em;
-    }
-
     th, td {
       border: 1px solid black;
       padding: 4px;
@@ -64,7 +60,7 @@
       </tr>
       <tr>
         <td>SAOIRSE UNA RONAN</td>
-        <td>VIOLET & DAISY</td>
+        <td>VIOLET &amp; DAISY</td>
         <td>VIOLET</td>
       </tr>
       <tr>
@@ -111,13 +107,21 @@ puzzle.png PNG 600x336 600x336+0+0 16-bit DirectClass 15.8KB 0.000u 0:00.000</pr
       color values, specifically the colors #000000010000 and #000000000001.
     </p>
     <img src="{{ asset_url_for('chromesthesia/puzzle_deep_green_clues.png') }}">
-    <pre class="small-font">$ convert puzzle.png \
-    -fill "#0000ffff0000" -opaque "#000000010000" -opaque "#000000010001" -opaque "#010000010000" -opaque "#010000010001" \
+    <pre>$ convert puzzle.png \
+    -fill "#0000ffff0000" \
+    -opaque "#000000010000" \
+    -opaque "#000000010001" \
+    -opaque "#010000010000" \
+    -opaque "#010000010001" \
     -depth 8 \
     puzzle_deep_green_clues.png</pre>
     <img src="{{ asset_url_for('chromesthesia/puzzle_deep_blue_clues.png') }}">
-    <pre class="small-font">$ convert puzzle.png \
-    -fill "#00000000ffff" -opaque "#000000000001" -opaque "#000000010001" -opaque "#010000000001" -opaque "#010000010001" \
+    <pre>$ convert puzzle.png \
+    -fill "#00000000ffff" \
+    -opaque "#000000000001" \
+    -opaque "#000000010001" \
+    -opaque "#010000000001" \
+    -opaque "#010000010001" \
     -depth 8 \
     puzzle_deep_blue_clues.png</pre>
     <p>
@@ -225,13 +229,11 @@ def GetCharColorTuple(char_img):
       numbers associated with each name as indices into the full artist birth
       names for each song.
     </p>
-    <table class="small-font">
+    <table>
       <tr>
         <th>Actor</th>
         <th>Film</th>
-        <th>Color</th>
         <th>Spoken Word</th>
-        <th>Audio Of Spoken Word</th>
         <th>Song Artist</th>
         <th>Song Artist Birth Name</th>
         <th>Blue Number</th>
@@ -239,10 +241,8 @@ def GetCharColorTuple(char_img):
       </tr>
       <tr>
         <td>COLIN LEWES DILLINGHAM</td>
-        <td>ORANGE COUNTY</td>
-        <td>ORANGE</td>
-        <td>SODA</td>
-        <td><audio src="{{ asset_url_for('chromesthesia/line0.wav') }}" controls="controls"></audio></td>
+        <td><b>ORANGE</b> COUNTY</td>
+        <td>SODA<br><audio src="{{ asset_url_for('chromesthesia/line0.wav') }}" controls="controls"></audio></td>
         <td>VIC MENSA</td>
         <td>VICTOR KWESI MENSAH</td>
         <td>(17/17)</td>
@@ -250,10 +250,8 @@ def GetCharColorTuple(char_img):
       </tr>
       <tr>
         <td>RICHARD GILBERT EMERY</td>
-        <td>YELLOW SUBMARINE</td>
-        <td>YELLOW</td>
-        <td>RAINCOAT</td>
-        <td><audio src="{{ asset_url_for('chromesthesia/line1.wav') }}" controls="controls"></audio></td>
+        <td><b>YELLOW</b> SUBMARINE</td>
+        <td>RAINCOAT<br><audio src="{{ asset_url_for('chromesthesia/line1.wav') }}" controls="controls"></audio></td>
         <td>JUSTIN BIEBER</td>
         <td>JUSTIN DREW BIEBER</td>
         <td>(2/16)</td>
@@ -261,10 +259,8 @@ def GetCharColorTuple(char_img):
       </tr>
       <tr>
         <td>CARLOS IRWIN ESTEVEZ</td>
-        <td>RED DAWN</td>
-        <td>RED</td>
-        <td>UMBRELLA</td>
-        <td><audio src="{{ asset_url_for('chromesthesia/line2.wav') }}" controls="controls"></audio></td>
+        <td><b>RED</b> DAWN</td>
+        <td>UMBRELLA<br><audio src="{{ asset_url_for('chromesthesia/line2.wav') }}" controls="controls"></audio></td>
         <td>FAITH HILL</td>
         <td>AUDREY FAITH PERRY</td>
         <td>(10/16)</td>
@@ -272,10 +268,8 @@ def GetCharColorTuple(char_img):
       </tr>
       <tr>
         <td>BONNIE LYNNE HUNT</td>
-        <td>THE GREEN MILE</td>
-        <td>GREEN</td>
-        <td>PANGEA</td>
-        <td><audio src="{{ asset_url_for('chromesthesia/line3.wav') }}" controls="controls"></audio></td>
+        <td>THE <b>GREEN</b> MILE</td>
+        <td>PANGEA<br><audio src="{{ asset_url_for('chromesthesia/line3.wav') }}" controls="controls"></audio></td>
         <td>MARSIMOTO (or MARTERIA)</td>
         <td>MARTEN LACINY</td>
         <td>(6/12)</td>
@@ -283,10 +277,8 @@ def GetCharColorTuple(char_img):
       </tr>
       <tr>
         <td>HOPE ELISE ROSS LANGE</td>
-        <td>BLUE VELVET</td>
-        <td>BLUE</td>
-        <td>BANDANA</td>
-        <td><audio src="{{ asset_url_for('chromesthesia/line4.wav') }}" controls="controls"></audio></td>
+        <td><b>BLUE</b> VELVET</td>
+        <td>BANDANA<br><audio src="{{ asset_url_for('chromesthesia/line4.wav') }}" controls="controls"></audio></td>
         <td>JERROD NIEMANN</td>
         <td>JERROD LEE NIEMANN</td>
         <td>(6/16)</td>
@@ -294,10 +286,8 @@ def GetCharColorTuple(char_img):
       </tr>
       <tr>
         <td>SAOIRSE UNA RONAN</td>
-        <td>VIOLET & DAISY</td>
-        <td>VIOLET</td>
-        <td>AFFAIR</td>
-        <td><audio src="{{ asset_url_for('chromesthesia/line5.wav') }}" controls="controls"></audio></td>
+        <td><b>VIOLET</b> &amp; DAISY</td>
+        <td>AFFAIR<br><audio src="{{ asset_url_for('chromesthesia/line5.wav') }}" controls="controls"></audio></td>
         <td>MARNIE</td>
         <td>HELEN MARNIE</td>
         <td>(8/11)</td>
@@ -305,10 +295,8 @@ def GetCharColorTuple(char_img):
       </tr>
       <tr>
         <td>AUDREY JUSTINE TAUTOU</td>
-        <td>MOOD INDIGO</td>
-        <td>INDIGO</td>
-        <td>CHILDREN</td>
-        <td><audio src="{{ asset_url_for('chromesthesia/line6.wav') }}" controls="controls"></audio></td>
+        <td>MOOD <b>INDIGO</b></td>
+        <td>CHILDREN<br><audio src="{{ asset_url_for('chromesthesia/line6.wav') }}" controls="controls"></audio></td>
         <td>PUSCIFER</td>
         <td>JAMES HERBERT KEENAN (or MAYNARD JAMES KEENAN)</td>
         <td>(14/18)</td>
