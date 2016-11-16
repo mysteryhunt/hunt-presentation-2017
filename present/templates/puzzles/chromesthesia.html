@@ -1,0 +1,14 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}Chromesthesia{% endblock %}
+{% block puzzle_name_block %}Chromesthesia{% endblock %}
+
+{% block puzzle_flavortext_block %}
+  One of the minstrels tells you that he was born with the unusual abilities to
+  see things in total darkness and to hear colors as sounds.
+{% endblock %}
+
+{% block puzzle_content_block %}
+  <div>
+    <img src="{{ asset_url_for('chromesthesia/image01.png') }}">
+  </div>
+{% endblock %}
