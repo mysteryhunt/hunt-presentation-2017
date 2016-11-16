@@ -23,19 +23,14 @@
 }
 
 #character-level-container {
-  position: absolute;
-  left: 55%;
-  top: 75%;
-  width: auto;
+  width: 150px;
   height: 85px;
-  border: 2px solid black;
-  padding: 5px 5px;
   text-align: center;
   line-height: 80px;
   font-size: 32px;
   color: black;
-  background-color: white;
   vertical-align: bottom;
+  margin: 0 auto;
 }
 
 #character-level-container img {

@@ -7,14 +7,14 @@
 {% block overall_layout_body %}
 <div id="round-container">
   <div id="left-sidebar">
+    <div id="character-level-container">
+      <img src="{{ url_for('static', filename='temp/art/Characters/%s-logo-color.png' % round_id) }}" style="width:80px;height:80px;"/>
+      <span id="character-level-value">
+        {{ team_properties.teamProperties.CharacterLevelsProperty.levels.get(round_id.upper(), 0) if team_properties else 'NA' }}
+      </span>
+    </div>
     <div id="character-display">
       <img id="character-image" src="{{ url_for('static', filename='temp/art/Characters/%s.png' % round_id) }}" style="width: 300px;">
-      <div id="character-level-container">
-        <img src="{{ url_for('static', filename='temp/art/Characters/%s-logo-color.png' % round_id) }}" style="width:80px;height:80px;"/>
-        <span id="character-level-value">
-          {{ team_properties.teamProperties.CharacterLevelsProperty.levels.get(round_id.upper(), 0) if team_properties else 'NA' }}
-        </span>
-      </div>
     </div>
     <div id="navigation">
       <a href="{{ url_for('index') }}"><span class="enscrolled"><span>Back to World Map</span></span></a>
