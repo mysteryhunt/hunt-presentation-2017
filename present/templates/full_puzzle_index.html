@@ -18,9 +18,9 @@
   <h2>Rounds</h2>
   <ul>
     {% for round_id in ['fighter','wizard','cleric','linguist','economist','chemist',
-                        'the_despondent_dynast','the_dismal_dungeon','the_thrilling_thespians',
-                        'the_broken_bridge','the_crafty_criminal','the_modest_minstrels',
-                        'the_curious_cube','the_woeful_warlord'] %}
+                        'dynast','dungeon','thespians',
+                        'bridge','criminal','minstrels',
+                        'cube','warlord'] %}
       {{ round_listing(round_id, round_id) }}
     {% endfor %}
   </ul>

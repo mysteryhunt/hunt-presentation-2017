@@ -34,7 +34,7 @@
 </div>
 {% endblock %}
 
-{% macro puzzle_entry(puzzle_id, puzzle_properties, puzzle_visibilities) %}
+{% macro puzzle_entry(puzzle_id, puzzle_properties, puzzle_visibilities, audio_id=None) %}
   {% set puzzle_link_action = 'full_puzzle' if full_access else 'puzzle' %}
   {% set link_puzzle_id = puzzle_properties.get(puzzle_id,{}).get('puzzleProperties',{}).get('DisplayIdProperty',{}).get('displayId',puzzle_id) %}
   {% if puzzle_visibilities.get(puzzle_id).status == 'UNLOCKED' %}
@@ -42,6 +42,12 @@
       <a href="{{ url_for(puzzle_link_action, puzzle_id = link_puzzle_id) }}">
         <span class="puzzle-name">{{ puzzle_properties.get(puzzle_id).puzzleProperties.DisplayNameProperty.displayName }}</span>
       </a>
+      {% if audio_id %}
+        <br/>
+        <audio controls>
+          <source src="{{ asset_url_for('modest_minstrels/' + audio_id) }}" type="audio/mpeg"/>
+        </audio>
+      {% endif %}
     </div>
   {% elif puzzle_visibilities.get(puzzle_id).status == 'SOLVED' %}
     <div class="puzzle-entry">
@@ -50,6 +56,12 @@
         <span class="puzzle-name">{{ puzzle_properties.get(puzzle_id).puzzleProperties.DisplayNameProperty.displayName }}</span>
         <span class="puzzle-solution">{{ puzzle_properties.get(puzzle_id).puzzleProperties.AnswersProperty.answers[0].canonicalAnswer }}</span>
       </a>
+      {% if audio_id %}
+        <br/>
+        <audio controls>
+          <source src="{{ asset_url_for('modest_minstrels/' + audio_id) }}" type="audio/mpeg"/>
+        </audio>
+      {% endif %}
     </div>
   {% elif puzzle_visibilities.get(puzzle_id).status == 'VISIBLE' %}
     <div class="puzzle-entry">
