@@ -42,7 +42,7 @@
           </a>
         {% endfor %}
         {% for recruitment in [('linguist',140,10),('chemist',30,290),('economist',150,450)] if True%}
-          <a href="{{ url_for('round', round_id = recruitment[0]) }}">
+          <a href="{{ url_for('puzzle', puzzle_id = 'recruit_' + recruitment[0]) }}">
             <div id="recruitment-map-{{ recruitment[0] }}" class="individual-quest" style="width:75px; height: 105px; position:absolute; top:{{ recruitment[1] }}px; left:{{ recruitment[2] }}px; z-index:200; content: url({{ url_for('static', filename='temp/art/Characters/%s.png' % recruitment[0]) }}); background-size:100%;">
             </div>
           </a>
