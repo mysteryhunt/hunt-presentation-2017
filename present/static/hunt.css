@@ -75,6 +75,29 @@ body {
   display: inline-block;
 }
 
+.vertically-enscrolled {
+  background-image: url("vertical-scroll-base.png");
+  background-repeat: repeat-y;
+  position: relative;
+  width: 280px;
+  z-index: 100;
+}
+
+.vertically-enscrolled:before {
+  content: url("vertical-scroll-top.png");
+  width: 280px;
+  height: 78px;
+  z-index: 100;
+}
+
+.vertically-enscrolled:after {
+  content: url("vertical-scroll-bottom.png");
+  background-color: white;
+  width: 280px;
+  height: 84px;
+  z-index: 100;
+}
+
 @media print {
   #overall-layout-header {
     display: none;

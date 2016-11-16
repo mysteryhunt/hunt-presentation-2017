@@ -7,8 +7,13 @@
 {% block overall_layout_body %}
 <div id="round-container">
   <div id="left-sidebar">
-    <div id="round-text">
-      {% block round_flavortext %}{% endblock %}
+    <div id="round-picture">
+      <img src="{{ url_for('static', filename='temp/art/Maps/Icons/%s.png' % round_id)}}">
+    </div>
+    <div class="vertically-enscrolled">
+      <div id="round-text">
+        {% block round_flavortext %}{% endblock %}
+      </div>
     </div>
     <div id="navigation">
       <a href="{{ url_for('index') }}"><span class="enscrolled"><span>Back to World Map</span></span></a>
@@ -16,7 +21,7 @@
   </div>
   <div id="puzzle-container">
     <div id="header">
-      <span class="enscrolled"><span>{% block round_name %}{% endblock %}</span></span>
+      <span class="enscrolled-90px"><span>{% block round_name %}{% endblock %}</span></span>
     </div>
     <div id="puzzle-content">
       {% block puzzle_content %}{% endblock %}
@@ -40,6 +45,7 @@
     </div>
   {% elif puzzle_visibilities.get(puzzle_id).status == 'SOLVED' %}
     <div class="puzzle-entry">
+      <span><img src="{{ url_for('static', filename='temp/art/Maps/complete-logo-color.png') }}" style="width:24px;height:24px;vertical-align:bottom;"/></span>
       <a href="{{ url_for(puzzle_link_action, puzzle_id = link_puzzle_id) }}">
         <span class="puzzle-name">{{ puzzle_properties.get(puzzle_id).puzzleProperties.DisplayNameProperty.displayName }}</span>
         <span class="puzzle-solution">{{ puzzle_properties.get(puzzle_id).puzzleProperties.AnswersProperty.answers[0].canonicalAnswer }}</span>
@@ -50,7 +56,7 @@
       <span class="puzzle-name"><span class="fa fa-key"></span>
         {% set unlock_requirement = single_character_unlock_requirement(puzzle_properties.get(puzzle_id).puzzleProperties) %}
         {% if unlock_requirement.character %}
-          <span>{{ unlock_requirement.character.capitalize() }} {{ unlock_requirement.levels }}</span>
+          <span>Unlock at <img src="{{ url_for('static', filename='temp/art/Characters/%s-logo-color.png' % unlock_requirement.character) }}" style="width:24px;height:24px;vertical-align:bottom;"/> {{ unlock_requirement.levels }}</span>
         {% endif %}
       </span>
     </div>
