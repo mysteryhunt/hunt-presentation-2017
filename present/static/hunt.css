@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'Black Chancery';
+  src: url("BLKCHCRY.TTF");
+}
+
 body {
   text-align: center;
   margin: 0;
@@ -6,12 +11,14 @@ body {
 }
 
 .enscrolled {
-  background-image: url("scroll-banner-center.png");
+  background-image: url("horizontal-scroll-45px-base.png");
   background-repeat: repeat-x;
-  height: 50px;
-  line-height: 50px;
+  height: 45px;
+  line-height: 45px;
   vertical-align: top;
   display: inline-block;
+  font-family: 'Black Chancery', 'Georgia', serif;
+  font-size: 20px;
 }
 
 .enscrolled span {
@@ -19,20 +26,52 @@ body {
 }
 
 .enscrolled:before {
-  background-image: url("scroll-banner-left.png");
-  content: "";
-  width: 9px;
-  height: 50px;
-  margin-right: 10px;
+  content: url("horizontal-scroll-45px-left.png");
+  background-color: white;
+  width: 15px;
+  height: 45px;
+  margin-right: 9px;
   display: inline-block;
 }
 
 .enscrolled:after {
-  background-image: url("scroll-banner-right.png");
-  content: "";
-  width: 9px;
-  height: 50px;
-  margin-left: 10px;
+  content: url("horizontal-scroll-45px-right.png");
+  background-color: white;
+  width: 15px;
+  height: 45px;
+  margin-left: 9px;
+  display: inline-block;
+}
+
+.enscrolled-90px {
+  background-image: url("horizontal-scroll-90px-base.png");
+  background-repeat: repeat-x;
+  height: 90px;
+  line-height: 90px;
+  vertical-align: top;
+  display: inline-block;
+  font-family: 'Black Chancery', 'Georgia', serif;
+}
+
+.enscrolled-90px span {
+  vertical-align: top;
+}
+
+.enscrolled-90px:before {
+  content: url("horizontal-scroll-90px-left.png");
+  background-color: white;
+  width: 29px;
+  height: 90px;
+  margin-right: 9px;
+  display: inline-block;
+}
+
+.enscrolled-90px:after {
+  content: url("horizontal-scroll-90px-right.png");
+  background-color: white;
+  width: 29px;
+  height: 90px;
+  margin-left: 9px;
   display: inline-block;
 }
 

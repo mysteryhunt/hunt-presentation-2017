@@ -50,14 +50,7 @@ a:visited {
 .individual-character-status-container {
   height: 40px;
   line-height: 40px;
-  margin-top: -20px;
-}
-
-.individual-character-status-container .individual-character-level {
-  height: 40px;
-  width: 40px;
-  display: inline-block;
-  vertical-align: text-bottom;
+  margin-top: -10px;
 }
 
 .event-entry {
