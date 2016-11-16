@@ -33,22 +33,29 @@
 
   <div id="world-map-container">
     <div id="world-map-header"><span class="enscrolled"><span>World Map</span></span></div>
-    <div id="world-map" style="content: url({{ url_for('static', filename='temp/art/Maps/map.png') }})">
-        {% for quest in [('dynast',50,50),('dungeon',50,290),('thespians',225,410),('bridge',225,170),('criminal',225,50),('minstrels',400,50),('cube',400,170),('warlord',400,290)] if quest[0] in visible_puzzle_ids %}
+    <div id="world-map">
+      <div id="world-map-background" style="content: url({{ url_for('static', filename='temp/art/Maps/map.png') }}); width:570px;height:570px;"></div>
+        {% for quest in [('dynast',0,0),('dungeon',90,120),('thespians',25,385),('bridge',205,290),('criminal',225,110),('minstrels',340,0),('cube',440,110),('warlord',340,240)] if quest[0] in visible_puzzle_ids %}
           <a href="{{ url_for('round', round_id = quest[0]) }}">
-            <div id="quest-map-{{ quest[0] }}" class="individual-quest" style="width:100px; height: 100px; position:absolute; top:{{ quest[1] }}px; left:{{ quest[2] }}px; z-index:200; background-image: url({{ asset_url_for('general/stock-%s-icon.jpg' % quest[0]) }}); background-size:100%;">
+            <div id="quest-map-{{ quest[0] }}" class="individual-quest" style="width:144px; height:108px; position:absolute; top:{{ quest[1] }}px; left:{{ quest[2] }}px; z-index:200; content: url({{ url_for('static', filename='temp/art/Maps/Icons/%s.png' % quest[0]) }});">
             </div>
           </a>
         {% endfor %}
-        {% for recruitment in [('linguist',50,170),('chemist',50,410),('economist',225,290)] if False%}
+        {% for recruitment in [('linguist',140,10),('chemist',30,290),('economist',150,450)] if True%}
           <a href="{{ url_for('round', round_id = recruitment[0]) }}">
-            <div id="recruitment-map-{{ recruitment[0] }}" class="individual-quest" style="width:60px; height: 60px; position:absolute; top:{{ recruitment[1] }}px; left:{{ recruitment[2] }}px; z-index:200; background-image: url({{ asset_url_for('general/stock-%s.jpg' % recruitment[0]) }}); background-size:100%;">
+            <div id="recruitment-map-{{ recruitment[0] }}" class="individual-quest" style="width:75px; height: 105px; position:absolute; top:{{ recruitment[1] }}px; left:{{ recruitment[2] }}px; z-index:200; content: url({{ url_for('static', filename='temp/art/Characters/%s.png' % recruitment[0]) }}); background-size:100%;">
             </div>
           </a>
         {% endfor %}
-        {% if False %}
+        {% if True %}
           <a href="{{ url_for('puzzle', puzzle_id = 'merchants') }}">
-            <div class="individual-quest" style="width:100px; height:100px; position:absolute; top:400px; left:410px; z-index:200; background-image: url({{ asset_url_for('general/stock-merchant-icon.jpg') }}); background-size:100%;">
+            <div class="individual-quest" style="width:144px; height:108px; position:absolute; top:310px; left:390px; z-index:200; content: url({{ url_for('static', filename='temp/art/Maps/Icons/fortress.png') }});">
+            </div>
+          </a>
+        {% endif %}
+        {% if True %}
+          <a href="{{ url_for('puzzle', puzzle_id = 'fortress') }}">
+            <div class="individual-quest" style="width:144px; height:108px; position:absolute; top:450px; left:420px; z-index:200; content: url({{ url_for('static', filename='temp/art/Maps/Icons/fortress.png') }});">
             </div>
           </a>
         {% endif %}
