@@ -55,6 +55,7 @@ def round(round_id):
     if not cube.is_puzzle_unlocked(app, round_id):
         abort(403)
 
+    visible_puzzle_ids = set(cube.get_visible_puzzle_ids(app))
     puzzle_properties = cube.get_all_puzzle_properties(app)
     puzzle_properties = {puzzle.get('puzzleId'): puzzle for puzzle in puzzle_properties.get('puzzles',[])}
     puzzle_visibilities = cube.get_puzzle_visibilities(app)
@@ -68,7 +69,8 @@ def round(round_id):
         round_id=round_id,
         puzzle_properties=puzzle_properties,
         puzzle_visibilities=puzzle_visibilities,
-        team_properties=team_properties)
+        team_properties=team_properties,
+        visible_puzzle_ids=visible_puzzle_ids)
 
 
 @app.route("/puzzle/<puzzle_id>")
@@ -77,6 +79,7 @@ def puzzle(puzzle_id):
     if not cube.is_puzzle_unlocked(app, puzzle_id):
         abort(403)
         
+    visible_puzzle_ids = set(cube.get_visible_puzzle_ids(app))
     puzzle = cube.get_puzzle(app, puzzle_id)
     team_properties = cube.get_team_properties(app)
 
@@ -84,7 +87,8 @@ def puzzle(puzzle_id):
         "puzzles/%s.html" % puzzle_id,
         puzzle_id=puzzle_id,
         puzzle=puzzle,
-        team_properties=team_properties)
+        team_properties=team_properties,
+        visible_puzzle_ids=visible_puzzle_ids)
         
 @app.route("/inventory")
 @login_required.solvingteam
