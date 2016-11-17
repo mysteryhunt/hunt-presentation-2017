@@ -11,7 +11,7 @@
       <div id="character-header"><span class="enscrolled"><span>Characters</span></span></div>
       <div id="character-total">
         <div>
-          Total party level: <span class="level-number">{{ team_properties.get('teamProperties',{}).get('CharacterLevelsProperty',{}).get('levels',{}).values()|sum }}</span>
+          Total: <span class="level-number">{{ team_properties.get('teamProperties',{}).get('CharacterLevelsProperty',{}).get('levels',{}).values()|sum }}</span>
         </div>
       </div>
     
@@ -28,6 +28,25 @@
           </a>
       {% endfor %}
     
+    </div>
+    <div id="events">
+      <div class="events-header"><span class="enscrolled"><span>Events</span></span></div>
+      <div class="event-entry">
+        <div class="event-name">Event the First</div>
+        <div class="event-time">Friday 6pm</div>
+      </div>
+      <div class="event-entry">
+        <div class="event-name">Event the Second</div>
+        <div class="event-time">Friday 10pm</div>
+      </div>
+      <div class="event-entry">
+        <div class="event-name">Event the Third</div>
+        <div class="event-time">Saturday 10am</div>
+      </div>
+      <div class="event-entry">
+        <div class="event-name">Event the Fourth</div>
+        <div class="event-time">Saturday 2pm</div>
+      </div>
     </div>
   </div>
 
@@ -62,27 +81,6 @@
     </div>
   </div>
 
-  <div id="right-sidebar">
-    <div id="events">
-      <div class="events-header"><span class="enscrolled"><span>Events</span></span></div>
-      <div class="event-entry">
-        <div class="event-name">Event the First</div>
-        <div class="event-time">Friday 6pm</div>
-      </div>
-      <div class="event-entry">
-        <div class="event-name">Event the Second</div>
-        <div class="event-time">Friday 10pm</div>
-      </div>
-      <div class="event-entry">
-        <div class="event-name">Event the Third</div>
-        <div class="event-time">Saturday 10am</div>
-      </div>
-      <div class="event-entry">
-        <div class="event-name">Event the Fourth</div>
-        <div class="event-time">Saturday 2pm</div>
-      </div>
-    </div>
-  </div>
   
   <br class="clear-both"/>
 </div>

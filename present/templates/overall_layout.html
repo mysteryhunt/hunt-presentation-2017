@@ -11,7 +11,7 @@
   </head>
   <body>
     <div id="overall-layout-header">
-      <div id="header-index-link">World Map</div>
+      <div id="header-index-link"><a href="{{ url_for('index') }}">World Map</a></div>
       {% for character_class in ['fighter','wizard','cleric','linguist','chemist','economist'] if character_class in visible_puzzle_ids %}
         <a href="{{ url_for('round', round_id = character_class) }}">
           <div id="header-status-{{ character_class }}" class="individual-header-status">
@@ -24,9 +24,9 @@
       {% block header_content %}{% endblock %}
       <div id="header-session-control">
         {% if session["username"] %}
-          {{ session["username"] }} (logout)
+          {{ session["username"] }} (<a href="{{ url_for('login.logout') }}">logout</a>)
         {% else %}
-          Not logged in (login)
+          Not logged in (<a href="{{ url_for('login.login') }}">login</a>)
         {% endif %}
       </div>
       <div id="header-inventory">

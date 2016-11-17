@@ -8,18 +8,13 @@
 
 #left-sidebar {
   float: left;
-  width: 145px;
+  width: 290px;
 }
 
 #world-map-container {
   float: left;
   width: 570px;
   margin: 0 20px;
-}
-
-#right-sidebar {
-  float: left;
-  width: 145px;
 }
 
 #world-map {
@@ -40,6 +35,8 @@ a:visited {
 
 .individual-character {
   margin-top: 10px;
+  display: inline-block;
+  width: 40%;
 }
 
 .individual-character-status-container {
