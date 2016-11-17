@@ -110,6 +110,22 @@ body {
   .enscrolled:after {
     display: none;
   }
+  
+  .enscrolled-90px:before {
+    display: none;
+  }
+  
+  .enscrolled-90px:after {
+    display: none;
+  }
+  
+  .vertically-enscrolled:before {
+    display: none;
+  }
+  
+  .vertically-enscrolled:after {
+    display: none;
+  }
 }
 
 #overall-layout-header {
