@@ -1,0 +1,71 @@
+{% extends "solutions/solution_layout.html" %}
+{% block title_block %}Chaser: Solution{% endblock %}
+{% block puzzle_name_block %}Chaser: Solution{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  td {
+    font-family: monospace;
+    width: 2em;
+    height: 2em;
+    text-align: center;
+  }
+
+  table {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .o {
+    color: gray;
+  }
+
+  .a {
+    background: cyan;
+  }
+
+  .n {
+    background: magenta;
+  }
+
+  .t {
+    background: black;
+    color: white;
+  }
+
+  .i {
+    background: yellow;
+  }
+
+  .an {
+    background: blue;
+    background: linear-gradient(45deg, cyan, magenta);
+  }
+
+  .ni {
+    background: red;
+    background: linear-gradient(45deg, yellow, magenta);
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<div>
+  <p>
+    First, teams must locate the cocktail ingredients in the grid. The leftover letters spell out the phrase NOW MIX A CUBA LIBRE, SIDECAR, BOILERMAKER, AND NEGRONI. The ingredients in the grid can be divided up to support these four cocktails, and the four
+    sets, in order, make the shapes A, N, T, and I, for the answer <b>ANTI</b>.
+  </p>
+  <table>
+    <tr><td class="n">C</td><td class="n">C</td><td class="o">n</td><td class="o">o</td><td class="o">w</td><td class="o">m</td><td class="t">B</td><td class="t">E</td><td class="t">E</td><td class="t">R</td></tr>
+    <tr><td class="n">E</td><td class="o">i</td><td class="n">A</td><td class="o">x</td><td class="o">a</td><td class="o">c</td><td class="o">u</td><td class="n">N</td><td class="t">Y</td><td class="o">b</td></tr>
+    <tr><td class="n">S</td><td class="i">G</td><td class="i">I</td><td class="ni">N</td><td class="o">a</td><td class="o">l</td><td class="o">i</td><td class="n">O</td><td class="t">E</td><td class="o">b</td></tr>
+    <tr><td class="n">E</td><td class="o">r</td><td class="i">R</td><td class="o">e</td><td class="n">G</td><td class="o">s</td><td class="o">i</td><td class="n">M</td><td class="t">K</td><td class="o">d</td></tr>
+    <tr><td class="n">L</td><td class="o">e</td><td class="i">A</td><td class="o">c</td><td class="o">a</td><td class="n">O</td><td class="o">r</td><td class="n">E</td><td class="t">S</td><td class="o">b</td></tr>
+    <tr><td class="n">P</td><td class="o">o</td><td class="i">P</td><td class="o">i</td><td class="o">l</td><td class="a">L</td><td class="an">C</td><td class="n">L</td><td class="t">I</td><td class="o">e</td></tr>
+    <tr><td class="n">I</td><td class="o">r</td><td class="i">M</td><td class="o">m</td><td class="o">a</td><td class="a">O</td><td class="a">I</td><td class="o">k</td><td class="t">H</td><td class="o">e</td></tr>
+    <tr><td class="n">R</td><td class="o">r</td><td class="i">A</td><td class="o">a</td><td class="a">L</td><td class="a">R</td><td class="a">U</td><td class="a">M</td><td class="t">W</td><td class="o">n</td></tr>
+    <tr><td class="n">T</td><td class="o">d</td><td class="i">C</td><td class="a">A</td><td class="o">n</td><td class="o">e</td><td class="o">g</td><td class="o">r</td><td class="a">E</td><td class="o">o</td></tr>
+    <tr><td class="i">H</td><td class="i">T</td><td class="i">U</td><td class="i">O</td><td class="i">M</td><td class="i">R</td><td class="i">E</td><td class="i">V</td><td class="o">n</td><td class="o">i</td></tr>
+  </table>
+</div>
+{% endblock %}
