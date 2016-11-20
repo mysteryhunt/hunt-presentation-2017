@@ -8,15 +8,17 @@
   .menu-item {
     font-size: 30px;
     font-weight: 600;
-    padding: 24px;
+    padding: 20px 18px;
     font-family: 'Raleway';
     width: 670px;
     margin: auto;
     display: block;
+    overflow: hidden;
+    position: relative;
   }
 
   .description {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 400;
     width: 600px;
     display: inline-block;
@@ -24,10 +26,13 @@
   }
 
   .price {
-    font-size: 22px;
+    font-size: 24px;
     font-weight: 500;
-    margin-left: 22px;
+    margin-left: 24px;
     float: left;
+    display: inline-block;
+    position: absolute;
+    bottom: 20px;
   }
 
   h2 {
@@ -42,7 +47,7 @@ The Wizard knows this place with real charm - they always come up with the funni
 
 {% block puzzle_content_block %}
 <div>
-  <h2 align="center">MENU<h2>
+  <h2 align="center">MENU</h2>
   <div class="menu-item">
     <div class="description">When you're short on your dough you can have a good meal with this burger - comes on rye with mustard, cheese, and avocado</div>
     <div class="price">2.22</div>
