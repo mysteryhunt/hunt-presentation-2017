@@ -9,27 +9,29 @@
 {% endblock %}
 
 {% block puzzle_content %}
-<div id="dungeon-map-container" style="width: 550px; margin: 0 auto;">
-  <table id="dungeon-map" style="border-collapse: collapse;">
-    {% for i in range(6) %}
+<div id="puzzle-content" class="panel-white">
+  <div id="dungeon-map-container" style="width: 550px; margin: 0 auto;">
+    <table id="dungeon-map" style="border-collapse: collapse;">
+      {% for i in range(6) %}
+        <tr>
+          {% for puzzle_data in [('dungeon1','F','U','P','B','G','R'),('dungeon2','A','D','T','R','H','U'),('dungeon3','T','D','K','T','L','A'),('dungeon4','A','T','O','L','H','J'),('dungeon5','C','P','I','T','R','V'),('dungeon6','Y','L','A','R','C','T'),('dungeon7','D','O','V','I','D','V'),('dungeon8','R','H','O','B','R','L'),('dungeon9','H','O','I','R','D','A'),('dungeon10','R','F','C','I','R','I'),('dungeon11','R','I','L','A','R','O')] %}
+            <td style="font-size: 24px; height: 50px; width: 50px; align: center; vertical-align: center; border: 1px solid black;">
+              {% if puzzle_visibilities.get(puzzle_data[0]).status == 'SOLVED' %}
+                {{ puzzle_data[i+1] }}
+              {% endif %}
+            </td>
+          {% endfor %}
+        </tr>
+      {% endfor %}
       <tr>
-        {% for puzzle_data in [('dungeon1','F','U','P','B','G','R'),('dungeon2','A','D','T','R','H','U'),('dungeon3','T','D','K','T','L','A'),('dungeon4','A','T','O','L','H','J'),('dungeon5','C','P','I','T','R','V'),('dungeon6','Y','L','A','R','C','T'),('dungeon7','D','O','V','I','D','V'),('dungeon8','R','H','O','B','R','L'),('dungeon9','H','O','I','R','D','A'),('dungeon10','R','F','C','I','R','I'),('dungeon11','R','I','L','A','R','O')] %}
-          <td style="font-size: 24px; height: 50px; width: 50px; align: center; vertical-align: center; border: 1px solid black;">
-            {% if puzzle_visibilities.get(puzzle_data[0]).status == 'SOLVED' %}
-              {{ puzzle_data[i+1] }}
-            {% endif %}
-          </td>
+        {% for puzzle_id in ['dungeon1','dungeon2','dungeon3','dungeon4','dungeon5','dungeon6','dungeon7','dungeon8','dungeon9','dungeon10','dungeon11'] %}
+          {% set puzzle_link_action = 'full_puzzle' if full_access else 'puzzle' %}
+          {% set link_puzzle_id = puzzle_properties.get(puzzle_id,{}).get('puzzleProperties',{}).get('DisplayIdProperty',{}).get('displayId',puzzle_id) %}
+          <td style="height: 25px; align: center; vertical-align: center; border: 1px solid black;"><a href="{{ url_for(puzzle_link_action, puzzle_id=link_puzzle_id) }}">*</a></td>
         {% endfor %}
       </tr>
-    {% endfor %}
-    <tr>
-      {% for puzzle_id in ['dungeon1','dungeon2','dungeon3','dungeon4','dungeon5','dungeon6','dungeon7','dungeon8','dungeon9','dungeon10','dungeon11'] %}
-        {% set puzzle_link_action = 'full_puzzle' if full_access else 'puzzle' %}
-        {% set link_puzzle_id = puzzle_properties.get(puzzle_id,{}).get('puzzleProperties',{}).get('DisplayIdProperty',{}).get('displayId',puzzle_id) %}
-        <td style="height: 25px; align: center; vertical-align: center; border: 1px solid black;"><a href="{{ url_for(puzzle_link_action, puzzle_id=link_puzzle_id) }}">*</a></td>
-      {% endfor %}
-    </tr>
-  </table>
+    </table>
+  </div>
 </div>
 {% endblock %}
 

@@ -11,15 +11,17 @@
 {% endblock %}
 
 {% block puzzle_content %}
-<div id="cube-map-container" style="width: 451px; height: 451px; margin: 0 auto; position: relative;">
-  <div id="cube-map" style="content: url({{ asset_url_for('curious-cube/curious-cube.png') }}); width: 451px; height: 451px; margin: 0 auto;"></div>
-  {% for (puzzle_id, x, y) in [('cube1',3,0),('cube2',0,1),('cube3',2,1),('cube4',3,3),('cube5',6,3),('cube6',1,4),('cube7',5,5),('cube8',2,6)] %}
-    {% set puzzle_link_action = 'full_puzzle' if full_access else 'puzzle' %}
-    {% set link_puzzle_id = puzzle_properties.get(puzzle_id,{}).get('puzzleProperties',{}).get('DisplayIdProperty',{}).get('displayId',puzzle_id) %}
-    <a href="{{ url_for(puzzle_link_action, puzzle_id = link_puzzle_id) }}">
-      <div class="cube-puzzle-link" style="width:50px; height: 50px; position:absolute; top:{{ 1+50*y }}px; left:{{ 1+50*x }}px; z-index:200;"></div>
-    </a>
-  {% endfor %}
+<div id="puzzle-content" class="panel-white">
+  <div id="cube-map-container" style="width: 451px; height: 451px; margin: 0 auto; position: relative;">
+    <div id="cube-map" style="content: url({{ asset_url_for('curious-cube/curious-cube.png') }}); width: 451px; height: 451px; margin: 0 auto;"></div>
+    {% for (puzzle_id, x, y) in [('cube1',3,0),('cube2',0,1),('cube3',2,1),('cube4',3,3),('cube5',6,3),('cube6',1,4),('cube7',5,5),('cube8',2,6)] %}
+      {% set puzzle_link_action = 'full_puzzle' if full_access else 'puzzle' %}
+      {% set link_puzzle_id = puzzle_properties.get(puzzle_id,{}).get('puzzleProperties',{}).get('DisplayIdProperty',{}).get('displayId',puzzle_id) %}
+      <a href="{{ url_for(puzzle_link_action, puzzle_id = link_puzzle_id) }}">
+        <div class="cube-puzzle-link" style="width:50px; height: 50px; position:absolute; top:{{ 1+50*y }}px; left:{{ 1+50*x }}px; z-index:200;"></div>
+      </a>
+    {% endfor %}
+  </div>
 </div>
 {% endblock %}
 

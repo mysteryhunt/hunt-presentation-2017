@@ -1,9 +1,6 @@
 #round-container {
   width: 900px;
   margin: 20px auto;
-  border: tan solid 5px;
-  background-color: white;
-  padding: 20px 20px;
 }
 
 #header {
@@ -28,18 +25,22 @@ a:visited {
 
 #puzzle-content {
   margin-left: 320px;
+  padding: 10px;
 }
 
 #puzzle-list {
   margin-left: 320px;
-  padding-top: 10px;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #D1B780;
+  border: 3px #665F4F solid;
 }
 
 .puzzle-entry {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  margin-top: 10px;
+  margin-bottom: 10px;
   min-height: 20px;
 }
 
@@ -55,8 +56,15 @@ span.puzzle-solution {
 #round-text {
   margin-left: 65px;
   margin-right: 30px;
-  margin-top: -60px;
   z-index: 200;
+}
+
+#round-text p:first-child {
+  margin-top: 0;
+}
+
+#round-text p:last-child {
+  margin-bottom: 0;
 }
 
 span.round_question {

@@ -10,23 +10,23 @@
     <div id="round-picture">
       <img src="{{ url_for('static', filename='temp/art/Maps/Icons/%s.png' % round_id)}}">
     </div>
+    <div class="vertically-enscrolled-before"></div>
     <div class="vertically-enscrolled">
       <div id="round-text">
         {% block round_flavortext %}{% endblock %}
       </div>
     </div>
+    <div class="vertically-enscrolled-after"></div>
     <div id="navigation">
-      <a href="{{ url_for('index') }}"><span class="enscrolled"><span>Back to World Map</span></span></a>
+      <a href="{{ url_for('index') }}"><span class="enscrolled-before"></span><span class="enscrolled"><span>Back to World Map</span></span><span class="enscrolled-after"></span></a>
     </div>
   </div>
   <div id="puzzle-container">
     <div id="header">
-      <span class="enscrolled-90px"><span>{% block round_name %}{% endblock %}</span></span>
+      <span class="enscrolled-90px-before"></span><span class="enscrolled-90px"><span>{% block round_name %}{% endblock %}</span></span><span class="enscrolled-90px-after"></span>
     </div>
-    <div id="puzzle-content">
-      {% block puzzle_content %}{% endblock %}
-    </div>
-    <div id="puzzle-list">
+    {% block puzzle_content %}{% endblock %}
+    <div id="puzzle-list" class="panel">
       {% block round_puzzle_entries %}{% endblock %}
     </div>
   </div>

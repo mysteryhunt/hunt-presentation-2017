@@ -7,24 +7,26 @@
 {% block overall_layout_body %}
 <div id="round-container">
   <div id="left-sidebar">
-    <div id="character-level-container">
-      <img src="{{ url_for('static', filename='temp/art/Characters/%s-logo-color.png' % round_id) }}" style="width:80px;height:80px;"/>
-      <span id="character-level-value">
-        {{ team_properties.teamProperties.CharacterLevelsProperty.levels.get(round_id.upper(), 0) if team_properties else 'NA' }}
-      </span>
-    </div>
-    <div id="character-display">
-      <img id="character-image" src="{{ url_for('static', filename='temp/art/Characters/%s.png' % round_id) }}" style="width: 300px;">
+    <div class="panel-white">
+      <div id="character-level-container">
+        <img src="{{ url_for('static', filename='temp/art/Characters/%s-logo-color.png' % round_id) }}" style="width:80px;height:80px;"/>
+        <span id="character-level-value">
+          {{ team_properties.teamProperties.CharacterLevelsProperty.levels.get(round_id.upper(), 0) if team_properties else 'NA' }}
+        </span>
+      </div>
+      <div id="character-display">
+        <img id="character-image" src="{{ url_for('static', filename='temp/art/Characters/%s.png' % round_id) }}" style="width: 100%;">
+      </div>
     </div>
     <div id="navigation">
-      <a href="{{ url_for('index') }}"><span class="enscrolled"><span>Back to World Map</span></span></a>
+      <a href="{{ url_for('index') }}"><span class="enscrolled-before"></span><span class="enscrolled"><span>Back to World Map</span></span><span class="enscrolled-after"></span></a>
     </div>
   </div>
   <div id="puzzle-container">
     <div id="header">
-      <span class="enscrolled-90px"><span>{% block round_name %}{% endblock %}</span></span>
+      <span class="enscrolled-90px-before"></span><span class="enscrolled-90px"><span>{% block round_name %}{% endblock %}</span></span><span class="enscrolled-90px-after"></span>
     </div>
-    <div id="puzzle-list">
+    <div id="puzzle-list" class="panel">
       {% block round_puzzle_entries %}{% endblock %}
     </div>
   </div>

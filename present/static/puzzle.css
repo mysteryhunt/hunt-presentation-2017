@@ -24,7 +24,7 @@ body {
   #puzzle-container {
     margin: 20px auto;
     width: 900px;
-    border: tan solid 5px;
+    border: 3px #665F4F solid;
   }
 }
 

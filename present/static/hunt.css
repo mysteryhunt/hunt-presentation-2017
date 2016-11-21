@@ -7,7 +7,17 @@ body {
   text-align: center;
   margin: 0;
   padding: 0;
-  background-color: papayawhip;
+  background: url('temp/not-ours/background-wood.jpg');
+}
+
+.panel {
+  background-color: #D1B780;
+  border: 3px #665F4F solid;
+}
+
+.panel-white {
+  background-color: white;
+  border: 3px #665F4F solid;
 }
 
 .enscrolled {
@@ -25,22 +35,16 @@ body {
   vertical-align: top;
 }
 
-.enscrolled:before {
+.enscrolled-before {
   content: url("horizontal-scroll-45px-left.png");
-  background-color: white;
   width: 15px;
   height: 45px;
-  margin-right: 9px;
-  display: inline-block;
 }
 
-.enscrolled:after {
+.enscrolled-after {
   content: url("horizontal-scroll-45px-right.png");
-  background-color: white;
   width: 15px;
   height: 45px;
-  margin-left: 9px;
-  display: inline-block;
 }
 
 .enscrolled-90px {
@@ -57,22 +61,21 @@ body {
   vertical-align: top;
 }
 
-.enscrolled-90px:before {
+.enscrolled-90px-before {
   content: url("horizontal-scroll-90px-left.png");
-  background-color: white;
   width: 29px;
   height: 90px;
-  margin-right: 9px;
-  display: inline-block;
 }
 
-.enscrolled-90px:after {
+.enscrolled-90px-after {
   content: url("horizontal-scroll-90px-right.png");
-  background-color: white;
   width: 29px;
   height: 90px;
-  margin-left: 9px;
-  display: inline-block;
+}
+
+.vertically-enscrolled, .vertically-enscrolled-before, .vertically-enscrolled-after {
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 .vertically-enscrolled {
@@ -83,16 +86,16 @@ body {
   z-index: 100;
 }
 
-.vertically-enscrolled:before {
-  content: url("vertical-scroll-top.png");
+.vertically-enscrolled-before {
+  background-image: url("vertical-scroll-top.png");
+  content: " ";
   width: 280px;
   height: 78px;
   z-index: 100;
 }
 
-.vertically-enscrolled:after {
+.vertically-enscrolled-after {
   content: url("vertical-scroll-bottom.png");
-  background-color: white;
   width: 280px;
   height: 84px;
   z-index: 100;
@@ -103,27 +106,27 @@ body {
     display: none;
   }
   
-  .enscrolled:before {
+  .enscrolled-before {
     display: none;
   }
   
-  .enscrolled:after {
+  .enscrolled-after {
     display: none;
   }
   
-  .enscrolled-90px:before {
+  .enscrolled-90px-before {
     display: none;
   }
   
-  .enscrolled-90px:after {
+  .enscrolled-90px-after {
     display: none;
   }
   
-  .vertically-enscrolled:before {
+  .vertically-enscrolled-before {
     display: none;
   }
   
-  .vertically-enscrolled:after {
+  .vertically-enscrolled-after {
     display: none;
   }
 }
@@ -177,7 +180,7 @@ body {
 }
 
 #header-inventory-grid td {
-  border: 3px solid sienna;
+  border: 3px solid #665F4F;
   background-color: white;
   padding: 0px 0px;
   text-align: center;
