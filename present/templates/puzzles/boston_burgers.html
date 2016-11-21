@@ -1,0 +1,104 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}Boston Burgers{% endblock %}
+{% block puzzle_name_block %}Boston Burgers{% endblock %}
+
+{% block puzzle_head_block %}
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Raleway:600,600italic,700normal,700italic,700,100,400,400italic,500,800,300,300italic"/>
+<style>
+  .menu-item {
+    font-size: 30px;
+    font-weight: 600;
+    padding: 20px 18px;
+    font-family: 'Raleway';
+    width: 670px;
+    margin: auto;
+    display: block;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .description {
+    font-size: 20px;
+    font-weight: 400;
+    width: 600px;
+    display: inline-block;
+    float: left;
+  }
+
+  .price {
+    font-size: 24px;
+    font-weight: 500;
+    margin-left: 24px;
+    float: left;
+    display: inline-block;
+    position: absolute;
+    bottom: 20px;
+  }
+
+  h2 {
+    font-family: 'Raleway';
+  }
+</style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+The Wizard knows this place with real charm - they always come up with the funniest names for their burgers.
+{% endblock %}
+
+{% block puzzle_content_block %}
+<div>
+  <h2 align="center">MENU</h2>
+  <div class="menu-item">
+    <div class="description">When you're short on your dough you can have a good meal with this burger - comes on rye with mustard, cheese, and avocado</div>
+    <div class="price">2.22</div>
+  </div>
+  <div class="menu-item">
+    <div class="description">Topped with mint relish that we totally added on purpose, we swear</div>
+    <div class="price">3.04</div>
+  </div>
+  <div class="menu-item">
+    <div class="description">Comes with bok choy, and the rest of the toppings are up to you</div>
+    <div class="price">3.14</div>
+  </div>
+  <div class="menu-item">
+    <div class="description">Topped with a fig, pairs well with a white russian</div>
+    <div class="price">6.08</div>
+  </div>
+  <div class="menu-item">
+    <div class="description">Start your weekend right with this burger topped with a fried egg</div>
+    <div class="price">1.17</div>
+  </div>
+  <div class="menu-item">
+    <div class="description">Topped with scallions. We've remade this burger and it's better than it was before</div>
+    <div class="price">5.20</div>
+  </div>
+  <div class="menu-item">
+    <div class="description">Rum glazed burger topped with marrow and pepper jack cheese</div>
+    <div class="price">6.16</div>
+  </div>
+  <div class="menu-item">
+    <div class="description">Cheeseburger with four different kinds of melted cheddar. If you like this one, try our special breakfast Club Sandwich!</div>
+    <div class="price">3.02</div>
+  </div>
+  <div class="menu-item">
+    <div class="description">Topped with cumin and locally grown cauliflower (extremely local)</div>
+    <div class="price">4.17</div>
+  </div>
+  <div class="menu-item">
+    <div class="description">Comes on a buttered bun, topped with Swiss cheese and a small Olive</div>
+    <div class="price">2.18</div>
+  </div>
+  <div class="menu-item">
+    <div class="description">Comes on our best seven-grain bun (no geese were harmed in the making of this burger)</div>
+    <div class="price">3.01</div>
+  </div>
+  <div class="menu-item">
+    <div class="description">Hard boiled egg, mayonnaise, mustard, black pepper and paprika. Perfect for a man of wealth and taste</div>
+    <div class="price">4.14</div>
+  </div>
+  <div class="menu-item">
+    <div class="description">Softly constructed with boiled beans and cauliflower</div>
+    <div class="price">1.08</div>
+  </div>
+</div>
+{% endblock %}

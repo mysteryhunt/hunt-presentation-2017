@@ -1,0 +1,131 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}Getting Out of Line{% endblock %}
+{% block puzzle_name_block %}Getting Out of Line{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    .a, .c, .d {
+      display: block;
+      white-space: pre;
+      width: 40em;
+    }
+    .a {
+      position: relative;
+      left: 500px;
+      padding: 1em 0 0.25em 0;
+      text-decoration: overline;
+    }
+    .an {
+      width: 3em;
+      padding: 0 0.33em 0 0;
+      font-family: monospace;
+    }
+    .down {
+      font-weight: bold;
+    }
+    ul {
+      list-style: none;
+    }
+  </style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+  The Wizard is somewhat disorganized and so his potions don't always match the recipe.
+{% endblock %}
+
+{% block puzzle_content_block %}
+  <div>
+    <div>
+      <span class="c">A: Flammable oil that may have been Greek fire</span>
+      <div class="a"><span class="an">165</span><span class="an">149</span><span class="an"> 12</span><span class="an"> 74</span><span class="an">128</span><span class="an"> 92</span><span class="an"> 47</span></div>
+      <span class="c">B: Johnson's name while he was a Patriot</span>
+      <div class="a"><span class="an"> 87</span><span class="an">171</span><span class="an"> 19</span><span class="an"> 65</span><span class="an">  6</span><span class="an"> 32</span><span class="an">148</span><span class="an"> 48</span><span class="an">125</span></div>
+      <span class="c">C: Mass times gravity</span>
+      <div class="a"><span class="an">167</span><span class="an"> 69</span><span class="an">140</span><span class="an"> 86</span><span class="an"> 44</span><span class="an"> 33</span></div>
+      <span class="c">D: 1969 Burt Reynolds film about hidden treasure</span>
+      <div class="a"><span class="an"> 56</span><span class="an">102</span><span class="an">186</span><span class="an">114</span><span class="an">  9</span><span class="an">150</span><span class="an"> 25</span></div>
+      <span class="c">E: Title of episodes of Buffy the Vampire Slayer, Heroes, and Lost (2 wds.)</span>
+      <div class="a"><span class="an"> 36</span><span class="an">145</span><span class="an">127</span><span class="an"> 53</span><span class="an"> 98</span><span class="an">181</span><span class="an"> 21</span><span class="an">  2</span><span class="an">159</span><span class="an"> 77</span></div>
+      <span class="c">F: Prohibition mainstay</span>
+      <div class="a"><span class="an">183</span><span class="an"> 52</span><span class="an">106</span><span class="an">144</span><span class="an">134</span><span class="an"> 28</span><span class="an"> 10</span><span class="an"> 76</span><span class="an">185</span></div>
+      <span class="c">G: Layered English dessert</span>
+      <div class="a"><span class="an">137</span><span class="an">119</span><span class="an">152</span><span class="an"> 45</span><span class="an"> 99</span><span class="an">170</span></div>
+      <span class="c">H: Chevrolet named for an antelope</span>
+      <div class="a"><span class="an"> 30</span><span class="an">111</span><span class="an">157</span><span class="an"> 14</span><span class="an"> 73</span><span class="an">132</span></div>
+      <span class="c">I: Mr. Creosote's downfall</span>
+      <div class="a"><span class="an">138</span><span class="an"> 62</span><span class="an"> 66</span><span class="an">151</span></div>
+      <span class="c">J: They wrote the "Hitchhiker's Guide to the Galaxy" theme song, with The</span>
+      <div class="a"><span class="an"> 75</span><span class="an">139</span><span class="an">  1</span><span class="an">172</span><span class="an"> 85</span><span class="an"> 13</span></div>
+      <span class="c">K: 1982 hit single featuring guest vocalist Geddy Lee (2 wds.)</span>
+      <div class="a"><span class="an"> 24</span><span class="an"> 94</span><span class="an">184</span><span class="an">120</span><span class="an">147</span><span class="an"> 58</span><span class="an"> 40</span></div>
+      <span class="c">L: Controlled, as machinery</span>
+      <div class="a"><span class="an"> 83</span><span class="an">131</span><span class="an"> 39</span><span class="an"> 49</span><span class="an"> 18</span><span class="an">174</span><span class="an">163</span><span class="an">109</span></div>
+      <span class="c">M: Last in Santa's line</span>
+      <div class="a"><span class="an">  8</span><span class="an">105</span><span class="an"> 41</span><span class="an">130</span><span class="an"> 68</span><span class="an"> 97</span><span class="an">169</span></div>
+      <span class="c">N: Green, or without salt</span>
+      <div class="a"><span class="an">117</span><span class="an"> 90</span><span class="an">  5</span><span class="an"> 72</span><span class="an"> 34</span><span class="an">178</span><span class="an">104</span><span class="an"> 55</span><span class="an">164</span><span class="an"> 63</span></div>
+      <span class="c">O: Like active programming loops</span>
+      <div class="a"><span class="an"> 71</span><span class="an"> 38</span><span class="an"> 50</span><span class="an">135</span><span class="an">118</span><span class="an">182</span><span class="an">168</span><span class="an"> 84</span><span class="an"> 95</span></div>
+      <span class="c">P: It has Michigan to its north and Ontario to its south (3 wds.)</span>
+      <div class="a"><span class="an"> 35</span><span class="an">142</span><span class="an"> 70</span><span class="an">122</span><span class="an"> 23</span><span class="an">112</span><span class="an">133</span><span class="an">153</span><span class="an"> 80</span><span class="an"> 59</span><span class="an"> 17</span></div>
+      <span class="c">Q: Middle Eastern capital</span>
+      <div class="a"><span class="an">176</span><span class="an">161</span><span class="an">123</span><span class="an"> 20</span><span class="an"> 93</span><span class="an"> 43</span><span class="an">129</span><span class="an"> 11</span></div>
+      <span class="c">R: Hillary Clinton wrote one of its last posts, with The</span>
+      <div class="a"><span class="an">160</span><span class="an"> 16</span><span class="an">173</span><span class="an">115</span><span class="an"> 91</span></div>
+      <span class="c">S: Starwind's partner</span>
+      <div class="a"><span class="an">101</span><span class="an">110</span><span class="an"> 64</span><span class="an"> 57</span><span class="an">143</span><span class="an"> 82</span><span class="an">  4</span></div>
+      <span class="c">T: Second word of French Revolutionary motto</span>
+      <div class="a"><span class="an"> 67</span><span class="an">107</span><span class="an">136</span><span class="an"> 31</span><span class="an"> 79</span><span class="an">162</span><span class="an"> 89</span></div>
+      <span class="c">U: Americans for Tax Reform founder (2 wds.)</span>
+      <div class="a"><span class="an"> 15</span><span class="an"> 78</span><span class="an">175</span><span class="an">155</span><span class="an">187</span><span class="an"> 29</span><span class="an"> 60</span><span class="an"> 37</span><span class="an">146</span><span class="an">116</span><span class="an">124</span><span class="an"> 46</span><span class="an">100</span><span class="an">166</span></div>
+      <span class="c">V: Sidewinder, for one</span>
+      <div class="a"><span class="an">126</span><span class="an">158</span><span class="an"> 96</span><span class="an"> 26</span><span class="an"> 42</span><span class="an">113</span><span class="an">179</span><span class="an">  3</span><span class="an"> 81</span><span class="an"> 61</span><span class="an">154</span></div>
+      <span class="c">W: Springfield baseball player</span>
+      <div class="a"><span class="an">156</span><span class="an"> 51</span><span class="an">  7</span><span class="an"> 88</span><span class="an">103</span><span class="an"> 27</span><span class="an">180</span></div>
+      <span class="c">X: Loathe</span>
+      <div class="a"><span class="an">177</span><span class="an"> 22</span><span class="an"> 54</span><span class="an">108</span><span class="an">121</span><span class="an">141</span></div>
+    </div>
+    <div>
+      <p class="down">Down:</p>
+      <ul>
+        <li>Sitcom role for Van Dyke</li>
+        <li>Like contact lens solution</li>
+        <li>Doctor Zhivago role</li>
+        <li>Nike competitor</li>
+        <li>Candidate's goal</li>
+        <li>Cold remedy, supposedly</li>
+        <li>Ratatouille vegetable</li>
+        <li>Had ratatouille, maybe</li>
+        <li>Handy identification?</li>
+        <li>Calms down</li>
+        <li>Ripen</li>
+        <li>Small key</li>
+        <li>Leave It to Beaver exclamation</li>
+        <li>Shot from a stick, sometimes</li>
+        <li>Grain for grinding</li>
+        <li>Spam containers</li>
+        <li>Oliver Twist's request</li>
+        <li>Defendant in a 1925 trial</li>
+        <li>The Waltons actor Will</li>
+        <li>Pornography</li>
+        <li>Negative conjunction</li>
+        <li>Spigot</li>
+        <li>Resident of a certain European capital</li>
+        <li>Bad engine sound</li>
+        <li>Place to put in a PIN</li>
+        <li>Wiped clean</li>
+        <li>Terrier of whodunits</li>
+        <li>Takes the helm</li>
+        <li>She played Sally in Cabaret</li>
+        <li>Queensland tree-dweller</li>
+        <li>Shameless, in a way</li>
+        <li>Discontinuity</li>
+        <li>She might get sheared</li>
+        <li>Book before Joel</li>
+        <li>Maidenform product</li>
+        <li>Quaker product</li>
+        <li>Underhanded</li>
+      </ul>
+    </div>
+  </div>
+{% endblock %}
