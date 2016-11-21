@@ -5,6 +5,12 @@ from flask import redirect, render_template, request, send_from_directory, sessi
 
 import os
 
+@app.errorhandler(cube.CubeError)
+def handle_cube_error(error):
+    return render_template(
+        "error.html",
+        error=error)
+
 @app.context_processor
 def utility_processor():
     def submit_url_for(puzzle_id):
