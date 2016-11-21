@@ -1,0 +1,87 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}Somebody's Watching Me{% endblock %}
+{% block puzzle_name_block %}Somebody's Watching Me{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  .pics {
+    padding: 14px 0px;
+  }
+  .c {
+    margin-left: 280px;
+    font-size:40px;
+  }
+</style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+Sometimes when the Chemist looks around her lab, she feels something looking back at her.
+{% endblock %}
+
+{% block puzzle_content_block %}
+<div>
+  <div class='pics'>
+
+    <p>
+      <a href="{{ asset_url_for('somebodys_watching_me/1_large.jpg') }}">
+        <img src="{{ asset_url_for('somebodys_watching_me/1.jpg') }}">
+      </a>
+    </p>
+
+    <p>
+      <a href="{{ asset_url_for('somebodys_watching_me/2_large.jpg') }}">
+        <img src="{{ asset_url_for('somebodys_watching_me/2.jpg') }}">
+      </a>
+    </p>
+
+    <p>
+      <a href="{{ asset_url_for('somebodys_watching_me/3_large.jpg') }}">
+        <img src="{{ asset_url_for('somebodys_watching_me/3.jpg') }}">
+      </a>
+    </p>
+
+    <p>
+      <a href="{{ asset_url_for('somebodys_watching_me/4_large.jpg') }}">
+        <img src="{{ asset_url_for('somebodys_watching_me/4.jpg') }}">
+      </a>
+    </p>
+
+    <p>
+      <a href="{{ asset_url_for('somebodys_watching_me/5_large.jpg') }}">
+        <img src="{{ asset_url_for('somebodys_watching_me/5.jpg') }}">
+      </a>
+    </p>
+
+    <p>
+      <a href="{{ asset_url_for('somebodys_watching_me/6_large.jpg') }}">
+        <img src="{{ asset_url_for('somebodys_watching_me/6.jpg') }}">
+      </a>
+    </p>
+
+    <p>
+      <a href="{{ asset_url_for('somebodys_watching_me/7_large.jpg') }}">
+        <img src="{{ asset_url_for('somebodys_watching_me/7.jpg') }}">
+      </a>
+    </p>
+
+    <p>
+      <a href="{{ asset_url_for('somebodys_watching_me/8_large.jpg') }}">
+        <img src="{{ asset_url_for('somebodys_watching_me/8.jpg') }}">
+      </a>
+    </p>
+
+    <p>
+      <a href="{{ asset_url_for('somebodys_watching_me/9_large.jpg') }}">
+        <img src="{{ asset_url_for('somebodys_watching_me/9.jpg') }}">
+      </a>
+    </p>
+
+    <p>
+      <a href="{{ asset_url_for('somebodys_watching_me/10_large.jpg') }}">
+        <img src="{{ asset_url_for('somebodys_watching_me/10.jpg') }}">
+      </a>
+    </p>
+  </div>
+  <p class='c'><b>? ? ? ? ______</b></p>
+</div>
+{% endblock %}
