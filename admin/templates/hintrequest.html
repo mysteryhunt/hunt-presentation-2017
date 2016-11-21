@@ -51,7 +51,7 @@
   {% elif hint_request.status == 'ASSIGNED' %}
   {% if hint_request.callerUsername == session['username'] %}
   <form action="{{ url_for('hintrequest', hint_request_id=hint_request.hintRequestId) }}" method="post">
-    <input type="text" name="response" width="80">
+    <input type="text" name="response" size="80">
     <select name="status">
       <option value="ANSWERED">ANSWERED</option>
       <option value="REJECTED">REJECTED</option>
