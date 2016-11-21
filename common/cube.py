@@ -4,6 +4,18 @@ import urllib2
 
 from flask import session
 
+class CubeError(Exception):
+    def __init__(self, request, http_error):
+        self.request = request
+        self.code = http_error.code
+        self.error_message = http_error.read()
+
+    def __str__(self):
+        return "HTTP Error %d\nRequest: %s\nResponse:\n%s\n" % (
+            self.code,
+            self.request,
+            self.error_message)
+
 def add_auth_header(request):
     auth_token = base64.b64encode("%s:%s" % (session["username"], session["password"]))
     request.add_header("Authorization", "Basic %s" % auth_token)
@@ -12,7 +24,10 @@ def get(app, path):
     url = app.config["CUBE_API_SERVICE"] + path
     request = urllib2.Request(url)
     add_auth_header(request)
-    response = urllib2.urlopen(request).read()
+    try:
+        response = urllib2.urlopen(request).read()
+    except urllib2.HTTPError, e:
+        raise CubeError(path, e)
     return json.loads(response)
 
 def post(app, path, data):
@@ -21,7 +36,10 @@ def post(app, path, data):
     add_auth_header(request)
     request.add_header("Content-Type", "application/json")
     json_post_data = json.dumps(data)
-    response = urllib2.urlopen(request, json_post_data).read()
+    try:
+        response = urllib2.urlopen(request, json_post_data).read()
+    except urllib2.HTTPError, e:
+        raise CubeError(path + "\n" + json_post_data, e)
     return json.loads(response)
 
 def authorized(app, permission):
