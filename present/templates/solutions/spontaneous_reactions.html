@@ -1,0 +1,100 @@
+{% extends "solutions/solution_layout.html" %}
+{% block title_block %}Spontaneous Reactions: Solution{% endblock %}
+{% block puzzle_name_block %}Spontaneous Reactions: Solution{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+.puz {
+  font-size:22px;
+}
+.letter {
+  width: 50px;
+  display:inline-block;
+}
+ul {
+  list-style-type: none;
+  padding-left: 0px;
+}
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<div>
+  <p>Each of the clues given at the end of the first sixteen equations (with enumeration) resolves to the title of an episode of the podcast Spontaneanation with Paul F. Tompkins. The equations are alphabetized by clue answer.</p>
+<ul>
+  <li>Death Valley</li>
+  <li>Dracula's Bedroom</li>
+  <li>Gabrielle's Quinceanera</li>
+  <li>Garden of Eden</li>
+  <li>IKEA in Narnia</li>
+  <li>Knott's Scary Farm</li>
+  <li>Land Rover</li>
+  <li>Laundromat</li>
+  <li>Margaritaville</li>
+  <li>Paris</li>
+  <li>Parking Garage</li>
+  <li>Savannah, Georgia</li>
+  <li>Science Fair</li>
+  <li>Sport Club</li>
+  <li>Storm Drain</li>
+  <li>Wine Tasting</li>
+</ul>
+  <p>Each episode has three guest improvisers, many of whom have appeared on multiple episodes. The three guests from each episode are represented by the three "ingredient" letters next to the clue; based on which letters appear with multiple episodes (for example, performer F, who appears in both "Death Valley"
+  and "Dracula's Bedroom," must be Colleen Smith), you can determine which performer each letter corresponds to.</p>
+<ul>
+  <li><span class='letter'>A</span>	<span class='name'>Janet Varney</span></li>
+  <li><span class='letter'>B</span>	<span class='name'>Gary Anthony Williams</span></li>
+  <li><span class='letter'>C</span>	<span class='name'>Maria Blasucci</span></li>
+  <li><span class='letter'>D</span>	<span class='name'>Jeremy Carter</span></li>
+  <li><span class='letter'>E</span>	<span class='name'>Annie Savage</span></li>
+  <li><span class='letter'>F</span>	<span class='name'>Colleen Smith</span></li>
+  <li><span class='letter'>G</span>	<span class='name'>Jessica Chaffin</span></li>
+  <li><span class='letter'>H</span>	<span class='name'>Michael Oosterom</span></li>
+  <li><span class='letter'>I</span>	<span class='name'>Hal Lublin</span></li>
+  <li><span class='letter'>J</span>	<span class='name'>Stephanie Courtney</span></li>
+  <li><span class='letter'>K</span>	<span class='name'>Ryan Gaul</span></li>
+  <li><span class='letter'>L</span>	<span class='name'>Craig Cackowski</span></li>
+  <li><span class='letter'>M</span>	<span class='name'>Steve Agee</span></li>
+  <li><span class='letter'>N</span>	<span class='name'>Drew Massey</span></li>
+  <li><span class='letter'>O</span>	<span class='name'>Marc Evan Jackson</span></li>
+  <li><span class='letter'>P</span>	<span class='name'>Tawny Newsome</span></li>
+  <li><span class='letter'>Q</span>	<span class='name'>Mark McConville</span></li>
+  <li><span class='letter'>R</span>	<span class='name'>Victor Yerrid</span></li>
+  <li><span class='letter'>S</span>	<span class='name'>Sarah Burns</span></li>
+  <li><span class='letter'>T</span>	<span class='name'>Amanda Lund</span></li>
+  <li><span class='letter'>U</span>	<span class='name'>Matt Gourley</span></li>
+  <li><span class='letter'>V</span>	<span class='name'>Jean Villepique</span></li>
+</ul>
+<p>In the "compound" at the bottom of the puzzle, each letter-number combination represents the corresponding letter of the performer's last name.</p>
+<ul>
+  <li>VARNEY (2) = A</li>
+  <li>WILLIAMS (7) = M</li>
+  <li>BLASUCCI (4) = S</li>
+  <li>CARTER (4) = T</li>
+  <li>SAVAGE (2) = A</li>
+  <li>SMITH (4) = T</li>
+  <li>CHAFFIN (6) = I</li>
+  <li>OOSTEROM (1) = O</li>
+  <li>LUBLIN (6) = N</li>
+  <li>COURTNEY (5) = T</li>
+  <li>SMITH (5) = H</li>
+  <li>GAUL (2) = A</li>
+  <li>OOSTEROM (4) = T</li>
+  <li>CACKOWSKI (6) = W</li>
+  <li>AGEE (1) = A</li>
+  <li>MASSEY (3) = S</li>
+  <li>JACKSON (4) = K</li>
+  <li>NEWSOME (3) = W</li>
+  <li>MCCONVILLE (7) = I</li>
+  <li>YERRID (2) = E</li>
+  <li>BLASUCCI (3) = A</li>
+  <li>BURNS (4) = N</li>
+  <li>LUND (4) = D</li>
+  <li>CACKOWSKI (4) = K</li>
+  <li>GOURLEY (6) = E</li>
+  <li>VILLEPIQUE (6) = P</li>
+  <li>VARNEY (3) = R</li>
+</ul>
+  <p>The resulting letters spell AM STATION THAT WAS KWIE AND KEPR; the Washington AM radio station that was previously known as KWIE and then KEPR is now <b>KONA</b>, the answer to this puzzle.</p>
+</div>
+{% endblock %}
