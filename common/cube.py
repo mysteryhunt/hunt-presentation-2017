@@ -107,6 +107,30 @@ def update_hint_request(app, hint_request_id, status, response):
         "response": response,
     })
 
+def get_interactions(app, puzzle_id):
+    response = get(app, "/interactionrequests?teamId=%s&puzzleId=%s" % (session["username"], puzzle_id))
+    return response["interactionRequests"]
+
+def get_all_pending_interaction_requests(app):
+    response = get(app, "/interactionrequests")
+    return response["interactionRequests"]
+
+def get_interaction_request(app, interaction_request_id):
+    return get(app, "/interactionrequests/%d" % interaction_request_id)
+
+def create_interaction_request(app, puzzle_id, request):
+    post(app, "/interactionrequests", {
+        "teamId": session["username"],
+        "puzzleId": puzzle_id,
+        "request": request,
+    })
+
+def update_interaction_request(app, interaction_request_id, status, response):
+    post(app, "/interactionrequests/%d" % interaction_request_id, {
+        "status": status,
+        "response": response,
+    })
+
 def get_teams(app):
     response = get(app, "/teams")
     return response["teams"]

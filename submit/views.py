@@ -25,16 +25,20 @@ def puzzle(puzzle_id):
             cube.create_submission(app, puzzle_id, request.form["submission"])
         elif "hintrequest" in request.form:
             cube.create_hint_request(app, puzzle_id, request.form["hintrequest"])
+        elif "interactionrequest" in request.form:
+            cube.create_interaction_request(app, puzzle_id, request.form["interactionrequest"])
         else:
             abort(400)
 
     submissions = cube.get_submissions(app, puzzle_id)
     visibility = cube.get_puzzle_visibility(app, puzzle_id)
     hints = cube.get_hints(app, puzzle_id)
+    interactions = cube.get_interactions(app, puzzle_id)
 
     return render_template(
         "puzzle.html",
         puzzle_id=puzzle_id,
         submissions=submissions,
         visibility=visibility,
-        hints=hints)
+        hints=hints,
+        interactions=interactions)

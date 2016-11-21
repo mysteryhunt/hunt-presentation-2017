@@ -11,6 +11,11 @@
   <input type="submit" value="Submit">
 </form>
 {% endif %}
+<form action="{{ url_for('puzzle', puzzle_id=puzzle_id) }}" method="post">
+  <span>Request an interaction or report a problem:</span>
+  <input type="text" name="interactionrequest">
+  <input type="submit" value="Submit">
+</form>
 <ul>
   {% for submission in submissions %}
   <li>{{ submission.submission }} at {{ submission.timestamp | datetime }} - {{ submission.status }}
@@ -22,6 +27,15 @@
   {% for hint in hints %}
   <li>{{ hint.request }} at {{ hint.timestamp | datetime }} - {{ hint.status }}
     {% if hint.response %}<br>{{ hint.response }}{% endif %}
+  {% endfor %}
+</ul>
+{% endif %}
+{% if interactions %}
+<h3>Requests</h3>
+<ul>
+  {% for interaction in interactions %}
+  <li>{{ interaction.request }} at {{ interaction.timestamp | datetime }} - {{ interaction.status }}
+    {% if interaction.response %}<br>{{ interaction.response }}{% endif %}
   {% endfor %}
 </ul>
 {% endif %}
