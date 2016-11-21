@@ -17,6 +17,8 @@ body {
 @media print {
   #puzzle-container {
     border: white none 0px;
+    margin-top: 0;
+    padding-top: 0;
   }
 }
 

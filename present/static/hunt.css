@@ -101,6 +101,12 @@ body {
   z-index: 100;
 }
 
+@media screen {
+  #overall-layout-body {
+    margin-top: 50px;
+  }
+}
+
 @media print {
   #overall-layout-header {
     display: none;
@@ -129,6 +135,10 @@ body {
   .vertically-enscrolled-after {
     display: none;
   }
+  
+  #overall-layout-body {
+    margin-top: 0px;
+  }
 }
 
 #overall-layout-header {
@@ -137,6 +147,10 @@ body {
   min-height: 30px;
   color: black;
   font-family: sans-serif;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 
 #overall-layout-header div {
