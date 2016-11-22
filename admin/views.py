@@ -3,6 +3,16 @@ from admin import app
 from common import cube, login_required
 from flask import abort, redirect, render_template, request, session, url_for
 
+def get_puzzles():
+    puzzles = cube.get_puzzles(app)
+    def sortkey(puzzle):
+        if "DisplayNameProperty" in puzzle["puzzleProperties"]:
+            return puzzle["puzzleProperties"]["DisplayNameProperty"]["displayName"]
+        else:
+            return puzzle["puzzleId"]
+    puzzles.sort(key=sortkey)
+    return puzzles
+
 @app.errorhandler(cube.CubeError)
 def handle_cube_error(error):
     return render_template(
@@ -121,23 +131,39 @@ def teams():
 @login_required.writingteam
 def team(team_id):
     if request.method == "POST":
-        if ("email" not in request.form or
-            "primaryPhone" not in request.form or
-            "secondaryPhone" not in request.form):
+        if request.form["action"] == "ChangeContactInfo":
+            if ("email" not in request.form or
+                "primaryPhone" not in request.form or
+                "secondaryPhone" not in request.form):
+                abort(400)
+            cube.update_team(app, team_id, {
+                "teamId": team_id,
+                "email": request.form["email"],
+                "primaryPhone": request.form["primaryPhone"],
+                "secondaryPhone": request.form["secondaryPhone"],
+            })
+        elif request.form["action"] == "SetPuzzleStatus":
+            if request.form["actionType"] == "Unlock":
+                status = "UNLOCKED"
+            elif request.form["actionType"] == "Solve":
+                status = "SOLVED"
+            else:
+                abort(400)
+            cube.update_puzzle_visibility(
+                app,
+                team_id,
+                request.form["puzzleId"],
+                status)
+        else:
             abort(400)
-        cube.update_team(app, team_id, {
-            "teamId": team_id,
-            "email": request.form["email"],
-            "primaryPhone": request.form["primaryPhone"],
-            "secondaryPhone": request.form["secondaryPhone"],
-        })
         return redirect(url_for("teams"))
 
     team = cube.get_team(app, team_id)
 
     return render_template(
         "team.html",
-        team=team)
+        team=team,
+        puzzles=get_puzzles())
 
 def build_roles_list(form):
     roles = []
@@ -209,15 +235,6 @@ def admintools():
         else:
             abort(400)
 
-    puzzles = cube.get_puzzles(app)
-
-    def sortkey(puzzle):
-        if "DisplayNameProperty" in puzzle["puzzleProperties"]:
-            return puzzle["puzzleProperties"]["DisplayNameProperty"]["displayName"]
-        else:
-            return puzzle["puzzleId"]
-    puzzles.sort(key=sortkey)
-
     return render_template(
         "admintools.html",
-        puzzles=puzzles)
+        puzzles=get_puzzles())

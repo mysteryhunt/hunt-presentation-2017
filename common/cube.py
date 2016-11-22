@@ -57,6 +57,13 @@ def get_puzzle_visibilities(app):
 def get_puzzle_visibility(app, puzzle_id):
     return get(app, "/visibilities/%s/%s" % (session["username"], puzzle_id))
 
+def update_puzzle_visibility(app, team_id, puzzle_id, status):
+    post(app, "/visibilities/%s/%s" % (team_id, puzzle_id), {
+        "teamId": team_id,
+        "puzzleId": puzzle_id,
+        "status": status,
+    })
+
 def is_puzzle_unlocked(app, puzzle_id):
     return get_puzzle_visibility(app, puzzle_id)["status"] in ["UNLOCKED", "SOLVED"]
 

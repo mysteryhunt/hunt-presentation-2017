@@ -23,7 +23,42 @@
         <input type="text" name="secondaryPhone" value="{{ team.secondaryPhone }}">
       </label>
     </div>
+    <input type="hidden" name="action" value="ChangeContactInfo">
     <input type="submit" value="Change Contact Info">
+  </form>
+  <form class="ha-column-control-box" action="{{ url_for('team', team_id=team.teamId) }}" method="post">
+    <span class="ha-control-box-title">
+      Set Puzzle Status
+    </span>
+    <div class="ha-labeled-input-form">
+      <label>
+        Team ID
+        <span>{{ team.teamId }}</span>
+      </label>
+      <label>
+        Puzzle
+        <select name="puzzleId">
+          {% for puzzle in puzzles %}
+          <option value="{{ puzzle.puzzleId }}">
+            {% if puzzle.puzzleProperties.DisplayNameProperty %}
+            {{ puzzle.puzzleProperties.DisplayNameProperty.displayName }}
+            {% else %}
+            {{ puzzle.puzzleId }}
+            {% endif %}
+          </option>
+          {% endfor %}
+        </select>
+      </label>
+    </div>
+    <input type="hidden" name="action" value="SetPuzzleStatus">
+    <div>
+      <input type="button" value="Yes, I'm sure" onclick="document.getElementById('unlockButton').removeAttribute('disabled')">
+      <input id="unlockButton" type="submit" name="actionType" value="Unlock" disabled>
+    </div>
+    <div>
+      <input type="button" value="Yes, I'm sure" onclick="document.getElementById('solveButton').removeAttribute('disabled')">
+      <input id="solveButton" type="submit" name="actionType" value="Solve" disabled>
+    </div>
   </form>
 </div>
 {% if team.teamProperties %}
