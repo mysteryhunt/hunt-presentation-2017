@@ -1,0 +1,22 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}Dancing Girls{% endblock %}
+{% block puzzle_name_block %}Dancing Girls{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  .puz {
+    width: 900px;
+    padding-top: 30px;
+  }
+</style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+As you explore the dismal dungeon, your thoughts turn to the missing maiden, and you remember how you first met that night at the ball.
+{% endblock %}
+
+{% block puzzle_content_block %}
+<div>
+  <img class="puz" src="{{ asset_url_for('dancing_girls/image.png') }}">
+</div>
+{% endblock %}
