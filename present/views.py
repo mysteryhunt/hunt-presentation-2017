@@ -1,9 +1,15 @@
 from present import app
 
 from common import cube, login_required, s3
-from flask import redirect, render_template, request, send_from_directory, session, url_for
+from flask import abort, redirect, render_template, request, send_from_directory, session, url_for
 
 import os
+
+@app.errorhandler(cube.CubeError)
+def handle_cube_error(error):
+    return render_template(
+        "error.html",
+        error=error)
 
 @app.context_processor
 def utility_processor():
@@ -61,8 +67,6 @@ def round(round_id):
     puzzle_visibilities = cube.get_puzzle_visibilities(app)
     puzzle_visibilities = {visibility.get('puzzleId'): visibility for visibility in puzzle_visibilities}
     team_properties = cube.get_team_properties(app)
-    
-    print(puzzle_visibilities)
     
     return render_template(
         "rounds/%s.html" % round_id,

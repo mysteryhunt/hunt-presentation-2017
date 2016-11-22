@@ -3,6 +3,12 @@ from admin import app
 from common import cube, login_required
 from flask import abort, redirect, render_template, request, session, url_for
 
+@app.errorhandler(cube.CubeError)
+def handle_cube_error(error):
+    return render_template(
+        "error.html",
+        error=error)
+
 @app.route("/")
 @login_required.writingteam
 def index():
