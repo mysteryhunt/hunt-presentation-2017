@@ -103,7 +103,7 @@ body {
 
 @media screen {
   #overall-layout-body {
-    margin-top: 30px;
+    margin-top: 40px;
   }
 }
 
@@ -144,16 +144,19 @@ body {
 #overall-layout-header {
   background-color: #D1B780;
   border-bottom: 2px #665F4F solid;
-  min-height: 30px;
+  min-height: 40px;
+  line-height: 40px;
   color: black;
   font-family: sans-serif;
   width: 100%;
   z-index: 5000;
+  font-size: 16px;
 }
 
 #overall-layout-header div {
   height: 100%;
-  padding: 5px 5px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 #overall-layout-header a:link {
@@ -183,7 +186,7 @@ body {
   position: absolute;
   color: black;
   left: 0;
-  top: 30px;
+  top: 40px;
   z-index: 1000;
 }
 

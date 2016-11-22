@@ -8,13 +8,8 @@
 <div id="main-page-content">
   <div id="left-sidebar">
     <div id="characters">
-      <div id="character-header"><span class="enscrolled-before"></span><span class="enscrolled"><span>Characters</span></span><span class="enscrolled-after"></span></div>
+      <div id="character-header"><span class="enscrolled-before"></span><span class="enscrolled"><span>Your Party</span></span><span class="enscrolled-after"></span></div>
       <div id="character-panel" class="panel">
-        <div id="character-total">
-          <div>
-            Total: <span class="level-number">{{ team_properties.get('teamProperties',{}).get('CharacterLevelsProperty',{}).get('levels',{}).values()|sum }}</span>
-          </div>
-        </div>
     
         {% for character_class in ['fighter','wizard','cleric','linguist','chemist','economist'] if character_class in visible_puzzle_ids %}
             <a href="{{ url_for('round', round_id = character_class) }}">
@@ -28,6 +23,16 @@
               </div>
             </a>
         {% endfor %}
+
+        <div id="inventory-gold-display">
+          <div style="display:inline;">
+            <img src="{{ url_for('static', filename='temp/art/chest.png') }}" style="width:30px;height:30px;vertical-align:middle;"/>&nbsp;{{ team_properties.get('teamProperties',{}).get('InventoryProperty',{}).get('inventoryItems',[])|length if team_properties else 'NA' }}/40
+          </div>
+          <div style="display:inline;">
+            <img src="{{ url_for('static', filename='temp/art/gold.png') }}" style="width:30px;height:30px;vertical-align:middle;"/>&nbsp;{{ team_properties.get('teamProperties',{}).get('GoldProperty',{}).get('gold',0) if team_properties else 'NA'}}
+          </div>
+        </div>
+
       </div>
     </div>
     <div id="events">

@@ -15,7 +15,7 @@
       {% for character_class in ['fighter','wizard','cleric','linguist','chemist','economist'] if character_class in visible_puzzle_ids %}
         <a href="{{ url_for('round', round_id = character_class) }}">
           <div id="header-status-{{ character_class }}" class="individual-header-status">
-              <img src="{{ url_for('static', filename='temp/art/Characters/%s-logo-color.png' % character_class) }}" style="width:20px;height:20px;vertical-align:middle;"/>
+              <img src="{{ url_for('static', filename='temp/art/Characters/%s-logo-color.png' % character_class) }}" style="width:30px;height:30px;vertical-align:middle;"/>
               <span class="individual-header-status-level">{{ team_properties.teamProperties.CharacterLevelsProperty.levels[character_class.upper()]|default(0) }}</span>
           </div>
         </a>
@@ -32,14 +32,14 @@
       <div id="header-inventory">
         <a href="#" id="header-inventory-control">
           <span id="header-inventory-status">
-            <span class="fa fa-archive"></span>&nbsp;{{ team_properties.get('teamProperties',{}).get('InventoryProperty',{}).get('inventoryItems',[])|length if team_properties else 'NA' }}/40
+            <img src="{{ url_for('static', filename='temp/art/chest.png') }}" style="width:30px;height:30px;vertical-align:middle;"/>&nbsp;{{ team_properties.get('teamProperties',{}).get('InventoryProperty',{}).get('inventoryItems',[])|length if team_properties else 'NA' }}/40
           </span>
         </a>
         <div id="header-inventory-grid" style="display:none;">
           {{ inventory.inventory_grid((team_properties.get('teamProperties',{}).get('InventoryProperty',{})) if team_properties else {}) }}
         </div>
       </div>
-      <div id="header-gold"><span class="fa fa-circle-o"></span>&nbsp;{{ team_properties.get('teamProperties',{}).get('GoldProperty',{}).get('gold',0) if team_properties else 'NA'}}</div>
+      <div id="header-gold"><img src="{{ url_for('static', filename='temp/art/gold.png') }}" style="width:30px;height:30px;vertical-align:middle;"/>&nbsp;{{ team_properties.get('teamProperties',{}).get('GoldProperty',{}).get('gold',0) if team_properties else 'NA'}}</div>
     </div>
     <div id="overall-layout-body">
       {% block overall_layout_body %}{% endblock %}
