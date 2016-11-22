@@ -1,0 +1,53 @@
+{% extends "solutions/solution_layout.html" %}
+{% block title_block %}Somebody’s Watching Me: Solution{% endblock %}
+{% block puzzle_name_block %}Somebody’s Watching Me: Solution{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  .red {
+    color: #e00000;
+  }
+
+  ul {
+    list-style-type: none;
+    padding-left: 0px;
+  }
+
+  li {
+    padding: 5px 0px;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<div>
+  <p>Each photo shows a location at MIT, and in that location is a photo of a celebrity. The locations and celebrities are in order:</p>
+  <ul>
+    <li>Building 46 Lobby – Gwyneth Paltrow</li>
+    <li>Building E25 Lobby – Jerry Seinfeld</li>
+    <li>Building 1, 2nd Floor – Alec Baldwin</li>
+    <li>Stata Center, 1st Floor – Gregory Peck</li>
+    <li>Building 66 Lobby – Steve Jobs</li>
+    <li>Building 37 Lobby – Justin Bieber</li>
+    <li>Building 6, 1st Floor – Salman Rushdie</li>
+    <li>Building E25 Lobby – Mickey Mantle</li>
+    <li>Lobby 7 – Marilyn Monroe</li>
+    <li>Building E25 Lobby – Mitch Williams</li>
+  </ul>
+  <p>Visiting each location, you will find that the photos are taken from the point of view of a portrait in that location. The first and last name of the person in each portrait has the same enumeration as the first and last name of the celebrity in the
+    photograph. </p>
+  <ul>
+    <li>GWYNETH <b class='red'>P</b>ALTROW – BARBARA <b class='red'>P</b>ICOWER</li>
+    <li>JERRY SE<b class='red'>I</b>NFELD – UNCAS WH<b class='red'>I</b>TAKER</li>
+    <li>ALEC BALDWI<b class='red'>N</b> – JOHN FREEMA<b class='red'>N</b></li>
+    <li>GREGORY P<b class='red'>E</b>CK – CHARLES V<b class='red'>E</b>ST</li>
+    <li>STEVE J<b class='red'>O</b>BS – DAVID K<b class='red'>O</b>CH</li>
+    <li>JUSTIN BIEBE<b class='red'>R</b> – RONALD MCNAI<b class='red'>R</b></li>
+    <li>SALMAN RU<b class='red'>S</b>HDIE – GEORGE EA<b class='red'>S</b>TMAN</li>
+    <li>MICKEY MA<b class='red'>N</b>TLE – IRVING LO<b class='red'>N</b>DON</li>
+    <li>MARILYN M<b class='red'>O</b>NROE – WILLIAM R<b class='red'>O</b>GERS</li>
+    <li>MITCH <b class='red'>W</b>ILLIAMS – HELEN <b class='red'>W</b>HITAKER</li>
+  </ul>
+  <p>Additionally, there is a single letter in the same position in each pair of names, bolded above. These letters spell out "PINE OR SNOW". “Cone” connects these two words (“pinecone” and “snowcone”) and <b>CONE</b> is the answer.</p>
+</div>
+{% endblock %}
