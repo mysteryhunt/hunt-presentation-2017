@@ -21,14 +21,6 @@
         </a>
       {% endfor %}
       
-      {% block header_content %}{% endblock %}
-      <div id="header-session-control">
-        {% if session["username"] %}
-          {{ session["username"] }} (<a href="{{ url_for('login.logout') }}">logout</a>)
-        {% else %}
-          Not logged in (<a href="{{ url_for('login.login') }}">login</a>)
-        {% endif %}
-      </div>
       <div id="header-inventory">
         <a href="#" id="header-inventory-control">
           <span id="header-inventory-status">
@@ -40,6 +32,15 @@
         </div>
       </div>
       <div id="header-gold"><img src="{{ url_for('static', filename='temp/art/gold.png') }}" style="width:30px;height:30px;vertical-align:middle;"/>&nbsp;{{ team_properties.get('teamProperties',{}).get('GoldProperty',{}).get('gold',0) if team_properties else 'NA'}}</div>
+      
+      <div id="header-session-control">
+        {% if session["username"] %}
+          {{ session["username"] }} (<a href="{{ url_for('login.logout') }}">logout</a>)
+        {% else %}
+          Not logged in (<a href="{{ url_for('login.login') }}">login</a>)
+        {% endif %}
+      </div>
+      
     </div>
     <div id="overall-layout-body">
       {% block overall_layout_body %}{% endblock %}

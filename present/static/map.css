@@ -5,20 +5,41 @@
 
 #left-sidebar {
   float: left;
-  width: 290px;
+  width: 280px;
 }
 
 #world-map-container {
   float: left;
   width: 570px;
+  min-height: 620px;
   margin: 0 20px;
 }
 
 #world-map {
-  height: 570px;
-  width: 570px;
+  height: 560px;
+  width: 560px;
   background-size: 100%;
   position: relative;
+}
+
+#fog-overlay {
+  height: 560px;
+  width: 560px;
+  position: absolute;
+  left: 4px;
+  z-index: 300;
+}
+
+#world-map-background {
+  height: 560px;
+  width: 560px;
+  position: absolute;
+  left: 4px;
+  z-index: 100;
+}
+
+#events {
+  margin-top: 20px;
 }
 
 a:link {

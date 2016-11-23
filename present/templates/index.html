@@ -8,8 +8,8 @@
 <div id="main-page-content">
   <div id="left-sidebar">
     <div id="characters">
-      <div id="character-header"><span class="enscrolled-before"></span><span class="enscrolled"><span>Your Party</span></span><span class="enscrolled-after"></span></div>
       <div id="character-panel" class="panel">
+      <div id="character-header"><span class="enscrolled-before"></span><span class="enscrolled"><span>Your Party</span></span><span class="enscrolled-after"></span></div>
     
         {% for character_class in ['fighter','wizard','cleric','linguist','chemist','economist'] if character_class in visible_puzzle_ids %}
             <a href="{{ url_for('round', round_id = character_class) }}">
@@ -26,18 +26,18 @@
 
         <div id="inventory-gold-display">
           <div style="display:inline;">
-            <img src="{{ url_for('static', filename='temp/art/chest.png') }}" style="width:30px;height:30px;vertical-align:middle;"/>&nbsp;{{ team_properties.get('teamProperties',{}).get('InventoryProperty',{}).get('inventoryItems',[])|length if team_properties else 'NA' }}/40
+            <img src="{{ url_for('static', filename='temp/art/chest.png') }}" style="width:50px;height:50px;vertical-align:middle;"/>&nbsp;{{ team_properties.get('teamProperties',{}).get('InventoryProperty',{}).get('inventoryItems',[])|length if team_properties else 'NA' }}/40
           </div>
           <div style="display:inline;">
-            <img src="{{ url_for('static', filename='temp/art/gold.png') }}" style="width:30px;height:30px;vertical-align:middle;"/>&nbsp;{{ team_properties.get('teamProperties',{}).get('GoldProperty',{}).get('gold',0) if team_properties else 'NA'}}
+            <img src="{{ url_for('static', filename='temp/art/gold.png') }}" style="width:50px;height:50px;vertical-align:middle;"/>&nbsp;{{ team_properties.get('teamProperties',{}).get('GoldProperty',{}).get('gold',0) if team_properties else 'NA'}}
           </div>
         </div>
 
       </div>
     </div>
     <div id="events">
-      <div class="events-header"><span class="enscrolled-before"></span><span class="enscrolled"><span>Events</span></span><span class="enscrolled-after"></span></div>
       <div id="events-panel" class="panel">
+        <div class="events-header"><span class="enscrolled-before"></span><span class="enscrolled"><span>Events</span></span><span class="enscrolled-after"></span></div>
         <div class="event-entry">
           <div class="event-name">Event the First</div>
           <div class="event-time">Friday 6pm</div>
@@ -58,10 +58,11 @@
     </div>
   </div>
 
-  <div id="world-map-container">
+  <div id="world-map-container" class="panel">
     <div id="world-map-header"><span class="enscrolled-before"></span><span class="enscrolled"><span>World Map</span></span><span class="enscrolled-after"></span></div>
-    <div id="world-map" class="panel">
-      <div id="world-map-background" style="content: url({{ url_for('static', filename='temp/art/Maps/map.png') }}); width:570px;height:570px;"></div>
+    <div id="world-map">
+      <div id="fog-overlay" style="content: url({{ url_for('static', filename='temp/art/Maps/fog-3.png') }}); width:560px;height:560px;margin:0 auto;"></div>
+      <div id="world-map-background" style="content: url({{ url_for('static', filename='temp/art/Maps/map.png') }}); width:560px;height:560px;margin:0 auto;"></div>
         {% for quest in [('dynast',0,0),('dungeon',90,120),('thespians',25,385),('bridge',205,290),('criminal',225,110),('minstrels',340,0),('cube',440,110),('warlord',340,240)] if quest[0] in visible_puzzle_ids %}
           <a href="{{ url_for('round', round_id = quest[0]) }}">
             <div id="quest-map-{{ quest[0] }}" class="individual-quest" style="width:108px; height:81px; position:absolute; top:{{ quest[1] }}px; left:{{ quest[2] }}px; z-index:200; content: url({{ url_for('static', filename='temp/art/Maps/Icons/%s.png' % quest[0]) }});">
