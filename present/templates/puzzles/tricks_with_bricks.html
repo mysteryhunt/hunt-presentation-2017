@@ -1,0 +1,31 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}Tricks with Bricks{% endblock %}
+{% block puzzle_name_block %}Tricks with Bricks{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  .puz {
+    text-align: center;
+  }
+</style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+Previous bridge workers have set some bricks off to the side.
+{% endblock %}
+
+{% block puzzle_content_block %}
+<div>
+  <div class='puz'><img src="{{ asset_url_for('tricks_with_bricks/01.png') }}" /></div>
+  <div class='puz'><img src="{{ asset_url_for('tricks_with_bricks/02.png') }}" /></div>
+  <div class='puz'><img src="{{ asset_url_for('tricks_with_bricks/03.png') }}" /></div>
+  <div class='puz'><img src="{{ asset_url_for('tricks_with_bricks/04.png') }}" /></div>
+  <div class='puz'><img src="{{ asset_url_for('tricks_with_bricks/05.png') }}" /></div>
+  <div class='puz'><img src="{{ asset_url_for('tricks_with_bricks/06.png') }}" /></div>
+  <div class='puz'><img src="{{ asset_url_for('tricks_with_bricks/07.png') }}" /></div>
+  <div class='puz'><img src="{{ asset_url_for('tricks_with_bricks/08.png') }}" /></div>
+  <div class='puz'><img src="{{ asset_url_for('tricks_with_bricks/09.png') }}" /></div>
+  <div class='puz'><img src="{{ asset_url_for('tricks_with_bricks/10.png') }}" /></div>
+  <div class='puz'><img src="{{ asset_url_for('tricks_with_bricks/11.png') }}" /></div>
+</div>
+{% endblock %}
