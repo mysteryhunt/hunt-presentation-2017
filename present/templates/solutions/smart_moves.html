@@ -1,0 +1,101 @@
+{% extends "solutions/solution_layout.html" %}
+{% block title_block %}Smart Moves: Solution{% endblock %}
+{% block puzzle_name_block %}Smart Moves: Solution{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    table, th, td {
+      padding: 4px;
+      border: 1px solid black;
+      border-collapse: collapse;
+      text-align: center;
+    }
+  </style>
+{% endblock %}
+
+{% block solution_content_block %}
+  <div>
+    <p>
+      Each of the dance segments is an excerpt from
+      a <a href="http://gonzolabs.org/dance/">Dance Your PhD</a> submission
+      between 2010 and 2016. Solvers must identify each video segment and
+      determine what concept the dancers represent within the segment.
+    </p>
+    <p>
+      Solvers must then enter these concepts (which are presented in
+      alphabetical order in the video segments) into the rows of blanks (with
+      the length and one letter given in each to help fix their positions). Each
+      segment shows a certain number of dancers; solvers must use that number as
+      an index into the concept to extract a letter.
+    </p>
+    <table>
+      <tr>
+        <th>Letter</th>
+        <th>Video Name</th>
+        <th>Year</th>
+        <th>Segment</th>
+        <th>Concept</th>
+        <th># of dancers</th>
+      </tr>
+      <tr>
+        <td><b>H</b></td>
+        <td><a href="https://vimeo.com/29611383">Guarding and Robbing Behavior in Social Insects</a></td>
+        <td>2011</td>
+        <td>2</td>
+        <td>Honeybee</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td><b>Y</b></td>
+        <td><a href="https://vimeo.com/14608975">Studying the DNA Repair Dance: Using Evolution<br> to Find Important Components of Enzymes</a></td>
+        <td>2010</td>
+        <td>1</td>
+        <td>Enzymes</td>
+        <td>4</td>
+      </tr>
+      <tr>
+        <td><b>D</b></td>
+        <td><a href="https://www.youtube.com/watch?v=iRUDC1PiPAo">Dance Your PhD - 2015 - Florence Metz</a></td>
+        <td>2015</td>
+        <td>3</td>
+        <td>Industry</td>
+        <td>3</td>
+      </tr>
+      <tr>
+        <td><b>R</b></td>
+        <td><a href="https://www.youtube.com/watch?v=SeX0YW1TxP4">Audience Choice award & Chemistry Prize Winner<br> - The NETS</a></td>
+        <td>2015</td>
+        <td>5</td>
+        <td>Neutrophils</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td><b>A</b></td>
+        <td><a href="https://www.youtube.com/watch?v=BmOHiLbw8RY">Tropoelastin: An elastic and interactive molecule</a></td>
+        <td>2015</td>
+        <td>7</td>
+        <td>Tropoelastin</td>
+        <td>8</td>
+      </tr>
+      <tr>
+        <td><b>T</b></td>
+        <td><a href="https://vimeo.com/107475145">Plant stress response</a></td>
+        <td>2014</td>
+        <td>6</td>
+        <td>Proteins</td>
+        <td>4</td>
+      </tr>
+      <tr>
+        <td><b>E</b></td>
+        <td><a href="https://www.youtube.com/watch?v=sqAWLvNjFKA">Synapses and RIM</a></td>
+        <td>2016</td>
+        <td>4</td>
+        <td>Neurons</td>
+        <td>2</td>
+      </tr>
+    </table>
+    <p>
+      The answer is <b>HYDRATE</b>.
+    </p>
+  </div>
+{% endblock %}
