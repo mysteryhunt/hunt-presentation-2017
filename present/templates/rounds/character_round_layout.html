@@ -54,7 +54,11 @@
       <span><img src="{{ url_for('static', filename='temp/art/Maps/complete-logo-color.png') }}" style="width:24px;height:24px;vertical-align:bottom;"/></span>
       <a href="{{ url_for(puzzle_link_action, puzzle_id = link_puzzle_id) }}">
         <span class="puzzle-name">{{ puzzle_properties.get(puzzle_id).puzzleProperties.DisplayNameProperty.displayName }}</span>
-        <span class="puzzle-solution">{{ puzzle_properties.get(puzzle_id).puzzleProperties.AnswersProperty.answers[0].canonicalAnswer }}</span>
+        <span class="puzzle-solution">
+          {% for answer in puzzle_properties.get(puzzle_id).puzzleProperties.AnswersProperty.answers %}
+            {{ answer.get('canonicalAnswer','') }}
+          {% endfor %}
+        </span>
       </a>
     </div>
   {% elif puzzle_visibilities.get(puzzle_id).status == 'VISIBLE' %}
