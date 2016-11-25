@@ -11,11 +11,23 @@ table {
 }
 table td {
   width: 50%;
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
+  border-top: 3px solid #665F4F;
+  border-bottom: 3px solid #665F4F;
   padding-top: 3px;
   padding-bottom: 3px;
   vertical-align: middle;
+}
+table tr:first-child td {
+  border-top: 0 solid #665F4F;
+}
+table tr:last-child td {
+  border-bottom: 0 solid #665F4F;
+}
+table div.puzzle-entry {
+  margin-top: 10px;
+}
+#puzzle-list {
+  padding-top: 0;
 }
 </style>
 {% endblock %}
