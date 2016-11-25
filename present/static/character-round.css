@@ -40,6 +40,10 @@ body {
   width: 100%;
 }
 
+img#character-image {
+  width: 90%;
+}
+
 #character-level-container {
   width: 150px;
   height: 85px;
