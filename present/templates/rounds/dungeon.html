@@ -2,6 +2,40 @@
 {% block title_block %}The Dismal Dungeon{% endblock %}
 {% block round_name %}The Dismal Dungeon{% endblock %}
 
+{% block puzzle_head_block %}
+<style>
+.dungeon-grid-caption {
+  display: none;
+}
+
+td.dungeon-grid-caption-cell {
+  position: relative;
+}
+
+td.dungeon-grid-caption-cell:hover .dungeon-grid-caption {
+  display: block;
+}
+
+.dungeon-grid-caption-cell .dungeon-grid-caption {
+  text-align: initial;
+  display: none;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 1200;
+  padding: 3px 3px;
+  border: 3px solid black;
+  background-color: white;
+  min-width: initial;
+  min-height: initial;
+  width: auto;
+  height: auto;
+  white-space: nowrap;
+}
+
+</style>
+{% endblock %}
+
 {% block round_flavortext %}
 <p>A fair maiden, to whom you were once betrothed, has been captured and imprisoned in a dark and dismal dungeon! You have a map of your surroundings, but the map is partially obscured, and is not immediately obvious how to use the parts you can see.</p>
 
@@ -27,7 +61,14 @@
         {% for puzzle_id in ['dungeon1','dungeon2','dungeon3','dungeon4','dungeon5','dungeon6','dungeon7','dungeon8','dungeon9','dungeon10','dungeon11'] %}
           {% set puzzle_link_action = 'full_puzzle' if full_access else 'puzzle' %}
           {% set link_puzzle_id = puzzle_properties.get(puzzle_id,{}).get('puzzleProperties',{}).get('DisplayIdProperty',{}).get('displayId',puzzle_id) %}
-          <td style="height: 25px; align: center; vertical-align: center; border: 1px solid black;"><a href="{{ url_for(puzzle_link_action, puzzle_id=link_puzzle_id) }}">*</a></td>
+          <td class="dungeon-grid-caption-cell" style="height: 25px; align: center; vertical-align: center; border: 1px solid black;">
+            {% if puzzle_visibilities.get(puzzle_id, {}).get('status','') == 'SOLVED' or puzzle_visibilities.get(puzzle_id, {}).get('status','') == 'UNLOCKED' %}
+              <a href="{{ url_for(puzzle_link_action, puzzle_id=link_puzzle_id) }}">*</a>
+              <div class="dungeon-grid-caption">{{ puzzle_properties.get(puzzle_id).puzzleProperties.DisplayNameProperty.displayName }}</div>
+            {% else %}
+              *
+            {% endif %}
+          </td>
         {% endfor %}
       </tr>
     </table>
