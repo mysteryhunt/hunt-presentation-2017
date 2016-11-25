@@ -39,6 +39,7 @@
   {% set link_puzzle_id = puzzle_properties.get(puzzle_id,{}).get('puzzleProperties',{}).get('DisplayIdProperty',{}).get('displayId',puzzle_id) %}
   {% if puzzle_visibilities.get(puzzle_id).status == 'UNLOCKED' %}
     <div class="puzzle-entry">
+      <span><img src="{{ url_for('static', filename='temp/art/chest.png') }}" style="width:24px;height:24px;vertical-align:bottom;"/>/<img src="{{ url_for('static', filename='temp/art/gold.png') }}" style="width:24px;height:24px;vertical-align:bottom;"/></span>
       <a href="{{ url_for(puzzle_link_action, puzzle_id = link_puzzle_id) }}">
         <span class="puzzle-name">{{ puzzle_properties.get(puzzle_id).puzzleProperties.DisplayNameProperty.displayName }}</span>
       </a>
