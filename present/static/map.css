@@ -27,7 +27,7 @@
   width: 560px;
   position: absolute;
   left: 4px;
-  z-index: 300;
+  z-index: 150;
 }
 
 #world-map-background {
