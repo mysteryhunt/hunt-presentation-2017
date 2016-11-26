@@ -1,0 +1,209 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}Hexed Adventure{% endblock %}
+{% block puzzle_name_block %}Hexed Adventure{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    #gameConsole {
+      font-family: monospace;
+    }
+    #p {
+      display: inline-block;
+      min-width: 300px;
+      font-family: monospace;
+    }
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+    th {
+      height: 16px;
+    }
+    td {
+      min-width: 24px;
+      height: 24px;
+    }
+  </style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+  The emperor's advisors try to lift his mood with tales of the misfortunes of
+  other rulers.
+{% endblock %}
+
+{% block puzzle_content_block %}
+  <textarea id="gameConsole" rows="30" cols="80" spellcheck="false"></textarea>
+  <br>
+  <button onclick="restart()">Restart from Beginning</button>
+  <br><br>
+  <div id="p">
+  </div>
+  <script>
+    var gameConsole = document.getElementById('gameConsole');
+    var inputHistory = [];
+    var inputHistoryIndex = null;
+
+    function restart() {
+      if (window.confirm("If you restart the game from the beginning, all of your current progress will be lost. You don't need to do this to be able to solve the puzzle.")) {
+        gameConsole.value = '';
+        document.getElementById('p').innerHTML = '';
+        window.localStorage.clear();
+        connect();
+        gameConsole.focus();
+      }
+    }
+
+    function resume() {
+      var transcript = window.localStorage.getItem('transcript');
+      if (transcript) {
+        gameConsole.value = transcript;
+        gameConsole.scrollTop = gameConsole.scrollHeight;
+      } else {
+        gameConsole.value = 'Resuming an existing session, but without gameplay history.\n\n> ';
+      }
+    }
+
+    function appendToGameConsole(text) {
+      gameConsole.value += text;
+      gameConsole.scrollTop = gameConsole.scrollHeight;
+      window.localStorage.setItem('transcript', gameConsole.value);
+    }
+
+    var ws;
+
+    function connect() {
+      ws = new WebSocket('{{ config.HEXEDADVENTURE_URL  }}');
+      ws.addEventListener('open', function(event) {
+        var sessionId = window.localStorage.getItem('sessionId');
+        if (!sessionId) {
+          sessionId = Date.now() + '_' + Math.floor(Math.random() * Math.pow(2, 31)).toString();
+          window.localStorage.setItem('sessionId', sessionId);
+        }
+        ws.send(sessionId);
+      });
+
+      ws.addEventListener('message', function(event) {
+        var data = JSON.parse(event.data);
+        if (data.r) {
+          resume();
+          return;
+        }
+        if (data.p) {
+          document.getElementById('p').innerHTML = data.p;
+          return;
+        }
+        if (data.t) {
+          appendToGameConsole(data.t + '\n> ');
+          return;
+        }
+      });
+
+      ws.addEventListener('close', function(event) {
+        document.getElementById('gameConsole').disabled = true;
+      });
+    }
+
+    function findPromptIndex() {
+      var i = gameConsole.value.length - 1;
+      while (i > 2) {
+        if (gameConsole.value[i] == ' ' &&
+            gameConsole.value[i-1] == '>' &&
+            gameConsole.value[i-2] == '\n') {
+          return i;
+        }
+        i--;
+      }
+      return null;
+    }
+
+    gameConsole.addEventListener('keydown', function(event) {
+      var promptIndex = findPromptIndex();
+      if (gameConsole.selectionStart < promptIndex) {
+        if ((event.keyCode >= 16 && event.keyCode <= 18) ||
+            (event.keyCode >= 33 && event.keyCode <= 40)) {
+          return;
+        }
+        gameConsole.scrollTop = gameConsole.scrollHeight;
+        gameConsole.selectionStart = gameConsole.value.length;
+        gameConsole.selectionEnd = gameConsole.value.length;
+      }
+      if (gameConsole.selectionStart <= promptIndex + 1 &&
+          gameConsole.selectionEnd == gameConsole.selectionStart &&
+          (event.keyCode == 8 || event.keyCode == 46)) {
+        event.stopPropagation();
+        event.preventDefault();
+        return;
+      }
+
+      if (gameConsole.selectionStart > promptIndex) {
+        if (event.keyCode == 38) {
+          if (inputHistory.length == 0) {
+            return;
+          }
+          if (inputHistoryIndex === null) {
+            inputHistoryIndex = inputHistory.length;
+          }
+          if (inputHistoryIndex == 0) {
+            return;
+          }
+          event.stopPropagation();
+          event.preventDefault();
+          inputHistoryIndex--;
+          gameConsole.value = gameConsole.value.substring(0, promptIndex + 1);
+          gameConsole.value += inputHistory[inputHistoryIndex];
+          return;
+        }
+
+        if (event.keyCode == 40) {
+          if (inputHistoryIndex === null) {
+            return;
+          }
+          inputHistoryIndex++;
+          if (inputHistoryIndex == inputHistory.length) {
+            inputHistoryIndex = null;
+            gameConsole.value = gameConsole.value.substring(0, promptIndex + 1);
+            return;
+          }
+          event.stopPropagation();
+          event.preventDefault();
+          gameConsole.value = gameConsole.value.substring(0, promptIndex + 1);
+          gameConsole.value += inputHistory[inputHistoryIndex];
+          return;
+        }
+      }
+    });
+
+    gameConsole.addEventListener('keyup', function(event) {
+      var promptIndex = findPromptIndex();
+
+      if (event.keyCode == 13) {
+        var command = gameConsole.value.substring(promptIndex + 1, gameConsole.value.length - 1);
+        if (command.length > 0) {
+          inputHistory.push(command);
+          if (inputHistory.length > 100) {
+            inputHistory.splice(0, 1);
+          }
+        }
+        inputHistoryIndex = null;
+
+        appendToGameConsole('\n');
+        gameConsole.scrollTop = gameConsole.scrollHeight;
+        ws.send(command);
+        return;
+      }
+
+      gameConsole.addEventListener('select', function(event) {
+        var promptIndex = findPromptIndex();
+        if (promptIndex > gameConsole.selectionStart &&
+            promptIndex < gameConsole.selectionEnd) {
+          gameConsole.selectionStart = promptIndex + 1;
+        }
+      });
+    });
+
+    window.onload = function() {
+      connect();
+      gameConsole.focus();
+    };
+  </script>
+{% endblock %}
