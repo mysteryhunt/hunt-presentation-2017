@@ -85,12 +85,14 @@ def puzzle(puzzle_id):
         
     visible_puzzle_ids = set(cube.get_visible_puzzle_ids(app))
     puzzle = cube.get_puzzle(app, puzzle_id)
+    puzzle_visibility = cube.get_puzzle_visibility(app, puzzle_id)
     team_properties = cube.get_team_properties(app)
 
     return render_template(
         "puzzles/%s.html" % puzzle_id,
         puzzle_id=puzzle_id,
         puzzle=puzzle,
+        puzzle_visibility=puzzle_visibility,
         team_properties=team_properties,
         visible_puzzle_ids=visible_puzzle_ids)
         
