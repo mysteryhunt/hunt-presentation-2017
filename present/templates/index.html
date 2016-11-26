@@ -11,7 +11,8 @@
       <div id="character-panel" class="panel">
       <div id="character-header"><span class="enscrolled-before"></span><span class="enscrolled"><span>Your Party</span></span><span class="enscrolled-after"></span></div>
     
-        {% for character_class in ['fighter','wizard','cleric','linguist','chemist','economist'] if character_class in visible_puzzle_ids %}
+        {% for character_class in ['fighter','wizard','cleric','linguist','chemist','economist'] %}
+          {% if character_class in visible_puzzle_ids %}
             <a href="{{ url_for('round', round_id = character_class) }}">
               <div id="character-{{ character_class }}" class="individual-character">
                 <img src="{{ url_for('static', filename='temp/art/Characters/%s-head.png' % character_class) }}" style="width:60px;height:60px;">
@@ -22,6 +23,7 @@
                 </div>
               </div>
             </a>
+          {% endif %}
         {% endfor %}
 
         <div id="inventory-gold-display">
@@ -69,19 +71,19 @@
             </div>
           </a>
         {% endfor %}
-        {% for recruitment in [('linguist',140,10),('chemist',30,290),('economist',150,450)] if True%}
+        {% for recruitment in [('linguist',140,10),('chemist',30,290),('economist',150,450)] if False %}
           <a href="{{ url_for('puzzle', puzzle_id = 'recruit_' + recruitment[0]) }}">
             <div id="recruitment-map-{{ recruitment[0] }}" class="individual-quest" style="width:60px; height: 84px; position:absolute; top:{{ recruitment[1] }}px; left:{{ recruitment[2] }}px; z-index:200; content: url({{ url_for('static', filename='temp/art/Characters/%s.png' % recruitment[0]) }}); background-size:100%;">
             </div>
           </a>
         {% endfor %}
-        {% if True %}
+        {% if False %}
           <a href="{{ url_for('puzzle', puzzle_id = 'merchants') }}">
             <div class="individual-quest" style="width:108px; height:81px; position:absolute; top:310px; left:390px; z-index:200; content: url({{ url_for('static', filename='temp/art/Maps/Icons/fortress.png') }});">
             </div>
           </a>
         {% endif %}
-        {% if True %}
+        {% if False %}
           <a href="{{ url_for('puzzle', puzzle_id = 'fortress') }}">
             <div class="individual-quest" style="width:108px; height:81px<em></em>; position:absolute; top:450px; left:420px; z-index:200; content: url({{ url_for('static', filename='temp/art/Maps/Icons/fortress.png') }});">
             </div>
