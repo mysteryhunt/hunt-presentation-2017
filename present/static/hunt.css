@@ -175,6 +175,11 @@ body {
   text-decoration: none;
 }
 
+#overall-layout-header a:link:hover {
+  color: black;
+  text-decoration: underline;
+}
+
 #overall-layout-header a:visited {
   color: black;
 }
