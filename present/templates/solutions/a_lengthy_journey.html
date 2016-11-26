@@ -1,0 +1,151 @@
+{% extends "solutions/solution_layout.html" %}
+{% block title_block %}A Lengthy Journey: Solution{% endblock %}
+{% block puzzle_name_block %}A Lengthy Journey: Solution{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  td {
+    padding-top: 4px;
+  }
+table {
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+{% endblock %}
+{% block solution_content_block %}
+<div>
+  <p>
+    For each of the given enumerations, five of the letter sequences below can be combined to form a clue of that enumeration. Each clue contains the word "this" and seems to reference something not given in the clue.
+  </p>
+  <p>
+    For each clue, the lengths of the five pieces combined, in order, form the zip code for an American city, and the name of that city is what the clue is referring to. For example, the first clue, MADE-UP TOWN WHERE THIS OPERA'S SET, has pieces of lengths
+    4,8,7,4,5. 48745 is the zip code for Mikado, MI, so "this opera" refers to The Mikado, and the answer to the clue is Titipu.
+  </p>
+  <table>
+    <tr>
+      <td>MADE/UP TOWN WH/ERE THIS/ OPER/AS SET</td>
+      <td>48745</td>
+      <td>Mikado, MI</td>
+      <td>TITIPU</td>
+    </tr>
+    <tr>
+      <td>FIR/ST NAME OF/ THIS FI/LM HERO/INE</td>
+      <td>38663</td>
+      <td>Ripley, MS</td>
+      <td>ELLEN</td>
+    </tr>
+    <tr>
+      <td>THE MONTH/ OF THI/S BIRT/HSTO/NE</td>
+      <td>85542</td>
+      <td>Peridot, AZ</td>
+      <td>AUGUST</td>
+    </tr>
+    <tr>
+      <td>A/LIEN REPO/RTIN/G TO T/HIS LEADER</td>
+      <td>18449</td>
+      <td>Orson, PA</td>
+      <td>MORK</td>
+    </tr>
+    <tr>
+      <td>THIS B/ANDS CU/RRENT/ RECORD LAB/EL</td>
+      <td>56592</td>
+      <td>Winger, MN</td>
+      <td>FRONTIERS</td>
+    </tr>
+    <tr>
+      <td>CO/LOR O/F THIS/ ANI/MAL</td>
+      <td>24533</td>
+      <td>Clifford, VA</td>
+      <td>RED</td>
+    </tr>
+    <tr>
+      <td>VEGETAB/L/E WI/TH THIS N/AME</td>
+      <td>71373</td>
+      <td>Vidalia, LA</td>
+      <td>ONION</td>
+    </tr>
+    <tr>
+      <td>THE VIL/LAIN WHO C/URSES THI/S/ PRINCESS</td>
+      <td>68818</td>
+      <td>Aurora, NE</td>
+      <td>MALEFICENT</td>
+    </tr>
+    <tr>
+      <td>CAPITA/L/ OF T/HIS NA/TION</td>
+      <td>61354</td>
+      <td>Peru, IL</td>
+      <td>LIMA</td>
+    </tr>
+    <tr>
+      <td>BEINGS TH/AT M/ANUFACTU/RE FOR T/HIS MAN</td>
+      <td>83866</td>
+      <td>Santa, ID</td>
+      <td>ELVES</td>
+    </tr>
+    <tr>
+      <td>CITY IN WH/IC/H THIS ST/A/DIUM IS</td>
+      <td>82716</td>
+      <td>Gillette, WY</td>
+      <td>FOXBORO</td>
+    </tr>
+    <tr>
+      <td>THIS D/IRECTOR/S PA/ULNE/WMAN FILM</td>
+      <td>57348</td>
+      <td>Hitchcock, SD</td>
+      <td>TORN CURTAIN</td>
+    </tr>
+    <tr>
+      <td>GIRL WHO D/ROWN/S BY THIS/ CA/STLE</td>
+      <td>84724</td>
+      <td>Elsinore, UT</td>
+      <td>OPHELIA</td>
+    </tr>
+    <tr>
+      <td>DOCTO/R THAT THIS/ VILL/AIN ABH/ORS</td>
+      <td>59463</td>
+      <td>Monarch, MT</td>
+      <td>VENTURE</td>
+    </tr>
+    <tr>
+      <td>LAR/GEST ROO/M/ IN THIS HA/BITATION</td>
+      <td>37188</td>
+      <td>White House, TN</td>
+      <td>EAST ROOM</td>
+    </tr>
+    <tr>
+      <td>THIS BUF/FY C/HARACT/ERS SURN/AME</td>
+      <td>73673</td>
+      <td>Willow, OK</td>
+      <td>ROSENBERG</td>
+    </tr>
+    <tr>
+      <td>THE MOST F/AMOUS OF TH/IS MA/NS/ PETS</td>
+      <td>89424</td>
+      <td>Nixon, NV</td>
+      <td>CHECKERS</td>
+    </tr>
+    <tr>
+      <td>THIS C/ANADIAN F/RO/NTMAN/S BAND</td>
+      <td>58255</td>
+      <td>Maida, ND</td>
+      <td>OUR LADY PEACE</td>
+    </tr>
+    <tr>
+      <td>FIVE FIL/M FRANCH/ISE/ STARRIN/G THIS MAN</td>
+      <td>77378</td>
+      <td>Willis, TX</td>
+      <td>DIE HARD</td>
+    </tr>
+    <tr>
+      <td>THEMID/DLENA/MEOFTHI/SGHOSTW/HENALIVE</td>
+      <td>65778</td>
+      <td>Myrtle, MO</td>
+      <td>ELIZABETH</td>
+    </tr>
+  </table>
+  <p>
+    The first letters of the clue answers, in order, spell TEAM FROM LEFTOVER CODE. There are five unused pieces, which start with the letters A through E, giving them a natural ordering: AIGN, BORETH, CENON, DSENS, EEHERE. (The letters other than those initial
+    letters spell the message IGNORE THE NONSENSE HERE.) The lengths of these pieces, in this order, are 46556. This is the zip code for the University of Notre Dame, and the team from this university is the <b>FIGHTING IRISH</b>.</p>
+</div>
+{% endblock %}
