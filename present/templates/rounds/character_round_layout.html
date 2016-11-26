@@ -46,10 +46,7 @@
   {% if puzzle_visibilities.get(puzzle_id).status == 'UNLOCKED' %}
     <div class="puzzle-entry">
       <a href="{{ url_for(puzzle_link_action, puzzle_id = link_puzzle_id) }}">
-        {% set reward = single_character_reward(puzzle_properties.get(puzzle_id).puzzleProperties) %}
-        {% if reward.character %}
-          <span><img src="{{ url_for('static', filename='temp/art/Characters/%s-logo-color.png' % reward.character) }}" style="width:24px;height:24px;vertical-align:bottom;"/></span>
-        {% endif %}
+        <span><img src="{{ url_for('static', filename='temp/art/Characters/%s-logo-color.png' % round_id) }}" style="width:24px;height:24px;vertical-align:bottom;"/></span>
         <span class="puzzle-name">{{ puzzle_properties.get(puzzle_id).puzzleProperties.DisplayNameProperty.displayName }}</span>
       </a>
     </div>

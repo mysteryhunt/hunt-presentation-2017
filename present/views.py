@@ -34,17 +34,9 @@ def utility_processor():
         return {}
       return {'character':sum_constraint.get('characters')[0],'levels':sum_constraint.get('levels')}
 
-    def single_character_reward(puzzle_properties):
-      character_reward = puzzle_properties.get('SolveRewardProperty').get('characterLevels')
-      character_reward = [{'character': k, 'levels': v} for k,v in character_reward.iteritems()]
-      if len(character_reward) != 1:
-        return {}
-      return character_reward[0]
-
     return dict(submit_url_for=submit_url_for, asset_url_for=asset_url_for,
         get_google_api_key=get_google_api_key,
-        single_character_unlock_requirement=single_character_unlock_requirement,
-        single_character_reward=single_character_reward)
+        single_character_unlock_requirement=single_character_unlock_requirement)
     
 
 
