@@ -8,7 +8,7 @@ body {
   left: 0;
   width: 100vw;
   min-height: 100vh;
-  background: url('temp/art/Maps/fog.jpg');
+  background: url('temp/art/Maps/fog-repeat.png');
   z-index: -2000;
 }
 
