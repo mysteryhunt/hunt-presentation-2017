@@ -75,6 +75,8 @@ a:visited {
 #puzzle-list {
   margin-left: 320px;
   padding-top: 10px;
+  background-color: #D1B780;
+  margin-top: 20px;
 }
 
 .puzzle-entry {

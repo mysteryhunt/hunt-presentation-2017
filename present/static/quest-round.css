@@ -30,7 +30,6 @@ a:visited {
 
 #puzzle-list {
   margin-left: 320px;
-  margin-top: 20px;
   padding: 10px;
   background-color: #D1B780;
   border: 3px #665F4F solid;
@@ -41,6 +40,7 @@ a:visited {
   margin-right: auto;
   text-align: center;
   margin-bottom: 10px;
+  margin-top: 10px;
   min-height: 20px;
 }
 
