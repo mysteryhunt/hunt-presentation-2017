@@ -70,3 +70,7 @@ span.puzzle-solution {
 span.round_question {
   font-weight: bold;
 }
+
+#submit {
+  float: right;
+}

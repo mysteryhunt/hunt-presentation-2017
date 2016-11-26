@@ -95,3 +95,7 @@ span.puzzle-solution {
   padding-left: 5px;
   font-size: 12px;
 }
+
+#submit {
+  float: right;
+}
