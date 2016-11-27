@@ -39,18 +39,30 @@
       <div id="events-panel" class="panel">
         <div class="events-header"><span class="enscrolled-before"></span><span class="enscrolled"><span>Events</span></span><span class="enscrolled-after"></span></div>
         <div class="event-entry">
+          <div class="event-reward">
+            {% for character_class in ['fighter','wizard','cleric','linguist','chemist','economist'] if character_class in visible_puzzle_ids %}<img src="{{ url_for('static', filename='temp/art/Characters/%s-logo-color.png' % character_class) }}" style="width:24px;height:24px;vertical-align:middle;"/>{% endfor %}
+          </div>
           <div class="event-name">Event the First</div>
           <div class="event-time">Friday 6pm</div>
         </div>
         <div class="event-entry">
+          <div class="event-reward">
+            {% for character_class in ['fighter','wizard','cleric','linguist','chemist','economist'] if character_class in visible_puzzle_ids %}<img src="{{ url_for('static', filename='temp/art/Characters/%s-logo-color.png' % character_class) }}" style="width:24px;height:24px;vertical-align:middle;"/>{% endfor %}
+          </div>
           <div class="event-name">Event the Second</div>
           <div class="event-time">Friday 10pm</div>
         </div>
         <div class="event-entry">
+          <div class="event-reward">
+            2x({% for character_class in ['fighter','wizard','cleric','linguist','chemist','economist'] if character_class in visible_puzzle_ids %}<img src="{{ url_for('static', filename='temp/art/Characters/%s-logo-color.png' % character_class) }}" style="width:24px;height:24px;vertical-align:middle;"/>{% endfor %})
+          </div>
           <div class="event-name">Event the Third</div>
           <div class="event-time">Saturday 10am</div>
         </div>
         <div class="event-entry">
+          <div class="event-reward">
+            2x({% for character_class in ['fighter','wizard','cleric','linguist','chemist','economist'] if character_class in visible_puzzle_ids %}<img src="{{ url_for('static', filename='temp/art/Characters/%s-logo-color.png' % character_class) }}" style="width:24px;height:24px;vertical-align:middle;"/>{% endfor %})
+          </div>
           <div class="event-name">Event the Fourth</div>
           <div class="event-time">Saturday 2pm</div>
         </div>
