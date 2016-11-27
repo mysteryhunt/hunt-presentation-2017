@@ -120,6 +120,8 @@
     {% for item_number in range(6) %}
       {{ inventory_individual_listing(item_names[item_number][0], item_names[item_number][1]) }}
     {% endfor %}
+  {% elif team_inventory.get('inventoryItems',[])|length <= 0 %}
+    There is nothing in your inventory.
   {% else %}
     {% set item_names = [
           ('00','Acceptance Letter to MIT'),
