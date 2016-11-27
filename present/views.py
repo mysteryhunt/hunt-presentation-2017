@@ -98,7 +98,9 @@ def puzzle(puzzle_id):
 @app.route("/inventory")
 @login_required.solvingteam
 def inventory():
-    return render_template("inventory.html")
+    team_properties = cube.get_team_properties(app)
+    return render_template("inventory.html",
+        team_properties=team_properties)
 
 @app.route("/full/puzzle")
 @login_required.writingteam

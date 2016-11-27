@@ -4,6 +4,6 @@
 
 {% block puzzle_content_block %}
 <div>
-  {{ inventory.inventory_listing() }}
+  {{ inventory.inventory_listing(team_properties.get('teamProperties',{}).get('InventoryProperty',{}) if team_properties else {}) }}
 </div>
 {% endblock %}

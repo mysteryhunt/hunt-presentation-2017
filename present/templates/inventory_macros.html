@@ -81,7 +81,7 @@
   </div>
 {% endmacro %}
 
-{% macro inventory_listing() %}
+{% macro inventory_listing(team_inventory) %}
   {% set item_names = [
         ('00','Acceptance Letter to MIT'),
         ('01','Anger Management Book'),
@@ -126,6 +126,8 @@
         ] %}
 
   {% for item_number in range(40) %}
-    {{ inventory_individual_listing(item_names[item_number][0], item_names[item_number][1]) }}
+    {% if ('ITEM' + item_names[item_number][0]) in team_inventory.get('inventoryItems',[]) %}
+      {{ inventory_individual_listing(item_names[item_number][0], item_names[item_number][1]) }}
+    {% endif %}
   {% endfor %}
 {% endmacro %}
