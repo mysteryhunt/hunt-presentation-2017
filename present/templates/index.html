@@ -14,7 +14,7 @@
         {% for character_class in ['fighter','wizard','cleric','linguist','chemist','economist'] if character_class in visible_puzzle_ids %}
           <a href="{{ url_for('round', round_id = character_class) }}">
             <div id="character-{{ character_class }}" class="individual-character">
-              <img src="{{ url_for('static', filename='temp/art/Characters/%s-head.png' % character_class) }}" style="width:60px;height:60px;">
+              <img src="{{ url_for('static', filename='temp/art/Characters/%s-ring.png' % character_class) }}" style="width:90px;height:90px;">
               <div class="individual-character-status-container">
                 <span class="individual-character-class">{{ character_class.capitalize() }}</span>
                 <img src="{{ url_for('static', filename='temp/art/Characters/%s-logo-color.png' % character_class) }}" style="width:30px;height:30px;vertical-align:middle;"/>
@@ -61,7 +61,7 @@
   <div id="world-map-container" class="panel">
     <div id="world-map-header"><span class="enscrolled-before"></span><span class="enscrolled"><span>World Map</span></span><span class="enscrolled-after"></span></div>
     <div id="world-map">
-      <div id="fog-overlay" style="content: url({{ url_for('static', filename='temp/art/Maps/fog-3.png') }}); width:560px;height:560px;margin:0 auto;"></div>
+      <div id="fog-overlay" style="content: url({{ url_for('static', filename='temp/art/Maps/fog-%s.png' % fog_number) }}); width:560px;height:560px;margin:0 auto;"></div>
       <div id="world-map-background" style="content: url({{ url_for('static', filename='temp/art/Maps/map.png') }}); width:560px;height:560px;margin:0 auto;"></div>
         {% for quest in [('dynast',0,0),('dungeon',90,120),('thespians',25,385),('bridge',205,290),('criminal',225,110),('minstrels',340,0),('cube',440,110),('warlord',340,240)] if quest[0] in visible_puzzle_ids %}
           <a href="{{ url_for('round', round_id = quest[0]) }}">

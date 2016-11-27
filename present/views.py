@@ -45,7 +45,14 @@ def utility_processor():
 def index():
     visible_puzzle_ids = set(cube.get_visible_puzzle_ids(app))
     team_properties = cube.get_team_properties(app)
-    return render_template("index.html", visible_puzzle_ids=visible_puzzle_ids, team_properties=team_properties)
+    fog_number = len([map_item for map_item in \
+        ['dynast','dungeon','thespians','bridge','criminal','minstrels','cube','warlord','recruit_linguist','recruit_chemist','recruit_economist','merchants','fortress']\
+        if map_item in visible_puzzle_ids])
+    return render_template(
+        "index.html",
+        visible_puzzle_ids=visible_puzzle_ids,
+        team_properties=team_properties,
+        fog_number=fog_number)
 
 @app.route("/round/<round_id>")
 @login_required.solvingteam
