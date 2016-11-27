@@ -26,7 +26,14 @@
 
         <div id="inventory-gold-display">
           <div style="display:inline;">
-            <img src="{{ url_for('static', filename='temp/art/chest.png') }}" style="width:50px;height:50px;vertical-align:middle;"/>&nbsp;{{ team_properties.get('teamProperties',{}).get('InventoryProperty',{}).get('inventoryItems',[])|length if team_properties else 'NA' }}/40
+            <a href="{{ url_for('inventory') }}">
+              <img src="{{ url_for('static', filename='temp/art/chest.png') }}" style="width:50px;height:50px;vertical-align:middle;"/>
+              {% if puzzle_visibilities.get('merchants',{}).get('status','') == 'SOLVED' %}
+                6/6
+              {% else %}
+                {{ team_properties.get('teamProperties',{}).get('InventoryProperty',{}).get('inventoryItems',[])|length if team_properties else 'NA' }}/40
+              {% endif %}
+            </a>
           </div>
           <div style="display:inline;">
             <img src="{{ url_for('static', filename='temp/art/gold.png') }}" style="width:50px;height:50px;vertical-align:middle;"/>&nbsp;{{ team_properties.get('teamProperties',{}).get('GoldProperty',{}).get('gold',0) if team_properties else 'NA'}}
@@ -81,9 +88,9 @@
             </div>
           </a>
         {% endfor %}
-        {% for recruitment in [('linguist',140,10),('chemist',30,290),('economist',150,450)] if False %}
-          <a href="{{ url_for('puzzle', puzzle_id = 'recruit_' + recruitment[0]) }}">
-            <div id="recruitment-map-{{ recruitment[0] }}" class="individual-quest" style="width:60px; height: 84px; position:absolute; top:{{ recruitment[1] }}px; left:{{ recruitment[2] }}px; z-index:200; content: url({{ url_for('static', filename='temp/art/Characters/%s.png' % recruitment[0]) }}); background-size:100%;">
+        {% for rescue in [('linguist',140,10),('chemist',30,290),('economist',150,450)] if 'rescue_the_' + rescue[0] in visible_puzzle_ids %}
+          <a href="{{ url_for('puzzle', puzzle_id = 'rescue_the_' + rescue[0]) }}">
+            <div id="rescue-map-{{ rescue[0] }}" class="individual-quest" style="width:60px; height: 84px; position:absolute; top:{{ rescue[1] }}px; left:{{ rescue[2] }}px; z-index:200; content: url({{ url_for('static', filename='temp/art/Characters/%s.png' % rescue[0]) }}); background-size:100%;">
             </div>
           </a>
         {% endfor %}

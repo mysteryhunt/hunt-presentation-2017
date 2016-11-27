@@ -13,8 +13,12 @@
   {% endif %}
 {% endmacro %}
 
-{% macro generate_reward(round_id) %}
-  {% if round_id in ['fighter','wizard','cleric','linguist','chemist','economist'] %}
+{% macro generate_reward(round_id, puzzle_id) %}
+  {% if puzzle_id in ['rescue_the_linguist','rescue_the_chemist','rescue_the_economist'] %}
+    <div id="reward">
+      <span>Reward: New member of your party</span>
+    </div>
+  {% elif round_id in ['fighter','wizard','cleric','linguist','chemist','economist'] %}
     <div id="reward">
       <span>Reward: One Level of <img src="{{ url_for('static', filename='temp/art/Characters/%s-logo-color.png' % round_id) }}" style="width:30px;height:30px;vertical-align:middle;"/></span>
     </div>
@@ -53,7 +57,7 @@
         </span>
       </div>
     {% else %}
-      {{ generate_reward(puzzle_round_id) }}
+      {{ generate_reward(puzzle_round_id, puzzle_id) }}
     {% endif %}
     <div id="flavortext">
       {% block puzzle_flavortext_block %}{% endblock %}

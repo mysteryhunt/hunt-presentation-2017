@@ -48,7 +48,7 @@ def index():
     visible_puzzle_ids = set([key for key in puzzle_visibilities if puzzle_visibilities.get(key,{}).get('status','') != 'INVISIBLE'])
     team_properties = cube.get_team_properties(app)
     fog_number = len([map_item for map_item in \
-        ['dynast','dungeon','thespians','bridge','criminal','minstrels','cube','warlord','recruit_linguist','recruit_chemist','recruit_economist','merchants','fortress']\
+        ['dynast','dungeon','thespians','bridge','criminal','minstrels','cube','warlord','rescue_the_linguist','rescue_the_chemist','rescue_the_economist','merchants','fortress']\
         if map_item in visible_puzzle_ids])
     return render_template(
         "index.html",
