@@ -1,0 +1,39 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}The Great Gadsby{% endblock %}
+{% block puzzle_name_block %}The Great Gadsby{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  ul {
+    list-style-type: none;
+    padding-left: 0px;
+  }
+  li {
+    padding-bottom: 15px;
+  }
+  img {
+    max-width: 900px;
+  }
+</style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+Naturally, the Chemist loves a story with good chemistry - and he likes to take notes.
+{% endblock %}
+
+{% block puzzle_content_block %}
+<div>
+  <ul>
+    <li><img src="{{ asset_url_for('the_great_gadsby/01.png') }}"></li>
+    <li><img src="{{ asset_url_for('the_great_gadsby/02.png') }}"></li>
+    <li><img src="{{ asset_url_for('the_great_gadsby/03.png') }}"></li>
+    <li><img src="{{ asset_url_for('the_great_gadsby/04.png') }}"></li>
+    <li><img src="{{ asset_url_for('the_great_gadsby/05.png') }}"></li>
+    <li><img src="{{ asset_url_for('the_great_gadsby/06.png') }}"></li>
+    <li><img src="{{ asset_url_for('the_great_gadsby/07.png') }}"></li>
+    <li><img src="{{ asset_url_for('the_great_gadsby/08.png') }}"></li>
+    <li><img src="{{ asset_url_for('the_great_gadsby/09.png') }}"></li>
+    <li><img src="{{ asset_url_for('the_great_gadsby/10.png') }}"></li>
+  </ul>
+</div>
+{% endblock %}
