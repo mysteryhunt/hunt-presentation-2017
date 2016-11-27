@@ -23,13 +23,20 @@
       {% endfor %}
       
       <div id="header-inventory">
+        {% set inventory_complete = (puzzle_visibilities.get('merchants',{}).get('status','') == 'SOLVED') %}
         <a href="#" id="header-inventory-control">
           <span id="header-inventory-status">
-            <img src="{{ url_for('static', filename='temp/art/chest.png') }}" style="width:30px;height:30px;vertical-align:middle;"/>&nbsp;{{ team_properties.get('teamProperties',{}).get('InventoryProperty',{}).get('inventoryItems',[])|length if team_properties else 'NA' }}/40
+            <img src="{{ url_for('static', filename='temp/art/chest.png') }}" style="width:30px;height:30px;vertical-align:middle;"/>&nbsp;
+            {% if inventory_complete %}
+              6/6
+            {% else %}
+              {{ team_properties.get('teamProperties',{}).get('InventoryProperty',{}).get('inventoryItems',[])|length if team_properties else 'NA' }}/40
+            {% endif %}
           </span>
         </a>
         <div id="header-inventory-grid" style="display:none;">
-          {{ inventory.inventory_grid((team_properties.get('teamProperties',{}).get('InventoryProperty',{})) if team_properties else {}) }}
+          {{ inventory.inventory_grid(inventory_complete,
+(team_properties.get('teamProperties',{}).get('InventoryProperty',{})) if team_properties else {}) }}
         </div>
       </div>
       <div id="header-gold"><img src="{{ url_for('static', filename='temp/art/gold.png') }}" style="width:30px;height:30px;vertical-align:middle;"/>&nbsp;{{ team_properties.get('teamProperties',{}).get('GoldProperty',{}).get('gold',0) if team_properties else 'NA'}}</div>

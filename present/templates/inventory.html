@@ -6,6 +6,8 @@
 
 {% block puzzle_content_block %}
 <div>
-  {{ inventory.inventory_listing(team_properties.get('teamProperties',{}).get('InventoryProperty',{}) if team_properties else {}) }}
+  {{ inventory.inventory_listing(
+        puzzle_visibilities.get('merchants',{}).get('status','') == 'SOLVED',
+        team_properties.get('teamProperties',{}).get('InventoryProperty',{}) if team_properties else {}) }}
 </div>
 {% endblock %}

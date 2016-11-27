@@ -43,7 +43,9 @@ def utility_processor():
 @app.route("/")
 @login_required.solvingteam
 def index():
-    visible_puzzle_ids = set(cube.get_visible_puzzle_ids(app))
+    puzzle_visibilities = cube.get_puzzle_visibilities(app)
+    puzzle_visibilities = {visibility.get('puzzleId'): visibility for visibility in puzzle_visibilities}
+    visible_puzzle_ids = set([key for key in puzzle_visibilities if puzzle_visibilities.get(key,{}).get('status','') != 'INVISIBLE'])
     team_properties = cube.get_team_properties(app)
     fog_number = len([map_item for map_item in \
         ['dynast','dungeon','thespians','bridge','criminal','minstrels','cube','warlord','recruit_linguist','recruit_chemist','recruit_economist','merchants','fortress']\
@@ -52,7 +54,8 @@ def index():
         "index.html",
         visible_puzzle_ids=visible_puzzle_ids,
         team_properties=team_properties,
-        fog_number=fog_number)
+        fog_number=fog_number,
+        puzzle_visibilities=puzzle_visibilities)
 
 @app.route("/round/<round_id>")
 @login_required.solvingteam
@@ -60,11 +63,11 @@ def round(round_id):
     if not cube.is_puzzle_unlocked(app, round_id):
         abort(403)
 
-    visible_puzzle_ids = set(cube.get_visible_puzzle_ids(app))
-    puzzle_properties = cube.get_all_puzzle_properties(app)
-    puzzle_properties = {puzzle.get('puzzleId'): puzzle for puzzle in puzzle_properties.get('puzzles',[])}
     puzzle_visibilities = cube.get_puzzle_visibilities(app)
     puzzle_visibilities = {visibility.get('puzzleId'): visibility for visibility in puzzle_visibilities}
+    visible_puzzle_ids = set([key for key in puzzle_visibilities if puzzle_visibilities.get(key,{}).get('status','') != 'INVISIBLE'])
+    puzzle_properties = cube.get_all_puzzle_properties(app)
+    puzzle_properties = {puzzle.get('puzzleId'): puzzle for puzzle in puzzle_properties.get('puzzles',[])}
     team_properties = cube.get_team_properties(app)
     
     return render_template(
@@ -82,7 +85,9 @@ def puzzle(puzzle_id):
     if not cube.is_puzzle_unlocked(app, puzzle_id):
         abort(403)
         
-    visible_puzzle_ids = set(cube.get_visible_puzzle_ids(app))
+    puzzle_visibilities = cube.get_puzzle_visibilities(app)
+    puzzle_visibilities = {visibility.get('puzzleId'): visibility for visibility in puzzle_visibilities}
+    visible_puzzle_ids = set([key for key in puzzle_visibilities if puzzle_visibilities.get(key,{}).get('status','') != 'INVISIBLE'])
     puzzle = cube.get_puzzle(app, puzzle_id)
     puzzle_visibility = cube.get_puzzle_visibility(app, puzzle_id)
     team_properties = cube.get_team_properties(app)
@@ -91,6 +96,7 @@ def puzzle(puzzle_id):
         "puzzles/%s.html" % puzzle_id,
         puzzle_id=puzzle_id,
         puzzle=puzzle,
+        puzzle_visibilities=puzzle_visibilities,
         puzzle_visibility=puzzle_visibility,
         team_properties=team_properties,
         visible_puzzle_ids=visible_puzzle_ids)
@@ -100,9 +106,12 @@ def puzzle(puzzle_id):
 def inventory():
     visible_puzzle_ids = set(cube.get_visible_puzzle_ids(app))
     team_properties = cube.get_team_properties(app)
+    puzzle_visibilities = cube.get_puzzle_visibilities(app)
+    puzzle_visibilities = {visibility.get('puzzleId'): visibility for visibility in puzzle_visibilities}
     return render_template("inventory.html",
         team_properties=team_properties,
-        visible_puzzle_ids=visible_puzzle_ids)
+        visible_puzzle_ids=visible_puzzle_ids,
+        puzzle_visibilities=puzzle_visibilities)
 
 @app.route("/full/puzzle")
 @login_required.writingteam
@@ -110,7 +119,9 @@ def full_puzzle_index():
     files = os.listdir(os.path.join(app.root_path, 'templates/puzzles'))
     puzzle_ids = [file.split('.')[0] for file in files]
     puzzle_ids = [puzzle_id for puzzle_id in puzzle_ids if puzzle_id not in ['puzzle_layout','sample_draft']]
-    return render_template("full_puzzle_index.html", puzzle_ids=puzzle_ids)
+    return render_template("full_puzzle_index.html",
+        puzzle_ids=puzzle_ids,
+        puzzle_visibilities={})
         
 @app.route("/full/puzzle/<puzzle_id>")
 @login_required.writingteam
@@ -122,14 +133,16 @@ def full_puzzle(puzzle_id):
     return render_template(
         "puzzles/%s.html" % puzzle_id,
         puzzle_id=puzzle_id,
-        puzzle=puzzle)
+        puzzle=puzzle,
+        puzzle_visibilities={})
 
 @app.route("/full/solution/<puzzle_id>")
 @login_required.writingteam
 def full_solution(puzzle_id):
     return render_template(
         "solutions/%s.html" % puzzle_id,
-        puzzle_id=puzzle_id)
+        puzzle_id=puzzle_id,
+        puzzle_visibilities={})
 
 @app.route("/full/round/<round_id>")
 @login_required.writingteam
