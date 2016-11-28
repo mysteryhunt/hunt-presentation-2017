@@ -1,0 +1,66 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_round_id = 'merchants' %}
+{% block title_block %}The Maniacal Merchants{% endblock %}
+{% block puzzle_name_block %}The Maniacal Merchants{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+#merchants {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content space-between;
+}
+.merchant {
+  width: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.merchant-image-container {
+  position: relative;
+}
+.merchant-image {
+  width: 450px;
+}
+.merchant-number {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  line-height: 48px;
+  text-align: center;
+  vertical-align: center;
+  top: 161px;
+  font-size: 28px;
+}
+</style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+{% endblock %}
+
+{% block puzzle_content_block %}
+<div id="merchants">
+  {% for merchant_data in [
+      (1, 'Facetious Frank', 7, 8, 6, 5, 5),
+      (2, 'Suitable Sarah', 1, 5, 5, 11, 1),
+      (3, 'Little Larry', 10, 3, 3, 6, 3),
+      (4, 'Star-Crossed Steve', '?', '?', '?', '?', '?'),
+      (5, 'Holy Hannah', 7, 13, 13, 2, 1),
+      (6, 'Mourning Mike', 3, 7, 15, 18, 18),
+      (7, 'Flag-Bearing Flo', 14, 3, 2, 3, 10),
+      (8, 'Musical Maria', 5, 4, 10, 4, 6)
+    ] %}
+    <div class="merchant">
+      <div class="merchant-image-container">
+        {% for numeric_index in range(2,7) %}
+          <div class="merchant-number" style="left: {{ -28 + numeric_index * 58 }}px;">{{merchant_data[numeric_index]}}</div>
+        {% endfor %}
+        <img src="{{ url_for('static', filename='temp/art/Merchants/merchant-image0%s.png' % merchant_data[0])}}" class="merchant-image"/>
+      </div>
+      <div class="merchant-label">
+        <span class="enscrolled-before"></span><span class="enscrolled">{{ merchant_data[1] }}</span><span class="enscrolled-after"></span>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}
