@@ -81,22 +81,22 @@ body {
 
 span.puzzle-solution-label {
   padding-left: 5px;
-  font-family: 'Black Chancery', 'Georgia', serif;
+  font-family: 'Deutsche Uncialis', 'Georgia', serif;
 }
 
 #answers {
-  font-size: 24px;
+  font-size: 28px;
   margin-left: 20px;
 }
 
 #reward {
-  font-family: 'Black Chancery', 'Georgia', serif;
-  font-size: 24px;
+  font-family: 'Deutsche Uncialis', 'Georgia', serif;
+  font-size: 28px;
   margin-left: 20px;
 }
 
 #byline {
-  font-family: 'Black Chancery', 'Georgia', serif;
-  font-size: 24px;
+  font-family: 'Deutsche Uncialis', 'Georgia', serif;
+  font-size: 28px;
   margin-left: 20px;
 }
