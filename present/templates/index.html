@@ -8,7 +8,7 @@
 <div id="main-page-content">
   <div id="left-sidebar">
     <div id="characters">
-      <div id="character-panel" class="panel">
+      <div id="character-panel" class="panel lighter-background">
       <div id="character-header"><span class="enscrolled-before"></span><span class="enscrolled"><span>Your Party</span></span><span class="enscrolled-after"></span></div>
     
         {% for character_class in ['fighter','wizard','cleric','linguist','chemist','economist'] if character_class in visible_puzzle_ids %}
@@ -43,7 +43,7 @@
       </div>
     </div>
     <div id="events">
-      <div id="events-panel" class="panel">
+      <div id="events-panel" class="panel lighter-background">
         <div class="events-header"><span class="enscrolled-before"></span><span class="enscrolled"><span>Events</span></span><span class="enscrolled-after"></span></div>
         <div class="event-entry">
           <div class="event-reward">
@@ -77,7 +77,7 @@
     </div>
   </div>
 
-  <div id="world-map-container" class="panel">
+  <div id="world-map-container" class="panel lighter-background">
     <div id="world-map-header"><span class="enscrolled-before"></span><span class="enscrolled"><span>World Map</span></span><span class="enscrolled-after"></span></div>
     <div id="world-map">
       <div id="fog-overlay" style="content: url({{ url_for('static', filename='temp/art/Maps/fog-%s.png' % fog_number) }}); width:560px;height:560px;margin:0 auto;"></div>

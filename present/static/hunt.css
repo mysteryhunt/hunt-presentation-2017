@@ -17,10 +17,17 @@ body {
 
 .panel {
   position: relative;
-  background-color: papayawhip;
   border: 3px #665F4F solid;
   border-radius: 25px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.scroll-color-background {
+  background-color: rgb(209, 183, 128);
+}
+
+.lighter-background {
+  background-color: papayawhip;
 }
 
 .white-background {
