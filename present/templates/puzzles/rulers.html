@@ -1,0 +1,62 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}Rulers{% endblock %}
+{% block puzzle_name_block %}Rulers{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    @media screen {
+      #image01 {
+        width: 844px;
+      }
+
+      .rulers-container img {
+        vertical-align: top;
+        width: 176px;
+      }
+      
+    }
+
+    @media print {
+      #image01container {
+        page-break-before: always;
+      }
+
+      .rulers-container {
+        page-break-after: always;
+      }
+
+      img#image01 {
+        width: 8in;
+        height: 12.14in;
+      }
+
+      .rulers-container img {
+        width: 1.668in;
+      }
+    }
+
+  </style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+  The troupe is holding auditions, but you're not sure if you can measure up.
+{% endblock %}
+
+{% block puzzle_content_block %}
+  <div>
+    <div id="image01container">
+      <img id="image01" src="{{ asset_url_for('rulers/image01.png') }}">
+    </div>
+    <div class="rulers-container">
+      <img id="image02" src="{{ asset_url_for('rulers/image02.png') }}">
+      <img id="image03" src="{{ asset_url_for('rulers/image03.png') }}">
+      <img id="image04" src="{{ asset_url_for('rulers/image04.png') }}">
+    </div>
+    <div class="rulers-container">
+      <img id="image05" src="{{ asset_url_for('rulers/image05.png') }}">
+      <img id="image06" src="{{ asset_url_for('rulers/image06.png') }}">
+      <img id="image07" src="{{ asset_url_for('rulers/image07.png') }}">
+      <img id="image08" src="{{ asset_url_for('rulers/image08.png') }}">
+    </div>
+  </div>
+{% endblock %}

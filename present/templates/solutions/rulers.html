@@ -1,0 +1,98 @@
+{% extends "solutions/solution_layout.html" %}
+{% block title_block %}Rulers: Solution{% endblock %}
+{% block puzzle_name_block %}Rulers: Solution{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    table, th, td {
+      padding: 4px;
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+    .center {
+      text-align: center;
+    }
+  </style>
+{% endblock %}
+
+{% block solution_content_block %}
+  <div>
+    <p>
+      Each of the pictured rulers can connect two - and only two - of the given
+      boxes. The two boxes form a rebus that clues the nickname of an actual
+      ruler whose name is the same length as the associated ruler. The numbers
+      on each ruler identify the two letters from that name that can be used (in
+      the associated numerical position) in the final message.
+    </p>
+    <table>
+      <tr>
+        <th>Ruler Length</th>
+        <th>Rebus</th>
+        <th>Nickname</th>
+        <th>Name</th>
+        <th>Ruler Numbers</th>
+        <th>Letters</th>
+      </tr>
+      <tr>
+        <td class="center">4</td>
+        <td>P low + 1 cent</td>
+        <td>PLOWPENNY</td>
+        <td>ERIC</td>
+        <td class="center">4 _ 8 _</td>
+        <td class="center">E,I</td>
+      </tr>
+      <tr>
+        <td class="center">5</td>
+        <td>f or k + bear D</td>
+        <td>FORK-BEARD</td>
+        <td>SWEYN</td>
+        <td class="center">_ _ _ 7 9</td>
+        <td class="center">Y,N</td>
+      </tr>
+      <tr>
+        <td class="center">6</td>
+        <td>E w/ bar + 12 in.</td>
+        <td>BAREFOOT</td>
+        <td>MAGNUS</td>
+        <td class="center">_ _ 12 _ 1 _</td>
+        <td class="center">G,U</td>
+      </tr>
+      <tr>
+        <td class="center">7</td>
+        <td>L ion + heart</td>
+        <td>LIONHEART</td>
+        <td>RICHARD</td>
+        <td class="center">3 _ _ 13 _ _ _</td>
+        <td class="center">R,H</td>
+      </tr>
+      <tr>
+        <td class="center">8</td>
+        <td>bi G + northeast ST</td>
+        <td>BIG NEST</td>
+        <td>VSEVOLOD</td>
+        <td class="center">_ _ 10 _ _ _ _ 6</td>
+        <td class="center">E,D</td>
+      </tr>
+      <tr>
+        <td class="center">9</td>
+        <td>S lit + no southeast</td>
+        <td>SLIT-NOSE</td>
+        <td>JUSTINIAN</td>
+        <td class="center">_ _ _ _ 11 _ _ 5 _</td>
+        <td class="center">I,A</td>
+      </tr>
+      <tr>
+        <td class="center">11</td>
+        <td>dun G + name D</td>
+        <td>DUNG-NAMED</td>
+        <td>CONSTANTINE</td>
+        <td class="center">_ _ 2 _ _ _ _ 14 _ _ _</td>
+        <td class="center">N,T</td>
+      </tr>
+    </table>
+    <p>
+      The selected letters, in order, spell UNREADY IN EIGHT, which
+      clues <b>ETHELRED</b> the Unready.
+    </p>
+  </div>
+{% endblock %}
