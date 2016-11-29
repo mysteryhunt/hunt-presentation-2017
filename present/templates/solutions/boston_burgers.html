@@ -1,0 +1,118 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'wizard' %}
+{% block title_block %}Boston Burgers: Solution{% endblock %}
+{% block puzzle_name_block %}Boston Burgers: Solution{% endblock %}
+{% block byline %}By Connor Stokes{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  .name {
+    padding-left: 12px;
+  }
+
+  .price {
+    padding-left: 12px;
+  }
+
+  table.center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  td {
+    padding-bottom: 6px;
+  }
+
+  .red {
+    color: #E00000;
+    font-weight: bold;
+  }
+
+  .answer-table {
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<div>
+  <p>Though the puzzle is made to look like a Boston Burger Company menu, each of the burger descriptions is actually an invented description for one of the burger specials that appears on Bob's Burgers. A listing of those specials can be found
+    <a href="http://bobs-burgers.wikia.com/wiki/Burger_of_the_Day">here</a>. The dollar amount in each price corresponds to the season in which the burger appeared (to aid research), and the cent amount is an index into the burger name.</p>
+  <div class="answer-table">
+  <table class="center">
+    <tr>
+      <th>Description</th>
+      <th class="price">Price</th>
+      <th class="name">Burger of the Day</th>
+    </tr>
+    <tr>
+      <td>When you're short on your dough you can have a good meal with this burger - comes on rye with mustard, cheese, and avocado.</td>
+      <td class="price">2.22</td>
+      <td class="name">It's fun to eat at the rYeMC<span class="red">A</span> Burger</td>
+    </tr>
+    <tr>
+      <td>Topped with mint relish that we totally added on purpose, we swear</td>
+      <td class="price">3.04 </td>
+      <td class="name">I Mi<span class="red">N</span>t to Do That Burger</td>
+    </tr>
+    <tr>
+      <td>Comes with bok choy, and the rest of the toppings are up to you</td>
+      <td class="price">3.14</td>
+      <td class="name">Freedom of Choy<span class="red">S</span> Burger</td>
+    </tr>
+    <tr>
+      <td>Topped with a fig, pairs well with a white russian</td>
+      <td class="price">6.08</td>
+      <td class="name">Fig Lebo<span class="red">W</span>ski Burger</td>
+    </tr>
+    <tr>
+      <td>Start your weekend right with this burger topped with a fried egg</td>
+      <td class="price">1.17</td>
+      <td class="name">Thank God It's Fried <span class="red">E</span>gg Burger</td>
+    </tr>
+    <tr>
+      <td>Topped with scallions. We've remade it this burger and it's better than it was before</td>
+      <td class="price">5.20</td>
+      <td class="name">The Six Scallion Dolla<span class="red">R</span> Man Burger</td>
+    </tr>
+    <tr>
+      <td>Rum glazed burger topped with marrow and pepper jack cheese </td>
+      <td class="price">6.16 </td>
+      <td class="name">Captain Pepper Ja<span class="red">C</span>k Marrow Burger</td>
+    </tr>
+    <tr>
+      <td>Cheeseburger with four different kinds of melted cheddar. If you like this one, try our special breakfast Club Sandwich!</td>
+      <td class="price">3.02</td>
+      <td class="name">D<span class="red">O</span>n't You Four Cheddar 'Bout Me Burger</td>
+    </tr>
+    <tr>
+      <td>Topped with cumin and locally grown cauliflower (extremely local)</td>
+      <td class="price">4.17</td>
+      <td class="name">The Cauliflower's C<span class="red">U</span>min from Inside the House Burger</td>
+    </tr>
+    <tr>
+      <td>Comes on a buttered bun, topped with Swiss cheese and a small Olive</td>
+      <td class="price">2.18</td>
+      <td class="name">Little Swiss Bunshi<span class="red">N</span>e Burger</td>
+    </tr>
+    <tr>
+      <td>Comes on our best seven-grain bun (no geese were harmed in the making of this burger)</td>
+      <td class="price">3.01</td>
+      <td class="name"><span class="red">T</span>op Bun Burger</td>
+    </tr>
+    <tr>
+      <td>Hard boiled egg, mayonnaise, mustard, black pepper and paprika. Perfect for a man of wealth and taste</td>
+      <td class="price">4.14</td>
+      <td class="name">Sympathy for th<span class="red">E</span> Deviled Egg Burger</td>
+    </tr>
+    <tr>
+      <td>Softly constructed with boiled beans and cauliflower</td>
+      <td class="price">1.08</td>
+      <td class="name">Salvado<span class="red">R</span> Cauliflower Burger</td>
+    </tr>
+  </table>
+</div>
+  <p>The indexed letters read ANSWER COUNTER, giving the puzzle's answer: <b>COUNTER</b></p>
+</div>
+{% endblock %}

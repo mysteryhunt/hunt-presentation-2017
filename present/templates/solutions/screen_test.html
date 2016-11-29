@@ -1,0 +1,95 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'thespians' %}
+{% block title_block %}Screen Test: Solution{% endblock %}
+{% block puzzle_name_block %}Screen Test: Solution{% endblock %}
+{% block byline %}By Guy Jacobson{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    .mono {
+      font-family: "Roboto Mono", Monaco, monospace;
+      font-weight: 400;
+    }
+  </style>
+{% endblock %}
+
+{% block solution_content_block %}
+  <div>
+    <p>
+      This is a twist on those
+      old <a href="https://en.wikipedia.org/wiki/Ditloid">ditloid puzzles</a>
+      where you are given "equations" that use only the initial letters of the
+      significant words, like "200 = D for P G in M" and you have to work out
+      that this means "Dollars for Passing Go in Monopoly". (This type of puzzle
+      was originated by Will Shortz in the May-June 1981 issue of <em>Games
+      Magazine</em>, where he called
+      it <a href="http://www.gamesmagazine-online.com/gameslinks/equationanalysis.html">Equations
+      Analysis Test</a>.)
+    </p>
+    <p>
+      The variation here is that there is a bijective cryptarithm used to map
+      the initial letters into the digits 0-9 and vice versa.
+    </p>
+    <p>
+      Solvers first need to figure out the cryptarithm mapping used here, which
+      is:
+    </p>
+    <blockquote>
+      <div class="mono">
+        <table>
+          <tr><td>  0 1 2 3 4 5 6 7 8 9</td></tr>
+          <tr><td>  P A F W T D S B H C</td></tr>
+        </table>
+      </div>
+    </blockquote>
+    <p>
+      Solvers must apply this two-way mapping to the given equations to work out
+      the full words in each one. The subscripts (which naturally become digits
+      when you apply the mapping) specify an index into the associated word,
+      indicating which letter from that word to use.
+    </p>
+    <blockquote>
+      <div class="mono">
+        N: 52 = Playing<sub>6</sub> Cards in a Deck<BR>
+        I: 32 = Degrees Fahrenheit<sub>9</sub> at which Water Freezes<BR>
+        N: 4 = Horsemen<sub>8</sub> of the Apocalypse <BR>
+        E: 37 = Plays Written by William Shakespeare<sub>5</sub><BR>
+        O: 99 = Bottles<sub>2</sub> of Beer on the Wall<BR>
+        N: 76 = Trombones<sub>7</sub> that led the Big Parade<BR>
+        E: 1000 = Words that a Picture<sub>7</sub> is Worth<BR>
+        Z: 13 = Bakers Dozen<sub>3</sub><BR>
+        E: 7 = Wonders of the Ancient<sub>5</sub> World<BR>
+        R: 24 = Blackbirds<sub>8</sub> Baked in an Pie<BR>
+        O: 6 = Degrees of Separation<sub>9</sub><BR>
+        F: 7 = Dwarfs<sub>5</sub> in Snow White<BR>
+        O: 168 = Hours<sub>2</sub> in a Week<BR>
+        U: 28 = Days in February<sub>5</sub><BR>
+        R: 64 = Squares on a Chess Board<sub>4</sub><BR>
+        N: 9 = Planets<sub>4</sub> in the Solar System (including Pluto!)<BR>
+        I: 7 = Brides<sub>3</sub> for 7 Brothers<BR>
+        N: 13 = Stripes on the American<sub>8</sub> Flag<BR>
+        E: 100 = Cents (or Pennies<sub>2</sub>) in a Dollar<BR>
+        E: 7 = Days in a Week (or 8, in the Beatles<sub>2</sub> Song)<BR>
+        I: 12 = Days of Christmas<sub>4</sub><BR>
+        G: 180 = Degrees in a Triangle<sub>6</sub><BR>
+        H: 23 = Pairs of Chromosomes<sub>2</sub> in the Human Body<BR>
+        T: 101 = Dalmatians<sub>6</sub><BR>
+        O: 11 = Players on a Football<sub>2</sub> Team<BR>
+        N: 4 = Weddings and a Funeral<sub>3</sub><BR>
+        E: 1 = Point for a Free Throw in Basketball<sub>5</sub><BR>
+      </div>
+    </blockquote>
+    <p>
+      The sequence of letters selected in this way, in order, spells out
+      NINE ONE ZERO FOUR NINE EIGHT ONE. Applying the cryptarithm mapping from digits to
+      letters to <span class="mono">9104981</span> yields <B>CAPTCHA</B>,
+      which is the answer to this puzzle.
+    </p>
+    <p>
+      Note that a <a href="https://en.wikipedia.org/wiki/CAPTCHA">CAPTCHA</a> is
+      a kind of "screen test", in that it's a test presented on a (computer)
+      screen, and it is intended to stop "bad actors" (in the sense of "people
+      who do bad things"): bot programmers who try to hack in to web sites.
+    </p>
+  </div>
+{% endblock %}

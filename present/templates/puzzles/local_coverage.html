@@ -1,0 +1,23 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_round_id = 'economist' %}
+{% block title_block %}Local Coverage{% endblock %}
+{% block puzzle_name_block %}Local Coverage{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    img.i {
+      outline: 1px solid black;
+    }
+  </style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+  The Economist has had a lot of papers published over the years, but rarely in
+  proper publications.
+{% endblock %}
+
+{% block puzzle_content_block %}
+  <div>
+    <img class="i" src="{{ asset_url_for('local_coverage/image01.png') }}">
+  </div>
+{% endblock %}

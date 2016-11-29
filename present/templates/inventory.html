@@ -1,9 +1,13 @@
 {% extends "puzzles/puzzle_layout.html" %}
-{% block title_block %}Full Inventory{% endblock %}
-{% block puzzle_name_block %}Full Inventory{% endblock %}
+{% block title_block %}Inventory{% endblock %}
+{% block puzzle_name_block %}Inventory{% endblock %}
+{% block header_content %}{% endblock %}
+
 
 {% block puzzle_content_block %}
 <div>
-  {{ inventory.inventory_listing() }}
+  {{ inventory.inventory_listing(
+        puzzle_visibilities.get('merchants',{}).get('status','') == 'SOLVED',
+        team_properties.get('teamProperties',{}).get('InventoryProperty',{}) if team_properties else {}) }}
 </div>
 {% endblock %}

@@ -1,0 +1,56 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_round_id = 'warlord' %}
+{% block title_block %}Housekeeping{% endblock %}
+{% block puzzle_name_block %}Housekeeping{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  .row {
+    margin: auto;
+    text-align: center;
+  }
+
+  img {
+    width: 180px;
+    margin: 16px;
+  }
+</style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+The warlord has conquered many lands, but it can be a burden to keep track of all his houses.
+{% endblock %}
+
+{% block puzzle_content_block %}
+<div>
+  <div class="row">
+    <img src="{{ asset_url_for('housekeeping/01.png') }}">
+    <img src="{{ asset_url_for('housekeeping/02.png') }}">
+    <img src="{{ asset_url_for('housekeeping/03.png') }}">
+  </div>
+  <div class="row">
+    <img src="{{ asset_url_for('housekeeping/04.png') }}">
+    <img src="{{ asset_url_for('housekeeping/05.png') }}">
+    <img src="{{ asset_url_for('housekeeping/06.png') }}">
+    <img src="{{ asset_url_for('housekeeping/07.png') }}">
+  </div>
+  <div class="row">
+    <img src="{{ asset_url_for('housekeeping/08.png') }}">
+    <img src="{{ asset_url_for('housekeeping/09.png') }}">
+    <img src="{{ asset_url_for('housekeeping/10.png') }}">
+    <img src="{{ asset_url_for('housekeeping/11.png') }}">
+  </div>
+  <div class="row">
+    <img src="{{ asset_url_for('housekeeping/12.png') }}">
+    <img src="{{ asset_url_for('housekeeping/13.png') }}">
+    <img src="{{ asset_url_for('housekeeping/14.png') }}">
+    <img src="{{ asset_url_for('housekeeping/15.png') }}">
+  </div>
+  <div class="row">
+    <img src="{{ asset_url_for('housekeeping/16.png') }}">
+    <img src="{{ asset_url_for('housekeeping/17.png') }}">
+    <img src="{{ asset_url_for('housekeeping/18.png') }}">
+    <img src="{{ asset_url_for('housekeeping/19.png') }}">
+  </div>
+</div>
+{% endblock %}

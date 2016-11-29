@@ -1,0 +1,17 @@
+{% extends "rounds/quest_round_layout.html" %}
+{% block title_block %}The Broken Bridge{% endblock %}
+{% block round_name %}The Broken Bridge{% endblock %}
+
+{% block round_flavortext %}
+<p>The residents of this village are distraught; their home is divided into two islands connected by a rickety bridge, and their existence depends on crossing it carefully, step by step, on a daily basis. But after an unfortunate visit by a dragon, the bridge has taken damage in multiple places and is now unusable.</p>
+
+<p><span class="round_question">What magical item can you use to solve this problem?</span></p>
+{% endblock %}
+
+{% block round_puzzle_entries %}
+<div class="puzzle-list-column">
+  {% for puzzle_id in ['bridge1','bridge2','bridge3','bridge4','bridge5','bridge6','bridge7','bridge8','bridge9','bridge10','bridge11','bridge12','bridge13','bridge14','bridge15','bridge16'] %}
+    {{ puzzle_entry(puzzle_id, puzzle_properties, puzzle_visibilities) }}
+  {% endfor %}
+</div>
+{% endblock %}

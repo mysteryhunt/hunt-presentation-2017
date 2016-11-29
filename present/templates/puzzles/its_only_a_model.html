@@ -1,0 +1,82 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_round_id = 'dungeon' %}
+{% block title_block %}It's Only a Model{% endblock %}
+{% block puzzle_name_block %}It's Only a Model{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    .a {
+      display: flex;
+      align-items: center;
+      margin-bottom: 32px;
+    }
+    @media print {
+      .a {
+        page-break-after: always;
+      }
+    }
+    .b {
+      width: 500px;
+    }
+    .c {
+      margin-left: 32px;
+    }
+    .i {
+      font-style: italic;
+    }
+  </style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+  You come across a tapestry hanging on a wall of the dungeon, depicting a
+  jousting tournament. Knights charge enthusiastically against their opponents,
+  while pennants flutter gaily in the background.
+{% endblock %}
+
+{% block puzzle_content_block %}
+  <div>
+    <div class="a">
+      <img class="b" src="{{ asset_url_for('its_only_a_model/Board01.png') }}">
+      <span class="c">Win in 1 ({5,6} of 8)</span>
+    </div>
+    <div class="a">
+      <img class="b" src="{{ asset_url_for('its_only_a_model/Board02.png') }}">
+      <span class="c">Win in 2 ({2,6} of 7)</span>
+    </div>
+    <div class="a">
+      <img class="b" src="{{ asset_url_for('its_only_a_model/Board03.png') }}">
+      <span class="c">Win in 3 ({1,8} of 9</span>
+    </div>
+    <div class="a">
+      <img class="b" src="{{ asset_url_for('its_only_a_model/Board04.png') }}">
+      <span class="c">Win in 1 ({2,3} of 8)</span>
+    </div>
+    <div class="a">
+      <img class="b" src="{{ asset_url_for('its_only_a_model/Board05.png') }}">
+      <span class="c">Win in 2 ({1,2} of 9)</span>
+    </div>
+    <div class="a">
+      <img class="b" src="{{ asset_url_for('its_only_a_model/Board06.png') }}">
+      <span class="c">Win in 3 ({6,7} of 10)</span>
+    </div>
+    <div class="a">
+      <img class="b" src="{{ asset_url_for('its_only_a_model/Board07.png') }}">
+      <span class="c">Win in 1 ({2,3} of 10)</span>
+    </div>
+    <div class="a">
+      <img class="b" src="{{ asset_url_for('its_only_a_model/Board08.png') }}">
+      <span class="c">Win in 2 ({1,6} of 11)</span>
+    </div>
+    <div class="a">
+      <img class="b" src="{{ asset_url_for('its_only_a_model/Board09.png') }}">
+      <span class="c">Win in 3 ({3,10} of 12)</span>
+    </div>
+    <div class="a">
+      <img class="b" src="{{ asset_url_for('its_only_a_model/Board10.png') }}">
+      <span class="c">Win in 4 ({4,8} of 13)</span>
+    </div>
+    <p class="i">
+      (N.B. If you find yourself asking, use the current rules.)
+    </p>
+  </div>
+{% endblock %}

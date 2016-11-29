@@ -1,4 +1,18 @@
 {% extends "overall_layout.html" %}
+
+{% macro generate_background(round_id) %}
+  {% set character_colors = {'fighter': '#b49674', 'wizard': '#3079bd', 'cleric': '#853e3e',
+          'linguist': '#594366', 'chemist': '#8ac664', 'economist':'#696969' } %}
+  {% if round_id in ['fighter','wizard','cleric','linguist','chemist','economist'] %}
+    <div id="character-round-background-container"></div>
+    <div id="character-round-background-overlay-container" style="background-color: {{ character_colors.get(round_id) }};"></div>
+  {% elif round_id in ['dynast','dungeon','thespians','bridge','criminal','minstrels','cube','warlord'] %}
+    <div id="quest-round-background-container"></div>
+  {% else %}
+    <div id="quest-round-background-container"></div>
+  {% endif %}
+{% endmacro %}
+
 {% block styling_block %}
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='puzzle.css') }}">
     {% block puzzle_head_block %}{% endblock %}
@@ -9,9 +23,13 @@
 {% endblock %}
 
 {% block overall_layout_body %}
+  {{ generate_background(puzzle_round_id) }}
   <div id="puzzle-container">
     <div id="header">
-      <span class="enscrolled"><span>{% block puzzle_name_block %}{% endblock %}</span></span>
+      <span class="enscrolled-90px-before"></span><span class="enscrolled-90px"><span>{% block puzzle_name_block %}{% endblock %}</span></span><span class="enscrolled-90px-after"></span>
+    </div>
+    <div id="byline">
+      {% block byline %}{% endblock %}
     </div>
     <div id="puzzle-content">
       {% block solution_content_block %}{% endblock %}

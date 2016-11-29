@@ -1,0 +1,73 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_round_id = 'criminal' %}
+{% block title_block %}Mr. Y Hunt{% endblock %}
+{% block puzzle_name_block %}Mr. Y Hunt{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    .c {
+      display: flex;
+      align-items: center;
+    }
+    .a {
+      height: 100px;
+      margin-right: 8px;
+    }
+  </style>
+{% endblock %}
+
+
+{% block puzzle_flavortext_block %}
+  Apparently, this criminal used to be on the lam in London and even their best
+  detectives couldn't catch him.
+{% endblock %}
+
+{% block puzzle_content_block %}
+  <div>
+    <div class="c">
+      <img src="{{ asset_url_for('mr_y_hunt/1.png') }}" class="a">
+      <span>
+        "He always manages to be hiding SOMEPLACE OBVIOUS, and yet he still
+        pulls off a miraculous ESCAPE."
+      </span>
+    </div>
+    <div class="c">
+      <img src="{{ asset_url_for('mr_y_hunt/2.png') }}" class="a">
+      <span>
+        "It's a slippery SLOPE to obsession. I MEAN, if you even MENTION his
+        name, it stirs up an incredible FERVOR in me."
+      </span>
+    </div>
+    <div class="c">
+      <img src="{{ asset_url_for('mr_y_hunt/3.png') }}" class="a">
+      <span>
+        "I thought our plan was AIRTIGHT, but then I swear I saw him getting on
+        a BUS wearing an ASCOT. I think I'm losing my SANITY."
+      </span>
+    </div>
+    <div class="c">
+      <img src="{{ asset_url_for('mr_y_hunt/4.png') }}" class="a">
+      <span>
+        "If my partner didn't have such a BIG MOUTH, we would've had a real
+        chance to CATCH this guy. I ought to BASTE him for his loose LIPS."
+      </span>
+    </div>
+    <div class="c">
+      <img src="{{ asset_url_for('mr_y_hunt/5.png') }}" class="a">
+      <span>
+        "When we catch this guy, he won't have a leg to STAND ON. Unfortunately,
+        last time I chased him I got STRANDED."
+      </span>
+    </div>
+    <div style="margin-top:20px">It looks like the criminal left this behind:</div>
+    <img src="{{ asset_url_for('mr_y_hunt/left_behind.jpg') }}" style="width:100%">
+    <br>
+    <a href="{{ asset_url_for('mr_y_hunt/printable_map.pdf') }}">Printable Map</a>
+    <br>
+    (<a href="https://www.ravensburger.de/spielanleitungen/ecm/Spielanleitungen/231251%20anl%201326321.pdf">Ravensburger 2013 rules</a>)
+    <br>
+    <a href="{{ asset_url_for('mr_y_hunt/map.jpg') }}">
+      <img src="{{ asset_url_for('mr_y_hunt/map.jpg') }}" style="width:100%">
+    </a>
+  </div>
+{% endblock %}

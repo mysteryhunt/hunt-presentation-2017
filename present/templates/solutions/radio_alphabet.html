@@ -1,0 +1,71 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'warlord' %}
+{% block title_block %}Radio Alphabet: Solution{% endblock %}
+{% block puzzle_name_block %}Radio Alphabet: Solution{% endblock %}
+{% block byline %}By Jeff Roberts{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    ul {
+      list-style: none;
+    }
+  </style>
+{% endblock %}
+
+{% block solution_content_block %}
+  <div>
+    <p>
+      Each "radio" is a clip from a specific song by a specific artist (though
+      some songs share the same title). The images at the bottom clue the
+      artists that are used, obliquely in some cases, but assigning a particular
+      letter to each artist. Using the images as a "key" allows the audio clip
+      "cyphertext" to be decoded.
+    </p>
+    <p>
+      The key matches letters to artists/songs as follows:
+    </p>
+    <ul>
+      <li>A - Van Morrison, Brown Eyed Girl</li>
+      <li>B - REM, Radio Free Europe</li>
+      <li>C - Lisa Loeb, Stay (I Missed You)</li>
+      <li>D - Florida Georgia Line, Girl on the Radio</li>
+      <li>E - Queen, Radio Ga Ga</li>
+      <li>F - Regina Spektor, On the Radio</li>
+      <li>G - Autograph, Turn Up the Radio</li>
+      <li>H - Gym Class Heroes, Stereo Hearts</li>
+      <li>I - Jurassic 5, Radio</li>
+      <li>J - The Carpenters, Yesterday Once More</li>
+      <li>K - Sam Cooke, Having a Party</li>
+      <li>L - Elvis Costello, Radio Radio</li>
+      <li>M - Scissor Sisters, Tits on the Radio</li>
+      <li>N - Train, Hey Soul Sister</li>
+      <li>O - Wang Chung, Everybody Have Fun Tonight</li>
+      <li>P - Wall of Voodoo, Mexican Radio</li>
+      <li>Q - The Ramones, Do You Remember Rock N Roll Radio</li>
+      <li>R - Donna Summer, On the Radio</li>
+      <li>S - Talking Heads, Radio Head</li>
+      <li>T - The Buggles, Video Killed the Radio Star</li>
+      <li>U - Madonna, Turn Up the Radio</li>
+      <li>V - Jonathan Richman and the Modern Lovers - Roadrunner</li>
+      <li>W - Good Charlotte, Sex on the Radio</li>
+      <li>X - Twenty-One Pilots, Car Radio</li>
+      <li>Y - The Beach Boys, Fun Fun Fun</li>
+      <li>Z - Bowling for Soup, 1985</li>
+    </ul>
+    <p>
+      Using the key, the clips decode to the following:
+      WOLFPACKLEADEREXAHERTZFREQUENCYBEAMPERUVIANCAPITALGREEKNYMPHCURSEDBYJUNO
+    </p>
+    <p>
+      That sequence of letters parses into clues leading to words used to code
+      letters in the NATO Phonetic Alphabet (i.e., the actual "Radio Alphabet").
+    </p>
+    <ul>
+      <li>WOLF PACK LEADER = Alpha</li>
+      <li>EXAHERTZ FREQUENCY BEAM = X-Ray</li>
+      <li>PERUVIAN CAPITAL = Lima</li>
+      <li>GREEK NYMPH CURSED BY JUNO = Echo</li>
+    </ul>
+    <p>The letters spell the answer, <b>AXLE</b>.</p>
+  </div>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_round_id = 'minstrels' %}
+{% block title_block %}Smart Moves{% endblock %}
+{% block puzzle_name_block %}Smart Moves{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    td {
+      font-size: 1.5em;
+    }
+  </style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+  As the minstrels play, groups of dancers enter and perform with scientific
+  precision. You wonder just what they are supposed to represent, and realize
+  that the video has been doctored to some degree.
+{% endblock %}
+
+{% block puzzle_content_block %}
+  <div>
+    <table>
+      <tr><td></td><td></td><td></td><td></td><td>__</td><td>__</td><td>__</td><td>__</td><td>__</td><td>__</td><td>E</td><td>__</td>
+      </tr>
+      <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>__</td><td>N</td><td>__</td><td>__</td><td>__</td><td>__</td><td>__</td>
+      </tr>
+      <tr><td></td><td></td><td></td><td></td><td></td><td>__</td><td>__</td><td>__</td><td>__</td><td>__</td><td>T</td><td>__</td><td>__</td>
+      </tr>
+      <tr><td></td><td></td><td></td><td></td><td></td><td></td><td>__</td><td>__</td><td>__</td><td>__</td><td>R</td><td>__</td><td>__</td><td>__</td><td>__</td><td>__</td><td>__</td>
+      </tr>
+      <tr><td>__</td><td>__</td><td>__</td><td>__</td><td>__</td><td>__</td><td>__</td><td>__</td><td>__</td><td>__</td><td>I</td><td>__</td>
+      </tr>
+      <tr><td></td><td></td><td></td><td></td><td></td><td></td><td>__</td><td>__</td><td>__</td><td>__</td><td>E</td><td>__</td><td>__</td><td>__</td>
+      </tr>
+      <tr><td></td><td></td><td></td><td></td><td>__</td><td>__</td><td>__</td><td>__</td><td>__</td><td>__</td><td>S</td>
+      </tr>
+    </table>
+    <br>
+    <video src="{{ asset_url_for('smart_moves/video.mp4') }}" width="854" controls>
+      Your browser does not support HTML5 video.
+      <a href="{{ asset_url_for('smart_moves/video.mp4') }}">Download Video</a>
+    </video>
+  </div>
+{% endblock %}

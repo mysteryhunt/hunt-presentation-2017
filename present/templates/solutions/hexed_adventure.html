@@ -1,0 +1,3634 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'dynast' %}
+{% block title_block %}Hexed Adventure: Solution{% endblock %}
+{% block puzzle_name_block %}Hexed Adventure: Solution{% endblock %}
+{% block byline %}By Matt Gruskin and Alex Rosenthal{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+    table {
+      margin: 8px;
+    }
+  </style>
+{% endblock %}
+
+{% block solution_content_block %}
+  <div>
+    <p>
+      This puzzle takes the form of an Infocom-style interactive fiction text
+      adventure game.
+    </p>
+    <p>
+      The game world is divided into four kingdoms. At the beginning of the game,
+      the player only has access to the first kingdom (named
+      &quot;Crimsilon&quot;), but as the player completes portions of the game,
+      their &quot;passport&quot; is updated to allow them to explore more of the
+      world and solve more challenges.
+    </p>
+    <p>
+      The kingdoms (and their challenges) in order are:
+    </p>
+    <ol>
+      <li><b>Crimsilon</b>: steal a tiara from a castle (thieving)
+      <li><b>Cerulia</b>: rescue a king from the desert, by creating vehicles to
+        reach him (crafting)
+        <li><b>Merrygold</b>: conduct a series of trades to obtain a home (trading)
+        <li><b>Blanc</b>: combine information gathered from the rest of the game to
+          derive a secret message
+    </ol>
+    <p>
+      Read through the game transcript at the bottom of this solution to learn how
+      to complete each of these challenges, by gathering and using items and
+      interacting with the non-player characters in the game.
+    </p>
+    <p>
+      Throughout the game, there are many discoveries that should suggest to the
+      player that they are actually wandering around inside of a game of Settlers
+      of Catan! These discoveries include:
+    </p>
+    <ul>
+      <li>the structure of the world (the player is always walking on roads on the
+        edges of hexagons, and visiting locations at vertices of the hexagons, and
+        the player may only travel &quot;ahead to the left&quot;, &quot;ahead to the
+        right&quot; and &quot;behind you&quot;)
+      <li>thematic elements (the presence of Catan terrain and Catan resources in
+        the world)
+      <li>the existence of four different &quot;kingdoms&quot; representing the
+        four players of the board game, that each control a separate set of roads and
+        settlements
+    </ul>
+    <p>
+      Here's a map of the game world, as set up on a Settlers of Catan game
+      board. A few of the settlements that appear on this map are actually cities
+      (as indicated by the presence of multiple buildings in-game), even though
+      they are settlements in this photo - the city locations are the Condo
+      Association, the Ranger Station, the RV Park, the Surf Resort, the
+      Blacksmith, and the Farm.
+    </p>
+    <img src="{{ asset_url_for('hexed_adventure/map.jpg') }}" width="900px">
+    <p>
+      While playing through the game, the player can determine the placement of
+      roads and settlements based on the directions in which they're traveling, and
+      can determine the type of resource associated with each hexagon tile based on
+      the location descriptions.
+    </p>
+    <p>
+      The die roll numbers associated with hexagon tiles are hidden in signs posted
+      around the island, according to the following map and table:
+    </p>
+    <img src="{{ asset_url_for('hexed_adventure/signmap.jpg') }}" width="900px">
+    <table>
+      <tr>
+        <th>Number</th>
+        <th>Terrain type</th>
+        <th>Sign text</th>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>pasture</td>
+        <td>Sheep ne<b>two</b>rking function, last Saturday of the month</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>fields</td>
+        <td>posted: the commonweal<b>th re-e</b>lects the Queen of Blanc</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>forest</td>
+        <td>Lots of gingkos here: pa<b>th ree</b>ks. Fair warning.</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>fields</td>
+        <td>Field O<b>f Our</b> Holy Crops</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>hills</td>
+        <td>In<b>fo Ur</b>chins give tours on the hour</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>hills</td>
+        <td>The &quot;Semper <b>Fi</b>&quot; <b>Ve</b>ldt</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>mountains</td>
+        <td>the steepest clif<b>f I've</b> ever seen</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>fields</td>
+        <td>King's Field<b>s IX</b>-XIV</td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>fields</td>
+        <td>Fr<b>eight</b> Passage</td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>pasture</td>
+        <td>Winter s<b>leigh t</b>urnoff ahead</td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>hills</td>
+        <td>Hey noob, gain your balance i<b>n ine</b>xperienced surfer training area! On the other side of the hills.</td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>forest</td>
+        <td>Tan<b>nin E</b>cology Center</td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td>forest</td>
+        <td>Hal<b>t</b>! <b>En</b>dangered species habitat. No entry.</td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td>pasture</td>
+        <td>Sheep are <b>ten</b>der animals. Please pet gently.</td>
+      </tr>
+      <tr>
+        <td>11</td>
+        <td>pasture</td>
+        <td>When are squirr<b>el even</b>ings?</td>
+      </tr>
+      <tr>
+        <td>11</td>
+        <td>mountains</td>
+        <td>High <b>elev</b>. <b>En</b>joy view at own risk.</td>
+      </tr>
+      <tr>
+        <td>12</td>
+        <td>forest</td>
+        <td>George H. A<b>twel Ve</b>getable Grove</td>
+      </tr>
+    </table>
+    <p>
+      The solver should also notice that the Cerulia player has the longest road,
+      and that the Merrygold locations have a lot of soliders standing around
+      (largest army). Based on all of these observations, the score of each Catan
+      player can be determined:
+    </p>
+    <table>
+      <tr>
+        <th>Player</th>
+        <th>Longest road points</th>
+        <th>Largest army points</th>
+        <th>Settlement points</th>
+        <th>City points</th>
+        <th>Total points</th>
+      </tr>
+      <tr>
+        <td>Cerulia</td>
+        <td>2</td>
+        <td></td>
+        <td>2</td>
+        <td>6</td>
+        <td>10</td>
+      </tr>
+      <tr>
+        <td>Merrygold</td>
+        <td></td>
+        <td>2</td>
+        <td>3</td>
+        <td>2</td>
+        <td>7</td>
+      </tr>
+      <tr>
+        <td>Crimsilon</td>
+        <td></td>
+        <td></td>
+        <td>1</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td>Blanc</td>
+        <td></td>
+        <td></td>
+        <td>2</td>
+        <td></td>
+        <td>2</td>
+      </tr>
+    </table>
+    <p>
+      A sequence of thirty die rolls is provided by following the Queen of
+      Crimsilon's instructions to &quot;look up&quot; throughout the game. The
+      solver will always see a number of stars from 2 to 12, indicating the die
+      roll.
+    </p>
+    <table>
+      <tr>
+        <th>Day Number</th>
+        <th>Die Roll</th>
+      </tr>
+      <tr><td>1</td><td>9</td></tr>
+      <tr><td>2</td><td>10</td></tr>
+      <tr><td>3</td><td>9</td></tr>
+      <tr><td>4</td><td>10</td></tr>
+      <tr><td>5</td><td>3</td></tr>
+      <tr><td>6</td><td>6</td></tr>
+      <tr><td>7</td><td>8</td></tr>
+      <tr><td>8</td><td>8</td></tr>
+      <tr><td>9</td><td>4</td></tr>
+      <tr><td>10</td><td>7</td></tr>
+      <tr><td>11</td><td>3</td></tr>
+      <tr><td>12</td><td>5</td></tr>
+      <tr><td>13</td><td>10</td></tr>
+      <tr><td>14</td><td>8</td></tr>
+      <tr><td>15</td><td>5</td></tr>
+      <tr><td>16</td><td>5</td></tr>
+      <tr><td>17</td><td>9</td></tr>
+      <tr><td>18</td><td>10</td></tr>
+      <tr><td>19</td><td>4</td></tr>
+      <tr><td>20</td><td>8</td></tr>
+      <tr><td>21</td><td>2</td></tr>
+      <tr><td>22</td><td>7</td></tr>
+      <tr><td>23</td><td>6</td></tr>
+      <tr><td>24</td><td>3</td></tr>
+      <tr><td>25</td><td>8</td></tr>
+      <tr><td>26</td><td>11</td></tr>
+      <tr><td>27</td><td>12</td></tr>
+      <tr><td>28</td><td>8</td></tr>
+      <tr><td>29</td><td>11</td></tr>
+      <tr><td>30</td><td>10</td></tr>
+    </table>
+    <p>
+      After all of this information is gathered, the solver can use it to fill in
+      the grid written on their passport, by:
+    </p>
+    <ul>
+      <li>Associating the columns 1 through 4 with the Catan players in first
+        through fourth place
+      <li>Looking up the die roll associated with each day number
+      <li>Determining which types of resources are received by that player on that
+        die roll
+      <li>Marking these resources as received in the five rightmost columns of the
+        grid (each column corresponds to a Catan resource type: W is wool, B is
+        brick, O is ore, G is grain, and L is lumber)
+    </ul>
+
+    <table class="waffle" cellspacing="0" cellpadding="0">
+      <tbody><tr style='height:20px;'><th id="1092092417R0" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">1</div></th><td class="s0" dir="ltr">CERULIA</td><td class="s0" dir="ltr">MERRYGOLD</td><td class="s0" dir="ltr">CRIMSILON</td><td class="s0" dir="ltr">BLANC</td><td class="freezebar-cell"></td><td class="s0" dir="ltr">W</td><td class="s0" dir="ltr">B</td><td class="s0" dir="ltr">O</td><td class="s0" dir="ltr">G</td><td class="s1 softmerge" dir="ltr"><div class="softmerge-inner" style="left: -1px;">L</div></td></tr>
+        <tr><th style="height:3px" class="freezebar-cell freezebar-horizontal-handle"></th><td class="freezebar-cell"></td><td class="freezebar-cell"></td><td class="freezebar-cell"></td><td class="freezebar-cell"></td><td class="freezebar-cell"></td><td class="freezebar-cell"></td><td class="freezebar-cell"></td><td class="freezebar-cell"></td><td class="freezebar-cell"></td><td class="freezebar-cell"></td></tr>
+        <tr style='height:20px;'><th id="1092092417R1" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">2</div></th><td class="s2" dir="ltr">17</td><td class="s2" dir="ltr">4</td><td class="s2" dir="ltr">27</td><td class="s2" dir="ltr">15</td><td class="freezebar-cell"></td><td class="s3">X</td><td class="s3">X</td><td class="s0"></td><td class="s0"></td><td class="s3">X</td></tr>
+        <tr style='height:20px;'><th id="1092092417R2" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">3</div></th><td class="s2" dir="ltr">26</td><td class="s2" dir="ltr">30</td><td class="s2" dir="ltr">26</td><td class="s2" dir="ltr">7</td><td class="freezebar-cell"></td><td class="s3">X</td><td class="s0"></td><td class="s3">X</td><td class="s0"></td><td class="s3">X</td></tr>
+        <tr style='height:20px;'><th id="1092092417R3" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">4</div></th><td class="s2" dir="ltr">11</td><td class="s2" dir="ltr">27</td><td class="s2" dir="ltr">8</td><td class="s2" dir="ltr">14</td><td class="freezebar-cell"></td><td class="s3">X</td><td class="s0"></td><td class="s0"></td><td class="s3">X</td><td class="s3">X</td></tr>
+        <tr style='height:20px;'><th id="1092092417R4" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">5</div></th><td class="s2" dir="ltr">13</td><td class="s2" dir="ltr">14</td><td class="s2" dir="ltr">1</td><td class="s2" dir="ltr">6</td><td class="freezebar-cell"></td><td class="s0"></td><td class="s0"></td><td class="s0"></td><td class="s0"></td><td class="s0"></td></tr>
+        <tr style='height:20px;'><th id="1092092417R5" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">6</div></th><td class="s2" dir="ltr">3</td><td class="s2" dir="ltr">6</td><td class="s2" dir="ltr">14</td><td class="s2" dir="ltr">17</td><td class="freezebar-cell"></td><td class="s3">X</td><td class="s3">X</td><td class="s3">X</td><td class="s3">X</td><td class="s3">X</td></tr>
+        <tr style='height:20px;'><th id="1092092417R6" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">7</div></th><td class="s2" dir="ltr">15</td><td class="s2" dir="ltr">11</td><td class="s2" dir="ltr">26</td><td class="s2" dir="ltr">1</td><td class="freezebar-cell"></td><td class="s0"></td><td class="s0"></td><td class="s3">X</td><td class="s0"></td><td class="s0"></td></tr>
+        <tr style='height:20px;'><th id="1092092417R7" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">8</div></th><td class="s2" dir="ltr">20</td><td class="s2" dir="ltr">27</td><td class="s2" dir="ltr">12</td><td class="s2" dir="ltr">25</td><td class="freezebar-cell"></td><td class="s3">X</td><td class="s3">X</td><td class="s3">X</td><td class="s3">X</td><td class="s3">X</td></tr>
+        <tr style='height:20px;'><th id="1092092417R8" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">9</div></th><td class="s2" dir="ltr">12</td><td class="s2" dir="ltr">22</td><td class="s2" dir="ltr">5</td><td class="s2" dir="ltr">17</td><td class="freezebar-cell"></td><td class="s0"></td><td class="s0"></td><td class="s0"></td><td class="s0"></td><td class="s0"></td></tr>
+        <tr style='height:20px;'><th id="1092092417R9" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">10</div></th><td class="s2" dir="ltr">16</td><td class="s2" dir="ltr">26</td><td class="s2" dir="ltr">17</td><td class="s2" dir="ltr">8</td><td class="freezebar-cell"></td><td class="s3">X</td><td class="s0"></td><td class="s0"></td><td class="s0"></td><td class="s0"></td></tr>
+        <tr style='height:20px;'><th id="1092092417R10" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">11</div></th><td class="s2" dir="ltr">21</td><td class="s2" dir="ltr">24</td><td class="s2" dir="ltr">9</td><td class="s2" dir="ltr">3</td><td class="freezebar-cell"></td><td class="s3">X</td><td class="s0"></td><td class="s0"></td><td class="s0"></td><td class="s0"></td></tr>
+        <tr style='height:20px;'><th id="1092092417R11" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">12</div></th><td class="s2" dir="ltr">19</td><td class="s2" dir="ltr">18</td><td class="s2" dir="ltr">16</td><td class="s2" dir="ltr">9</td><td class="freezebar-cell"></td><td class="s3">X</td><td class="s3">X</td><td class="s3">X</td><td class="s3">X</td><td class="s3">X</td></tr>
+        <tr style='height:20px;'><th id="1092092417R12" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">13</div></th><td class="s2" dir="ltr">10</td><td class="s2" dir="ltr">26</td><td class="s2" dir="ltr">9</td><td class="s2" dir="ltr">29</td><td class="freezebar-cell"></td><td class="s0"></td><td class="s0"></td><td class="s0"></td><td class="s0"></td><td class="s0"></td></tr>
+        <tr style='height:20px;'><th id="1092092417R13" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">14</div></th><td class="s2" dir="ltr">26</td><td class="s2" dir="ltr">19</td><td class="s2" dir="ltr">12</td><td class="s2" dir="ltr">13</td><td class="freezebar-cell"></td><td class="s3">X</td><td class="s3">X</td><td class="s3">X</td><td class="s3">X</td><td class="s3">X</td></tr>
+        <tr style='height:20px;'><th id="1092092417R14" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">15</div></th><td class="s2" dir="ltr">18</td><td class="s2" dir="ltr">15</td><td class="s2" dir="ltr">11</td><td class="s2" dir="ltr">14</td><td class="freezebar-cell"></td><td class="s3">X</td><td class="s0"></td><td class="s0"></td><td class="s0"></td><td class="s0"></td></tr>
+        <tr style='height:20px;'><th id="1092092417R15" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">16</div></th><td class="s2" dir="ltr">21</td><td class="s2" dir="ltr">9</td><td class="s2" dir="ltr">26</td><td class="s2" dir="ltr">18</td><td class="freezebar-cell"></td><td class="s3">X</td><td class="s3">X</td><td class="s3">X</td><td class="s3">X</td><td class="s3">X</td></tr>
+        <tr style='height:20px;'><th id="1092092417R16" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">17</div></th><td class="s2" dir="ltr">2</td><td class="s2" dir="ltr">7</td><td class="s2" dir="ltr">22</td><td class="s2" dir="ltr">13</td><td class="freezebar-cell"></td><td class="s0"></td><td class="s0"></td><td class="s0"></td><td class="s0"></td><td class="s3">X</td></tr>
+        <tr style='height:20px;'><th id="1092092417R17" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">18</div></th><td class="s2" dir="ltr">17</td><td class="s2" dir="ltr">6</td><td class="s2" dir="ltr">19</td><td class="s2" dir="ltr">25</td><td class="freezebar-cell"></td><td class="s3">X</td><td class="s3">X</td><td class="s3">X</td><td class="s3">X</td><td class="s3">X</td></tr>
+        <tr style='height:20px;'><th id="1092092417R18" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">19</div></th><td class="s2" dir="ltr">22</td><td class="s2" dir="ltr">16</td><td class="s2" dir="ltr">13</td><td class="s2" dir="ltr">11</td><td class="freezebar-cell"></td><td class="s0"></td><td class="s0"></td><td class="s0"></td><td class="s0"></td><td class="s0"></td></tr>
+        <tr style='height:20px;'><th id="1092092417R19" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">20</div></th><td class="s2" dir="ltr">26</td><td class="s2" dir="ltr">17</td><td class="s2" dir="ltr">8</td><td class="s2" dir="ltr">30</td><td class="freezebar-cell"></td><td class="s3">X</td><td class="s3">X</td><td class="s3">X</td><td class="s3">X</td><td class="s3">X</td></tr>
+        <tr style='height:20px;'><th id="1092092417R20" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">21</div></th><td class="s2" dir="ltr">10</td><td class="s2" dir="ltr">16</td><td class="s2" dir="ltr">29</td><td class="s2" dir="ltr">23</td><td class="freezebar-cell"></td><td class="s0"></td><td class="s0"></td><td class="s3">X</td><td class="s0"></td><td class="s0"></td></tr>
+        <tr style='height:20px;'><th id="1092092417R21" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">22</div></th><td class="s2" dir="ltr">25</td><td class="s2" dir="ltr">18</td><td class="s2" dir="ltr">12</td><td class="s2" dir="ltr">5</td><td class="freezebar-cell"></td><td class="s3">X</td><td class="s3">X</td><td class="s3">X</td><td class="s3">X</td><td class="s3">X</td></tr>
+        <tr style='height:20px;'><th id="1092092417R22" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">23</div></th><td class="s2" dir="ltr">16</td><td class="s2" dir="ltr">29</td><td class="s2" dir="ltr">27</td><td class="s2" dir="ltr">17</td><td class="freezebar-cell"></td><td class="s0"></td><td class="s0"></td><td class="s0"></td><td class="s0"></td><td class="s0"></td></tr>
+        <tr style='height:20px;'><th id="1092092417R23" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">24</div></th><td class="s2" dir="ltr">1</td><td class="s2" dir="ltr">3</td><td class="s2" dir="ltr">10</td><td class="s2" dir="ltr">8</td><td class="freezebar-cell"></td><td class="s3">X</td><td class="s3">X</td><td class="s0"></td><td class="s0"></td><td class="s3">X</td></tr>
+        <tr style='height:20px;'><th id="1092092417R24" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">25</div></th><td class="s2" dir="ltr">27</td><td class="s2" dir="ltr">30</td><td class="s2" dir="ltr">29</td><td class="s2" dir="ltr">22</td><td class="freezebar-cell"></td><td class="s3">X</td><td class="s0"></td><td class="s3">X</td><td class="s0"></td><td class="s3">X</td></tr>
+        <tr style='height:20px;'><th id="1092092417R25" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">26</div></th><td class="s2" dir="ltr">20</td><td class="s2" dir="ltr">27</td><td class="s2" dir="ltr">25</td><td class="s2" dir="ltr">6</td><td class="freezebar-cell"></td><td class="s3">X</td><td class="s0"></td><td class="s0"></td><td class="s3">X</td><td class="s3">X</td></tr>
+        <tr style='height:20px;'><th id="1092092417R26" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">27</div></th><td class="s2" dir="ltr">12</td><td class="s2" dir="ltr">11</td><td class="s2" dir="ltr">5</td><td class="s2" dir="ltr">23</td><td class="freezebar-cell"></td><td class="s0"></td><td class="s0"></td><td class="s0"></td><td class="s0"></td><td class="s0"></td></tr>
+        <tr style='height:20px;'><th id="1092092417R27" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">28</div></th><td class="s2" dir="ltr">26</td><td class="s2" dir="ltr">23</td><td class="s2" dir="ltr">15</td><td class="s2" dir="ltr">13</td><td class="freezebar-cell"></td><td class="s3">X</td><td class="s3">X</td><td class="s3">X</td><td class="s3">X</td><td class="s3">X</td></tr>
+        <tr style='height:20px;'><th id="1092092417R28" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">29</div></th><td class="s2" dir="ltr">21</td><td class="s2" dir="ltr">5</td><td class="s2" dir="ltr">19</td><td class="s2" dir="ltr">8</td><td class="freezebar-cell"></td><td class="s3">X</td><td class="s0"></td><td class="s0"></td><td class="s0"></td><td class="s0"></td></tr>
+        <tr style='height:20px;'><th id="1092092417R29" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">30</div></th><td class="s2" dir="ltr">5</td><td class="s2" dir="ltr">17</td><td class="s2" dir="ltr">16</td><td class="s2" dir="ltr">7</td><td class="freezebar-cell"></td><td class="s3">X</td><td class="s3">X</td><td class="s3">X</td><td class="s3">X</td><td class="s3">X</td></tr>
+        <tr style='height:20px;'><th id="1092092417R30" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">31</div></th><td class="s2" dir="ltr">16</td><td class="s2" dir="ltr">22</td><td class="s2" dir="ltr">10</td><td class="s2" dir="ltr">21</td><td class="freezebar-cell"></td><td class="s3">X</td><td class="s0"></td><td class="s0"></td><td class="s0"></td><td class="s0"></td></tr>
+        <tr style='height:20px;'><th id="1092092417R31" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">32</div></th><td class="s2" dir="ltr">29</td><td class="s2" dir="ltr">13</td><td class="s2" dir="ltr">7</td><td class="s2" dir="ltr">12</td><td class="freezebar-cell"></td><td class="s3">X</td><td class="s3">X</td><td class="s3">X</td><td class="s3">X</td><td class="s3">X</td></tr>
+        <tr style='height:20px;'><th id="1092092417R32" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">33</div></th><td class="s2" dir="ltr">12</td><td class="s2" dir="ltr">7</td><td class="s2" dir="ltr">6</td><td class="s2" dir="ltr">10</td><td class="freezebar-cell"></td><td class="s0"></td><td class="s0"></td><td class="s0"></td><td class="s0"></td><td class="s0"></td></tr>
+        <tr style='height:20px;'><th id="1092092417R33" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">34</div></th><td class="s2" dir="ltr">17</td><td class="s2" dir="ltr">2</td><td class="s2" dir="ltr">17</td><td class="s2" dir="ltr">20</td><td class="freezebar-cell"></td><td class="s3">X</td><td class="s3">X</td><td class="s0"></td><td class="s0"></td><td class="s3">X</td></tr>
+        <tr style='height:20px;'><th id="1092092417R34" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">35</div></th><td class="s2" dir="ltr">26</td><td class="s2" dir="ltr">27</td><td class="s2" dir="ltr">10</td><td class="s2" dir="ltr">22</td><td class="freezebar-cell"></td><td class="s3">X</td><td class="s0"></td><td class="s3">X</td><td class="s0"></td><td class="s3">X</td></tr>
+        <tr style='height:20px;'><th id="1092092417R35" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">36</div></th><td class="s2" dir="ltr">7</td><td class="s2" dir="ltr">30</td><td class="s2" dir="ltr">9</td><td class="s2" dir="ltr">19</td><td class="freezebar-cell"></td><td class="s3">X</td><td class="s0"></td><td class="s0"></td><td class="s3">X</td><td class="s3">X</td></tr>
+        <tr style='height:20px;'><th id="1092092417R36" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">37</div></th><td class="s2" dir="ltr">16</td><td class="s2" dir="ltr">8</td><td class="s2" dir="ltr">1</td><td class="s2" dir="ltr">6</td><td class="freezebar-cell"></td><td class="s0"></td><td class="s0"></td><td class="s0"></td><td class="s0"></td><td class="s0"></td></tr>
+        <tr style='height:20px;'><th id="1092092417R37" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">38</div></th><td class="s2" dir="ltr">21</td><td class="s2" dir="ltr">27</td><td class="s2" dir="ltr">19</td><td class="s2" dir="ltr">26</td><td class="freezebar-cell"></td><td class="s3">X</td><td class="s0"></td><td class="s0"></td><td class="s0"></td><td class="s3">X</td></tr>
+        <tr style='height:20px;'><th id="1092092417R38" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">39</div></th><td class="s2" dir="ltr">13</td><td class="s2" dir="ltr">4</td><td class="s2" dir="ltr">3</td><td class="s2" dir="ltr">10</td><td class="freezebar-cell"></td><td class="s3">X</td><td class="s0"></td><td class="s0"></td><td class="s0"></td><td class="s3">X</td></tr>
+        <tr style='height:20px;'><th id="1092092417R39" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">40</div></th><td class="s2" dir="ltr">19</td><td class="s2" dir="ltr">6</td><td class="s2" dir="ltr">20</td><td class="s2" dir="ltr">2</td><td class="freezebar-cell"></td><td class="s3">X</td><td class="s3">X</td><td class="s3">X</td><td class="s3">X</td><td class="s3">X</td></tr>
+        <tr style='height:20px;'><th id="1092092417R40" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">41</div></th><td class="s2" dir="ltr">30</td><td class="s2" dir="ltr">5</td><td class="s2" dir="ltr">1</td><td class="s2" dir="ltr">17</td><td class="freezebar-cell"></td><td class="s0"></td><td class="s0"></td><td class="s0"></td><td class="s0"></td><td class="s0"></td></tr>
+        <tr style='height:20px;'><th id="1092092417R41" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">42</div></th><td class="s2" dir="ltr">18</td><td class="s2" dir="ltr">13</td><td class="s2" dir="ltr">10</td><td class="s2" dir="ltr">23</td><td class="freezebar-cell"></td><td class="s3">X</td><td class="s0"></td><td class="s0"></td><td class="s0"></td><td class="s3">X</td></tr>
+        <tr style='height:20px;'><th id="1092092417R42" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">43</div></th><td class="s2" dir="ltr">17</td><td class="s2" dir="ltr">5</td><td class="s2" dir="ltr">7</td><td class="s2" dir="ltr">20</td><td class="freezebar-cell"></td><td class="s3">X</td><td class="s3">X</td><td class="s0"></td><td class="s3">X</td><td class="s3">X</td></tr>
+        <tr style='height:20px;'><th id="1092092417R43" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">44</div></th><td class="s2" dir="ltr">26</td><td class="s2" dir="ltr">27</td><td class="s2" dir="ltr">10</td><td class="s2" dir="ltr">22</td><td class="freezebar-cell"></td><td class="s3">X</td><td class="s0"></td><td class="s3">X</td><td class="s0"></td><td class="s3">X</td></tr>
+        <tr style='height:20px;'><th id="1092092417R44" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">45</div></th><td class="s2" dir="ltr">4</td><td class="s2" dir="ltr">2</td><td class="s2" dir="ltr">5</td><td class="s2" dir="ltr">18</td><td class="freezebar-cell"></td><td class="s3">X</td><td class="s0"></td><td class="s0"></td><td class="s0"></td><td class="s3">X</td></tr>
+        <tr style='height:20px;'><th id="1092092417R45" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">46</div></th><td class="s2" dir="ltr">4</td><td class="s2" dir="ltr">20</td><td class="s2" dir="ltr">13</td><td class="s2" dir="ltr">29</td><td class="freezebar-cell"></td><td class="s0"></td><td class="s0"></td><td class="s0"></td><td class="s0"></td><td class="s0"></td></tr>
+        <tr style='height:20px;'><th id="1092092417R46" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">47</div></th><td class="s2" dir="ltr">17</td><td class="s2" dir="ltr">6</td><td class="s2" dir="ltr">25</td><td class="s2" dir="ltr">2</td><td class="freezebar-cell"></td><td class="s3">X</td><td class="s3">X</td><td class="s3">X</td><td class="s3">X</td><td class="s3">X</td></tr>
+        <tr style='height:20px;'><th id="1092092417R47" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">48</div></th><td class="s2" dir="ltr">10</td><td class="s2" dir="ltr">29</td><td class="s2" dir="ltr">29</td><td class="s2" dir="ltr">5</td><td class="freezebar-cell"></td><td class="s0"></td><td class="s0"></td><td class="s3">X</td><td class="s0"></td><td class="s0"></td></tr>
+        <tr style='height:20px;'><th id="1092092417R48" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">49</div></th><td class="s2" dir="ltr">30</td><td class="s2" dir="ltr">13</td><td class="s2" dir="ltr">15</td><td class="s2" dir="ltr">9</td><td class="freezebar-cell"></td><td class="s3">X</td><td class="s3">X</td><td class="s3">X</td><td class="s3">X</td><td class="s3">X</td></tr>
+        <tr style='height:20px;'><th id="1092092417R49" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">50</div></th><td class="s2" dir="ltr">22</td><td class="s2" dir="ltr">20</td><td class="s2" dir="ltr">23</td><td class="s2" dir="ltr">6</td><td class="freezebar-cell"></td><td class="s0"></td><td class="s0"></td><td class="s0"></td><td class="s0"></td><td class="s0"></td></tr>
+        <tr style='height:20px;'><th id="1092092417R50" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">51</div></th><td class="s2" dir="ltr">21</td><td class="s2" dir="ltr">17</td><td class="s2" dir="ltr">1</td><td class="s2" dir="ltr">4</td><td class="freezebar-cell"></td><td class="s3">X</td><td class="s3">X</td><td class="s0"></td><td class="s0"></td><td class="s3">X</td></tr>
+        <tr style='height:20px;'><th id="1092092417R51" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">52</div></th><td class="s2" dir="ltr">26</td><td class="s2" dir="ltr">30</td><td class="s2" dir="ltr">26</td><td class="s2" dir="ltr">7</td><td class="freezebar-cell"></td><td class="s3">X</td><td class="s0"></td><td class="s3">X</td><td class="s0"></td><td class="s3">X</td></tr>
+        <tr style='height:20px;'><th id="1092092417R52" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">53</div></th><td class="s2" dir="ltr">13</td><td class="s2" dir="ltr">27</td><td class="s2" dir="ltr">14</td><td class="s2" dir="ltr">14</td><td class="freezebar-cell"></td><td class="s3">X</td><td class="s0"></td><td class="s0"></td><td class="s3">X</td><td class="s3">X</td></tr>
+        <tr style='height:20px;'><th id="1092092417R53" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">54</div></th><td class="s2" dir="ltr">15</td><td class="s2" dir="ltr">8</td><td class="s2" dir="ltr">13</td><td class="s2" dir="ltr">22</td><td class="freezebar-cell"></td><td class="s0"></td><td class="s0"></td><td class="s0"></td><td class="s0"></td><td class="s0"></td></tr>
+        <tr style='height:20px;'><th id="1092092417R54" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">55</div></th><td class="s2" dir="ltr">4</td><td class="s2" dir="ltr">13</td><td class="s2" dir="ltr">16</td><td class="s2" dir="ltr">9</td><td class="freezebar-cell"></td><td class="s3">X</td><td class="s3">X</td><td class="s3">X</td><td class="s3">X</td><td class="s3">X</td></tr>
+        <tr style='height:20px;'><th id="1092092417R55" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">56</div></th><td class="s2" dir="ltr">30</td><td class="s2" dir="ltr">15</td><td class="s2" dir="ltr">23</td><td class="s2" dir="ltr">7</td><td class="freezebar-cell"></td><td class="s3">X</td><td class="s0"></td><td class="s0"></td><td class="s0"></td><td class="s0"></td></tr>
+        <tr style='height:20px;'><th id="1092092417R56" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">57</div></th><td class="s2" dir="ltr">5</td><td class="s2" dir="ltr">19</td><td class="s2" dir="ltr">12</td><td class="s2" dir="ltr">8</td><td class="freezebar-cell"></td><td class="s3">X</td><td class="s3">X</td><td class="s3">X</td><td class="s3">X</td><td class="s3">X</td></tr>
+        <tr style='height:20px;'><th id="1092092417R57" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">58</div></th><td class="s2" dir="ltr">21</td><td class="s2" dir="ltr">22</td><td class="s2" dir="ltr">18</td><td class="s2" dir="ltr">21</td><td class="freezebar-cell"></td><td class="s3">X</td><td class="s0"></td><td class="s0"></td><td class="s0"></td><td class="s0"></td></tr>
+        <tr style='height:20px;'><th id="1092092417R58" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">59</div></th><td class="s2" dir="ltr">29</td><td class="s2" dir="ltr">17</td><td class="s2" dir="ltr">14</td><td class="s2" dir="ltr">2</td><td class="freezebar-cell"></td><td class="s3">X</td><td class="s3">X</td><td class="s3">X</td><td class="s3">X</td><td class="s3">X</td></tr>
+      </tbody>
+    </table>
+    <p>
+      Looking down the rightmost five columns, the shapes of letters are formed
+      that spell out the answer <b>NIL SINE NUMINE</b>.
+    </p>
+<pre>
+For examples of how to play, type HELP at any time.
+
+You find yourself standing on a beach. Directly in front of you is a huge
+desert - it's just sand as far as the eye can see. There's a road that meanders
+along the edge of the beach, which you can follow ahead to your left or ahead
+to your right.
+
+An OLD WOMAN is huddled by a small fire.
+
+You may pick up a BOTTLE of GRYPHON BEER.
+
+You may go LEFT or RIGHT.
+
+> take beer
+
+You take a bottle of gryphon beer.
+
+> l
+
+You go left.
+
+You've traveled until you reached a fork in the road. The roads ahead to your
+left and behind you seem to meander along the beach, while the road ahead to
+your right leads further inland. Looking directly in front of you, it looks
+like the terrain gets steeper, and there's sandy desert as far as you can see
+directly to your right. The ocean is directly to your left.
+
+You may go LEFT, RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're standing at a crossroads, at the base of a mountain that's to your left.
+Looking in front of you you see a dense forest, and to your right a desert.
+Roads lead away from here ahead to your right, behind you and ahead to your
+left.
+
+You may go LEFT, RIGHT or BACK.
+
+> l
+
+You go left.
+
+You're standing at a bend in the road. The road continues ahead to your left
+and behind you. To your right you see a wooded area marked with a SIGN.
+
+You may go LEFT or BACK.
+
+> l
+
+You go left.
+
+You are standing in the center square of a small village. There's a
+blacksmith's shop here. To your left, the village ends at a sheer face of a
+mountain. To your right, there's fields of wheat as far as you can see. There's
+a road out of the village behind you.
+
+Some old rusty, sooty NAILS are scattered on the ground around the blacksmith's
+forge.
+
+The town BLACKSMITH sits nearby, hunched over his forge, working on some metal
+thingy.
+
+You may go BACK.
+
+> take nails
+
+You take a bunch of rusty nails covered in soot.
+
+> b
+
+You go back.
+
+You're standing at a bend in the road. The road continues behind you and ahead
+to your right. In front of you you see a wooded area marked with a SIGN.
+
+You may go RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're standing at a crossroads, at the base of a mountain that's to your
+right. Looking to your left you see a dense forest, and in front of you a
+desert. Roads lead away from here ahead to your left, ahead to your right and
+behind you.
+
+You may go LEFT, RIGHT or BACK.
+
+> r
+
+You go right.
+
+You've traveled until you reached a fork in the road. The roads ahead to your
+right and ahead to your left seem to meander along the beach, while the road
+behind you leads further inland. Looking directly to your right, it looks like
+the terrain gets steeper, and there's sandy desert as far as you can see
+directly to your left. The ocean is directly in front of you.
+
+You may go LEFT, RIGHT or BACK.
+
+> l
+
+You go left.
+
+You find yourself standing on a beach. Directly to your left is a huge desert -
+it's just sand as far as the eye can see. There's a road that meanders along
+the edge of the beach, which you can follow behind you or ahead to your left.
+
+An OLD WOMAN is huddled by a small fire.
+
+You may go LEFT or BACK.
+
+> l
+
+You go left.
+
+You've reached a bend in the road. Ahead to your right the road climbs up
+alongside a mountain range (which is directly in front of you), while behind
+you the road follows alongside the beach. A seemingly endless amount of desert
+can be seen directly to your left.
+
+You may go RIGHT or BACK.
+
+> r
+
+You go right.
+
+You are standing outside of a lone castle perched on the side of a mountain. It
+has a large wooden door, stone WALLS, and a few windows on the upper stories.
+There are roads leading away from the castle ahead to your left and behind
+you.
+
+You may go LEFT or BACK.
+
+> l
+
+You go left.
+
+You've reached a lookout point along a windy mountain road. There's a great
+view of the ocean up here. Someone's posted a SIGN by the lookout point. The
+mountain road continues behind you and ahead to your left.
+
+You may go LEFT or BACK.
+
+> l
+
+You go left.
+
+You're at a bend in the road. The road rises further up into the mountains
+behind you, or descends along some gentle rolling hills ahead to your right.
+The ocean is directly to your right.
+
+You may go RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're walking between some hills directly to your left and the ocean directly
+in front of you and to your right. There's a SIGN marking this area of hilly
+terrain.
+
+You may go LEFT or BACK.
+
+> l
+
+You go left.
+
+You're at a dairy farm adjacent to a sizable POND. The farm has several
+structures: a house, stables, and a silo. In front of you, some sheep are
+grazing in the farm's pastures. Directly to your left the terrain becomes a bit
+more hilly. The road away from the farm is behind you, and there's a road ahead
+to your left to the next kingdom guarded by a portcullis.
+
+A FARMER tends to a small group of sheep.
+
+You may go BACK.
+
+> talk to farmer
+
+"I'm a farmer! I milk sheep. Here, have some sheep's milk butter."
+
+The farmer hands you a small tub of sheep's milk BUTTER.
+
+> b
+
+You go back.
+
+You're walking between some hills directly to your right and the ocean directly
+to your left and in front of you. There's a SIGN marking this area of hilly
+terrain.
+
+You may go RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're at a bend in the road. The road rises further up into the mountains
+ahead to your left, or descends along some gentle rolling hills behind you. The
+ocean is directly to your left.
+
+You may go LEFT or BACK.
+
+> l
+
+You go left.
+
+You've reached a lookout point along a windy mountain road. There's a great
+view of the ocean up here. Someone's posted a SIGN by the lookout point. The
+mountain road continues ahead to your right and behind you.
+
+You may go RIGHT or BACK.
+
+> r
+
+You go right.
+
+You are standing outside of a lone castle perched on the side of a mountain. It
+has a large wooden door, stone WALLS, and a few windows on the upper stories.
+There are roads leading away from the castle behind you and ahead to your
+right.
+
+You may go RIGHT or BACK.
+
+> use nails with boots
+
+You punch the nails through the toes of your boots.
+
+You've fashioned a crude pair of crampons.
+
+> climb wall
+
+The nails on your boots dig into the castle's stone walls, and you successfully
+climb up to a window.
+
+You're up on the window sill. The wooden WINDOW SHUTTERS are closed, and you
+can't see inside.
+
+You may go DOWN.
+
+> use butter on shutters
+
+You spread butter on the shutter's hinges.
+
+> open window
+
+You open the shutters and climb inside through the window. The shutters swing
+shut behind you.
+
+You're inside of an upstairs bedroom of the castle. There's a DRESSER against
+the wall.
+
+You may go OUT THE WINDOW.
+
+> use beer on dresser
+
+You pour the entire bottle of gryphon beer onto the dresser.
+
+The metal and some of the wood start to dissolve, releasing acrid fumes.
+
+> open dresser
+
+You pull open the top drawer of the dresser. Inside, there's a TIARA. You steal
+it.
+
+> out
+
+You go out the window.
+
+You are standing outside of a lone castle perched on the side of a mountain. It
+has a large wooden door, stone WALLS, and a few windows on the upper stories.
+There are roads leading away from the castle behind you and ahead to your
+right.
+
+You may go RIGHT or BACK.
+
+> r
+
+You go right.
+
+You've reached a bend in the road. Behind you the road climbs up alongside a
+mountain range (which is directly to your right), while ahead to your left the
+road follows alongside the beach. A seemingly endless amount of desert can be
+seen directly in front of you.
+
+You may go LEFT or BACK.
+
+> l
+
+You go left.
+
+You find yourself standing on a beach. Directly to your right is a huge desert
+- it's just sand as far as the eye can see. There's a road that meanders along
+the edge of the beach, which you can follow ahead to your right or behind you.
+
+An OLD WOMAN is huddled by a small fire.
+
+You may go RIGHT or BACK.
+
+> give tiara to woman
+
+You give a tiara to the old woman.
+
+"That's it, my TIARA! It may not look like much, but this thing gives me the
+authority I need to rule. You see I'm not just an old woman. Brace yourself.
+I'm the queen of Crimsilon! I know, right? I just like to hang out on the beach
+here, and look up at the stars. Oh, I promised you some answers. Who are you?
+Doesn't matter, no one cares. But where are you? That's the really important
+one.
+
+You're in a land that's been divided into four kingdoms: Crimsilon, Cerulia,
+Merrygold, and Blanc. It used to be a pretty thriving place, lots of hustle and
+bustle, trade, construction, you name it. But things have turned stagnant, and
+no one's really sure why. Well, I have a theory. I think the gods are
+displeased with us. How do I know? Try to LOOK UP sometimes. The sky is so
+clear here, that you can see stars pretty much anytime. Study them long enough
+and you'll see what I mean.
+
+I have some things for you, then I'll send you on your merry way. This is a
+PASSPORT. You can use it to demonstrate that you're in my good graces. I've
+filled it out with everything you need to get them to let you into Cerulia. And
+this is just a STICKER I like to give people."
+
+She hands you a PASSPORT and a STICKER.
+
+> r
+
+You go right.
+
+You've traveled until you reached a fork in the road. The roads ahead to your
+left and behind you seem to meander along the beach, while the road ahead to
+your right leads further inland. Looking directly in front of you, it looks
+like the terrain gets steeper, and there's sandy desert as far as you can see
+directly to your right. The ocean is directly to your left.
+
+You may go LEFT, RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're standing at a crossroads, at the base of a mountain that's to your left.
+Looking in front of you you see a dense forest, and to your right a desert.
+Roads lead away from here ahead to your right, behind you and ahead to your
+left.
+
+You may go LEFT, RIGHT or BACK.
+
+> r
+
+You go right.
+
+You are standing at a border checkpoint, guarded by a portcullis. The main
+thoroughfare traversing Cerulia can be traveled ahead to your left and ahead to
+your right, and a road leading to Crimsilon is behind you.
+
+The GUARD recognizes the markings on your passport, and welcomes you with a
+grunt of acknowledgement. He seems to be crying.
+
+"Sorry, don't mind me. It's been a tough week. It's... it's our king. He's gone
+missing. He was last seen several days ago, hiking into the nearby desert.
+Can... can you help us find him? Your passport will allow you to travel freely
+within Cerulia."
+
+You may go LEFT, RIGHT or BACK.
+
+> l
+
+You go left.
+
+You're standing at a crossroads. To your left is a forest, and to your right
+you can see sheep grazing. Roads lead away from here ahead to your right,
+behind you and ahead to your left, and there's a portcullis guarding the road
+ahead to your right.
+
+You may go LEFT or BACK.
+
+> l
+
+You go left.
+
+You're standing at a crossroads. Roads lead away from here ahead to your left,
+ahead to your right and behind you. In front of you you see a pasture marked
+with a SIGN.
+
+You may go LEFT, RIGHT or BACK.
+
+> l
+
+You go left.
+
+You're in a clearing. There's a rectangular building with two large metal vats
+sticking out of its roof. A SIGNBOARD swings over the DOOR. There's a BELL next
+to the door. There are roads leading away from the clearing behind you and
+ahead to your right.
+
+You may go RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're standing at a bend in the road. The road continues ahead to your right
+and behind you. To your left, there's a huge farm growing crops, and running
+along the farm is a track marked with a SIGN.
+
+You may go RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're in a trailer park. Most of the trailers are rusted husks that look like
+they've been here a very, very long time. There are hundreds of "beware of dog"
+signs, and the ground is covered with the bones of the illiterate or foolhardy.
+The only place the ground is visible is a narrow path that leads to the one
+trailer that seems to be currently inhabited. It's dotted with scorch marks.
+
+There are roads leading out of the park ahead to your right, behind you and
+ahead to your left.
+
+Two MEN wearing nothing but underwear and gasmasks are sunning themselves just
+outside of the scorched trailer. They're surrounded by assorted beakers and
+cooking apperatuses.
+
+You may go LEFT, RIGHT or BACK.
+
+> l
+
+You go left.
+
+You stop at a bend in the road. To your left, you see a grove of trees marked
+with a SIGN. The road continues behind you and ahead to your right.
+
+You may go RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're at a bend in the road that winds along the shore. You may continue
+traveling ahead to your right or behind you. In the hills to your right there's
+a clay pit with a SIGN nearby.
+
+You may go RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're standing at a crossroads. There's a portcullis here; on one side a road
+leads ahead to your right into the interior of Merrygold. On the other side, a
+coastal road runs ahead to your left and behind you within Cerulia.
+
+You may go LEFT or BACK.
+
+> l
+
+You go left.
+
+You're at a bend in the road that winds along the shore. You may continue
+traveling ahead to your right or behind you. To your right there are crops
+planted as far as you can see, marked with a SIGN.
+
+You may go RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're at a bend in the road, alongside a large, thriving grain field to your
+right. You have magnificent views of the ocean on all other sides. The road
+leads away from here ahead to your right and behind you.
+
+You may go RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're standing in an oceanside resort town. It seems to be the off-season. The
+beach is to your left, and on the beach there's a hut marked "surf shop." Near
+the shop, there's a MESSAGE BOARD that has various notices, including the
+current surf conditions. In front of you, the town slopes upwards toward some
+hills. There's a road out of town behind you.
+
+A BEACH BUM is standing by the surf shop, waxing his board.
+
+You may go BACK.
+
+> talk to bum
+
+"Mahalo, brother. Do you, like, surf? No board? Here, why don't you take mine
+for a spin. Just bring it back in one piece. Ha, I'm just kidding, no one
+breaks surf boards."
+
+You now have a SURF BOARD.
+
+> b
+
+You go back.
+
+You're at a bend in the road, alongside a large, thriving grain field to your
+left. You have magnificent views of the ocean on all other sides. The road
+leads away from here behind you and ahead to your left.
+
+You may go LEFT or BACK.
+
+> l
+
+You go left.
+
+You're at a bend in the road that winds along the shore. You may continue
+traveling behind you or ahead to your left. To your left there are crops
+planted as far as you can see, marked with a SIGN.
+
+You may go LEFT or BACK.
+
+> l
+
+You go left.
+
+You're standing at a crossroads. There's a portcullis here; on one side a road
+leads ahead to your left into the interior of Merrygold. On the other side, a
+coastal road runs behind you and ahead to your right within Cerulia.
+
+You may go RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're at a bend in the road that winds along the shore. You may continue
+traveling behind you or ahead to your left. In the hills to your left there's a
+clay pit with a SIGN nearby.
+
+You may go LEFT or BACK.
+
+> l
+
+You go left.
+
+You stop at a bend in the road. In front of you, you see a grove of trees
+marked with a SIGN. The road continues ahead to your left and behind you.
+
+You may go LEFT or BACK.
+
+> l
+
+You go left.
+
+You're in a trailer park. Most of the trailers are rusted husks that look like
+they've been here a very, very long time. There are hundreds of "beware of dog"
+signs, and the ground is covered with the bones of the illiterate or foolhardy.
+The only place the ground is visible is a narrow path that leads to the one
+trailer that seems to be currently inhabited. It's dotted with scorch marks.
+
+There are roads leading out of the park ahead to your left, ahead to your right
+and behind you.
+
+Two MEN wearing nothing but underwear and gasmasks are sunning themselves just
+outside of the scorched trailer. They're surrounded by assorted beakers and
+cooking apperatuses.
+
+You may go LEFT, RIGHT or BACK.
+
+> l
+
+You go left.
+
+You're standing at a bend in the road. The road continues behind you and ahead
+to your right. In front of you is a thick forest, an area of which is marked
+with a SIGN.
+
+You may go RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're standing in front of a SAWMILL. There are roads ahead to your right and
+behind you, and a portcullis guards a road to another kingdom ahead to your
+left.
+
+There's a single burly LUMBERJACK scratching his head and looking at what looks
+like a long backlog of uncut, felled TREES.
+
+You may go RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're standing at a crossroads. Roads lead away from here ahead to your right,
+behind you and ahead to your left. To your right you see a pasture marked with
+a SIGN.
+
+You may go LEFT, RIGHT or BACK.
+
+> l
+
+You go left.
+
+You're standing at a crossroads. To your right is a forest, and in front of you
+you can see sheep grazing. Roads lead away from here ahead to your left, ahead
+to your right and behind you, and there's a portcullis guarding the road ahead
+to your left.
+
+You may go RIGHT or BACK.
+
+> r
+
+You go right.
+
+You are standing at a border checkpoint, guarded by a portcullis. The main
+thoroughfare traversing Cerulia can be traveled behind you and ahead to your
+left, and a road leading to Crimsilon is ahead to your right.
+
+The GUARD paces nervously.
+
+You may go LEFT, RIGHT or BACK.
+
+> l
+
+You go left.
+
+You're at a ranger station on the edge of the desert. The ranger station itself
+is a small wooden cabin, and next to it is an open garage that looks like some
+sort of AUTO SHOP. To your right there's a TRAIL HEAD marked with a sign that
+says "Desert trail". There's a road leading away behind you.
+
+An AUTO MECHANIC works in front of the auto shop, oozing so much grease that he
+leaves a trail wherever he goes.
+
+You may go BACK.
+
+> take rudder
+
+The auto mechanic pipes up, "Sure, you can have the rudder - I don't need it."
+He gives you the rudder.
+
+> give board to mechanic
+
+You give a surfboard to the auto mechanic.
+
+"Hmm, nice looking board. I like the fish decal. I'll just throw it up here on
+the lift. If you find anything you want to use to pimp your ride, bring it to
+me."
+
+> give rudder to mechanic
+
+You give a rudder to the auto mechanic.
+
+"Ah, glad you found a use for this old thing. I'll just weld it onto your
+board. Welding works with all sorts of materials, you know."
+
+He welds the rudder onto your surfboard. It's now a steerable board!
+
+> take board
+
+You take a steerable surfboard down from the hydraulic lift.
+
+> use board
+
+You take a deep breath, then push yourself over the lip of the dune. You
+gradually pick up speed until you're moving fast enough to think "Boy, brakes
+would have been a great idea." As you streak downwards, the giant boulders
+hurtle up to meet you. You're heading straight towards one, but you jerk your
+rudder left, and your craft angles right. Soon you're slaloming down the dune,
+and just as you're getting really good, you reach the bottom. The force of a
+strong headwind rapidly slows you down, and you glide to a halt at the bottom
+of the dune.
+
+You're at the bottom of a massive sand dune, on the edge of a vast, flat
+desert. In the distance you see a flare drifting down from the sky. There's a
+pile of what looks like 10 battered VEHICLES.
+
+You may go BACK TO THE RANGER STATION.
+
+> examine vehicles
+
+These must be the remains of the search and rescue vehicles. There's a lot of
+scrap metal that doesn't interest you much - most of it is twisted and battered
+beyond repair. The only things that look salvageable are a HUBCAP and a TARP.
+
+> take hubcap
+
+You take a hubcap.
+
+> take tarp
+
+You take a tarp.
+
+> b
+
+You go back to the ranger station.
+
+You're at a ranger station on the edge of the desert. The ranger station itself
+is a small wooden cabin, and next to it is an open garage that looks like some
+sort of AUTO SHOP. To your right there's a TRAIL HEAD marked with a sign that
+says "Desert trail". There's a road leading away behind you.
+
+An AUTO MECHANIC works in front of the auto shop, oozing so much grease that he
+leaves a trail wherever he goes.
+
+You may go BACK.
+
+> b
+
+You go back.
+
+You are standing at a border checkpoint, guarded by a portcullis. The main
+thoroughfare traversing Cerulia can be traveled ahead to your right and behind
+you, and a road leading to Crimsilon is ahead to your left.
+
+The GUARD paces nervously.
+
+You may go LEFT, RIGHT or BACK.
+
+> l
+
+You go left.
+
+You're standing at a crossroads, at the base of a mountain that's in front of
+you. Looking to your right you see a dense forest, and to your left a desert.
+Roads lead away from here behind you, ahead to your left and ahead to your
+right.
+
+You may go LEFT, RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're standing at a bend in the road. The road continues ahead to your left
+and behind you. To your right you see a wooded area marked with a SIGN.
+
+You may go LEFT or BACK.
+
+> l
+
+You go left.
+
+You are standing in the center square of a small village. There's a
+blacksmith's shop here. To your left, the village ends at a sheer face of a
+mountain. To your right, there's fields of wheat as far as you can see. There's
+a road out of the village behind you.
+
+The town BLACKSMITH sits nearby, hunched over his forge, working on some metal
+thingy.
+
+You may go BACK.
+
+> give hubcap to blacksmith
+
+You give a hubcap to the blacksmith.
+
+"Nice chunk of metal. What shape do you want? I do triangles, squares,
+starbursts, cones, cubes, and tetrahedra."
+
+> starburst
+
+"One starburst, coming right up."
+
+He hammers for a few minutes in a blur of activity, and hands you a flat piece
+of metal in a starburst shape, with an approximately 1 foot radius. It looks
+like a child's drawing of a sawblade.
+
+> b
+
+You go back.
+
+You're standing at a bend in the road. The road continues behind you and ahead
+to your right. In front of you you see a wooded area marked with a SIGN.
+
+You may go RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're standing at a crossroads, at the base of a mountain that's to your
+right. Looking to your left you see a dense forest, and in front of you a
+desert. Roads lead away from here ahead to your left, ahead to your right and
+behind you.
+
+You may go LEFT, RIGHT or BACK.
+
+> l
+
+You go left.
+
+You are standing at a border checkpoint, guarded by a portcullis. The main
+thoroughfare traversing Cerulia can be traveled ahead to your left and ahead to
+your right, and a road leading to Crimsilon is behind you.
+
+The GUARD paces nervously.
+
+You may go LEFT, RIGHT or BACK.
+
+> l
+
+You go left.
+
+You're standing at a crossroads. To your left is a forest, and to your right
+you can see sheep grazing. Roads lead away from here ahead to your right,
+behind you and ahead to your left, and there's a portcullis guarding the road
+ahead to your right.
+
+You may go LEFT or BACK.
+
+> l
+
+You go left.
+
+You're standing at a crossroads. Roads lead away from here ahead to your left,
+ahead to your right and behind you. In front of you you see a pasture marked
+with a SIGN.
+
+You may go LEFT, RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're standing in front of a SAWMILL. There are roads behind you and ahead to
+your left, and a portcullis guards a road to another kingdom ahead to your
+right.
+
+There's a single burly LUMBERJACK scratching his head and looking at what looks
+like a long backlog of uncut, felled TREES.
+
+You may go LEFT or BACK.
+
+> give hubcap to lumberjack
+
+You give a hubcap hammered into a starburst shape to the lumberjack.
+
+"Looks good. Let's try it."
+
+He installs the hubcap into the middle of the mill, flicks a switch, and it
+slices through a log with a bit of resistance, because let's be honest, that's
+a pretty crappy saw blade. But it does the job.
+
+"Have this log as a gesture of my appreciation." He gives you a nice looking
+log. Cedar, about 10 feet tall, 2 feet in diameter. You comically maneuver it
+into your pocket. The lumberjack winks at you. You choose to ignore it.
+
+> give tarp to lumberjack
+
+You give a tarp to the lumberjack.
+
+"I can cut this."
+
+He runs the tarp through his saw, cutting off a corner. It's now a large
+TRIANGLE of fabric. He gives it back to you. He also hands you a small SCRAP of
+fabric, about the size of a handkerchief.
+
+> b
+
+You go back.
+
+You're standing at a crossroads. Roads lead away from here ahead to your right,
+behind you and ahead to your left. To your right you see a pasture marked with
+a SIGN.
+
+You may go LEFT, RIGHT or BACK.
+
+> l
+
+You go left.
+
+You're standing at a crossroads. To your right is a forest, and in front of you
+you can see sheep grazing. Roads lead away from here ahead to your left, ahead
+to your right and behind you, and there's a portcullis guarding the road ahead
+to your left.
+
+You may go RIGHT or BACK.
+
+> r
+
+You go right.
+
+You are standing at a border checkpoint, guarded by a portcullis. The main
+thoroughfare traversing Cerulia can be traveled behind you and ahead to your
+left, and a road leading to Crimsilon is ahead to your right.
+
+The GUARD paces nervously.
+
+You may go LEFT, RIGHT or BACK.
+
+> l
+
+You go left.
+
+You're at a ranger station on the edge of the desert. The ranger station itself
+is a small wooden cabin, and next to it is an open garage that looks like some
+sort of AUTO SHOP. To your right there's a TRAIL HEAD marked with a sign that
+says "Desert trail". There's a road leading away behind you.
+
+An AUTO MECHANIC works in front of the auto shop, oozing so much grease that he
+leaves a trail wherever he goes.
+
+You may go BACK.
+
+> give board to mechanic
+
+You give a steerable surfboard to the auto mechanic.
+
+"Need some more modifications? I'll just throw that up here on the lift. Bring
+me anything else you'd like to add to it."
+
+> give log to mechanic
+
+You give a cedar log to the auto mechanic.
+
+"Hmm, yeah, this'll work."
+
+He welds it onto your surfboard. Like he said, his welding torch seems to work
+on all sorts of materials. Your board now has a mast!
+
+> give triangle to mechanic
+
+You give a large triangle made of fabric to the auto mechanic.
+
+Nice. He welds it onto the mast. Your board now has a sail!
+
+> take board
+
+You take a steerable surfboard with a sail down from the hydraulic lift.
+
+> give scrap to mechanic
+
+You give a small scrap of fabric to the auto mechanic.
+
+He sops grease off himself and hands the cloth back to you. He's now squeaky
+clean! And you have a grease-soaked cloth.
+
+> use board
+
+You push yourself over the lip of the dune, and slalom your way down - you're
+getting pretty good at this! At the bottom of the dune, you meet the force of a
+strong headwind. You tack into the wind, and diagonally make your way forward.
+After about 100 meters, you reach a ravine, and the wind suddenly dies.
+
+You're at the edge of a RAVINE in the desert. It looks like a daredevil
+recently put on a show here; at the edge of the RAVINE there's a large RAMP,
+abutting a SCHOOL BUS. There's a crashed MOTORCYCLE on top of the bus.
+
+There's a patch of little purple FLOWERS growing in the shadow of a large
+rock.
+
+You may go BACK TO THE RANGER STATION.
+
+> pick flowers
+
+You pick a handful of little purple flowers.
+
+> enter bus
+
+You climb into the school bus.
+
+You're sitting in the driver's seat of the school bus. There are lots of
+gauges, a LEVER marked "ejector seat," and no steering wheel.
+
+> use lever
+
+There's a small explosion as the roof of the bus launches into the air. Then a
+sproingy noise, as you follow. To your dismay, the angle of the bus was such
+that you're heading right for the ravine. Your perception of time slows as you
+fly to your nearly certain doom.
+
+You're slowly tumbling through the air, coming up on the lip of the ravine.
+Luckily, you notice what seems to be a giant net abutting out several feet over
+the drop!
+
+As you try to grab it, though, you realize that what you thought was a net is
+actually a large spiderweb. The adrenaline pumping through your system made you
+gravely misjudge its structural integrity. You do manage to grab it, but the
+filaments shred in your hand, and you tumble over the edge, never to be seen
+again...
+
+But as all hope seems lost, you suddenly feel talons dig into your shoulders. A
+giant bird grabs you, and gently lowers you back onto the lip of the rift, on
+the same side you started out on. With flaps of mighty wings, something large
+flies away and bellows "Thanks for drinking gryphon beer!"
+
+You're at the edge of a RAVINE in the desert. It looks like a daredevil
+recently put on a show here; at the edge of the RAVINE there's a large RAMP,
+abutting a SCHOOL BUS which is missing its roof.
+
+There's a crashed MOTORCYCLE ENGINE on the ground, teetering on the edge of the
+ravine.
+
+You may go BACK TO THE RANGER STATION.
+
+> take engine
+
+You take a mangled motorcycle engine.
+
+> b
+
+You go back to the ranger station.
+
+You're at a ranger station on the edge of the desert. The ranger station itself
+is a small wooden cabin, and next to it is an open garage that looks like some
+sort of AUTO SHOP. To your right there's a TRAIL HEAD marked with a sign that
+says "Desert trail". There's a road leading away behind you.
+
+An AUTO MECHANIC works in front of the auto shop, oozing so much grease that he
+leaves a trail wherever he goes.
+
+You may go BACK.
+
+> b
+
+You go back.
+
+You are standing at a border checkpoint, guarded by a portcullis. The main
+thoroughfare traversing Cerulia can be traveled ahead to your right and behind
+you, and a road leading to Crimsilon is ahead to your left.
+
+The GUARD paces nervously.
+
+You may go LEFT, RIGHT or BACK.
+
+> l
+
+You go left.
+
+You're standing at a crossroads, at the base of a mountain that's in front of
+you. Looking to your right you see a dense forest, and to your left a desert.
+Roads lead away from here behind you, ahead to your left and ahead to your
+right.
+
+You may go LEFT, RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're standing at a bend in the road. The road continues ahead to your left
+and behind you. To your right you see a wooded area marked with a SIGN.
+
+You may go LEFT or BACK.
+
+> l
+
+You go left.
+
+You are standing in the center square of a small village. There's a
+blacksmith's shop here. To your left, the village ends at a sheer face of a
+mountain. To your right, there's fields of wheat as far as you can see. There's
+a road out of the village behind you.
+
+The town BLACKSMITH sits nearby, hunched over his forge, working on some metal
+thingy.
+
+You may go BACK.
+
+> give engine to blacksmith
+
+You give a mangled motorcycle engine to the blacksmith.
+
+He whistles in appreciation. "Fine craftsmanship, this. I can hammer out the
+nozzle, any shape you want, that I can do. This doesn't have fuel in it, does
+it? Of course not, no one would be that stupid. What'll it be? I do triangles,
+squares, starbursts, cones, cubes, and tetrahedra."
+
+> cone
+
+"Yeah, good choice. Maximum thrust."
+
+He hammers for a few minutes in a blur of activity, and hands back your engine,
+now with a smooth conic nozzle.
+
+> b
+
+You go back.
+
+You're standing at a bend in the road. The road continues behind you and ahead
+to your right. In front of you you see a wooded area marked with a SIGN.
+
+You may go RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're standing at a crossroads, at the base of a mountain that's to your
+right. Looking to your left you see a dense forest, and in front of you a
+desert. Roads lead away from here ahead to your left, ahead to your right and
+behind you.
+
+You may go LEFT, RIGHT or BACK.
+
+> l
+
+You go left.
+
+You are standing at a border checkpoint, guarded by a portcullis. The main
+thoroughfare traversing Cerulia can be traveled ahead to your left and ahead to
+your right, and a road leading to Crimsilon is behind you.
+
+The GUARD paces nervously.
+
+You may go LEFT, RIGHT or BACK.
+
+> l
+
+You go left.
+
+You're standing at a crossroads. To your left is a forest, and to your right
+you can see sheep grazing. Roads lead away from here ahead to your right,
+behind you and ahead to your left, and there's a portcullis guarding the road
+ahead to your right.
+
+You may go LEFT or BACK.
+
+> l
+
+You go left.
+
+You're standing at a crossroads. Roads lead away from here ahead to your left,
+ahead to your right and behind you. In front of you you see a pasture marked
+with a SIGN.
+
+You may go LEFT, RIGHT or BACK.
+
+> l
+
+You go left.
+
+You're in a clearing. There's a rectangular building with two large metal vats
+sticking out of its roof. A SIGNBOARD swings over the DOOR. There's a BELL next
+to the door. There are roads leading away from the clearing behind you and
+ahead to your right.
+
+You may go RIGHT or BACK.
+
+> ring bell
+
+The bell rings. After a moment you hear footsteps. A kindly OLD WOMAN opens the
+door.
+
+> give engine to woman
+
+You give a motorcycle engine with a conical nozzle to the old woman.
+
+"Wow. No way you're up to anything responsible with that. Here's a pint of our
+finest."
+
+She hands you a stein of extremely high proof alcohol.
+
+> use stein with engine
+
+You unscrew the gas cap, pour some alcohol in, and replace the cap before it
+can all evaporate away. You didn't get all of it, but that should be enough.
+
+> r
+
+You go right.
+
+You're standing at a bend in the road. The road continues ahead to your right
+and behind you. To your left, there's a huge farm growing crops, and running
+along the farm is a track marked with a SIGN.
+
+You may go RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're in a trailer park. Most of the trailers are rusted husks that look like
+they've been here a very, very long time. There are hundreds of "beware of dog"
+signs, and the ground is covered with the bones of the illiterate or foolhardy.
+The only place the ground is visible is a narrow path that leads to the one
+trailer that seems to be currently inhabited. It's dotted with scorch marks.
+
+There are roads leading out of the park ahead to your right, behind you and
+ahead to your left.
+
+Two MEN wearing nothing but underwear and gasmasks are sunning themselves just
+outside of the scorched trailer. They're surrounded by assorted beakers and
+cooking apperatuses.
+
+You may go LEFT, RIGHT or BACK.
+
+> give engine to men
+
+You give a motorcycle engine with a conical nozzle to the two men.
+
+The smaller of the two men screws off the cap of the engine, pours its highly
+alcoholic contents into a narrow glass beaker, and quickly stoppers it. He
+hands the engine back to you.
+
+> give flowers to men
+
+You give a handful of little purple flowers to the two men.
+
+The larger of the two men places the flowers in a mortar, vigorously grinds
+them with a pestle, and pours the contents through a fine sieve into a vial.
+
+> give cloth to men
+
+You give a greasy cloth to the two men.
+
+The larger man takes the greasy cloth and wrings it out over a large pan. It's
+now a greasy pan. He keeps the cloth.
+
+The two nearly naked men gather their glassware and cooking implements and
+disappear into the trailer. It shakes back and forth, and you're almost certain
+some sort of cool montage is happening inside. Variously colored puffs of smoke
+periodically erupt from the windows. Finally, about 15 minutes later, the door
+opens, and you see the two men, drenched in sweat, but looking pleased with
+themselves. They very, very gently carry a BEAKER of green liquid.
+
+> give engine to men
+
+You give a motorcycle engine with a conical nozzle to the two men.
+
+You open up the gas cap on the engine, and the smaller man pours in the green
+fluid. After you close the cap he gives you a thumbs up, they highfive, and go
+back into their trailer.
+
+> b
+
+You go back.
+
+You're standing at a bend in the road. The road continues behind you and ahead
+to your left. In front of you, there's a huge farm growing crops, and running
+along the farm is a track marked with a SIGN.
+
+You may go LEFT or BACK.
+
+> l
+
+You go left.
+
+You're in a clearing. There's a rectangular building with two large metal vats
+sticking out of its roof. A SIGNBOARD swings over the DOOR. There's a BELL next
+to the door. There are roads leading away from the clearing ahead to your left
+and behind you.
+
+A kindly OLD WOMAN stands by the door.
+
+You may go LEFT or BACK.
+
+> l
+
+You go left.
+
+You're standing at a crossroads. Roads lead away from here behind you, ahead to
+your left and ahead to your right. To your left you see a pasture marked with a
+SIGN.
+
+You may go LEFT, RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're standing at a crossroads. To your right is a forest, and in front of you
+you can see sheep grazing. Roads lead away from here ahead to your left, ahead
+to your right and behind you, and there's a portcullis guarding the road ahead
+to your left.
+
+You may go RIGHT or BACK.
+
+> r
+
+You go right.
+
+You are standing at a border checkpoint, guarded by a portcullis. The main
+thoroughfare traversing Cerulia can be traveled behind you and ahead to your
+left, and a road leading to Crimsilon is ahead to your right.
+
+The GUARD paces nervously.
+
+You may go LEFT, RIGHT or BACK.
+
+> l
+
+You go left.
+
+You're at a ranger station on the edge of the desert. The ranger station itself
+is a small wooden cabin, and next to it is an open garage that looks like some
+sort of AUTO SHOP. To your right there's a TRAIL HEAD marked with a sign that
+says "Desert trail". There's a road leading away behind you.
+
+An AUTO MECHANIC works in front of the auto shop, oozing so much grease that he
+leaves a trail wherever he goes.
+
+You may go BACK.
+
+> give board to mechanic
+
+You give a steerable surfboard with a sail to the auto mechanic.
+
+"Need some more modifications? I'll just throw that up here on the lift. Bring
+me anything else you'd like to add to it."
+
+> give engine to mechanic
+
+You give a motorcycle engine with a conical nozzle to the auto mechanic.
+
+"This looks good."
+
+He welds it onto the back of your board. Your board is now a rocket powered
+surf board sailboat!
+
+> take board
+
+You take a steerable surfboard with a sail and a rocket engine down from the
+hydraulic lift.
+
+> use board
+
+You push yourself over the lip of the dune, and slalom your way down - you're a
+pro at this by now! At the bottom of the dune, you meet the force of a strong
+headwind. You tack into the wind, and diagonally make your way forward. As you
+approach the ravine, the wind starts to die down.
+
+You fire up your surfboard about 20 feet from the base of the ramp near the
+ravine, and do your best to hold the rudder on-course. You fly up the ramp, and
+before you know it, you're airborne. Oh... oh wow this looks awesome. Oh holy
+crap! If only you could see this... it's SO COOL.
+
+You crash down on the other side of the ravine. The impact is graceful enough
+to not kill you, but violent enough to destroy your vessel. The mast breaks
+off, the sail drifts down to the bottom of the ravine, the engine detaches and
+goes careening off on its own before exploding in the sky like a firework, the
+rudder is pulverized, and your surfboard breaks in half and bounces. Who breaks
+a surfboard??? Also, everything you were carrying except the passport and the
+sticker fell out of your pocket. Bummer.
+
+You're on top of a high plateau, surrounded by a ravine on all sides. In the
+middle of a plateau is a pleasant looking pond.
+
+An OLD MAN is sitting on top of a ROCK at the side of the pond, fishing.
+
+> push rock
+
+The king hops off the rock, and you put your back up against it, ready to shove
+with all of your might. You give it a mighty push, and fall on your ass as it
+rolls away with almost no effort. What you thought was a rock was actually a
+well camouflaged bean-bag chair. It rolls into the pond and disappears
+underneath the water. The king acts like nothing's out of the ordinary. Under
+the "rock" was a TRAP DOOR.
+
+> use door
+
+The trap door opens to a long ladder. You climb down the ladder, followed by
+the king, and stroll through a cool, breezy passage carved through solid rock.
+At the end there's another ladder leading up, followed by a trap door, which
+opens into the ranger station at the edge of the desert. The whole trip took
+about a half hour.
+
+The king climbs up after you, shakes your hand, and says "Thanks for your help,
+adventurer. Allow me to mark your passport for passage to the next kingdom.
+I'll also draw you an aid for keeping track of activity on this island... well,
+what I can remember of it, anyway." You hand him your passport, he scribbles
+something in it, then hands it back to you and wanders off.
+
+> look
+
+You're at a ranger station on the edge of the desert. The ranger station itself
+is a small wooden cabin, and next to it is an open garage that looks like some
+sort of AUTO SHOP. To your right there's a TRAIL HEAD marked with a sign that
+says "Desert trail". There's a road leading away behind you.
+
+An AUTO MECHANIC works in front of the auto shop, oozing so much grease that he
+leaves a trail wherever he goes.
+
+You may go BACK.
+
+> b
+
+You go back.
+
+You are standing at a border checkpoint, guarded by a portcullis. The main
+thoroughfare traversing Cerulia can be traveled ahead to your right and behind
+you, and a road leading to Crimsilon is ahead to your left.
+
+The GUARD whistles a happy tune.
+
+You may go LEFT, RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're standing at a crossroads. To your left is a forest, and to your right
+you can see sheep grazing. Roads lead away from here ahead to your right,
+behind you and ahead to your left, and there's a portcullis guarding the road
+ahead to your right.
+
+You may go LEFT or BACK.
+
+> l
+
+You go left.
+
+You're standing at a crossroads. Roads lead away from here ahead to your left,
+ahead to your right and behind you. In front of you you see a pasture marked
+with a SIGN.
+
+You may go LEFT, RIGHT or BACK.
+
+> l
+
+You go left.
+
+You're in a clearing. There's a rectangular building with two large metal vats
+sticking out of its roof. A SIGNBOARD swings over the DOOR. There's a BELL next
+to the door. There are roads leading away from the clearing behind you and
+ahead to your right.
+
+A kindly OLD WOMAN stands by the door.
+
+You may go RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're standing at a bend in the road. The road continues ahead to your right
+and behind you. To your left, there's a huge farm growing crops, and running
+along the farm is a track marked with a SIGN.
+
+You may go RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're in a trailer park. Most of the trailers are rusted husks that look like
+they've been here a very, very long time. There are hundreds of "beware of dog"
+signs, and the ground is covered with the bones of the illiterate or foolhardy.
+The only place the ground is visible is a narrow path that leads to the one
+trailer that seems to be currently inhabited. It's dotted with scorch marks.
+
+There are roads leading out of the park ahead to your right, behind you and
+ahead to your left.
+
+You may go LEFT, RIGHT or BACK.
+
+> l
+
+You go left.
+
+You stop at a bend in the road. To your left, you see a grove of trees marked
+with a SIGN. The road continues behind you and ahead to your right.
+
+You may go RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're at a bend in the road that winds along the shore. You may continue
+traveling ahead to your right or behind you. In the hills to your right there's
+a clay pit with a SIGN nearby.
+
+You may go RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're standing at a crossroads. There's a portcullis here; on one side a road
+leads ahead to your right into the interior of Merrygold. On the other side, a
+coastal road runs ahead to your left and behind you within Cerulia.
+
+You may go LEFT, RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're standing on a cul de sac in a nice gated neighborhood. Everyone's lawns
+are immaculate. Two roads lead out of the neighborhood, one ahead to your left
+and one behind you.
+
+A middle-aged bearded man wearing a crown - clearly a KING - floats on an
+inflated raft in a pool in front of the fanciest house on the block.
+
+In front of another, less lavish HOME, a TALL MAN animatedly alternates between
+pacing, sighing, and checking his watch. His arms are constantly flailing, and
+a trick of the light makes the pattern on his gaudy gingham shirt play tricks
+on your eyes.
+
+There's a noticeable military presence here; three soldiers march in tight
+circles around the cul de sac, presumably patrolling.
+
+You may go LEFT or BACK.
+
+> talk to tall man
+
+"Hi, hey, hi, howya doin'? Stan's the name, real estate's the game. Shake! No?
+Fist bump? No? Ok. This HOME behind me is available, for the low low price of
+one parcel of land where I can build a new house and start a new condo
+association. Don't care where it is, just need some property. This place is
+just about tapped out; this condo is the last unit for sale, so act fast fast
+fast!"
+
+> talk to king
+
+"Ah, you must be the traveler I've heard so much about. Listen, I'd love to
+just fill in your passport and send you on your merry way, but they have rules
+in Blanc, and they might declare war if I just let you in. Well, there's only
+one rule, really, and it's that you need to be a property owner to go there.
+Specifically, you have to own one of the condos in this neighborhood. Look, I
+don't make the rules, I just... sort of float here. But I'm going to give you a
+freebie, ok? Take this paper CLIP, and if you can use your wit and trading
+acumen to scale the social ladder and become a member of the landed gentry,
+I'll do you a good turn."
+
+The KING hands you a paper CLIP.
+
+> b
+
+You go back.
+
+You're standing at a crossroads. There's a portcullis here; on one side a road
+leads behind you into the interior of Merrygold. On the other side, a coastal
+road runs ahead to your right and ahead to your left within Cerulia.
+
+You may go LEFT, RIGHT or BACK.
+
+> l
+
+You go left.
+
+You're at a bend in the road that winds along the shore. You may continue
+traveling behind you or ahead to your left. In the hills to your left there's a
+clay pit with a SIGN nearby.
+
+You may go LEFT or BACK.
+
+> l
+
+You go left.
+
+You stop at a bend in the road. In front of you, you see a grove of trees
+marked with a SIGN. The road continues ahead to your left and behind you.
+
+You may go LEFT or BACK.
+
+> l
+
+You go left.
+
+You're in a trailer park. Most of the trailers are rusted husks that look like
+they've been here a very, very long time. There are hundreds of "beware of dog"
+signs, and the ground is covered with the bones of the illiterate or foolhardy.
+The only place the ground is visible is a narrow path that leads to the one
+trailer that seems to be currently inhabited. It's dotted with scorch marks.
+
+There are roads leading out of the park ahead to your left, ahead to your right
+and behind you.
+
+Two MEN in their underwear and gas masks seem to be having trouble with a
+number of pieces of paper covered in diagrams and schematics. You watch them
+gather the pages off the ground into a stack, which moments later the wind
+obliterates, sending paper flying every which way. They then start the process
+over again.
+
+You may go LEFT, RIGHT or BACK.
+
+> give clip to men
+
+You give a paper clip to the two men.
+
+They examine the paperclip, puzzled expressions apparent under their gas masks.
+You pick up two pieces of paper and use the clip to hold them together. The men
+make excited little noises, snatch the clip out of your hand, and start
+gathering a stack together. The smaller one takes a break to press a VIAL into
+your hand.
+
+After their papers are finally gathered and securely clipped, the men retreat
+back into their trailer.
+
+> l
+
+You go left.
+
+You're standing at a bend in the road. The road continues behind you and ahead
+to your right. In front of you is a thick forest, an area of which is marked
+with a SIGN.
+
+You may go RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're standing in front of a SAWMILL. There are roads ahead to your right and
+behind you, and a portcullis guards a road to another kingdom ahead to your
+left.
+
+The LUMBERJACK is still here, but now he's noodling away on an upright bass.
+
+You may go RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're standing at a crossroads. Roads lead away from here ahead to your right,
+behind you and ahead to your left. To your right you see a pasture marked with
+a SIGN.
+
+You may go LEFT, RIGHT or BACK.
+
+> l
+
+You go left.
+
+You're standing at a crossroads. To your right is a forest, and in front of you
+you can see sheep grazing. Roads lead away from here ahead to your left, ahead
+to your right and behind you, and there's a portcullis guarding the road ahead
+to your left.
+
+You may go RIGHT or BACK.
+
+> r
+
+You go right.
+
+You are standing at a border checkpoint, guarded by a portcullis. The main
+thoroughfare traversing Cerulia can be traveled behind you and ahead to your
+left, and a road leading to Crimsilon is ahead to your right.
+
+The GUARD whistles a happy tune.
+
+You may go LEFT, RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're standing at a crossroads, at the base of a mountain that's in front of
+you. Looking to your right you see a dense forest, and to your left a desert.
+Roads lead away from here behind you, ahead to your left and ahead to your
+right.
+
+You may go LEFT, RIGHT or BACK.
+
+> l
+
+You go left.
+
+You've traveled until you reached a fork in the road. The roads ahead to your
+right and ahead to your left seem to meander along the beach, while the road
+behind you leads further inland. Looking directly to your right, it looks like
+the terrain gets steeper, and there's sandy desert as far as you can see
+directly to your left. The ocean is directly in front of you.
+
+You may go LEFT, RIGHT or BACK.
+
+> l
+
+You go left.
+
+You find yourself standing on a beach. Directly to your left is a huge desert -
+it's just sand as far as the eye can see. There's a road that meanders along
+the edge of the beach, which you can follow behind you or ahead to your left.
+
+An OLD WOMAN is huddled by a small fire.
+
+You may go LEFT or BACK.
+
+> l
+
+You go left.
+
+You've reached a bend in the road. Ahead to your right the road climbs up
+alongside a mountain range (which is directly in front of you), while behind
+you the road follows alongside the beach. A seemingly endless amount of desert
+can be seen directly to your left.
+
+You may go RIGHT or BACK.
+
+> r
+
+You go right.
+
+You are standing outside of a lone castle perched on the side of a mountain. It
+has a large wooden door, stone WALLS, and a few windows on the upper stories.
+There are roads leading away from the castle ahead to your left and behind
+you.
+
+You may go LEFT or BACK.
+
+> climb wall
+
+The nails on your boots dig into the castle's stone walls, and you successfully
+climb up to a window.
+
+You're up on the window sill. The wooden WINDOW SHUTTERS are closed, and you
+can't see inside.
+
+You may go DOWN.
+
+> open window
+
+You open the shutters and climb inside through the window. The shutters swing
+shut behind you.
+
+You're inside of an upstairs bedroom of the castle. There's a DRESSER against
+the wall.
+
+Standing on the other side of the room is a beautiful PRINCESS. She's wearing a
+lab coat and goggles, and has beakers of bubbly liquids all over the place.
+
+You may go OUT THE WINDOW.
+
+> give clap to princess
+
+You give a small vial to the beautiful princess.
+
+She pops the vial under a microscope and noodles around with it for a few
+minutes before nodding. Emma walks back over to you, and slaps you hard across
+the face. You fall back out of the window, but land uninjured in a convenient
+bale of hay.
+
+Emma sticks her head out of her window and shouts down to you, "That one's for
+melting my furniture! Don't come back here. Oh, and thanks for the Clap!" She
+slams her window. Some farmers who happen to be passing by at just that minute
+look at you and slowly shake their heads.
+
+You'll remember that SLAP for a good long while. In fact, you now have a great
+SLAP technique you can use anytime.
+
+As you recover from the SLAP, you re-orient yourself.
+
+You are standing outside of a lone castle perched on the side of a mountain. It
+has a large wooden door, stone WALLS, and a few windows on the upper stories.
+There are roads leading away from the castle ahead to your left and behind
+you.
+
+You may go LEFT or BACK.
+
+> b
+
+You go back.
+
+You've reached a bend in the road. Behind you the road climbs up alongside a
+mountain range (which is directly to your right), while ahead to your left the
+road follows alongside the beach. A seemingly endless amount of desert can be
+seen directly in front of you.
+
+You may go LEFT or BACK.
+
+> l
+
+You go left.
+
+You find yourself standing on a beach. Directly to your right is a huge desert
+- it's just sand as far as the eye can see. There's a road that meanders along
+the edge of the beach, which you can follow ahead to your right or behind you.
+
+An OLD WOMAN is huddled by a small fire.
+
+You may go RIGHT or BACK.
+
+> r
+
+You go right.
+
+You've traveled until you reached a fork in the road. The roads ahead to your
+left and behind you seem to meander along the beach, while the road ahead to
+your right leads further inland. Looking directly in front of you, it looks
+like the terrain gets steeper, and there's sandy desert as far as you can see
+directly to your right. The ocean is directly to your left.
+
+You may go LEFT, RIGHT or BACK.
+
+> l
+
+You go left.
+
+You're at a bend in the sandy beach road. A mountain range rises up directly to
+your right. You can take the road behind you or ahead to your right.
+
+You may go RIGHT or BACK.
+
+> b
+
+You go back.
+
+You've traveled until you reached a fork in the road. The roads behind you and
+ahead to your right seem to meander along the beach, while the road ahead to
+your left leads further inland. Looking directly to your left, it looks like
+the terrain gets steeper, and there's sandy desert as far as you can see
+directly in front of you. The ocean is directly to your right.
+
+You may go LEFT, RIGHT or BACK.
+
+> l
+
+You go left.
+
+You're standing at a crossroads, at the base of a mountain that's to your left.
+Looking in front of you you see a dense forest, and to your right a desert.
+Roads lead away from here ahead to your right, behind you and ahead to your
+left.
+
+You may go LEFT, RIGHT or BACK.
+
+> r
+
+You go right.
+
+You are standing at a border checkpoint, guarded by a portcullis. The main
+thoroughfare traversing Cerulia can be traveled ahead to your left and ahead to
+your right, and a road leading to Crimsilon is behind you.
+
+The GUARD whistles a happy tune.
+
+You may go LEFT, RIGHT or BACK.
+
+> l
+
+You go left.
+
+You're standing at a crossroads. To your left is a forest, and to your right
+you can see sheep grazing. Roads lead away from here ahead to your right,
+behind you and ahead to your left, and there's a portcullis guarding the road
+ahead to your right.
+
+You may go LEFT or BACK.
+
+> l
+
+You go left.
+
+You're standing at a crossroads. Roads lead away from here ahead to your left,
+ahead to your right and behind you. In front of you you see a pasture marked
+with a SIGN.
+
+You may go LEFT, RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're standing in front of a SAWMILL. There are roads behind you and ahead to
+your left, and a portcullis guards a road to another kingdom ahead to your
+right.
+
+The LUMBERJACK is still here, but now he's noodling away on an upright bass.
+
+You may go LEFT or BACK.
+
+> give slap to lumberjack
+
+You give a slap technique to the lumberjack.
+
+You slap that bass. He slaps that bass. He gets into a deep groove and nods
+towards a SLAT of wood leaning against a log. It's about as nice as sticks of
+wood go. You take it.
+
+> b
+
+You go back.
+
+You're standing at a crossroads. Roads lead away from here ahead to your right,
+behind you and ahead to your left. To your right you see a pasture marked with
+a SIGN.
+
+You may go LEFT, RIGHT or BACK.
+
+> l
+
+You go left.
+
+You're standing at a crossroads. To your right is a forest, and in front of you
+you can see sheep grazing. Roads lead away from here ahead to your left, ahead
+to your right and behind you, and there's a portcullis guarding the road ahead
+to your left.
+
+You may go RIGHT or BACK.
+
+> r
+
+You go right.
+
+You are standing at a border checkpoint, guarded by a portcullis. The main
+thoroughfare traversing Cerulia can be traveled behind you and ahead to your
+left, and a road leading to Crimsilon is ahead to your right.
+
+The GUARD whistles a happy tune.
+
+You may go LEFT, RIGHT or BACK.
+
+> l
+
+You go left.
+
+You're at a ranger station on the edge of the desert. The ranger station itself
+is a small wooden cabin, and next to it is an open garage that looks like some
+sort of AUTO SHOP. To your right there's a TRAIL HEAD marked with a sign that
+says "Desert trail". There's a road leading away behind you.
+
+An AUTO MECHANIC works in front of the auto shop, oozing so much grease that he
+leaves a trail wherever he goes.
+
+You may go BACK.
+
+> give slat to mechanic
+
+You give a wooden slat to the auto mechanic.
+
+"Is this cherry wood or something? I like it. You can grab the SEAT on your way
+out. And don't come back anymore unless you want me to do some work on
+something cool, like a tank or a motorbike or something."
+
+You take the SEAT.
+
+> b
+
+You go back.
+
+You are standing at a border checkpoint, guarded by a portcullis. The main
+thoroughfare traversing Cerulia can be traveled ahead to your right and behind
+you, and a road leading to Crimsilon is ahead to your left.
+
+The GUARD whistles a happy tune.
+
+You may go LEFT, RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're standing at a crossroads. To your left is a forest, and to your right
+you can see sheep grazing. Roads lead away from here ahead to your right,
+behind you and ahead to your left, and there's a portcullis guarding the road
+ahead to your right.
+
+You may go LEFT or BACK.
+
+> l
+
+You go left.
+
+You're standing at a crossroads. Roads lead away from here ahead to your left,
+ahead to your right and behind you. In front of you you see a pasture marked
+with a SIGN.
+
+You may go LEFT, RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're standing in front of a SAWMILL. There are roads behind you and ahead to
+your left, and a portcullis guards a road to another kingdom ahead to your
+right.
+
+The LUMBERJACK is still here, but now he's noodling away on an upright bass.
+
+You may go LEFT or BACK.
+
+> l
+
+You go left.
+
+You're standing at a bend in the road. The road continues ahead to your left
+and behind you. To your right is a thick forest, an area of which is marked
+with a SIGN.
+
+You may go LEFT or BACK.
+
+> l
+
+You go left.
+
+You're in a trailer park. Most of the trailers are rusted husks that look like
+they've been here a very, very long time. There are hundreds of "beware of dog"
+signs, and the ground is covered with the bones of the illiterate or foolhardy.
+The only place the ground is visible is a narrow path that leads to the one
+trailer that seems to be currently inhabited. It's dotted with scorch marks.
+
+There are roads leading out of the park behind you, ahead to your left and
+ahead to your right.
+
+You may go LEFT, RIGHT or BACK.
+
+> r
+
+You go right.
+
+You stop at a bend in the road. To your left, you see a grove of trees marked
+with a SIGN. The road continues behind you and ahead to your right.
+
+You may go RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're at a bend in the road that winds along the shore. You may continue
+traveling ahead to your right or behind you. In the hills to your right there's
+a clay pit with a SIGN nearby.
+
+You may go RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're standing at a crossroads. There's a portcullis here; on one side a road
+leads ahead to your right into the interior of Merrygold. On the other side, a
+coastal road runs ahead to your left and behind you within Cerulia.
+
+You may go LEFT, RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're standing on a cul de sac in a nice gated neighborhood. Everyone's lawns
+are immaculate. Two roads lead out of the neighborhood, one ahead to your left
+and one behind you.
+
+A middle-aged bearded man wearing a crown - clearly a KING - floats on an
+inflated raft in a pool in front of the fanciest house on the block.
+
+In front of another, less lavish HOME, a TALL MAN animatedly alternates between
+pacing, sighing, and checking his watch. His arms are constantly flailing, and
+a trick of the light makes the pattern on his gaudy gingham shirt play tricks
+on your eyes.
+
+There's a noticeable military presence here; three soldiers march in tight
+circles around the cul de sac, presumably patrolling.
+
+You may go LEFT or BACK.
+
+> l
+
+You go left.
+
+You're standing at a bend in the road. The road continues behind you and ahead
+to your right. In front of you you see a SIGN by some hills.
+
+You may go RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're standing in front of a lone butcher shop on the side of the road. The
+road continues ahead to your left and behind you.
+
+A BUTCHER in a bloody apron sits on a creaky rocking chair.
+
+You may go LEFT or BACK.
+
+> give seat to butcher
+
+You give a car seat to the butcher in the bloody apron.
+
+"Let me try this bad boy out. Oh yeah. That's the stuff. Have some MEAT. I
+don't remember what this one was from, but it's probably good. Ok, bye."
+
+> b
+
+You go back.
+
+You're standing at a bend in the road. The road continues ahead to your left
+and behind you. To your right you see a SIGN by some hills.
+
+You may go LEFT or BACK.
+
+> l
+
+You go left.
+
+You're standing on a cul de sac in a nice gated neighborhood. Everyone's lawns
+are immaculate. Two roads lead out of the neighborhood, one behind you and one
+ahead to your right.
+
+A middle-aged bearded man wearing a crown - clearly a KING - floats on an
+inflated raft in a pool in front of the fanciest house on the block.
+
+In front of another, less lavish HOME, a TALL MAN animatedly alternates between
+pacing, sighing, and checking his watch. His arms are constantly flailing, and
+a trick of the light makes the pattern on his gaudy gingham shirt play tricks
+on your eyes.
+
+There's a noticeable military presence here; three soldiers march in tight
+circles around the cul de sac, presumably patrolling.
+
+You may go RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're standing at a crossroads. There's a portcullis here; on one side a road
+leads behind you into the interior of Merrygold. On the other side, a coastal
+road runs ahead to your right and ahead to your left within Cerulia.
+
+You may go LEFT, RIGHT or BACK.
+
+> l
+
+You go left.
+
+You're at a bend in the road that winds along the shore. You may continue
+traveling behind you or ahead to your left. In the hills to your left there's a
+clay pit with a SIGN nearby.
+
+You may go LEFT or BACK.
+
+> l
+
+You go left.
+
+You stop at a bend in the road. In front of you, you see a grove of trees
+marked with a SIGN. The road continues ahead to your left and behind you.
+
+You may go LEFT or BACK.
+
+> l
+
+You go left.
+
+You're in a trailer park. Most of the trailers are rusted husks that look like
+they've been here a very, very long time. There are hundreds of "beware of dog"
+signs, and the ground is covered with the bones of the illiterate or foolhardy.
+The only place the ground is visible is a narrow path that leads to the one
+trailer that seems to be currently inhabited. It's dotted with scorch marks.
+
+There are roads leading out of the park ahead to your left, ahead to your right
+and behind you.
+
+You may go LEFT, RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're standing at a bend in the road. The road continues behind you and ahead
+to your left. In front of you, there's a huge farm growing crops, and running
+along the farm is a track marked with a SIGN.
+
+You may go LEFT or BACK.
+
+> l
+
+You go left.
+
+You're in a clearing. There's a rectangular building with two large metal vats
+sticking out of its roof. A SIGNBOARD swings over the DOOR. There's a BELL next
+to the door. There are roads leading away from the clearing ahead to your left
+and behind you.
+
+A kindly OLD WOMAN stands by the door.
+
+You may go LEFT or BACK.
+
+> give meat to woman
+
+You give a slab of meat to the old woman.
+
+"Meat! Here, have a drink."
+
+She slams a tankard of MEAD into your chest, then runs inside, holding her
+steak high over her head.
+
+> l
+
+You go left.
+
+You're standing at a crossroads. Roads lead away from here behind you, ahead to
+your left and ahead to your right. To your left you see a pasture marked with a
+SIGN.
+
+You may go LEFT, RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're standing at a crossroads. To your right is a forest, and in front of you
+you can see sheep grazing. Roads lead away from here ahead to your left, ahead
+to your right and behind you, and there's a portcullis guarding the road ahead
+to your left.
+
+You may go RIGHT or BACK.
+
+> r
+
+You go right.
+
+You are standing at a border checkpoint, guarded by a portcullis. The main
+thoroughfare traversing Cerulia can be traveled behind you and ahead to your
+left, and a road leading to Crimsilon is ahead to your right.
+
+The GUARD whistles a happy tune.
+
+You may go LEFT, RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're standing at a crossroads, at the base of a mountain that's in front of
+you. Looking to your right you see a dense forest, and to your left a desert.
+Roads lead away from here behind you, ahead to your left and ahead to your
+right.
+
+You may go LEFT, RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're standing at a bend in the road. The road continues ahead to your left
+and behind you. To your right you see a wooded area marked with a SIGN.
+
+You may go LEFT or BACK.
+
+> l
+
+You go left.
+
+You are standing in the center square of a small village. There's a
+blacksmith's shop here. To your left, the village ends at a sheer face of a
+mountain. To your right, there's fields of wheat as far as you can see. There's
+a road out of the village behind you.
+
+The town BLACKSMITH sits nearby, hunched over his forge, working on some metal
+thingy.
+
+You may go BACK.
+
+> give mead to blacksmith
+
+You give a tankard of mead to the blacksmith.
+
+He downs it in one long go.
+
+"Ahhhh, that's the stuff. Here are some 15 foot rods of my special iron-carbon
+MELD. Any ideas what to call it? Nevermind, I'll think of something."
+
+> b
+
+You go back.
+
+You're standing at a bend in the road. The road continues behind you and ahead
+to your right. In front of you you see a wooded area marked with a SIGN.
+
+You may go RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're standing at a crossroads, at the base of a mountain that's to your
+right. Looking to your left you see a dense forest, and in front of you a
+desert. Roads lead away from here ahead to your left, ahead to your right and
+behind you.
+
+You may go LEFT, RIGHT or BACK.
+
+> l
+
+You go left.
+
+You are standing at a border checkpoint, guarded by a portcullis. The main
+thoroughfare traversing Cerulia can be traveled ahead to your left and ahead to
+your right, and a road leading to Crimsilon is behind you.
+
+The GUARD whistles a happy tune.
+
+You may go LEFT, RIGHT or BACK.
+
+> l
+
+You go left.
+
+You're standing at a crossroads. To your left is a forest, and to your right
+you can see sheep grazing. Roads lead away from here ahead to your right,
+behind you and ahead to your left, and there's a portcullis guarding the road
+ahead to your right.
+
+You may go LEFT or BACK.
+
+> l
+
+You go left.
+
+You're standing at a crossroads. Roads lead away from here ahead to your left,
+ahead to your right and behind you. In front of you you see a pasture marked
+with a SIGN.
+
+You may go LEFT, RIGHT or BACK.
+
+> l
+
+You go left.
+
+You're in a clearing. There's a rectangular building with two large metal vats
+sticking out of its roof. A SIGNBOARD swings over the DOOR. There's a BELL next
+to the door. There are roads leading away from the clearing behind you and
+ahead to your right.
+
+You may go RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're standing at a bend in the road. The road continues ahead to your right
+and behind you. To your left, there's a huge farm growing crops, and running
+along the farm is a track marked with a SIGN.
+
+You may go RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're in a trailer park. Most of the trailers are rusted husks that look like
+they've been here a very, very long time. There are hundreds of "beware of dog"
+signs, and the ground is covered with the bones of the illiterate or foolhardy.
+The only place the ground is visible is a narrow path that leads to the one
+trailer that seems to be currently inhabited. It's dotted with scorch marks.
+
+There are roads leading out of the park ahead to your right, behind you and
+ahead to your left.
+
+You may go LEFT, RIGHT or BACK.
+
+> l
+
+You go left.
+
+You stop at a bend in the road. To your left, you see a grove of trees marked
+with a SIGN. The road continues behind you and ahead to your right.
+
+You may go RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're at a bend in the road that winds along the shore. You may continue
+traveling ahead to your right or behind you. In the hills to your right there's
+a clay pit with a SIGN nearby.
+
+You may go RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're standing at a crossroads. There's a portcullis here; on one side a road
+leads ahead to your right into the interior of Merrygold. On the other side, a
+coastal road runs ahead to your left and behind you within Cerulia.
+
+You may go LEFT, RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're standing on a cul de sac in a nice gated neighborhood. Everyone's lawns
+are immaculate. Two roads lead out of the neighborhood, one ahead to your left
+and one behind you.
+
+A middle-aged bearded man wearing a crown - clearly a KING - floats on an
+inflated raft in a pool in front of the fanciest house on the block.
+
+In front of another, less lavish HOME, a TALL MAN animatedly alternates between
+pacing, sighing, and checking his watch. His arms are constantly flailing, and
+a trick of the light makes the pattern on his gaudy gingham shirt play tricks
+on your eyes.
+
+There's a noticeable military presence here; three soldiers march in tight
+circles around the cul de sac, presumably patrolling.
+
+You may go LEFT or BACK.
+
+> l
+
+You go left.
+
+You're standing at a bend in the road. The road continues behind you and ahead
+to your right. In front of you you see a SIGN by some hills.
+
+You may go RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're standing in front of a lone butcher shop on the side of the road. The
+road continues ahead to your left and behind you.
+
+A BUTCHER in a bloody apron sits on a creaky rocking chair.
+
+You may go LEFT or BACK.
+
+> l
+
+You go left.
+
+You're at a crossroads. There are roads leading away from here behind you,
+ahead to your left, and ahead to your right. To your right, there's evidence of
+a crude mining operation where someone's been chipping away at the side of a
+mountain. There's an advisory SIGN posted.
+
+You may go LEFT, RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're standing at a crossroads. Roads lead away from here ahead to your left,
+ahead to your right and behind you. To your left you see a pasture marked with
+a SIGN.
+
+You may go LEFT, RIGHT or BACK.
+
+> r
+
+You go right.
+
+There's only a single shop here, and boy does it stink. That could have
+something to do with the biggest wheel of cheese you've ever seen, resting
+against the frame of the building. It's secured in place by multiple ropes
+connected to stakes that have been hammered into the ground and nearby trees.
+The cheese itself is about twice as tall as the house.
+
+There's a road leading away from the shop behind you, and a portcullis guarding
+a road to another kingdom ahead to your right.
+
+A CHEESEMONGER is pummeling the cheese with his fists.
+
+A soldier stands at attention, eyeing the cheese with suspicion.
+
+You may go BACK.
+
+> give meld to cheesemonger
+
+You give some rods of a metal meld to the cheesemonger.
+
+"What is this? Seems pretty solid. Worth a try. Goddamn cheese. It'll take some
+time to get the equipment in place to hoist the goddamn cheese up and test this
+out. If it works I'll give you as much cheese as you want. In the meantime,
+have a sample."
+
+He scrapes some MOLD off the giant goddamn cheese with a tiny knife and hands
+it to you.
+
+> b
+
+You go back.
+
+You're standing at a crossroads. Roads lead away from here ahead to your right,
+behind you and ahead to your left. In front of you you see a pasture marked
+with a SIGN.
+
+You may go LEFT, RIGHT or BACK.
+
+> l
+
+You go left.
+
+You're at a crossroads. There are roads leading away from here ahead to your
+left, ahead to your right, and behind you. To your left, there's evidence of a
+crude mining operation where someone's been chipping away at the side of a
+mountain. There's an advisory SIGN posted.
+
+You may go LEFT, RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're outside a massive pet store. You can see through the window all manner
+of creatures moving about. Cats, dogs, elephants, giraffes, unicorns...
+Narwhals???... It's quite a menagerie.
+
+There's a road leading away from the pet store behind you.
+
+A WOMAN stands outside hammering some weatherproof panels onto the walls.
+
+Two soldiers stand guard outside the front door.
+
+You may go BACK.
+
+> give mold to woman
+
+You give some mold to the woman.
+
+"Is that a Penicillium? I've been looking for one of these for years. Hold on
+for one second and I'll see what I can give you for it."
+
+She disappears into the petshop. There are lots of animal noises. She finally
+emerges carrying a tiny adorable furry creature in a baby bjorn.
+
+"I found a baby MOLE, probably a week old. Here you go. Thanks again for the
+fungus."
+
+> b
+
+You go back.
+
+You're at a crossroads. There are roads leading away from here ahead to your
+right, behind you, and ahead to your left. In front of you, there's evidence of
+a crude mining operation where someone's been chipping away at the side of a
+mountain. There's an advisory SIGN posted.
+
+You may go LEFT, RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're standing in front of a lone butcher shop on the side of the road. The
+road continues behind you and ahead to your right.
+
+A BUTCHER in a bloody apron sits on a creaky rocking chair.
+
+You may go RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're standing at a bend in the road. The road continues ahead to your left
+and behind you. To your right you see a SIGN by some hills.
+
+You may go LEFT or BACK.
+
+> l
+
+You go left.
+
+You're standing on a cul de sac in a nice gated neighborhood. Everyone's lawns
+are immaculate. Two roads lead out of the neighborhood, one behind you and one
+ahead to your right.
+
+A middle-aged bearded man wearing a crown - clearly a KING - floats on an
+inflated raft in a pool in front of the fanciest house on the block.
+
+In front of another, less lavish HOME, a TALL MAN animatedly alternates between
+pacing, sighing, and checking his watch. His arms are constantly flailing, and
+a trick of the light makes the pattern on his gaudy gingham shirt play tricks
+on your eyes.
+
+There's a noticeable military presence here; three soldiers march in tight
+circles around the cul de sac, presumably patrolling.
+
+You may go RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're standing at a crossroads. There's a portcullis here; on one side a road
+leads behind you into the interior of Merrygold. On the other side, a coastal
+road runs ahead to your right and ahead to your left within Cerulia.
+
+You may go LEFT, RIGHT or BACK.
+
+> l
+
+You go left.
+
+You're at a bend in the road that winds along the shore. You may continue
+traveling behind you or ahead to your left. In the hills to your left there's a
+clay pit with a SIGN nearby.
+
+You may go LEFT or BACK.
+
+> l
+
+You go left.
+
+You stop at a bend in the road. In front of you, you see a grove of trees
+marked with a SIGN. The road continues ahead to your left and behind you.
+
+You may go LEFT or BACK.
+
+> l
+
+You go left.
+
+You're in a trailer park. Most of the trailers are rusted husks that look like
+they've been here a very, very long time. There are hundreds of "beware of dog"
+signs, and the ground is covered with the bones of the illiterate or foolhardy.
+The only place the ground is visible is a narrow path that leads to the one
+trailer that seems to be currently inhabited. It's dotted with scorch marks.
+
+There are roads leading out of the park ahead to your left, ahead to your right
+and behind you.
+
+You may go LEFT, RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're standing at a bend in the road. The road continues behind you and ahead
+to your left. In front of you, there's a huge farm growing crops, and running
+along the farm is a track marked with a SIGN.
+
+You may go LEFT or BACK.
+
+> l
+
+You go left.
+
+You're in a clearing. There's a rectangular building with two large metal vats
+sticking out of its roof. A SIGNBOARD swings over the DOOR. There's a BELL next
+to the door. There are roads leading away from the clearing ahead to your left
+and behind you.
+
+You may go LEFT or BACK.
+
+> l
+
+You go left.
+
+You're standing at a crossroads. Roads lead away from here behind you, ahead to
+your left and ahead to your right. To your left you see a pasture marked with a
+SIGN.
+
+You may go LEFT, RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're standing at a crossroads. To your right is a forest, and in front of you
+you can see sheep grazing. Roads lead away from here ahead to your left, ahead
+to your right and behind you, and there's a portcullis guarding the road ahead
+to your left.
+
+You may go RIGHT or BACK.
+
+> r
+
+You go right.
+
+You are standing at a border checkpoint, guarded by a portcullis. The main
+thoroughfare traversing Cerulia can be traveled behind you and ahead to your
+left, and a road leading to Crimsilon is ahead to your right.
+
+The GUARD whistles a happy tune.
+
+You may go LEFT, RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're standing at a crossroads, at the base of a mountain that's in front of
+you. Looking to your right you see a dense forest, and to your left a desert.
+Roads lead away from here behind you, ahead to your left and ahead to your
+right.
+
+You may go LEFT, RIGHT or BACK.
+
+> l
+
+You go left.
+
+You've traveled until you reached a fork in the road. The roads ahead to your
+right and ahead to your left seem to meander along the beach, while the road
+behind you leads further inland. Looking directly to your right, it looks like
+the terrain gets steeper, and there's sandy desert as far as you can see
+directly to your left. The ocean is directly in front of you.
+
+You may go LEFT, RIGHT or BACK.
+
+> l
+
+You go left.
+
+You find yourself standing on a beach. Directly to your left is a huge desert -
+it's just sand as far as the eye can see. There's a road that meanders along
+the edge of the beach, which you can follow behind you or ahead to your left.
+
+An OLD WOMAN is huddled by a small fire.
+
+You may go LEFT or BACK.
+
+> l
+
+You go left.
+
+You've reached a bend in the road. Ahead to your right the road climbs up
+alongside a mountain range (which is directly in front of you), while behind
+you the road follows alongside the beach. A seemingly endless amount of desert
+can be seen directly to your left.
+
+You may go RIGHT or BACK.
+
+> r
+
+You go right.
+
+You are standing outside of a lone castle perched on the side of a mountain. It
+has a large wooden door, stone WALLS, and a few windows on the upper stories.
+There are roads leading away from the castle ahead to your left and behind
+you.
+
+You may go LEFT or BACK.
+
+> l
+
+You go left.
+
+You've reached a lookout point along a windy mountain road. There's a great
+view of the ocean up here. Someone's posted a SIGN by the lookout point. The
+mountain road continues behind you and ahead to your left.
+
+You may go LEFT or BACK.
+
+> l
+
+You go left.
+
+You're at a bend in the road. The road rises further up into the mountains
+behind you, or descends along some gentle rolling hills ahead to your right.
+The ocean is directly to your right.
+
+You may go RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're walking between some hills directly to your left and the ocean directly
+in front of you and to your right. There's a SIGN marking this area of hilly
+terrain.
+
+You may go LEFT or BACK.
+
+> l
+
+You go left.
+
+You're at a dairy farm adjacent to a sizable POND. The farm has several
+structures: a house, stables, and a silo. In front of you, some sheep are
+grazing in the farm's pastures. Directly to your left the terrain becomes a bit
+more hilly. The road away from the farm is behind you, and there's a road ahead
+to your left to the next kingdom guarded by a portcullis.
+
+A FARMER tends to a small group of sheep.
+
+You may go BACK.
+
+> give mole to farmer
+
+You give a baby mole to the farmer.
+
+"What's this? Oh. He one of them... cats? No? Oh, these are the guys who burrow
+underground. Oh yeah. This'll do. Feisty little guy. Here's your hole."
+
+He hands you a property deed to the HOLE.
+
+> b
+
+You go back.
+
+You're walking between some hills directly to your right and the ocean directly
+to your left and in front of you. There's a SIGN marking this area of hilly
+terrain.
+
+You may go RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're at a bend in the road. The road rises further up into the mountains
+ahead to your left, or descends along some gentle rolling hills behind you. The
+ocean is directly to your left.
+
+You may go LEFT or BACK.
+
+> l
+
+You go left.
+
+You've reached a lookout point along a windy mountain road. There's a great
+view of the ocean up here. Someone's posted a SIGN by the lookout point. The
+mountain road continues ahead to your right and behind you.
+
+You may go RIGHT or BACK.
+
+> r
+
+You go right.
+
+You are standing outside of a lone castle perched on the side of a mountain. It
+has a large wooden door, stone WALLS, and a few windows on the upper stories.
+There are roads leading away from the castle behind you and ahead to your
+right.
+
+You may go RIGHT or BACK.
+
+> r
+
+You go right.
+
+You've reached a bend in the road. Behind you the road climbs up alongside a
+mountain range (which is directly to your right), while ahead to your left the
+road follows alongside the beach. A seemingly endless amount of desert can be
+seen directly in front of you.
+
+You may go LEFT or BACK.
+
+> l
+
+You go left.
+
+You find yourself standing on a beach. Directly to your right is a huge desert
+- it's just sand as far as the eye can see. There's a road that meanders along
+the edge of the beach, which you can follow ahead to your right or behind you.
+
+An OLD WOMAN is huddled by a small fire.
+
+You may go RIGHT or BACK.
+
+> r
+
+You go right.
+
+You've traveled until you reached a fork in the road. The roads ahead to your
+left and behind you seem to meander along the beach, while the road ahead to
+your right leads further inland. Looking directly in front of you, it looks
+like the terrain gets steeper, and there's sandy desert as far as you can see
+directly to your right. The ocean is directly to your left.
+
+You may go LEFT, RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're standing at a crossroads, at the base of a mountain that's to your left.
+Looking in front of you you see a dense forest, and to your right a desert.
+Roads lead away from here ahead to your right, behind you and ahead to your
+left.
+
+You may go LEFT, RIGHT or BACK.
+
+> r
+
+You go right.
+
+You are standing at a border checkpoint, guarded by a portcullis. The main
+thoroughfare traversing Cerulia can be traveled ahead to your left and ahead to
+your right, and a road leading to Crimsilon is behind you.
+
+The GUARD whistles a happy tune.
+
+You may go LEFT, RIGHT or BACK.
+
+> l
+
+You go left.
+
+You're standing at a crossroads. To your left is a forest, and to your right
+you can see sheep grazing. Roads lead away from here ahead to your right,
+behind you and ahead to your left, and there's a portcullis guarding the road
+ahead to your right.
+
+You may go LEFT or BACK.
+
+> l
+
+You go left.
+
+You're standing at a crossroads. Roads lead away from here ahead to your left,
+ahead to your right and behind you. In front of you you see a pasture marked
+with a SIGN.
+
+You may go LEFT, RIGHT or BACK.
+
+> l
+
+You go left.
+
+You're in a clearing. There's a rectangular building with two large metal vats
+sticking out of its roof. A SIGNBOARD swings over the DOOR. There's a BELL next
+to the door. There are roads leading away from the clearing behind you and
+ahead to your right.
+
+You may go RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're standing at a bend in the road. The road continues ahead to your right
+and behind you. To your left, there's a huge farm growing crops, and running
+along the farm is a track marked with a SIGN.
+
+You may go RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're in a trailer park. Most of the trailers are rusted husks that look like
+they've been here a very, very long time. There are hundreds of "beware of dog"
+signs, and the ground is covered with the bones of the illiterate or foolhardy.
+The only place the ground is visible is a narrow path that leads to the one
+trailer that seems to be currently inhabited. It's dotted with scorch marks.
+
+There are roads leading out of the park ahead to your right, behind you and
+ahead to your left.
+
+You may go LEFT, RIGHT or BACK.
+
+> l
+
+You go left.
+
+You stop at a bend in the road. To your left, you see a grove of trees marked
+with a SIGN. The road continues behind you and ahead to your right.
+
+You may go RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're at a bend in the road that winds along the shore. You may continue
+traveling ahead to your right or behind you. In the hills to your right there's
+a clay pit with a SIGN nearby.
+
+You may go RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're standing at a crossroads. There's a portcullis here; on one side a road
+leads ahead to your right into the interior of Merrygold. On the other side, a
+coastal road runs ahead to your left and behind you within Cerulia.
+
+You may go LEFT, RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're standing on a cul de sac in a nice gated neighborhood. Everyone's lawns
+are immaculate. Two roads lead out of the neighborhood, one ahead to your left
+and one behind you.
+
+A middle-aged bearded man wearing a crown - clearly a KING - floats on an
+inflated raft in a pool in front of the fanciest house on the block.
+
+In front of another, less lavish HOME, a TALL MAN animatedly alternates between
+pacing, sighing, and checking his watch. His arms are constantly flailing, and
+a trick of the light makes the pattern on his gaudy gingham shirt play tricks
+on your eyes.
+
+There's a noticeable military presence here; three soldiers march in tight
+circles around the cul de sac, presumably patrolling.
+
+You may go LEFT or BACK.
+
+> give hole to man
+
+You give a property deed for a hole to the tall man.
+
+"Lemme see. Mmmhmm. Mmmhmm. Ah, yes! This is perfect. Can I hug you? I'm going
+to hug you. No? High five? No? Ok. Well, this is exactly what I needed. I'm off
+to flip this sucker into some prime real estate. The HOME behind me is all
+yours. Take this KEY. Ok, bye. I love you. Bye."
+
+> give key to king
+
+You give a house key to the king.
+
+"Hey neighbor! Welcome to the community. I have to say I'm impressed. I never
+thought you'd actually be able to turn that paperclip into a home. I just
+couldn't be bothered to go find a trash can. A promise is a promise; let me see
+your passport."
+
+You hand him your passport, and he studies the back of it intently.
+
+"Who drew this grid? It could be useful for keeping track of activity on this
+island, but someone left out the heading. I'll fix it for you."
+
+He scribbles some markings on your passport, and hands it back to you.
+
+> l
+
+You go left.
+
+You're standing at a bend in the road. The road continues behind you and ahead
+to your right. In front of you you see a SIGN by some hills.
+
+You may go RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're standing in front of a lone butcher shop on the side of the road. The
+road continues ahead to your left and behind you.
+
+A BUTCHER in a bloody apron sits on a creaky rocking chair.
+
+You may go LEFT or BACK.
+
+> l
+
+You go left.
+
+You're at a crossroads. There are roads leading away from here behind you,
+ahead to your left, and ahead to your right. To your right, there's evidence of
+a crude mining operation where someone's been chipping away at the side of a
+mountain. There's an advisory SIGN posted.
+
+You may go LEFT, RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're standing at a crossroads. Roads lead away from here ahead to your left,
+ahead to your right and behind you. To your left you see a pasture marked with
+a SIGN.
+
+You may go LEFT, RIGHT or BACK.
+
+> r
+
+You go right.
+
+There's only a single shop here, and boy does it stink. That could have
+something to do with the biggest wheel of cheese you've ever seen, resting
+against the frame of the building. It's secured in place by multiple ropes
+connected to stakes that have been hammered into the ground and nearby trees.
+The cheese itself is about twice as tall as the house.
+
+There's a road leading away from the shop behind you, and a portcullis guarding
+a road to another kingdom ahead to your right.
+
+A CHEESEMONGER is pummeling the cheese with his fists.
+
+A soldier stands at attention, eyeing the cheese with suspicion.
+
+You may go RIGHT or BACK.
+
+> r
+
+You go right.
+
+The road splits here. In front of you, you see a field of crops, marked with a
+SIGN. There are roads behind you, ahead to your left and ahead to your right.
+
+You may go LEFT, RIGHT or BACK.
+
+> l
+
+You go left.
+
+You're at a crossroads - there are roads leading away from here ahead to your
+right, behind you and ahead to your left. In front of you, you see some
+livestock grazing next to a SIGN. To your right, you see a field of crops. To
+your left, you see a dense forest.
+
+You may go LEFT, RIGHT or BACK.
+
+> l
+
+You go left.
+
+You're standing at the base of a single, tall tower. There are roads leading
+away from the tower ahead to your left and behind you.
+
+At the base of the tower, the QUEEN of this kingdom sits deep in thought.
+
+You may go LEFT or BACK.
+
+> show passport to queen
+
+You show a passport to the queen.
+
+"Yes, this is very good. I will fill in my part now, but you are not done
+here."
+
+She makes some marks in your PASSPORT and hands it back to you.
+
+"Do you know why I sit here? I have become disillusioned with reality. One of
+my wisest advisors tells me that God does not play dice with the universe and
+yet... Are you familiar with the theory that all that we know of as existence
+is a simulation, being run within another universe, being run within another
+universe, and so on?
+
+Look around you. Does this place seem... right to you? Also, do you get the
+impression that you're the only person who ever goes anywhere here? It's weird,
+right?
+
+I have my suspicions about reality, and I want you to confirm them. The
+answer's in your PASSPORT. I've filled in a series of numbers that came to me
+in a dream. Go see my advisors, and listen to what they have to say. They're in
+a garden nearby. The guard will let you in if you show him this."
+
+She hands you an AMULET.
+
+"I have one final gift for you. If you have friends who wish to travel freely
+throughout this land, but don't want to go through all of the trouble of
+solving other people's problems, tell them to speak the phrase I AM A WATER
+MELLON. I promise you, this is in no way related to the answer you seek.
+
+Now, go, and come back and tell me when you have the answer. And remember - the
+best way to understand the world is from a high vantage point."
+
+> l
+
+You go left.
+
+You're standing at a crossroads. Roads lead away from here behind you, ahead to
+your left and ahead to your right. To your left you see a dense forest marked
+with a SIGN.
+
+You may go LEFT, RIGHT or BACK.
+
+> l
+
+You go left.
+
+You're standing at a bend in the road. The road continues ahead to your right
+and behind you. To your right you see a bucolic scene: some livestock grazing
+in a grassy field, and a SIGN with a delightful message.
+
+You may go RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're standing in a walled Victorian garden. In front of you a gazebo sits on
+a ledge perched about 20 feet above the ocean. There are roads leading away
+from the garden behind you and ahead to your left.
+
+There are three women in long robes working in the garden.
+
+The FLOWER SAGE is planting flowers in the garden.
+
+The WEED SAGE is pulling up weeds.
+
+The HEDGE SAGE is clipping a tall row of hedges.
+
+A single GUARD with a halberd eyes you suspiciously.
+
+You may go LEFT or BACK.
+
+> talk to flower sage
+
+"Hi! You seem nice.
+
+You may have noticed that this is a bountiful, fertile land. Pretty much every
+acre of land - except in the desert - is devoted to producing something - and
+that's what the letters on your passport refer to. I'll leave it to you to
+figure out what's what. As for the question of what's when - not to be
+auspicious or anything, but try consulting the signs.
+
+Since you've been here, the rulers haven't really been in touch with each
+other. That means that trade has been nonexistent. Furthermore, under normal
+circumstances, sometimes a ruler would get a double yield from their land.
+That's not happening these days. Some sort of union thing, I don't know. Don't
+worry about it. It doesn't matter. Point is: no double yield."
+
+> talk to weed sage
+
+"No, not that kind of weed. It's ok, I get that all the time. I'm called that
+because my expertise is pretty in the weeds. And I like weeding. Say, could you
+hand me that pot? The ceramic thing. Ugh, nevermind.
+
+Ok, first of all, you probably know this by now, but each month follows the
+same cycle of stars that appear in the sky during the day. Some astronomers
+think we're in a weird three body system, or twelve body system. I think
+they're full of crap - there's almost no way that would be physically stable,
+let alone cyclical in nature. Whatever. But all of those long lists of numbers
+in your passport - they have to do with days of the month. Doesn't matter what
+month it is, they're all effectively the same. Each listed day is in the column
+of a specific kingdom, and you'll want to mark what that kingdom produced on
+that day. The other sages can help you figure out which kingdom's which and
+what they’re producing.
+
+Oh, also, you got any marijuana? Medicinal, of course. Glaucoma blows, man."
+
+> talk to hedge sage
+
+"So you're the queen's champion. Here's what I have to tell you.
+
+There are four kingdoms in this land, as you well know. Each has achieved a
+different degree of prosperity based on a peculiar wealth index that was
+invented on this island. The 1st, 2nd, 3rd, and 4th in your passport refer to
+these wealth index scores - where 1st refers to the richest ruler. I can't tell
+you everything about how that score is calculated, but I do know that only
+locations with buildings count towards it - and for our purposes, the
+portcullises that separate kingdoms don't count as buildings. Locations with
+multiple buildings are worth exactly double those with only one. So, for
+example, this garden is worth just one point, thanks to our gazebo.
+
+Finally, no one's wealth index score has changed for the entire duration you've
+been on the island. Things have been pretty stagnant."
+
+> b
+
+You go back.
+
+You're standing at a bend in the road. The road continues behind you and ahead
+to your left. To your left you see a bucolic scene: some livestock grazing in a
+grassy field, and a SIGN with a delightful message.
+
+You may go LEFT or BACK.
+
+> l
+
+You go left.
+
+You're standing at a crossroads. Roads lead away from here ahead to your right,
+behind you and ahead to your left. To your right you see a dense forest marked
+with a SIGN.
+
+You may go LEFT, RIGHT or BACK.
+
+> r
+
+You go right.
+
+You're standing at the base of a single, tall tower. There are roads leading
+away from the tower behind you and ahead to your right.
+
+At the base of the tower, the QUEEN of this kingdom sits deep in thought.
+
+You may go RIGHT or BACK.
+
+> nil sine numine
+
+Your words echo out and the ground begins shaking. The queen tells you that
+when everything is over you should call that in - whatever that means. She
+takes you by the hand and together you climb the tower. From this vantage you
+can see the sea in turmoil and great rifts appearing across the land. Buildings
+in the distance collapse one after another. Emma's castle crumbles. Elsewhere
+the giant wheel of cheese crashes down and crushes the shop. The roads you have
+travelled are disappearing as water rushes in on all sides and divides the land
+into many separate islands. These slowly sink beneath the waves, and soon only
+the tops of mountains are visible, then they too disappear. Now there is only
+the tower you're standing on, just a few feet above the roiling water.
+
+But... off in the distance you spy a familiar shape, struggling to stay above
+the waves. It's Rhonda's ark! She anchors next to you, and Rhonda, Desmond, and
+Emma appear at the rail. Emma calls down, "Hey, need a lift? We have room for
+one more. We're going to find a new home and repopulate the earth." You glance
+back to offer the spot to the Queen of Blanc, but she's vanished, perhaps swept
+over by a wave. A rope lands at your feet, and you cling to it, as the crown of
+the tower sinks beneath the waves.
+
+You climb up the hull and collapse on the deck. When you muster up the strength
+to rise, you notice a change in the air. Light seems to be slowly leaching out
+of the world. For the first time you can remember, there are no stars visible
+in the sky. The last of the light forms a thin line on the horizon, then winks
+out altogether.
+
+You huddle with the other survivors, waiting for the sun to rise and a new
+world to begin.
+</pre>
+
+  </div>
+{% endblock %}

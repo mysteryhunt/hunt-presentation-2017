@@ -1,32 +1,45 @@
 #main-page-content {
   width: 900px;
-  margin: 20px auto;
-  border: tan solid 5px;
-  background-color: white;
-  padding: 20px 20px;
+  margin: 0px auto;
 }
 
 #left-sidebar {
   float: left;
-  width: 145px;
+  width: 280px;
 }
 
 #world-map-container {
   float: left;
   width: 570px;
+  min-height: 620px;
   margin: 0 20px;
 }
 
-#right-sidebar {
-  float: left;
-  width: 145px;
-}
-
 #world-map {
-  height: 570px;
-  width: 570px;
+  height: 560px;
+  width: 560px;
   background-size: 100%;
   position: relative;
+}
+
+#fog-overlay {
+  height: 560px;
+  width: 560px;
+  position: absolute;
+  left: 4px;
+  z-index: 150;
+}
+
+#world-map-background {
+  height: 560px;
+  width: 560px;
+  position: absolute;
+  left: 4px;
+  z-index: 100;
+}
+
+#events {
+  margin-top: 20px;
 }
 
 a:link {
@@ -40,24 +53,20 @@ a:visited {
 
 .individual-character {
   margin-top: 10px;
-}
-
-.individual-character-status-container {
-  height: 40px;
-  line-height: 40px;
-}
-
-.individual-character-status-container {
-  height: 40px;
-  line-height: 40px;
-  margin-top: -20px;
-}
-
-.individual-character-status-container .individual-character-level {
-  height: 40px;
-  width: 40px;
   display: inline-block;
-  vertical-align: text-bottom;
+  min-width: 45%;
+  max-width: 50%;
+}
+
+.individual-character-status-container {
+  height: 40px;
+  line-height: 40px;
+}
+
+.individual-character-status-container {
+  height: 40px;
+  line-height: 40px;
+  margin-top: -18px;
 }
 
 .event-entry {

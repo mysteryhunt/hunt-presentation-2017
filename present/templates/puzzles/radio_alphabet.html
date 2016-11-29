@@ -1,0 +1,151 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_round_id = 'warlord' %}
+{% block title_block %}Radio Alphabet{% endblock %}
+{% block puzzle_name_block %}Radio Alphabet{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    .rad {
+      font-size: 2em;
+      font-family: "Apple Color Emoji","Segoe UI Emoji","NotoColorEmoji","Segoe UI Symbol","Android Emoji","EmojiSymbols";
+      cursor: pointer;
+    }
+
+    .sqr {
+      border: 1px solid #000000;
+    }
+  </style>
+  <script>
+    var clipSrcs = [
+      {% for i in range(1,73) %}
+      "{{ asset_url_for('radio_alphabet/%02d.mp3' % i) | safe }}",
+      {% endfor %}
+    ];
+
+    function swapClip(i) {
+      var clip = document.getElementById('clippy');
+      clip.src = clipSrcs[i - 1];
+      var player = document.getElementById('playa');
+      player.load();
+      player.play();
+    }
+  </script>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+  You learn the Warlord's intricate code of sounds and symbols, which allows him
+  to send instructions to his armies using only a single word.
+{% endblock %}
+
+{% block puzzle_content_block %}
+  <div>
+    <p>
+      <span class="rad" onclick="swapClip('01')">📻</span>
+      <span class="rad" onclick="swapClip('02')">📻</span>
+      <span class="rad" onclick="swapClip('03')">📻</span>
+      <span class="rad" onclick="swapClip('04')">📻</span>
+      <span class="rad" onclick="swapClip('05')">📻</span>
+      <span class="rad" onclick="swapClip('06')">📻</span>
+      <span class="rad" onclick="swapClip('07')">📻</span>
+      <span class="rad" onclick="swapClip('08')">📻</span>
+      <span class="rad" onclick="swapClip('09')">📻</span>
+      <span class="rad" onclick="swapClip('10')">📻</span><br>
+      <span class="rad" onclick="swapClip('11')">📻</span>
+      <span class="rad" onclick="swapClip('12')">📻</span>
+      <span class="rad" onclick="swapClip('13')">📻</span>
+      <span class="rad" onclick="swapClip('14')">📻</span>
+      <span class="rad" onclick="swapClip('15')">📻</span>
+      <span class="rad" onclick="swapClip('16')">📻</span>
+      <span class="rad" onclick="swapClip('17')">📻</span>
+      <span class="rad" onclick="swapClip('18')">📻</span>
+      <span class="rad" onclick="swapClip('19')">📻</span>
+      <span class="rad" onclick="swapClip('20')">📻</span><br>
+      <span class="rad" onclick="swapClip('21')">📻</span>
+      <span class="rad" onclick="swapClip('22')">📻</span>
+      <span class="rad" onclick="swapClip('23')">📻</span>
+      <span class="rad" onclick="swapClip('24')">📻</span>
+      <span class="rad" onclick="swapClip('25')">📻</span>
+      <span class="rad" onclick="swapClip('26')">📻</span>
+      <span class="rad" onclick="swapClip('27')">📻</span>
+      <span class="rad" onclick="swapClip('28')">📻</span>
+      <span class="rad" onclick="swapClip('29')">📻</span>
+      <span class="rad" onclick="swapClip('30')">📻</span><br>
+      <span class="rad" onclick="swapClip('31')">📻</span>
+      <span class="rad" onclick="swapClip('32')">📻</span>
+      <span class="rad" onclick="swapClip('33')">📻</span>
+      <span class="rad" onclick="swapClip('34')">📻</span>
+      <span class="rad" onclick="swapClip('35')">📻</span>
+      <span class="rad" onclick="swapClip('36')">📻</span>
+      <span class="rad" onclick="swapClip('37')">📻</span>
+      <span class="rad" onclick="swapClip('38')">📻</span>
+      <span class="rad" onclick="swapClip('39')">📻</span>
+      <span class="rad" onclick="swapClip('40')">📻</span><br>
+      <span class="rad" onclick="swapClip('41')">📻</span>
+      <span class="rad" onclick="swapClip('42')">📻</span>
+      <span class="rad" onclick="swapClip('43')">📻</span>
+      <span class="rad" onclick="swapClip('44')">📻</span>
+      <span class="rad" onclick="swapClip('45')">📻</span>
+      <span class="rad" onclick="swapClip('46')">📻</span>
+      <span class="rad" onclick="swapClip('47')">📻</span>
+      <span class="rad" onclick="swapClip('48')">📻</span>
+      <span class="rad" onclick="swapClip('49')">📻</span>
+      <span class="rad" onclick="swapClip('50')">📻</span><br>
+      <span class="rad" onclick="swapClip('51')">📻</span>
+      <span class="rad" onclick="swapClip('52')">📻</span>
+      <span class="rad" onclick="swapClip('53')">📻</span>
+      <span class="rad" onclick="swapClip('54')">📻</span>
+      <span class="rad" onclick="swapClip('55')">📻</span>
+      <span class="rad" onclick="swapClip('56')">📻</span>
+      <span class="rad" onclick="swapClip('57')">📻</span>
+      <span class="rad" onclick="swapClip('58')">📻</span>
+      <span class="rad" onclick="swapClip('59')">📻</span>
+      <span class="rad" onclick="swapClip('60')">📻</span><br>
+      <span class="rad" onclick="swapClip('61')">📻</span>
+      <span class="rad" onclick="swapClip('62')">📻</span>
+      <span class="rad" onclick="swapClip('63')">📻</span>
+      <span class="rad" onclick="swapClip('64')">📻</span>
+      <span class="rad" onclick="swapClip('65')">📻</span>
+      <span class="rad" onclick="swapClip('66')">📻</span>
+      <span class="rad" onclick="swapClip('67')">📻</span>
+      <span class="rad" onclick="swapClip('68')">📻</span>
+      <span class="rad" onclick="swapClip('69')">📻</span>
+      <span class="rad" onclick="swapClip('70')">📻</span><br>
+      <span class="rad" onclick="swapClip('71')">📻</span>
+      <span class="rad" onclick="swapClip('72')">📻</span>
+    </p>
+
+    <p>
+      <audio id="playa">
+        <source id="clippy" src="" type="audio/mpeg">
+      </audio>
+    </p>
+
+    <br>
+    <img class="sqr" src="{{ asset_url_for('radio_alphabet/a.jpg') }}">
+    <img class="sqr" src="{{ asset_url_for('radio_alphabet/b.jpg') }}">
+    <img class="sqr" src="{{ asset_url_for('radio_alphabet/c.jpg') }}">
+    <img class="sqr" src="{{ asset_url_for('radio_alphabet/d.jpg') }}"><br>
+    <img class="sqr" src="{{ asset_url_for('radio_alphabet/e.jpg') }}">
+    <img class="sqr" src="{{ asset_url_for('radio_alphabet/f.jpg') }}">
+    <img class="sqr" src="{{ asset_url_for('radio_alphabet/g.jpg') }}">
+    <img class="sqr" src="{{ asset_url_for('radio_alphabet/h.jpg') }}"><br>
+    <img class="sqr" src="{{ asset_url_for('radio_alphabet/i.jpg') }}">
+    <img class="sqr" src="{{ asset_url_for('radio_alphabet/j.jpg') }}">
+    <img class="sqr" src="{{ asset_url_for('radio_alphabet/k.jpg') }}">
+    <img class="sqr" src="{{ asset_url_for('radio_alphabet/l.jpg') }}"><br>
+    <img class="sqr" src="{{ asset_url_for('radio_alphabet/m.jpg') }}">
+    <img class="sqr" src="{{ asset_url_for('radio_alphabet/n.jpg') }}">
+    <img class="sqr" src="{{ asset_url_for('radio_alphabet/o.jpg') }}">
+    <img class="sqr" src="{{ asset_url_for('radio_alphabet/p.jpg') }}"><br>
+    <img class="sqr" src="{{ asset_url_for('radio_alphabet/q.jpg') }}">
+    <img class="sqr" src="{{ asset_url_for('radio_alphabet/r.jpg') }}">
+    <img class="sqr" src="{{ asset_url_for('radio_alphabet/s.jpg') }}">
+    <img class="sqr" src="{{ asset_url_for('radio_alphabet/t.jpg') }}"><br>
+    <img class="sqr" src="{{ asset_url_for('radio_alphabet/u.jpg') }}">
+    <img class="sqr" src="{{ asset_url_for('radio_alphabet/v.jpg') }}">
+    <img class="sqr" src="{{ asset_url_for('radio_alphabet/w.jpg') }}">
+    <img class="sqr" src="{{ asset_url_for('radio_alphabet/x.jpg') }}"><br>
+    <img class="sqr" src="{{ asset_url_for('radio_alphabet/y.jpg') }}">
+    <img class="sqr" src="{{ asset_url_for('radio_alphabet/z.jpg') }}">
+  </div>
+{% endblock %}

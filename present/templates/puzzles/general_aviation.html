@@ -1,0 +1,29 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_round_id = 'criminal' %}
+{% block title_block %}General Aviation{% endblock %}
+{% block puzzle_name_block %}General Aviation{% endblock %}
+
+{% block puzzle_head_block %}
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+The crafty criminals sell you some stolen frequent-flier miles, but it turns out they're only good for this one weird
+round-trip. You check in at your point of origin, a high-desert suburb, but it doesn't feel like ecotourism any more
+when you're plodding down jetway after jetway after jetway.
+{% endblock %}
+
+{% block puzzle_content_block %}
+<div>
+  <img src="{{ asset_url_for('general_aviation/image_01.png') }}"><br>
+  <img src="{{ asset_url_for('general_aviation/image_02.png') }}"><br>
+  <img src="{{ asset_url_for('general_aviation/image_03.png') }}"><br>
+  <img src="{{ asset_url_for('general_aviation/image_04.png') }}"><br>
+  <img src="{{ asset_url_for('general_aviation/image_05.png') }}"><br>
+  <img src="{{ asset_url_for('general_aviation/image_06.png') }}"><br>
+  <img src="{{ asset_url_for('general_aviation/image_07.png') }}"><br>
+  <img src="{{ asset_url_for('general_aviation/image_08.png') }}"><br>
+  <img src="{{ asset_url_for('general_aviation/image_09.png') }}"><br>
+  <img src="{{ asset_url_for('general_aviation/image_10.png') }}"><br>
+  <img src="{{ asset_url_for('general_aviation/image_11.png') }}"><br>
+</div>
+{% endblock %}

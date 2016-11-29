@@ -1,0 +1,35 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_round_id = 'economist' %}
+{% block title_block %}Fruitless{% endblock %}
+{% block puzzle_name_block %}Fruitless{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  ul {
+    list-style-type: none;
+    padding-left: 0px;
+  }
+  li {
+    padding-bottom: 12px;
+  }
+</style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+The Economist considered investing in a food service company, but he didn't find their products very appetizing.
+{% endblock %}
+
+{% block puzzle_content_block %}
+<div>
+  <ul>
+    <li>Fiona looked up from cleaning the bakeshop to see Henry, the hapless cobbler who lived down the lane.</li>
+    <li>"What brings you by, Henry?"</li>
+    <li>"I thought you... I wondered if... er... I ..." He trailed off into an odd grunt.</li>
+    <li>Fiona raised an eyebrow. Henry dropped his shoulders in a nervous slump.</li>
+    <li>She took pity. "Well, I'll be glad of the company while I finish. I don't suppose you'd like to do some scouring? All I have is this execrable sponge and I'm about fed up."</li>
+    <li>Just then, in came Smug Betty, the gossip, who looked knowingly from Henry to Fiona and back again. "Why Fiona, you reprehensible tart," she said.</li>
+    <li>"Pish tosh," said Fiona, adjusting her apron's crooked buckle. "I don't know what you're talking about."</li>
+    <li>Henry finally found his tongue. "Even an officious fool like you should know that I only came here to order dessert."</li>
+  </ul>
+</div>
+{% endblock %}

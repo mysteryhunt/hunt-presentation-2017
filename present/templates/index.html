@@ -8,80 +8,107 @@
 <div id="main-page-content">
   <div id="left-sidebar">
     <div id="characters">
-      <div id="character-header"><span class="enscrolled"><span>Characters</span></span></div>
-      <div id="character-total">
-        <div>
-          Total party level: <span class="level-number">{{ team_properties.get('teamProperties',{}).get('CharacterLevelsProperty',{}).get('levels',{}).values()|sum }}</span>
-        </div>
-      </div>
+      <div id="character-panel" class="panel">
+      <div id="character-header"><span class="enscrolled-before"></span><span class="enscrolled"><span>Your Party</span></span><span class="enscrolled-after"></span></div>
     
-      {% for character_class in ['fighter','wizard','cleric','linguist','chemist','economist'] if character_class in visible_puzzle_ids %}
+        {% for character_class in ['fighter','wizard','cleric','linguist','chemist','economist'] if character_class in visible_puzzle_ids %}
           <a href="{{ url_for('round', round_id = character_class) }}">
             <div id="character-{{ character_class }}" class="individual-character">
-              <img src="{{ asset_url_for('general/stock-%s.jpg' % character_class) }}">
+              <img src="{{ url_for('static', filename='temp/art/Characters/%s-ring.png' % character_class) }}" style="width:90px;height:90px;">
               <div class="individual-character-status-container">
                 <span class="individual-character-class">{{ character_class.capitalize() }}</span>
-                <span class="individual-character-level" style="background-image: url('{{ asset_url_for('general/icon-small-%s.png' % character_class) }}')">{{ team_properties.teamProperties.CharacterLevelsProperty.levels[character_class.upper()]|default(0) }}</span>
+                <img src="{{ url_for('static', filename='temp/art/Characters/%s-logo-color.png' % character_class) }}" style="width:30px;height:30px;vertical-align:middle;"/>
+                <span class="individual-character-level">{{ team_properties.teamProperties.CharacterLevelsProperty.levels[character_class.upper()]|default(0) }}</span>
               </div>
             </div>
           </a>
-      {% endfor %}
-    
+        {% endfor %}
+
+        <div id="inventory-gold-display">
+          <div style="display:inline;">
+            <a href="{{ url_for('inventory') }}">
+              <img src="{{ url_for('static', filename='temp/art/chest.png') }}" style="width:50px;height:50px;vertical-align:middle;"/>
+              {% if puzzle_visibilities.get('merchants',{}).get('status','') == 'SOLVED' %}
+                6/6
+              {% else %}
+                {{ team_properties.get('teamProperties',{}).get('InventoryProperty',{}).get('inventoryItems',[])|length if team_properties else 'NA' }}/40
+              {% endif %}
+            </a>
+          </div>
+          <div style="display:inline;">
+            <img src="{{ url_for('static', filename='temp/art/gold.png') }}" style="width:50px;height:50px;vertical-align:middle;"/>&nbsp;{{ team_properties.get('teamProperties',{}).get('GoldProperty',{}).get('gold',0) if team_properties else 'NA'}}
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div id="events">
+      <div id="events-panel" class="panel">
+        <div class="events-header"><span class="enscrolled-before"></span><span class="enscrolled"><span>Events</span></span><span class="enscrolled-after"></span></div>
+        <div class="event-entry">
+          <div class="event-reward">
+            {% for character_class in ['fighter','wizard','cleric','linguist','chemist','economist'] if character_class in visible_puzzle_ids %}<img src="{{ url_for('static', filename='temp/art/Characters/%s-logo-color.png' % character_class) }}" style="width:24px;height:24px;vertical-align:middle;"/>{% endfor %}
+          </div>
+          <div class="event-name">Event the First</div>
+          <div class="event-time">Friday 6pm</div>
+        </div>
+        <div class="event-entry">
+          <div class="event-reward">
+            {% for character_class in ['fighter','wizard','cleric','linguist','chemist','economist'] if character_class in visible_puzzle_ids %}<img src="{{ url_for('static', filename='temp/art/Characters/%s-logo-color.png' % character_class) }}" style="width:24px;height:24px;vertical-align:middle;"/>{% endfor %}
+          </div>
+          <div class="event-name">Event the Second</div>
+          <div class="event-time">Friday 10pm</div>
+        </div>
+        <div class="event-entry">
+          <div class="event-reward">
+            2x({% for character_class in ['fighter','wizard','cleric','linguist','chemist','economist'] if character_class in visible_puzzle_ids %}<img src="{{ url_for('static', filename='temp/art/Characters/%s-logo-color.png' % character_class) }}" style="width:24px;height:24px;vertical-align:middle;"/>{% endfor %})
+          </div>
+          <div class="event-name">Event the Third</div>
+          <div class="event-time">Saturday 10am</div>
+        </div>
+        <div class="event-entry">
+          <div class="event-reward">
+            2x({% for character_class in ['fighter','wizard','cleric','linguist','chemist','economist'] if character_class in visible_puzzle_ids %}<img src="{{ url_for('static', filename='temp/art/Characters/%s-logo-color.png' % character_class) }}" style="width:24px;height:24px;vertical-align:middle;"/>{% endfor %})
+          </div>
+          <div class="event-name">Event the Fourth</div>
+          <div class="event-time">Saturday 2pm</div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div id="world-map-container">
-    <div id="world-map-header"><span class="enscrolled"><span>World Map</span></span></div>
-    <div id="world-map" style="background-image: url({{ asset_url_for('general/hunt-map.png') }})">
-        {% for quest in [('dynast',50,50),('dungeon',50,290),('thespians',225,410),('bridge',225,170),('criminal',225,50),('minstrels',400,50),('cube',400,170),('warlord',400,290)] if quest[0] in visible_puzzle_ids %}
+  <div id="world-map-container" class="panel">
+    <div id="world-map-header"><span class="enscrolled-before"></span><span class="enscrolled"><span>World Map</span></span><span class="enscrolled-after"></span></div>
+    <div id="world-map">
+      <div id="fog-overlay" style="content: url({{ url_for('static', filename='temp/art/Maps/fog-%s.png' % fog_number) }}); width:560px;height:560px;margin:0 auto;"></div>
+      <div id="world-map-background" style="content: url({{ url_for('static', filename='temp/art/Maps/map.png') }}); width:560px;height:560px;margin:0 auto;"></div>
+        {% for quest in [('dynast',0,0),('dungeon',90,120),('thespians',25,385),('bridge',205,290),('criminal',225,110),('minstrels',340,0),('cube',440,110),('warlord',340,240)] if quest[0] in visible_puzzle_ids %}
           <a href="{{ url_for('round', round_id = quest[0]) }}">
-            <div id="quest-map-{{ quest[0] }}" class="individual-quest" style="width:100px; height: 100px; position:absolute; top:{{ quest[1] }}px; left:{{ quest[2] }}px; z-index:200; background-image: url({{ asset_url_for('general/stock-%s-icon.jpg' % quest[0]) }}); background-size:100%;">
+            <div id="quest-map-{{ quest[0] }}" class="individual-quest" style="width:108px; height:81px; position:absolute; top:{{ quest[1] }}px; left:{{ quest[2] }}px; z-index:200; content: url({{ url_for('static', filename='temp/art/Maps/Icons/%s.png' % quest[0]) }});">
             </div>
           </a>
         {% endfor %}
-        {% for recruitment in [('linguist',50,170),('chemist',50,410),('economist',225,290)] if False%}
-          <a href="{{ url_for('round', round_id = recruitment[0]) }}">
-            <div id="recruitment-map-{{ recruitment[0] }}" class="individual-quest" style="width:60px; height: 60px; position:absolute; top:{{ recruitment[1] }}px; left:{{ recruitment[2] }}px; z-index:200; background-image: url({{ asset_url_for('general/stock-%s.jpg' % recruitment[0]) }}); background-size:100%;">
+        {% for rescue in [('linguist',140,10),('chemist',30,290),('economist',150,450)] if 'rescue_the_' + rescue[0] in visible_puzzle_ids %}
+          <a href="{{ url_for('puzzle', puzzle_id = 'rescue_the_' + rescue[0]) }}">
+            <div id="rescue-map-{{ rescue[0] }}" class="individual-quest" style="width:60px; height: 84px; position:absolute; top:{{ rescue[1] }}px; left:{{ rescue[2] }}px; z-index:200; content: url({{ url_for('static', filename='temp/art/Characters/%s.png' % rescue[0]) }}); background-size:100%;">
             </div>
           </a>
         {% endfor %}
-        {% if False %}
+        {% if 'merchants' in visible_puzzle_ids %}
           <a href="{{ url_for('puzzle', puzzle_id = 'merchants') }}">
-            <div class="individual-quest" style="width:100px; height:100px; position:absolute; top:400px; left:410px; z-index:200; background-image: url({{ asset_url_for('general/stock-merchant-icon.jpg') }}); background-size:100%;">
+            <div class="individual-quest" style="width:108px; height:81px; position:absolute; top:310px; left:390px; z-index:200; content: url({{ url_for('static', filename='temp/art/Maps/Icons/fortress.png') }});">
+            </div>
+          </a>
+        {% endif %}
+        {% if False %}
+          <a href="{{ url_for('puzzle', puzzle_id = 'fortress') }}">
+            <div class="individual-quest" style="width:108px; height:81px<em></em>; position:absolute; top:450px; left:420px; z-index:200; content: url({{ url_for('static', filename='temp/art/Maps/Icons/fortress.png') }});">
             </div>
           </a>
         {% endif %}
     </div>
   </div>
 
-  <div id="right-sidebar">
-    <div id="inventory">
-      <div class="inventory-header"><span class="enscrolled"><span>Inventory</span></span></div>
-      <a href="inventory.html">
-        <img src="{{ asset_url_for('general/stock-backpack.jpg') }}">
-      </a>
-      <div>Gold: 13</div>
-    </div>
-    <div id="events">
-      <div class="events-header"><span class="enscrolled"><span>Events</span></span></div>
-      <div class="event-entry">
-        <div class="event-name">Event the First</div>
-        <div class="event-time">Friday 6pm</div>
-      </div>
-      <div class="event-entry">
-        <div class="event-name">Event the Second</div>
-        <div class="event-time">Friday 10pm</div>
-      </div>
-      <div class="event-entry">
-        <div class="event-name">Event the Third</div>
-        <div class="event-time">Saturday 10am</div>
-      </div>
-      <div class="event-entry">
-        <div class="event-name">Event the Fourth</div>
-        <div class="event-time">Saturday 2pm</div>
-      </div>
-    </div>
-  </div>
   
   <br class="clear-both"/>
 </div>

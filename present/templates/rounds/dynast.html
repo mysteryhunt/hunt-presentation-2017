@@ -1,0 +1,19 @@
+{% extends "rounds/quest_round_layout.html" %}
+{% block title_block %}The Despondent Dynast{% endblock %}
+{% block round_name %}The Despondent Dynast{% endblock %}
+
+{% block round_flavortext %}
+<p>There is a crisis in the Sparrow Empire! The emperor, once a cheerful and playful man, has become despondent ever since his two sons left some time back to seek their fortunes in the world. And some strange magic keeps the land in perpetual winter while the emperor is melancholy, with the usual precession of seasons halted. Your party of adventurers has dispatched you alone, being the wisest of the lot, to meet the emperor and determine what is troubling him.</p>
+
+<p>Upon entering the emperor's palace, you are struck by its opulence. The place is covered with elaborate tiles, some decorated with flowers and dragons, along with other characters that you don't recognize. You discover the emperor, sobbing, seated at a square table opposite his wife. You take a seat in one of the two other chairs, and ask him why he is so sad. He replies, somewhat cryptically, "I'm glad you're here. But it's not enough. There's just one more thing I need—just one thing. Until I have it, my happiness will be incomplete." And he buries his head in his hands and resumes his sobbing, as the frigid wintry weather outside continues.</p>
+
+<p><span class="round_question">What can you do to win happiness for the emperor and his land?</span></p>
+{% endblock %}
+
+{% block round_puzzle_entries %}
+<div class="puzzle-list-column">
+  {% for puzzle_id in ['dynast1','dynast2','dynast3','dynast4','dynast5','dynast6','dynast7','dynast8','dynast9','dynast10','dynast11'] %}
+    {{ puzzle_entry(puzzle_id, puzzle_properties, puzzle_visibilities) }}
+  {% endfor %}
+</div>
+{% endblock %}

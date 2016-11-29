@@ -1,0 +1,87 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_round_id = 'warlord' %}
+{% block title_block %}A Lot of F***ing Movies{% endblock %}
+{% block puzzle_name_block %}A Lot of F***ing Movies{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    div.c {
+      text-align: center;
+    }
+    img.a {
+      margin: 8px;
+      width: 126px;
+      height: 126px;
+    }
+    p.b {
+      margin: 8px;
+      font-size: 2em;
+    }
+    table.t {
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 1em;
+      font-size: 1.5em;
+      text-align: left;
+    }
+    table.t td + td {
+      padding-left: 2em;
+    }
+    span.r {
+      color: red;
+    }
+  </style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+  Among the Warlord’s battle plans, you find a secret trove of films. It seems
+  there are some actors he especially enjoys watching, or something.
+{% endblock %}
+
+{% block puzzle_content_block %}
+  <div class="c">
+    <div>
+      <img class="a" src="{{ asset_url_for('a_lot_of_f_ing_movies/image01.jpg') }}">
+      <img class="a" src="{{ asset_url_for('a_lot_of_f_ing_movies/image02.jpg') }}">
+      <img class="a" src="{{ asset_url_for('a_lot_of_f_ing_movies/image03.jpg') }}">
+      <img class="a" src="{{ asset_url_for('a_lot_of_f_ing_movies/image04.jpg') }}">
+    </div>
+    <div>
+      <img class="a" src="{{ asset_url_for('a_lot_of_f_ing_movies/image05.jpg') }}">
+      <img class="a" src="{{ asset_url_for('a_lot_of_f_ing_movies/image06.jpg') }}">
+      <img class="a" src="{{ asset_url_for('a_lot_of_f_ing_movies/image07.jpg') }}">
+      <img class="a" src="{{ asset_url_for('a_lot_of_f_ing_movies/image08.jpg') }}">
+    </div>
+    <div>
+      <img class="a" src="{{ asset_url_for('a_lot_of_f_ing_movies/image09.jpg') }}">
+      <img class="a" src="{{ asset_url_for('a_lot_of_f_ing_movies/image10.jpg') }}">
+      <img class="a" src="{{ asset_url_for('a_lot_of_f_ing_movies/image11.jpg') }}">
+      <img class="a" src="{{ asset_url_for('a_lot_of_f_ing_movies/image12.jpg') }}">
+    </div>
+    <div>
+      <p class="b">_ _ _ _ &nbsp; _ _ _ _ &nbsp; : &nbsp; _ _ _ _ &nbsp; ? ? ? ?</p>
+    </div>
+    <table class="t">
+      <tr>
+        <td>B*<span class="r">*</span>**ing</td>
+        <td>D***<span class="r">*</span>ing</td>
+        <td>L*<span class="r">*</span>ing</td>
+      </tr>
+      <tr>
+        <td>B<span class="r">*</span>ing</td>
+        <td>E***<span class="r">*</span>*ing</td>
+        <td>R*<span class="r">*</span>***ing</td>
+      </tr>
+      <tr>
+        <td>C<span class="r">*</span>**ing</td>
+        <td>F**<span class="r">*</span>ing</td>
+        <td>S*<span class="r">*</span>*ing</td>
+      </tr>
+      <tr>
+        <td>D***<span class="r">*</span>******ing</td>
+        <td>K<span class="r">*</span>**ing</td>
+        <td>U******<span class="r">*</span>ing</td>
+      </tr>
+    </table>
+  </div>
+{% endblock %}

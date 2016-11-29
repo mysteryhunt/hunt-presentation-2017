@@ -1,0 +1,19 @@
+{% extends "rounds/quest_round_layout.html" %}
+{% block title_block %}The Crafty Criminal{% endblock %}
+{% block round_name %}The Crafty Criminal{% endblock %}
+
+{% block round_flavortext %}
+<p>As you arrive in this large and bustling city, you encounter many recent victims of pickpockets. The local cutpurses seem efficient and organized, and after a few well-placed threats, you manage to extract the location of their employer. But confronting him is easier said than done, as the winding network of city streets is difficult to navigate.</p>
+
+<p>As night falls, the city becomes even more confusing; in the moonlight, everything looks black and white. You'll really need an experienced guide if you want to find your way around.</p>
+
+<p><span class="round_question">Who can help you locate the criminal mastermind?</span></p>
+{% endblock %}
+
+{% block round_puzzle_entries %}
+<div class="puzzle-list-column">
+  {% for puzzle_id in ['criminal1','criminal2','criminal3','criminal4','criminal5','criminal6','criminal7','criminal8','criminal9','criminal10'] %}
+    {{ puzzle_entry(puzzle_id, puzzle_properties, puzzle_visibilities) }}
+  {% endfor %}
+</div>
+{% endblock %}

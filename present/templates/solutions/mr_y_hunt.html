@@ -1,0 +1,54 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'criminal' %}
+{% block title_block %}Mr. Y Hunt: Solution{% endblock %}
+{% block puzzle_name_block %}Mr. Y Hunt: Solution{% endblock %}
+{% block byline %}By Connor Stokes{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    ul {
+      list-style-type: none;
+    }
+  </style>
+{% endblock %}
+
+{% block solution_content_block %}
+  <div>
+    <p>
+      There are several components to this puzzle:
+    </p>
+    <ul>
+      <li>
+        A modified Scotland Yard board with letters instead of station
+        numbers
+      </li>
+      <li>
+        An image showing the transit tokens used by Mr. X and the locations
+        where he surfaced
+      </li>
+      <li>
+        Quotes from 5 detectives with capitalized words and accompanying tiles
+        showing their starting locations
+      </li>
+    </ul>
+    <p>
+      Solvers may notice there are always 22 letters in the capitalized words
+      from each detective. These words are in fact telling you the stations the
+      detectives visited over the course of the game. In conjunction with the
+      given starting location tiles, you can uniquely determine the path taken
+      by the detectives over the course of a game of Scotland Yard. Given the
+      detectives' paths, Mr. X's token board and the fact that Mr. X was never
+      caught in the course of the game, you can also uniquely determine the path
+      Mr. X took on the game board. The paths of all 5 detectives and Mr. X (in
+      red) are shown in the below image. Bear in mind that on two turns, Mr. X
+      was able to move twice in a row.
+    </p>
+    <p>
+      After solving for Mr. X's path, the stations he visited spell out SUBMIT
+      THIS ANSWER LEAVES BE. <b>LEAVES BE</b> is the answer to this puzzle.
+    </p>
+    <a href="{{ asset_url_for('mr_y_hunt/solution_map.jpg') }}">
+      <img src="{{ asset_url_for('mr_y_hunt/solution_map.jpg') }}" style="width:100%">
+    </a>
+  </div>
+{% endblock %}

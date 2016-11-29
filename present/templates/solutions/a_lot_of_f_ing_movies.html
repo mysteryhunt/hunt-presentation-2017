@@ -1,0 +1,68 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'warlord' %}
+{% block title_block %}A Lot of F***ing Movies: Solution{% endblock %}
+{% block puzzle_name_block %}A Lot of F***ing Movies: Solution{% endblock %}
+{% block byline %}By Jeff Roberts{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    span.r {
+      color: red;
+    }
+    ul {
+      list-style: none;
+    }
+  </style>
+{% endblock %}
+
+{% block solution_content_block %}
+  <div>
+    <p>
+      Identify the first names of the movie stars.
+    </p>
+    <ul>
+      <li>ISAIAH (Mustafa)
+      <li>ZOE (Saldana)
+      <li>HENRY (Winkler)
+      <li>HARRY (Hamlin)
+      <br><br>
+      <li>AMY (Adams)
+      <li>RITA (Moreno)
+      <li>JANE (Fonda)
+      <li>BETTY (White)
+      <br><br>
+      <li>MONA (Freeman)
+      <li>JULIA (Roberts)
+      <li>SARA (Gilbert)
+      <li>AMANDA (Seyfried)
+    </ul>
+    <p>
+      The first names of each movie star pair with a "-ing" word clued at the
+      bottom of the page to make a movie title.
+    </p>
+    <ul>
+      <li>Lo<span class="r">s</span>ing ISAIAH
+      <li>K<span class="r">i</span>lling ZOE
+      <li>Re<span class="r">g</span>arding HENRY
+      <li>Deco<span class="r">n</span>structing HARRY
+      <br><br>
+      <li>C<span class="r">h</span>asing AMY
+      <li>Educ<span class="r">a</span>ting RITA
+      <li>Be<span class="r">c</span>oming JANE
+      <li>Underta<span class="r">k</span>ing BETTY
+      <br><br>
+      <li>Drow<span class="r">n</span>ing MONA
+      <li>B<span class="r">e</span>ing JULIA
+      <li>Se<span class="r">r</span>ving SARA
+      <li>Fin<span class="r">d</span>ing AMANDA
+    </ul>
+    <p>
+      Taking the letters in the red starred positions, and filling in the blanks
+      below the images in order, gives <span class="r">SIGN HACK</span>
+      : <span class="r">NERD</span> ????. Some knowledge of MIT hacking lore (or
+      just googling "sign hack nerd") reveals that the four-letter word
+      completing that phrase (and fitting the puzzle theme) is
+      <b>XING</b>, the answer.
+    </p>
+  </div>
+{% endblock %}

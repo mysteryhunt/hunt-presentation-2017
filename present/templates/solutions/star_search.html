@@ -1,0 +1,174 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'dynast' %}
+{% block title_block %}Star Search: Solution{% endblock %}
+{% block puzzle_name_block %}Star Search: Solution{% endblock %}
+{% block byline %}By Matt Gruskin and TK Focht{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    table {
+      border: 1px solid black;
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 4px;
+    }
+  </style>
+{% endblock %}
+
+{% block solution_content_block %}
+  <div>
+    <p>
+      Each piano animation contains a note marked with a zodiac constellation
+      symbol. The zodiac constellations make up thirteen of the eighty-eight
+      modern International Astronomical Union constellations. There are also
+      eighty-eight keys on a piano keyboard. If one orders the eighty-eight IAU
+      constellations alphabetically, and assigns them to piano keys from left to
+      right, then the zodiac constellations end up in their positions in the
+      piano animations. So this establishes a one-to-one mapping between piano
+      keys and constellations.
+    </p>
+    <p>
+      Each piano animation is playing the melody of a song that has the word
+      STAR somewhere in its lyrics. The solver should identify the piano key
+      that the STAR lyric lands on, and determine that piano key's
+      constellation. The solver should then index into the constellation name
+      using the number of times the piano key marked with # was played in that
+      animation.
+    </p>
+    <p>
+      Finally, the solver should order the indexed letters by the order of the
+      zodiac constellations to obtain the answer <b>TONIGHT AT NOON</b>.
+    </p>
+    <table>
+      <tr>
+        <th>Song</th>
+        <th>STAR key</th>
+        <th>Constellation</th>
+        <th># plays</th>
+        <th>Letter</th>
+        <th>Zodiac</th>
+        <th>Zodiac order</th>
+      </tr>
+      <tr>
+        <td>A Whole New World</td>
+        <td>C6</td>
+        <td>Phoenix</td>
+        <td>5</td>
+        <td>N</td>
+        <td>Sagittarius</td>
+        <td>10</td>
+      </tr>
+      <tr>
+        <td>Can You Feel The Love Tonight</td>
+        <td>G5</td>
+        <td>Ophiuchus</td>
+        <td>7</td>
+        <td>H</td>
+        <td>Virgo</td>
+        <td>6</td>
+      </tr>
+      <tr>
+        <td>Don't Stop Me Now</td>
+        <td>F#5</td>
+        <td>Octans</td>
+        <td>3</td>
+        <td>T</td>
+        <td>Ophiuchus</td>
+        <td>9</td>
+      </tr>
+      <tr>
+        <td>Drive My Car</td>
+        <td>A#5</td>
+        <td>Pegasus</td>
+        <td>3</td>
+        <td>G</td>
+        <td>Leo</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td>Drops of Jupiter</td>
+        <td>D#5</td>
+        <td>Monoceros</td>
+        <td>2</td>
+        <td>O</td>
+        <td>Aquarius</td>
+        <td>12</td>
+      </tr>
+      <tr>
+        <td>Have Yourself A Merry Little Christmas</td>
+        <td>D5</td>
+        <td>Microscopium</td>
+        <td>2</td>
+        <td>I</td>
+        <td>Cancer</td>
+        <td>4</td>
+      </tr>
+      <tr>
+        <td>Piano Man</td>
+        <td>D#2</td>
+        <td>Centaurus</td>
+        <td>4</td>
+        <td>T</td>
+        <td>Aries</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>(The) Rainbow Connection</td>
+        <td>C5</td>
+        <td>Lyra</td>
+        <td>4</td>
+        <td>A</td>
+        <td>Scorpio</td>
+        <td>8</td>
+      </tr>
+      <tr>
+        <td>Sk8er Boi</td>
+        <td>C#4</td>
+        <td>Horologium</td>
+        <td>4</td>
+        <td>O</td>
+        <td>Capricorn</td>
+        <td>11</td>
+      </tr>
+      <tr>
+        <td>So What</td>
+        <td>C#6</td>
+        <td>Pictor</td>
+        <td>4</td>
+        <td>T</td>
+        <td>Libra</td>
+        <td>7</td>
+      </tr>
+      <tr>
+        <td>Twinkle Twinkle Little Star</td>
+        <td>C#5</td>
+        <td>Mensa</td>
+        <td>3</td>
+        <td>N</td>
+        <td>Gemini</td>
+        <td>3</td>
+      </tr>
+      <tr>
+        <td>Video Killed The Radio Star</td>
+        <td>A3</td>
+        <td>Fornax</td>
+        <td>4</td>
+        <td>N</td>
+        <td>Pisces</td>
+        <td>13</td>
+      </tr>
+      <tr>
+        <td>When You Wish Upon A Star</td>
+        <td>G#5</td>
+        <td>Orion</td>
+        <td>1</td>
+        <td>O</td>
+        <td>Taurus</td>
+        <td>2</td>
+      </tr>
+    </table>
+  </div>
+{% endblock %}

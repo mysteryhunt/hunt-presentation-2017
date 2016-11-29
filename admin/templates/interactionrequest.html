@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block page_body %}
+<div class="ha-page-section">
+  <table>
+    <tr>
+      <td>Request Time</td>
+      <td>{{ interaction_request.timestamp | datetime }}</td>
+    </tr>
+    <tr>
+      <td>Team</td>
+      <td>{{ interaction_request.teamId }}</td>
+    </tr>
+    <tr>
+      <td>Team Primary Phone</td>
+      <td>{{ team.primaryPhone }}</td>
+    </tr>
+    <tr>
+      <td>Team Secondary Phone</td>
+      <td>{{ team.secondaryPhone }}</td>
+    </tr>
+    <tr>
+      <td>Team Email</td>
+      <td>{{ team.email }}</td>
+    </tr>
+    <tr>
+      <td>Puzzle</td>
+      <td>{{ interaction_request.puzzleId }}</td>
+    </tr>
+    <tr>
+      <td>Request</td>
+      <td>{{ interaction_request.request }}</td>
+    </tr>
+    <tr>
+      <td>Assigned to Caller</td>
+      <td>{{ interaction_request.callerUsername }}</td>
+    </tr>
+    <tr>
+      <td>Status</td>
+      <td>{{ interaction_request.status }}</td>
+    </tr>
+    <tr>
+      <td>Response</td>
+      <td>{{ interaction_request.response }}</td>
+    </tr>
+  </table>
+  {% if interaction_request.status == 'REQUESTED' %}
+  <form action="{{ url_for('interactionrequest', interaction_request_id=interaction_request.interactionRequestId) }}" method="post">
+    <input type="hidden" name="status" value="ASSIGNED">
+    <input type="submit" value="Claim">
+  </form>
+  {% elif interaction_request.status in ['ASSIGNED', 'SCHEDULED'] %}
+  {% if interaction_request.callerUsername == session['username'] %}
+  <form action="{{ url_for('interactionrequest', interaction_request_id=interaction_request.interactionRequestId) }}" method="post">
+    <input type="text" name="response" size="100" value="{{ interaction_request.response }}"><br>
+    <select name="status">
+      <option value="ASSIGNED" {% if interaction_request.status == 'ASSIGNED' %}selected{% endif %}>ASSIGNED</option>
+      <option value="SCHEDULED" {% if interaction_request.status == 'SCHEDULED' %}selected{% endif %}>SCHEDULED</option>
+      <option value="COMPLETE" {% if interaction_request.status == 'COMPLETE' %}selected{% endif %}>COMPLETE</option>
+    </select>
+    <input type="submit" value="Respond">
+  </form>
+  {% endif %}
+  <form action="{{ url_for('interactionrequest', interaction_request_id=interaction_request.interactionRequestId) }}" method="post">
+    <input type="hidden" name="status" value="REQUESTED">
+    <input type="submit" value="Unassign">
+  </form>
+  {% endif %}
+</div>
+{% endblock %}

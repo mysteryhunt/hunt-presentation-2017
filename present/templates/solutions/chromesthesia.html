@@ -1,0 +1,313 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'minstrels' %}
+{% block title_block %}Chromesthesia: Solution{% endblock %}
+{% block puzzle_name_block %}Chromesthesia: Solution{% endblock %}
+{% block byline %}By Matt Gruskin{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    table {
+      border: 1px solid black;
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+
+    th, td {
+      border: 1px solid black;
+      padding: 4px;
+    }
+  </style>
+{% endblock %}
+
+{% block solution_content_block %}
+  <div>
+    <img src="{{ asset_url_for('chromesthesia/image01.png') }}">
+    <p>
+      This puzzle is an image with a black background containing several lines
+      of text, where each line is made up of colored letters. The text of each
+      line is the full birth name of a famous actor. Each actor in this list has
+      appeared in exactly one film that contains a color of the rainbow in its
+      name.
+    </p>
+    <table>
+      <tr>
+        <th>Actor</th>
+        <th>Film</th>
+        <th>Color</th>
+      </tr>
+      <tr>
+        <td>COLIN LEWES DILLINGHAM</td>
+        <td>ORANGE COUNTY</td>
+        <td>ORANGE</td>
+      </tr>
+      <tr>
+        <td>RICHARD GILBERT EMERY</td>
+        <td>YELLOW SUBMARINE</td>
+        <td>YELLOW</td>
+      </tr>
+      <tr>
+        <td>CARLOS IRWIN ESTEVEZ</td>
+        <td>RED DAWN</td>
+        <td>RED</td>
+      </tr>
+      <tr>
+        <td>BONNIE LYNNE HUNT</td>
+        <td>THE GREEN MILE</td>
+        <td>GREEN</td>
+      </tr>
+      <tr>
+        <td>HOPE ELISE ROSS LANGE</td>
+        <td>BLUE VELVET</td>
+        <td>BLUE</td>
+      </tr>
+      <tr>
+        <td>SAOIRSE UNA RONAN</td>
+        <td>VIOLET &amp; DAISY</td>
+        <td>VIOLET</td>
+      </tr>
+      <tr>
+        <td>AUDREY JUSTINE TAUTOU</td>
+        <td>MOOD INDIGO</td>
+        <td>INDIGO</td>
+      </tr>
+    </table>
+    <p>
+      The next step is to figure out how to use the colors of the letters. We
+      can analyze the colors in the image using image editing tools
+      (e.g. Photoshop/GIMP, ImageMagick, Python Imaging Library). Depending on
+      the tools used, different clues might be noticed first.
+    </p>
+    <p>
+      When using tools that work with 8-bit color channels (e.g. GIMP, Python
+      Imaging Library), examining a color histogram will reveal a
+      disproportionate number of pixels with RGB value #010000. Highlighting
+      these pixels produces the image below.
+    </p>
+    <img src="{{ asset_url_for('chromesthesia/puzzle_shallow_red_clues.png') }}">
+    <p>
+      This image can be derived from the puzzle image using the following
+      ImageMagick command:
+    </p>
+    <pre>$ convert puzzle.png \
+    -depth 8 \
+    -fill "#ff0000" -opaque "#010000" \
+    puzzle_shallow_red_clues.png</pre>
+    <p>
+      This image contains the phrase COLORS MAY BE DEEPER THAN THEY APPEAR,
+      which is a clue that the puzzle is
+      a <a href="https://en.wikipedia.org/wiki/Color_depth#Deep_color_.2830.2F36.2F48-bit.29">deep
+      color</a> image, with 16 bits of color per channel, for a total of 48. We
+      can check the color depth of the image e.g. by using the ImageMagick
+      identify command:
+    </p>
+    <pre>$ identify puzzle.png
+puzzle.png PNG 600x336 600x336+0+0 16-bit DirectClass 15.8KB 0.000u 0:00.000</pre>
+    <p>
+      Using tools that support 16-bit color channels (e.g. Photoshop,
+      ImageMagick), separating the color channels and examining the color
+      histograms for each channel will reveal more high-frequency almost-black
+      color values, specifically the colors #000000010000 and #000000000001.
+    </p>
+    <img src="{{ asset_url_for('chromesthesia/puzzle_deep_green_clues.png') }}">
+    <pre>$ convert puzzle.png \
+    -fill "#0000ffff0000" \
+    -opaque "#000000010000" \
+    -opaque "#000000010001" \
+    -opaque "#010000010000" \
+    -opaque "#010000010001" \
+    -depth 8 \
+    puzzle_deep_green_clues.png</pre>
+    <img src="{{ asset_url_for('chromesthesia/puzzle_deep_blue_clues.png') }}">
+    <pre>$ convert puzzle.png \
+    -fill "#00000000ffff" \
+    -opaque "#000000000001" \
+    -opaque "#000000010001" \
+    -opaque "#010000000001" \
+    -opaque "#010000010001" \
+    -depth 8 \
+    puzzle_deep_blue_clues.png</pre>
+    <p>
+      Let's consider the green clues first (green does come before blue in the
+      red green blue pixel order, after all). The green words read:<br>
+      ROWETEL CODEC2<br>
+      INPUT:<br>
+      40 MILLISECOND FRAMES<br>
+      1200 BITS PER SECOND<br>
+      OUTPUT:<br>
+      RAW SAMPLES<br>
+      8KHZ 16-BIT SIGNED
+    </p>
+    <p>
+      The first few Google search results for Rowetel Codec2 explain what it is,
+      and how to get it. It is very low bitrate audio encoding and decoding
+      software.
+    </p>
+    <ul>
+      <li><a href="http://www.rowetel.com/blog/?page_id=452">Codec 2 | Rowetel</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Codec2">Codec2 - Wikipedia, the free encyclopedia</a></li>
+      <li><a href="https://github.com/freedv/codec2">GitHub - freedv/codec2: Next-Generation Digital Voice for Two-Way Radio</a></li>
+    </ul>
+    <p>
+      1200 BITS PER SECOND is referring to a specific mode of Codec2 which
+      encodes audio at 1200 bits/second. Mode 1200 uses 40 millisecond audio
+      frames of 48 bits each, which is conveniently also the amount of color
+      data we have per letter. We can treat each letter as a Codec2 audio frame
+      by writing out the red component, followed by the green component,
+      followed by the blue component, in network byte order (this is the order
+      that is used by the PNG file format).
+    </p>
+    <p>
+      (Even if this byte order is not obvious, there are only really two
+      choices, and therefore only four reasonable combinations: choosing between
+      big- and little-endian byte order, and choosing between RGB vs BGR
+      component order. The correct order of big-endian (network byte order) RGB
+      can be determined by trial and error.)
+    </p>
+    <p>
+      We can concatenate the frames within a line together, and write them out
+      into a Codec2-encoded audio file. Here is a Python program that does this
+      for all of the lines in the puzzle image:
+    </p>
+    <pre>import struct
+
+from wand.color import Color
+from wand.image import Image
+
+CHAR_WIDTH = 24
+LINE_HEIGHT = 32
+LINE_SPACING = 16
+
+CLUE_COLORS = [
+    Color("#010000000000"),
+    Color("#000000010000"),
+    Color("#000000000001"),
+    Color("#010000010000"),
+    Color("#010000000001"),
+    Color("#010000010001"),
+]
+
+def GetCharColorTuple(char_img):
+    max_color = Color("black")
+    max_color_count = 0
+    for color, count in char_img.histogram.items():
+        if color == Color("black"):
+            continue
+        if count > max_color_count:
+            max_color = color
+            max_color_count = count
+    if max_color == Color("black") or max_color in CLUE_COLORS:
+        return None
+    return (max_color.red_quantum, max_color.green_quantum, max_color.blue_quantum)
+
+    if __name__ == "__main__":
+        img = Image(filename="puzzle.png")
+        for y in xrange(0, img.height, LINE_HEIGHT + LINE_SPACING):
+            audio_file = open("line%d.bit" % (y / (LINE_HEIGHT + LINE_SPACING)), "wb")
+            for x in xrange(0, img.width, CHAR_WIDTH):
+                with img[x:(x + CHAR_WIDTH), y:(y + LINE_HEIGHT)] as char_img:
+                    color_tuple = GetCharColorTuple(char_img)
+                    if color_tuple != None:
+                        r, g, b = color_tuple
+                        audio_file.write(struct.pack("!HHH", r, g, b))
+            audio_file.close()</pre>
+    <p>
+      Each Codec2-encoded audio file can then be decoded to a raw audio file
+      using the Codec2 command line tools.
+    </p>
+    <pre>$ ./src/c2dec 1200 line0.bit line0.raw</pre>
+    <p>
+      The last part of the green clue, RAW SAMPLES 8KHZ 16-BIT SIGNED, is
+      instructing us how to decode and play back the raw audio file. These
+      settings can be used when opening a raw audio file with Audacity, or using
+      the play command line tool:
+    </p>
+    <pre>$ play -t raw -r 8000 -e signed-integer -b 16 line0.raw</pre>
+    <p>
+      Playing back the sound associated with each line reveals a single spoken
+      word. If we combine these words with the colors we found above, we get
+      titles of songs. In each case, we'll also figure out the artist that
+      created the song, and we'll look up their full birth name (just like the
+      actor names provided at the beginning). Finally, we'll use the blue
+      numbers associated with each name as indices into the full artist birth
+      names for each song.
+    </p>
+    <table>
+      <tr>
+        <th>Actor</th>
+        <th>Film</th>
+        <th>Spoken Word</th>
+        <th>Song Artist</th>
+        <th>Song Artist Birth Name</th>
+        <th>Blue Number</th>
+        <th>Indexed Letter</th>
+      </tr>
+      <tr>
+        <td>COLIN LEWES DILLINGHAM</td>
+        <td><b>ORANGE</b> COUNTY</td>
+        <td>SODA<br><audio src="{{ asset_url_for('chromesthesia/line0.wav') }}" controls="controls"></audio></td>
+        <td>VIC MENSA</td>
+        <td>VICTOR KWESI MENSAH</td>
+        <td>(17/17)</td>
+        <td><b>H</b></td>
+      </tr>
+      <tr>
+        <td>RICHARD GILBERT EMERY</td>
+        <td><b>YELLOW</b> SUBMARINE</td>
+        <td>RAINCOAT<br><audio src="{{ asset_url_for('chromesthesia/line1.wav') }}" controls="controls"></audio></td>
+        <td>JUSTIN BIEBER</td>
+        <td>JUSTIN DREW BIEBER</td>
+        <td>(2/16)</td>
+        <td><b>U</b></td>
+      </tr>
+      <tr>
+        <td>CARLOS IRWIN ESTEVEZ</td>
+        <td><b>RED</b> DAWN</td>
+        <td>UMBRELLA<br><audio src="{{ asset_url_for('chromesthesia/line2.wav') }}" controls="controls"></audio></td>
+        <td>FAITH HILL</td>
+        <td>AUDREY FAITH PERRY</td>
+        <td>(10/16)</td>
+        <td><b>T</b></td>
+      </tr>
+      <tr>
+        <td>BONNIE LYNNE HUNT</td>
+        <td>THE <b>GREEN</b> MILE</td>
+        <td>PANGEA<br><audio src="{{ asset_url_for('chromesthesia/line3.wav') }}" controls="controls"></audio></td>
+        <td>MARSIMOTO (or MARTERIA)</td>
+        <td>MARTEN LACINY</td>
+        <td>(6/12)</td>
+        <td><b>N</b></td>
+      </tr>
+      <tr>
+        <td>HOPE ELISE ROSS LANGE</td>
+        <td><b>BLUE</b> VELVET</td>
+        <td>BANDANA<br><audio src="{{ asset_url_for('chromesthesia/line4.wav') }}" controls="controls"></audio></td>
+        <td>JERROD NIEMANN</td>
+        <td>JERROD LEE NIEMANN</td>
+        <td>(6/16)</td>
+        <td><b>D</b></td>
+      </tr>
+      <tr>
+        <td>SAOIRSE UNA RONAN</td>
+        <td><b>VIOLET</b> &amp; DAISY</td>
+        <td>AFFAIR<br><audio src="{{ asset_url_for('chromesthesia/line5.wav') }}" controls="controls"></audio></td>
+        <td>MARNIE</td>
+        <td>HELEN MARNIE</td>
+        <td>(8/11)</td>
+        <td><b>R</b></td>
+      </tr>
+      <tr>
+        <td>AUDREY JUSTINE TAUTOU</td>
+        <td>MOOD <b>INDIGO</b></td>
+        <td>CHILDREN<br><audio src="{{ asset_url_for('chromesthesia/line6.wav') }}" controls="controls"></audio></td>
+        <td>PUSCIFER</td>
+        <td>JAMES HERBERT KEENAN (or MAYNARD JAMES KEENAN)</td>
+        <td>(14/18)</td>
+        <td><b>E</b></td>
+      </tr>
+    </table>
+    <p>
+      If we sort this table by the order of the colors of the rainbow, then the
+      indexed letters spell out the answer <b>THUNDER</b>.
+    </p>
+  </div>
+{% endblock %}

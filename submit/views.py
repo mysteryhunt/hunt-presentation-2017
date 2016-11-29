@@ -3,6 +3,12 @@ from submit import app
 from common import cube, login_required
 from flask import abort, redirect, render_template, request, session, url_for
 
+@app.errorhandler(cube.CubeError)
+def handle_cube_error(error):
+    return render_template(
+        "error.html",
+        error=error)
+
 @app.route("/")
 @login_required.solvingteam
 def index():
@@ -25,16 +31,20 @@ def puzzle(puzzle_id):
             cube.create_submission(app, puzzle_id, request.form["submission"])
         elif "hintrequest" in request.form:
             cube.create_hint_request(app, puzzle_id, request.form["hintrequest"])
+        elif "interactionrequest" in request.form:
+            cube.create_interaction_request(app, puzzle_id, request.form["interactionrequest"])
         else:
             abort(400)
 
     submissions = cube.get_submissions(app, puzzle_id)
     visibility = cube.get_puzzle_visibility(app, puzzle_id)
     hints = cube.get_hints(app, puzzle_id)
+    interactions = cube.get_interactions(app, puzzle_id)
 
     return render_template(
         "puzzle.html",
         puzzle_id=puzzle_id,
         submissions=submissions,
         visibility=visibility,
-        hints=hints)
+        hints=hints,
+        interactions=interactions)

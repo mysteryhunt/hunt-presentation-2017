@@ -4,23 +4,33 @@
     {% block puzzle_head_block %}{% endblock %}
 {% endblock %}
 
+{% block header_content %}
+  <div id="submit"><a href="{{ submit_url_for(round_id) }}">Check answer</a></div>
+{% endblock %}
+
 {% block overall_layout_body %}
 <div id="round-container">
   <div id="left-sidebar">
-    <div id="round-text">
-      {% block round_flavortext %}{% endblock %}
+    <div id="round-picture">
+      <img src="{{ url_for('static', filename='temp/art/Maps/Icons/%s.png' % round_id)}}">
     </div>
+    <div class="vertically-enscrolled-before"></div>
+    <div class="vertically-enscrolled">
+      <div id="round-text">
+        {% block round_flavortext %}{% endblock %}
+      </div>
+    </div>
+    <div class="vertically-enscrolled-after"></div>
     <div id="navigation">
-      <a href="{{ url_for('index') }}"><span class="enscrolled"><span>Back to World Map</span></span></a>
+      <a href="{{ url_for('index') }}"><span class="enscrolled-before"></span><span class="enscrolled"><span>Back to World Map</span></span><span class="enscrolled-after"></span></a>
     </div>
   </div>
   <div id="puzzle-container">
     <div id="header">
-      <span class="enscrolled"><span>{% block round_name %}{% endblock %}</span></span>
+      <span class="enscrolled-90px-before"></span><span class="enscrolled-90px"><span>{% block round_name %}{% endblock %}</span></span><span class="enscrolled-90px-after"></span>
     </div>
-    <div id="puzzle-content">
-    </div>
-    <div id="puzzle-list">
+    {% block puzzle_content %}{% endblock %}
+    <div id="puzzle-list" class="panel">
       {% block round_puzzle_entries %}{% endblock %}
     </div>
   </div>
@@ -28,28 +38,46 @@
 </div>
 {% endblock %}
 
-{% macro puzzle_entry(puzzle_id, puzzle_properties, puzzle_visibilities) %}
+{% macro puzzle_entry(puzzle_id, puzzle_properties, puzzle_visibilities, audio_id=None) %}
   {% set puzzle_link_action = 'full_puzzle' if full_access else 'puzzle' %}
   {% set link_puzzle_id = puzzle_properties.get(puzzle_id,{}).get('puzzleProperties',{}).get('DisplayIdProperty',{}).get('displayId',puzzle_id) %}
   {% if puzzle_visibilities.get(puzzle_id).status == 'UNLOCKED' %}
     <div class="puzzle-entry">
+      <span><img src="{{ url_for('static', filename='temp/art/chest.png') }}" style="width:24px;height:24px;vertical-align:bottom;"/>/<img src="{{ url_for('static', filename='temp/art/gold.png') }}" style="width:24px;height:24px;vertical-align:bottom;"/></span>
       <a href="{{ url_for(puzzle_link_action, puzzle_id = link_puzzle_id) }}">
         <span class="puzzle-name">{{ puzzle_properties.get(puzzle_id).puzzleProperties.DisplayNameProperty.displayName }}</span>
       </a>
+      {% if audio_id %}
+        <br/>
+        <audio controls>
+          <source src="{{ asset_url_for('modest_minstrels/' + audio_id) }}" type="audio/mpeg"/>
+        </audio>
+      {% endif %}
     </div>
   {% elif puzzle_visibilities.get(puzzle_id).status == 'SOLVED' %}
     <div class="puzzle-entry">
+      <span><img src="{{ url_for('static', filename='temp/art/Maps/complete-logo-color.png') }}" style="width:24px;height:24px;vertical-align:bottom;"/></span>
       <a href="{{ url_for(puzzle_link_action, puzzle_id = link_puzzle_id) }}">
         <span class="puzzle-name">{{ puzzle_properties.get(puzzle_id).puzzleProperties.DisplayNameProperty.displayName }}</span>
-        <span class="puzzle-solution">{{ puzzle_properties.get(puzzle_id).puzzleProperties.AnswersProperty.answers[0].canonicalAnswer }}</span>
+        <span class="puzzle-solution">
+          {% for answer in puzzle_properties.get(puzzle_id).puzzleProperties.AnswersProperty.answers %}
+            {{ answer.get('canonicalAnswer','') }}
+          {% endfor %}
+        </span>
       </a>
+      {% if audio_id %}
+        <br/>
+        <audio controls>
+          <source src="{{ asset_url_for('modest_minstrels/' + audio_id) }}" type="audio/mpeg"/>
+        </audio>
+      {% endif %}
     </div>
   {% elif puzzle_visibilities.get(puzzle_id).status == 'VISIBLE' %}
     <div class="puzzle-entry">
       <span class="puzzle-name"><span class="fa fa-key"></span>
         {% set unlock_requirement = single_character_unlock_requirement(puzzle_properties.get(puzzle_id).puzzleProperties) %}
         {% if unlock_requirement.character %}
-          <span>{{ unlock_requirement.character.capitalize() }} {{ unlock_requirement.levels }}</span>
+          <span>Unlock at <img src="{{ url_for('static', filename='temp/art/Characters/%s-logo-color.png' % unlock_requirement.character) }}" style="width:24px;height:24px;vertical-align:bottom;"/> {{ unlock_requirement.levels }}</span>
         {% endif %}
       </span>
     </div>

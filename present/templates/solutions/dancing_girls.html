@@ -1,0 +1,131 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'dungeon' %}
+{% block title_block %}Dancing Girls: Solution{% endblock %}
+{% block puzzle_name_block %}Dancing Girls: Solution{% endblock %}
+{% block byline %}By Guy Jacobson{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  .pr-cell {
+    text-align: center;
+  }
+
+  .a {
+    width: 76px;
+  }
+
+  .b {
+    width: 98px;
+  }
+
+  .c {
+    width: 102px;
+  }
+
+  .d {
+    width: 69px;
+  }
+
+  .e {
+    width: 86px;
+  }
+
+  .f {
+    width: 58px;
+  }
+
+  .g {
+    width: 66px;
+  }
+
+  .h {
+    width: 119px;
+  }
+
+  .i {
+    width: 75px;
+  }
+
+  .j {
+    width: 122px;
+  }
+
+  .sol {
+    width: 900px;
+  }
+
+  .cipher {
+    padding: 16px 0px;
+  }
+
+  em {
+    color: #e00000;
+    font-weight: bold;
+    font-style: normal;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<div>
+  <p>This is a Disney Princess puzzle! The stick figures are decorated in different styles, corresponding to the set of <a href="https://en.wikipedia.org/wiki/Disney_Princess"> Disney Princesses</a>, minus Cinderella (who is the "missing maiden" for the
+    purposes of this puzzle). Each Princess stick figure is adorned in a consistent but minimal way: with hair color, skin tone, dress color/style matching these canonical images:</p>
+  <table>
+    <tr>
+      <td class='pr-cell'><img class='a' src="{{ asset_url_for('dancing_girls/ariel.png') }}"></td>
+      <td class='pr-cell'><img class='b' src="{{ asset_url_for('dancing_girls/aurora.png') }}"></td>
+      <td class='pr-cell'><img class='c' src="{{ asset_url_for('dancing_girls/belle.png') }}"></td>
+      <td class='pr-cell'><img class='d' src="{{ asset_url_for('dancing_girls/jasmine.png') }}"></td>
+      <td class='pr-cell'><img class='e' src="{{ asset_url_for('dancing_girls/merida.png') }}"></td>
+      <td class='pr-cell'><img class='f' src="{{ asset_url_for('dancing_girls/mulan.png') }}"></td>
+      <td class='pr-cell'><img class='g' src="{{ asset_url_for('dancing_girls/pocahontas.png') }}"></td>
+      <td class='pr-cell'><img class='h' src="{{ asset_url_for('dancing_girls/rapunzel.png') }}"></td>
+      <td class='pr-cell'><img class='i' src="{{ asset_url_for('dancing_girls/snowwhite.png') }}"></td>
+      <td class='pr-cell'><img class='j' src="{{ asset_url_for('dancing_girls/tiana.png') }}"></td>
+    </tr>
+    <tr>
+      <td class='pr-cell'>Ariel</td>
+      <td class='pr-cell'>Aurora</td>
+      <td class='pr-cell'>Belle</td>
+      <td class='pr-cell'>Jasmine</td>
+      <td class='pr-cell'>Merida</td>
+      <td class='pr-cell'>Mulan</td>
+      <td class='pr-cell'>Pocahontas</td>
+      <td class='pr-cell'>Rapunzel</td>
+      <td class='pr-cell'>Snow White</td>
+      <td class='pr-cell'>Tiana</td>
+    </tr>
+  </table>
+  <p>Each of the figures is posed per a letter in the
+  <a href="https://en.wikipedia.org/wiki/The_Adventure_of_the_Dancing_Men">Sherlock Holmes "Dancing Men" cipher alphabet</a>:</p>
+  <img class='cipher' src="{{ asset_url_for('dancing_girls/dancingMenCipher.png') }}">
+  <p>If you read the corresponding letters for each Princess (from left to right on the page):</p>
+  <img class='sol' src="{{ asset_url_for('dancing_girls/DancingGirlsSolution.png') }}"> and order the Princesses according to the Disney film chronology, you get these letter sequences:
+  <ul>
+    <li>TGO - Snow White (<i>Snow White and the Seven Dwarfs</i>, 1937)</li>
+    <li>FAANGO - Aurora (<i>Sleeping Beauty</i>, 1959)</li>
+    <li>RIGOON - Ariel (<i>The Little Mermaid</i>, 1989)</li>
+    <li>AABANDE - Belle (<i>Beauty and the Beast</i>, 1991)</li>
+    <li>SCHOTSCHE - Jasmine (<i>Aladdin</i>, 1992)</li>
+    <li>MURKA - Pocahontas (<i>Pocahontas</i>, 1995)</li>
+    <li>TWOTP - Mulan (<i>Mulan</i>, 1998)</li>
+    <li>QUADRLE - Tiana (<i>The Princess and the Frog</i>, 2009)</li>
+    <li>WTZ - Rapunzel (<i>Tangled</i>, 2010)</li>
+    <li>SMB - Merida (<i>Brave</i>, 2013)</li>
+  </ul>
+  <p>Each of these sequences is the name of a dance, minus two letters:</p>
+  <ul>
+    <li>T<em>AN</em>GO</li>
+    <li>FA<em>ND</em>ANGO</li>
+    <li>RIG<em>AD</em>OON</li>
+    <li><em>S</em>A<em>R</em>ABANDE</li>
+    <li>SCHOT<em>TI</em>SCHE</li>
+    <li>M<em>AZ</em>URKA</li>
+    <li>TWO-<em>S</em>T<em>E</em>P</li>
+    <li>QUADR<em>IL</em>LE</li>
+    <li>W<em>AL</em>TZ</li>
+    <li>S<em>A</em>MB<em>A</em></li>
+  </ul>
+  <p>Reading all the first (missing) letters followed by all the second missing letters forms the clue phrase "ANASTASIA AND DRIZELLA", leading to the answer <b>STEPSISTERS</b> (those are their names in the Disney film <i>Cinderella</i>).</p>
+</div>
+{% endblock %}

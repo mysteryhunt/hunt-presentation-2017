@@ -1,0 +1,36 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'warlord' %}
+{% block title_block %}Dammit, Jim: Solution{% endblock %}
+{% block puzzle_name_block %}Dammit, Jim: Solution{% endblock %}
+{% block byline %}By Dan Katz{% endblock %}
+
+{% block solution_content_block %}
+<div>
+  <p>
+    Each of the pictures in the grid represents a word (or abbreviation) as shown in the grid below:
+    <p>
+      <img src="{{ asset_url_for('dammit_jim/dammitjimgrid.gif') }}" width=800>
+      <p>
+        The plus and minus signs along with pictures should evoke the idea of a rebus, and in fact a continuous path can be drawn, starting and ending with the in and out arrows and using each picture once, to form a series of rebuses, each starting with a picture
+        with no plus/minus sign. These rebuses resolve to the names of human bones (clued by the "remains" in the flavortext, as well as the title, which is a catchphrase of the Star Trek character nicknamed Bones) but with one letter missing from each
+        bone. (Note that the subtracted words are always unbroken substrings, rather than random arrangements of letters.)
+        <p>
+          <ol>
+            <li>STEP + DRUM - PD = STERUM (STER[N]UM)</li>
+            <li>IBAR + C + HULA - ARCH = IBULA ([F]IBULA)</li>
+            <li>CLAP + ATV - PAT + ICE = CLAVICE (CLAVIC[L]E)</li>
+            <li>HUMP + HORUS - PHO = HUMRUS (HUM[E]RUS)</li>
+            <li>MESA + FETA - SAFE + CAGE + NEPAL - GENE (METACA[R]PAL)</li>
+            <li>DISCOVER - DISCO + WALTZ + ZEBRA = VEREBRA (VER[T]EBRA)</li>
+            <li>SCAR + UMP - RUM + LA = SCAPLA (SCAP[U]LA)</li>
+            <li>MAN + DIO + TABLE - IOTA = MANDBLE (MAND[I]BLE)</li>
+            <li>PAW + RENE - WREN + LLAMA - MA = PAELLA (PA[T]ELLA)</li>
+            <li>MALI + PLUS - IP = MALLUS (MALL[E]US)</li>
+            <li>PESO + DAVIS - SODA = PEVIS (PE[L]VIS)</li>
+            <li>TRAP + ZITI + GUM - TIG = TRAPZIUM (TRAP[E]ZIUM)</li>
+          </ol>
+          <p>
+            The missing letters spell the phrase NFLER TUITELE. Former NFL player Maugaula Tuitele is better known by the nickname ULA. This is also one letter short of a bone name:
+            <b>ULNA</b>, the final answer to this puzzle.
+</div>
+{% endblock %}

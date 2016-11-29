@@ -4,25 +4,35 @@
     {% block puzzle_head_block %}{% endblock %}
 {% endblock %}
 
+{% block header_content %}
+  <div id="submit"><a href="{{ submit_url_for(round_id) }}">Check answer</a></div>
+{% endblock %}
+
 {% block overall_layout_body %}
+<div id="round-background-container"></div>
+<div id="round-background-overlay-container" style="background-color: {% block character_color %}{% endblock %};"></div>
 <div id="round-container">
   <div id="left-sidebar">
-    <div id="character-display">
-      <img src="{{ asset_url_for('general/stock-%s-full-200px-wide.jpg' % round_id) }}">
-      <div id="character-level-container" style="background-image: url({{ asset_url_for('general/icon-small-%s.png' % round_id) }})">{{ team_properties.teamProperties.CharacterLevelsProperty.levels.get(round_id.upper(), 0) if team_properties else 'NA' }}</div>
+    <div class="panel-white">
+      <div id="character-level-container">
+        <img src="{{ url_for('static', filename='temp/art/Characters/%s-logo-color.png' % round_id) }}" style="width:80px;height:80px;"/>
+        <span id="character-level-value">
+          {{ team_properties.teamProperties.CharacterLevelsProperty.levels.get(round_id.upper(), 0) if team_properties else 'NA' }}
+        </span>
+      </div>
+      <div id="character-display">
+        <img id="character-image" src="{{ url_for('static', filename='temp/art/Characters/%s.png' % round_id) }}">
+      </div>
     </div>
     <div id="navigation">
-      <a href="{{ url_for('index') }}"><span class="enscrolled"><span>Back to World Map</span></span></a>
+      <a href="{{ url_for('index') }}"><span class="enscrolled-before"></span><span class="enscrolled"><span>Back to World Map</span></span><span class="enscrolled-after"></span></a>
     </div>
   </div>
   <div id="puzzle-container">
     <div id="header">
-      <span class="enscrolled"><span>{% block round_name %}{% endblock %}</span></span>
+      <span class="enscrolled-90px-before"></span><span class="enscrolled-90px"><span>{% block round_name %}{% endblock %}</span></span><span class="enscrolled-90px-after"></span>
     </div>
-    <div id="round-text">
-      {% block round_flavortext %}{% endblock %}
-    </div>
-    <div id="puzzle-list">
+    <div id="puzzle-list" class="panel">
       {% block round_puzzle_entries %}{% endblock %}
     </div>
   </div>
@@ -36,14 +46,20 @@
   {% if puzzle_visibilities.get(puzzle_id).status == 'UNLOCKED' %}
     <div class="puzzle-entry">
       <a href="{{ url_for(puzzle_link_action, puzzle_id = link_puzzle_id) }}">
+        <span><img src="{{ url_for('static', filename='temp/art/Characters/%s-logo-color.png' % round_id) }}" style="width:24px;height:24px;vertical-align:bottom;"/></span>
         <span class="puzzle-name">{{ puzzle_properties.get(puzzle_id).puzzleProperties.DisplayNameProperty.displayName }}</span>
       </a>
     </div>
   {% elif puzzle_visibilities.get(puzzle_id).status == 'SOLVED' %}
     <div class="puzzle-entry">
+      <span><img src="{{ url_for('static', filename='temp/art/Maps/complete-logo-color.png') }}" style="width:24px;height:24px;vertical-align:bottom;"/></span>
       <a href="{{ url_for(puzzle_link_action, puzzle_id = link_puzzle_id) }}">
         <span class="puzzle-name">{{ puzzle_properties.get(puzzle_id).puzzleProperties.DisplayNameProperty.displayName }}</span>
-        <span class="puzzle-solution">{{ puzzle_properties.get(puzzle_id).puzzleProperties.AnswersProperty.answers[0].canonicalAnswer }}</span>
+        <span class="puzzle-solution">
+          {% for answer in puzzle_properties.get(puzzle_id).puzzleProperties.AnswersProperty.answers %}
+            {{ answer.get('canonicalAnswer','') }}
+          {% endfor %}
+        </span>
       </a>
     </div>
   {% elif puzzle_visibilities.get(puzzle_id).status == 'VISIBLE' %}
@@ -51,7 +67,7 @@
       <span class="puzzle-name"><span class="fa fa-key"></span>
         {% set unlock_requirement = single_character_unlock_requirement(puzzle_properties.get(puzzle_id).puzzleProperties) %}
         {% if unlock_requirement.character %}
-          <span>{{ unlock_requirement.character.capitalize() }} {{ unlock_requirement.levels }}</span>
+          <span>Unlock at <img src="{{ url_for('static', filename='temp/art/Characters/%s-logo-color.png' % unlock_requirement.character) }}" style="width:24px;height:24px;vertical-align:bottom;"/> {{ unlock_requirement.levels }}</span>
         {% endif %}
       </span>
     </div>
