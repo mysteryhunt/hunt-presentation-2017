@@ -1,5 +1,6 @@
 {% extends "overall_layout.html" %}
 {% block styling_block %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='round.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='character-round.css') }}">
     {% block puzzle_head_block %}{% endblock %}
 {% endblock %}
@@ -13,7 +14,7 @@
 <div id="round-background-overlay-container" style="background-color: {% block character_color %}{% endblock %};"></div>
 <div id="round-container">
   <div id="left-sidebar">
-    <div class="panel-white">
+    <div class="panel white-background">
       <div id="character-level-container">
         <img src="{{ url_for('static', filename='temp/art/Characters/%s-logo-color.png' % round_id) }}" style="width:80px;height:80px;"/>
         <span id="character-level-value">

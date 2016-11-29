@@ -1,0 +1,42 @@
+#round-container {
+  width: 900px;
+  margin: 20px auto;
+}
+
+#header {
+  margin-left: 320px;
+}
+
+#left-sidebar {
+  float: left;
+}
+
+#puzzle-list {
+  margin-left: 320px;
+  padding: 10px;
+  background-color: #D1B780;
+  border: 3px #665F4F solid;
+}
+
+.puzzle-entry {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  min-height: 20px;
+}
+
+span.puzzle-name {
+  font-size: 20px;
+}
+
+span.puzzle-solution {
+  padding-left: 5px;
+  font-size: 16px;
+}
+
+#submit {
+  float: right;
+  margin-right: 20px;
+}

@@ -1,5 +1,6 @@
 {% extends "overall_layout.html" %}
 {% block styling_block %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='round.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='quest-round.css') }}">
     {% block puzzle_head_block %}{% endblock %}
 {% endblock %}
@@ -11,9 +12,6 @@
 {% block overall_layout_body %}
 <div id="round-container">
   <div id="left-sidebar">
-    <div id="round-picture">
-      <img src="{{ url_for('static', filename='temp/art/Maps/Icons/%s.png' % round_id)}}">
-    </div>
     <div class="vertically-enscrolled-before"></div>
     <div class="vertically-enscrolled">
       <div id="round-text">

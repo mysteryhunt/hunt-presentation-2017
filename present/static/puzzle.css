@@ -5,6 +5,7 @@ body {
 
 #submit {
   float: right;
+  margin-right: 20px;
 }
 
 #overall-layout-body {
@@ -86,17 +87,14 @@ span.puzzle-solution-label {
 
 #answers {
   font-size: 28px;
-  margin-left: 20px;
 }
 
 #reward {
   font-family: 'Deutsche Uncialis', 'Georgia', serif;
   font-size: 28px;
-  margin-left: 20px;
 }
 
 #byline {
   font-family: 'Deutsche Uncialis', 'Georgia', serif;
   font-size: 28px;
-  margin-left: 20px;
 }

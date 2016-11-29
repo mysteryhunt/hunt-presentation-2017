@@ -5,7 +5,10 @@
 
 body {
   text-align: center;
-  margin: 0;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+  margin-bottom: 20px;
   padding: 0;
   background-color: navajowhite;
   font-size: 16px;
@@ -20,16 +23,8 @@ body {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.panel-no-round {
-  background-color: #D1B780;
-  border: 3px #665F4F solid;
-}
-
-.panel-white {
+.white-background {
   background-color: white;
-  border: 3px #665F4F solid;
-  border-radius: 25px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .enscrolled {
@@ -162,7 +157,7 @@ body {
   color: black;
   width: 100%;
   z-index: 5000;
-  font-size: 16px;
+  font-size: 20px;
 }
 
 #overall-layout-header div {
@@ -280,4 +275,18 @@ body {
 
 .clear-both {
   clear: both;
+}
+
+a:link {
+  color: black;
+  text-decoration: none;
+}
+
+a:link:hover {
+  color: black;
+  text-decoration: underline;
+}
+
+a:visited {
+  color: black;
 }
