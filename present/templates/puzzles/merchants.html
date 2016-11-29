@@ -12,9 +12,6 @@
 }
 .merchant {
   width: 450px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 .merchant-image-container {
   position: relative;
@@ -31,6 +28,15 @@
   vertical-align: center;
   top: 161px;
   font-size: 28px;
+}
+.merchant-label {
+  position: absolute;
+  top: 481px;
+  right: 80px;
+  padding: 5px;
+  border: 3px #665F4F solid;
+  border-radius: 5px;
+  font-size: 24px;
 }
 </style>
 {% endblock %}
@@ -55,10 +61,10 @@
         {% for numeric_index in range(2,7) %}
           <div class="merchant-number" style="left: {{ -28 + numeric_index * 58 }}px;">{{merchant_data[numeric_index]}}</div>
         {% endfor %}
+        <div class="merchant-label scroll-color-background">
+          {{ merchant_data[1] }}
+        </div>
         <img src="{{ url_for('static', filename='temp/art/Merchants/merchant-image0%s.png' % merchant_data[0])}}" class="merchant-image"/>
-      </div>
-      <div class="merchant-label">
-        <span class="enscrolled-before"></span><span class="enscrolled">{{ merchant_data[1] }}</span><span class="enscrolled-after"></span>
       </div>
     </div>
   {% endfor %}
