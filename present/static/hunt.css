@@ -149,6 +149,8 @@ body {
   }
 }
 
+/* Header */
+
 #overall-layout-header {
   background-color: #D1B780;
   border-bottom: 2px #665F4F solid;
@@ -158,6 +160,9 @@ body {
   width: 100%;
   z-index: 5000;
   font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 #overall-layout-header div {
@@ -166,29 +171,13 @@ body {
   padding-right: 5px;
 }
 
-#overall-layout-header a:link {
-  color: black;
-  text-decoration: none;
+#header-statuses {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
-#overall-layout-header a:link:hover {
-  color: black;
-  text-decoration: underline;
-}
-
-#overall-layout-header a:visited {
-  color: black;
-}
-
-#header-index-link, .individual-header-status, #header-inventory, #header-gold {
-  float: left;
-  margin-left: 20px;
-}
-
-#header-session-control {
-  float: right;
-  margin-right: 20px;
-}
+/* Inventory Grid */
 
 #header-inventory {
   position: relative;

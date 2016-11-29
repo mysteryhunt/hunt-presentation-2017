@@ -14,33 +14,38 @@
   <body>
     <div id="overall-layout-header">
       <div id="header-index-link"><a href="{{ url_for('index') }}">World Map</a></div>
-      {% for character_class in ['fighter','wizard','cleric','linguist','chemist','economist'] if character_class in visible_puzzle_ids %}
-        <a href="{{ url_for('round', round_id = character_class) }}">
-          <div id="header-status-{{ character_class }}" class="individual-header-status">
-              <img src="{{ url_for('static', filename='temp/art/Characters/%s-logo-color.png' % character_class) }}" style="width:30px;height:30px;vertical-align:middle;"/>
-              <span class="individual-header-status-level">{{ team_properties.teamProperties.CharacterLevelsProperty.levels[character_class.upper()]|default(0) }}</span>
-          </div>
-        </a>
-      {% endfor %}
+      <div id="header-statuses">
+        {% for character_class in ['fighter','wizard','cleric','linguist','chemist','economist'] if character_class in visible_puzzle_ids %}
+          <a href="{{ url_for('round', round_id = character_class) }}">
+            <div id="header-status-{{ character_class }}" class="individual-header-status">
+                <img src="{{ url_for('static', filename='temp/art/Characters/%s-logo-color.png' % character_class) }}" style="width:30px;height:30px;vertical-align:middle;"/>
+                <span class="individual-header-status-level">{{ team_properties.teamProperties.CharacterLevelsProperty.levels[character_class.upper()]|default(0) }}</span>
+            </div>
+          </a>
+        {% endfor %}
       
-      <div id="header-inventory">
-        {% set inventory_complete = (puzzle_visibilities.get('merchants',{}).get('status','') == 'SOLVED') %}
-        <a href="#" id="header-inventory-control">
-          <span id="header-inventory-status">
-            <img src="{{ url_for('static', filename='temp/art/chest.png') }}" style="width:30px;height:30px;vertical-align:middle;"/>&nbsp;
-            {% if inventory_complete %}
-              6/6
-            {% else %}
-              {{ team_properties.get('teamProperties',{}).get('InventoryProperty',{}).get('inventoryItems',[])|length if team_properties else 'NA' }}/40
-            {% endif %}
-          </span>
-        </a>
-        <div id="header-inventory-grid" style="display:none;">
-          {{ inventory.inventory_grid(inventory_complete,
-(team_properties.get('teamProperties',{}).get('InventoryProperty',{})) if team_properties else {}) }}
+        <div id="header-inventory">
+          {% set inventory_complete = (puzzle_visibilities.get('merchants',{}).get('status','') == 'SOLVED') %}
+          <a href="#" id="header-inventory-control">
+            <span id="header-inventory-status">
+              <img src="{{ url_for('static', filename='temp/art/chest.png') }}" style="width:30px;height:30px;vertical-align:middle;padding-right:3px;"/>
+              {%- if inventory_complete -%}
+                6/6
+              {%- else -%}
+                {{ team_properties.get('teamProperties',{}).get('InventoryProperty',{}).get('inventoryItems',[])|length if team_properties else 'NA' }}/40
+              {%- endif -%}
+            </span>
+          </a>
+          <div id="header-inventory-grid" style="display:none;">
+            {{ inventory.inventory_grid(inventory_complete,
+  (team_properties.get('teamProperties',{}).get('InventoryProperty',{})) if team_properties else {}) }}
+          </div>
         </div>
+        <div id="header-gold"><img src="{{ url_for('static', filename='temp/art/gold.png') }}" style="width:30px;height:30px;vertical-align:middle;"/>&nbsp;{{ team_properties.get('teamProperties',{}).get('GoldProperty',{}).get('gold',0) if team_properties else 'NA'}}</div>
       </div>
-      <div id="header-gold"><img src="{{ url_for('static', filename='temp/art/gold.png') }}" style="width:30px;height:30px;vertical-align:middle;"/>&nbsp;{{ team_properties.get('teamProperties',{}).get('GoldProperty',{}).get('gold',0) if team_properties else 'NA'}}</div>
+
+      {% block header_content %}
+      {% endblock %}
       
       <div id="header-session-control">
         {% if session["username"] %}
@@ -49,9 +54,6 @@
           Not logged in (<a href="{{ url_for('login.login') }}">login</a>)
         {% endif %}
       </div>
-      
-      {% block header_content %}
-      {% endblock %}
       
     </div>
     <div id="overall-layout-body">

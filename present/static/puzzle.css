@@ -3,11 +3,6 @@ body {
   background: inherit;
 }
 
-#submit {
-  float: right;
-  margin-right: 20px;
-}
-
 #overall-layout-body {
   clear: both;
 }
