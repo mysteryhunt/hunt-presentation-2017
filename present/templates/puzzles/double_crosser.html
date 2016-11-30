@@ -1,0 +1,434 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_round_id = 'fighter' %}
+{% block title_block %}Double-Crosser{% endblock %}
+{% block puzzle_name_block %}Double-Crosser{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    div.r {
+      display: flex;
+      align-items: center;
+      margin-left: 50px;
+      margin-right: 50px;
+    }
+    div.c {
+      margin-left: 40px;
+      margin-right: 40px;
+    }
+    @media print {
+      div.r {
+        page-break-after: always;
+      }
+      div.c {
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+    }
+    ul {
+      padding: 0;
+    }
+    table.g {
+      border: 2px solid black;
+      border-collapse: collapse;
+    }
+    table.g td {
+      border: 1px solid black;
+      padding: 0;
+      line-height: 0;
+    }
+    img.b {
+      content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=");
+      width: 1.5em;
+      height: 1.5em;
+      padding: 0;
+    }
+    img.w {
+      content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII=");
+      width: 1.5em;
+      height: 1.5em;
+      padding: 0;
+    }
+    span.blank {
+      text-decoration: underline;
+    }
+  </style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+  The fighter had a blank look about him after being hit twice.
+{% endblock %}
+
+{% block puzzle_content_block %}
+  <div>
+    <div class="r">
+      <div class="c">
+        <ul>
+          <li>1889 painting</li>
+          <li>Aaron Nicholson’s secret identity</li>
+          <li><span class="blank">&emsp;&emsp;&emsp;</span> Accord (1987 G7 agreement)</li>
+          <li>Alexander Ovechkin, for one</li>
+          <li>Coin</li>
+          <li>Cop/cabbie duo in a classic 1946 movie</li>
+          <li>Gambit whose moves are<br>1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. b4</li>
+          <li>Gin cocktail</li>
+          <li>Great Sioux War historian Paul</li>
+          <li>Hyacinth’s mother</li>
+          <li>It can be partial, full, express, or implied</li>
+          <li>Light source</li>
+          <li>Luther Vandross’s band, once</li>
+          <li>Moon of Saturn</li>
+          <li>Richie Rich’s dog</li>
+          <li>R in NRSV</li>
+          <li>Safor municipality</li>
+          <li>Six-volume Korean manhwa series</li>
+          <li>TAFKAP part</li>
+          <li>Ted Danson sitcom</li>
+          <li>Women’s clothing chain</li>
+        </ul>
+      </div>
+      <div class="c">
+        <table class="g">
+          <tr>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+          </tr>
+          <tr>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+          </tr>
+          <tr>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+          </tr>
+          <tr>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+          </tr>
+          <tr>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+          </tr>
+          <tr>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+          </tr>
+          <tr>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+          </tr>
+          <tr>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+          </tr>
+          <tr>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+          </tr>
+          <tr>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+          </tr>
+          <tr>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="r">
+      <div class="c">
+        <table class="g">
+          <tr>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+          </tr>
+          <tr>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+          </tr>
+          <tr>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+          </tr>
+          <tr>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+          </tr>
+          <tr>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+          </tr>
+          <tr>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+          </tr>
+          <tr>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+          </tr>
+          <tr>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+          </tr>
+          <tr>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+          </tr>
+          <tr>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+            <td><img class="w"></td>
+          </tr>
+          <tr>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+            <td><img class="w"></td>
+            <td><img class="b"></td>
+          </tr>
+        </table>
+      </div>
+      <div class="c">
+        <ul>
+          <li><span class="blank">&emsp;&emsp;&emsp;</span> Africa offering</li>
+          <li>Dutch alternatives to <span class="blank">&emsp;&emsp;&emsp;</span></li>
+          <li>Fail, like a Roman <span class="blank">&emsp;&emsp;&emsp;</span></li>
+          <li><span class="blank">&emsp;&emsp;&emsp;</span> film of 1996</li>
+          <li>General term for <span class="blank">&emsp;&emsp;&emsp;</span>s, in Spanish</li>
+          <li>Hugo or <span class="blank">&emsp;&emsp;&emsp;</span></li>
+          <li>Movie starring Connery and <span class="blank">&emsp;&emsp;&emsp;</span></li>
+          <li><span class="blank">&emsp;&emsp;&emsp;</span> Neuwirth’s birthplace</li>
+          <li>Rival of <span class="blank">&emsp;&emsp;&emsp;</span></li>
+          <li>She played Mrs. <span class="blank">&emsp;&emsp;&emsp;</span> on a 1970s sitcom</li>
+          <li>Sister of <span class="blank">&emsp;&emsp;&emsp;</span>, on TV</li>
+          <li>Southwestern <span class="blank">&emsp;&emsp;&emsp;</span></li>
+          <li>Symbols that denote <span class="blank">&emsp;&emsp;&emsp;</span></li>
+          <li><span class="blank">&emsp;&emsp;&emsp;</span> text</li>
+          <li>Things a government might <span class="blank">&emsp;&emsp;&emsp;</span></li>
+          <li>Tony <span class="blank">&emsp;&emsp;&emsp;</span> had 220 of them</li>
+          <li>Venue for 2011’s “The <span class="blank">&emsp;&emsp;&emsp;</span>”</li>
+          <li>Website where you could read “10 <span class="blank">&emsp;&emsp;&emsp;</span> Movie Characters”</li>
+          <li>What <span class="blank">&emsp;&emsp;&emsp;</span> are made of</li>
+          <li>Where the hero of a 2003 novel that begins at the <span class="blank">&emsp;&emsp;&emsp;</span> was born</li>
+          <li>Your <span class="blank">&emsp;&emsp;&emsp;</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+{% endblock %}
