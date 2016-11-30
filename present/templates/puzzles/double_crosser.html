@@ -14,10 +14,13 @@
     div.c {
       margin-left: 40px;
       margin-right: 40px;
+      flex: 1 0;
     }
     @media print {
       div.r {
         page-break-after: always;
+        margin-left: 0;
+        margin-right: 0;
       }
       div.c {
         margin-left: 10px;
@@ -34,19 +37,13 @@
     table.g td {
       border: 1px solid black;
       padding: 0;
-      line-height: 0;
-    }
-    img.b {
-      content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=");
       width: 1.5em;
       height: 1.5em;
-      padding: 0;
     }
-    img.w {
-      content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII=");
-      width: 1.5em;
-      height: 1.5em;
-      padding: 0;
+    table.g td.b {
+      outline: 0.75em solid black;
+      outline-offset: -0.75em;
+      box-shadow: 0 0 0 1.5em black inset;
     }
     span.blank {
       text-decoration: underline;
@@ -89,158 +86,158 @@
       <div class="c">
         <table class="g">
           <tr>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
           </tr>
           <tr>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
           </tr>
           <tr>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
           </tr>
           <tr>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
           </tr>
           <tr>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
           </tr>
           <tr>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
           </tr>
           <tr>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
           </tr>
           <tr>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
           </tr>
           <tr>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
           </tr>
           <tr>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
           </tr>
           <tr>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
           </tr>
         </table>
       </div>
@@ -249,158 +246,158 @@
       <div class="c">
         <table class="g">
           <tr>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
           </tr>
           <tr>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
           </tr>
           <tr>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
           </tr>
           <tr>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
           </tr>
           <tr>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
           </tr>
           <tr>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
           </tr>
           <tr>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
           </tr>
           <tr>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
           </tr>
           <tr>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
           </tr>
           <tr>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
-            <td><img class="w"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
           </tr>
           <tr>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
-            <td><img class="w"></td>
-            <td><img class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
+            <td></td>
+            <td class="b"></td>
           </tr>
         </table>
       </div>
