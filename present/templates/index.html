@@ -8,7 +8,7 @@
 <div id="main-page-content">
   <div id="left-sidebar">
     <div id="characters">
-      <div id="character-panel" class="panel lighter-background">
+      <div id="character-panel">
       <div id="character-header" class="small-horizontal-scroll">
         <div class="horizontal-enscrolled-left"></div><div class="horizontal-enscrolled-middle">
           <div class="horizontal-enscrolled-text">Your Party</div>
@@ -47,7 +47,7 @@
       </div>
     </div>
     <div id="events">
-      <div id="events-panel" class="panel lighter-background">
+      <div id="events-panel">
         <div id="events-header" class="small-horizontal-scroll">
           <div class="horizontal-enscrolled-left"></div><div class="horizontal-enscrolled-middle">
             <div class="horizontal-enscrolled-text">Events</div>
@@ -73,14 +73,14 @@
     </div>
   </div>
 
-  <div id="world-map-container" class="panel lighter-background">
+  <div id="world-map-container">
     <div id="world-map-header" class="standard-horizontal-scroll">
       <div class="horizontal-enscrolled-left"></div><div class="horizontal-enscrolled-middle">
         <div class="horizontal-enscrolled-text">World Map</div>
       </div><div class="horizontal-enscrolled-right"></div>
     </div>
     <div id="world-map">
-      <div id="fog-overlay" style="content: url({{ url_for('static', filename='PNG-export/map/fog-no-transparency.png') }}); width:560px;height:560px;margin:0 auto;"></div>
+<!--      <div id="fog-overlay" style="content: url({{ url_for('static', filename='PNG-export/map/fog-no-transparency.png') }}); width:560px;height:560px;margin:0 auto;"></div>-->
       <div id="world-map-background" style="content: url({{ url_for('static', filename='PNG-export/map/map.png') }}); width:560px;height:560px;margin:0 auto;"></div>
         {% for quest in [('dynast',0,0),('dungeon',90,120),('thespians',25,385),('bridge',205,290),('criminal',225,110),('minstrels',340,0),('cube',440,110),('warlord',340,240)] if quest[0] in visible_puzzle_ids %}
           <a href="{{ url_for('round', round_id = quest[0]) }}">

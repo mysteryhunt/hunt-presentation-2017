@@ -22,16 +22,31 @@ body {
   z-index: -1000;
 }
 
-#left-sidebar {
-  width: 300px;
+#header {
+  display: inline-block;
+}
+
+#character-level-container {
+  display: inline-block;
 }
 
 #character-display {
-  width: 100%;
+  width: 40%;
+  display: inline-block;
 }
 
 img#character-image {
   width: 100%;
+}
+
+#puzzle-list {
+  display: inline-block;
+  vertical-align: top;
+  width: 45%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-image: url('PNG-export/scroll/parchment-square.png');
+  background-size: 100% 100%;
 }
 
 #character-level-container {
