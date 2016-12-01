@@ -1,0 +1,442 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_round_id = 'thespians' %}
+{% block title_block %}Mirrorball{% endblock %}
+{% block puzzle_name_block %}Mirrorball{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    .r {
+      position: relative;
+      height: 15em;
+    }
+
+    .field {
+      font-size: 13px;
+    }
+
+    .o {
+      border-collapse: collapse;
+    }
+
+    .o td {
+      line-height: 0;
+      box-sizing: border-box;
+    }
+
+    .gn, .g, .wn, .w, .nc, .nl, .nr, .b {
+      padding: 0;
+      width: 2em;
+      height: 2em;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .g, .w, .wl {
+      border: 1px solid #000000;
+    }
+
+    .wl {
+      width: 1.6em;
+      height: 1.6em;
+      padding: 0.2em;
+      font-size: 0.8em;
+      text-align: right;
+      vertical-align: top;
+      color: #787878;
+    }
+
+    .wn, .gn {
+      font-size: 1em;
+      border: 0;
+      font-weight: bold;
+    }
+
+    .g {
+      background-color: #c0c0c0;
+      box-shadow: 0 0 0 2em #c0c0c0 inset;
+    }
+
+    .nc, .nl, .nr {
+      font-size: 1em;
+    }
+
+    .nl {
+      transform: rotate(-45deg);
+      font-size: 0.75em;
+    }
+
+    .nr {
+      transform: rotate(45deg);
+      font-size: 0.75em;
+    }
+
+    .slash {
+      width: 2em;
+      height: 2em;
+    }
+
+    .fieldheading {
+      page-break-before: always;
+    }
+  </style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+  Most of the actors aren't athletic, but they explain that they have one sport
+  they play at a local disco.
+{% endblock %}
+
+{% block puzzle_content_block %}
+  <div>
+    <h3>Rules of Mirrorball</h3>
+    <p>
+      In each 5x5 array in the playing field, five players, in jerseys numbered
+      1 through 5, select a white non-goal (goals are shaded gray) square to
+      stand in. Each player then places one angled mirror in a horizontally or
+      vertically adjacent square (which can be a goal), with no two players
+      selecting the same square. Light beam paths that pass through one or more
+      goals score the total of all jersey numbers they pass through. Missed
+      points for beam paths that pass through no goals are provided, along with
+      path length, for reference.
+    </p>
+    <h3>Sample Field for Team Name: Games</h3>
+    <div class="r field">
+      <div style="position: absolute; width: 14em; height: 14em;">
+        <table class="o" style="position: relative; z-index: 200">
+          <tr><td class="b"></td><td class="nc"></td><td class="nc"></td><td class="nc"></td><td class="nc"></td><td class="nc"></td><td class="b"></td></tr>
+          <tr><td class="nc"></td><td class="gn"></td><td class="wn">2</td><td class="wn"></td><td class="wn"></td><td class="gn"></td><td class="nc"></td></tr>
+          <tr><td class="nc"></td><td class="wn"></td><td class="wn">4</td><td class="wn"></td><td class="wn">1</td><td class="wn"></td><td class="nc"></td></tr>
+          <tr><td class="nc"></td><td class="wn"></td><td class="wn"></td><td class="wn"></td><td class="wn"></td><td class="wn">3</td><td class="nc"></td></tr>
+          <tr><td class="nc"></td><td class="wn"></td><td class="wn"></td><td class="wn"></td><td class="wn"></td><td class="wn"></td><td class="nc"></td></tr>
+          <tr><td class="nc"></td><td class="gn"></td><td class="wn">5</td><td class="wn"></td><td class="wn"></td><td class="gn"></td><td class="nc"></td></tr>
+          <tr><td class="b"></td><td class="nc"></td><td class="nc"></td><td class="nc"></td><td class="nc"></td><td class="nc"></td><td class="b"></td></tr>
+        </table>
+
+        <table class="o" style="position: absolute; top: 0; left: 0; width: 14em; height: 14em;">
+          <tr><td class="b"></td><td class="b"></td><td class="b"></td><td class="b"></td><td class="b"></td><td class="b"></td><td class="b"></td></tr>
+          <tr><td class="b"></td><td class="g"></td><td class="wl"><sub>A</sub></td><td class="wl"><sub>B</sub></td><td class="wl"><sub>C</sub></td><td class="g"></td><td class="b"></td></tr>
+          <tr><td class="b"></td><td class="wl"><sub>D</sub></td><td class="wl"><sub>E</sub></td><td class="wl"><sub>F</sub></td><td class="wl"><sub>G</sub></td><td class="wl"><sub>H</sub></td><td class="b"></td></tr>
+          <tr><td class="b"></td><td class="wl"><sub>I</sub></td><td class="wl"><sub>J</sub></td><td class="wl"><sub>K</sub></td><td class="wl"><sub>L</sub></td><td class="wl"><sub>M</sub></td><td class="b"></td></tr>
+          <tr><td class="b"></td><td class="wl"><sub>N</sub></td><td class="wl"><sub>O</sub></td><td class="wl"><sub>P</sub></td><td class="wl"><sub>Q</sub></td><td class="wl"><sub>R</sub></td><td class="b"></td></tr>
+          <tr><td class="b"></td><td class="g"></td><td class="wl"><sub>S</sub></td><td class="wl"><sub>T</sub></td><td class="wl"><sub>U</sub></td><td class="g"></td><td class="b"></td></tr>
+          <tr><td class="b"></td><td class="b"></td><td class="b"></td><td class="b"></td><td class="b"></td><td class="b"></td><td class="b"></td></tr>
+        </table>
+      </div>
+
+      <div style="position: absolute; left: 15em; width: 14em; height: 14em;">
+        <table class="o" style="position: relative; z-index: 200">
+          <tr><td class="b"></td><td class="nc"></td><td class="nc"></td><td class="nc"></td><td class="nc"></td><td class="nc"></td><td class="b"></td></tr>
+          <tr><td class="nc"></td><td class="gn"><img class="slash" src="{{ asset_url_for('mirrorball/back_slash.png') }}"></td><td class="wn">2</td><td class="wn"></td><td class="wn"><img class="slash" src="{{ asset_url_for('mirrorball/forward_slash.png') }}"></td><td class="gn"></td><td class="nc"></td></tr>
+          <tr><td class="nc"></td><td class="wn"></td><td class="wn">4</td><td class="wn"></td><td class="wn">1</td><td class="wn"></td><td class="nc"></td></tr>
+          <tr><td class="nc"></td><td class="wn"></td><td class="wn"><img class="slash" src="{{ asset_url_for('mirrorball/back_slash.png') }}"></td><td class="wn"></td><td class="wn"><img class="slash" src="{{ asset_url_for('mirrorball/back_slash.png') }}"></td><td class="wn">3</td><td class="nc"></td></tr>
+          <tr><td class="nc"></td><td class="wn"></td><td class="wn"></td><td class="wn"></td><td class="wn"></td><td class="wn"></td><td class="nc"></td></tr>
+          <tr><td class="nc"></td><td class="gn"></td><td class="wn">5</td><td class="wn"><img class="slash" src="{{ asset_url_for('mirrorball/back_slash.png') }}"></td><td class="wn"></td><td class="gn"></td><td class="nc"></td></tr>
+          <tr><td class="b"></td><td class="nc"></td><td class="nc"></td><td class="nc"></td><td class="nc"></td><td class="nc"></td><td class="b"></td></tr>
+        </table>
+
+        <table class="o" style="position: absolute; top: 0; left: 0">
+          <tr><td class="b"></td><td class="b"></td><td class="b"></td><td class="b"></td><td class="b"></td><td class="b"></td><td class="b"></td></tr>
+          <tr><td class="b"></td><td class="g"></td><td class="wl"><sub>A</sub></td><td class="wl"><sub>B</sub></td><td class="wl"><sub>C</sub></td><td class="g"></td><td class="b"></td></tr>
+          <tr><td class="b"></td><td class="wl"><sub>D</sub></td><td class="wl"><sub>E</sub></td><td class="wl"><sub>F</sub></td><td class="wl"><sub>G</sub></td><td class="wl"><sub>H</sub></td><td class="b"></td></tr>
+          <tr><td class="b"></td><td class="wl"><sub>I</sub></td><td class="wl"><sub>J</sub></td><td class="wl"><sub>K</sub></td><td class="wl"><sub>L</sub></td><td class="wl"><sub>M</sub></td><td class="b"></td></tr>
+          <tr><td class="b"></td><td class="wl"><sub>N</sub></td><td class="wl"><sub>O</sub></td><td class="wl"><sub>P</sub></td><td class="wl"><sub>Q</sub></td><td class="wl"><sub>R</sub></td><td class="b"></td></tr>
+          <tr><td class="b"></td><td class="g"></td><td class="wl"><sub>S</sub></td><td class="wl"><sub>T</sub></td><td class="wl"><sub>U</sub></td><td class="g"></td><td class="b"></td></tr>
+          <tr><td class="b"></td><td class="b"></td><td class="b"></td><td class="b"></td><td class="b"></td><td class="b"></td><td class="b"></td></tr>
+        </table>
+      </div>
+
+      <div style="position: absolute; left: 30em; width: 14em; height: 14em;">
+        <table class="o" style="position: relative; z-index: 200">
+          <tr><td class="b"></td><td class="nc">2</td><td class="nc">6<sub>7</sub></td><td class="nc">0</td><td class="nc">2</td><td class="nc">3</td><td class="b"></td></tr>
+          <tr><td class="nc">0</td><td class="gn"><img class="slash" src="{{ asset_url_for('mirrorball/back_slash.png') }}"></td><td class="wn">2</td><td class="wn"></td><td class="wn"><img class="slash" src="{{ asset_url_for('mirrorball/forward_slash.png') }}"></td><td class="gn"></td><td class="nc">4</td></tr>
+          <tr><td class="nc">5<sub>5</sub></td><td class="wn"></td><td class="wn">4</td><td class="wn"></td><td class="wn">1</td><td class="wn"></td><td class="nc">5<sub>5</sub></td></tr>
+          <tr><td class="nc">5<sub>4</sub></td><td class="wn"></td><td class="wn"><img class="slash" src="{{ asset_url_for('mirrorball/back_slash.png') }}"></td><td class="wn"></td><td class="wn"><img class="slash" src="{{ asset_url_for('mirrorball/back_slash.png') }}"></td><td class="wn">3</td><td class="nc">4</td></tr>
+          <tr><td class="nc">0<sub>5</sub></td><td class="wn"></td><td class="wn"></td><td class="wn"></td><td class="wn"></td><td class="wn"></td><td class="nc">0<sub>5</sub></td></tr>
+          <tr><td class="nc">5</td><td class="gn"></td><td class="wn">5</td><td class="wn"><img class="slash" src="{{ asset_url_for('mirrorball/back_slash.png') }}"></td><td class="wn"></td><td class="gn"></td><td class="nc">0</td></tr>
+          <tr><td class="b"></td><td class="nc">0</td><td class="nc">5<sub>4</sub></td><td class="nc">5</td><td class="nc">6<sub>7</sub></td><td class="nc">3</td><td class="b"></td></tr>
+        </table>
+
+        <table class="o" style="position: absolute; top: 0; left: 0; width: 14em; height: 14em;">
+          <tr><td class="b"></td><td class="b"></td><td class="b"></td><td class="b"></td><td class="b"></td><td class="b"></td><td class="b"></td></tr>
+          <tr><td class="b"></td><td class="g"></td><td class="wl"><sub>A</sub></td><td class="wl"><sub>B</sub></td><td class="wl"><sub>C</sub></td><td class="g"></td><td class="b"></td></tr>
+          <tr><td class="b"></td><td class="wl"><sub>D</sub></td><td class="wl"><sub>E</sub></td><td class="wl"><sub>F</sub></td><td class="wl"><sub>G</sub></td><td class="wl"><sub>H</sub></td><td class="b"></td></tr>
+          <tr><td class="b"></td><td class="wl"><sub>I</sub></td><td class="wl"><sub>J</sub></td><td class="wl"><sub>K</sub></td><td class="wl"><sub>L</sub></td><td class="wl"><sub>M</sub></td><td class="b"></td></tr>
+          <tr><td class="b"></td><td class="wl"><sub>N</sub></td><td class="wl"><sub>O</sub></td><td class="wl"><sub>P</sub></td><td class="wl"><sub>Q</sub></td><td class="wl"><sub>R</sub></td><td class="b"></td></tr>
+          <tr><td class="b"></td><td class="g"></td><td class="wl"><sub>S</sub></td><td class="wl"><sub>T</sub></td><td class="wl"><sub>U</sub></td><td class="g"></td><td class="b"></td></tr>
+          <tr><td class="b"></td><td class="b"></td><td class="b"></td><td class="b"></td><td class="b"></td><td class="b"></td><td class="b"></td></tr>
+        </table>
+      </div>
+    </div>
+    <h3 class="fieldheading">Your Field</h3>
+    <div class="field" style="width: 70em; height: 46em;">
+      <table class="o">
+        <tr id="row01">
+          <td class="b"></td>
+          <td class="nc">3</td><td class="nc">0</td><td class="nc">5<sub>5</sub></td><td class="nc">3</td><td class="nc">4</td>
+          <td class="b"></td><td class="b"></td><td class="b"></td>
+          <td class="nc">0</td><td class="nc">7<sub>5</sub></td><td class="nc">2</td><td class="nc">4<sub>5</sub></td><td class="nc">7</td>
+          <td class="b"></td><td class="b"></td><td class="b"></td>
+          <td class="nc">11</td><td class="nc">4<sub>3</sub></td><td class="nc">1</td><td class="nc">1<sub>5</sub></td><td class="nc">1</td>
+          <td class="b"></td><td class="b"></td><td class="b"></td>
+          <td class="nc">0</td><td class="nc">0</td><td class="nc">4</td><td class="nc">3<sub>5</sub></td><td class="nc">0</td>
+          <td class="b"></td><td class="b"></td><td class="b"></td><td class="b"></td><td class="b"></td>
+        </tr>
+        <tr id="row02">
+          <td class="nc">0</td>
+          <td class="g"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="g"></td>
+          <td class="nc">3</td><td class="b"></td><td class="nc">2</td>
+          <td class="g"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="g"></td>
+          <td class="nc">9</td><td class="b"></td><td class="nc">0</td>
+          <td class="g"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="g"></td>
+          <td class="nc">0</td><td class="b"></td><td class="nc">8</td>
+          <td class="g"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="g"></td>
+          <td class="nc">0</td><td class="b"></td><td class="b"></td><td class="b"></td><td class="b"></td>
+        </tr>
+        <tr id="row03">
+          <td class="nc">3</td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nc">3</td><td class="b"></td><td class="nc">11</td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nc">0</td><td class="b"></td><td class="nc">4<sub>3</sub></td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nc">4</td><td class="b"></td><td class="nc">5<sub>5</sub></td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nc">5<sub>5</sub></td><td class="b"></td><td class="b"></td><td class="b"></td><td class="b"></td>
+        </tr>
+        <tr id="row04">
+          <td class="nc">1<sub>5</sub></td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nc">1<sub>5</sub></td><td class="b"></td><td class="nc">7</td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nc">6</td><td class="b"></td><td class="nc">7<sub>4</sub></td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nc">14</td><td class="b"></td><td class="nc">0<sub>5</sub></td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nc">0<sub>5</sub></td><td class="b"></td><td class="b"></td><td class="b"></td><td class="b"></td>
+        </tr>
+        <tr id="row05">
+          <td class="nc">2</td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nr">4<sub>3</sub> 0<sub>5</sub></td><td class="nc">9</td><td class="nl">8<sub>5</sub> 1<sub>5</sub></td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nr">1<sub>5</sub> 2<sub>5</sub></td><td class="nc">2</td><td class="nl">5 5<sub>5</sub></td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nr">5<sub>5</sub> 7<sub>4</sub></td><td class="nc">4</td><td class="nl">1<sub>5</sub> 0</td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nr">0 8</td><td class="nc">4</td><td class="nc">0<sub>5</sub></td><td class="nc">8</td><td class="b"></td>
+        </tr>
+        <tr id="row06">
+          <td class="nc">2</td>
+          <td class="g"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="g"></td>
+          <td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="g"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="g"></td>
+          <td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="g"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="g"></td>
+          <td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="g"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="g"></td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="g"></td>
+          <td class="nc">5</td>
+        </tr>
+        <tr id="row07">
+          <td class="b"></td>
+          <td class="nc">3</td><td class="nc">11</td><td class="nc">5<sub>5</sub></td><td class="nr">4<sub>3</sub> 9</td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nl">11 7<sub>5</sub></td><td class="nc">2</td><td class="nr">4<sub>5</sub> 5</td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nl">10<sub>6</sub> 7<sub>4</sub></td><td class="nc">6</td><td class="nr">1<sub>5</sub> 5<sub>5</sub></td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nl">5<sub>5</sub> 8</td><td class="nc">13</td><td class="nr">3<sub>5</sub> 1<sub>5</sub></td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nc">1<sub>5</sub></td>
+        </tr>
+        <tr id="row08">
+          <td class="b"></td><td class="b"></td><td class="b"></td><td class="b"></td>
+          <td class="nc">11</td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nc">1</td><td class="b"></td><td class="nc">4<sub>5</sub></td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nc">4<sub>5</sub></td><td class="b"></td><td class="nc">7<sub>4</sub></td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nc">13</td><td class="b"></td><td class="nc">7</td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nc">2</td>
+        </tr>
+        <tr id="row09">
+          <td class="b"></td>
+          <td class="nc">0</td><td class="nc">7</td><td class="nc">2</td><td class="nl">0<sub>5</sub> 2<sub>5</sub></td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nr">8<sub>5</sub> 17</td><td class="nc">5</td><td class="nl">0<sub>5</sub> 2<sub>5</sub></td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nr">0 4<sub>5</sub></td><td class="nc">0<sub>5</sub></td><td class="nl">2 0<sub>3</sub></td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nr">12 5<sub>6</sub></td><td class="nc">7</td><td class="nl">3<sub>5</sub> 13</td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nc">2<sub>5</sub></td>
+        </tr>
+        <tr id="row10">
+          <td class="nc">2</td>
+          <td class="g"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="g"></td>
+          <td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="g"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="g"></td>
+          <td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="g"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="g"></td>
+          <td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="g"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="g"></td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="g"></td>
+          <td class="nc">0</td>
+        </tr>
+        <tr id="row11">
+          <td class="nc">0</td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nl">7<sub>10</sub> 0<sub>5</sub></td><td class="nc">7</td><td class="nr">2<sub>5</sub> 6<sub>5</sub></td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nl">6<sub>5</sub> 11</td><td class="nc">10<sub>6</sub></td><td class="nr">0 5<sub>5</sub></td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nl">5<sub>5</sub> 0<sub>3</sub></td><td class="nc">13</td><td class="nr">1<sub>5</sub> 0<sub>5</sub></td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nl">0<sub>5</sub> 2<sub>5</sub></td><td class="nc">5</td><td class="nc">0<sub>5</sub></td><td class="nc">2</td><td class="b"></td>
+        </tr>
+        <tr id="row12">
+          <td class="nc">5</td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nc">7<sub>10</sub></td><td class="b"></td><td class="nc">7</td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nc">11</td><td class="b"></td><td class="nc">0<sub>5</sub></td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nc">0</td><td class="b"></td><td class="nc">3<sub>6</sub></td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nc">6</td><td class="b"></td><td class="b"></td><td class="b"></td><td class="b"></td>
+        </tr>
+        <tr id="row13">
+          <td class="nc">9</td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nr">0<sub>4</sub> 7<sub>5</sub></td><td class="nc">2</td><td class="nl">7<sub>5</sub> 7<sub>5</sub></td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nr">7<sub>5</sub> 0<sub>2</sub></td><td class="nc">0<sub>2</sub></td><td class="nl">3<sub>5</sub> 0</td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nr">6 2</td><td class="nc">10</td><td class="nl">6<sub>5</sub> 9</td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nr">3<sub>6</sub> 4</td><td class="nc">2<sub>6</sub></td><td class="nc">4<sub>5</sub></td><td class="nc">18</td><td class="b"></td>
+        </tr>
+        <tr id="row14">
+          <td class="nc">7</td>
+          <td class="g"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="g"></td>
+          <td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="g"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="g"></td>
+          <td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="g"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="g"></td>
+          <td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="g"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="g"></td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="g"></td>
+          <td class="nc">5</td>
+        </tr>
+        <tr id="row15">
+          <td class="b"></td>
+          <td class="nc">5</td><td class="nc">2</td><td class="nc">0<sub>4</sub></td><td class="nr">0<sub>5</sub> 5</td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nl">1<sub>3</sub> 6</td><td class="nc">1</td><td class="nr">0<sub>5</sub> 4<sub>5</sub></td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nl">4<sub>5</sub> 4<sub>5</sub></td><td class="nc">14</td><td class="nr">6 9</td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nl">0<sub>2</sub> 12</td><td class="nc">5<sub>6</sub></td><td class="nr">3<sub>5</sub> 2</td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nc">6</td>
+        </tr>
+        <tr id="row16">
+          <td class="b"></td><td class="b"></td><td class="b"></td><td class="b"></td>
+          <td class="nc">1<sub>5</sub></td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nc">1<sub>5</sub></td><td class="b"></td><td class="nc">6</td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nc">5</td><td class="b"></td><td class="nc">5</td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nc">0<sub>2</sub></td><td class="b"></td><td class="nc">0</td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nc">5</td>
+        </tr>
+        <tr id="row17">
+          <td class="b"></td>
+          <td class="nc">4</td><td class="nc">4</td><td class="nc">0<sub>5</sub></td><td class="nl">9<sub>7</sub> 0</td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nr">1<sub>3</sub> 0</td><td class="nc">3</td><td class="nl">3 6</td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nr">5<sub>5</sub> 5</td><td class="nc">4<sub>6</sub></td><td class="nl">0<sub>5</sub> 4<sub>5</sub></td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nr">4<sub>5</sub> 1<sub>5</sub></td><td class="nc">3</td><td class="nl">2<sub>5</sub> 5<sub>5</sub></td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nc">5<sub>5</sub></td>
+        </tr>
+        <tr id="row18">
+          <td class="nc">5</td>
+          <td class="g"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="g"></td>
+          <td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="g"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="g"></td>
+          <td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="g"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="g"></td>
+          <td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="g"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="g"></td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="g"></td>
+          <td class="nc">0</td>
+        </tr>
+        <tr id="row19">
+          <td class="nc">3<sub>5</sub></td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nl">3<sub>5</sub> 7<sub>5</sub></td><td class="nc">6</td><td class="nr">7<sub>5</sub> 0</td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nl">12<sub>6</sub> 5<sub>5</sub></td><td class="nc">6</td><td class="nr">3<sub>5</sub> 0</td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nl">3 18</td><td class="nc">3</td><td class="nr">6<sub>5</sub> 4</td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nl">1<sub>5</sub> 2<sub>6</sub></td><td class="nc">0</td><td class="nc">4<sub>5</sub></td><td class="nc">0</td><td class="b"></td>
+        </tr>
+        <tr id="row20">
+          <td class="nc">5</td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nc">6</td><td class="b"></td><td class="nc">2<sub>6</sub></td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nc">11</td><td class="b"></td><td class="nc">3<sub>5</sub></td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nc">3<sub>5</sub></td><td class="b"></td><td class="nc">3<sub>5</sub></td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nc">3<sub>5</sub></td><td class="b"></td><td class="b"></td><td class="b"></td><td class="b"></td>
+        </tr>
+        <tr id="row21">
+          <td class="nc">9<sub>7</sub></td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nc">3<sub>3</sub></td><td class="b"></td><td class="nc">0<sub>5</sub></td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nc">0<sub>5</sub></td><td class="b"></td><td class="nc">5</td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nc">4<sub>6</sub></td><td class="b"></td><td class="nc">10</td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nc">5<sub>5</sub></td><td class="b"></td><td class="b"></td><td class="b"></td><td class="b"></td>
+        </tr>
+        <tr id="row22">
+          <td class="nc">0</td>
+          <td class="g"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="g"></td>
+          <td class="nc">0</td><td class="b"></td><td class="nc">0</td>
+          <td class="g"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="g"></td>
+          <td class="nc">5</td><td class="b"></td><td class="nc">3</td>
+          <td class="g"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="g"></td>
+          <td class="nc">6</td><td class="b"></td><td class="nc">5</td>
+          <td class="g"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="g"></td>
+          <td class="nc">5</td><td class="b"></td><td class="b"></td><td class="b"></td><td class="b"></td>
+        </tr>
+        <tr id="row23">
+          <td class="b"></td>
+          <td class="nc">5</td><td class="nc">4</td><td class="nc">0<sub>5</sub></td><td class="nc">3<sub>3</sub></td><td class="nc">5</td>
+          <td class="b"></td><td class="b"></td><td class="b"></td>
+          <td class="nc">3</td><td class="nc">5</td><td class="nc">12<sub>6</sub></td><td class="nc">2<sub>6</sub></td><td class="nc">3</td>
+          <td class="b"></td><td class="b"></td><td class="b"></td>
+          <td class="nc">6</td><td class="nc">17</td><td class="nc">3</td><td class="nc">0<sub>5</sub></td><td class="nc">3</td>
+          <td class="b"></td><td class="b"></td><td class="b"></td>
+          <td class="nc">4</td><td class="nc">5<sub>5</sub></td><td class="nc">2</td><td class="nc">2<sub>5</sub></td><td class="nc">4</td>
+          <td class="b"></td><td class="b"></td><td class="b"></td><td class="b"></td><td class="b"></td>
+        </tr>
+      </table>
+    </div>
+    <p>
+      Most Valuable Players (in team order): 5 4 4 2 1 5 3 2 5 4 2 3 5 2 5 4 3 2 2 5
+    </p>
+  </div>
+{% endblock %}
