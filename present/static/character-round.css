@@ -8,7 +8,7 @@ body {
   left: 0;
   width: 100vw;
   min-height: 100vh;
-  background: url('temp/art/Maps/fog-repeat.png');
+  background: url('PNG-export/map/repeating-fog.png');
   z-index: -2000;
 }
 
@@ -31,7 +31,7 @@ body {
 }
 
 img#character-image {
-  width: 90%;
+  width: 100%;
 }
 
 #character-level-container {

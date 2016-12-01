@@ -12,17 +12,15 @@
 {% block overall_layout_body %}
 <div id="round-container">
   <div id="left-sidebar">
-    <div class="vertically-enscrolled-before"></div>
-    <div class="vertically-enscrolled">
       <div id="round-text">
         {% block round_flavortext %}{% endblock %}
       </div>
-    </div>
-    <div class="vertically-enscrolled-after"></div>
   </div>
   <div id="puzzle-container">
-    <div id="header">
-      <span class="enscrolled-90px-before"></span><span class="enscrolled-90px"><span>{% block round_name %}{% endblock %}</span></span><span class="enscrolled-90px-after"></span>
+    <div id="header" class="standard-horizontal-scroll">
+      <div class="horizontal-enscrolled-left"></div><div class="horizontal-enscrolled-middle">
+        <div class="horizontal-enscrolled-text">{% block round_name %}{% endblock %}</div>
+      </div><div class="horizontal-enscrolled-right"></div>
     </div>
     {% block puzzle_content %}{% endblock %}
     <div id="puzzle-list" class="panel scroll-color-background">
@@ -72,7 +70,7 @@
       <span class="puzzle-name"><span class="fa fa-key"></span>
         {% set unlock_requirement = single_character_unlock_requirement(puzzle_properties.get(puzzle_id).puzzleProperties) %}
         {% if unlock_requirement.character %}
-          <span>Unlock at <img src="{{ url_for('static', filename='temp/art/Characters/%s-logo-color.png' % unlock_requirement.character) }}" style="width:24px;height:24px;vertical-align:bottom;"/> {{ unlock_requirement.levels }}</span>
+          <span>Unlock at <img src="{{ url_for('static', filename='PNG-export/characters/%s-logo.png' % (unlock_requirement.character)|lower) }}" style="width:24px;height:24px;vertical-align:bottom;"/> {{ unlock_requirement.levels }}</span>
         {% endif %}
       </span>
     </div>

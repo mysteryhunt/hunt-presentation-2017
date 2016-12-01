@@ -34,31 +34,39 @@ body {
   background-color: white;
 }
 
-.enscrolled {
-  background-image: url("horizontal-scroll-45px-base.png");
-  background-repeat: repeat-x;
-  height: 45px;
-  line-height: 45px;
-  vertical-align: top;
-  display: inline-block;
+.standard-horizontal-scroll {
+  height: 80px;
+  font-size: 48px;
   font-family: 'Deutsche Uncialis', 'Georgia', serif;
-  font-size: 20px;
 }
 
-.enscrolled span {
+.small-horizontal-scroll {
+  height: 60px;
+  font-size: 30px;
+  font-family: 'Deutsche Uncialis', 'Georgia', serif;
+}
+
+.horizontal-enscrolled-left {
+  content: url("PNG-export/scroll/horizontal-left.png");
+  height: 100%;
+  display: inline;
+}
+
+.horizontal-enscrolled-middle {
+  background-image: url("PNG-export/scroll/horizontal-middle.png");
+  background-position: center;
+  background-size: auto 100%;
+  height: 100%;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
   vertical-align: top;
 }
 
-.enscrolled-before {
-  content: url("horizontal-scroll-45px-left.png");
-  width: 15px;
-  height: 45px;
-}
-
-.enscrolled-after {
-  content: url("horizontal-scroll-45px-right.png");
-  width: 15px;
-  height: 45px;
+.horizontal-enscrolled-right {
+  content: url("PNG-export/scroll/horizontal-right.png");
+  height: 100%;
+  display: inline;
 }
 
 .enscrolled-90px {
@@ -127,27 +135,11 @@ body {
     display: none;
   }
   
-  .enscrolled-before {
+  .horizontal-enscrolled-left {
     display: none;
   }
   
-  .enscrolled-after {
-    display: none;
-  }
-  
-  .enscrolled-90px-before {
-    display: none;
-  }
-  
-  .enscrolled-90px-after {
-    display: none;
-  }
-  
-  .vertically-enscrolled-before {
-    display: none;
-  }
-  
-  .vertically-enscrolled-after {
+  .horizontal-enscrolled-right {
     display: none;
   }
   

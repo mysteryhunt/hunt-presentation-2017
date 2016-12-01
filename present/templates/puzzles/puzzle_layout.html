@@ -20,7 +20,7 @@
     </div>
   {% elif round_id in ['fighter','wizard','cleric','linguist','chemist','economist'] %}
     <div id="reward">
-      <span>Reward: One Level of <img src="{{ url_for('static', filename='temp/art/Characters/%s-logo-color.png' % round_id) }}" style="width:30px;height:30px;vertical-align:middle;"/></span>
+      <span>Reward: One Level of <img src="{{ url_for('static', filename='PNG-export/characters/%s-logo.png' % round_id) }}" style="width:30px;height:30px;vertical-align:middle;"/></span>
     </div>
   {% elif round_id in ['dynast','dungeon','thespians','bridge','criminal','minstrels','cube','warlord'] %}
     <div id="reward">
@@ -41,12 +41,14 @@
 {% block overall_layout_body %}
   {{ generate_background(puzzle_round_id) }}
   <div id="puzzle-container">
-    <div id="header">
-      <span class="enscrolled-90px-before"></span><span class="enscrolled-90px"><span>{% block puzzle_name_block %}{% endblock %}</span></span><span class="enscrolled-90px-after"></span><br>
+    <div id="header" class="standard-horizontal-scroll">
+      <div class="horizontal-enscrolled-left"></div><div class="horizontal-enscrolled-middle">
+        <div class="horizontal-enscrolled-text">{% block puzzle_name_block %}{% endblock %}</div>
+      </div><div class="horizontal-enscrolled-right"></div>
     </div>
     {% if puzzle_visibility and puzzle_visibility.status == 'SOLVED' %}
       <div id="answers">
-        <img src="{{ url_for('static', filename='temp/art/Maps/complete-logo-color.png') }}" style="width:30px;height:30px;vertical-align:middle;"/>
+        <img src="{{ url_for('static', filename='PNG-export/icons/completion-logo.png') }}" style="width:30px;height:30px;vertical-align:middle;"/>
         <span class="puzzle-solution-label">
           Solved:
         </span>
