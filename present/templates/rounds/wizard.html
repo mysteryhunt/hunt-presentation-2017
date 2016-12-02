@@ -4,7 +4,7 @@
 {% block round_name %}The Wizard{% endblock %}
 
 {% block round_puzzle_entries %}
-<div class="puzzle-list-column" id="puzzle-list-column-left">
+<div class="puzzle-list-column">
   {% for puzzle_id in ['w1','w2','w3','w4','w5','w6','w7','w8','w9','w10','w11'] %}
     {{ puzzle_entry(puzzle_id, puzzle_properties, puzzle_visibilities) }}
   {% endfor %}

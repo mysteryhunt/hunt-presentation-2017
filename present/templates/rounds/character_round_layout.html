@@ -13,27 +13,23 @@
 <div id="round-background-container"></div>
 <div id="round-background-overlay-container" style="background-color: {% block character_color %}{% endblock %};"></div>
 <div id="round-container">
-  <div>
     <div id="header" class="standard-horizontal-scroll">
       <div class="horizontal-enscrolled-left"></div><div class="horizontal-enscrolled-middle">
         <div class="horizontal-enscrolled-text">{% block round_name %}{% endblock %}</div>
       </div><div class="horizontal-enscrolled-right"></div>
     </div>
-    <div id="character-level-container">
-      <img src="{{ url_for('static', filename='PNG-export/characters/%s-logo.png' % round_id) }}" style="width:80px;height:80px;"/>
-      <span id="character-level-value">
-        {{ team_properties.teamProperties.CharacterLevelsProperty.levels.get(round_id.upper(), 0) if team_properties else 'NA' }}
-      </span>
-    </div>
-  </div>
-  <div>
     <div id="character-display">
+      <div id="character-level-container">
+        <img src="{{ url_for('static', filename='PNG-export/characters/%s-logo.png' % round_id) }}" style="width:80px;height:80px;"/>
+        <span id="character-level-value">
+          {{ team_properties.teamProperties.CharacterLevelsProperty.levels.get(round_id.upper(), 0) if team_properties else 'NA' }}
+        </span>
+      </div>
       <img id="character-image" src="{{ url_for('static', filename='PNG-export/characters/%s-full.png' % round_id) }}"/>
     </div>
     <div id="puzzle-list">
       {% block round_puzzle_entries %}{% endblock %}
     </div>
-  </div>
 </div>
 {% endblock %}
 

@@ -3,12 +3,8 @@
 {% block title_block %}The Economist{% endblock %}
 {% block round_name %}The Economist{% endblock %}
 
-{% block round_flavortext %}
-Economist text... Economist text... Economist text... Economist text... Economist text... Economist text... Economist text... Economist text... Economist text... Economist text... Economist text... Economist text... Economist text... Economist text... Economist text... Economist text... Economist text... Economist text... Economist text... Economist text... Economist text... Economist text... Economist text... Economist text... Economist text... Economist text... Economist text... Economist text... Economist text... Economist text... Economist text... Economist text... Economist text... Economist text... Economist text... 
-{% endblock %}
-
 {% block round_puzzle_entries %}
-<div class="puzzle-list-column" id="puzzle-list-column-left">
+<div class="puzzle-list-column">
   {% for puzzle_id in ['e1','e2','e3','e4','e5','e6','e7','e8'] %}
     {{ puzzle_entry(puzzle_id, puzzle_properties, puzzle_visibilities) }}
   {% endfor %}

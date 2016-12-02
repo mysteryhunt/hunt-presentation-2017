@@ -23,30 +23,50 @@ body {
 }
 
 #header {
-  display: inline-block;
-}
-
-#character-level-container {
-  display: inline-block;
-}
-
-#character-display {
-  width: 40%;
-  display: inline-block;
-}
-
-img#character-image {
   width: 100%;
 }
 
+#round-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+#header {
+  flex: 1 100%;
+}
+
+#character-display {
+  min-width: 25%;
+  max-height: 500px;
+  position: relative;
+  flex: 1 auto;
+}
+
+#character-level-container {
+  position: absolute;
+  top: 75%;
+  left: 50%;
+}
+
+img#character-image {
+  max-width: 100%;
+  max-height: 100%;
+}
+
 #puzzle-list {
-  display: inline-block;
-  vertical-align: top;
-  width: 45%;
   padding-top: 30px;
   padding-bottom: 30px;
   background-image: url('PNG-export/scroll/parchment-square.png');
   background-size: 100% 100%;
+  max-width: 697px;
+  flex: 2 auto;
+}
+
+#puzzle-list > *:first-child {
+  margin-left: 10%;
+  margin-right: 5%;
+  max-width: 85%;
 }
 
 #character-level-container {

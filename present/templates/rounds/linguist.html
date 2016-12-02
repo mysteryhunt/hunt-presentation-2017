@@ -4,7 +4,7 @@
 {% block round_name %}The Linguist{% endblock %}
 
 {% block round_puzzle_entries %}
-<div class="puzzle-list-column" id="puzzle-list-column-left">
+<div class="puzzle-list-column">
   {% for puzzle_id in ['l1','l2','l3','l4','l5','l6','l7','l8','l9','l10','l11','l12'] %}
     {{ puzzle_entry(puzzle_id, puzzle_properties, puzzle_visibilities) }}
   {% endfor %}
