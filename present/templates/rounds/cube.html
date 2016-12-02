@@ -5,7 +5,7 @@
 {% block puzzle_head_block %}
 <style>
 #puzzle-list {
-  margin-top: 20px;
+  min-width: 451px;
 }
 
 .cube-link-caption {
@@ -25,7 +25,7 @@
   z-index: 1200;
   padding: 3px 3px;
   border: 3px solid black;
-  background-color: white;
+  background-color: navajowhite;
   min-width: initial;
   min-height: initial;
   width: auto;
@@ -45,7 +45,7 @@
 {% endblock %}
 
 {% block puzzle_content %}
-<div id="puzzle-content" class="panel white-background">
+<div id="puzzle-content">
   <div id="cube-map-container" style="width: 451px; height: 451px; margin: 0 auto; position: relative;">
     <div id="cube-map" style="content: url({{ asset_url_for('curious-cube/curious-cube.png') }}); width: 451px; height: 451px; margin: 0 auto;"></div>
     {% for (puzzle_id, x, y) in [('cube1',3,0),('cube2',0,1),('cube3',2,1),('cube4',3,3),('cube5',6,3),('cube6',1,4),('cube7',5,5),('cube8',2,6)] %}

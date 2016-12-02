@@ -5,7 +5,8 @@
 {% block puzzle_head_block %}
 <style>
 #puzzle-list {
-  margin-top: 20px;
+  min-width: 550px;
+  margin-left: 20px;
 }
 
 .dungeon-grid-caption {
@@ -29,7 +30,7 @@ td.dungeon-grid-caption-cell:hover .dungeon-grid-caption {
   z-index: 1200;
   padding: 3px 3px;
   border: 3px solid black;
-  background-color: white;
+  background-color: navajowhite;
   min-width: initial;
   min-height: initial;
   width: auto;
@@ -47,7 +48,7 @@ td.dungeon-grid-caption-cell:hover .dungeon-grid-caption {
 {% endblock %}
 
 {% block puzzle_content %}
-<div id="puzzle-content" class="panel white-background">
+<div id="puzzle-content">
   <div id="dungeon-map-container" style="width: 550px; margin: 0 auto;">
     <table id="dungeon-map" style="border-collapse: collapse;">
       {% for i in range(6) %}

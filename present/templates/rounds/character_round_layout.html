@@ -28,7 +28,9 @@
       <img id="character-image" src="{{ url_for('static', filename='PNG-export/characters/%s-full.png' % round_id) }}"/>
     </div>
     <div id="puzzle-list">
-      {% block round_puzzle_entries %}{% endblock %}
+      <div class="parchmented">
+        {% block round_puzzle_entries %}{% endblock %}
+      </div>
     </div>
 </div>
 {% endblock %}
@@ -60,7 +62,7 @@
       <span class="puzzle-name"><span class="fa fa-key"></span>
         {% set unlock_requirement = single_character_unlock_requirement(puzzle_properties.get(puzzle_id).puzzleProperties) %}
         {% if unlock_requirement.character %}
-          <span>Unlock at <img src="{{ url_for('static', filename='PNG-export/characters/%s-logo.png' % (unlock_requirement.character)|lower) }}" style="width:24px;height:24px;vertical-align:bottom;"/> {{ unlock_requirement.levels }}</span>
+          <span>Unlock at <span class="level-requirement"><img src="{{ url_for('static', filename='PNG-export/characters/%s-logo.png' % (unlock_requirement.character)|lower) }}" style="width:24px;height:24px;vertical-align:bottom;"/> {{ unlock_requirement.levels }}</span></span>
         {% endif %}
       </span>
     </div>

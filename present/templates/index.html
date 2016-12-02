@@ -90,7 +90,7 @@
         {% endfor %}
         {% for rescue in [('linguist',140,10),('chemist',30,290),('economist',150,450)] if 'rescue_the_' + rescue[0] in visible_puzzle_ids %}
           <a href="{{ url_for('puzzle', puzzle_id = 'rescue_the_' + rescue[0]) }}">
-            <div id="rescue-map-{{ rescue[0] }}" class="individual-quest" style="width:60px; height: 84px; position:absolute; top:{{ rescue[1] }}px; left:{{ rescue[2] }}px; z-index:200; content: url({{ url_for('static', filename='PNG-export/characters/%s-full.png' % rescue[0]) }}); background-size:100%;">
+            <div id="rescue-map-{{ rescue[0] }}" class="individual-quest" style="height: 81px; position:absolute; top:{{ rescue[1] }}px; left:{{ rescue[2] }}px; z-index:200; content: url({{ url_for('static', filename='PNG-export/characters/%s-full.png' % rescue[0]) }}); background-size:100%;">
             </div>
           </a>
         {% endfor %}

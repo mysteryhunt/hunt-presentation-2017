@@ -8,7 +8,6 @@
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 30px;
 }
 table td {
   width: 50%;
@@ -24,16 +23,11 @@ table tr:first-child td {
 table tr:last-child td {
   border-bottom: 0 solid #665F4F;
 }
-table div.puzzle-entry {
-  margin-top: 10px;
-}
-#puzzle-list {
-  padding: 0;
-}
 </style>
 {% endblock %}
 
 {% block round_puzzle_entries %}
+<div>
 <table>
 {% for i in ['1','2','3','4','5'] %}
 <tr>
@@ -44,6 +38,7 @@ table div.puzzle-entry {
   {{ puzzle_entry('cl-r' + i, puzzle_properties, puzzle_visibilities) }}
 </td>  
 </tr>
+</div>
 {% endfor %}
 </table>
 {% endblock %}
