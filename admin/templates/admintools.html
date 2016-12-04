@@ -32,5 +32,28 @@
     <input type="hidden" name="action" value="FullRelease">
     <input type="submit" value="Full Release Puzzle">
   </form>
+  <form class="ha-column-control-box" action="{{ url_for('admintools') }}" method="post">
+    <span class="ha-control-box-title">
+      Full Solve
+    </span>
+    <div class="ha-labeled-input-form">
+      <label>
+        Puzzle
+        <select name="puzzleId">
+          {% for puzzle in puzzles %}
+          <option value="{{ puzzle.puzzleId }}">
+            {% if puzzle.puzzleProperties.DisplayNameProperty %}
+            {{ puzzle.puzzleProperties.DisplayNameProperty.displayName }}
+            {% else %}
+            {{ puzzle.puzzleId }}
+            {% endif %}
+          </option>
+          {% endfor %}
+        </select>
+      </label>
+    </div>
+    <input type="hidden" name="action" value="FullSolve">
+    <input type="submit" value="Full Solve Puzzle">
+  </form>
 </div>
 {% endblock %}
