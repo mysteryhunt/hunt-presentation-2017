@@ -113,3 +113,12 @@
 .event-name, .event-time {
   font-size: 18px;
 }
+
+.individual-quest img {
+  width: 100%;
+  height: 100%;
+}
+
+.individual-rescue img {
+  height: 100%;
+}
