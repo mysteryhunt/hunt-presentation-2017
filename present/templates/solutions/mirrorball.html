@@ -1,0 +1,393 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'thespians' %}
+{% block title_block %}Mirrorball: Solution{% endblock %}
+{% block puzzle_name_block %}Mirrorball: Solution{% endblock %}
+{% block byline %}By Scott Purdy{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    .r {
+      position: relative;
+      height: 15em;
+    }
+
+    .field {
+      font-size: 12px;
+    }
+
+    .o {
+      border-collapse: collapse;
+    }
+
+    .o td {
+      line-height: 0;
+      box-sizing: border-box;
+    }
+
+    .gn, .g, .wn, .w, .nc, .nl, .nr, .b {
+      padding: 0;
+      min-width: 2em;
+      height: 2em;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .g, .w, .wl {
+      border: 1px solid #000000;
+    }
+
+    .wl {
+      width: 1.6em;
+      height: 1.6em;
+      padding: 0.2em;
+      font-size: 0.8em;
+      text-align: right;
+      vertical-align: top;
+      color: #787878;
+    }
+
+    .wn, .gn {
+      font-size: 1em;
+      border: 0;
+      font-weight: bold;
+    }
+
+    .g {
+      background-color: #c0c0c0;
+      box-shadow: 0 0 0 2em #c0c0c0 inset;
+    }
+
+    .nc, .nl, .nr {
+      font-size: 1em;
+    }
+
+    .nl {
+      transform: rotate(-45deg);
+      font-size: 0.75em;
+    }
+
+    .nr {
+      transform: rotate(45deg);
+      font-size: 0.75em;
+    }
+
+    .slash {
+      width: 2em;
+      height: 2em;
+    }
+
+    ul {
+      list-style-type: none;
+    }
+  </style>
+{% endblock %}
+
+{% block solution_content_block %}
+  <div>
+    <p>
+      First, solve the logic puzzle of the playing field:
+    </p>
+    <div class="field">
+      <table class="o">
+        <tr id="row01">
+          <td class="b"></td>
+          <td class="nc">3</td><td class="nc">0</td><td class="nc">5<sub>5</sub></td><td class="nc">3</td><td class="nc">4</td>
+          <td class="b"></td><td class="b"></td><td class="b"></td>
+          <td class="nc">0</td><td class="nc">7<sub>5</sub></td><td class="nc">2</td><td class="nc">4<sub>5</sub></td><td class="nc">7</td>
+          <td class="b"></td><td class="b"></td><td class="b"></td>
+          <td class="nc">11</td><td class="nc">4<sub>3</sub></td><td class="nc">1</td><td class="nc">1<sub>5</sub></td><td class="nc">1</td>
+          <td class="b"></td><td class="b"></td><td class="b"></td>
+          <td class="nc">0</td><td class="nc">0</td><td class="nc">4</td><td class="nc">3<sub>5</sub></td><td class="nc">0</td>
+          <td class="b"></td><td class="b"></td><td class="b"></td><td class="b"></td><td class="b"></td>
+        </tr>
+        <tr id="row02">
+          <td class="nc">0</td>
+          <td class="g"></td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/forward_slash.png') }}"></td><td class="w"></td><td class="w"></td><td class="g"></td>
+          <td class="nc">3</td><td class="b"></td><td class="nc">2</td>
+          <td class="g"></td><td class="w">2</td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/forward_slash.png') }}"></td><td class="w"></td><td class="g"></td>
+          <td class="nc">9</td><td class="b"></td><td class="nc">0</td>
+          <td class="g"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="g"></td>
+          <td class="nc">0</td><td class="b"></td><td class="nc">8</td>
+          <td class="g"></td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/back_slash.png') }}"></td><td class="w"></td><td class="w"></td><td class="g"></td>
+          <td class="nc">0</td><td class="b"></td><td class="b"></td><td class="b"></td><td class="b"></td>
+        </tr>
+        <tr id="row03">
+          <td class="nc">3</td>
+          <td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/back_slash.png') }}"></td><td class="w">3</td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nc">3</td><td class="b"></td><td class="nc">11</td>
+          <td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/back_slash.png') }}"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nc">0</td><td class="b"></td><td class="nc">4<sub>3</sub></td>
+          <td class="w">4</td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/forward_slash.png') }}"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nc">4</td><td class="b"></td><td class="nc">5<sub>5</sub></td>
+          <td class="w"></td><td class="w">5</td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nc">5<sub>5</sub></td><td class="b"></td><td class="b"></td><td class="b"></td><td class="b"></td>
+        </tr>
+        <tr id="row04">
+          <td class="nc">1<sub>5</sub></td>
+          <td class="w">1</td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nc">1<sub>5</sub></td><td class="b"></td><td class="nc">7</td>
+          <td class="w">3</td><td class="w"></td><td class="w"></td><td class="w">4</td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/forward_slash.png') }}"></td>
+          <td class="nc">6</td><td class="b"></td><td class="nc">7<sub>4</sub></td>
+          <td class="w"></td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/back_slash.png') }}"></td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/back_slash.png') }}"></td><td class="w">1</td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/forward_slash.png') }}"></td>
+          <td class="nc">14</td><td class="b"></td><td class="nc">0<sub>5</sub></td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nc">0<sub>5</sub></td><td class="b"></td><td class="b"></td><td class="b"></td><td class="b"></td>
+        </tr>
+        <tr id="row05">
+          <td class="nc">2</td>
+          <td class="w">2</td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/back_slash.png') }}"></td><td class="w"></td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/forward_slash.png') }}"></td><td class="w">4</td>
+          <td class="nr">4<sub>3</sub> 0<sub>5</sub></td><td class="nc">9</td><td class="nl">8<sub>5</sub> 1<sub>5</sub></td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w">1</td>
+          <td class="nr">1<sub>5</sub> 2<sub>5</sub></td><td class="nc">2</td><td class="nl">5 5<sub>5</sub></td>
+          <td class="w"></td><td class="w">2</td><td class="w"></td><td class="w"></td><td class="w">3</td>
+          <td class="nr">5<sub>5</sub> 7<sub>4</sub></td><td class="nc">4</td><td class="nl">1<sub>5</sub> 0</td>
+          <td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/forward_slash.png') }}"></td><td class="w">3</td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/back_slash.png') }}"></td><td class="w">1</td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/back_slash.png') }}"></td>
+          <td class="nr">0 8</td><td class="nc">4</td><td class="nc">0<sub>5</sub></td><td class="nc">8</td><td class="b"></td>
+        </tr>
+        <tr id="row06">
+          <td class="nc">2</td>
+          <td class="g"></td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/forward_slash.png') }}"></td><td class="w">5</td><td class="w"></td><td class="g"></td>
+          <td class="w"></td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/back_slash.png') }}"></td><td class="w">4</td>
+          <td class="g"></td><td class="w">5</td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/forward_slash.png') }}"></td><td class="w"></td><td class="g"><img class="slash" src="{{ asset_url_for('mirrorball/back_slash.png') }}"></td>
+          <td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="g"></td><td class="w">5</td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/back_slash.png') }}"></td><td class="w"></td><td class="g"></td>
+          <td class="w">4</td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/forward_slash.png') }}"></td><td class="w">1</td>
+          <td class="g"><img class="slash" src="{{ asset_url_for('mirrorball/forward_slash.png') }}"></td><td class="w"></td><td class="w">4</td><td class="w">2</td><td class="g"><img class="slash" src="{{ asset_url_for('mirrorball/back_slash.png') }}"></td>
+          <td class="w">3</td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/forward_slash.png') }}"></td><td class="w"></td><td class="g"></td>
+          <td class="nc">5</td>
+        </tr>
+        <tr id="row07">
+          <td class="b"></td>
+          <td class="nc">3</td><td class="nc">11</td><td class="nc">5<sub>5</sub></td><td class="nr">4<sub>3</sub> 9</td>
+          <td class="w"></td><td class="w"></td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/back_slash.png') }}"></td><td class="w">1</td><td class="w">5</td>
+          <td class="nl">11 7<sub>5</sub></td><td class="nc">2</td><td class="nr">4<sub>5</sub> 5</td>
+          <td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/back_slash.png') }}"></td><td class="w">2</td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/forward_slash.png') }}"></td><td class="w"></td><td class="w"></td>
+          <td class="nl">10<sub>6</sub> 7<sub>4</sub></td><td class="nc">6</td><td class="nr">1<sub>5</sub> 5<sub>5</sub></td>
+          <td class="w"></td><td class="w">3</td><td class="w"></td><td class="w"></td><td class="w">2</td>
+          <td class="nl">5<sub>5</sub> 8</td><td class="nc">13</td><td class="nr">3<sub>5</sub> 1<sub>5</sub></td>
+          <td class="w">1</td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nc">1<sub>5</sub></td>
+        </tr>
+        <tr id="row08">
+          <td class="b"></td><td class="b"></td><td class="b"></td><td class="b"></td>
+          <td class="nc">11</td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w">3</td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/forward_slash.png') }}"></td>
+          <td class="nc">1</td><td class="b"></td><td class="nc">4<sub>5</sub></td>
+          <td class="w"></td><td class="w"></td><td class="w">1</td><td class="w"></td><td class="w">3</td>
+          <td class="nc">4<sub>5</sub></td><td class="b"></td><td class="nc">7<sub>4</sub></td>
+          <td class="w"></td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/forward_slash.png') }}"></td><td class="w"></td><td class="w"></td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/back_slash.png') }}"></td>
+          <td class="nc">13</td><td class="b"></td><td class="nc">7</td>
+          <td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/back_slash.png') }}"></td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/back_slash.png') }}"></td><td class="w">5</td><td class="w"></td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/forward_slash.png') }}"></td>
+          <td class="nc">2</td>
+        </tr>
+        <tr id="row09">
+          <td class="b"></td>
+          <td class="nc">0</td><td class="nc">7</td><td class="nc">2</td><td class="nl">0<sub>5</sub> 2<sub>5</sub></td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/back_slash.png') }}"></td><td class="w"></td>
+          <td class="nr">8<sub>5</sub> 17</td><td class="nc">5</td><td class="nl">0<sub>5</sub> 2<sub>5</sub></td>
+          <td class="w"></td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/forward_slash.png') }}"></td><td class="w">4</td><td class="w"></td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/forward_slash.png') }}"></td>
+          <td class="nr">0 4<sub>5</sub></td><td class="nc">0<sub>5</sub></td><td class="nl">2 0<sub>3</sub></td>
+          <td class="w"></td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/back_slash.png') }}"></td><td class="w">5</td><td class="w"></td><td class="w"></td>
+          <td class="nr">12 5<sub>6</sub></td><td class="nc">7</td><td class="nl">3<sub>5</sub> 13</td>
+          <td class="w">4</td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/forward_slash.png') }}"></td><td class="w"></td><td class="w"></td><td class="w">2</td>
+          <td class="nc">2<sub>5</sub></td>
+        </tr>
+        <tr id="row10">
+          <td class="nc">2</td>
+          <td class="g"></td><td class="w">2</td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/forward_slash.png') }}"></td><td class="w"></td><td class="g"></td>
+          <td class="w"></td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/forward_slash.png') }}"></td><td class="w">2</td>
+          <td class="g"><img class="slash" src="{{ asset_url_for('mirrorball/back_slash.png') }}"></td><td class="w"></td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/back_slash.png') }}"></td><td class="w"></td><td class="g"></td>
+          <td class="w"></td><td class="w">5</td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/forward_slash.png') }}"></td>
+          <td class="g"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="g"></td>
+          <td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="g"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="g"></td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="g"></td>
+          <td class="nc">0</td>
+        </tr>
+        <tr id="row11">
+          <td class="nc">0</td>
+          <td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/forward_slash.png') }}"></td><td class="w">4</td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nl">7<sub>10</sub> 0<sub>5</sub></td><td class="nc">7</td><td class="nr">2<sub>5</sub> 6<sub>5</sub></td>
+          <td class="w">5</td><td class="w"></td><td class="w">1</td><td class="w"></td><td class="w"></td>
+          <td class="nl">6<sub>5</sub> 11</td><td class="nc">10<sub>6</sub></td><td class="nr">0 5<sub>5</sub></td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w">5</td>
+          <td class="nl">5<sub>5</sub> 0<sub>3</sub></td><td class="nc">13</td><td class="nr">1<sub>5</sub> 0<sub>5</sub></td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nl">0<sub>5</sub> 2<sub>5</sub></td><td class="nc">5</td><td class="nc">0<sub>5</sub></td><td class="nc">2</td><td class="b"></td>
+        </tr>
+        <tr id="row12">
+          <td class="nc">5</td>
+          <td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/back_slash.png') }}"></td><td class="w"></td><td class="w">3</td><td class="w"></td><td class="w"></td>
+          <td class="nc">7<sub>10</sub></td><td class="b"></td><td class="nc">7</td>
+          <td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/forward_slash.png') }}"></td><td class="w">2</td><td class="w"></td><td class="w"></td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/forward_slash.png') }}"></td>
+          <td class="nc">11</td><td class="b"></td><td class="nc">0<sub>5</sub></td>
+          <td class="w"></td><td class="w"></td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/forward_slash.png') }}"></td><td class="w">2</td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/forward_slash.png') }}"></td>
+          <td class="nc">0</td><td class="b"></td><td class="nc">3<sub>6</sub></td>
+          <td class="w">2</td><td class="w">1</td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/back_slash.png') }}"></td><td class="w">3</td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/forward_slash.png') }}"></td>
+          <td class="nc">6</td><td class="b"></td><td class="b"></td><td class="b"></td><td class="b"></td>
+        </tr>
+        <tr id="row13">
+          <td class="nc">9</td>
+          <td class="w">5</td><td class="w">1</td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/forward_slash.png') }}"></td><td class="w"></td><td class="w"></td>
+          <td class="nr">0<sub>4</sub> 7<sub>5</sub></td><td class="nc">2</td><td class="nl">7<sub>5</sub> 7<sub>5</sub></td>
+          <td class="w"></td><td class="w">3</td><td class="w"></td><td class="w"></td><td class="w">4</td>
+          <td class="nr">7<sub>5</sub> 0<sub>2</sub></td><td class="nc">0<sub>2</sub></td><td class="nl">3<sub>5</sub> 0</td>
+          <td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/forward_slash.png') }}"></td><td class="w">3</td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nr">6 2</td><td class="nc">10</td><td class="nl">6<sub>5</sub> 9</td>
+          <td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/back_slash.png') }}"></td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/back_slash.png') }}"></td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/back_slash.png') }}"></td><td class="w"></td><td class="w"></td>
+          <td class="nr">3<sub>6</sub> 4</td><td class="nc">2<sub>6</sub></td><td class="nc">4<sub>5</sub></td><td class="nc">18</td><td class="b"></td>
+        </tr>
+        <tr id="row14">
+          <td class="nc">7</td>
+          <td class="g"></td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/forward_slash.png') }}"></td><td class="w"></td><td class="w"></td><td class="g"></td>
+          <td class="w">2</td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/forward_slash.png') }}"></td><td class="w"></td>
+          <td class="g"></td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/forward_slash.png') }}"></td><td class="w"></td><td class="w"></td><td class="g"></td>
+          <td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/back_slash.png') }}"></td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/forward_slash.png') }}"></td><td class="w">3</td>
+          <td class="g"><img class="slash" src="{{ asset_url_for('mirrorball/forward_slash.png') }}"></td><td class="w">1</td><td class="w">4</td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/back_slash.png') }}"></td><td class="g"></td>
+          <td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/forward_slash.png') }}"></td><td class="w"></td><td class="w"></td>
+          <td class="g"></td><td class="w">5</td><td class="w">4</td><td class="w"></td><td class="g"></td>
+          <td class="w"></td><td class="w"></td><td class="w">4</td><td class="g"><img class="slash" src="{{ asset_url_for('mirrorball/forward_slash.png') }}"></td>
+          <td class="nc">5</td>
+        </tr>
+        <tr id="row15">
+          <td class="b"></td>
+          <td class="nc">5</td><td class="nc">2</td><td class="nc">0<sub>4</sub></td><td class="nr">0<sub>5</sub> 5</td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w">3</td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/forward_slash.png') }}"></td>
+          <td class="nl">1<sub>3</sub> 6</td><td class="nc">1</td><td class="nr">0<sub>5</sub> 4<sub>5</sub></td>
+          <td class="w"></td><td class="w">4</td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nl">4<sub>5</sub> 4<sub>5</sub></td><td class="nc">14</td><td class="nr">6 9</td>
+          <td class="w"></td><td class="w">5</td><td class="w"></td><td class="w">4</td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/forward_slash.png') }}"></td>
+          <td class="nl">0<sub>2</sub> 12</td><td class="nc">5<sub>6</sub></td><td class="nr">3<sub>5</sub> 2</td>
+          <td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/back_slash.png') }}"></td><td class="w">1</td><td class="w"></td><td class="w"></td><td class="w">5</td>
+          <td class="nc">6</td>
+        </tr>
+        <tr id="row16">
+          <td class="b"></td><td class="b"></td><td class="b"></td><td class="b"></td>
+          <td class="nc">1<sub>5</sub></td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w">1</td>
+          <td class="nc">1<sub>5</sub></td><td class="b"></td><td class="nc">6</td>
+          <td class="w">2</td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/forward_slash.png') }}"></td><td class="w"></td><td class="w"></td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/forward_slash.png') }}"></td>
+          <td class="nc">5</td><td class="b"></td><td class="nc">5</td>
+          <td class="w"></td><td class="w"></td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/back_slash.png') }}"></td><td class="w"></td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/back_slash.png') }}"></td>
+          <td class="nc">0<sub>2</sub></td><td class="b"></td><td class="nc">0</td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/back_slash.png') }}"></td>
+          <td class="nc">5</td>
+        </tr>
+        <tr id="row17">
+          <td class="b"></td>
+          <td class="nc">4</td><td class="nc">4</td><td class="nc">0<sub>5</sub></td><td class="nl">9<sub>7</sub> 0</td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/back_slash.png') }}"></td>
+          <td class="nr">1<sub>3</sub> 0</td><td class="nc">3</td><td class="nl">3 6</td>
+          <td class="w">1</td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/forward_slash.png') }}"></td><td class="w"></td><td class="w"></td><td class="w">5</td>
+          <td class="nr">5<sub>5</sub> 5</td><td class="nc">4<sub>6</sub></td><td class="nl">0<sub>5</sub> 4<sub>5</sub></td>
+          <td class="w"></td><td class="w"></td><td class="w">1</td><td class="w"></td><td class="w">3</td>
+          <td class="nr">4<sub>5</sub> 1<sub>5</sub></td><td class="nc">3</td><td class="nl">2<sub>5</sub> 5<sub>5</sub></td>
+          <td class="w"></td><td class="w">3</td><td class="w">2</td><td class="w"></td><td class="w"></td>
+          <td class="nc">5<sub>5</sub></td>
+        </tr>
+        <tr id="row18">
+          <td class="nc">5</td>
+          <td class="g"></td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/back_slash.png') }}"></td><td class="w"></td><td class="w"></td><td class="g"><img class="slash" src="{{ asset_url_for('mirrorball/forward_slash.png') }}"></td>
+          <td class="w">5</td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/back_slash.png') }}"></td><td class="w">4</td>
+          <td class="g"></td><td class="w"></td><td class="w">1</td><td class="w"></td><td class="g"></td>
+          <td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="g"></td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/back_slash.png') }}"></td><td class="w">4</td><td class="w"></td><td class="g"></td>
+          <td class="w"></td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/forward_slash.png') }}"></td><td class="w">2</td>
+          <td class="g"></td><td class="w">1</td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/forward_slash.png') }}"></td><td class="w">2</td><td class="g"><img class="slash" src="{{ asset_url_for('mirrorball/forward_slash.png') }}"></td>
+          <td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/forward_slash.png') }}"></td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/forward_slash.png') }}"></td><td class="w"></td><td class="g"></td>
+          <td class="nc">0</td>
+        </tr>
+        <tr id="row19">
+          <td class="nc">3<sub>5</sub></td>
+          <td class="w"></td><td class="w">2</td><td class="w"></td><td class="w"></td><td class="w">1</td>
+          <td class="nl">3<sub>5</sub> 7<sub>5</sub></td><td class="nc">6</td><td class="nr">7<sub>5</sub> 0</td>
+          <td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/forward_slash.png') }}"></td><td class="w"></td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/forward_slash.png') }}"></td><td class="w">3</td><td class="w">4</td>
+          <td class="nl">12<sub>6</sub> 5<sub>5</sub></td><td class="nc">6</td><td class="nr">3<sub>5</sub> 0</td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/forward_slash.png') }}"></td>
+          <td class="nl">3 18</td><td class="nc">3</td><td class="nr">6<sub>5</sub> 4</td>
+          <td class="w">4</td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/back_slash.png') }}"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nl">1<sub>5</sub> 2<sub>6</sub></td><td class="nc">0</td><td class="nc">4<sub>5</sub></td><td class="nc">0</td><td class="b"></td>
+        </tr>
+        <tr id="row20">
+          <td class="nc">5</td>
+          <td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/back_slash.png') }}"></td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/back_slash.png') }}"></td><td class="w"></td><td class="w"></td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/back_slash.png') }}"></td>
+          <td class="nc">6</td><td class="b"></td><td class="nc">2<sub>6</sub></td>
+          <td class="w">2</td><td class="w"></td><td class="w"></td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/back_slash.png') }}"></td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/back_slash.png') }}"></td>
+          <td class="nc">11</td><td class="b"></td><td class="nc">3<sub>5</sub></td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w">3</td>
+          <td class="nc">3<sub>5</sub></td><td class="b"></td><td class="nc">3<sub>5</sub></td>
+          <td class="w">3</td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nc">3<sub>5</sub></td><td class="b"></td><td class="b"></td><td class="b"></td><td class="b"></td>
+        </tr>
+        <tr id="row21">
+          <td class="nc">9<sub>7</sub></td>
+          <td class="w">5</td><td class="w">4</td><td class="w"></td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/forward_slash.png') }}"></td><td class="w">3</td>
+          <td class="nc">3<sub>3</sub></td><td class="b"></td><td class="nc">0<sub>5</sub></td>
+          <td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nc">0<sub>5</sub></td><td class="b"></td><td class="nc">5</td>
+          <td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/forward_slash.png') }}"></td><td class="w">2</td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/back_slash.png') }}"></td><td class="w"></td><td class="w"></td>
+          <td class="nc">4<sub>6</sub></td><td class="b"></td><td class="nc">10</td>
+          <td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/forward_slash.png') }}"></td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/forward_slash.png') }}"></td><td class="w"></td><td class="w"></td><td class="w"></td>
+          <td class="nc">5<sub>5</sub></td><td class="b"></td><td class="b"></td><td class="b"></td><td class="b"></td>
+        </tr>
+        <tr id="row22">
+          <td class="nc">0</td>
+          <td class="g"></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="g"></td>
+          <td class="nc">0</td><td class="b"></td><td class="nc">0</td>
+          <td class="g"></td><td class="w"><img class="slash" src="{{ asset_url_for('mirrorball/forward_slash.png') }}"></td><td class="w">5</td><td class="w"></td><td class="g"></td>
+          <td class="nc">5</td><td class="b"></td><td class="nc">3</td>
+          <td class="g"><img class="slash" src="{{ asset_url_for('mirrorball/forward_slash.png') }}"></td><td class="w">5</td><td class="w">1</td><td class="w"></td><td class="g"></td>
+          <td class="nc">6</td><td class="b"></td><td class="nc">5</td>
+          <td class="g"></td><td class="w">5</td><td class="w"></td><td class="w"></td><td class="g"></td>
+          <td class="nc">5</td><td class="b"></td><td class="b"></td><td class="b"></td><td class="b"></td>
+        </tr>
+        <tr id="row23">
+          <td class="b"></td>
+          <td class="nc">5</td><td class="nc">4</td><td class="nc">0<sub>5</sub></td><td class="nc">3<sub>3</sub></td><td class="nc">5</td>
+          <td class="b"></td><td class="b"></td><td class="b"></td>
+          <td class="nc">3</td><td class="nc">5</td><td class="nc">12<sub>6</sub></td><td class="nc">2<sub>6</sub></td><td class="nc">3</td>
+          <td class="b"></td><td class="b"></td><td class="b"></td>
+          <td class="nc">6</td><td class="nc">17</td><td class="nc">3</td><td class="nc">0<sub>5</sub></td><td class="nc">3</td>
+          <td class="b"></td><td class="b"></td><td class="b"></td>
+          <td class="nc">4</td><td class="nc">5<sub>5</sub></td><td class="nc">2</td><td class="nc">2<sub>5</sub></td><td class="nc">4</td>
+          <td class="b"></td><td class="b"></td><td class="b"></td><td class="b"></td><td class="b"></td>
+        </tr>
+      </table>
+    </div>
+    <p>
+      Next, for each subfield, translate the five players into letters, per the
+      labels in the sample puzzle. Taking each subfield in player order, this
+      produces 20 five-letter words, which, conveniently, start with the letters
+      A through T. Indexing into these words, in alphabetical order, by the
+      endgame string at the bottom of the puzzle gives a message:
+    </p>
+    <ul>
+      <li>ACIDS 5 = S</li>
+      <li>BIGHT 4 = H</li>
+      <li>CHEAP 4 = A</li>
+      <li>DRANK 2 = R</li>
+      <li>EPOCH 1 = E</li>
+      <li>FJORD 5 = D</li>
+      <li>GULCH 3 = L</li>
+      <li>HERON 2 = E</li>
+      <li>INERT 5 = T</li>
+      <li>JILTS 4 = T</li>
+      <li>KEMPT 2 = E</li>
+      <li>LORDS 3 = R</li>
+      <li>MAGUS 5 = S</li>
+      <li>NICER 2 = I</li>
+      <li>OAKEN 5 = N</li>
+      <li>PURGE 4 = G</li>
+      <li>QUOTE 3 = O</li>
+      <li>RAILS 2 = A</li>
+      <li>SLOTH 2 = L</li>
+      <li>TOMBS 5 = S</li>
+    </ul>
+    <p>
+      Looking at the words in the subfields that produced them, only a few
+      overlapping subfields have words that share letters. Placing those letters
+      into the shared goal squares produces your answer, <b>LETHARGIC</b>.
+    </p>
+    <img style="width: 100%" src="{{ asset_url_for('mirrorball/mirrorball_solution.svg') }}">
+  </div>
+{% endblock %}
