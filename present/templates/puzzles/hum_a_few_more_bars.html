@@ -1,0 +1,53 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_round_id = 'dungeon' %}
+{% block title_block %}Hum A Few (More) Bars{% endblock %}
+{% block puzzle_name_block %}Hum A Few (More) Bars{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    .m {
+      margin-top: 80px;
+      font-size: 30px;
+      text-align: center;
+    }
+    .m img {
+      width: auto;
+      height: 230px;
+    }
+  </style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+  You hear muffled voices throughout the dungeon, as if the princess is calling
+  for help, but you can't quite make out the words.
+{% endblock %}
+
+{% block puzzle_content_block %}
+  <div>
+    <p>
+      All the music below comes from songs by a single artist or group,
+      specifically a part of the song where they sing the name of the
+      song. Identify the songs, then take the nth letters of each, as
+      indicated. (Convert any numbers to English words when solving.) It might
+      even help you find the princess.
+    </p>
+    <div class="m"><img src="{{ asset_url_for('hum_a_few_more_bars/a.png') }}"/><br/>seven, twenty-two, thirteen</div>
+    <div class="m"><img src="{{ asset_url_for('hum_a_few_more_bars/b.png') }}"/><br/>eight, six, thirteen</div>
+    <div class="m"><img src="{{ asset_url_for('hum_a_few_more_bars/c.png') }}"/><br/>eleven, fourteen, four</div>
+    <div class="m"><img src="{{ asset_url_for('hum_a_few_more_bars/d.png') }}"/><br/>seven, thirteen, thirteen</div>
+    <div class="m"><img src="{{ asset_url_for('hum_a_few_more_bars/e.png') }}"/><br/>twelve, five, eleven</div>
+    <div class="m"><img src="{{ asset_url_for('hum_a_few_more_bars/f.png') }}"/><br/>twelve, fourteen, eighteen</div>
+    <div class="m"><img src="{{ asset_url_for('hum_a_few_more_bars/g.png') }}"/><br/>one, seven, five</div>
+    <div class="m"><img src="{{ asset_url_for('hum_a_few_more_bars/h.png') }}"/><br/>thirteen, nine, eleven</div>
+    <div class="m"><img src="{{ asset_url_for('hum_a_few_more_bars/i.png') }}"/><br/>two, one, ten</div>
+    <div class="m"><img src="{{ asset_url_for('hum_a_few_more_bars/j.png') }}"/><br/>ten, fourteen, eight</div>
+    <div class="m"><img src="{{ asset_url_for('hum_a_few_more_bars/k.png') }}"/><br/>two, ten, one</div>
+    <div class="m"><img src="{{ asset_url_for('hum_a_few_more_bars/l.png') }}"/><br/>eleven, nine, twelve</div>
+    <div class="m"><img src="{{ asset_url_for('hum_a_few_more_bars/m.png') }}"/><br/>two, three, four</div>
+    <div class="m"><img src="{{ asset_url_for('hum_a_few_more_bars/n.png') }}"/><br/>twelve, nine, fourteen</div>
+    <div class="m"><img src="{{ asset_url_for('hum_a_few_more_bars/o.png') }}"/><br/>six, twelve, seventeen</div>
+    <div class="m"><img src="{{ asset_url_for('hum_a_few_more_bars/p.png') }}"/><br/>twenty-seven, fifteen, thirty</div>
+    <div class="m"><img src="{{ asset_url_for('hum_a_few_more_bars/q.png') }}"/><br/>twelve, eleven, nine</div>
+    <div class="m"><img src="{{ asset_url_for('hum_a_few_more_bars/r.png') }}"/><br/>two, two, one</div>
+  </div>
+{% endblock %}
