@@ -7,10 +7,10 @@
 {% block overall_layout_body %}
 <div id="main-page-content">
   <div id="characters">
-    <div id="character-header" class="small-horizontal-scroll">
-      <div class="horizontal-enscrolled-left"></div><div class="horizontal-enscrolled-middle">
-        <div class="horizontal-enscrolled-text">Your Party</div>
-      </div><div class="horizontal-enscrolled-right"></div>
+    <div id="character-header">
+      <div class="small-horizontal-scroll">
+      Your Party
+      </div>
     </div>
     <div id="character-displays">
       {% for character_class in ['fighter','wizard','cleric','linguist','chemist','economist'] if character_class in visible_puzzle_ids %}

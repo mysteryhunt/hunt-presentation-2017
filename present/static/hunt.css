@@ -31,9 +31,33 @@ body {
 }
 
 .small-horizontal-scroll {
+  display: inline-block;
   height: 60px;
   font-size: 30px;
+  line-height: 60px;
+  vertical-align: center;
+  white-space: nowrap;
   font-family: 'Deutsche Uncialis', 'Georgia', serif;
+  position: relative;
+  background-image: url('PNG-export/scroll/horizontal-left.png'), url('PNG-export/scroll/horizontal-right.png');
+  background-position: left top, right top;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 20px 100%, 20px 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+  z-index: 10;
+}
+
+.small-horizontal-scroll::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 20px;
+  width: calc(100% - 39px);
+  height: 100%;
+  background-image: url('PNG-export/scroll/horizontal-middle.png');
+  background-size: 100% 100%;
+  z-index: -1;
 }
 
 .standard-horizontal-scroll {
@@ -41,6 +65,7 @@ body {
   height: 80px;
   line-height: 80px;
   vertical-align: center;
+  white-space: nowrap;
   font-size: 48px;
   font-family: 'Deutsche Uncialis', 'Georgia', serif;
   position: relative;
