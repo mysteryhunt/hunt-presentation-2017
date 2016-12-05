@@ -1,0 +1,388 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_round_id = 'criminal' %}
+{% block title_block %}790.06 Crossword puzzles and other word games{% endblock %}
+{% block puzzle_name_block %}790.06 Crossword puzzles and other word games{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    span.enscrolled-90px {
+      font-size: 36px;
+    }
+    table.g {
+      border: 2px solid black;
+      border-collapse: collapse;
+    }
+    table.g td {
+      border: 1px solid black;
+      box-sizing: border-box;
+      padding: 0.1em;
+      width: 2rem;
+      height: 2rem;
+      font-size: 0.75em;
+      vertical-align: top;
+    }
+    table.g td.b {
+      outline: 0.75em solid black;
+      outline-offset: -0.75em;
+      box-shadow: 0 0 0 1.5em black inset;
+    }
+    span.blank {
+      text-decoration: underline;
+    }
+    ul {
+      list-style-type: none;
+    }
+  </style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+  Crafty criminals are always hiding something.
+{% endblock %}
+
+{% block puzzle_content_block %}
+  <div>
+    <table class="g">
+      <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td class="b"></td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td class="b"></td>
+        <td>9</td>
+        <td>10</td>
+        <td>11</td>
+        <td>12</td>
+        <td>13</td>
+      </tr>
+      <tr>
+        <td>14</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="b"></td>
+        <td>15</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="b"></td>
+        <td>16</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>17</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="b"></td>
+        <td>18</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="b"></td>
+        <td>19</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>20</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="b"></td>
+        <td>21</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>22</td>
+        <td class="b"></td>
+        <td>23</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="b"></td>
+        <td class="b"></td>
+        <td class="b"></td>
+        <td>24</td>
+        <td>25</td>
+        <td></td>
+        <td></td>
+        <td class="b"></td>
+        <td>26</td>
+        <td></td>
+        <td>27</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>28</td>
+        <td>29</td>
+        <td>30</td>
+        <td></td>
+        <td></td>
+        <td class="b"></td>
+        <td>31</td>
+        <td>32</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="b"></td>
+        <td class="b"></td>
+        <td class="b"></td>
+      </tr>
+      <tr>
+        <td>33</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>34</td>
+        <td class="b"></td>
+        <td>35</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="b"></td>
+        <td>36</td>
+        <td>37</td>
+        <td>38</td>
+      </tr>
+      <tr>
+        <td>39</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="b"></td>
+        <td>40</td>
+        <td>41</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="b"></td>
+        <td>42</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>43</td>
+        <td></td>
+        <td></td>
+        <td class="b"></td>
+        <td>44</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="b"></td>
+        <td>45</td>
+        <td>46</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="b"></td>
+        <td class="b"></td>
+        <td class="b"></td>
+        <td>47</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>48</td>
+        <td class="b"></td>
+        <td>49</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>50</td>
+        <td>51</td>
+        <td>52</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="b"></td>
+        <td>53</td>
+        <td>54</td>
+        <td></td>
+        <td></td>
+        <td class="b"></td>
+        <td class="b"></td>
+        <td class="b"></td>
+      </tr>
+      <tr>
+        <td>55</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="b"></td>
+        <td>56</td>
+        <td></td>
+        <td>57</td>
+        <td></td>
+        <td></td>
+        <td class="b"></td>
+        <td>58</td>
+        <td>59</td>
+        <td>60</td>
+        <td>61</td>
+      </tr>
+      <tr>
+        <td>62</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>63</td>
+        <td class="b"></td>
+        <td>64</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="b"></td>
+        <td>65</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>66</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="b"></td>
+        <td>67</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="b"></td>
+        <td>68</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>69</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="b"></td>
+        <td>70</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="b"></td>
+        <td>71</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+    <h3>Across</h3>
+    <ul>
+      <li>1 How piracy takes place, often</li>
+      <li>5 Al-Bashir accused of genocide by the International Criminal Court</li>
+      <li>9 Boo-boos</li>
+      <li>14 32-card game</li>
+      <li>15 Indian PM, for short</li>
+      <li>16 1991 inductee to the Games Hall of Fame</li>
+      <li>17 Sch. subj.</li>
+      <li>18 "Criminal Minds" actor Rodriguez</li>
+      <li>19 John who wrote "Have Mercy on the Criminal"</li>
+      <li>20 She left Clannad in 1981 to pursue a solo career</li>
+      <li>21 Hungarian operetta composer</li>
+      <li>23 Chaplin who played Talisa Stark on "Game of Thrones"</li>
+      <li>24 Home to "The Alcatraz of the Rockies" (abbr.)</li>
+      <li>26 Least crafty</li>
+      <li>28 <span class="blank">&emsp;&emsp;&emsp;</span> Roll</li>
+      <li>31 It is often fine</li>
+      <li>33 Shining, like a treasure</li>
+      <li>35 Language invented in 1958</li>
+      <li>36 "<span class="blank">&emsp;&emsp;&emsp;</span> Crimes", graffiti website</li>
+      <li>39 Former senior, for short</li>
+      <li>40 Mascagni opera</li>
+      <li>42 Plant, like hops, that climbs helically around its support</li>
+      <li>43 Any of the Keating Five (abbr.)</li>
+      <li>44 Criminal conspiracy, e.g.</li>
+      <li>45 FedEx shipping option</li>
+      <li>47 Short trailer</li>
+      <li>49 Nickname sometimes used by wrestler Billy Gunn</li>
+      <li>50 Fits in, as to a gang</li>
+      <li>53 Fictional software from "Cryptonomicon" whose name is taken from the Great Seal of the U.S.</li>
+      <li>55 Character played by Kevin Smith on "Xena"</li>
+      <li>56 "I never learned how to tune a harp, or play upon <span class="blank">&emsp;&emsp;&emsp;</span>" (Themistocles)</li>
+      <li>58 Blemish seen at a body shop</li>
+      <li>62 Con man Rizzo</li>
+      <li>64 Inflammatory suffix</li>
+      <li>65 Plan or scheme</li>
+      <li>66 Zeus:Greece::<span class="blank">&emsp;&emsp;&emsp;</span>:Assyria</li>
+      <li>67 Brand with the "famous micronite filter" that contained asbestos</li>
+      <li>68 No, to the Solntsevskaya Bratva</li>
+      <li>69 Playing for <span class="blank">&emsp;&emsp;&emsp;</span></li>
+      <li>70 <span class="blank">&emsp;&emsp;&emsp;</span> de maïs (corncobs)</li>
+      <li>71 Ransom, in the auto industry</li>
+    </ul>
+    <h3>Down</h3>
+    <ul>
+      <li>1 U.S. Open stadium eponym</li>
+      <li>2 Graft source, possibly</li>
+      <li>3 Like a grifter's mark</li>
+      <li>4 Committed battery</li>
+      <li>5 Fours or cylinders preceder</li>
+      <li>6 "<span class="blank">&emsp;&emsp;&emsp;</span> Honor" (2008 rom-com)</li>
+      <li>7 Nursemaid, in Nanking</li>
+      <li>8 Like the portrayal of Butch Cassidy and other criminals, perhaps</li>
+      <li>9 Unlock, old-style</li>
+      <li>10 "<span class="blank">&emsp;&emsp;&emsp;</span> You, Conrad"</li>
+      <li>11 Gait known as metatarsus varus</li>
+      <li>12 Certain collars</li>
+      <li>13 Upper house, in Paris</li>
+      <li>22 Mass simulator used on SpaceX Falcon 1</li>
+      <li>25 Words before par or platter</li>
+      <li>27 MIT initiative headed by Karl Koster</li>
+      <li>28 Attire for Fagin’s gang, perhaps</li>
+      <li>29 Hop-o'-My-Thumb antagonist</li>
+      <li>30 Crime family</li>
+      <li>32 With "The", DC Comics anti-hero group that merged with the Justice League</li>
+      <li>34 Picasso's birthplace</li>
+      <li>36 It premiered in Cairo in 1871</li>
+      <li>37 Messenger, ribosomal and transfer</li>
+      <li>38 Mystery novelist Josephine and namesakes</li>
+      <li>41 Lichenous</li>
+      <li>42 Site of the deadliest battle of the Napoleonic Wars</li>
+      <li>44 Criminal's cooler</li>
+      <li>46 2002 ADS WotY</li>
+      <li>47 It could go either way</li>
+      <li>48 Fusilli relative</li>
+      <li>50 Former Israeli PM</li>
+      <li>51 Rub out</li>
+      <li>52 River of forgetfulness</li>
+      <li>54 Concludes, as a court argument</li>
+      <li>57 Educational inst. in view of Ciudad Juarez</li>
+      <li>59 Pastoral poem</li>
+      <li>60 Lawyer, eventually, for a criminal</li>
+      <li>61 Gangster’s guns</li>
+      <li>63 Some gates</li>
+    </ul>
+  </div>
+{% endblock %}
