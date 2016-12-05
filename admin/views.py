@@ -232,6 +232,11 @@ def admintools():
                 "eventType": "FullRelease",
                 "puzzleId": request.form["puzzleId"],
             })
+        elif request.form["action"] == "FullSolve":
+            cube.create_event(app, {
+                "eventType": "FullSolve",
+                "puzzleId": request.form["puzzleId"],
+            })
         else:
             abort(400)
 

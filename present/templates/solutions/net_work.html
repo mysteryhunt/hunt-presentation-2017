@@ -1,0 +1,180 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'wizard' %}
+{% block title_block %}Net Work: Solution{% endblock %}
+{% block puzzle_name_block %}Net Work: Solution{% endblock %}
+{% block byline %}By Greg Pliska and Guy Jacobson{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    #network {
+      width: 100%;
+      height: 500px;
+      border: 1px solid black;
+      border-radius: 8px;
+    }
+  </style>
+
+  <script type="text/javascript" src="{{ asset_url_for('net_work/vis.min.js') | safe }}"></script>
+  <link href="{{ asset_url_for('net_work/vis.min.css') | safe }}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block solution_content_block %}
+  <div>
+    <p>
+      The clues all suggest compound words or two-word phrases. Each node of the
+      network contains a word, and each edge corresponds to one of the clued
+      compounds. The compound word corresponding to the clue "<i>Your
+      answer</i>" is <b>WATERPROOF</b>, the puzzle's answer.
+    </p>
+    <table>
+      <tr><td>Alpo competitor</td><td><b>GRAVY TRAIN</b></td></tr>
+      <tr><td>Big kid's loss</td><td><b>BABY FAT</b></td></tr>
+      <tr><td>Break, in football</td><td><b>TIMEOUT</b></td></tr>
+      <tr><td><i>Breaking Bad</i> song</td><td><b>BABY BLUE</b></td></tr>
+      <tr><td>Brothel</td><td><b>CATHOUSE</b></td></tr>
+      <tr><td>Chronology</td><td><b>TIMELINE</b></td></tr>
+      <tr><td>Common pet</td><td><b>HOUSE CAT</b></td></tr>
+      <tr><td>Cosmetic item</td><td><b>LIPSTICK</b></td></tr>
+      <tr><td>Dalmatian's home</td><td><b>FIREHOUSE</b></td></tr>
+      <tr><td>Depression sight</td><td><b>BREADLINE</b></td></tr>
+      <tr><td>Display</td><td><b>READOUT</b></td></tr>
+      <tr><td>Drive that's caught</td><td><b>LINE-OUT</b></td></tr>
+      <tr><td>Editors do this</td><td><b>PROOFREAD</b></td></tr>
+      <tr><td>Food in the freezer</td><td><b>FISH STICK</b></td></tr>
+      <tr><td>Innovative 1999 film technique</td><td><b>BULLET TIME</b></td></tr>
+      <tr><td>Item found on a Thanksgiving table</td><td><b>GRAVY BOAT</b></td></tr>
+      <tr><td>Its first tenant moved in in 1800</td><td><b>WHITE HOUSE</b></td></tr>
+      <tr><td>Japanese innovation</td><td><b>BULLET TRAIN</b></td></tr>
+      <tr><td>Like asbestos</td><td><b>FIREPROOF</b></td></tr>
+      <tr><td>Liquor</td><td><b>FIREWATER</b></td></tr>
+      <tr><td>Lone Ranger's calling card</td><td><b>SILVER BULLET</b></td></tr>
+      <tr><td>Many deaf people can do this</td><td><b>LIP-READ</b></td></tr>
+      <tr><td>Marking on a ship</td><td><b>WATER LINE</b></td></tr>
+      <tr><td>Nineties controversy</td><td><b>WHITEWATER</b></td></tr>
+      <tr><td>Number 80, alternatively</td><td><b>QUICKSILVER</b></td></tr>
+      <tr><td>Olive Garden offering</td><td><b>BREADSTICK</b></td></tr>
+      <tr><td>Plutocrat</td><td><b>FAT CAT</b></td></tr>
+      <tr><td>Protrude</td><td><b>STICK OUT</b></td></tr>
+      <tr><td>Redden or Beetle</td><td><b>CATBOAT</b></td></tr>
+      <tr><td>Result of a punch in the mouth</td><td><b>FAT LIP</b></td></tr>
+      <tr><td>Rink feature</td><td><b>BLUE LINE</b></td></tr>
+      <tr><td>Route of the "Little Dig"</td><td><b>SILVER LINE</b></td></tr>
+      <tr><td>Sandler film</td><td><b>BULLETPROOF</b></td></tr>
+      <tr><td>Seuss title animal</td><td><b>BLUE FISH</b></td></tr>
+      <tr><td>Severe snowstorm, sometimes</td><td><b>WHITE OUT</b></td></tr>
+      <tr><td>Shiny vermin</td><td><b>SILVERFISH</b></td></tr>
+      <tr><td><i>Sleepless in Seattle</i> locale</td><td><b>HOUSEBOAT</b></td></tr>
+      <tr><td>Smoked deli offering</td><td><b>WHITEFISH</b></td></tr>
+      <tr><td>Summary</td><td><b>OUTLINE</b></td></tr>
+      <tr><td>Video player</td><td><b>QUICKTIME</b></td></tr>
+      <tr><td>Where the eights are kept</td><td><b>BOATHOUSE</b></td></tr>
+      <tr><td>Yeastless baked good</td><td><b>QUICK BREAD</b></td></tr>
+      <tr><td><i>Your answer</i></td><td><b>WATERPROOF</b></td></tr>
+    </table>
+
+    <div id="network"></div>
+
+    <script type="text/javascript">
+var nodes = new vis.DataSet([
+{id: 'water', label: 'W A T E R', color: {border: 'red', background:'yellow'}},
+{id: 'proof', label: 'P R O O F', color: {border: 'red', background:'yellow'}},
+{id: 'white', label: 'W H I T E'},
+{id: 'fire', label: 'F I R E'},
+{id: 'cat', label: 'C A T'},
+{id: 'house', label: 'H O U S E'},
+{id: 'fat', label: 'F A T'},
+{id: 'lip', label: 'L I P'},
+{id: 'read', label: 'R E A D'},
+{id: 'baby', label: 'B A B Y'},
+{id: 'blue', label: 'B L U E'},
+{id: 'stick', label: 'S T I C K'},
+{id: 'out', label: 'O U T'},
+{id: 'boat', label: 'B O A T'},
+{id: 'fish', label: 'F I S H'},
+{id: 'silver', label: 'S I L V E R'},
+{id: 'quick', label: 'Q U I C K'},
+{id: 'line', label: 'L I N E'},
+{id: 'train', label: 'T R A I N'},
+{id: 'bread', label: 'B R E A D'},
+{id: 'time', label: 'T I M E'},
+{id: 'bullet', label: 'B U L L E T'},
+{id: 'gravy', label: 'G R A V Y'}
+]);
+
+var edges = new vis.DataSet([
+{from: 'water', to: 'proof', color:'red', width:5},
+{from: 'fire', to: 'water'},
+{from: 'fire', to: 'house'},
+{from: 'cat', to: 'house'},
+{from: 'house', to: 'cat'},
+{from: 'white', to: 'water'},
+{from: 'white', to: 'fish'},
+{from: 'fire', to: 'proof'},
+{from: 'white', to: 'out'},
+{from: 'read', to: 'out'},
+{from: 'stick', to: 'out'},
+{from: 'time', to: 'out'},
+{from: 'line', to: 'out'},
+{from: 'out', to: 'line'},
+{from: 'house', to: 'boat'},
+{from: 'boat', to: 'house'},
+{from: 'lip', to: 'stick'},
+{from: 'lip', to: 'read'},
+{from: 'proof', to: 'read'},
+{from: 'fat', to: 'cat'},
+{from: 'fat', to: 'lip'},
+{from: 'white', to: 'house'},
+{from: 'cat', to: 'boat'},
+{from: 'silver', to: 'fish'},
+{from: 'silver', to: 'bullet'},
+{from: 'quick', to: 'silver'},
+{from: 'quick', to: 'bread'},
+{from: 'bread', to: 'stick'},
+{from: 'fish', to: 'stick'},
+{from: 'bread', to: 'line'},
+{from: 'water', to: 'line'},
+{from: 'baby', to: 'blue'},
+{from: 'baby', to: 'fat'},
+{from: 'gravy', to: 'boat'},
+{from: 'gravy', to: 'train'},
+{from: 'blue', to: 'line'},
+{from: 'blue', to: 'fish'},
+{from: 'silver', to: 'line'},
+{from: 'quick', to: 'time'},
+{from: 'bullet', to: 'time'},
+{from: 'bullet', to: 'proof'},
+{from: 'bullet', to: 'train'},
+{from: 'time', to: 'line'},
+]);
+
+var container = document.getElementById('network');
+var data = {
+  nodes: nodes,
+  edges: edges
+};
+
+var options = {
+  interaction: {
+    selectable: false,
+    selectConnectedEdges: false
+  },
+  nodes: {
+    mass: 2,
+    shape: 'box',
+    color: '#eeeeee',
+    font: {
+      size: 20,
+      color: 'black'
+    },
+    borderWidth: 2,
+  },
+  edges: {
+    width: 2,
+    color: 'black',
+    arrows: 'to',
+  }
+};
+var network = new vis.Network(container, data, options);
+    </script>
+  </div>
+{% endblock %}
