@@ -1,0 +1,249 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_round_id = 'bridge' %}
+{% block title_block %}Tricky Wicket{% endblock %}
+{% block puzzle_name_block %}Tricky Wicket{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    .f {
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+    }
+    .t {
+      border-spacing: 10px;
+    }
+    .t th {
+      text-align: left;
+    }
+    .r, .g {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    .r {
+      color: red;
+    }
+    .g {
+      color: green;
+    }
+  </style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+  "Let's take a break," you say to your team. "A nice game of cricket might hit
+  the spot."
+{% endblock %}
+
+{% block puzzle_content_block %}
+  <div>
+    <img class="f" src="{{ asset_url_for('tricky_wicket/image01.jpg') }}">
+    <table class="t">
+      <tr>
+        <th style="color: red;">Team 1</th>
+        <th style="color: green;">Team 2</th>
+      </tr>
+      <tr>
+        <td>Anderson</td>
+        <td>Cullen</td>
+      </tr>
+      <tr>
+        <td>Bristow</td>
+        <td>Fordham</td>
+      </tr>
+      <tr>
+        <td>de Graaf</td>
+        <td>Lewis</td>
+      </tr>
+      <tr>
+        <td>Gulliver</td>
+        <td>Part</td>
+      </tr>
+      <tr>
+        <td>Kist</td>
+        <td>Qualls</td>
+      </tr>
+      <tr>
+        <td>Mitchell</td>
+        <td>Taylor</td>
+      </tr>
+      <tr>
+        <td>Priestley</td>
+        <td>Van Gerwen</td>
+      </tr>
+    </table>
+    <p class="r">
+      1. Anderson hits to Cow Corner, scoring 2 runs.<br>
+      2.  Bristow hits to Long Stop, scoring 6 runs.<br>
+      3.  Priestley hits to Long Leg, scoring 1 run.
+    </p><p class="g">
+      4.  Van Gerwen hits to Long Off, scoring 5 runs.<br>
+      5.  Fordham  hits to Long Off, scoring 1 runs.<br>
+      6.  Lewis hits to Long Off, scoring 4 runs.
+    </p><p class="r">
+      7.  de Graaf hits to Long On, scoring 4 runs.<br>
+      8.  Kist hits to Backward Point, scoring 3 runs.<br>
+      9.  Mitchell hits to Cow Corner, scoring 3 runs.
+    </p><p class="g">
+      10.   Fordham hits to Long Off, scoring 1 runs.<br>
+      11.   Lewis hits to Long Off, scoring 4 runs.<br>
+      12.   Cullen hits to Long Off, scoring 6 runs.
+    </p><p class="r">
+      13.   Anderson hits to Backward point, scoring 3 runs.<br>
+      14.   Bristow hits to Long Off, scoring 6 runs.<br>
+      15.   Gulliver hits to Long Stop, scoring 2 runs.<br>
+    </p><p class="g">
+      16.   Taylor hits to Pitch, scoring 1 run.<br>
+      17.   Part hits to Long Off, scoring 2 runs.<br>
+      18.   Qualls hits to Long Off, scoring 4 runs.<br>
+    </p><p class="r">
+      19.   Gulliver hits to Long Leg, scoring 3 runs.<br>
+      20.   Mitchell hits to Pitch, scoring 5 runs.<br>
+      21.   Priestley hits to Cow Corner, scoring 3 runs.<br>
+    </p><p class="g">
+      22.   Part hits to Pitch, scoring 4 runs.<br>
+      23.   Lewis hits to Long Off, scoring 5 runs.<br>
+      24.   Taylor hits to Pitch, scoring 1 run.<br>
+    </p><p class="r">
+      25.   Mitchell hits to Long Leg, scoring 5 runs.<br>
+      26.   Anderson hits to Backward Point, scoring 1 run.<br>
+      27.   Bristow hits to Long Off, scoring 5 runs.<br>
+    </p><p class="g">
+      28.   Lewis hits to Long Stop, scoring 5 runs.<br>
+      29.   Cullen hits to Pitch, scoring 1 run.<br>
+      30.   Taylor hits to Long Off, scoring 5 runs.<br>
+    </p><p class="r">
+      31.   de Graaf hits to Cow Corner, scoring 4 runs.<br>
+      32.   Priestley hits to Deep Extra Cover, scoring 4 runs.<br>
+      33.   Mitchell hits to Backward Point, scoring 3 runs.<br>
+    </p><p class="g">
+      34.   Fordham hits to Cow Corner, scoring 5 runs.<br>
+      35.   Van Gerwen hits to Long Off, scoring 5 runs.<br>
+      36.   Cullen hits to Deep Extra Cover, scoring 6 runs.<br>
+    </p><p class="r">
+      37.   Priestley hits to Backward Point, scoring 9 runs.<br>
+      38.   Bristow hits to Backward Point, scoring 6 runs.<br>
+      39.   Gulliver hits to Backward Point, scoring 2 runs.<br>
+    </p><p class="g">
+      40.   Fordham hits to Long Stop, scoring 5 runs.<br>
+      41.   Taylor hits to Long Stop, scoring 2 runs.<br>
+      42.   Van Gerwen hits to Long Off, scoring 1 run.<br>
+    </p><p class="r">
+      43.   Gulliver hits to Backward Point, scoring 7 runs.<br>
+      44.   Mitchell hits to Backward Point, scoring 3 runs.<br>
+      45.   Bristow hits to Pitch, scoring 6 runs.<br>
+    </p><p class="g">
+      46.   Lewis hits to Pitch, scoring 4 runs.<br>
+      47.   Van Gerwen hits to Long Off, scoring 4 runs.<br>
+      48.   Cullen hits to Cow Corner, scoring 6 runs.<br>
+    </p><p class="r">
+      49.   Bristow hits to Long Off, scoring 6 runs.<br>
+      50.   de Graaf hits to Long On, scoring 4 runs.<br>
+      51.   Anderson hits to Cow Corner, scoring 4 runs.<br>
+    </p><p class="g">
+      52.   Cullen hits to Long Stop, scoring 6 runs.<br>
+      53.   Van Gerwen hits to Pitch, scoring 5 runs.<br>
+      54.   Part hits to Long On, scoring 2 runs.<br>
+    </p><p class="r">
+      55.   Priestley hits to Cow Corner, scoring 2 runs.<br>
+      56.   Mitchell hits to Backward Point, scoring 1 run.<br>
+      57.   Gulliver hits to Long Off, scoring 5 runs.<br>
+    </p><p class="g">
+      58.   Lewis hits to Cow Corner, scoring 5 runs.<br>
+      59.   Qualls hits to Long Leg, scoring 6 runs.<br>
+      60.   Cullen hits to Long Stop, scoring 5 runs.<br>
+    </p><p class="r">
+      61.   Kist hits to Cow Corner, scoring 3 runs.<br>
+      62.   Priestley hits to Long Off, scoring 6 runs.<br>
+      63.   Bristow hits to Backward Point, scoring 6 runs.<br>
+    </p><p class="g">
+      64.   Van Gerwen hits to Deep Extra Cover, scoring 4 runs.<br>
+      65.   Cullen hits to Deep Extra Cover, scoring 5 runs.<br>
+      66.   Taylor hits to Long Off, scoring 1 run.<br>
+    </p><p class="r">
+      67.   de Graaf hits to Long Off, scoring 5 runs.<br>
+      68.   Mitchell hits to Cow Corner, scoring 4 runs.<br>
+      69.   Gulliver hits to Cow Corner, scoring 3 runs.<br>
+    </p><p class="g">
+      70.   Qualls hits to Long Stop, scoring 2 runs.<br>
+      71.   Van Gerwen hits to Long Off, scoring 5 runs.<br>
+      72.   Lewis hits to Deep Extra Cover, scoring 5 runs.<br>
+    </p><p class="r">
+      73.   Anderson hits to Backward Point, scoring 7 runs.<br>
+      74.   Mitchell hits to Backward Point, scoring 8 runs.<br>
+      75.   Gulliver hits to Deep Extra Cover, scoring 6 runs.<br>
+    </p><p class="g">
+      76.   Lewis hits to Long Stop, scoring 4 runs.<br>
+      77.   Cullen hits to Long Stop, scoring 6 runs.<br>
+      78.   Van Gerwen hits to Pitch, scoring 4 runs.<br>
+    </p><p class="r">
+      79.   Priestley hits to Long Off, scoring 6 runs.<br>
+      80.   Mitchell hits to Backward Point, scoring 5 runs.<br>
+      81.   Anderson hits to Cow Corner, scoring 4 runs.<br>
+    </p>
+    <p class="g">
+      82.   Part hits to Cow Corner, scoring 4 runs.<br>
+      83.   Taylor hits to Long On, scoring 2 runs.<br>
+      84.   Qualls hits to Long On, scoring 6 runs.<br>
+    </p>
+    <p class="r">
+      85.   Kist hits to Long Leg, scoring 1 run.<br>
+      86.   Bristow hits to Long Stop, scoring 5 runs.<br>
+      87.   Mitchell hits to Cow Corner, scoring 5 runs.<br>
+    </p>
+    <p class="g">
+      88.   Cullen hit to Deep Extra Cover, scoring 5 runs.<br>
+      89.   Van Gerwen hits to Long Stop, scoring 3 runs.<br>
+      90.   Taylor hits to Long On, scoring 3 runs.<br>
+    </p>
+    <p class="r">
+      91.   Bristow hits to Long Stop, scoring 6 runs.<br>
+      92.   Gulliver hits to Backward Point, scoring 2 runs.<br>
+      93.   de Graaf hits to Long Off, scoring 4 runs.<br>
+    </p>
+    <p class="g">
+      94.   Van Gerwen hits to Deep Extra Cover, scoring 7 runs.<br>
+      95.   Fordham hits to Pitch, scoring 2 runs.<br>
+      96.   Part hits to Long On, scoring 3 runs.<br>
+    </p>
+    <p class="r">97.   Kist  hits to Long Stop, scoring 1 run.<br>
+      98.   Anderson hits to Cow Corner, scoring 3 runs.<br>
+      99.   Priestley hits to Long Off, scoring 4 runs.<br>
+    </p>
+    <p class="g">100. Cullen hits to Backward Point, scoring 1 run.<br>
+      101. Taylor hits to Cow Corner, scoring 5 runs.<br>
+      102. Fordham hits to Pitch, scoring 4 runs.<br>
+    </p>
+    <p class="r">103. Mitchell hits to Backward Point, scoring 2 runs.<br>
+      104. Anderson hits to Long On, scoring 2 runs.<br>
+      105. de Graaf hits to Long Stop, scoring 3 runs.<br>
+    </p>
+    <p class="g">106. Part hits to Long Leg, scoring 4 runs.<br>
+      107. Fordham hits to Cow Corner, scoring 5 runs.<br>
+      108. Van Gerwen hits to Long On, scoring 2 runs.<br>
+    </p>
+    <p class="r">109. Priestley hits to Long Off, scoring 6 runs.<br>
+      110. Anderson hits to Long Off, scoring 1 run.<br>
+      111. Mitchell hits to Long On, scoring 4 runs.<br>
+    </p>
+    <p class="g">112. Qualls hits to Deep Extra Cover, scoring 1 run.<br>
+      113. Cullen hits to Deep Extra Cover, scoring 2 runs.<br>
+      114. Lewis hits to Pitch, scoring 4 runs.<br>
+    </p>
+    <p class="r">115. de Graaf hits to Long Stop, scoring 4 runs.<br>
+      116. Priestley hits to Long On, scoring 4 runs.<br>
+      117. Anderson hits to Backward Point, scoring 3 runs.<br>
+    </p>
+    <p class="g">118. Qualls hits to Backward Point, scoring 6 runs.<br>
+      119. Part hits to Pitch, scoring 4 runs.<br>
+      120. Taylor hits to Long Stop, scoring 2 runs.<br>
+    </p>
+    <p class="r">121. Priestley hits to Deep Extra Cover, scoring 6 runs.<br>
+      122. Anderson hits to Long Stop, scoring 4 runs.<br>
+      123. Mitchell hits to Long On, scoring 1 run.<br>
+    </p>
+    <p class="g">124. Van Gerwen hits to Pitch, scoring 5 runs.<br>
+      125. Cullen hits to Long On, scoring 6 runs.<br>
+      126. Part hits to Long Leg, scoring 4 runs.<br>
+    </p>
+  </div>
+{% endblock %}

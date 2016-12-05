@@ -1,0 +1,185 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'bridge' %}
+{% block title_block %}Tricky Wicket: Solution{% endblock %}
+{% block puzzle_name_block %}Tricky Wicket: Solution{% endblock %}
+{% block byline %}By Tom Buehler{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    .f {
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+      display: block;
+    }
+    .game {
+      font-family: monospace;
+    }
+    .game p {
+      white-space: pre-wrap;
+    }
+  </style>
+{% endblock %}
+
+{% block solution_content_block %}
+  <div>
+    <p>
+      While on the surface this looks like a puzzle about the bat-and-ball game
+      cricket, it’s actually about the darts game cricket.
+    </p>
+    <img class="f" src="{{ asset_url_for('tricky_wicket/solution.png') }}">
+    <p>
+      Each of the numbered entries represents a throw in a dart game.  The field
+      position corresponds to a number on a dart board.  The number of runs is
+      an index into the player's name.  Taking the indexed letter for every
+      entry spells the message: NOPE FIRST FIND OUT ALL HITS THAT SCORE THEN YOU
+      HAVE TO IGNORE NEAR MISSES TO GET A CLUE SOLVING THE TASK THEN YOUR WORK
+      DECODING THAT ACQUIRED STATEMENT.
+    </p>
+    <p>
+      This means that you have to take the letters from only the throws that
+      would score in a game of darts cricket.  Score the game according to the
+      standard rules of darts cricket, and the letters from just the scoring
+      throws gives the message: FINAL SCORE VIGENERE USING KEY WORD QUITE.
+    </p>
+    <p>
+      The final score of the game is 63-629.  Converting each number in the
+      score to letters gives FCFBI.  When deciphered with a Vigenère cipher
+      using the key QUITE, it becomes <b>PIXIE</b>, which is the answer.
+    </p>
+    <p>
+      Below is the full rundown of the darts game.
+    </p>
+    <div class="game">
+      <p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:36px; color:#ff0000;"><br /></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:36px;"><span style=" color:#ff0000;"> </span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:36px;"><span style=" color:#ff0000;"> </span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">1.	 15 N</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">2.	 20 O</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">3.	 18 P</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">4.	</span><span style=" color:#008e00;"> 19 E</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">5.	</span><span style=" color:#008e00;"> 19 F</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">6.	</span><span style=" color:#008e00;"> 19 I 19s opened</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">7.	 17 R</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">8.	 11 S</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">9.	 15 T</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">10.	</span><span style=" color:#008e00;"> </span><span style=" font-weight:600; color:#008e00;">19 F 0-19</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">11.	</span><span style=" font-weight:600; color:#008e00;"> 19 I 0-38</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">12.	</span><span style=" color:#008e00;"> </span><span style=" font-weight:600; color:#008e00;">19 N 0-57</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">13.	 11 D</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">14.	 19 O</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">15.	 20 U</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">16.	</span><span style=" color:#008e00;"> 25 T</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">17.	</span><span style=" font-weight:600; color:#008e00;"> 19 A 0-76</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">18.	</span><span style=" color:#008e00;"> </span><span style=" font-weight:600; color:#008e00;">19</span><span style=" color:#008e00;"> </span><span style=" font-weight:600; color:#008e00;">L 0-95</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">19.	 18 L</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">20.	 25 H</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">21.	 15 I 15s opened</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">22.	</span><span style=" color:#008e00;"> 25 T</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">23.	</span><span style=" font-weight:600; color:#008e00;"> 19 S 0-114</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">24.	</span><span style=" color:#008e00;"> 25 T Bulls opened</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">25.	 18 H 18s opened</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">26.	</span><span style=" font-weight:600; color:#ff0000;"> </span><span style=" color:#ff0000;">11</span><span style=" font-weight:600; color:#ff0000;"> </span><span style=" color:#ff0000;">A</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">27.	 19 T</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">28.	</span><span style=" color:#008e00;"> 20 S</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">29.	</span><span style=" font-weight:600; color:#008e00;"> 25 C 0-139</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">30.	</span><span style=" color:#008e00;"> </span><span style=" font-weight:600; color:#008e00;">19</span><span style=" color:#008e00;"> </span><span style=" font-weight:600; color:#008e00;">O 0-158</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">31.	 </span><span style=" font-weight:600; color:#ff0000;">15</span><span style=" color:#ff0000;"> </span><span style=" font-weight:600; color:#ff0000;">R 15-158</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">32.	 16 E</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">33.	 11 T</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">34.	</span><span style=" color:#008e00;"> 15 H</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">35.	</span><span style=" color:#008e00;"> </span><span style=" font-weight:600; color:#008e00;">19 E 15-177</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">36.	</span><span style=" color:#008e00;"> 16 N</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">37.	 11 Y</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">38.	 11 O</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">39.	 11 U</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">40.	</span><span style=" color:#008e00;"> 20 H </span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">41.	</span><span style=" color:#008e00;"> 20 A 20s opened</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">42.	</span><span style=" color:#008e00;"> </span><span style=" font-weight:600; color:#008e00;">19</span><span style=" color:#008e00;"> </span><span style=" font-weight:600; color:#008e00;">V 15-196</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">43.	 11 E</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">44.	 11 T</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">45.	 25 O</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">46.	</span><span style=" color:#008e00;"> </span><span style=" font-weight:600; color:#008e00;">25 I 15-221</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">47.	</span><span style=" font-weight:600; color:#008e00;"> 19 G 15-240</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">48.	</span><span style=" color:#008e00;"> 15 N</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">49.	 19 O 19s closed</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">50.	 17 R</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">51.	</span><span style=" font-weight:600; color:#ff0000;"> 15 E 30-240</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">52.	</span><span style=" font-weight:600; color:#008e00;"> 20 N 30-260</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">53.	</span><span style=" font-weight:600; color:#008e00;"> 25 E 30-285</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">54.	</span><span style=" font-weight:600; color:#008e00;"> </span><span style=" color:#008e00;">17</span><span style=" font-weight:600; color:#008e00;"> </span><span style=" color:#008e00;">A</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">55.	</span><span style=" font-weight:600; color:#ff0000;"> 15 R 45-285</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">56.	 11 M</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">57.	 19 I</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">58.	</span><span style=" color:#008e00;"> 15 S 15s closed</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">59.	</span><span style=" color:#008e00;"> 18 S</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">60.	</span><span style=" font-weight:600; color:#008e00;"> 20 E 45-305</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">61.	 15 S</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">62.	 19 T </span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">63.	 11 O</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">64.	</span><span style=" color:#008e00;"> 16 G</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">65.	</span><span style=" color:#008e00;"> 16 E 16s opened</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">66.	</span><span style=" color:#008e00;"> 19 T</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">67.	 19 A</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">68.	 15 C</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">69.	 15 L</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">70.	</span><span style=" font-weight:600; color:#008e00;"> 20 U 45-325</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">71.	</span><span style=" color:#008e00;"> 19 E </span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">72.	</span><span style=" font-weight:600; color:#008e00;"> 16 S 45-341</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">73.	 11 O</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">74.	 11 L</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">75.	 16 V</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">76.	</span><span style=" font-weight:600; color:#008e00;"> 20 I 45-361</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">77.	</span><span style=" font-weight:600; color:#008e00;"> 20 N 45-381</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">78.	</span><span style=" font-weight:600; color:#008e00;"> 25 G 45-406</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">79.	 19 T</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">80.	 11 H</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">81.	 15 E</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">82.	</span><span style=" color:#008e00;"> 15 T </span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">83.	</span><span style=" color:#008e00;"> 17 A</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">84.	</span><span style=" color:#008e00;"> 17 S 17s opened</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">85.	</span><span style=" font-weight:600; color:#ff0000;"> 18 K 63-406</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">86.	 20 T 20s closed</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">87.	 15 H</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">88.	</span><span style=" font-weight:600; color:#008e00;"> 16 E 63-406</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">89.	</span><span style=" color:#008e00;"> 20 N</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">90.	</span><span style=" font-weight:600; color:#008e00;"> 17 Y 63-439</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">91.	 20 O</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">92.	 11 U</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">93.	 19 R</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">94.	</span><span style=" font-weight:600; color:#008e00;"> 16 W 63-455</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">95.	</span><span style=" font-weight:600; color:#008e00;"> 25 O 63-480</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">96.	</span><span style=" font-weight:600; color:#008e00;"> 17 R 63-497</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">97.	 20 K</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">98.	 15 D</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">99.	 19 E</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">100.	</span><span style=" color:#008e00;"> 11 C</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">101.	</span><span style=" color:#008e00;"> 15 O</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">102.	</span><span style=" font-weight:600; color:#008e00;"> 25 D 63-522</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">103.	 11 I</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">104.	 17 N 17s closed</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">105.	 20 G</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">106.	</span><span style=" color:#008e00;"> 18 T</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">107.	</span><span style=" color:#008e00;"> 15 H</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">108.	</span><span style=" color:#008e00;"> 17 A</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">109.	 19 T</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">110.	 19 A</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">111.	 17 C</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">112.	</span><span style=" font-weight:600; color:#008e00;"> 16 Q 63-538</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">113.	</span><span style=" font-weight:600; color:#008e00;"> 16 U 63-554</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">114.	</span><span style=" font-weight:600; color:#008e00;"> 25 I 63-579</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">115.	 20 R</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">116.	 17 E</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">117.	 11 D</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">118.	</span><span style=" color:#008e00;"> 11 S</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">119.	</span><span style=" font-weight:600; color:#008e00;"> 25 T 63-604</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">120.	</span><span style=" color:#008e00;"> 20 A</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">121.	 16 T 16s closed</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">122.	 20 E</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">123.	 17 M</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">124.	</span><span style=" font-weight:600; color:#008e00;"> 25 E 63-629</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">125.	</span><span style=" color:#008e00;"> 17 N</span></p>
+      <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:18px;"><span style=" color:#ff0000;">126.	</span><span style=" color:#008e00;"> 18 T 18s closed, game over</span></p>
+    </div>
+  </div>
+{% endblock %}
