@@ -1,0 +1,377 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'fighter' %}
+{% block title_block %}Double-Crosser: Solution{% endblock %}
+{% block puzzle_name_block %}Double-Crosser: Solution{% endblock %}
+{% block byline %}By Trip Payne{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    table.g {
+      border: 2px solid black;
+      border-collapse: collapse;
+    }
+    table.g td {
+      border: 1px solid black;
+      padding: 0;
+      width: 1.5em;
+      height: 1.5em;
+      text-align: center;
+      font-family: sans-serif;
+    }
+    table.g td.b {
+      outline: 0.75em solid black;
+      outline-offset: -0.75em;
+      box-shadow: 0 0 0 1.5em black inset;
+    }
+    ul {
+      list-style-type: none;
+    }
+  </style>
+{% endblock %}
+
+{% block solution_content_block %}
+  <div>
+    <p>
+      The first grid fills in normally:
+    </p>
+    <table class="g">
+      <tr>
+        <td class="b"></td>
+        <td>P</td>
+        <td class="b"></td>
+        <td>I</td>
+        <td class="b"></td>
+        <td>H</td>
+        <td class="b"></td>
+        <td>L</td>
+        <td class="b"></td>
+        <td>G</td>
+        <td class="b"></td>
+        <td>C</td>
+      </tr>
+      <tr>
+        <td>C</td>
+        <td>H</td>
+        <td>A</td>
+        <td>N</td>
+        <td>G</td>
+        <td>E</td>
+        <td class="b"></td>
+        <td>O</td>
+        <td>L</td>
+        <td>I</td>
+        <td>V</td>
+        <td>A</td>
+      </tr>
+      <tr>
+        <td class="b"></td>
+        <td>O</td>
+        <td class="b"></td>
+        <td>V</td>
+        <td class="b"></td>
+        <td>D</td>
+        <td class="b"></td>
+        <td>U</td>
+        <td class="b"></td>
+        <td>B</td>
+        <td class="b"></td>
+        <td>N</td>
+      </tr>
+      <tr>
+        <td>B</td>
+        <td>E</td>
+        <td>B</td>
+        <td>E</td>
+        <td class="b"></td>
+        <td>R</td>
+        <td>E</td>
+        <td>V</td>
+        <td>I</td>
+        <td>S</td>
+        <td>E</td>
+        <td>D</td>
+      </tr>
+      <tr>
+        <td class="b"></td>
+        <td>B</td>
+        <td class="b"></td>
+        <td>N</td>
+        <td class="b"></td>
+        <td>E</td>
+        <td class="b"></td>
+        <td>R</td>
+        <td class="b"></td>
+        <td>O</td>
+        <td class="b"></td>
+        <td>L</td>
+      </tr>
+      <tr>
+        <td>B</td>
+        <td>E</td>
+        <td>R</td>
+        <td>T</td>
+        <td>A</td>
+        <td>N</td>
+        <td>D</td>
+        <td>E</td>
+        <td>R</td>
+        <td>N</td>
+        <td>I</td>
+        <td>E</td>
+      </tr>
+      <tr>
+        <td>E</td>
+        <td class="b"></td>
+        <td>E</td>
+        <td class="b"></td>
+        <td>R</td>
+        <td class="b"></td>
+        <td>O</td>
+        <td class="b"></td>
+        <td>E</td>
+        <td class="b"></td>
+        <td>R</td>
+        <td class="b"></td>
+      </tr>
+      <tr>
+        <td>C</td>
+        <td>A</td>
+        <td>P</td>
+        <td>I</td>
+        <td>T</td>
+        <td>A</td>
+        <td>L</td>
+        <td class="b"></td>
+        <td>C</td>
+        <td>L</td>
+        <td>I</td>
+        <td>O</td>
+      </tr>
+      <tr>
+        <td>K</td>
+        <td class="b"></td>
+        <td>E</td>
+        <td class="b"></td>
+        <td>I</td>
+        <td class="b"></td>
+        <td>L</td>
+        <td class="b"></td>
+        <td>A</td>
+        <td class="b"></td>
+        <td>S</td>
+        <td class="b"></td>
+      </tr>
+      <tr>
+        <td>E</td>
+        <td>V</td>
+        <td>A</td>
+        <td>N</td>
+        <td>S</td>
+        <td class="b"></td>
+        <td>A</td>
+        <td>N</td>
+        <td>S</td>
+        <td>W</td>
+        <td>E</td>
+        <td>R</td>
+      </tr>
+      <tr>
+        <td>R</td>
+        <td class="b"></td>
+        <td>L</td>
+        <td class="b"></td>
+        <td>T</td>
+        <td class="b"></td>
+        <td>R</td>
+        <td class="b"></td>
+        <td>T</td>
+        <td class="b"></td>
+        <td>S</td>
+        <td class="b"></td>
+      </tr>
+    </table>
+    <p>
+      Each of those answers then completes one of the clues for the second
+      puzzle, the last of which gives you the final answer:
+    </p>
+    <ul>
+      <li>INVENT Africa offering = SAFARI</li>
+      <li>Dutch alternatives to IRISES = TULIPS</li>
+      <li>Fail, like a Roman CANDLE = MISFIRE</li>
+      <li>GIBSON film of 1996 = RANSOM</li>
+      <li>General term for DOLLARs, in Spanish = DINERO</li>
+      <li>Hugo or CLIO = AWARD</li>
+      <li>Movie starring Connery and HEDREN = MARNIE</li>
+      <li>BEBE Neuwirth’s birthplace = NEWARK</li>
+      <li>Rival of BECKER = EDBERG</li>
+      <li>She played Mrs. EVANS on a 1970s sitcom = ROLLE</li>
+      <li>Sister of PHOEBE, on TV = URSULA</li>
+      <li>Southwestern CAPITAL = SANTA FE</li>
+      <li>Symbols that denote CHANGE = DELTAS</li>
+      <li>REVISED text = EDITED</li>
+      <li>Things a government might REPEAL = LAWS</li>
+      <li>Tony OLIVA had 220 of them = HOMERS</li>
+      <li>Venue of 2011’s “The ARTIST” = CINEMA</li>
+      <li>Website where you could read “10 RECAST Movie Characters” = EMPIRE</li>
+      <li>What BERT AND ERNIE are made of = FELT</li>
+      <li>Where the hero of a 2003 novel that begins at the LOUVRE was born = EXETER</li>
+      <li>Your ANSWER = HOUSE MEETING</li>
+    </ul>
+    <table class="g">
+      <tr>
+        <td class="b"></td>
+        <td>D</td>
+        <td class="b"></td>
+        <td>D</td>
+        <td class="b"></td>
+        <td>R</td>
+        <td class="b"></td>
+        <td>M</td>
+        <td class="b"></td>
+        <td>S</td>
+        <td class="b"></td>
+        <td>E</td>
+      </tr>
+      <tr>
+        <td>C</td>
+        <td>I</td>
+        <td>N</td>
+        <td>E</td>
+        <td>M</td>
+        <td>A</td>
+        <td class="b"></td>
+        <td>A</td>
+        <td>W</td>
+        <td>A</td>
+        <td>R</td>
+        <td>D</td>
+      </tr>
+      <tr>
+        <td class="b"></td>
+        <td>N</td>
+        <td class="b"></td>
+        <td>L</td>
+        <td class="b"></td>
+        <td>N</td>
+        <td class="b"></td>
+        <td>R</td>
+        <td class="b"></td>
+        <td>F</td>
+        <td class="b"></td>
+        <td>B</td>
+      </tr>
+      <tr>
+        <td>F</td>
+        <td>E</td>
+        <td>L</td>
+        <td>T</td>
+        <td class="b"></td>
+        <td>S</td>
+        <td>A</td>
+        <td>N</td>
+        <td>T</td>
+        <td>A</td>
+        <td>F</td>
+        <td>E</td>
+      </tr>
+      <tr>
+        <td class="b"></td>
+        <td>R</td>
+        <td class="b"></td>
+        <td>A</td>
+        <td class="b"></td>
+        <td>O</td>
+        <td class="b"></td>
+        <td>I</td>
+        <td class="b"></td>
+        <td>R</td>
+        <td class="b"></td>
+        <td>R</td>
+      </tr>
+      <tr>
+        <td>H</td>
+        <td>O</td>
+        <td>U</td>
+        <td>S</td>
+        <td>E</td>
+        <td>M</td>
+        <td>E</td>
+        <td>E</td>
+        <td>T</td>
+        <td>I</td>
+        <td>N</td>
+        <td>G</td>
+      </tr>
+      <tr>
+        <td>O</td>
+        <td class="b"></td>
+        <td>R</td>
+        <td class="b"></td>
+        <td>D</td>
+        <td class="b"></td>
+        <td>X</td>
+        <td class="b"></td>
+        <td>U</td>
+        <td class="b"></td>
+        <td>E</td>
+        <td class="b"></td>
+      </tr>
+      <tr>
+        <td>M</td>
+        <td>I</td>
+        <td>S</td>
+        <td>F</td>
+        <td>I</td>
+        <td>R</td>
+        <td>E</td>
+        <td class="b"></td>
+        <td>L</td>
+        <td>A</td>
+        <td>W</td>
+        <td>S</td>
+      </tr>
+      <tr>
+        <td>E</td>
+        <td class="b"></td>
+        <td>U</td>
+        <td class="b"></td>
+        <td>T</td>
+        <td class="b"></td>
+        <td>T</td>
+        <td class="b"></td>
+        <td>I</td>
+        <td class="b"></td>
+        <td>A</td>
+        <td class="b"></td>
+      </tr>
+      <tr>
+        <td>R</td>
+        <td>O</td>
+        <td>L</td>
+        <td>L</td>
+        <td>E</td>
+        <td class="b"></td>
+        <td>E</td>
+        <td>M</td>
+        <td>P</td>
+        <td>I</td>
+        <td>R</td>
+        <td>E</td>
+      </tr>
+      <tr>
+        <td>S</td>
+        <td class="b"></td>
+        <td>A</td>
+        <td class="b"></td>
+        <td>D</td>
+        <td class="b"></td>
+        <td>R</td>
+        <td class="b"></td>
+        <td>S</td>
+        <td class="b"></td>
+        <td>K</td>
+        <td class="b"></td>
+      </tr>
+    </table>
+  </div>
+{% endblock %}
