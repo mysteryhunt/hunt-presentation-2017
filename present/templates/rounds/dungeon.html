@@ -23,35 +23,6 @@ td.not-unlocked {
   background-blend-mode: multiply; 
 }
 
-.dungeon-grid-caption {
-  display: none;
-}
-
-td.dungeon-grid-caption-cell {
-  position: relative;
-}
-
-td.dungeon-grid-caption-cell:hover .dungeon-grid-caption {
-  display: block;
-}
-
-.dungeon-grid-caption-cell .dungeon-grid-caption {
-  text-align: initial;
-  display: none;
-  position: absolute;
-  top: 40px;
-  left: 40px;
-  z-index: 1200;
-  padding: 3px 3px;
-  border: 3px solid black;
-  background-color: navajowhite;
-  min-width: initial;
-  min-height: initial;
-  width: auto;
-  height: auto;
-  white-space: nowrap;
-}
-
 </style>
 {% endblock %}
 
@@ -71,14 +42,14 @@ td.dungeon-grid-caption-cell:hover .dungeon-grid-caption {
             {% set puzzle_link_action = 'full_puzzle' if full_access else 'puzzle' %}
             {% set puzzle_id = puzzle_data[0] %}
             {% set link_puzzle_id = puzzle_properties.get(puzzle_id,{}).get('puzzleProperties',{}).get('DisplayIdProperty',{}).get('displayId',puzzle_id) %}
-            <td class="dungeon-grid-caption-cell{% if puzzle_visibilities.get(puzzle_data[0]).status != 'SOLVED' and puzzle_visibilities.get(puzzle_data[0]).status != 'UNLOCKED' %} not-unlocked{% endif %}">
+            <td class="caption-control{% if puzzle_visibilities.get(puzzle_data[0]).status != 'SOLVED' and puzzle_visibilities.get(puzzle_data[0]).status != 'UNLOCKED' %} not-unlocked{% endif %}">
               {% if puzzle_visibilities.get(puzzle_data[0]).status == 'SOLVED' or puzzle_visibilities.get(puzzle_data[0]).status == 'UNLOCKED' %}
                 {% if puzzle_visibilities.get(puzzle_data[0]).status == 'SOLVED' %}
                   {{ puzzle_data[i+1] }}
                 {% else %}
                   &nbsp;
                 {% endif %}
-                <div class="dungeon-grid-caption">{{ puzzle_properties.get(puzzle_id).puzzleProperties.DisplayNameProperty.displayName }}</div>
+                <div class="caption">{{ puzzle_properties.get(puzzle_id).puzzleProperties.DisplayNameProperty.displayName }}</div>
               {% endif %}
             </td>
           {% endfor %}

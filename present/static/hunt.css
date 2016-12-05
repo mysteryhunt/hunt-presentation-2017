@@ -248,6 +248,40 @@ body {
   padding: 5px 5px;
 }
 
+/* Captions */
+
+.caption-control {
+  position: relative;
+}
+
+.caption {
+  display: none;
+}
+
+.caption-control:hover .caption {
+  display: block;
+}
+
+.caption-control .caption {
+  text-align: initial;
+  display: none;
+  position: absolute;
+  top: 80%;
+  left: 80%;
+  z-index: 3000;
+  padding: 3px 3px;
+  border: 2px solid black;
+  background-color: navajowhite;
+  min-width: initial;
+  min-height: initial;
+  width: auto;
+  height: auto;
+  white-space: nowrap;
+}
+
+
+/* Other */
+
 #main-page-content {
   clear: both;
 }

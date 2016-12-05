@@ -8,29 +8,12 @@
   min-width: 451px;
 }
 
-.cube-link-caption {
-  display: none;
-}
-
-.cube-puzzle-link:hover .cube-link-caption {
-  display: block;
-}
-
-.cube-puzzle-link .cube-link-caption {
-  text-align: initial;
-  display: none;
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  z-index: 1200;
-  padding: 3px 3px;
-  border: 3px solid black;
-  background-color: navajowhite;
-  min-width: initial;
-  min-height: initial;
-  width: auto;
-  height: auto;
-  white-space: nowrap;
+.cube-puzzle-link {
+  width: 50px;
+  height: 50px;
+  position: absolute !important;
+  z-index: 200;
+  text-align: left;
 }
 
 </style>
@@ -53,13 +36,13 @@
       {% set link_puzzle_id = puzzle_properties.get(puzzle_id,{}).get('puzzleProperties',{}).get('DisplayIdProperty',{}).get('displayId',puzzle_id) %}
       {% if puzzle_visibilities.get(puzzle_id, {}).get('status','') == 'SOLVED' or puzzle_visibilities.get(puzzle_id, {}).get('status','') == 'UNLOCKED' %}
         <a href="{{ url_for(puzzle_link_action, puzzle_id = link_puzzle_id) }}">
-          <div class="cube-puzzle-link" style="width:50px; height: 50px; position:absolute; top:{{ 1+50*y }}px; left:{{ 1+50*x }}px; z-index:200; text-align:left;">
+          <div class="cube-puzzle-link caption-control" style="top:{{ 1+50*y }}px; left:{{ 1+50*x }}px;">
             *
-            <div class="cube-link-caption">{{ puzzle_properties.get(puzzle_id).puzzleProperties.DisplayNameProperty.displayName }}</div>
+            <div class="caption">{{ puzzle_properties.get(puzzle_id).puzzleProperties.DisplayNameProperty.displayName }}</div>
           </div>
         </a>
       {% else %}
-        <div class="cube-puzzle-link" style="width:50px; height: 50px; position:absolute; top:{{ 1+50*y }}px; left:{{ 1+50*x }}px; z-index:200; text-align:left;">
+        <div class="cube-puzzle-link" style="top:{{ 1+50*y }}px; left:{{ 1+50*x }}px;">
           *
         </div>
       {% endif %}
