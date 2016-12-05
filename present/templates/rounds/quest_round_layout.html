@@ -16,16 +16,17 @@
 
 {% block overall_layout_body %}
 <div id="round-container">
-  <div id="header" class="standard-horizontal-scroll">
-    <div class="horizontal-enscrolled-left"></div><div class="horizontal-enscrolled-middle">
-      <div class="horizontal-enscrolled-text">{% block round_name %}{% endblock %}</div>
-    </div><div class="horizontal-enscrolled-right"></div>
+  <div id="header">
+    <div class="quest-scene-container">
+      <img src="{{ url_for('static', filename='PNG-export/quests/%s-scene.png' % round_id) }}" class="quest-scene">
+    </div>
+    <div class="standard-horizontal-scroll">
+        {% block round_name %}{% endblock %}
+    </div>
   </div>
-  <div id="round-text">
+  <div id="round-information">
     <div class="vertically-enscrolled">
-      <div class="vertically-enscrolled-text">
-        {% block round_flavortext %}{% endblock %}
-      </div>
+      {% block round_flavortext %}{% endblock %}
     </div>
   </div>
   <div id="puzzle-list">
@@ -55,7 +56,7 @@
     </div>
   {% elif puzzle_visibilities.get(puzzle_id).status == 'SOLVED' %}
     <div class="puzzle-entry">
-      <span><img src="{{ url_for('static', filename='temp/art/Maps/complete-logo-color.png') }}" style="width:24px;height:24px;vertical-align:bottom;"/></span>
+      <span><img src="{{ url_for('static', filename='PNG-export/icons/completion-logo.png') }}" style="width:24px;height:24px;vertical-align:bottom;"/></span>
       <a href="{{ url_for(puzzle_link_action, puzzle_id = link_puzzle_id) }}">
         <span class="puzzle-name">{{ puzzle_properties.get(puzzle_id).puzzleProperties.DisplayNameProperty.displayName }}</span>
         <span class="puzzle-solution">

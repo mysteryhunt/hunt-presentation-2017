@@ -36,10 +36,10 @@
 
 {% block overall_layout_body %}
 <div id="round-container">
-    <div id="header" class="standard-horizontal-scroll">
-      <div class="horizontal-enscrolled-left"></div><div class="horizontal-enscrolled-middle">
-        <div class="horizontal-enscrolled-text">{% block round_name %}{% endblock %}</div>
-      </div><div class="horizontal-enscrolled-right"></div>
+    <div id="header">
+      <div class="standard-horizontal-scroll">
+        {% block round_name %}{% endblock %}
+      </div>
     </div>
     <div id="character-display">
       <div id="character-level-container">
@@ -52,6 +52,7 @@
     </div>
     <div id="puzzle-list">
       <div class="parchmented">
+        {% block puzzle_content %}{% endblock %}
         {% block round_puzzle_entries %}{% endblock %}
       </div>
     </div>

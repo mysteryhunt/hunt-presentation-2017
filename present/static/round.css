@@ -22,20 +22,6 @@ span.level-requirement {
   white-space: nowrap;
 }
 
-.parchmented > *:first-child {
-  margin-left: 10%;
-  margin-right: 5%;
-  max-width: 85%;
-  padding-top: 25px;
-  padding-bottom: 25px;
-}
-
-.parchmented {
-  background-image: url('PNG-export/scroll/parchment-square.png');
-  background-size: 100% 100%;
-  max-width: 697px;
-}
-
 .puzzle-entry {
   margin-left: auto;
   margin-right: auto;

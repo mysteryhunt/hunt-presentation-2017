@@ -30,113 +30,89 @@ body {
   background-position: center top;
 }
 
-.panel {
-  position: relative;
-  border: 3px #665F4F solid;
-  border-radius: 25px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.scroll-color-background {
-  background-color: rgb(209, 183, 128);
-}
-
-.lighter-background {
-  background-color: papayawhip;
-}
-
-.white-background {
-  background-color: white;
-}
-
-.standard-horizontal-scroll {
-  height: 80px;
-  font-size: 48px;
-  font-family: 'Deutsche Uncialis', 'Georgia', serif;
-}
-
 .small-horizontal-scroll {
   height: 60px;
   font-size: 30px;
   font-family: 'Deutsche Uncialis', 'Georgia', serif;
 }
 
-.horizontal-enscrolled-left {
-  content: url("PNG-export/scroll/horizontal-left.png");
-  height: 100%;
-  display: inline;
-}
-
-.horizontal-enscrolled-middle {
-  background-image: url("PNG-export/scroll/horizontal-middle.png");
-  background-position: center;
-  background-size: auto 100%;
-  height: 100%;
-  display: inline-flex;
-  flex-direction: column;
-  justify-content: center;
-  vertical-align: top;
-}
-
-.horizontal-enscrolled-right {
-  content: url("PNG-export/scroll/horizontal-right.png");
-  height: 100%;
-  display: inline;
-}
-
-.enscrolled-90px {
-  background-image: url("horizontal-scroll-90px-base.png");
-  background-repeat: repeat-x;
-  height: 90px;
-  line-height: 90px;
-  vertical-align: top;
+.standard-horizontal-scroll {
   display: inline-block;
+  height: 80px;
+  line-height: 80px;
+  vertical-align: center;
   font-size: 48px;
   font-family: 'Deutsche Uncialis', 'Georgia', serif;
+  position: relative;
+  background-image: url('PNG-export/scroll/horizontal-left.png'), url('PNG-export/scroll/horizontal-right.png');
+  background-position: left top, right top;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 20px 100%, 20px 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+  z-index: 10;
 }
 
-.enscrolled-90px span {
-  vertical-align: top;
-}
-
-.enscrolled-90px-before {
-  content: url("horizontal-scroll-90px-left.png");
-  width: 29px;
-  height: 90px;
-}
-
-.enscrolled-90px-after {
-  content: url("horizontal-scroll-90px-right.png");
-  width: 29px;
-  height: 90px;
-}
-
-.vertically-enscrolled, .vertically-enscrolled-before, .vertically-enscrolled-after {
-  margin-top: 0px;
-  margin-bottom: 0px;
+.standard-horizontal-scroll::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 20px;
+  width: calc(100% - 39px);
+  height: 100%;
+  background-image: url('PNG-export/scroll/horizontal-middle.png');
+  background-size: 100% 100%;
+  z-index: -1;
 }
 
 .vertically-enscrolled {
-  background-image: url("vertical-scroll-base.png");
-  background-repeat: repeat-y;
   position: relative;
-  width: 280px;
-  z-index: 100;
+  background-image: url('PNG-export/scroll/vertical-scroll-top.png'), url('PNG-export/scroll/vertical-scroll-bottom.png');
+  background-position: left top, left bottom;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 100% 77px, 100% 77px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 16%;
+  padding-right: 5%;
+  max-width: 751px;
 }
 
-.vertically-enscrolled-before {
-  background-image: url("vertical-scroll-top.png");
-  content: " ";
-  width: 280px;
-  height: 78px;
-  z-index: 100;
+.vertically-enscrolled::before {
+  content: "";
+  position: absolute;
+  top: 77px;
+  left: 0;
+  height: calc(100% - 154px);
+  width: 100%;
+  background-image: url('PNG-export/scroll/vertical-scroll-middle.png');
+  background-size: 100% 100%;
+  z-index: -1;
 }
 
-.vertically-enscrolled-after {
-  content: url("vertical-scroll-bottom.png");
-  width: 280px;
-  height: 84px;
-  z-index: 100;
+.parchmented {
+  position: relative;
+  background-image: url('PNG-export/scroll/parchment-top.png'), url('PNG-export/scroll/parchment-bottom.png');
+  background-position: left top, left bottom;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 100% 137px, 100% 132px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  padding-left: 9%;
+  padding-right: 5%;
+  max-width: 697px;
+}
+
+.parchmented::before {
+  content: "";
+  position: absolute;
+  top: 137px;
+  left: 0;
+  height: calc(100% - 269px);
+  width: 100%;
+  background-image: url('PNG-export/scroll/parchment-middle.png');
+  background-size: 100% 100%;
+  z-index: -1;
 }
 
 @media screen {

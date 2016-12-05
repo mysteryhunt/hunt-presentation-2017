@@ -72,9 +72,7 @@
 {% block overall_layout_body %}
   <div id="puzzle-container">
     <div id="header" class="standard-horizontal-scroll">
-      <div class="horizontal-enscrolled-left"></div><div class="horizontal-enscrolled-middle">
-        <div class="horizontal-enscrolled-text">{% block puzzle_name_block %}{% endblock %}</div>
-      </div><div class="horizontal-enscrolled-right"></div>
+      {% block puzzle_name_block %}{% endblock %}
     </div>
     {% if puzzle_visibility and puzzle_visibility.status == 'SOLVED' %}
       <div id="answers">
