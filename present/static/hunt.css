@@ -333,3 +333,12 @@ a:visited {
   background: linear-gradient(to right, rgba(255,255,255,0) 30%, rgba(255,255,255,0.9) 50%);
   padding: 5px 5px;
 }
+
+#answers {
+  font-size: 28px;
+}
+
+#reward {
+  font-family: 'Deutsche Uncialis', 'Georgia', serif;
+  font-size: 28px;
+}
