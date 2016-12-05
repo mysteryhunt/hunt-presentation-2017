@@ -1,5 +1,7 @@
 SECRET_KEY = "9dsj38gj3j9fcjsaojfADf8"
 CUBE_API_SERVICE = "http://localhost:8182"
+GRAPHITE_HOST = None
+GRAPHITE_PREFIX = ""
 SUBMIT_URL = "/submit/puzzle/%s"
 GOOGLE_API_KEY = "AIzaSyCDkIrVkWdEaOqWe2tPRRmspwL26pU71GI"
 AWS_ASSET_BUCKET = "eastern-toys-assets"
