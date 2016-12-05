@@ -28,21 +28,24 @@
         <div id="header-inventory">
           {% set inventory_complete = (puzzle_visibilities.get('merchants',{}).get('status','') == 'SOLVED') %}
           <a href="#" id="header-inventory-control">
-            <span id="header-inventory-status">
+            <div id="header-inventory-status" class="caption-control">
               <img src="{{ url_for('static', filename='PNG-export/icons/chest.png') }}" style="width:30px;height:30px;vertical-align:middle;padding-right:3px;"/>
               {%- if inventory_complete -%}
                 6/6
               {%- else -%}
                 {{ team_properties.get('teamProperties',{}).get('InventoryProperty',{}).get('inventoryItems',[])|length if team_properties else 'NA' }}/40
               {%- endif -%}
-            </span>
+              <div class="caption">Inventory</div>
+            </div>
           </a>
           <div id="header-inventory-grid" style="display:none;">
             {{ inventory.inventory_grid(inventory_complete,
   (team_properties.get('teamProperties',{}).get('InventoryProperty',{})) if team_properties else {}) }}
           </div>
         </div>
-        <div id="header-gold"><img src="{{ url_for('static', filename='PNG-export/icons/coin.png') }}" style="width:30px;height:30px;vertical-align:middle;"/>&nbsp;{{ team_properties.get('teamProperties',{}).get('GoldProperty',{}).get('gold',0) if team_properties else 'NA'}}</div>
+        <div id="header-gold" class="caption-control"><img src="{{ url_for('static', filename='PNG-export/icons/coin.png') }}" style="width:30px;height:30px;vertical-align:middle;"/>&nbsp;{{ team_properties.get('teamProperties',{}).get('GoldProperty',{}).get('gold',0) if team_properties else 'NA'}}
+          <div class="caption">Gold</div>
+        </div>
       </div>
 
       {% block header_content %}
