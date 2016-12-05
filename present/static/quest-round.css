@@ -10,6 +10,10 @@ span.round_question {
   margin-bottom: 10px;
 }
 
+#round-background-container {
+  background-repeat: no-repeat;
+}
+
 .vertically-enscrolled {
   width: 100%;
   background-image: url('PNG-export/scroll/vertical-scroll.png');
@@ -22,4 +26,10 @@ span.round_question {
   padding-top: 5px;
   padding-bottom: 5px;
   width: 84%;
+}
+
+.legible-background {
+#  background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.9) 5%, rgba(255,255,255,0.9) 95%, rgba(255,255,255,0) 100%);
+  border-radius: 25px;
+  padding: 20px;
 }

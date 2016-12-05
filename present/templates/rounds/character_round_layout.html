@@ -1,7 +1,32 @@
 {% extends "overall_layout.html" %}
+{% macro character_color_macro() %}{% block character_color %}{% endblock %}{% endmacro %}
 {% block styling_block %}
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='round.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='character-round.css') }}">
+    <style>
+    body {
+      background-image: url("{{ url_for('static', filename='PNG-export/map/repeating-fog.png') }}");
+      background-color: {{ character_color_macro() }};
+      background-blend-mode: overlay;
+    }
+    </style>
+    <!--[if IE]>
+    <style>
+            body:before {
+                 content: "";
+                 position: fixed;
+                 top: 0;
+                 left: 0;
+                 height: 100%;
+                 min-height: 100vh;
+                 width: 100%;
+                 min-width: 100vw;
+                 background: {{ character_color_macro() }};
+                 opacity: 0.5;
+                 z-index: -3000;
+             }
+     </style>
+    <![endif]-->
     {% block puzzle_head_block %}{% endblock %}
 {% endblock %}
 
@@ -10,8 +35,6 @@
 {% endblock %}
 
 {% block overall_layout_body %}
-<div id="round-background-container"></div>
-<div id="round-background-overlay-container" style="background-color: {% block character_color %}{% endblock %};"></div>
 <div id="round-container">
     <div id="header" class="standard-horizontal-scroll">
       <div class="horizontal-enscrolled-left"></div><div class="horizontal-enscrolled-middle">

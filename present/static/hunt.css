@@ -3,6 +3,18 @@
   src: url("DeutscheUncialis.ttf");
 }
 
+@media all and (orientation: landscape) {
+  body {
+    background-size: 100% auto;
+  }
+} 
+
+@media all and (orientation: portrait) {
+  body {
+    background-size: auto 100%;
+  }
+} 
+
 body {
   text-align: center;
   margin-left: 0;
@@ -13,6 +25,9 @@ body {
   background-color: navajowhite;
   font-size: 16px;
   font-family: 'Lora', serif;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center top;
 }
 
 .panel {

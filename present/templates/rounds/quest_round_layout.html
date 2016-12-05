@@ -2,6 +2,11 @@
 {% block styling_block %}
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='round.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='quest-round.css') }}">
+    <style>
+    body {
+      background-image: url("{{ url_for('static', filename='PNG-export/quests/%s-background.png' % round_id) }}");
+    }
+    </style>
     {% block puzzle_head_block %}{% endblock %}
 {% endblock %}
 
@@ -24,8 +29,10 @@
     </div>
   </div>
   <div id="puzzle-list">
-    {% block puzzle_content %}{% endblock %}
-    {% block round_puzzle_entries %}{% endblock %}
+    <div class="parchmented">
+      {% block puzzle_content %}{% endblock %}
+      {% block round_puzzle_entries %}{% endblock %}
+    </div>
   </div>
 </div>
 {% endblock %}
@@ -35,7 +42,7 @@
   {% set link_puzzle_id = puzzle_properties.get(puzzle_id,{}).get('puzzleProperties',{}).get('DisplayIdProperty',{}).get('displayId',puzzle_id) %}
   {% if puzzle_visibilities.get(puzzle_id).status == 'UNLOCKED' %}
     <div class="puzzle-entry">
-      <span><img src="{{ url_for('static', filename='PNG-export/icons/chest.png') }}" style="width:24px;height:24px;vertical-align:bottom;"/>/<img src="{{ url_for('static', filename='PNG-export/icons/gold.png') }}" style="width:24px;height:24px;vertical-align:bottom;"/></span>
+      <span><img src="{{ url_for('static', filename='PNG-export/icons/chest.png') }}" style="width:24px;height:24px;vertical-align:bottom;"/>/<img src="{{ url_for('static', filename='PNG-export/icons/coin.png') }}" style="width:24px;height:24px;vertical-align:bottom;"/></span>
       <a href="{{ url_for(puzzle_link_action, puzzle_id = link_puzzle_id) }}">
         <span class="puzzle-name">{{ puzzle_properties.get(puzzle_id).puzzleProperties.DisplayNameProperty.displayName }}</span>
       </a>

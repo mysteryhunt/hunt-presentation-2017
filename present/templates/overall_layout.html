@@ -41,7 +41,7 @@
   (team_properties.get('teamProperties',{}).get('InventoryProperty',{})) if team_properties else {}) }}
           </div>
         </div>
-        <div id="header-gold"><img src="{{ url_for('static', filename='temp/art/gold.png') }}" style="width:30px;height:30px;vertical-align:middle;"/>&nbsp;{{ team_properties.get('teamProperties',{}).get('GoldProperty',{}).get('gold',0) if team_properties else 'NA'}}</div>
+        <div id="header-gold"><img src="{{ url_for('static', filename='PNG-export/icons/coin.png') }}" style="width:30px;height:30px;vertical-align:middle;"/>&nbsp;{{ team_properties.get('teamProperties',{}).get('GoldProperty',{}).get('gold',0) if team_properties else 'NA'}}</div>
       </div>
 
       {% block header_content %}

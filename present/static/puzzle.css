@@ -1,40 +1,9 @@
 body {
   text-align: inherit;
-  background: inherit;
 }
 
 #overall-layout-body {
   clear: both;
-}
-
-#character-round-background-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  min-height: 100vh;
-  background: url('PNG-export/map/repeating-fog.png');
-  z-index: -2000;
-}
-
-#quest-round-background-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  min-height: 100vh;
-  background-color: papayawhip;
-  z-index: -2000;
-}
-
-#character-round-background-overlay-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  min-height: 100vh;
-  opacity: 0.5;
-  z-index: -1000;
 }
 
 @media print {
@@ -42,14 +11,6 @@ body {
     border: white none 0px;
     margin-top: 0;
     padding-top: 0;
-  }
-  
-  #character-round-background-container {
-    display: none;
-  }
-
-  #character-round-background-overlay-container {
-    display: none;
   }
 }
 
