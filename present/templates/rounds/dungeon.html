@@ -8,6 +8,21 @@
   min-width: 650px;
 }
 
+td {
+  font-size: 24px;
+  height: 50px;
+  width: 50px;
+  align: center;
+  vertical-align: center;
+  border: 1px solid black;
+  background-image: url("{{ url_for('static', filename='PNG-export/quests/dungeon-tile.png')}}");
+}
+
+td.not-unlocked {
+  background-color: gray; 
+  background-blend-mode: multiply; 
+}
+
 .dungeon-grid-caption {
   display: none;
 }
@@ -24,8 +39,8 @@ td.dungeon-grid-caption-cell:hover .dungeon-grid-caption {
   text-align: initial;
   display: none;
   position: absolute;
-  top: 20px;
-  left: 20px;
+  top: 40px;
+  left: 40px;
   z-index: 1200;
   padding: 3px 3px;
   border: 3px solid black;
@@ -53,28 +68,22 @@ td.dungeon-grid-caption-cell:hover .dungeon-grid-caption {
       {% for i in range(6) %}
         <tr>
           {% for puzzle_data in [('dungeon1','F','U','P','B','G','R'),('dungeon2','A','D','T','R','H','U'),('dungeon3','T','D','K','T','L','A'),('dungeon4','A','T','O','L','H','J'),('dungeon5','C','P','I','T','R','V'),('dungeon6','Y','L','A','R','C','T'),('dungeon7','D','O','V','I','D','V'),('dungeon8','R','H','O','B','R','L'),('dungeon9','H','O','I','R','D','A'),('dungeon10','R','F','C','I','R','I'),('dungeon11','R','I','L','A','R','O')] %}
-            <td style="font-size: 24px; height: 50px; width: 50px; align: center; vertical-align: center; border: 1px solid black;">
-              {% if puzzle_visibilities.get(puzzle_data[0]).status == 'SOLVED' %}
-                {{ puzzle_data[i+1] }}
+            {% set puzzle_link_action = 'full_puzzle' if full_access else 'puzzle' %}
+            {% set puzzle_id = puzzle_data[0] %}
+            {% set link_puzzle_id = puzzle_properties.get(puzzle_id,{}).get('puzzleProperties',{}).get('DisplayIdProperty',{}).get('displayId',puzzle_id) %}
+            <td class="dungeon-grid-caption-cell{% if puzzle_visibilities.get(puzzle_data[0]).status != 'SOLVED' and puzzle_visibilities.get(puzzle_data[0]).status != 'UNLOCKED' %} not-unlocked{% endif %}">
+              {% if puzzle_visibilities.get(puzzle_data[0]).status == 'SOLVED' or puzzle_visibilities.get(puzzle_data[0]).status == 'UNLOCKED' %}
+                {% if puzzle_visibilities.get(puzzle_data[0]).status == 'SOLVED' %}
+                  {{ puzzle_data[i+1] }}
+                {% else %}
+                  &nbsp;
+                {% endif %}
+                <div class="dungeon-grid-caption">{{ puzzle_properties.get(puzzle_id).puzzleProperties.DisplayNameProperty.displayName }}</div>
               {% endif %}
             </td>
           {% endfor %}
         </tr>
       {% endfor %}
-      <tr>
-        {% for puzzle_id in ['dungeon1','dungeon2','dungeon3','dungeon4','dungeon5','dungeon6','dungeon7','dungeon8','dungeon9','dungeon10','dungeon11'] %}
-          {% set puzzle_link_action = 'full_puzzle' if full_access else 'puzzle' %}
-          {% set link_puzzle_id = puzzle_properties.get(puzzle_id,{}).get('puzzleProperties',{}).get('DisplayIdProperty',{}).get('displayId',puzzle_id) %}
-          <td class="dungeon-grid-caption-cell" style="height: 25px; align: center; vertical-align: center; border: 1px solid black;">
-            {% if puzzle_visibilities.get(puzzle_id, {}).get('status','') == 'SOLVED' or puzzle_visibilities.get(puzzle_id, {}).get('status','') == 'UNLOCKED' %}
-              <a href="{{ url_for(puzzle_link_action, puzzle_id=link_puzzle_id) }}">*</a>
-              <div class="dungeon-grid-caption">{{ puzzle_properties.get(puzzle_id).puzzleProperties.DisplayNameProperty.displayName }}</div>
-            {% else %}
-              *
-            {% endif %}
-          </td>
-        {% endfor %}
-      </tr>
     </table>
   </div>
 </div>
