@@ -1,30 +1,5 @@
-@media all and (max-width: 1190px) {
-  #main-page-content {
-    max-height: 1000px;
-  }
-  
-  #characters {
-    order: 1;
-  }
-  
-  #events {
-    width: 320px;
-    order: 2;
-  }
-  
-  #world-map-container {
-    order: 3;
-  }
-}
-
-@media all and (min-width: 1190px){
-  #main-page-content {
-    max-height: 700px;
-  }
-  
-  #events {
-    width: 250px;
-  }
+body {
+  background-image: url('temp-old/not-ours/background-wood.jpg');
 }
 
 #main-page-content {
@@ -32,9 +7,17 @@
   margin: 0px auto;
 
   display: flex;
-  flex-flow: column wrap;
-  justify-content: flex-start;
-  align-items: center;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+#characters {
+  width: 320px;
+}
+
+#events {
+  width: 250px;
 }
 
 #world-map-container {
@@ -67,36 +50,43 @@
   z-index: 100;
 }
 
-#characters {
-  width: 320px;
-}
-
 #character-displays {
   display: flex;
   flex-flow: row wrap;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 .individual-character {
-  width: 160px;
-  margin-top: 10px;
+  max-width: 120px;
   margin-bottom: 10px;
 }
 
-.individual-character-status-container {
-  height: 40px;
-  line-height: 40px;
+.individual-character > img {
+  width: 90%;
+  z-index: 20;
+  position: relative;
 }
 
 .individual-character-status-container {
   height: 40px;
   line-height: 40px;
-  margin-top: -22px;
+  z-index: 10;
+  position: relative;
+  font-size: 18px;
+  white-space: nowrap;
+  margin-top: -15px;
+}
+
+.individual-character-status-container img {
+  height: 35px;
+  width: 35px;
+  vertical-align: middle;
 }
 
 #inventory-gold-display {
   display: flex;
   justify-content: center;
+  font-size: 24px;
 }
 
 .individual-inventory-gold {

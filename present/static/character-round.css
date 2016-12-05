@@ -24,8 +24,6 @@ img#character-image {
   font-size: 32px;
   color: black;
   vertical-align: bottom;
-  border-radius: 15px;
-  background: linear-gradient(to right, rgba(255,255,255,0) 30%, rgba(255,255,255,0.9) 50%);
 }
 
 #character-level-container img {

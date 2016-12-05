@@ -12,34 +12,36 @@
       Your Party
       </div>
     </div>
-    <div id="character-displays">
-      {% for character_class in ['fighter','wizard','cleric','linguist','chemist','economist'] if character_class in visible_puzzle_ids %}
-        <a href="{{ url_for('round', round_id = character_class) }}">
-          <div id="character-{{ character_class }}" class="individual-character">
-            <img src="{{ url_for('static', filename='PNG-export/characters/%s-ring.png' % character_class) }}" style="width:80px;">
-            <div class="individual-character-status-container">
-              <span class="individual-character-class">{{ character_class.capitalize() }}</span>
-              <img src="{{ url_for('static', filename='PNG-export/characters/%s-logo.png' % character_class) }}" style="width:30px;height:30px;vertical-align:middle;"/>
-              <span class="individual-character-level">{{ team_properties.teamProperties.CharacterLevelsProperty.levels[character_class.upper()]|default(0) }}</span>
+    <div class="vertically-enscrolled">
+      <div id="character-displays">
+        {% for character_class in ['fighter','wizard','cleric','linguist','chemist','economist'] if character_class in visible_puzzle_ids %}
+          <a href="{{ url_for('round', round_id = character_class) }}">
+            <div id="character-{{ character_class }}" class="individual-character">
+              <div class="individual-character-class">The {{ character_class|capitalize }}</div>
+              <img src="{{ url_for('static', filename='PNG-export/characters/%s-ring.png' % character_class) }}"/>
+              <div class="individual-character-status-container">
+                <img src="{{ url_for('static', filename='PNG-export/characters/%s-logo.png' % character_class) }}"/>
+                <span class="individual-character-level">{{ team_properties.teamProperties.CharacterLevelsProperty.levels[character_class.upper()]|default(0) }}</span>
+              </div>
             </div>
-          </div>
-        </a>
-      {% endfor %}
-    </div>
-
-    <div id="inventory-gold-display">
-      <div class="individual-inventory-gold">
-        <a href="{{ url_for('inventory') }}">
-          <img src="{{ url_for('static', filename='PNG-export/icons/chest.png') }}" style="width:50px;height:50px;vertical-align:middle;"/>
-          {% if puzzle_visibilities.get('merchants',{}).get('status','') == 'SOLVED' %}
-            6/6
-          {% else %}
-            {{ team_properties.get('teamProperties',{}).get('InventoryProperty',{}).get('inventoryItems',[])|length if team_properties else 'NA' }}/40
-          {% endif %}
-        </a>
+          </a>
+        {% endfor %}
       </div>
-      <div class="individual-inventory-gold">
-        <img src="{{ url_for('static', filename='PNG-export/icons/coin.png') }}" style="width:50px;height:50px;vertical-align:middle;"/>&nbsp;{{ team_properties.get('teamProperties',{}).get('GoldProperty',{}).get('gold',0) if team_properties else 'NA'}}
+
+      <div id="inventory-gold-display">
+          <div class="individual-inventory-gold">
+            <a href="{{ url_for('inventory') }}">
+              <img src="{{ url_for('static', filename='PNG-export/icons/chest.png') }}" style="width:50px;height:50px;vertical-align:middle;"/>
+              {% if puzzle_visibilities.get('merchants',{}).get('status','') == 'SOLVED' %}
+                6/6
+              {% else %}
+                {{ team_properties.get('teamProperties',{}).get('InventoryProperty',{}).get('inventoryItems',[])|length if team_properties else 'NA' }}/40
+              {% endif %}
+            </a>
+          </div>
+          <div class="individual-inventory-gold">
+            <img src="{{ url_for('static', filename='PNG-export/icons/coin.png') }}" style="width:50px;height:50px;vertical-align:middle;"/>&nbsp;{{ team_properties.get('teamProperties',{}).get('GoldProperty',{}).get('gold',0) if team_properties else 'NA'}}
+          </div>
       </div>
     </div>
   </div>
@@ -94,22 +96,24 @@
         <div class="horizontal-enscrolled-text">Events</div>
       </div><div class="horizontal-enscrolled-right"></div>
     </div>
-    <div class="event-entry">
-      <div class="event-name">Event the First</div>
-      <div class="event-time">Friday 6pm</div>
-      <div class="event-description">XXXXXXX XXXXXX XXXXX XXXXXXXXX XXXXXX XXXXX</div>
-    </div>
-    <div class="event-entry">
-      <div class="event-name">Event the Second</div>
-      <div class="event-time">Friday 10pm</div>
-    </div>
-    <div class="event-entry">
-      <div class="event-name">Event the Third</div>
-      <div class="event-time">Saturday 10am</div>
-    </div>
-    <div class="event-entry">
-      <div class="event-name">Event the Fourth</div>
-      <div class="event-time">Saturday 2pm</div>
+    <div class="vertically-enscrolled">
+      <div class="event-entry">
+        <div class="event-name">Event the First</div>
+        <div class="event-time">Friday 6pm</div>
+        <div class="event-description">XXXXXXX XXXXXX XXXXX XXXXXXXXX XXXXXX XXXXX</div>
+      </div>
+      <div class="event-entry">
+        <div class="event-name">Event the Second</div>
+        <div class="event-time">Friday 10pm</div>
+      </div>
+      <div class="event-entry">
+        <div class="event-name">Event the Third</div>
+        <div class="event-time">Saturday 10am</div>
+      </div>
+      <div class="event-entry">
+        <div class="event-name">Event the Fourth</div>
+        <div class="event-time">Saturday 2pm</div>
+      </div>
     </div>
   </div>
 

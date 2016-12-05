@@ -20,7 +20,7 @@
             <div id="header-status-{{ character_class }}" class="individual-header-status caption-control">
                 <img src="{{ url_for('static', filename='PNG-export/characters/%s-logo.png' % character_class) }}" style="width:30px;height:30px;vertical-align:middle;"/>
                 <span class="individual-header-status-level">{{ team_properties.teamProperties.CharacterLevelsProperty.levels[character_class.upper()]|default(0) }}</span>
-                <div class="caption">{{ character_class|capitalize }}</div>
+                <div class="caption">The {{ character_class|capitalize }}</div>
             </div>
           </a>
         {% endfor %}
