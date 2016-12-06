@@ -1,7 +1,5 @@
-console.log('script tag');
-
-$(document).ready(function() {
-  $('a#header-inventory-control').click(function() {
-    $('#header-inventory-grid').toggle();
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip({
+    template: '<div class="tooltip"><div class="tooltip-inner"></div></div>'
   });
-});
+})

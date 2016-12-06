@@ -194,20 +194,18 @@ body {
 
 /* Inventory Grid */
 
-#header-inventory {
-  position: relative;
+#header-inventory-grid .modal-content {
+  width: 570px;
+  text-align: center;
 }
 
-#header-inventory-grid {
-  position: absolute;
-  color: black;
-  left: 0;
-  top: 40px;
-  z-index: 1000;
+#header-inventory-grid .modal-header {
+  border-bottom: none;
 }
 
 #header-inventory-grid table {
   border-collapse: collapse;
+  margin: auto auto;
 }
 
 #header-inventory-grid td {
@@ -275,34 +273,13 @@ body {
 
 /* Captions */
 
-.caption-control {
-  position: relative;
-}
-
-.caption {
-  display: none;
-}
-
-.caption-control:hover .caption {
-  display: block;
-}
-
-.caption-control .caption {
-  text-align: initial;
-  position: absolute;
-  top: 80%;
-  left: 80%;
-  z-index: 3000;
-  padding: 3px 3px;
-  border: 2px solid black;
+.tooltip-inner {
+  height: auto !important;
   background-color: #D1B780;
-  min-width: initial;
-  min-height: initial;
-  width: auto;
-  height: auto;
-  white-space: nowrap;
+  color: black;
+  font-size: 16px;
+  font-family: 'Lora', serif;
 }
-
 
 /* Other */
 

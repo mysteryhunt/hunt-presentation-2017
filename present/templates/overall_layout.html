@@ -6,45 +6,57 @@
     <title>{% block title_block %}{% endblock %}</title>
     <script src="https://use.fontawesome.com/7e30e2e185.js"></script>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='bootstrap.min.js') }}"></script>
     <script src="{{ url_for('static', filename='hunt.js') }}"></script>
     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='hunt.css') }}">
     {% block styling_block %}{% endblock %}
   </head>
   <body>
+    <div id="header-inventory-grid" class="modal fade" role="dialog" aria-labelledby="inventoryModal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="small-horizontal-scroll">
+              Inventory
+            </div>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            {{ inventory.inventory_grid(inventory_complete, (team_properties.get('teamProperties',{}).get('InventoryProperty',{})) if team_properties else {}) }}
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
     <div id="overall-layout-header">
       <div id="header-index-link"><a href="{{ url_for('index') }}">World Map</a></div>
       <div id="header-statuses">
         {% for character_class in ['fighter','wizard','cleric','linguist','chemist','economist'] if character_class in visible_puzzle_ids %}
           <a href="{{ url_for('round', round_id = character_class) }}">
-            <div id="header-status-{{ character_class }}" class="individual-header-status caption-control">
+            <div id="header-status-{{ character_class }}" class="individual-header-status" data-toggle="tooltip" data-placement="bottom" title="{{ character_class|capitalize }}">
                 <img src="{{ url_for('static', filename='PNG-export/characters/%s-logo.png' % character_class) }}" style="width:30px;height:30px;vertical-align:middle;"/>
                 <span class="individual-header-status-level">{{ team_properties.teamProperties.CharacterLevelsProperty.levels[character_class.upper()]|default(0) }}</span>
-                <div class="caption">The {{ character_class|capitalize }}</div>
             </div>
           </a>
         {% endfor %}
       
-        <div id="header-inventory">
+        <div id="header-inventory" data-toggle="modal" data-target="#header-inventory-grid">
           {% set inventory_complete = (puzzle_visibilities.get('merchants',{}).get('status','') == 'SOLVED') %}
-          <a href="#" id="header-inventory-control">
-            <div id="header-inventory-status" class="caption-control">
+          <a href="#" id="header-inventory-control" data-toggle="tooltip" data-placement="bottom" title="Inventory">
+            <div id="header-inventory-status">
               <img src="{{ url_for('static', filename='PNG-export/icons/chest.png') }}" style="width:30px;height:30px;vertical-align:middle;padding-right:3px;"/>
               {%- if inventory_complete -%}
                 6/6
               {%- else -%}
                 {{ team_properties.get('teamProperties',{}).get('InventoryProperty',{}).get('inventoryItems',[])|length if team_properties else 'NA' }}/40
               {%- endif -%}
-              <div class="caption">Inventory</div>
             </div>
           </a>
-          <div id="header-inventory-grid" style="display:none;">
-            {{ inventory.inventory_grid(inventory_complete,
-  (team_properties.get('teamProperties',{}).get('InventoryProperty',{})) if team_properties else {}) }}
-          </div>
         </div>
-        <div id="header-gold" class="caption-control"><img src="{{ url_for('static', filename='PNG-export/icons/coin.png') }}" style="width:30px;height:30px;vertical-align:middle;"/>&nbsp;{{ team_properties.get('teamProperties',{}).get('GoldProperty',{}).get('gold',0) if team_properties else 'NA'}}
-          <div class="caption">Gold</div>
+        <div id="header-gold" data-toggle="tooltip" data-placement="bottom" title="Gold"><img src="{{ url_for('static', filename='PNG-export/icons/coin.png') }}" style="width:30px;height:30px;vertical-align:middle;"/>&nbsp;{{ team_properties.get('teamProperties',{}).get('GoldProperty',{}).get('gold',0) if team_properties else 'NA'}}
         </div>
       </div>
 

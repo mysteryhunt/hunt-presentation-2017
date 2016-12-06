@@ -36,9 +36,8 @@
       {% set link_puzzle_id = puzzle_properties.get(puzzle_id,{}).get('puzzleProperties',{}).get('DisplayIdProperty',{}).get('displayId',puzzle_id) %}
       {% if puzzle_visibilities.get(puzzle_id, {}).get('status','') == 'SOLVED' or puzzle_visibilities.get(puzzle_id, {}).get('status','') == 'UNLOCKED' %}
         <a href="{{ url_for(puzzle_link_action, puzzle_id = link_puzzle_id) }}">
-          <div class="cube-puzzle-link caption-control" style="top:{{ 1+50*y }}px; left:{{ 1+50*x }}px;">
+          <div class="cube-puzzle-link" style="top:{{ 1+50*y }}px; left:{{ 1+50*x }}px;" data-toggle="tooltip" data-placement="bottom" title="{{ puzzle_properties.get(puzzle_id).puzzleProperties.DisplayNameProperty.displayName }}">
             *
-            <div class="caption">{{ puzzle_properties.get(puzzle_id).puzzleProperties.DisplayNameProperty.displayName }}</div>
           </div>
         </a>
       {% else %}
