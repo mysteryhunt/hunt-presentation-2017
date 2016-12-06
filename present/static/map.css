@@ -3,7 +3,7 @@ body {
 }
 
 #main-page-content {
-  width: 100%;
+  width: 1200px;
   margin: 0px auto;
 
   display: flex;
@@ -50,31 +50,42 @@ body {
   z-index: 100;
 }
 
+#total-character-level {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
 #character-displays {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
+  font-size: 16px;
 }
 
 .individual-character {
-  max-width: 120px;
-  margin-bottom: 10px;
+  width: 120px;
+  height: 120px;
+  margin-bottom: 20px;
+  position:relative;
 }
 
 .individual-character > img {
-  width: 90%;
-  z-index: 20;
-  position: relative;
+  width: 100px;
+  z-index: 10;
+  position: absolute;
+  left: 10px;
+  top: 20px;
 }
 
 .individual-character-status-container {
   height: 40px;
   line-height: 40px;
-  z-index: 10;
-  position: relative;
-  font-size: 18px;
+  z-index: 20;
+  position: absolute;
   white-space: nowrap;
-  margin-top: -15px;
+  top: 90px;
+  left: 65px;
+  font-size: 24px;
 }
 
 .individual-character-status-container img {
@@ -98,10 +109,11 @@ body {
 
 .event-entry {
   margin-top: 15px;
+  font-size: 16px;
 }
 
 .event-name, .event-time {
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .individual-quest img {

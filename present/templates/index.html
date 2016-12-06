@@ -6,6 +6,7 @@
 
 {% block overall_layout_body %}
 <div id="main-page-content">
+
   <div id="characters">
     <div id="character-header">
       <div class="small-horizontal-scroll">
@@ -13,6 +14,7 @@
       </div>
     </div>
     <div class="vertically-enscrolled">
+      <div id="total-character-level">Total: 14</div>
       <div id="character-displays">
         {% for character_class in ['fighter','wizard','cleric','linguist','chemist','economist'] if character_class in visible_puzzle_ids %}
           <a href="{{ url_for('round', round_id = character_class) }}">
@@ -45,7 +47,7 @@
       </div>
     </div>
   </div>
-
+    
   <div id="world-map-container">
     <div id="world-map-header" class="small-horizontal-scroll">
       <div class="horizontal-enscrolled-left"></div><div class="horizontal-enscrolled-middle">
@@ -116,6 +118,6 @@
       </div>
     </div>
   </div>
-
+    
 </div>
 {% endblock %}
