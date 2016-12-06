@@ -1,0 +1,231 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_round_id = 'thespians' %}
+{% block title_block %}Changing Rooms{% endblock %}
+{% block puzzle_name_block %}Changing Rooms{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    table.g {
+      border-collapse: collapse;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    table.g td {
+      box-sizing: border-box;
+      padding: 0.1em;
+      width: 2rem;
+      height: 2rem;
+    }
+    table.g td.c {
+      text-align: center;
+    }
+    table.g td.i {
+      border: 1px solid black;
+      font-size: 0.75em;
+      vertical-align: top;
+    }
+    table.g td.t {
+      border-top: 2px solid black;
+    }
+    table.g td.b {
+      border-bottom: 2px solid black;
+    }
+    table.g td.l {
+      border-left: 2px solid black;
+    }
+    table.g td.r {
+      border-right: 2px solid black;
+    }
+    p.i {
+      font-style: italic;
+    }
+  </style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+  The backstage area is partitioned into several changing rooms. From all the
+  extra stuff you find there, it is clear they are used for other purposes as
+  well.
+{% endblock %}
+
+{% block puzzle_content_block %}
+  <div>
+    <table class="g">
+      <tr>
+        <td class="c">A</td>
+        <td class="i t l"></td>
+        <td class="i t">1</td>
+        <td class="i t"></td>
+        <td class="i t"></td>
+        <td class="i t"></td>
+        <td class="i t"></td>
+        <td class="i t"></td>
+        <td class="i t"></td>
+        <td class="i t"></td>
+        <td class="i t r"></td>
+      </tr>
+      <tr>
+        <td class="c">B</td>
+        <td class="i l"></td>
+        <td class="i">2</td>
+        <td class="i"></td>
+        <td class="i"></td>
+        <td class="i"></td>
+        <td class="i"></td>
+        <td class="i"></td>
+        <td class="i"></td>
+        <td class="i"></td>
+        <td class="i r"></td>
+      </tr>
+      <tr>
+        <td class="c">C</td>
+        <td class="i l"></td>
+        <td class="i"></td>
+        <td class="i"></td>
+        <td class="i"></td>
+        <td class="i"></td>
+        <td class="i"></td>
+        <td class="i">3</td>
+        <td class="i"></td>
+        <td class="i"></td>
+        <td class="i r"></td>
+      </tr>
+      <tr>
+        <td class="c">D</td>
+        <td class="i l"></td>
+        <td class="i"></td>
+        <td class="i"></td>
+        <td class="i"></td>
+        <td class="i"></td>
+        <td class="i"></td>
+        <td class="i"></td>
+        <td class="i"></td>
+        <td class="i"></td>
+        <td class="i r"></td>
+      </tr>
+      <tr>
+        <td class="c">E</td>
+        <td class="i l">4</td>
+        <td class="i"></td>
+        <td class="i"></td>
+        <td class="i"></td>
+        <td class="i"></td>
+        <td class="i">5</td>
+        <td class="i"></td>
+        <td class="i"></td>
+        <td class="i"></td>
+        <td class="i r"></td>
+      </tr>
+      <tr>
+        <td class="c">F</td>
+        <td class="i l"></td>
+        <td class="i"></td>
+        <td class="i"></td>
+        <td class="i"></td>
+        <td class="i"></td>
+        <td class="i"></td>
+        <td class="i"></td>
+        <td class="i"></td>
+        <td class="i">6</td>
+        <td class="i r"></td>
+      </tr>
+      <tr>
+        <td class="c">G</td>
+        <td class="i l"></td>
+        <td class="i"></td>
+        <td class="i"></td>
+        <td class="i"></td>
+        <td class="i"></td>
+        <td class="i"></td>
+        <td class="i"></td>
+        <td class="i"></td>
+        <td class="i"></td>
+        <td class="i r"></td>
+      </tr>
+      <tr>
+        <td class="c">H</td>
+        <td class="i l"></td>
+        <td class="i"></td>
+        <td class="i"></td>
+        <td class="i"></td>
+        <td class="i"></td>
+        <td class="i"></td>
+        <td class="i"></td>
+        <td class="i">7</td>
+        <td class="i">8</td>
+        <td class="i r"></td>
+      </tr>
+      <tr>
+        <td class="c">I</td>
+        <td class="i l"></td>
+        <td class="i"></td>
+        <td class="i"></td>
+        <td class="i"></td>
+        <td class="i"></td>
+        <td class="i">9</td>
+        <td class="i"></td>
+        <td class="i"></td>
+        <td class="i"></td>
+        <td class="i r"></td>
+      </tr>
+      <tr>
+        <td class="c">J</td>
+        <td class="i b l"></td>
+        <td class="i b"></td>
+        <td class="i b"></td>
+        <td class="i b"></td>
+        <td class="i b"></td>
+        <td class="i b"></td>
+        <td class="i b"></td>
+        <td class="i b">10</td>
+        <td class="i b"></td>
+        <td class="i b r"></td>
+      </tr>
+    </table>
+    <p class="i">
+      Solve...
+    </p>
+    <h3>Rooms</h3>
+    <table>
+      <tr><td>1</td><td>Beaufort, Richter, and others taking request for beers from a barrel <i>(2 wds.)</i></td></tr>
+      <tr><td>2</td><td>Rake excited about Englishmen having certain organs pointing forward <i>(hyph.)</i></td></tr>
+      <tr><td>3</td><td>Before brewed drink, attempts making port</td></tr>
+      <tr><td>4</td><td>We begin heading to Liberia, opposing cold water near Bermuda <i>(2 wds.)</i></td></tr>
+      <tr><td>5</td><td>Old folks' residence's problem: excrement. It's all over the place <i>(2 wds.)</i></td></tr>
+      <tr><td>6</td><td>Opera's title character and general duck inside busted loo</td></tr>
+      <tr><td>7</td><td>Carries around support cords used by climbers <i>(2 wds.)</i></td></tr>
+      <tr><td>8</td><td>Encumbrances (broken seats, boxes) allowing a ranking, mostly in retrospect</td></tr>
+      <tr><td>9</td><td>Gorilla, rat all moved like a crane</td></tr>
+      <tr><td>10</td><td>Becomes anxious putting salt in peanut butter cups dipped in beer <i>(2 wds.)</i></td></tr>
+    </table>
+    <p class="i">
+      ...and then...
+    </p>
+    <h3>Rows</h3>
+    <table>
+      <tr><td>A</td><td>1</td><td>How this is entered by computer maker <i>(abbr.)</i></td></tr>
+      <tr><td></td><td>2</td><td>Animal doctorpursuing better-than-average chance for cow, in small part</td></tr>
+      <tr><td>B</td><td>1</td><td>Observe West Coast baseball team where Mariners can be found</td></tr>
+      <tr><td></td><td>2</td><td>Raves about Indian chef's top capers</td></tr>
+      <tr><td>C</td><td>1</td><td>Superman's lady originating with actress Cuoco <i>(hyph.)</i></td></tr>
+      <tr><td></td><td>2</td><td>Conflict with painting technique</td></tr>
+      <tr><td>D</td><td>1</td><td>Pause after the first property with a large house</td></tr>
+      <tr><td></td><td>2</td><td>Survey essential to Trump follower</td></tr>
+      <tr><td>E</td><td>1</td><td>Put down with cliché</td></tr>
+      <tr><td></td><td>2</td><td>Our convertible parked next to the highway</td></tr>
+      <tr><td>F</td><td>1</td><td>I'm late coming back to lead, for example</td></tr>
+      <tr><td></td><td>2</td><td>"Not Found" describes rare old Internet server at 199.7.83.42 <i>(hyph.)</i></td></tr>
+      <tr><td>G</td><td>1</td><td>Roman emperor's error: being uneven</td></tr>
+      <tr><td></td><td>2</td><td>Copies Mid-West church parts</td></tr>
+      <tr><td>H</td><td>1</td><td>Sine waves having twenty zeroes</td></tr>
+      <tr><td></td><td>2</td><td>English rolls and Italian cheeses reduced by one calorie</td></tr>
+      <tr><td>I</td><td>1</td><td>Some orders at Starbucks counter: trio of lattes (last one missing)</td></tr>
+      <tr><td></td><td>2</td><td>Clark, gay blade, taking out ad</td></tr>
+      <tr><td>J</td><td>1</td><td>Policeman and member of parliament scrap with bear</td></tr>
+      <tr><td></td><td>2</td><td>Bering or Magellan rest uneasily <i>(abbr.)</i></td></tr>
+    </table>
+    <p class="i">
+      ...and solve that.
+    </p>
+  </div>
+{% endblock %}

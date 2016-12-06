@@ -1,0 +1,265 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'thespians' %}
+{% block title_block %}Changing Rooms: Solutoin{% endblock %}
+{% block puzzle_name_block %}Changing Rooms: Solution{% endblock %}
+{% block byline %}By Roger Barkan{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    table.g {
+      border-collapse: collapse;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    table.g td {
+      box-sizing: border-box;
+      padding: 0.1em;
+      width: 2rem;
+      height: 2rem;
+      text-align: center;
+      font-weight: bold;
+    }
+    table.g td.t {
+      border-top: 3px solid black;
+    }
+    table.g td.b {
+      border-bottom: 3px solid black;
+    }
+    table.g td.l {
+      border-left: 3px solid black;
+    }
+    table.g td.r {
+      border-right: 3px solid black;
+    }
+    table.g td.h {
+      color: red;
+    }
+    table.g td.y {
+      background-color: #ffffa0;
+      box-shadow: inset 0 0 0 1000px #ffffa0;
+    }
+    table.x th {
+      text-align: left;
+    }
+    table.x td {
+      padding-right: 3em;
+    }
+    span.r {
+      color: red;
+    }
+  </style>
+{% endblock %}
+
+{% block solution_content_block %}
+  <div>
+    <table class="g">
+      <tr>
+        <td class="t l y">A</td>
+        <td class="t b r y">C</td>
+        <td class="t l y">R</td>
+        <td class="t b h y">B</td>
+        <td class="t b y">R</td>
+        <td class="t b h y">I</td>
+        <td class="t b">S</td>
+        <td class="t b r">K</td>
+        <td class="t b l">E</td>
+        <td class="t r">T</td>
+      </tr>
+      <tr>
+        <td class="l r h y">S</td>
+        <td class="t l b">E</td>
+        <td class="b r">A</td>
+        <td class="l t r">S</td>
+        <td class="l t">A</td>
+        <td class="b t">N</td>
+        <td class="b t">T</td>
+        <td class="b t">I</td>
+        <td class="b t r">C</td>
+        <td class="l r h">S</td>
+      </tr>
+      <tr>
+        <td class="l b y">K</td>
+        <td class="t b">A</td>
+        <td class="t b h">L</td>
+        <td class="b r">E</td>
+        <td class="l r">L</td>
+        <td class="l t r">S</td>
+        <td class="l t b h y">T</td>
+        <td class="t b y">R</td>
+        <td class="t b y">I</td>
+        <td class="b r y">E</td>
+      </tr>
+      <tr>
+        <td class="l t y">E</td>
+        <td class="t b y">S</td>
+        <td class="t b y">T</td>
+        <td class="t b y">A</td>
+        <td class="b r h">T</td>
+        <td class="l b y">E</td>
+        <td class="t r y">P</td>
+        <td class="t l b">O</td>
+        <td class="t b h">L</td>
+        <td class="t r y">L</td>
+      </tr>
+      <tr>
+        <td class="l b r h">W</td>
+        <td class="l t y">R</td>
+        <td class="b t h">I</td>
+        <td class="b t">T</td>
+        <td class="b t">E</td>
+        <td class="b t r">R</td>
+        <td class="l r y">O</td>
+        <td class="l t">U</td>
+        <td class="t r b">T</td>
+        <td class="l r y">E</td>
+      </tr>
+      <tr>
+        <td class="l t y">M</td>
+        <td class="b r y">E</td>
+        <td class="l t y">T</td>
+        <td class="b t y">A</td>
+        <td class="b t y">L</td>
+        <td class="t r y">L</td>
+        <td class="l r h y">R</td>
+        <td class="l r">O</td>
+        <td class="t l b h y">O</td>
+        <td class="b r y">T</td>
+      </tr>
+      <tr>
+        <td class="l r y">E</td>
+        <td class="l t h">R</td>
+        <td class="b r">O</td>
+        <td class="t l b">S</td>
+        <td class="t r h">E</td>
+        <td class="l r">A</td>
+        <td class="l r">P</td>
+        <td class="l b">S</td>
+        <td class="t b">E</td>
+        <td class="t r y">S</td>
+      </tr>
+      <tr>
+        <td class="l r">N</td>
+        <td class="l r">I</td>
+        <td class="t l b">X</td>
+        <td class="t r">E</td>
+        <td class="l r">S</td>
+        <td class="l r">R</td>
+        <td class="l b">O</td>
+        <td class="t r b h">T</td>
+        <td class="l t r">A</td>
+        <td class="l r h y">S</td>
+      </tr>
+      <tr>
+        <td class="l r">T</td>
+        <td class="l b h">A</td>
+        <td class="t r b">L</td>
+        <td class="l r h">L</td>
+        <td class="l r">S</td>
+        <td class="l b r">G</td>
+        <td class="l t y">A</td>
+        <td class="b t y">B</td>
+        <td class="b r y">L</td>
+        <td class="l r y">E</td>
+      </tr>
+      <tr>
+        <td class="b l">C</td>
+        <td class="b t">O</td>
+        <td class="b t">M</td>
+        <td class="b r">P</td>
+        <td class="l b">O</td>
+        <td class="b t h">R</td>
+        <td class="b r y">T</td>
+        <td class="t l b h">S</td>
+        <td class="t b">T</td>
+        <td class="b r y">R</td>
+      </tr>
+    </table>
+    <p>
+      This puzzle begins as a diagramless cryptic Some Assembly Required. The
+      answers to the Row clues are entered into the corresponding rows, one
+      after another in the order given. The grid can be partitioned into ten
+      rooms which answer the Rooms clues, as shown above.
+    </p>
+    <p>
+      In addition, each clue provides an extra letter in the wordplay portion of
+      the clue. The extra letters in the Rooms clues spell STAR BATTLE. It turns
+      out that the partitioned grid can be solved as a two-star Star Battle
+      logic puzzle (place two stars in every row, column, and region without the
+      stars touching, even diagonally). The unique solution is shown by the red
+      letters above.
+    </p>
+    <p>
+      The extra letters in the Rows clues spell EVERY FIFTH IS NEXT
+      TYPE. Reading every fifth star from the Star Battle spells LITS. LITS is
+      also the name of a logic puzzle, which involves shading a tetromino in
+      each region to form a connected group, without allowing two tetrominoes of
+      the same shape to touch or a 2x2 square to be fully shaded. It turns out
+      the partitioned grid can also be solved uniquely as a LITS puzzle; the
+      result is shown in the shading above. Reading the letters that correspond
+      to places where the LITS tetrominoes overlap the stars
+      spells <b>BISTROS</b>, the final answer.
+    </p>
+    <p>
+      Clue explanations:<br>
+      The extra letter in each answer is marked in red.<br>
+      * indicates anagram; {r} indicates reversal; (x) indicates container; [x] indicates deletion.
+    </p>
+    <table class="x">
+      <tr>
+        <th>Rooms</th>
+        <th>Rows</th>
+        <th></th>
+      </tr>
+      <tr>
+        <td>1 <span class="r">S</span>C(ASK)ALES</td>
+        <td>A1 AC<span class="r">E</span>R (2 defs.)</td>
+        <td>F1 <span class="r">I</span>M + ETAL{r}</td>
+      </tr>
+      <tr>
+        <td>2 EAR(BRI<span class="r">T</span>S)K*</td>
+        <td>A2 B + RISK + <span class="r">V</span>ET</td>
+        <td>F2 L(RO)O<span class="r">S</span>T</td>
+      </tr>
+      <tr>
+        <td>3 TRIES + TE<span class="r">A</span></td>
+        <td>B1 S<span class="r">E</span>E + AS</td>
+        <td>G1 <span class="r">N</span>EROS + E</td>
+      </tr>
+      <tr>
+        <td>4 WE + STA<span class="r">R</span>T + L + ANTI + C</td>
+        <td>B2 <span class="r">R</span>ANT(I + C)S</td>
+        <td>G2 AP<span class="r">E</span>S + ES</td>
+      </tr>
+      <tr>
+        <td>5 RETIREMENT COMPLEX<span class="r">B</span>*</td>
+        <td>C1 KALE<span class="r">Y</span> + L</td>
+        <td>H1 NI(X<span class="r">X</span>)ES*</td>
+      </tr>
+      <tr>
+        <td>6 O(TE<span class="r">A</span>L)LO*</td>
+        <td>C2 STRI<span class="r">F</span>E (2 defs.)</td>
+        <td>H2 R[I + C]OT<span class="r">T</span>AS</td>
+      </tr>
+      <tr>
+        <td>7 TO<span class="r">T</span>(P ROP)ES</td>
+        <td>D1 [H]ES<span class="r">I</span>TATE</td>
+        <td>I1 TAL{r} + L[A]S<span class="r">T</span></td>
+      </tr>
+      <tr>
+        <td>8 A([E]LBATROS{r})SES<span class="r">T</span>*</td>
+        <td>D2 P<span class="r">F</span>OLL (hidden)</td>
+        <td>I2 GA<span class="r">Y</span> + BL[AD]E</td>
+      </tr>
+      <tr>
+        <td>9 GRALLATORIAL<span class="r">L</span>*</td>
+        <td>E1 W + <span class="r">T</span>RITE</td>
+        <td>J1 CO<span class="r">P</span> + MP + ORT</td>
+      </tr>
+      <tr>
+        <td>10 ST(RE<span class="r">E</span>S(S)ES)OUT</td>
+        <td>E2 ROU* + T<span class="r">H</span>E</td>
+        <td>J2 STR<span class="r">E</span>*</td>
+      </tr>
+    </table>
+  </div>
+{% endblock %}
