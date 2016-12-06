@@ -17,13 +17,10 @@ img#character-image {
 }
 
 #character-level-container {
-  width: 150px;
-  height: 85px;
+  padding-left: 20px;
+  padding-right: 20px;
   text-align: center;
-  line-height: 80px;
-  font-size: 32px;
-  color: black;
-  vertical-align: bottom;
+  line-height: 75px;
 }
 
 #character-level-container img {

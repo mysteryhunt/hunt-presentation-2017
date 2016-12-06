@@ -42,8 +42,8 @@
       </div>
     </div>
     <div id="character-display">
-      <div id="character-level-container" class="fade-capsule">
-        <img src="{{ url_for('static', filename='PNG-export/characters/%s-logo.png' % round_id) }}" style="width:80px;height:80px;"/>
+      <div id="character-level-container" class="standard-horizontal-scroll">
+        <img src="{{ url_for('static', filename='PNG-export/characters/%s-logo.png' % round_id) }}" style="width:50px;height:50px;"/>
         <span id="character-level-value">
           {{ team_properties.teamProperties.CharacterLevelsProperty.levels.get(round_id.upper(), 0) if team_properties else 'NA' }}
         </span>
