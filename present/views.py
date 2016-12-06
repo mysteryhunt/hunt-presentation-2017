@@ -1,6 +1,6 @@
 from present import app
 
-from common import cube, login_required, s3
+from common import cube, login_required, metrics, s3
 from flask import abort, redirect, render_template, request, send_from_directory, session, url_for
 
 import os
@@ -42,6 +42,7 @@ def utility_processor():
 
 @app.route("/")
 @login_required.solvingteam
+@metrics.time(app, "present.index")
 def index():
     puzzle_visibilities = cube.get_puzzle_visibilities(app)
     puzzle_visibilities = {visibility.get('puzzleId'): visibility for visibility in puzzle_visibilities}
@@ -59,6 +60,7 @@ def index():
 
 @app.route("/round/<round_id>")
 @login_required.solvingteam
+@metrics.time(app, "present.round")
 def round(round_id):
     if not cube.is_puzzle_unlocked(app, round_id):
         abort(403)
@@ -81,6 +83,7 @@ def round(round_id):
 
 @app.route("/puzzle/<puzzle_id>")
 @login_required.solvingteam
+@metrics.time(app, "present.puzzle")
 def puzzle(puzzle_id):
     if not cube.is_puzzle_unlocked(app, puzzle_id):
         abort(403)
