@@ -145,6 +145,9 @@ body {
   #overall-layout-body {
     margin-top: 20px;
   }
+  #overall-layout-header {
+    display: flex;
+  }
 }
 
 @media print {
@@ -175,7 +178,6 @@ body {
   color: black;
   width: 100%;
   z-index: 5000;
-  display: flex;
   justify-content: space-between;
   flex-wrap: nowrap;
 }
