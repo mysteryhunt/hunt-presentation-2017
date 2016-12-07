@@ -194,9 +194,8 @@ body {
 
 /* Inventory Grid */
 
-#header-inventory-grid .modal-content {
+#header-inventory-grid .modal-dialog {
   width: 570px;
-  text-align: center;
   margin-top: 100px;
 }
 
