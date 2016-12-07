@@ -273,6 +273,10 @@ body {
 
 /* Captions */
 
+.tooltip {
+  height: auto !important;
+}
+
 .tooltip-inner {
   height: auto !important;
   background-color: #D1B780;
