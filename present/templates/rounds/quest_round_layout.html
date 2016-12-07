@@ -91,7 +91,8 @@
     </div>
   {% elif puzzle_visibilities.get(puzzle_id).status == 'VISIBLE' %}
     <div class="puzzle-entry">
-      <span class="puzzle-name"><span class="fa fa-key"></span>
+      <span><img src="{{ url_for('static', filename='PNG-export/icons/lock.png') }}" style="height:24px;vertical-align:bottom;"/></span>
+      <span class="puzzle-name">
         {% set unlock_requirement = single_character_unlock_requirement(puzzle_properties.get(puzzle_id).puzzleProperties) %}
         {% if unlock_requirement.character %}
           <span>Unlock at <span class="level-requirement"><img src="{{ url_for('static', filename='PNG-export/characters/%s-logo.png' % (unlock_requirement.character)|lower) }}" style="width:24px;height:24px;vertical-align:bottom;"/> {{ unlock_requirement.levels }}</span></span>
