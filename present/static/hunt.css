@@ -23,7 +23,8 @@ body {
   margin-bottom: 20px;
   padding: 0;
   background-color: navajowhite;
-  font-size: 16px;
+  font-size: 20px;
+  color: black;
   font-family: 'Lora', serif;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -33,7 +34,7 @@ body {
 .small-horizontal-scroll {
   display: inline-block;
   height: 60px;
-  font-size: 30px;
+  font-size: 28px;
   line-height: 60px;
   vertical-align: center;
   white-space: nowrap;
@@ -174,7 +175,6 @@ body {
   color: black;
   width: 100%;
   z-index: 5000;
-  font-size: 20px;
   display: flex;
   justify-content: space-between;
   flex-wrap: nowrap;
@@ -281,7 +281,7 @@ body {
   height: auto !important;
   background-color: #D1B780;
   color: black;
-  font-size: 16px;
+  font-size: 20px;
   font-family: 'Lora', serif;
 }
 

@@ -51,7 +51,6 @@ body {
 }
 
 #total-character-level {
-  font-size: 24px;
   margin-bottom: 10px;
 }
 
@@ -59,7 +58,6 @@ body {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
-  font-size: 16px;
 }
 
 .individual-character {
@@ -77,6 +75,10 @@ body {
   top: 20px;
 }
 
+.individual-character-class {
+  font-size: 16px;
+}
+
 .individual-character-status-container {
   height: 40px;
   line-height: 40px;
@@ -85,7 +87,6 @@ body {
   white-space: nowrap;
   top: 90px;
   left: 65px;
-  font-size: 24px;
 }
 
 .individual-character-status-container img {
@@ -97,7 +98,6 @@ body {
 #inventory-gold-display {
   display: flex;
   justify-content: center;
-  font-size: 24px;
 }
 
 .individual-inventory-gold {
