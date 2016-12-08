@@ -34,7 +34,7 @@
     <div id="overall-layout-header">
       <div id="header-index-link"><a href="{{ url_for('index') }}">World Map</a></div>
       <div id="header-statuses">
-        {% for character_class in ['fighter','wizard','cleric','linguist','chemist','economist'] if character_class in visible_puzzle_ids %}
+        {% for character_class in ['fighter','wizard','cleric','linguist','economist','chemist'] if character_class in visible_puzzle_ids %}
           <a href="{{ url_for('round', round_id = character_class) }}">
             <div id="header-status-{{ character_class }}" class="individual-header-status" data-toggle="tooltip" data-placement="bottom" title="{{ character_class|capitalize }}">
                 <img src="{{ url_for('static', filename='PNG-export/characters/%s-logo.png' % character_class) }}" style="width:30px;height:30px;vertical-align:middle;"/>
