@@ -51,12 +51,20 @@ def index():
     fog_number = len([map_item for map_item in \
         ['dynast','dungeon','thespians','bridge','criminal','minstrels','cube','warlord','rescue_the_linguist','rescue_the_chemist','rescue_the_economist','merchants','fortress']\
         if map_item in visible_puzzle_ids])
+    
+    total_level = sum([team_properties.get('teamProperties',{}).get('CharacterLevelsProperty',{}).get('levels',{}).get(character_class.upper(), 0) \
+      for character_class in ['fighter','wizard','cleric','linguist','chemist','economist'] \
+      if character_class in visible_puzzle_ids])
+    if total_level is None:
+      total_level = 0
+    
     return render_template(
         "index.html",
         visible_puzzle_ids=visible_puzzle_ids,
         team_properties=team_properties,
         fog_number=fog_number,
-        puzzle_visibilities=puzzle_visibilities)
+        puzzle_visibilities=puzzle_visibilities,
+        total_level=total_level)
 
 @app.route("/round/<round_id>")
 @login_required.solvingteam
