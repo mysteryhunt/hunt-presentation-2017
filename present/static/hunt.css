@@ -201,6 +201,10 @@ body {
   margin-top: 100px;
 }
 
+#header-inventory-grid .modal-content {
+  text-align: center;
+}
+
 #header-inventory-grid .modal-header {
   border-bottom: none;
 }
