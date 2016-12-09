@@ -18,13 +18,11 @@ body {
   #puzzle-container {
     margin: 20px auto;
     width: 900px;
+    min-width: 900px;
     border: 3px #665F4F solid;
+    background-color: white;
+    padding: 59px;
   }
-}
-
-#puzzle-container {
-  background-color: white;
-  padding: 20px 20px;
 }
 
 #flavortext {
@@ -33,7 +31,7 @@ body {
 }
 
 #puzzle-content {
-  margin-top: 20px;
+  margin-top: 40px;
 }
 
 span.puzzle-solution-label {
