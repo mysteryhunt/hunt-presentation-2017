@@ -50,11 +50,11 @@
     </div>
   {% elif round_id in ['fighter','wizard','cleric','linguist','chemist','economist'] %}
     <div id="reward">
-      <span>Reward: One Level of <img src="{{ url_for('static', filename='PNG-export/characters/%s-logo.png' % round_id) }}" style="width:30px;height:30px;vertical-align:middle;"/></span>
+      <span class="puzzle-reward-solution-label">Reward:</span> <span class="puzzle-reward-solution"><img src="{{ url_for('static', filename='PNG-export/characters/%s-logo.png' % round_id) }}" style="width:30px;height:30px;vertical-align:middle;"/> The {{ round_id|capitalize }} levels up!</span>
     </div>
   {% elif round_id in ['dynast','dungeon','thespians','bridge','criminal','minstrels','cube','warlord'] %}
     <div id="reward">
-      <span>Reward: <img src="{{ url_for('static', filename='PNG-export/icons/chest.png') }}" style="width:40px;height:40px;vertical-align:middle;"/> Item or <img src="{{ url_for('static', filename='PNG-export/icons/coin.png') }}" style="width:40px;height:40px;vertical-align:middle;"/> Gold</span>
+      <span>Reward: <img src="{{ url_for('static', filename='PNG-export/icons/chest.png') }}" style="width:40px;height:40px;vertical-align:middle;"/> Item or Gold!</span>
     </div>
   {% endif %}
 {% endmacro %}
@@ -77,10 +77,10 @@
     {% if puzzle_visibility and puzzle_visibility.status == 'SOLVED' %}
       <div id="answers">
         <img src="{{ url_for('static', filename='PNG-export/icons/completion-logo.png') }}" style="width:30px;height:30px;vertical-align:middle;"/>
-        <span class="puzzle-solution-label">
+        <span class="puzzle-reward-solution-label">
           Solved:
         </span>
-        <span class="puzzle-solution">
+        <span class="puzzle-reward-solution">
           {% for answer in puzzle_visibility.solvedAnswers %}
               {{ answer }}
           {% endfor %}

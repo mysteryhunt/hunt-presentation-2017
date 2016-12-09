@@ -52,6 +52,19 @@
     </div>
     <div id="puzzle-list">
       <div class="parchmented">
+        {% if puzzle_visibilities.get(round_id) and puzzle_visibilities.get(round_id).status == 'SOLVED' %}
+          <div id="answers">
+            <img src="{{ url_for('static', filename='PNG-export/icons/completion-logo.png') }}" style="width:30px;height:30px;vertical-align:middle;"/>
+            <span class="puzzle-reward-solution-label">
+              Solved:
+            </span>
+            <span class="puzzle-reward-solution">
+              {% for answer in puzzle_visibilities.get(round_id).solvedAnswers %}
+                  {{ answer }}
+              {% endfor %}
+            </span>
+          </div>
+        {% endif %}
         {% block puzzle_content %}{% endblock %}
         {% block round_puzzle_entries %}{% endblock %}
       </div>
