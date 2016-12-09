@@ -6,12 +6,13 @@ span.round_question {
   flex: 1 100px;
 }
 
-#header {
+.header {
   margin-bottom: 10px;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
   align-items: center;
+  min-height: 150px;
 }
 
 img.quest-scene {

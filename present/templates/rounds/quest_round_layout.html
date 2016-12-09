@@ -16,16 +16,13 @@
 
 {% block overall_layout_body %}
 <div id="round-container">
-  <div id="header">
-    <div class="quest-scene-container">
-      <img src="{{ url_for('static', filename='PNG-export/quests/%s-scene.png' % round_id) }}" class="quest-scene">
-    </div>
-    <div class="standard-horizontal-scroll">
-        {% block round_name %}{% endblock %}
-    </div>
-  </div>
   <div id="round-information">
     <div class="vertically-enscrolled">
+      <div class="header">
+        <div class="quest-scene-container">
+          <img src="{{ url_for('static', filename='PNG-export/quests/%s-scene.png' % round_id) }}" class="quest-scene">
+        </div>
+      </div>
       {% if puzzle_visibilities.get(round_id) and puzzle_visibilities.get(round_id).status == 'SOLVED' %}
         <div id="answers">
           <img src="{{ url_for('static', filename='PNG-export/icons/completion-logo.png') }}" style="width:30px;height:30px;vertical-align:middle;"/>
@@ -47,6 +44,11 @@
     </div>
   </div>
   <div id="puzzle-list">
+    <div class="header">
+      <div class="standard-horizontal-scroll">
+          {% block round_name %}{% endblock %}
+      </div>
+    </div>
     <div class="parchmented">
       {% block puzzle_content %}{% endblock %}
       {% block round_puzzle_entries %}{% endblock %}
