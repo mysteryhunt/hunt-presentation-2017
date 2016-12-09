@@ -35,17 +35,17 @@ body {
   display: inline-block;
   height: 60px;
   font-size: 28px;
-  line-height: 60px;
+  line-height: 55px;
   vertical-align: center;
   white-space: nowrap;
   font-family: 'Deutsche Uncialis', 'Georgia', serif;
   position: relative;
-  background-image: url('PNG-export/scroll/horizontal-left.png'), url('PNG-export/scroll/horizontal-right.png');
+  background-image: url('PNG-export/scroll/horizontal2-left.png'), url('PNG-export/scroll/horizontal2-right.png');
   background-position: left top, right top;
   background-repeat: no-repeat, no-repeat;
-  background-size: 20px 100%, 20px 100%;
-  padding-left: 10px;
-  padding-right: 10px;
+  background-size: 31px 100%, 31px 100%;
+  padding-left: 15px;
+  padding-right: 15px;
   z-index: 10;
 }
 
@@ -53,10 +53,10 @@ body {
   content: "";
   position: absolute;
   top: 0;
-  left: 20px;
-  width: calc(100% - 39px);
+  left: 31px;
+  width: calc(100% - 60px);
   height: 100%;
-  background-image: url('PNG-export/scroll/horizontal-middle.png');
+  background-image: url('PNG-export/scroll/horizontal2-middle.png');
   background-size: 100% 100%;
   z-index: -1;
 }
@@ -64,18 +64,18 @@ body {
 .standard-horizontal-scroll {
   display: inline-block;
   height: 80px;
-  line-height: 80px;
+  line-height: 74px;
   vertical-align: center;
   white-space: nowrap;
   font-size: 48px;
   font-family: 'Deutsche Uncialis', 'Georgia', serif;
   position: relative;
-  background-image: url('PNG-export/scroll/horizontal-left.png'), url('PNG-export/scroll/horizontal-right.png');
+  background-image: url('PNG-export/scroll/horizontal2-left.png'), url('PNG-export/scroll/horizontal2-right.png');
   background-position: left top, right top;
   background-repeat: no-repeat, no-repeat;
-  background-size: 20px 100%, 20px 100%;
-  padding-left: 10px;
-  padding-right: 10px;
+  background-size: 42px 100%, 42px 100%;
+  padding-left: 15px;
+  padding-right: 15px;
   z-index: 10;
 }
 
@@ -83,10 +83,10 @@ body {
   content: "";
   position: absolute;
   top: 0;
-  left: 20px;
-  width: calc(100% - 39px);
+  left: 42px;
+  width: calc(100% - 83px);
   height: 100%;
-  background-image: url('PNG-export/scroll/horizontal-middle.png');
+  background-image: url('PNG-export/scroll/horizontal2-middle.png');
   background-size: 100% 100%;
   z-index: -1;
 }
