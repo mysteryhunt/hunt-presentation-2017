@@ -8,27 +8,31 @@
     div.r {
       display: flex;
       align-items: center;
-      margin-left: 50px;
-      margin-right: 50px;
     }
     div.c {
       margin-left: 40px;
       margin-right: 40px;
       flex: 1 0;
     }
+    div.tc {
+      margin-left: 40px;
+      margin-right: 40px;
+    }
+    ul {
+      padding: 0;
+    }
     @media print {
       div.r {
         page-break-after: always;
-        margin-left: 0;
-        margin-right: 0;
       }
       div.c {
         margin-left: 10px;
         margin-right: 10px;
+        font-size: 0.8em;
       }
-    }
-    ul {
-      padding: 0;
+      ul {
+        padding: 10px;
+      }
     }
     table.g {
       border: 2px solid black;
@@ -83,7 +87,7 @@
           <li>Women’s clothing chain</li>
         </ul>
       </div>
-      <div class="c">
+      <div class="tc">
         <table class="g">
           <tr>
             <td class="b"></td>
@@ -243,7 +247,7 @@
       </div>
     </div>
     <div class="r">
-      <div class="c">
+      <div class="tc">
         <table class="g">
           <tr>
             <td class="b"></td>
