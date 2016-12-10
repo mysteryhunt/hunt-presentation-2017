@@ -1,0 +1,203 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_round_id = 'bridge' %}
+{% block title_block %}Advisor's Nightmare{% endblock %}
+{% block puzzle_name_block %}Advisor's Nightmare{% endblock %}
+
+{% block puzzle_flavortext_block %}
+  Unfortunately, the engineers who might be able to repair the bridge are still
+  struggling to complete their degrees.
+{% endblock %}
+
+{% block puzzle_content_block %}
+  <div>
+    <hr>
+    <p>
+      The Malevolent Institute of Torment's academic year consists of three
+      trimesters: fall, then winter, then spring. Trimesters are considered
+      "consecutive" if one is immediately after the other (this includes a
+      spring trimester and the following fall trimester).
+    </p>
+    <p>
+      All courses meet for a one-hour period on Mondays, Wednesdays, and
+      Fridays. Students may take at most three courses in any trimester and may
+      not take two different courses scheduled at the same time.
+    </p>
+    <p>
+      All courses are offered every year and in every trimester, apart from
+      restrictions listed in the course description. (For example, if a course
+      description says the course is never offered in the Spring, that course is
+      offered every Fall and every Winter.) Course schedules for each trimester
+      are listed below the course descriptions.
+    </p>
+    <p>
+      In the catalog below, DisCode is short for Disclaimer Code. TypNum is
+      short for Typical Enrollment Renewal Number After Registration
+      Year. (These were the best abbreviations that the registrar could come up
+      with.)
+    </p>
+    <p>
+      Students who wish to receive a degree in Modern Enigmatology need to earn
+      credit in all 35 Modern Enigmatology courses within a period of four
+      years. Good luck with that.
+    </p>
+    <hr>
+    <h2>Course Catalog:</h2>
+    <p><b>ENGM 102: British Cryptics And Other Forms Of Masochism</b><br>Instructor: Professor Kosman<br>DisCode: C<br>TypNum: 0<br><ul><li>Offered exclusively in the Fall<li>This course and ENGM 115 need to be taken in consecutive trimesters (in either order)</ul></p>
+    <p><b>ENGM 115: Cryptic Clue-Writing Ground Pork Show (8)</b><br>Instructor: Professor Picciotto<br>DisCode: O<br>TypNum: 0<br><ul><li>May not be taken in the same trimester as ENGM 265</ul></p>
+    <p><b>ENGM 128: Tempting Teasers That Seize The Solver's Soul</b><br>Instructor: Professor Stopheles<br>DisCode: U<br>TypNum: 0<br><ul><li>Never offered in the Spring</ul></p>
+    <p><b>ENGM 145: Writing A Reasonably Sized Mystery Hunt</b><br>Instructor: Professor Welltested<br>DisCode: R<br>TypNum: 1<br><ul><li>Never offered in the Spring<li>May only be taken by students who have already earned credit in ENGM 397<li>It is impossible to pass this course on the first attempt, so students need to take it twice (in two separate semesters) to earn credit</ul></p>
+    <p><b>ENGM 156: Team Name Selection - Character Limit Schmaracter Limit</b><br>Instructor: Professor Rhode<br>DisCode: S<br>TypNum: 1<br><ul><li>This course and ENGM 512 need to be taken in consecutive trimesters (in either order)</ul></p>
+    <p><b>ENGM 176: How To Solve Any Puzzle You Encounter Ridiculously Quickly</b><br>Instructor: Professor Jangler<br>DisCode: E<br>TypNum: 0<br><ul><li>Needs to be taken the trimester immediately after ENGM 438</ul></p>
+    <p><b>ENGM 180: Enigmatic Botany - Tending Your Rows Garden</b><br>Instructor: Professor Pahk<br>DisCode: T<br>TypNum: 0<br><ul><li>May only be taken by students who have already earned credit in ENGM 234</ul></p>
+    <p><b>ENGM 199: Basic Cruciverbalism - Making The Grid First</b><br>Instructor: Professor Blindauer<br>DisCode: I<br>TypNum: 1<br><ul><li>Offered exclusively in the Fall<li>May only be taken by students who have already earned credit in ENGM 344</ul></p>
+    <p><b>ENGM 205: Delicately Balanced Trivia</b><br>Instructor: Professor Jennings<br>DisCode: T<br>TypNum: 2<br><ul><li>Never offered in the Fall<li>This course and ENGM 128 need to be taken during the same trimester</ul></p>
+    <p><b>ENGM 234: Underwater Spellweaving</b><br>Instructor: Professor Saturation<br>DisCode: L<br>TypNum: 1<br></p>
+    <p><b>ENGM 253: Metapuzzles That Foggy Brume Hasn't Already Written (Both Of Them)</b><br>Instructor: Professor Brume<br>DisCode: E<br>TypNum: 0<br><ul><li>Offered exclusively in the Winter<li>May only be taken by students who have already earned credit in ENGM 530</ul></p>
+    <p><b>ENGM 265: Infinite Instructions - The Cryptics Of Kevin Wald</b><br>Instructor: Professor Fantastic<br>DisCode: S<br>TypNum: 0<br><ul><li>This course and ENGM 102 need to be taken in consecutive trimesters (in either order)</ul></p>
+    <p><b>ENGM 272: Cave Versus Corral - A Vigorous Debate</b><br>Instructor: Professor Baxter<br>DisCode: C<br>TypNum: 1<br><ul><li>Offered exclusively in the Fall<li>May only be taken by students who have already earned credit in ENGM 512</ul></p>
+    <p><b>ENGM 289: Comedic Crossword Clues That Are Sometimes Frankly Longer Than They Strictly Need To Be, But It's Okay, That's Just For Effect</b><br>Instructor: Professor Heaney<br>DisCode: A<br>TypNum: 2<br><ul><li>Needs to be taken the trimester immediately before a Sudoku Seminar<li>Needs to be taken the trimester immediately after a Sudoku Seminar</ul></p>
+    <p><b>ENGM 308: Disturbingly Intricate Long-Term Probability Distribution Analysis </b><br>Instructor: Professor Fractal<br>DisCode: N<br>TypNum: 0<br><ul><li>This course and ENGM 332 need to be taken during the same trimester</ul></p>
+    <p><b>ENGM 332: Tackling Fifty-Fifty - We'll Get Through This Together</b><br>Instructor: Professor Quarter<br>DisCode: B<br>TypNum: 0<br></p>
+    <p><b>ENGM 343: Advanced Cruciverbalism - Making The Clues First</b><br>Instructor: Professor Shortz<br>DisCode: E<br>TypNum: 2<br><ul><li>Offered exclusively in the Spring<li>May only be taken by students who have already earned credit in ENGM 199</ul></p>
+    <p><b>ENGM 344: Unclued Anagrams - Tune Methods</b><br>Instructor: Professor Serfspoor<br>DisCode: I<br>TypNum: 2<br><ul><li>Offered exclusively in the Winter<li>May only be taken by students who have already earned credit in ENGM 145</ul></p>
+    <p><b>ENGM 361: Mazes And Labyrinths In The Post-Bowie Era</b><br>Instructor: Professor Abbott<br>DisCode: G<br>TypNum: 1<br><ul><li>May only by taken by students who have earned credit in ENGM 390 at least nine trimesters earlier</ul></p>
+    <p><b>ENGM 373: Don't Be Noisy - Avoiding Unintentional Red Herrings</b><br>Instructor: Professor Pennybags<br>DisCode: N<br>TypNum: 0<br><ul><li>May not be taken in a student's first trimester</ul></p>
+    <p><b>ENGM 390: Don't Be A Jerk - Avoiding Intentional Red Herrings</b><br>Instructor: Professor Acquire<br>DisCode: O<br>TypNum: 2<br><ul><li>This course and ENGM 373 need to be taken during the same trimester</ul></p>
+    <p><b>ENGM 397: Solving While You Sleep - Dreamscape Puzzling</b><br>Instructor: Professor Huntception<br>DisCode: R<br>TypNum: 2<br><ul><li>Offered exclusively in the Fall<li>May only be taken by students who have already earned credit in ENGM 516</ul></p>
+    <p><b>ENGM 402: Sudoku Seminar: Wonderful Ones</b><br>Instructor: Professor Introvert<br>DisCode: E<br>TypNum: 1<br><ul><li>This course is a Sudoku Seminar; at most one Sudoku Seminar may be taken per trimester</ul></p>
+    <p><b>ENGM 421: Sudoku Seminar: Terrific Twos</b><br>Instructor: Professor Binary<br>DisCode: D<br>TypNum: 0<br><ul><li>This course is a Sudoku Seminar; at most one Sudoku Seminar may be taken per trimester<li>This course and ENGM 426 need to be taken during the same academic year (fall-winter-spring), but not necessarily in the same trimester</ul></p>
+    <p><b>ENGM 426: Sudoku Seminar: Thundering Threes</b><br>Instructor: Professor Trinity<br>DisCode: W<br>TypNum: 2<br><ul><li>This course is a Sudoku Seminar; at most one Sudoku Seminar may be taken per trimester</ul></p>
+    <p><b>ENGM 428: Sudoku Seminar: Fantastic Fours</b><br>Instructor: Professor Tetrahedron<br>DisCode: H<br>TypNum: 0<br><ul><li>This course is a Sudoku Seminar; at most one Sudoku Seminar may be taken per trimester<li>May only be taken by students who have already earned credit in ENGM 402</ul></p>
+    <p><b>ENGM 438: Sudoku Seminar: Fabulous Fives</b><br>Instructor: Professor Pentatonic<br>DisCode: E<br>TypNum: 0<br><ul><li>This course is a Sudoku Seminar; at most one Sudoku Seminar may be taken per trimester</ul></p>
+    <p><b>ENGM 440: Sudoku Seminar: Scintillating Sixes</b><br>Instructor: Professor Sextet<br>DisCode: N<br>TypNum: 1<br><ul><li>This course is a Sudoku Seminar; at most one Sudoku Seminar may be taken per trimester<li>Offered exclusively in the Winter</ul></p>
+    <p><b>ENGM 468: Sudoku Seminar: Smashing Sevens</b><br>Instructor: Professor Septimus<br>DisCode: S<br>TypNum: 1<br><ul><li>This course is a Sudoku Seminar; at most one Sudoku Seminar may be taken per trimester<li>May only be taken by students who have earned credit in ENGM 438 *exactly* five trimesters earlier</ul></p>
+    <p><b>ENGM 474: Sudoku Seminar: Amazing Eights</b><br>Instructor: Professor Octuple<br>DisCode: O<br>TypNum: 2<br><ul><li>This course is a Sudoku Seminar; at most one Sudoku Seminar may be taken per trimester<li>Never offered in the Spring</ul></p>
+    <p><b>ENGM 475: Sudoku Seminar: Nines That Are Honestly Just Okay</b><br>Instructor: Professor Ennead<br>DisCode: L<br>TypNum: 1<br><ul><li>This course is a Sudoku Seminar; at most one Sudoku Seminar may be taken per trimester<li>Offered exclusively in the Spring</ul></p>
+    <p><b>ENGM 504: Konundrum Klass: Checksums And The Art Of Solver Sanity</b><br>Instructor: Professor Kindness<br>DisCode: V<br>TypNum: 2<br><ul><li>This course is a Konundrum Klass; at most one Konundrum Klass may be taken per trimester<li>Offered exclusively in the Spring</ul></p>
+    <p><b>ENGM 512: Konundrum Klass: Making Your Fictional Board Game Hard To Spell</b><br>Instructor: Professor Zylxtbargqh<br>DisCode: I<br>TypNum: 0<br><ul><li>This course is a Konundrum Klass; at most one Konundrum Klass may be taken per trimester<li>Offered exclusively in the Spring</ul></p>
+    <p><b>ENGM 516: Konundrum Klass: The Care And Feeding Of Waterfowl</b><br>Instructor: Professor Aquatic<br>DisCode: N<br>TypNum: 1<br><ul><li>This course is a Konundrum Klass; at most one Konundrum Klass may be taken per trimester<li>Offered exclusively in the Spring</ul></p>
+    <p><b>ENGM 530: Konundrum Klass: Persisting After You've Run Out of Good Ideas</b><br>Instructor: Professor Katz<br>DisCode: G<br>TypNum: 1<br><ul><li>This course is a Konundrum Klass; at most one Konundrum Klass may be taken per trimester<li>Offered exclusively in the Spring</ul></p>
+    <hr>
+    <h2>Course Calendar:</h2>
+    <p>
+      Fall 2017:
+      <ul>
+        <li>MWF 1pm: 102, 156, 332, 397, 474
+        <li>MWF 2pm: 176, 265, 289, 361, 373
+        <li>MWF 3pm: 145, 199, 390, 402, 438
+        <li>MWF 4pm: 115, 234, 308, 426, 428
+        <li>MWF 5pm: 128, 180, 272, 421, 468
+      </ul>
+    </p>
+    <p>
+      Winter 2017-2018:
+      <ul>
+        <li>MWF 1pm: 308, 361, 402, 440, 468
+        <li>MWF 2pm: 128, 176, 253, 390, 474
+        <li>MWF 3pm: 156, 265, 344, 421, 428
+        <li>MWF 4pm: 205, 234, 289, 332, 438
+        <li>MWF 5pm: 115, 145, 180, 373, 426
+      </ul>
+    </p>
+    <p>
+      Spring 2018:
+      <ul>
+        <li>MWF 1pm: 176, 421, 428, 468, 475
+        <li>MWF 2pm: 156, 205, 373, 390, 402
+        <li>MWF 3pm: 289, 308, 361, 512, 530
+        <li>MWF 4pm: 115, 234, 343, 426, 516
+        <li>MWF 5pm: 180, 265, 332, 438, 504
+      </ul>
+    </p>
+    <p>
+      Fall 2018:
+      <ul>
+        <li>MWF 1pm: 115, 390, 397, 426, 468
+        <li>MWF 2pm: 128, 156, 373, 428, 438
+        <li>MWF 3pm: 180, 199, 265, 361, 421
+        <li>MWF 4pm: 145, 234, 272, 289, 308
+        <li>MWF 5pm: 102, 176, 332, 402, 474
+      </ul>
+    </p>
+    <p>
+      Winter 2018-2019:
+      <ul>
+        <li>MWF 1pm: 176, 361, 421, 426, 440
+        <li>MWF 2pm: 180, 205, 234, 332, 344
+        <li>MWF 3pm: 128, 156, 373, 390, 438
+        <li>MWF 4pm: 115, 145, 289, 402, 474
+        <li>MWF 5pm: 253, 265, 308, 428, 468
+      </ul>
+    </p>
+    <p>
+      Spring 2019:
+      <ul>
+        <li>MWF 1pm: 176, 361, 468, 512, 516
+        <li>MWF 2pm: 234, 265, 343, 438, 475
+        <li>MWF 3pm: 156, 205, 332, 421, 504
+        <li>MWF 4pm: 180, 308, 402, 426, 530
+        <li>MWF 5pm: 115, 289, 373, 390, 428
+      </ul>
+    </p>
+    <p>
+      Fall 2019:
+      <ul>
+        <li>MWF 1pm: 145, 199, 332, 390, 397
+        <li>MWF 2pm: 115, 265, 373, 426, 438
+        <li>MWF 3pm: 102, 128, 272, 421, 468
+        <li>MWF 4pm: 176, 180, 289, 308, 474
+        <li>MWF 5pm: 156, 234, 361, 402, 428
+      </ul>
+    </p>
+    <p>
+      Winter 2019-2020:
+      <ul>
+        <li>MWF 1pm: 145, 156, 176, 361, 426
+        <li>MWF 2pm: 205, 253, 265, 440, 468
+        <li>MWF 3pm: 115, 289, 373, 428, 438
+        <li>MWF 4pm: 128, 332, 344, 421, 474
+        <li>MWF 5pm: 180, 234, 308, 390, 402
+      </ul>
+    </p>
+    <p>
+      Spring 2020:
+      <ul>
+        <li>MWF 1pm: 289, 308, 332, 343, 428
+        <li>MWF 2pm: 176, 361, 421, 426, 468
+        <li>MWF 3pm: 115, 205, 402, 438, 504
+        <li>MWF 4pm: 156, 180, 475, 512, 516
+        <li>MWF 5pm: 234, 265, 373, 390, 530
+      </ul>
+    </p>
+    <p>
+      Fall 2020:
+      <ul>
+        <li>MWF 1pm: 115, 289, 426, 438, 474
+        <li>MWF 2pm: 145, 156, 176, 421, 468
+        <li>MWF 3pm: 102, 128, 265, 332, 390
+        <li>MWF 4pm: 234, 308, 361, 397, 428
+        <li>MWF 5pm: 180, 199, 272, 373, 402
+      </ul>
+    </p>
+    <p>
+      Winter 2020-2021:
+      <ul>
+        <li>MWF 1pm: 176, 332, 344, 361, 474
+        <li>MWF 2pm: 205, 253, 289, 373, 421
+        <li>MWF 3pm: 115, 156, 180, 428, 468
+        <li>MWF 4pm: 145, 234, 426, 438, 440
+        <li>MWF 5pm: 128, 265, 308, 390, 402
+      </ul>
+    </p>
+    <p>
+      Spring 2021:
+      <ul>
+        <li>MWF 1pm: 308, 361, 390, 475, 504
+        <li>MWF 2pm: 180, 205, 234, 265, 530
+        <li>MWF 3pm: 176, 289, 343, 421, 438
+        <li>MWF 4pm: 332, 426, 428, 468, 516
+        <li>MWF 5pm: 115, 156, 373, 402, 512
+      </ul>
+    </p>
+  </div>
+{% endblock %}
