@@ -1,0 +1,13 @@
+#puzzle-content a:link {
+  color: blue;
+  text-decoration: underline;
+}
+
+#puzzle-content a:link:hover {
+  color: blue;
+  text-decoration: underline;
+}
+
+#puzzle-content a:visited {
+  color: purple;
+}
