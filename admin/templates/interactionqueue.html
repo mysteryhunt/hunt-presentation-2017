@@ -18,7 +18,7 @@
       <tr>
 	<td>{{ h.timestamp | datetime }}</td>
 	<td>{{ h.teamId }}</td>
-	<td>{{ h.puzzleId }}</td>
+	<td>{{ prettyPuzzleIdentifier(h.puzzleId) }}</td>
 	<td>
 	  <a href="{{ url_for('interactionrequest', interaction_request_id=h.interactionRequestId) }}">
 	    {{ h.request }}
