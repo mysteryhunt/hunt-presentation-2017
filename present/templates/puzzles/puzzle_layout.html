@@ -6,7 +6,7 @@
   {% if round_id in ['fighter','wizard','cleric','linguist','chemist','economist'] %}
     <style>
     body {
-      background-image: url("{{ url_for('static', filename='PNG-export/map/repeating-fog.png') }}");
+      background-image: url("{{ asset_url_for('general/map/repeating-fog.png')|safe }}");
       background-color: {{ character_colors.get(round_id) }};
       background-blend-mode: overlay;
     }
@@ -31,7 +31,7 @@
   {% elif round_id in ['dynast','dungeon','thespians','bridge','criminal','minstrels','cube','warlord'] %}
     <style>
     body {
-      background-image: url("{{ url_for('static', filename='PNG-export/quests/%s-background.png' % round_id) }}");
+      background-image: url("{{ asset_url_for('general/quests/%s-background.png' % round_id)|safe }}");
     }
     </style>
   {% else %}
@@ -50,11 +50,11 @@
     </div>
   {% elif round_id in ['fighter','wizard','cleric','linguist','chemist','economist'] %}
     <div id="reward">
-      <span class="puzzle-reward-solution-label">Reward:</span> <span class="puzzle-reward-solution"><img src="{{ url_for('static', filename='PNG-export/characters/%s-logo.png' % round_id) }}" style="width:30px;height:30px;vertical-align:middle;"/> The {{ round_id|capitalize }} levels up!</span>
+      <span class="puzzle-reward-solution-label">Reward:</span> <span class="puzzle-reward-solution"><img src="{{ asset_url_for('general/characters/%s-logo.png' % round_id) }}" style="width:30px;height:30px;vertical-align:middle;"/> The {{ round_id|capitalize }} levels up!</span>
     </div>
   {% elif round_id in ['dynast','dungeon','thespians','bridge','criminal','minstrels','cube','warlord'] %}
     <div id="reward">
-      <span>Reward: <img src="{{ url_for('static', filename='PNG-export/icons/chest.png') }}" style="width:40px;height:40px;vertical-align:middle;"/> Item or Gold!</span>
+      <span>Reward: <img src="{{ asset_url_for('general/icons/chest.png') }}" style="width:40px;height:40px;vertical-align:middle;"/> Item or Gold!</span>
     </div>
   {% endif %}
 {% endmacro %}
@@ -76,7 +76,7 @@
     </div>
     {% if puzzle_visibility and puzzle_visibility.status == 'SOLVED' %}
       <div id="answers">
-        <img src="{{ url_for('static', filename='PNG-export/icons/completion-logo.png') }}" style="width:30px;height:30px;vertical-align:middle;"/>
+        <img src="{{ asset_url_for('general/icons/completion-logo.png') }}" style="width:30px;height:30px;vertical-align:middle;"/>
         <span class="puzzle-reward-solution-label">
           Solved:
         </span>

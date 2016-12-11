@@ -6,7 +6,7 @@
   {% if round_id in ['fighter','wizard','cleric','linguist','chemist','economist'] %}
     <style>
     body {
-      background-image: url("{{ url_for('static', filename='PNG-export/map/repeating-fog.png') }}");
+      background-image: url("{{ asset_url_for('general/map/repeating-fog.png')|safe }}");
       background-color: {{ character_colors.get(round_id) }};
       background-blend-mode: overlay;
     }
@@ -31,7 +31,7 @@
   {% elif round_id in ['dynast','dungeon','thespians','bridge','criminal','minstrels','cube','warlord'] %}
     <style>
     body {
-      background-image: url("{{ url_for('static', filename='PNG-export/quests/%s-background.png' % round_id) }}");
+      background-image: url("{{ asset_url_for('general/quests/%s-background.png' % round_id)|safe }}");
     }
     </style>
   {% else %}

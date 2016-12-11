@@ -5,7 +5,7 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='character-round.css') }}">
     <style>
     body {
-      background-image: url("{{ url_for('static', filename='PNG-export/map/repeating-fog.png') }}");
+      background-image: url("{{ asset_url_for('general/map/repeating-fog.png')|safe }}");
       background-color: {{ character_color_macro() }};
       background-blend-mode: overlay;
     }
@@ -43,18 +43,18 @@
     </div>
     <div id="character-display">
       <div id="character-level-container" class="standard-horizontal-scroll">
-        <img src="{{ url_for('static', filename='PNG-export/characters/%s-logo.png' % round_id) }}" style="width:50px;height:50px;"/>
+        <img src="{{ asset_url_for('general/characters/%s-logo.png' % round_id) }}" style="width:50px;height:50px;"/>
         <span id="character-level-value">
           {{ team_properties.teamProperties.CharacterLevelsProperty.levels.get(round_id.upper(), 0) if team_properties else 'NA' }}
         </span>
       </div>
-      <img id="character-image" src="{{ url_for('static', filename='PNG-export/characters/%s-full.png' % round_id) }}"/>
+      <img id="character-image" src="{{ asset_url_for('general/characters/%s-full.png' % round_id) }}"/>
     </div>
     <div id="puzzle-list">
       <div class="parchmented">
         {% if puzzle_visibilities.get(round_id) and puzzle_visibilities.get(round_id).status == 'SOLVED' %}
           <div id="answers">
-            <img src="{{ url_for('static', filename='PNG-export/icons/completion-logo.png') }}" style="width:30px;height:30px;vertical-align:middle;"/>
+            <img src="{{ asset_url_for('general/icons/completion-logo.png') }}" style="width:30px;height:30px;vertical-align:middle;"/>
             <span class="puzzle-reward-solution-label">
               Solved:
             </span>
@@ -78,13 +78,13 @@
   {% if puzzle_visibilities.get(puzzle_id).status == 'UNLOCKED' %}
     <div class="puzzle-entry">
       <a href="{{ url_for(puzzle_link_action, puzzle_id = link_puzzle_id) }}">
-        <span><img src="{{ url_for('static', filename='PNG-export/characters/%s-logo.png' % round_id) }}" style="width:24px;height:24px;vertical-align:bottom;"/></span>
+        <span><img src="{{ asset_url_for('general/characters/%s-logo.png' % round_id) }}" style="width:24px;height:24px;vertical-align:bottom;"/></span>
         <span class="puzzle-name">{{ puzzle_properties.get(puzzle_id).puzzleProperties.DisplayNameProperty.displayName }}</span>
       </a>
     </div>
   {% elif puzzle_visibilities.get(puzzle_id).status == 'SOLVED' %}
     <div class="puzzle-entry">
-      <span><img src="{{ url_for('static', filename='PNG-export/icons/completion-logo.png') }}" style="width:24px;height:24px;vertical-align:bottom;"/></span>
+      <span><img src="{{ asset_url_for('general/icons/completion-logo.png') }}" style="width:24px;height:24px;vertical-align:bottom;"/></span>
       <a href="{{ url_for(puzzle_link_action, puzzle_id = link_puzzle_id) }}">
         <span class="puzzle-name">{{ puzzle_properties.get(puzzle_id).puzzleProperties.DisplayNameProperty.displayName }}</span>
         <span class="puzzle-solution">
@@ -96,11 +96,11 @@
     </div>
   {% elif puzzle_visibilities.get(puzzle_id).status == 'VISIBLE' %}
     <div class="puzzle-entry">
-      <span><img src="{{ url_for('static', filename='PNG-export/icons/lock.png') }}" style="height:24px;vertical-align:bottom;"/></span>
+      <span><img src="{{ asset_url_for('general/icons/lock.png') }}" style="height:24px;vertical-align:bottom;"/></span>
       <span class="puzzle-name">
         {% set unlock_requirement = single_character_unlock_requirement(puzzle_properties.get(puzzle_id).puzzleProperties) %}
         {% if unlock_requirement.character %}
-          <span>Unlock at <span class="level-requirement"><img src="{{ url_for('static', filename='PNG-export/characters/%s-logo.png' % (unlock_requirement.character)|lower) }}" style="width:24px;height:24px;vertical-align:bottom;"/> {{ unlock_requirement.levels }}</span></span>
+          <span>Unlock at <span class="level-requirement"><img src="{{ asset_url_for('general/characters/%s-logo.png' % (unlock_requirement.character)|lower) }}" style="width:24px;height:24px;vertical-align:bottom;"/> {{ unlock_requirement.levels }}</span></span>
         {% endif %}
       </span>
     </div>

@@ -40,7 +40,7 @@ body {
   white-space: nowrap;
   font-family: 'Deutsche Uncialis', 'Georgia', serif;
   position: relative;
-  background-image: url('PNG-export/scroll/horizontal2-left.png'), url('PNG-export/scroll/horizontal2-right.png');
+  background-image: url('https://s3.amazonaws.com/eastern-toys-assets/general/scroll/horizontal2-left.png'), url('https://s3.amazonaws.com/eastern-toys-assets/general/scroll/horizontal2-right.png');
   background-position: left top, right top;
   background-repeat: no-repeat, no-repeat;
   background-size: 31px 100%, 31px 100%;
@@ -56,7 +56,7 @@ body {
   left: 31px;
   width: calc(100% - 60px);
   height: 100%;
-  background-image: url('PNG-export/scroll/horizontal2-middle.png');
+  background-image: url('https://s3.amazonaws.com/eastern-toys-assets/general/scroll/horizontal2-middle.png');
   background-size: 100% 100%;
   z-index: -1;
 }
@@ -70,7 +70,7 @@ body {
   font-size: 48px;
   font-family: 'Deutsche Uncialis', 'Georgia', serif;
   position: relative;
-  background-image: url('PNG-export/scroll/horizontal2-left.png'), url('PNG-export/scroll/horizontal2-right.png');
+  background-image: url('https://s3.amazonaws.com/eastern-toys-assets/general/scroll/horizontal2-left.png'), url('https://s3.amazonaws.com/eastern-toys-assets/general/scroll/horizontal2-right.png');
   background-position: left top, right top;
   background-repeat: no-repeat, no-repeat;
   background-size: 42px 100%, 42px 100%;
@@ -86,14 +86,14 @@ body {
   left: 42px;
   width: calc(100% - 83px);
   height: 100%;
-  background-image: url('PNG-export/scroll/horizontal2-middle.png');
+  background-image: url('https://s3.amazonaws.com/eastern-toys-assets/general/scroll/horizontal2-middle.png');
   background-size: 100% 100%;
   z-index: -1;
 }
 
 .vertically-enscrolled {
   position: relative;
-  background-image: url('PNG-export/scroll/vertical-scroll-top.png'), url('PNG-export/scroll/vertical-scroll-bottom.png');
+  background-image: url('https://s3.amazonaws.com/eastern-toys-assets/general/scroll/vertical-scroll-top.png'), url('https://s3.amazonaws.com/eastern-toys-assets/general/scroll/vertical-scroll-bottom.png');
   background-position: left top, left bottom;
   background-repeat: no-repeat, no-repeat;
   background-size: 100% 77px, 100% 77px;
@@ -116,14 +116,14 @@ body {
   left: 0;
   height: calc(100% - 154px);
   width: 100%;
-  background-image: url('PNG-export/scroll/vertical-scroll-middle.png');
+  background-image: url('https://s3.amazonaws.com/eastern-toys-assets/general/scroll/vertical-scroll-middle.png');
   background-size: 100% 100%;
   z-index: -1;
 }
 
 .parchmented {
   position: relative;
-  background-image: url('PNG-export/scroll/parchment-top.png'), url('PNG-export/scroll/parchment-bottom.png');
+  background-image: url('https://s3.amazonaws.com/eastern-toys-assets/general/scroll/parchment-top.png'), url('https://s3.amazonaws.com/eastern-toys-assets/general/scroll/parchment-bottom.png');
   background-position: left top, left bottom;
   background-repeat: no-repeat, no-repeat;
   background-size: 100% 137px, 100% 132px;
@@ -141,7 +141,7 @@ body {
   left: 0;
   height: calc(100% - 269px);
   width: 100%;
-  background-image: url('PNG-export/scroll/parchment-middle.png');
+  background-image: url('https://s3.amazonaws.com/eastern-toys-assets/general/scroll/parchment-middle.png');
   background-size: 100% 100%;
   z-index: -1;
 }
