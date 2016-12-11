@@ -39,7 +39,7 @@
           <span class="puzzle-reward-solution-label">
             Solved:
           </span>
-          <span class="puzzle-reward-solution">
+          <span class="puzzle-solution">
             {% for answer in puzzle_visibilities.get(round_id).solvedAnswers %}
                 {{ answer }}
             {% endfor %}
@@ -47,7 +47,7 @@
         </div>
       {% else %}
         <div id="reward">
-          <span class="puzzle-reward-solution-label">Quest Reward:</span> <span class="puzzle-reward-solution">All characters level up!</span>
+          <span class="puzzle-reward-solution-label">Quest Reward:</span> <span class="puzzle-reward">All characters level up!</span>
         </div>
       {% endif %}
       {% block puzzle_content %}{% endblock %}
