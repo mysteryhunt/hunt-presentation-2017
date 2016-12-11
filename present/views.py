@@ -100,7 +100,7 @@ def puzzle(puzzle_id):
     puzzle_visibilities = {visibility.get('puzzleId'): visibility for visibility in puzzle_visibilities}
     visible_puzzle_ids = set([key for key in puzzle_visibilities if puzzle_visibilities.get(key,{}).get('status','') != 'INVISIBLE'])
     puzzle = cube.get_puzzle(app, puzzle_id)
-    puzzle_visibility = puzzle_visibilities.get(puzzle_id)
+    puzzle_visibility = cube.get_puzzle_visibility(app, puzzle_id)
     team_properties = cube.get_team_properties(app)
 
     return render_template(
