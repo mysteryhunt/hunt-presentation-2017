@@ -1,0 +1,48 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'fighter' %}
+{% block title_block %}Puppy Love: Solution{% endblock %}
+{% block puzzle_name_block %}Puppy Love: Solution{% endblock %}
+{% block byline %}By  Violet Tivol (age 9){% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  .in {
+    margin-left: 50px;
+  }
+
+  ul {
+    list-style-type: none;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<div>
+  <p>Match the pictures of 80s bands to the pictures of their lead singers' last names, then take the given letter of each band name to spell "ANSWER: BASSET", which gives the answer: <b>BASSET</b>.</p>
+  <p>Unnumbered cards, in order:</p>
+  <p class="in">A Flock Of Seagulls, ABC, Blondie, Erasure, Europe, Heart, Journey, Men at Work, Queen, Styx, The Cure, Whitesnake</p>
+  <p>Numbered cards, in order:</p>
+  <p class="in">
+    Fry, Perry, Coverdale, Hay, Smith, Tempest, Harry, Wilson, Score, Bell, Mercury, DeYoung
+  </p>
+  <div>
+    Message:<br/>
+    <ul>
+      <li>1 + Fry &rarr; (A)BC</li>
+      <li>5 + Perry &rarr; Jour(n)ey</li>
+      <li>6 + Coverdale &rarr; White(s)nake</li>
+      <li>6 + Hay &rarr; Men at (W)ork</li>
+      <li>7 + Smith &rarr; The Cur(e)</li>
+      <li>3 + Tempest &rarr; Eu(r)ope</li>
+    </ul>
+    <ul>
+      <li>1 + Harry &rarr; (B)londie</li>
+      <li>3 + Wilson &rarr; He(a)rt</li>
+      <li>9 + Score &rarr; A Flock Of (S)eagulls</li>
+      <li>4 + Bell &rarr; Era(s)ure</li>
+      <li>4 + Mercury &rarr; Que(e)n</li>
+      <li>2 + DeYoung &rarr; S(t)yx</li>
+    </ul>
+  </div>
+</div>
+{% endblock %}

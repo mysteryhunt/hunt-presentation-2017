@@ -10,11 +10,16 @@
       src: url("{{ asset_url_for('repeated_punishment/font.ttf') | safe }}") format("truetype");
     }
 
+    .p {
+      page-break-before: always;
+    }
+
     .repeated-punishment {
       margin-top: 1.5em;
       font-family: "RepeatedPunishment";
       word-spacing: 0.5em;
       line-height: 1.2em;
+      font-size: 0.85em;
     }
 
     .box {
@@ -33,7 +38,7 @@
 {% endblock %}
 
 {% block puzzle_content_block %}
-  <div>
+  <div class="p">
     <p class="repeated-punishment">
       Z KWQE BTKVF LZV EG SDDM<br>
       W BBZA CVJTI EMG OE VAAD<br>
