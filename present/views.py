@@ -129,7 +129,7 @@ def inventory():
 def full_puzzle_index():
     files = os.listdir(os.path.join(app.root_path, 'templates/puzzles'))
     puzzle_ids = [file.split('.')[0] for file in files]
-    puzzle_ids = [puzzle_id for puzzle_id in puzzle_ids if puzzle_id not in ['puzzle_layout','sample_draft']]
+    puzzle_ids = sorted([puzzle_id for puzzle_id in puzzle_ids if puzzle_id not in ['puzzle_layout','sample_draft']])
     return render_template("full_puzzle_index.html",
         puzzle_ids=puzzle_ids,
         puzzle_visibilities={})
