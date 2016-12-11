@@ -1,0 +1,161 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'wizard' %}
+{% block title_block %}A Message from Our Sponsors: Solution{% endblock %}
+{% block puzzle_name_block %}A Message from Our Sponsors: Solution{% endblock %}
+{% block byline %}By TK Focht{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    table {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      border-collapse: collapse;
+    }
+      table td, table th {
+      border: 1px black solid;
+    }
+    img {
+      height: 250px;
+    }
+  </style>
+{% endblock %}
+
+{% block solution_content_block %}
+  <div>
+    <p>
+      Each of the images cycling on the television consists of a slice from each
+      of sixteen base images. Each base image contains an item or items in a
+      bowl. Each is a hint to one of the forty-one current FBS college football
+      bowl games. The title of the puzzle and the flavortext both point to the
+      bowl game's title sponsor being important. The number of each item in the
+      bowl provides an index into the sponsor. The images are in a loop with a
+      consistent ordering, and the loop starts with the image marked with a
+      green bar.
+    </p>
+    <table>
+      <tr>
+        <th></th>
+        <th>Item/Bowl Game</th>
+        <th>Number</th>
+        <th>Title Sponsor</th>
+        <th>Extracted Letter</th>
+      </tr>
+      <tr>
+        <td><img src="{{ asset_url_for('a_message_from_our_sponsors/solution-image01.jpg') }}"/></td>
+        <td>Orange</td>
+        <td>1</td>
+        <td><b>(C)</b>apital One</td>
+        <td><b>C</b></td>
+      </tr>
+      <tr>
+        <td><img src="{{ asset_url_for('a_message_from_our_sponsors/solution-image02.jpg') }}"/></td>
+        <td>Las Vegas</td>
+        <td>4</td>
+        <td>Roy<b>(a)</b>l Purple</td>
+        <td><b>A</b></td>
+      </tr>
+      <tr>
+        <td><img src="{{ asset_url_for('a_message_from_our_sponsors/solution-image03.jpg') }}"/></td>
+        <td>New Mexico</td>
+        <td>3</td>
+        <td>Gi<b>(l)</b>dan</td>
+        <td><b>L</b></td>
+      </tr>
+      <tr>
+        <td><img src="{{ asset_url_for('a_message_from_our_sponsors/solution-image04.jpg') }}"/></td>
+        <td>Sugar</td>
+        <td>2</td>
+        <td>A<b>(l)</b>lstate Insurance</td>
+        <td><b>L</b></td>
+      </tr>
+      <tr>
+        <td><img src="{{ asset_url_for('a_message_from_our_sponsors/solution-image05.jpg') }}"/></td>
+        <td>Holiday</td>
+        <td>4</td>
+        <td>Nat<b>(i)</b>onal Funding</td>
+        <td><b>I</b></td>
+      </tr>
+      <tr>
+        <td><img src="{{ asset_url_for('a_message_from_our_sponsors/solution-image06.jpg') }}"/></td>
+        <td>Cure</td>
+        <td>5</td>
+        <td>Auto<b>(N)</b>ation</td>
+        <td><b>N</b></td>
+      </tr>
+      <tr>
+        <td><img src="{{ asset_url_for('a_message_from_our_sponsors/solution-image07.jpg') }}"/></td>
+        <td>Poinsettia</td>
+        <td>1</td>
+        <td><b>(S)</b>an Diego County Credit Union</td>
+        <td><b>S</b></td>
+      </tr>
+      <tr>
+        <td><img src="{{ asset_url_for('a_message_from_our_sponsors/solution-image08.jpg') }}"/></td>
+        <td>Cactus</td>
+        <td>4</td>
+        <td>Mot<b>(e)</b>l 6</td>
+        <td><b>E</b></td>
+      </tr>
+      <tr>
+        <td><img src="{{ asset_url_for('a_message_from_our_sponsors/solution-image09.jpg') }}"/></td>
+        <td>Pinstripe</td>
+        <td>1</td>
+        <td><b>(N)</b>ew Era</td>
+        <td><b>N</b></td>
+      </tr>
+      <tr>
+        <td><img src="{{ asset_url_for('a_message_from_our_sponsors/solution-image10.jpg') }}"/></td>
+        <td>Sun</td>
+        <td>5</td>
+        <td>Hyun<b>(d)</b>ai</td>
+        <td><b>D</b></td>
+      </tr>
+      <tr>
+        <td><img src="{{ asset_url_for('a_message_from_our_sponsors/solution-image11.jpg') }}"/></td>
+        <td>Citrus</td>
+        <td>3</td>
+        <td>Bu<b>(f)</b>falo Wild Wings</td>
+        <td><b>F</b></td>
+      </tr>
+      <tr>
+        <td><img src="{{ asset_url_for('a_message_from_our_sponsors/solution-image12.jpg') }}"/></td>
+        <td>Alamo</td>
+        <td>3</td>
+        <td>Va<b>(l)</b>ero</td>
+        <td><b>L</b></td>
+      </tr>
+      <tr>
+        <td><img src="{{ asset_url_for('a_message_from_our_sponsors/solution-image13.jpg') }}"/></td>
+        <td>Heart of Dallas</td>
+        <td>5</td>
+        <td>Zaxb<b>(y)</b>'s</td>
+        <td><b>Y</b></td>
+      </tr>
+      <tr>
+        <td><img src="{{ asset_url_for('a_message_from_our_sponsors/solution-image14.jpg') }}"/></td>
+        <td>Peach</td>
+        <td>3</td>
+        <td>Ch<b>(i)</b>ck-fil-A</td>
+        <td><b>I</b></td>
+      </tr>
+      <tr>
+        <td><img src="{{ asset_url_for('a_message_from_our_sponsors/solution-image15.jpg') }}"/></td>
+        <td>Rose</td>
+        <td>1</td>
+        <td><b>(N)</b>orthwestern Mutual</td>
+        <td><b>N</b></td>
+      </tr>
+      <tr>
+        <td><img src="{{ asset_url_for('a_message_from_our_sponsors/solution-image16.jpg') }}"/></td>
+        <td>Cotton</td>
+        <td>1</td>
+        <td><b>(G)</b>oodyear</td>
+        <td><b>G</b></td>
+      </tr>
+    </table>
+    <p>
+      Reading the extracted letters in order results in CALL IN SEND FLYING,
+      and <b>SEND FLYING</b> is the answer to this puzzle.
+    </p>
+  </div>
+{% endblock %}

@@ -1,0 +1,179 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_round_id = 'wizard' %}
+{% block title_block %}A Message from Our Sponsors{% endblock %}
+{% block puzzle_name_block %}A Message from Our Sponsors{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    #television-window {
+      position: relative;
+      height: 580px;
+    }
+
+    #crt-television-top {
+      z-index: 200;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 88px;
+      width: 880px;
+    }
+
+    #crt-television-bottom {
+      z-index: 200;
+      position: absolute;
+      top: 433px;
+      left: 0;
+      height: 148px;
+      width: 880px;
+    }
+
+    #crt-television-left {
+      z-index: 200;
+      position: absolute;
+      top: 88px;
+      left: 0;
+      height: 345px;
+      width: 143px;
+    }
+
+    #crt-television-right {
+      z-index: 200;
+      position: absolute;
+      top: 88px;
+      left: 622px;
+      height: 345px;
+      width: 258px;
+    }
+
+    #pause-control {
+      color: white;
+      z-index: 300;
+      position: absolute;
+      top: 388px;
+      left: 734px;
+      cursor: pointer;
+    }
+
+    #pause-control a {
+      color: white;
+    }
+
+    #image-container {
+      z-index: 100;
+
+      position: absolute;
+      top: 17px;
+      left: 128px;
+      height: 481px;
+      width: 512px;
+    }
+  </style>
+
+  <script>
+    $(document).ready(function() {
+      var paused = false;
+      var imageShown = 0;
+      var startTime = new Date().getTime();
+
+      var runImageUpdateLoop = function() {
+        if (!paused) {
+          var newImageShown = imageShown + 1;
+          if (newImageShown > 16) newImageShown = 1;
+          $('#image-container-' + imageShown).hide();
+          $('#image-container-' + newImageShown).show();
+          imageShown = newImageShown;
+        }
+        window.setTimeout(runImageUpdateLoop, 100);
+      };
+
+      $('a#pause-control-button').click(function() {
+        paused = !paused;
+        $('span#pause-control-pause-icon').toggle();
+        $('span#pause-control-play-icon').toggle();
+      });
+
+      runImageUpdateLoop();
+    });
+  </script>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+  When defending his title in magic championships, the Wizard counts on his
+  generous benefactors.
+{% endblock %}
+
+{% block puzzle_content_block %}
+  <div>
+    <div id="television-window">
+      <div id="crt-television-top">
+        <img src="{{ asset_url_for('a_message_from_our_sponsors/television-top.png') }}"/>
+      </div>
+      <div id="crt-television-bottom">
+        <img src="{{ asset_url_for('a_message_from_our_sponsors/television-bottom.png') }}"/>
+      </div>
+      <div id="crt-television-left">
+        <img src="{{ asset_url_for('a_message_from_our_sponsors/television-left.png') }}"/>
+      </div>
+      <div id="crt-television-right">
+        <img src="{{ asset_url_for('a_message_from_our_sponsors/television-right.png') }}"/>
+      </div>
+      <div id="image-container">
+        <div id="image-container-1">
+          <img src="{{ asset_url_for('a_message_from_our_sponsors/image01.jpg') }}"/>
+        </div>
+        <div id="image-container-2" style="display:none">
+          <img src="{{ asset_url_for('a_message_from_our_sponsors/image02.jpg') }}"/>
+        </div>
+        <div id="image-container-3" style="display:none">
+          <img src="{{ asset_url_for('a_message_from_our_sponsors/image03.jpg') }}"/>
+        </div>
+        <div id="image-container-4" style="display:none">
+          <img src="{{ asset_url_for('a_message_from_our_sponsors/image04.jpg') }}"/>
+        </div>
+        <div id="image-container-5" style="display:none">
+          <img src="{{ asset_url_for('a_message_from_our_sponsors/image05.jpg') }}"/>
+        </div>
+        <div id="image-container-6" style="display:none">
+          <img src="{{ asset_url_for('a_message_from_our_sponsors/image06.jpg') }}"/>
+        </div>
+        <div id="image-container-7" style="display:none">
+          <img src="{{ asset_url_for('a_message_from_our_sponsors/image07.jpg') }}"/>
+        </div>
+        <div id="image-container-8" style="display:none">
+          <img src="{{ asset_url_for('a_message_from_our_sponsors/image08.jpg') }}"/>
+        </div>
+        <div id="image-container-9" style="display:none">
+          <img src="{{ asset_url_for('a_message_from_our_sponsors/image09.jpg') }}"/>
+        </div>
+        <div id="image-container-10" style="display:none">
+          <img src="{{ asset_url_for('a_message_from_our_sponsors/image10.jpg') }}"/>
+        </div>
+        <div id="image-container-11" style="display:none">
+          <img src="{{ asset_url_for('a_message_from_our_sponsors/image11.jpg') }}"/>
+        </div>
+        <div id="image-container-12" style="display:none">
+          <img src="{{ asset_url_for('a_message_from_our_sponsors/image12.jpg') }}"/>
+        </div>
+        <div id="image-container-13" style="display:none">
+          <img src="{{ asset_url_for('a_message_from_our_sponsors/image13.jpg') }}"/>
+        </div>
+        <div id="image-container-14" style="display:none">
+          <img src="{{ asset_url_for('a_message_from_our_sponsors/image14.jpg') }}"/>
+        </div>
+        <div id="image-container-15" style="display:none">
+          <img src="{{ asset_url_for('a_message_from_our_sponsors/image15.jpg') }}"/>
+        </div>
+        <div id="image-container-16" style="display:none">
+          <img src="{{ asset_url_for('a_message_from_our_sponsors/image16.jpg') }}"/>
+        </div>
+      </div>
+      <div id="pause-control">
+        <a id="pause-control-button">
+          <span class="fa fa-pause-circle-o fa-5x" id="pause-control-pause-icon"></span>
+          <span class="fa fa-play-circle-o fa-5x" id="pause-control-play-icon" style="display:none"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+{% endblock %}
