@@ -1,0 +1,243 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'dungeon' %}
+{% block title_block %}Marvels of the Ancient World{% endblock %}
+{% block puzzle_name_block %}Marvels of the Ancient World{% endblock %}
+{% block byline %}By Roger Barkan{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    table.s {
+      border-collapse: collapse;
+    }
+    table.s tr.l {
+      border-top: 1px solid black;
+    }
+    table.s td {
+      text-align: right;
+      padding: 0.2em;
+    }
+  </style>
+{% endblock %}
+
+{% block solution_content_block %}
+  <div>
+    <h3>Summary</h3>
+    <p>
+      This is a standard, 4-player game of the board game 7 Wonders. The
+      position of the players and their starting cities are given. Also given
+      are the four actions taken on each turn, although (with a few exceptions)
+      it is not specified who took which action. The entire game can be
+      logically reconstructed (see below for detailed walkthrough) from this
+      information. The proper assignment is:
+    </p>
+    <p>
+      HRAO<br>
+      HAOR<br>
+      AHOR<br>
+      RHOA<br>
+      ROHA<br>
+      ARHO
+    </p>
+    <p>
+      HAOR<br>
+      AOHR<br>
+      AOHR<br>
+      RHAO<br>
+      AROH<br>
+      ARHO
+    </p>
+    <p>
+      HROA<br>
+      OHRA<br>
+      ROAH<br>
+      ORAH<br>
+      AORH<br>
+      ORAH
+    </p>
+    <p>
+      At game's end, the scoresheet looks like:
+    </p>
+    <table class="s">
+      <tr><th>H</th><th>A</th><th>O</th><th>R</th></tr>
+      <tr><td>-2</td><td>2</td><td>18</td><td>2</td></tr>
+      <tr><td>3</td><td>1</td><td>2</td><td>4</td></tr>
+      <tr><td>2</td><td>3</td><td>3</td><td>3</td></tr>
+      <tr><td>10</td><td>11</td><td>5</td><td>29</td></tr>
+      <tr><td>1</td><td>0</td><td>0</td><td>1</td></tr>
+      <tr><td>6</td><td>0</td><td>24</td><td>2</td></tr>
+      <tr><td>26</td><td>21</td><td>1</td><td>0</td></tr>
+      <tr class="l"><td>46</td><td>38</td><td>53</td><td>41</td></tr>
+    </table>
+    <p>
+      Applying the transformations from the scoresheet image and converting 1 to
+      A, 2 to B, etc. gives the message COINS BETWEEN AGES (SPELL OUT THE
+      DIGIT). Looking at the number of coins each player has at the points
+      between Ages I/II and II/III, again converting to letters, and reading in
+      the same order around the table, gives the phrase GAME NAME. The "game
+      name" is of course "7 Wonders", and spelling out the digit as instructed
+      yields the final answer <b>SEVEN WONDERS</b>.
+    </p>
+    <h3>Detailed Logic Walkthrough</h3>
+    <p>
+      To begin, there appears to be no papyrus until the Press appears in II-5.
+      So how does the Scriptorium get built in I-4?  This is only possible if a
+      Press has entered the game before I-4, and the only way that can happen is
+      if Hal builds a press using the first stage of his wonder in
+      I-3. (Incidentally this Press must have been the card sold in I-2).
+    </p>
+    <p>
+      With that established, we turn our attention to clay.  The only card that
+      can produce clay is the Caravansery built in II-6.  The first stage of
+      Hal's wonder is spoken for, and he can't reach the second stage without
+      multiple clay.  Thus no other clay-producing card can ever enter the game,
+      and no one will spend clay on any purchase, other than potentially the
+      owner of the Caravansery during Age III.
+    </p>
+    <p>
+      In I-3, there are not yet two stone in the game, so Alex can't build her
+      first stage.  Thus the other three must, and Alex builds the Theater in
+      I-3.  Nobody can build the second stage of their wonder in I-5 (Hal and
+      Rhoda would need clay, Alex can't access Rhoda's gold), so Alex builds her
+      first stage in I-5.
+    </p>
+    <p>
+      Alex, Ollie, and Rhoda must all have access to the Timber Yard in order to
+      build their first stages, so the Timber Yard must be played by Ollie in
+      I-2.
+    </p>
+    <p>
+      Rhoda's I-1 play is known, so she must make a play in I-2 that allows her
+      to buy two wood from Ollie in I-3 to build her first stage.  Thus Rhoda
+      sells a card in I-2.
+    </p>
+    <p>
+      Hal needs to get two ore from Rhoda in I-3 to build his first stage.  The
+      remaining available cards in I-2 are no help, so he can only afford this
+      if he builds the East Trading Post in I-1.
+    </p>
+    <p>
+      Note that we know the eventual locations of all the resources in Age I,
+      except the Stone Pit.  So we can briefly look ahead to Age II. The
+      Training Ground in II-1 cannot be built by Hal (no access to wood) or Alex
+      (no access to gold), therefore it is built by Rhoda.  The Courthouse in
+      II-1 must be built via chain (no clay), so it must be built by the player
+      who played the Scriptorium in I-4.  This can't be Alex (who plays a
+      different card in I-4), therefore it is Hal who plays the Courthouse in
+      II-1 and the Scriptorium in 1-4.  By elimination, Alex plays the
+      Glassworks in II-1.
+    </p>
+    <p>
+      The Stone Pit in I-4 must be played where Alex can access it for her
+      wonder stage buy in I-5, therefore it is played by Ollie and not Rhoda.
+      Rhoda plays the Altar in I-4.
+    </p>
+    <p>
+      Hal cannot play the Baths in I-5 (no access to stone), so Rhoda does.  Hal
+      sells in I-5.
+    </p>
+    <p>
+      Now consider Alex's money situation heading into I-5.  She needs two coins
+      to pay for her wonder stage (using the West Trading Post), and no one can
+      pay her any money before this (the only resource she has is glass, and the
+      only card which requires glass is the Workshop which doesn't appear until
+      I-6).  Thus she cannot afford to pay two coins for either the Stockade in
+      I-1 or the Apothecary in I-2 and still have enough money to pay for her
+      wonder stage in I-5.  Therefore Alex buys the Pawnshop in I-1 and the
+      Marketplace in I-2. By elimination, Ollie plays the Stockade in I-1 and
+      Hal plays the Apothecary in 1-2.
+    </p>
+    <p>
+      In II-2, the Temple must be built via chain (no clay) by Rhoda.  The
+      Stables in II-2 must be built via chain (no clay) by Hal.
+    </p>
+    <p>
+      Hal cannot play the Aqueduct or Walls (can't access enough stone) in II-4,
+      or the School (no access to wood), therefore he plays the Dispensary in
+      II-4.  That means he cannot play the Dispensary in II-3; neither can Alex
+      (no access to gold) or Rhoda (no access to glass).  Therefore Ollie plays
+      the Dispensary in II-3.
+    </p>
+    <p>
+      The Laboratory in II-2 must be built by chain from the Workshop in I-6,
+      this leaves only Alex or Ollie as potentially playing the Workshop.
+      Therefore Hal and Rhoda cannot buy the Archery Range by chain in II-3.
+      Can either buy it by resources?  Hal cannot (no access to wood).  Rhoda
+      has two coins after I-5, and spends two coins in II-1.  She can earn at
+      most three coins from selling in I-6, and cannot earn any money in II-2
+      (no one buying gold).  Thus she has at most three coins in II-3, and
+      cannot afford the Archery Range (which would cost her four).  Therefore
+      Alex plays the Archery Range in II-3.
+    </p>
+    <p>
+      Alex has no access to gold, so she must have bought the Archery Range via
+      chain.  Therefore Alex played the Workshop in I-6; the others sold cards
+      in I-6.  Alex plays the Laboratory in II-2 by chain. By elimination, Ollie
+      plays the Quarry in II-2.
+    </p>
+    <p>
+      In II-3, Rhoda, with three coins, cannot afford the Library; Rhoda plays
+      the Loom and Hal plays the Library.
+    </p>
+    <p>
+      In II-4, Alex, with three coins, cannot afford the Walls or Aqueduct; Alex
+      plays the School.
+    </p>
+    <p>
+      The Forum in II-5 must be bought by chain, and Hal is already selling a
+      card, so Alex builds the Forum.  By elimination, Ollie sells a card in
+      II-5.
+    </p>
+    <p>
+      In II-6, the second stage wonder cannot be built by Alex (no access to
+      gold) or Hal or Rhoda (no clay); it is built by Ollie.  With no wood, Hal
+      cannot build the Caravansery or the Statue in II-6; he sells a card.  The
+      Statue cannot be built by Alex (no gold); it is built by Rhoda.  Alex
+      plays the Caravansery.
+    </p>
+    <p>
+      Rhoda must pay two coins to build the Statue in II-6, and she has seven
+      coins after II-3.  Thus she cannot spend six coins on the Walls in II-4.
+      Rhoda plays the Aqueduct in II-4 and Ollie plays the Walls.
+    </p>
+    <p>
+      In Age III, Hal's plays each turn are essentially forced from the fact
+      that he has no access to wood or stone.  He must play the Lodge, Senate,
+      University, Observatory, and Traders Guild on turns 2-6, and thus must
+      play the Arena on turn 1 (not a second Observatory).
+    </p>
+    <p>
+      In III-1, Alex, with one coin, cannot afford the Arsenal or Shipowners
+      Guild, so she plays the University.  Rhoda cannot play the Shipowners
+      Guild (no access to glass) so she plays the Arsenal, and Ollie the
+      Shipowners Guild.
+    </p>
+    <p>
+      In III-6, Rhoda cannot play the Siege Workshop or Arsenal (already has
+      one); she plays the Gardens.  The Siege Workshop must be played by chain
+      (not enough clay), so it is played by Alex.  By elimination, Ollie plays
+      the Arsenal.
+    </p>
+    <p>
+      In III-2, Alex cannot buy the Gardens (no clay) or the Strategists Guild
+      (no second gold), so she plays the Town Hall.  Rhoda can't play the
+      Gardens in III-2 (she plays it in III-6), so she plays the Strategists
+      Guild.  Ollie plays the Gardens, which he must do using his one free buy.
+    </p>
+    <p>
+      In III-3, Alex, being broke, cannot afford the Fortifications or the
+      Circus; she plays the Haven.  Rhoda, with one coin, cannot afford the
+      Fortifications; she plays the Circus.  Ollie plays the Fortifications.
+    </p>
+    <p>
+      The Pantheon in III-4 must be played by chain (no second clay) by Rhoda.
+      Alex, unable to afford the Magistrates Guild (still broke), plays the
+      Study.  Ollie plays the Magistrates Guild.
+    </p>
+    <p>
+      In III-5, Alex, still broke, cannot afford the Craftsmens Guild and has
+      already built a Haven; she plays the Academy.  Rhoda, with three coins,
+      cannot quite afford the Craftsmens Guild; she plays the Haven.  Ollie
+      plays the Craftsmens Guild.
+    </p>
+  </div>
+{% endblock %}

@@ -1,0 +1,412 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_round_id = 'dungeon' %}
+{% block title_block %}Marvels of the Ancient World{% endblock %}
+{% block puzzle_name_block %}Marvels of the Ancient World{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    table.p {
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 1em;
+      border: 5px solid black;
+    }
+    table.p td {
+      padding: 4px;
+      text-align: center;
+      width: 200px;
+    }
+    span.p {
+      font-weight: bold;
+      color: #0000cc;
+    }
+    table.t {
+      border: 3px solid black;
+      border-collapse: collapse;
+      font-size: 0.75em;
+      page-break-inside: avoid;
+      margin-bottom: 1em;
+    }
+    table.t td {
+      padding: 0.75em;
+    }
+    table.t td.a {
+      min-width: 3em;
+    }
+    table.t td.t {
+      min-width: 4em;
+    }
+    table.t tr.b {
+      border-top: 3px solid black;
+    }
+    span.blank {
+      text-decoration: underline;
+    }
+  </style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+  How many marvels await your party in this mysterious dungeon?
+{% endblock %}
+
+{% block puzzle_content_block %}
+  <div>
+    <table class="p">
+      <tr>
+        <td></td>
+        <td>
+          <p><span class="p">Hal</span></p>
+          <p>Halicarnassus B</p>
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>
+          <p><span class="p">Rhoda</span></p>
+          <p>Rhodes A</p>
+        </td>
+        <td></td>
+        <td>
+          <p><span class="p">Alex</span></p>
+          <p>Alexandria A</p>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <p><span class="p">Ollie</span></p>
+          <p>Olympia A</p>
+        </td>
+        <td></td>
+      </tr>
+    </table>
+    <table class="t">
+      <tr>
+        <td class="a" rowspan="6">
+          <p>Age I</p>
+        </td>
+        <td class="t">
+          <p>Turn 1</p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> played <b>East Trading Post</b></p>
+        </td>
+        <td>
+          <p><span class="p">Rhoda</span> played <b>Ore Vein</b></p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> played <b>Pawnshop</b></p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> played <b>Stockade</b></p>
+        </td>
+      </tr>
+      <tr>
+        <td class="t">
+          <p>Turn 2</p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> played <b>Apothecary</b></p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> played <b>Marketplace</b></p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> played <b>Timber Yard</b></p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> <b>sold a card</b></p>
+        </td>
+      </tr>
+      <tr>
+        <td class="t">
+          <p>Turn 3</p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> played <b>Theater</b></p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> <b>built a stage of his or her Wonder</b></p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> <b>built a stage of his or her Wonder</b></p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> <b>built a stage of his or her Wonder</b></p>
+        </td>
+      </tr>
+      <tr>
+        <td class="t">
+          <p>Turn 4</p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> played <b>Altar</b></p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> played <b>Scriptorium</b></p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> played <b>Stone Pit</b></p>
+        </td>
+        <td>
+          <p><span class="p">Alex</span> played <b>West Trading Post</b></p>
+        </td>
+      </tr>
+      <tr>
+        <td class="t">
+          <p>Turn 5</p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> played <b>Baths</b></p>
+        </td>
+        <td>
+          <p><span class="p">Ollie</span> played <b>Lumber Yard</b></p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> <b>sold a card</b></p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> <b>built a stage of his or her Wonder</b></p>
+        </td>
+      </tr>
+      <tr>
+        <td class="t">
+          <p>Turn 6</p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> played <b>Workshop</b></p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> <b>sold a card</b></p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> <b>sold a card</b></p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> <b>sold a card</b></p>
+        </td>
+      </tr>
+      <tr class="b">
+        <td class="a" rowspan="6">
+          <p>Age II</p>
+        </td>
+        <td class="t">
+          <p>Turn 1</p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> played <b>Courthouse</b></p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> played <b>Glassworks</b></p>
+        </td>
+        <td>
+          <p><span class="p">Ollie</span> played <b>Sawmill</b></p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> played <b>Training Ground</b></p>
+        </td>
+      </tr>
+      <tr>
+        <td class="t">
+          <p>Turn 2</p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> played <b>Laboratory</b></p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> played <b>Quarry</b></p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> played <b>Stables</b></p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> played <b>Temple</b></p>
+        </td>
+      </tr>
+      <tr>
+        <td class="t">
+          <p>Turn 3</p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> played <b>Archery Range</b></p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> played <b>Dispensary</b></p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> played <b>Library</b></p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> played <b>Loom</b></p>
+        </td>
+      </tr>
+      <tr>
+        <td class="t">
+          <p>Turn 4</p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> played <b>Aqueduct</b></p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> played <b>Dispensary</b></p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> played <b>School</b></p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> played <b>Walls</b></p>
+        </td>
+      </tr>
+      <tr>
+        <td class="t">
+          <p>Turn 5</p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> played <b>Forum</b></p>
+        </td>
+        <td>
+          <p><span class="p">Rhoda</span> played <b>Press</b></p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> <b>sold a card</b></p>
+        </td>
+        <td>
+          <p><span class="p">Hal</span> <b>sold a card</b></p>
+        </td>
+      </tr>
+      <tr>
+        <td class="t">
+          <p>Turn 6</p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> played <b>Caravansery</b></p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> played <b>Statue</b></p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> <b>sold a card</b></p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> <b>built a stage of his or her Wonder</b></p>
+        </td>
+      </tr>
+      <tr class="b">
+        <td class="a" rowspan="6">
+          <p>Age III</p>
+        </td>
+        <td class="t">
+          <p>Turn 1</p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> played <b>Arena</b></p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> played <b>Arsenal</b></p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> played <b>Shipowners Guild</b></p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> played <b>University</b></p>
+        </td>
+      </tr>
+      <tr>
+        <td class="t">
+          <p>Turn 2</p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> played <b>Gardens</b></p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> played <b>Lodge</b></p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> played <b>Strategists Guild</b></p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> played <b>Town Hall</b></p>
+        </td>
+      </tr>
+      <tr>
+        <td class="t">
+          <p>Turn 3</p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> played <b>Circus</b></p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> played <b>Fortifications</b></p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> played <b>Haven</b></p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> played <b>Senate</b></p>
+        </td>
+      </tr>
+      <tr>
+        <td class="t">
+          <p>Turn 4</p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> played <b>Magistrates Guild</b></p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> played <b>Pantheon</b></p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> played <b>Study</b></p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> played <b>University</b></p>
+        </td>
+      </tr>
+      <tr>
+        <td class="t">
+          <p>Turn 5</p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> played <b>Academy</b></p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> played <b>Craftsmens Guild</b></p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> played <b>Haven</b></p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> played <b>Observatory</b></p>
+        </td>
+      </tr>
+      <tr>
+        <td class="t">
+          <p>Turn 6</p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> played <b>Arsenal</b></p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> played <b>Gardens</b></p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> played <b>Siege Workshop</b></p>
+        </td>
+        <td>
+          <p><span class="blank">&emsp;&emsp;&emsp;</span> played <b>Traders Guild</b></p>
+        </td>
+      </tr>
+    </table>
+    <img src="{{ asset_url_for('marvels_of_the_ancient_world/image01.png') }}">
+    <p>
+      <a href="{{ asset_url_for('marvels_of_the_ancient_world/cards.pdf') }}">
+        Cards (if needed)
+      </a>
+    </p>
+    <p>
+      <a href="{{ asset_url_for('marvels_of_the_ancient_world/wonder.pdf') }}">
+        Wonders (if needed)
+      </a>
+    </p>
+  </div>
+{% endblock %}
