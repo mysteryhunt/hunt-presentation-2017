@@ -1,0 +1,70 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_round_id = 'cleric' %}
+{% block title_block %}Puppy Love{% endblock %}
+{% block puzzle_name_block %}Puppy Love{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  img {
+    vertical-align: middle;
+    width: 245px;
+  }
+  @media print {
+    img {
+      vertical-align: middle;
+      width: 1.75in;
+    }
+  }
+  div.withNumber {
+    display: inline-block;
+    border-radius: 25px;
+    border: 4px solid black;
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+    font-size: 72px;
+  }
+
+  div.withoutNumber {
+    display: inline-block;
+    border-radius: 25px;
+    border: 4px solid silver;
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+  }
+</style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+Long ago, before becoming an adventurer, the Cleric served his faith as a matchmaker.
+{% endblock %}
+
+{% block puzzle_content_block %}
+<div>
+  <div class="withoutNumber"><img src="{{ asset_url_for('puppy_love/imageA.jpg') }}" /></div>
+  <div class="withoutNumber"><img src="{{ asset_url_for('puppy_love/imageB.jpg') }}" /></div>
+  <div class="withoutNumber"><img src="{{ asset_url_for('puppy_love/imageC.jpg') }}" /></div>
+  <div class="withoutNumber"><img src="{{ asset_url_for('puppy_love/imageD.jpg') }}" /></div>
+  <div class="withoutNumber"><img src="{{ asset_url_for('puppy_love/imageE.jpg') }}" /></div>
+  <div class="withoutNumber"><img src="{{ asset_url_for('puppy_love/imageF.jpg') }}" /></div>
+  <div class="withoutNumber"><img src="{{ asset_url_for('puppy_love/imageG.jpg') }}" /></div>
+  <div class="withoutNumber"><img src="{{ asset_url_for('puppy_love/imageH.jpg') }}" /></div>
+  <div class="withoutNumber"><img src="{{ asset_url_for('puppy_love/imageI.jpg') }}" /></div>
+  <div class="withoutNumber"><img src="{{ asset_url_for('puppy_love/imageJ.jpg') }}" /></div>
+  <div class="withoutNumber"><img src="{{ asset_url_for('puppy_love/imageK.jpg') }}" /></div>
+  <div class="withoutNumber"><img src="{{ asset_url_for('puppy_love/imageL.jpg') }}" /></div>
+  <div class="withNumber"><img src="{{ asset_url_for('puppy_love/image1.jpg') }}" /><br/>1</div>
+  <div class="withNumber"><img src="{{ asset_url_for('puppy_love/image2.jpg') }}" /><br/>5</div>
+  <div class="withNumber"><img src="{{ asset_url_for('puppy_love/image3.jpg') }}" /><br/>6</div>
+  <div class="withNumber"><img src="{{ asset_url_for('puppy_love/image4.jpg') }}" /><br/>6</div>
+  <div class="withNumber"><img src="{{ asset_url_for('puppy_love/image5.jpg') }}" /><br/>7</div>
+  <div class="withNumber"><img src="{{ asset_url_for('puppy_love/image6.jpg') }}" /><br/>3</div>
+  <div class="withNumber"><img src="{{ asset_url_for('puppy_love/image7.jpg') }}" /><br/>1</div>
+  <div class="withNumber"><img src="{{ asset_url_for('puppy_love/image8.jpg') }}" /><br/>3</div>
+  <div class="withNumber"><img src="{{ asset_url_for('puppy_love/image9.jpg') }}" /><br/>9</div>
+  <div class="withNumber"><img src="{{ asset_url_for('puppy_love/image10.jpg') }}" /><br/>4</div>
+  <div class="withNumber"><img src="{{ asset_url_for('puppy_love/image11.jpg') }}" /><br/>4</div>
+  <div class="withNumber"><img src="{{ asset_url_for('puppy_love/image12.jpg') }}" /><br/>2</div>
+</div>
+{% endblock %}
