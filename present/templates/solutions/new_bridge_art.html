@@ -1,0 +1,73 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'bridge' %}
+{% block title_block %}New Bridge Art: Solution{% endblock %}
+{% block puzzle_name_block %}New Bridge Art: Solution{% endblock %}
+{% block byline %}By Josh Oratz{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    ul {
+      list-style-type: none;
+    }
+  </style>
+{% endblock %}
+
+{% block solution_content_block %}
+  <div>
+    <p>
+      Each circle is a pictoral representation of a year of the NBA
+      playoffs. Teams are represented by one of their primary team colors, and
+      each ring is a round of that year's playoffs, with each section
+      corresponding to a team in that round. The outermost ring is the first
+      round, with teams from the Western Conference being placed on the left
+      hand side and the teams from the Eastern Conference on the right hand
+      side. Teams are placed on each side in order of the bracket (from top to
+      bottom on each side: 1st, 8th, 4th, 5th, 3rd, 5th, 2nd, 7th). Teams which
+      played each other in a given round are adjacent to each other and share a
+      section of the inner circle, with the winning team being represented in
+      that inner section. This continues on until the Finals (represented by the
+      second innermost ring with only two sections), and the winner of the
+      Finals for that year is the one team in the center.
+    </p>
+    <p>
+      The first step is to find out which year's playoffs are represented by
+      each circle. In order, the playoffs represented are 2008, 2004, 1999,
+      2010, 1994, 1991, and 2016. Team names associated with each color can be
+      found in the following graphics (team names given are the team names for
+      that year's playoffs, given team moves and name changes):
+    </p>
+    <h3>2008</h3>
+    <img src="{{ asset_url_for('new_bridge_art/solution01.png') }}">
+    <h3>2004</h3>
+    <img src="{{ asset_url_for('new_bridge_art/solution02.png') }}">
+    <h3>1999</h3>
+    <img src="{{ asset_url_for('new_bridge_art/solution03.png') }}">
+    <h3>2010</h3>
+    <img src="{{ asset_url_for('new_bridge_art/solution04.png') }}">
+    <h3>1994</h3>
+    <img src="{{ asset_url_for('new_bridge_art/solution05.png') }}">
+    <h3>1991</h3>
+    <img src="{{ asset_url_for('new_bridge_art/solution06.png') }}">
+    <h3>2016</h3>
+    <img src="{{ asset_url_for('new_bridge_art/solution07.png') }}">
+    <p>
+      Each year one player in the Finals is given the title of MVP. In the given
+      order of the playoff years (left to right, top to bottom), the MVPs for
+      each year are:
+    </p>
+    <ul>
+      <li>Paul Pierce</li>
+      <li>Chauncey Billups</li>
+      <li>Tim Duncan</li>
+      <li>Kobe Bryant</li>
+      <li>Hakeem Olajuwon</li>
+      <li>Michael Jordan</li>
+      <li>Lebron James</li>
+    </ul>
+    <p>
+      Taking each MVP award recipient's name and indexing using the numbers
+      below each circle in order gives the phrase CALL IN BROKEN ARM, indicating
+      the solver should submit <b>BROKEN ARM</b> as the solution.
+    </p>
+  </div>
+{% endblock %}

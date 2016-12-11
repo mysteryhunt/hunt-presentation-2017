@@ -1,0 +1,71 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_round_id = 'bridge' %}
+{% block title_block %}New Bridge Art{% endblock %}
+{% block puzzle_name_block %}New Bridge Art{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    div.r {
+      display: flex;
+      align-items: center;
+      page-break-inside: avoid;
+    }
+    div.c {
+      margin-left: 10px;
+      margin-right: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    p.l {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+  </style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+  The workers come across a section of the bridge sporting some valuable-looking
+  art.
+{% endblock %}
+
+{% block puzzle_content_block %}
+  <div>
+    <div class="r">
+      <div class="c">
+        <img src="{{ asset_url_for('new_bridge_art/image01.png') }}">
+        <p class="l">9&nbsp;&nbsp;2</p>
+      </div>
+      <div class="c">
+        <img src="{{ asset_url_for('new_bridge_art/image02.png') }}">
+        <p class="l">11&nbsp;&nbsp;12</p>
+      </div>
+    </div>
+    <div class="r">
+      <div class="c">
+        <img src="{{ asset_url_for('new_bridge_art/image03.png') }}">
+        <p class="l">2&nbsp;&nbsp;6</p>
+      </div>
+      <div class="c">
+        <img src="{{ asset_url_for('new_bridge_art/image04.png') }}">
+        <p class="l">3&nbsp;&nbsp;6</p>
+      </div>
+    </div>
+    <div class="r">
+      <div class="c">
+        <img src="{{ asset_url_for('new_bridge_art/image05.png') }}">
+        <p class="l">7&nbsp;&nbsp;3</p>
+      </div>
+      <div class="c">
+        <img src="{{ asset_url_for('new_bridge_art/image06.png') }}">
+        <p class="l">6&nbsp;&nbsp;13</p>
+      </div>
+    </div>
+    <div class="r">
+      <div class="c">
+        <img src="{{ asset_url_for('new_bridge_art/image07.png') }}">
+        <p class="l">8&nbsp;&nbsp;4&nbsp;&nbsp;9</p>
+      </div>
+    </div>
+  </div>
+{% endblock %}
