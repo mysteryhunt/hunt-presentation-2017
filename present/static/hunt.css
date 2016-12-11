@@ -320,6 +320,20 @@ a:visited {
   color: black;
 }
 
+a:link.standard-link {
+  color: blue;
+  text-decoration: none;
+}
+
+a:link:hover.standard-link {
+  color: blue;
+  text-decoration: underline;
+}
+
+a:visited.standard-link {
+  color: blue;
+}
+
 span.puzzle-reward-solution-label {
   font-family: 'Deutsche Uncialis', 'Georgia', serif;
   font-size: 28px;

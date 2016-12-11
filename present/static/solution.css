@@ -1,6 +1,6 @@
 #puzzle-content a:link {
   color: blue;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 #puzzle-content a:link:hover {
