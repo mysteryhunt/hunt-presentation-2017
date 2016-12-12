@@ -23,8 +23,18 @@
       <td>{{ team.email }}</td>
     </tr>
     <tr>
-      <td>Puzzle</td>
+      <td>Puzzle ID</td>
       <td>{{ interaction_request.puzzleId }}</td>
+    </tr>
+    <tr>
+      <td>Puzzle Name</td>
+      <td>
+        {% if 'puzzleProperties' in puzzle and 'DisplayNameProperty' in puzzle.puzzleProperties %}
+          {{ puzzle.puzzleProperties.DisplayNameProperty.displayName }}
+        {% else %}
+          unknown
+        {% endif %}
+      </td>
     </tr>
     <tr>
       <td>Request</td>

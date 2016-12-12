@@ -18,7 +18,7 @@
       <tr>
 	<td>{{ s.timestamp | datetime }}</td>
 	<td>{{ s.teamId }}</td>
-	<td>{{ s.puzzleId }}</td>
+	<td>{{ prettyPuzzleIdentifier(s.puzzleId) }}</td>
 	<td>
 	  <a href="{{ url_for('submission', submission_id=s.submissionId) }}">
 	    {{ s.submission }}
@@ -62,7 +62,7 @@
       <tr>
 	<td>{{ h.timestamp | datetime }}</td>
 	<td>{{ h.teamId }}</td>
-	<td>{{ h.puzzleId }}</td>
+	<td>{{ prettyPuzzleIdentifier(h.puzzleId) }}</td>
 	<td>
 	  <a href="{{ url_for('hintrequest', hint_request_id=h.hintRequestId) }}">
 	    {{ h.request }}

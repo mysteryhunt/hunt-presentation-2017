@@ -13,6 +13,10 @@ def get_puzzles():
     puzzles.sort(key=sortkey)
     return puzzles
 
+def get_puzzle_id_to_puzzle():
+    puzzles = cube.get_puzzles(app)
+    return {puzzle['puzzleId']: puzzle for puzzle in puzzles}
+
 @app.errorhandler(cube.CubeError)
 def handle_cube_error(error):
     return render_template(
@@ -29,20 +33,24 @@ def index():
 def callqueue():
     pending_submissions = cube.get_all_pending_submissions(app)
     pending_hint_requests = cube.get_all_pending_hint_requests(app)
+    puzzle_id_to_puzzle = get_puzzle_id_to_puzzle()
 
     return render_template(
         "callqueue.html",
         pending_submissions=pending_submissions,
-        pending_hint_requests=pending_hint_requests)
+        pending_hint_requests=pending_hint_requests,
+        puzzle_id_to_puzzle=puzzle_id_to_puzzle)
 
 @app.route("/interactionqueue")
 @login_required.writingteam
 def interactionqueue():
     pending_interaction_requests = cube.get_all_pending_interaction_requests(app)
+    puzzle_id_to_puzzle = get_puzzle_id_to_puzzle()
 
     return render_template(
         "interactionqueue.html",
-        pending_interaction_requests=pending_interaction_requests)
+        pending_interaction_requests=pending_interaction_requests,
+        puzzle_id_to_puzzle=puzzle_id_to_puzzle)
 
 @app.route("/submission/<int:submission_id>", methods=["GET", "POST"])
 @login_required.writingteam
@@ -80,11 +88,13 @@ def hintrequest(hint_request_id):
             abort(400)
 
     hint_request = cube.get_hint_request(app, hint_request_id)
+    puzzle = cube.get_puzzle(app, hint_request['puzzleId'])
     team = cube.get_team_properties(app, team_id=hint_request['teamId'])
 
     return render_template(
         "hintrequest.html",
         hint_request=hint_request,
+        puzzle=puzzle,
         team=team)
 
 @app.route("/interactionrequest/<int:interaction_request_id>", methods=["GET", "POST"])
@@ -102,11 +112,13 @@ def interactionrequest(interaction_request_id):
             abort(400)
 
     interaction_request = cube.get_interaction_request(app, interaction_request_id)
+    puzzle = cube.get_puzzle(app, interaction_request['puzzleId'])
     team = cube.get_team_properties(app, team_id=interaction_request['teamId'])
 
     return render_template(
         "interactionrequest.html",
         interaction_request=interaction_request,
+        puzzle=puzzle,
         team=team)
 
 @app.route("/teams", methods=["GET", "POST"])
