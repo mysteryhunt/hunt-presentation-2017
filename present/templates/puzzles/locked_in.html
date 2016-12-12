@@ -10,6 +10,12 @@
       padding-bottom: 24px;
     }
 
+    @media print {
+      .blanks {
+        margin-left: 4px;
+      }
+    }
+
     .red {
       padding: 2px;
       outline: #ff0000 2px solid;
@@ -21,7 +27,13 @@
       height: 36px;
       margin-left: 8px;
       margin-right: 8px;
+      position: relative;
+    }
+
+    .door:before {
       content: url('{{ asset_url_for('locked_in/door.png') | safe }}');
+      position: absolute;
+      top: 8px;
     }
 
     .finalbox {
