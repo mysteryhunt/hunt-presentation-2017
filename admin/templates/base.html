@@ -1,3 +1,18 @@
+{% macro prettyPuzzleIdentifier(puzzle_id) %}
+  {% set puzzle = puzzle_id_to_puzzle[puzzle_id] %}
+  {% if 'puzzleProperties' in puzzle %}
+    {% set puzzleProperties = puzzle.puzzleProperties %}
+    {% if 'DisplayNameProperty' in puzzleProperties %}
+      {{ puzzleProperties.DisplayNameProperty.displayName }}
+    {% elif 'DisplayIdProperty' in puzzleProperties %}
+      {{ puzzleProperties.DisplayIdProperty.displayId }}
+    {% else %}
+      {{ puzzle_id }}
+    {% endif %}
+  {% else %}
+    {{ puzzle_id }}
+  {% endif %}
+{% endmacro %}
 <!doctype html>
 <html>
   <head>
