@@ -15,7 +15,7 @@ td {
   align: center;
   vertical-align: center;
   border: 1px solid black;
-  background-image: url("{{ url_for('static', filename='PNG-export/quests/dungeon-tile.png')}}");
+  background-image: url("{{ asset_url_for('general/quests/dungeon-tile.png')|safe }}");
   background-position: center;
 }
 

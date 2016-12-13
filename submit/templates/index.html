@@ -2,7 +2,10 @@
 <ul>
 {% for v in puzzle_visibilities %}
 <li>
-  <a href="{{ url_for('puzzle', puzzle_id=v['puzzleId']) }}">{{ puzzle_properties.get(v['puzzleId']).get('puzzleProperties',{}).get('DisplayNameProperty',{}).get('displayName','') }}</a>
+  {% set current_puzzle_properties = puzzle_properties.get(v['puzzleId']).get('puzzleProperties',{}) %}
+  {% set puzzle_id = current_puzzle_properties.get('DisplayIdProperty',{}).get('displayId',v['puzzleId']) %}
+  {% set puzzle_name = current_puzzle_properties.get('DisplayNameProperty',{}).get('displayName',v['puzzleId']) %}
+  <a href="{{ url_for('puzzle', puzzle_id=puzzle_id) }}">{{ puzzle_name }}</a>
   {% if v['status'] == 'SOLVED' %}
   &ndash; SOLVED
   {% endif %}

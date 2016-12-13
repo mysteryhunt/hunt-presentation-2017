@@ -37,7 +37,7 @@
         {% for character_class in ['fighter','wizard','cleric','linguist','economist','chemist'] if character_class in visible_puzzle_ids %}
           <a href="{{ url_for('round', round_id = character_class) }}">
             <div id="header-status-{{ character_class }}" class="individual-header-status" data-toggle="tooltip" data-placement="bottom" title="{{ character_class|capitalize }}">
-                <img src="{{ url_for('static', filename='PNG-export/characters/%s-logo.png' % character_class) }}" style="width:30px;height:30px;vertical-align:middle;"/>
+                <img src="{{ asset_url_for('general/characters/%s-logo.png' % character_class) }}" style="width:30px;height:30px;vertical-align:middle;"/>
                 <span class="individual-header-status-level">{{ team_properties.teamProperties.CharacterLevelsProperty.levels[character_class.upper()]|default(0) }}</span>
             </div>
           </a>
@@ -47,7 +47,7 @@
           {% set inventory_complete = (puzzle_visibilities.get('merchants',{}).get('status','') == 'SOLVED') %}
           <a href="#" id="header-inventory-control" data-toggle="tooltip" data-placement="bottom" title="Inventory">
             <div id="header-inventory-status">
-              <img src="{{ url_for('static', filename='PNG-export/icons/chest.png') }}" style="width:30px;height:30px;vertical-align:middle;padding-right:3px;"/>
+              <img src="{{ asset_url_for('general/icons/chest.png') }}" style="width:30px;height:30px;vertical-align:middle;padding-right:3px;"/>
               {%- if inventory_complete -%}
                 6/6
               {%- else -%}
@@ -56,7 +56,7 @@
             </div>
           </a>
         </div>
-        <div id="header-gold" data-toggle="tooltip" data-placement="bottom" title="Gold"><img src="{{ url_for('static', filename='PNG-export/icons/coin.png') }}" style="width:30px;height:30px;vertical-align:middle;"/>&nbsp;{{ team_properties.get('teamProperties',{}).get('GoldProperty',{}).get('gold',0) if team_properties else 'NA'}}
+        <div id="header-gold" data-toggle="tooltip" data-placement="bottom" title="Gold"><img src="{{ asset_url_for('general/icons/coin.png') }}" style="width:30px;height:30px;vertical-align:middle;"/>&nbsp;{{ team_properties.get('teamProperties',{}).get('GoldProperty',{}).get('gold',0) if team_properties else 'NA'}}
         </div>
       </div>
 

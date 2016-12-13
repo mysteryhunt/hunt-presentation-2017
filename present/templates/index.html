@@ -20,9 +20,9 @@
           <a href="{{ url_for('round', round_id = character_class) }}">
             <div id="character-{{ character_class }}" class="individual-character">
               <div class="individual-character-class">The {{ character_class|capitalize }}</div>
-              <img src="{{ url_for('static', filename='PNG-export/characters/%s-ring.png' % character_class) }}"/>
+              <img src="{{ asset_url_for('general/characters/%s-ring.png' % character_class) }}"/>
               <div class="individual-character-status-container">
-                <img src="{{ url_for('static', filename='PNG-export/characters/%s-logo.png' % character_class) }}"/>
+                <img src="{{ asset_url_for('general/characters/%s-logo.png' % character_class) }}"/>
                 <span class="individual-character-level">{{ team_properties.teamProperties.CharacterLevelsProperty.levels[character_class.upper()]|default(0) }}</span>
               </div>
             </div>
@@ -33,7 +33,7 @@
       <div id="inventory-gold-display">
           <div class="individual-inventory-gold" data-toggle="tooltip" data-placement="bottom" title="Inventory">
             <a href="{{ url_for('inventory') }}">
-              <img src="{{ url_for('static', filename='PNG-export/icons/chest.png') }}" style="width:50px;height:50px;vertical-align:middle;"/>
+              <img src="{{ asset_url_for('general/icons/chest.png') }}" style="width:50px;height:50px;vertical-align:middle;"/>
               {% if puzzle_visibilities.get('merchants',{}).get('status','') == 'SOLVED' %}
                 6/6
               {% else %}
@@ -42,7 +42,7 @@
             </a>
           </div>
           <div class="individual-inventory-gold" data-toggle="tooltip" data-placement="bottom" title="Gold">
-            <img src="{{ url_for('static', filename='PNG-export/icons/coin.png') }}" style="width:50px;height:50px;vertical-align:middle;"/>&nbsp;{{ team_properties.get('teamProperties',{}).get('GoldProperty',{}).get('gold',0) if team_properties else 'NA'}}
+            <img src="{{ asset_url_for('general/icons/coin.png') }}" style="width:50px;height:50px;vertical-align:middle;"/>&nbsp;{{ team_properties.get('teamProperties',{}).get('GoldProperty',{}).get('gold',0) if team_properties else 'NA'}}
           </div>
       </div>
     </div>
@@ -53,33 +53,32 @@
       World Map
     </div>
     <div id="world-map">
-<!--      <div id="fog-overlay" style="content: url({{ url_for('static', filename='PNG-export/map/fog-no-transparency.png') }});"></div>-->
-      <div id="world-map-background" style="content: url({{ url_for('static', filename='PNG-export/map/map-fog-%s.png' % fog_number)}});"></div>
+      <div id="world-map-background" style="content: url({{ asset_url_for('general/map/map-fog-%s.png' % fog_number)}});"></div>
         {% for quest in [('dynast',10,20,'The Despondent Dynast'),('dungeon',70,160,'The Dismal Dungeon'),('thespians',75,465,'The Thrilling Thespians'),('bridge',215,310,'The Broken Bridge'),('criminal',245,150,'The Crafty Criminal'),('minstrels',350,40,'The Modest Minstrels'),('cube',450,130,'The Curious Cube'),('warlord',360,250,'The Woeful Warlord')] if quest[0] in visible_puzzle_ids %}
           <a href="{{ url_for('round', round_id = quest[0]) }}">
             <div id="quest-map-{{ quest[0] }}" class="individual-quest" style="width:108px; height:81px; position:absolute; top:{{ quest[1] }}px; left:{{ quest[2] }}px; z-index:200;" data-toggle="tooltip" data-placement="bottom" title="{{ quest[3] }}">
-              <img src="{{ url_for('static', filename='PNG-export/quests/%s-scene.png' % quest[0]) }}"/>
+              <img src="{{ asset_url_for('general/quests/%s-scene.png' % quest[0]) }}"/>
             </div>
           </a>
         {% endfor %}
         {% for rescue in [('linguist',140,60),('economist',30,330),('chemist',200,480)] if 'rescue_the_' + rescue[0] in visible_puzzle_ids %}
           <a href="{{ url_for('puzzle', puzzle_id = 'rescue_the_' + rescue[0]) }}">
             <div id="rescue-map-{{ rescue[0] }}" class="individual-rescue caption-control" style="height: 96px; position:absolute; top:{{ rescue[1] }}px; left:{{ rescue[2] }}px; z-index:200;" data-toggle="tooltip" data-placement="bottom" title="Rescue the {{ rescue[0]|capitalize }}">
-              <img src="{{ url_for('static', filename='PNG-export/characters/%s-full.png' % rescue[0]) }}"/>
+              <img src="{{ asset_url_for('general/characters/%s-full.png' % rescue[0]) }}"/>
             </div>
           </a>
         {% endfor %}
         {% if 'merchants' in visible_puzzle_ids %}
           <a href="{{ url_for('puzzle', puzzle_id = 'merchants') }}">
             <div class="individual-quest caption-control" style="width:108px; height:81px; position:absolute; top:340px; left:420px; z-index:200;" data-toggle="tooltip" data-placement="bottom" title="The Maniacal Merchants">
-              <img src="{{ url_for('static', filename='PNG-export/quests/merchants-scene.png') }}"/>
+              <img src="{{ asset_url_for('general/quests/merchants-scene.png') }}"/>
             </div>
           </a>
         {% endif %}
         {% if 'fortress' in visible_puzzle_ids %}
           <a href="{{ url_for('puzzle', puzzle_id = 'fortress') }}">
             <div class="individual-quest caption-control" style="width:108px; height:81px<em></em>; position:absolute; top:470px; left:470px; z-index:200;" data-toggle="tooltip" data-placement="bottom" title="The Final Fortress">
-              <img src="{{ url_for('static', filename='PNG-export/quests/fortress-scene.png') }}"/>
+              <img src="{{ asset_url_for('general/quests/fortress-scene.png') }}"/>
             </div>
           </a>
         {% endif %}

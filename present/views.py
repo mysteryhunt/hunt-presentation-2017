@@ -100,7 +100,7 @@ def puzzle(puzzle_id):
     puzzle_visibilities = {visibility.get('puzzleId'): visibility for visibility in puzzle_visibilities}
     visible_puzzle_ids = set([key for key in puzzle_visibilities if puzzle_visibilities.get(key,{}).get('status','') != 'INVISIBLE'])
     puzzle = cube.get_puzzle(app, puzzle_id)
-    puzzle_visibility = puzzle_visibilities.get(puzzle_id)
+    puzzle_visibility = cube.get_puzzle_visibility(app, puzzle_id)
     team_properties = cube.get_team_properties(app)
 
     return render_template(
@@ -129,7 +129,7 @@ def inventory():
 def full_puzzle_index():
     files = os.listdir(os.path.join(app.root_path, 'templates/puzzles'))
     puzzle_ids = [file.split('.')[0] for file in files]
-    puzzle_ids = [puzzle_id for puzzle_id in puzzle_ids if puzzle_id not in ['puzzle_layout','sample_draft']]
+    puzzle_ids = sorted([puzzle_id for puzzle_id in puzzle_ids if puzzle_id not in ['puzzle_layout','sample_draft']])
     return render_template("full_puzzle_index.html",
         puzzle_ids=puzzle_ids,
         puzzle_visibilities={})
