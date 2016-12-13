@@ -1,0 +1,24 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_round_id = 'bridge' %}
+{% block title_block %}Cutting the Cord{% endblock %}
+{% block puzzle_name_block %}Cutting the Cord{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    img.c {
+      width: 900px;
+    }
+  </style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+  Since the bridge became damaged, local lines of communication have been in
+  disarray.
+{% endblock %}
+
+{% block puzzle_content_block %}
+  <div>
+    <img class="c" src="{{ asset_url_for('cutting_the_cord/cutting-image.jpg') }}">
+    <img class="c" src="{{ asset_url_for('cutting_the_cord/cutting-cord.jpg') }}">
+  </div>
+{% endblock %}

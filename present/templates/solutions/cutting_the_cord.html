@@ -1,0 +1,96 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'bridge' %}
+{% block title_block %}Cutting the Cord: Solution{% endblock %}
+{% block puzzle_name_block %}Cutting the Cord: Solution{% endblock %}
+{% block byline %}By Dan Katz{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    img.c {
+      width: 900px;
+    }
+  </style>
+{% endblock %}
+
+{% block solution_content_block %}
+  <div>
+    <p>
+      Each of the 99 square tiles of the large image comes from one of nine
+      larger images. Each of these images represents a word that can precede
+      PHONE in a common word or phrase. Each image has been broken into an
+      equally spaced grid of three columns and four rows, and one piece is not
+      included in the collage. Since the words are all related to PHONE, one can
+      think of the 3x4 grid as a phone keypad, and the missing "key" corresponds
+      to a digit.
+    </p>
+    <p>
+      <img src="{{ asset_url_for('cutting_the_cord/full-cell.jpg') }}">
+    </p>
+    <p>
+      <img src="{{ asset_url_for('cutting_the_cord/piece-cell.jpg') }}"> = CELL (8)
+    </p>
+    <p>
+      <img src="{{ asset_url_for('cutting_the_cord/full-ear.jpg') }}">
+    </p>
+    <p>
+      <img src="{{ asset_url_for('cutting_the_cord/piece-ear.jpg') }}"> = EAR (2)
+    </p>
+    <p>
+      <img src="{{ asset_url_for('cutting_the_cord/full-flip.jpg') }}">
+    </p>
+    <p>
+      <img src="{{ asset_url_for('cutting_the_cord/piece-flip.jpg') }}"> = FLIP (5) [Flip Wilson]
+    </p>
+    <p>
+      <img src="{{ asset_url_for('cutting_the_cord/full-franco.jpg') }}">
+    </p>
+    <p>
+      <img src="{{ asset_url_for('cutting_the_cord/piece-franco.jpg') }}"> = FRANCO (7) [James Franco]
+    </p>
+    <p>
+      <img src="{{ asset_url_for('cutting_the_cord/full-pay.jpg') }}">
+    </p>
+    <p>
+      <img src="{{ asset_url_for('cutting_the_cord/piece-pay.jpg') }}"> = PAY (7)
+    </p>
+    <p>
+      <img src="{{ asset_url_for('cutting_the_cord/full-rotary.jpg') }}">
+    </p>
+    <p>
+      <img src="{{ asset_url_for('cutting_the_cord/piece-rotary.jpg') }}"> = ROTARY (2)
+    </p>
+    <p>
+      <img src="{{ asset_url_for('cutting_the_cord/full-smart.jpg') }}">
+    </p>
+    <p>
+      <img src="{{ asset_url_for('cutting_the_cord/piece-smart.jpg') }}"> = SMART (9) [Maxwell Smart]
+    </p>
+    <p>
+      <img src="{{ asset_url_for('cutting_the_cord/full-sousa.jpg') }}">
+    </p>
+    <p>
+      <img src="{{ asset_url_for('cutting_the_cord/piece-sousa.jpg') }}"> = SOUSA (6) [John Philip Sousa]
+    </p>
+    <p>
+      <img src="{{ asset_url_for('cutting_the_cord/full-speaker.jpg') }}">
+    </p>
+    <p>
+      <img src="{{ asset_url_for('cutting_the_cord/piece-speaker.jpg') }}"> = SPEAKER (7) [Paul Ryan, Speaker of the House]
+    </p>
+    <p>
+      The nine words can be filled into the "cord" image so that each square is used once:
+    </p>
+    <p>
+      <img class="c" src="{{ asset_url_for('cutting_the_cord/cutting-solution-grid.jpg') }}">
+    </p>
+    <p>
+      This provides an ordering for the digits that correspond to the words:
+      767872925. Given the words' relations to PHONE, the squares'
+      correspondence to phone keys, and the fact that none of the extracted
+      digits are 0 or 1, it makes sense to see if this sequence of digits can
+      spell a word in phonespell (2 = ABC, 3 = DEF, et cetera). The only valid
+      word 767872925 translates to is <b>PORTRAYAL</b>, the answer to this
+      puzzle.
+    </p>
+  </div>
+{% endblock %}
