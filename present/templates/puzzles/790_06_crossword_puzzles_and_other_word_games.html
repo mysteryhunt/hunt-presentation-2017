@@ -5,15 +5,15 @@
 
 {% block puzzle_head_block %}
   <style>
-    span.enscrolled-90px {
-      font-size: 36px;
+    .standard-horizontal-scroll {
+      font-size: 2em;
     }
     table.g {
-      border: 2px solid black;
+      border: 2px solid #aaa;
       border-collapse: collapse;
     }
     table.g td {
-      border: 1px solid black;
+      border: 1px solid #aaa;
       box-sizing: border-box;
       padding: 0.1em;
       width: 2rem;
@@ -22,9 +22,13 @@
       vertical-align: top;
     }
     table.g td.b {
-      outline: 0.75em solid black;
-      outline-offset: -0.75em;
-      box-shadow: 0 0 0 1000px black inset;
+      outline: 1px solid #aaa;
+      outline-offset: -1px;
+      box-shadow: 0 0 0 1000px #aaa inset;
+    }
+    span.n {
+      display: inline-block;
+      min-width: 1.5em;
     }
     span.blank {
       text-decoration: underline;
@@ -300,89 +304,90 @@
     </table>
     <h3>Across</h3>
     <ul>
-      <li>1 How piracy takes place, often</li>
-      <li>5 Al-Bashir accused of genocide by the International Criminal Court</li>
-      <li>9 Boo-boos</li>
-      <li>14 32-card game</li>
-      <li>15 Indian PM, for short</li>
-      <li>16 1991 inductee to the Games Hall of Fame</li>
-      <li>17 Sch. subj.</li>
-      <li>18 "Criminal Minds" actor Rodriguez</li>
-      <li>19 John who wrote "Have Mercy on the Criminal"</li>
-      <li>20 She left Clannad in 1981 to pursue a solo career</li>
-      <li>21 Hungarian operetta composer</li>
-      <li>23 Chaplin who played Talisa Stark on "Game of Thrones"</li>
-      <li>24 Home to "The Alcatraz of the Rockies" (abbr.)</li>
-      <li>26 Least crafty</li>
-      <li>28 <span class="blank">&emsp;&emsp;&emsp;</span> Roll</li>
-      <li>31 It is often fine</li>
-      <li>33 Shining, like a treasure</li>
-      <li>35 Language invented in 1958</li>
-      <li>36 "<span class="blank">&emsp;&emsp;&emsp;</span> Crimes", graffiti website</li>
-      <li>39 Former senior, for short</li>
-      <li>40 Mascagni opera</li>
-      <li>42 Plant, like hops, that climbs helically around its support</li>
-      <li>43 Any of the Keating Five (abbr.)</li>
-      <li>44 Criminal conspiracy, e.g.</li>
-      <li>45 FedEx shipping option</li>
-      <li>47 Short trailer</li>
-      <li>49 Nickname sometimes used by wrestler Billy Gunn</li>
-      <li>50 Fits in, as to a gang</li>
-      <li>53 Fictional software from "Cryptonomicon" whose name is taken from the Great Seal of the U.S.</li>
-      <li>55 Character played by Kevin Smith on "Xena"</li>
-      <li>56 "I never learned how to tune a harp, or play upon <span class="blank">&emsp;&emsp;&emsp;</span>" (Themistocles)</li>
-      <li>58 Blemish seen at a body shop</li>
-      <li>62 Con man Rizzo</li>
-      <li>64 Inflammatory suffix</li>
-      <li>65 Plan or scheme</li>
-      <li>66 Zeus:Greece::<span class="blank">&emsp;&emsp;&emsp;</span>:Assyria</li>
-      <li>67 Brand with the "famous micronite filter" that contained asbestos</li>
-      <li>68 No, to the Solntsevskaya Bratva</li>
-      <li>69 Playing for <span class="blank">&emsp;&emsp;&emsp;</span></li>
-      <li>70 <span class="blank">&emsp;&emsp;&emsp;</span> de maïs (corncobs)</li>
-      <li>71 Ransom, in the auto industry</li>
+      <li><span class="n">1</span> How piracy takes place, often</li>
+      <li><span class="n">5</span> Al-Bashir accused of genocide by the International Criminal Court</li>
+      <li><span class="n">9</span> Boo-boos</li>
+      <li><span class="n">14</span> 32-card game</li>
+      <li><span class="n">15</span> Indian PM, for short</li>
+      <li><span class="n">16</span> 1991 inductee to the Games Hall of Fame</li>
+      <li><span class="n">17</span> Sch. subj.</li>
+      <li><span class="n">18</span> <i>Criminal Minds</i> actor Rodriguez</li>
+      <li><span class="n">19</span> John who wrote “Have Mercy on the Criminal”</li>
+      <li><span class="n">20</span> She left Clannad in 1981 to pursue a solo career</li>
+      <li><span class="n">21</span> Hungarian operetta composer</li>
+      <li><span class="n">23</span> Chaplin who played Talisa Stark on <i>Game of Thrones</i></li>
+      <li><span class="n">24</span> Home to “The Alcatraz of the Rockies” (abbr.)</li>
+      <li><span class="n">26</span> Least crafty</li>
+      <li><span class="n">28</span> <span class="blank">&emsp;&emsp;&emsp;</span> Roll</li>
+      <li><span class="n">31</span> It is often fine</li>
+      <li><span class="n">33</span> Shining, like a treasure</li>
+      <li><span class="n">35</span> Language invented in 1958</li>
+      <li><span class="n">36</span> “<span class="blank">&emsp;&emsp;&emsp;</span> Crimes”, graffiti website</li>
+      <li><span class="n">39</span> Former senior, for short</li>
+      <li><span class="n">40</span> Mascagni opera</li>
+      <li><span class="n">42</span> Plant, like hops, that climbs helically around its support</li>
+      <li><span class="n">43</span> Any of the Keating Five (abbr.)</li>
+      <li><span class="n">44</span> Criminal conspiracy, e.g.</li>
+      <li><span class="n">45</span> FedEx shipping option</li>
+      <li><span class="n">47</span> Short trailer</li>
+      <li><span class="n">49</span> Nickname sometimes used by wrestler Billy Gunn</li>
+      <li><span class="n">50</span> Fits in, as to a gang</li>
+      <li><span class="n">53</span> Fictional software from <i>Cryptonomicon</i> whose name is taken from the Great Seal<li>
+      <li><span class="n">&nbsp;</span> of the U.S.</li>
+      <li><span class="n">55</span> Character played by Kevin Smith on <i>Xena</i></li>
+      <li><span class="n">56</span> “I never learned how to tune a harp, or play upon <span class="blank">&emsp;&emsp;&emsp;</span>” (Themistocles)</li>
+      <li><span class="n">58</span> Blemish seen at a body shop</li>
+      <li><span class="n">62</span> Con man Rizzo</li>
+      <li><span class="n">64</span> Inflammatory suffix</li>
+      <li><span class="n">65</span> Plan or scheme</li>
+      <li><span class="n">66</span> Zeus:Greece::<span class="blank">&emsp;&emsp;&emsp;</span>:Assyria</li>
+      <li><span class="n">67</span> Brand with the “famous micronite filter” that contained asbestos</li>
+      <li><span class="n">68</span> No, to the Solntsevskaya Bratva</li>
+      <li><span class="n">69</span> Playing for <span class="blank">&emsp;&emsp;&emsp;</span></li>
+      <li><span class="n">70</span> <span class="blank">&emsp;&emsp;&emsp;</span> de maïs (corncobs)</li>
+      <li><span class="n">71</span> Ransom, in the auto industry</li>
     </ul>
     <h3>Down</h3>
     <ul>
-      <li>1 U.S. Open stadium eponym</li>
-      <li>2 Graft source, possibly</li>
-      <li>3 Like a grifter's mark</li>
-      <li>4 Committed battery</li>
-      <li>5 Fours or cylinders preceder</li>
-      <li>6 "<span class="blank">&emsp;&emsp;&emsp;</span> Honor" (2008 rom-com)</li>
-      <li>7 Nursemaid, in Nanking</li>
-      <li>8 Like the portrayal of Butch Cassidy and other criminals, perhaps</li>
-      <li>9 Unlock, old-style</li>
-      <li>10 "<span class="blank">&emsp;&emsp;&emsp;</span> You, Conrad"</li>
-      <li>11 Gait known as metatarsus varus</li>
-      <li>12 Certain collars</li>
-      <li>13 Upper house, in Paris</li>
-      <li>22 Mass simulator used on SpaceX Falcon 1</li>
-      <li>25 Words before par or platter</li>
-      <li>27 MIT initiative headed by Karl Koster</li>
-      <li>28 Attire for Fagin’s gang, perhaps</li>
-      <li>29 Hop-o'-My-Thumb antagonist</li>
-      <li>30 Crime family</li>
-      <li>32 With "The", DC Comics anti-hero group that merged with the Justice League</li>
-      <li>34 Picasso's birthplace</li>
-      <li>36 It premiered in Cairo in 1871</li>
-      <li>37 Messenger, ribosomal and transfer</li>
-      <li>38 Mystery novelist Josephine and namesakes</li>
-      <li>41 Lichenous</li>
-      <li>42 Site of the deadliest battle of the Napoleonic Wars</li>
-      <li>44 Criminal's cooler</li>
-      <li>46 2002 ADS WotY</li>
-      <li>47 It could go either way</li>
-      <li>48 Fusilli relative</li>
-      <li>50 Former Israeli PM</li>
-      <li>51 Rub out</li>
-      <li>52 River of forgetfulness</li>
-      <li>54 Concludes, as a court argument</li>
-      <li>57 Educational inst. in view of Ciudad Juarez</li>
-      <li>59 Pastoral poem</li>
-      <li>60 Lawyer, eventually, for a criminal</li>
-      <li>61 Gangster’s guns</li>
-      <li>63 Some gates</li>
+      <li><span class="n">1</span> U.S. Open stadium eponym</li>
+      <li><span class="n">2</span> Graft source, possibly</li>
+      <li><span class="n">3</span> Like a grifter’s mark</li>
+      <li><span class="n">4</span> Committed battery</li>
+      <li><span class="n">5</span> Fours or cylinders preceder</li>
+      <li><span class="n">6</span> <i><span class="blank">&emsp;&emsp;&emsp;</span> Honor</i> (2008 rom-com)</li>
+      <li><span class="n">7</span> Nursemaid, in Nanking</li>
+      <li><span class="n">8</span> Like the portrayal of Butch Cassidy and other criminals, perhaps</li>
+      <li><span class="n">9</span> Unlock, old-style</li>
+      <li><span class="n">10</span> “<span class="blank">&emsp;&emsp;&emsp;</span> You, Conrad”</li>
+      <li><span class="n">11</span> Gait known as metatarsus varus</li>
+      <li><span class="n">12</span> Certain collars</li>
+      <li><span class="n">13</span> Upper house, in Paris</li>
+      <li><span class="n">22</span> Mass simulator used on SpaceX Falcon 1</li>
+      <li><span class="n">25</span> Words before par or platter</li>
+      <li><span class="n">27</span> MIT initiative headed by Karl Koster</li>
+      <li><span class="n">28</span> Attire for Fagin’s gang, perhaps</li>
+      <li><span class="n">29</span> Hop-o’-My-Thumb antagonist</li>
+      <li><span class="n">30</span> Crime family</li>
+      <li><span class="n">32</span> With “The”, DC Comics anti-hero group that merged with the Justice League</li>
+      <li><span class="n">34</span> Picasso’s birthplace</li>
+      <li><span class="n">36</span> It premiered in Cairo in 1871</li>
+      <li><span class="n">37</span> Messenger, ribosomal and transfer</li>
+      <li><span class="n">38</span> Mystery novelist Josephine and namesakes</li>
+      <li><span class="n">41</span> Lichenous</li>
+      <li><span class="n">42</span> Site of the deadliest battle of the Napoleonic Wars</li>
+      <li><span class="n">44</span> Criminal’s cooler</li>
+      <li><span class="n">46</span> 2002 ADS WotY</li>
+      <li><span class="n">47</span> It could go either way</li>
+      <li><span class="n">48</span> Fusilli relative</li>
+      <li><span class="n">50</span> Former Israeli PM</li>
+      <li><span class="n">51</span> Rub out</li>
+      <li><span class="n">52</span> River of forgetfulness</li>
+      <li><span class="n">54</span> Concludes, as a court argument</li>
+      <li><span class="n">57</span> Educational inst. in view of Ciudad Juarez</li>
+      <li><span class="n">59</span> Pastoral poem</li>
+      <li><span class="n">60</span> Lawyer, eventually, for a criminal</li>
+      <li><span class="n">61</span> Gangster’s guns</li>
+      <li><span class="n">63</span> Some gates</li>
     </ul>
   </div>
 {% endblock %}
