@@ -174,5 +174,7 @@ def full_round(round_id):
 @app.route("/full/inventory")
 @login_required.writingteam
 def full_inventory():
-    return render_template("inventory.html")
+    return render_template("inventory.html",
+        puzzle_visibilities={},
+        team_properties={})
 

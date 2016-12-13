@@ -1,7 +1,7 @@
-{% macro filled_inventory_grid_space(item_id, item_name) %}
+{% macro filled_inventory_grid_space(item_id, item_name, asset_url_for) %}
     <div class="inventory-grid-cell-content">
       <div class="inventory-grid-caption" id="inventory-grid-caption-{{ item_id }}">{{ item_name }}</div>
-      <div class="inventory-grid-thumb-image" style="content: url('{{ url_for('static', filename='temp/item' + item_id + '.jpg') }}'); width: 60px; height: 60px;"></div>
+      <div class="inventory-grid-thumb-image" style="width: 60px; height: 60px;"><img src="{{ asset_url_for('items/' + item_id + '.png') }}" style="width: 60px; height: 60px;"/></div>
     </div>
 {% endmacro %}
 
@@ -11,22 +11,22 @@
     </div>
 {% endmacro %}
 
-{% macro inventory_grid(inv_complete, team_inventory) %}
+{% macro inventory_grid(inv_complete, team_inventory, asset_url_for) %}
   {% if inv_complete %}
     {% set item_names = [
-          ('F00','Wicked Cursed Broadsword -7'),
-          ('F01','Wand of Vanishing +9'),
-          ('F02','Holy Water of Blessing +7'),
-          ('F03','Dictionary of Translating +3'),
-          ('F04','Cursed Bunsen Burner -1'),
-          ('F05','Calculator of Extrapolating +16')
+          ('F00','Wicked Cursed Broadsword -7','character-items/WickedCursedBroadsword'),
+          ('F01','Wand of Vanishing +9','character-items/WandOfVanishing'),
+          ('F02','Holy Water of Blessing +7','character-items/HolyWaterOfBlessing'),
+          ('F03','Dictionary of Translating +3','character-items/DictionaryOfTranslating'),
+          ('F04','Cursed Bunsen Burner -1','character-items/CursedBunsenBurner'),
+          ('F05','Calculator of Extrapolating +16','character-items/CalculatorOfExtrapolating')
           ] %}
     <table>
       {% for row_number in range(2) %}
         <tr>
         {% for column_number in range(3) %}
           <td>
-            {{ filled_inventory_grid_space(item_names[row_number * 3 + column_number][0], item_names[row_number * 3 + column_number][1]) }}
+            {{ filled_inventory_grid_space(item_names[row_number * 3 + column_number][2], item_names[row_number * 3 + column_number][1], asset_url_for) }}
           </td>
         {% endfor %}
         </tr>
@@ -37,46 +37,46 @@
     </table>
   {% else %}
     {% set item_names = [
-          ('00','Acceptance Letter to MIT'),
-          ('01','Anger Management Book'),
-          ('02','Architect\'s Compass'),
-          ('03','Astral Blade'),
-          ('04','Bargaining Chips'),
-          ('05','Broken Twig'),
-          ('06','Burnt Sulfur Lugnut'),
-          ('07','Cardiac Device'),
-          ('08','Denial of Service Attack Plan'),
-          ('09','Depression-Era Clothing'),
-          ('10','Domestic Avocado'),
-          ('11','Faded Sofa'),
-          ('12','Fancy Pocketwatch'),
-          ('13','Harlequin Doll'),
-          ('14','Iron Shovels'),
-          ('15','Jeweled Helm [not final name]'),
-          ('16','Knight\'s Shield'),
-          ('17','Leviticus Single'),
-          ('18','Little Statue of Liberty [check semaphore]'),
-          ('19','Lottery Numbers'),
-          ('20','Madman\'s Jackal Mask'),
-          ('21','Mint-Flavored Salami'),
-          ('22','Mississippi Collectible'),
-          ('23','Officer\'s Truncheons'),
-          ('24','Old Deuteronomy Sheet Music'),
-          ('25','Pink String Bikini'),
-          ('26','Polyatomic Robot'),
-          ('27','Red Pinafore'),
-          ('28','Sega Genesis'),
-          ('29','Severe Beret'),
-          ('30','Sienna Notebook'),
-          ('31','Soldierly Parasol'),
-          ('32','Sparkling Necklace'),
-          ('33','Super-Accurate Tri-Square'),
-          ('34','Tamil Liqueur'),
-          ('35','Ultima III: Exodus'),
-          ('36','Ultrasonic Boots'),
-          ('37','Unsafe Mtorolite'),
-          ('38','Worn Loop of Gold'),
-          ('39','Zzzzzzzz Final Item Temp')
+          ('00','Acceptance Letter to MIT','AcceptanceLetterToMIT'),
+          ('01','Anger Management Book','AngerManagementBook'),
+          ('02','Architect\'s Compass','ArchitectsCompass'),
+          ('03','Bargaining Chips','BargainingChips'),
+          ('04','Broken Twig','BrokenTwig'),
+          ('05','Burnt Sulfur Lugnut','BurntSulfurLugnut'),
+          ('06','Cardiac Devices','CardiacDevices'),
+          ('07','Denial of Service Attack Plan','DenialOfServiceAttackPlan'),
+          ('08','Depression-Era Clothing','DepressionEraClothing'),
+          ('09','Domestic Avocado','DomesticAvocado'),
+          ('10','Faded Sofa','FadedSofa'),
+          ('11','Fancy Pocketwatch','FancyPocketwatch'),
+          ('12','Harlequin Doll','HarlequinDoll'),
+          ('13','Iron Shovels','IronShovels'),
+          ('14','Leviticus Single','LeviticusSingle'),
+          ('15','Little Statue of Liberty','LittleStatueOfLiberty'),
+          ('16','Lottery Numbers','LotteryNumbers'),
+          ('17','Madman\'s Jackal Mask','MadmansJackalMask'),
+          ('18','Mint-Flavored Salami','MintFlavoredSalami'),
+          ('19','Mississippi Collectible','MississippiCollectable'),
+          ('20','Nebular Gloves','NebularGloves'),
+          ('21','Neural Blade','NeuralBlade'),
+          ('22','Officer\'s Truncheons','OfficersTruncheons'),
+          ('23','Old Deuteronomy Sheet Music','OldDeuteronomySheetMusic'),
+          ('24','Pink String Bikini','PinkStringBikini'),
+          ('25','Polyatomic Robot','PolyatomicRobot'),
+          ('26','Red Pinafore','RedPinafore'),
+          ('27','Sega Genesis','SegaGenesis'),
+          ('28','Severe Beret','SevereBeret'),
+          ('29','Shield of Judgement','ShieldOfJudgement'),
+          ('30','Sienna Notebook','SiennaNotebook'),
+          ('31','Soldierly Parasol','SoldierlyParasol'),
+          ('32','Sparkling Necklace','SparklingNecklace'),
+          ('33','Super-Accurate Tri-Square','SuperAccurateTriSquare'),
+          ('34','Tacky Jeweled Helm','TackyJeweledHelm'),
+          ('35','Tamil Liqueur','TamilLiqueur'),
+          ('36','Ultima III: Exodus','UltimaIIIExodus'),
+          ('37','Ultrasonic Boots','UltrasonicBoots'),
+          ('38','Unsafe Mtorolite','UnsafeMtorolite'),
+          ('39','Worn Loop of Gold','WornLoopOfGold')
           ] %}
     <table>
       {% for row_number in range(5) %}
@@ -84,7 +84,7 @@
         {% for column_number in range(8) %}
           <td>
             {% if ('ITEM' + item_names[row_number * 8 + column_number][0]) in team_inventory.get('inventoryItems',[]) %}
-              {{ filled_inventory_grid_space(item_names[row_number * 8 + column_number][0], item_names[row_number * 8 + column_number][1]) }}
+              {{ filled_inventory_grid_space(item_names[row_number * 8 + column_number][2], item_names[row_number * 8 + column_number][1], asset_url_for) }}
             {% else %}
               {{ empty_inventory_grid_space() }}
             {% endif %}
@@ -99,76 +99,76 @@
   {% endif %}
 {% endmacro %}
 
-{% macro inventory_individual_listing(item_id, item_name) %}
-  <div style="font-size: 24px; margin-bottom: 30px; text-align:center; display: inline-block; width: 200px;">
-    <img src="{{ url_for('static', filename='temp/item' + item_id + '.jpg') }}" style="width: 200px"/><br/>
+{% macro inventory_individual_listing(item_id, item_name, asset_url_for) %}
+  <div style="font-size: 24px; margin-right: 20px; margin-bottom: 30px; text-align:center; display: inline-block; width: 200px;">
+    <img src="{{ asset_url_for('items/' + item_id + '.png') }}" style="width: 200px"/><br/>
     {{ item_name }}
   </div>
 {% endmacro %}
 
-{% macro inventory_listing(inv_complete, team_inventory) %}
+{% macro inventory_listing(inv_complete, team_inventory, asset_url_for) %}
   {% if inv_complete %}
     {% set item_names = [
-          ('F00','Wicked Cursed Broadsword -7'),
-          ('F01','Wand of Vanishing +9'),
-          ('F02','Holy Water of Blessing +7'),
-          ('F03','Dictionary of Translating +3'),
-          ('F04','Cursed Bunsen Burner -1'),
-          ('F05','Calculator of Extrapolating +16')
+          ('F00','Wicked Cursed Broadsword -7','character-items/WickedCursedBroadsword'),
+          ('F01','Wand of Vanishing +9','character-items/WandOfVanishing'),
+          ('F02','Holy Water of Blessing +7','character-items/HolyWaterOfBlessing'),
+          ('F03','Dictionary of Translating +3','character-items/DictionaryOfTranslating'),
+          ('F04','Cursed Bunsen Burner -1','character-items/CursedBunsenBurner'),
+          ('F05','Calculator of Extrapolating +16','character-items/CalculatorOfExtrapolating')
           ] %}
 
     {% for item_number in range(6) %}
-      {{ inventory_individual_listing(item_names[item_number][0], item_names[item_number][1]) }}
+      {{ inventory_individual_listing(item_names[item_number][2], item_names[item_number][1], asset_url_for) }}
     {% endfor %}
   {% elif team_inventory.get('inventoryItems',[])|length <= 0 %}
     There is nothing in your inventory.
   {% else %}
     {% set item_names = [
-          ('00','Acceptance Letter to MIT'),
-          ('01','Anger Management Book'),
-          ('02','Architect\'s Compass'),
-          ('03','Astral Blade'),
-          ('04','Bargaining Chips'),
-          ('05','Broken Twig'),
-          ('06','Burnt Sulfur Lugnut'),
-          ('07','Cardiac Device'),
-          ('08','Denial of Service Attack Plan'),
-          ('09','Depression-Era Clothing'),
-          ('10','Domestic Avocado'),
-          ('11','Faded Sofa'),
-          ('12','Fancy Pocketwatch'),
-          ('13','Harlequin Doll'),
-          ('14','Iron Shovels'),
-          ('15','Jeweled Helm [not final name]'),
-          ('16','Knight\'s Shield'),
-          ('17','Leviticus Single'),
-          ('18','Little Statue of Liberty [check semaphore]'),
-          ('19','Lottery Numbers'),
-          ('20','Madman\'s Jackal Mask'),
-          ('21','Mint-Flavored Salami'),
-          ('22','Mississippi Collectible'),
-          ('23','Officer\'s Truncheons'),
-          ('24','Old Deuteronomy Sheet Music'),
-          ('25','Pink String Bikini'),
-          ('26','Polyatomic Robot'),
-          ('27','Red Pinafore'),
-          ('28','Sega Genesis'),
-          ('29','Severe Beret'),
-          ('30','Sienna Notebook'),
-          ('31','Soldierly Parasol'),
-          ('32','Sparkling Necklace'),
-          ('33','Super-Accurate Tri-Square'),
-          ('34','Tamil Liqueur'),
-          ('35','Ultima III: Exodus'),
-          ('36','Ultrasonic Boots'),
-          ('37','Unsafe Mtorolite'),
-          ('38','Worn Loop of Gold'),
-          ('39','Zzzzzzzz Final Item Temp')
+          ('00','Acceptance Letter to MIT','AcceptanceLetterToMIT'),
+          ('01','Anger Management Book','AngerManagementBook'),
+          ('02','Architect\'s Compass','ArchitectsCompass'),
+          ('03','Bargaining Chips','BargainingChips'),
+          ('04','Broken Twig','BrokenTwig'),
+          ('05','Burnt Sulfur Lugnut','BurntSulfurLugnut'),
+          ('06','Cardiac Devices','CardiacDevices'),
+          ('07','Denial of Service Attack Plan','DenialOfServiceAttackPlan'),
+          ('08','Depression-Era Clothing','DepressionEraClothing'),
+          ('09','Domestic Avocado','DomesticAvocado'),
+          ('10','Faded Sofa','FadedSofa'),
+          ('11','Fancy Pocketwatch','FancyPocketwatch'),
+          ('12','Harlequin Doll','HarlequinDoll'),
+          ('13','Iron Shovels','IronShovels'),
+          ('14','Leviticus Single','LeviticusSingle'),
+          ('15','Little Statue of Liberty','LittleStatueOfLiberty'),
+          ('16','Lottery Numbers','LotteryNumbers'),
+          ('17','Madman\'s Jackal Mask','MadmansJackalMask'),
+          ('18','Mint-Flavored Salami','MintFlavoredSalami'),
+          ('19','Mississippi Collectible','MississippiCollectable'),
+          ('20','Nebular Gloves','NebularGloves'),
+          ('21','Neural Blade','NeuralBlade'),
+          ('22','Officer\'s Truncheons','OfficersTruncheons'),
+          ('23','Old Deuteronomy Sheet Music','OldDeuteronomySheetMusic'),
+          ('24','Pink String Bikini','PinkStringBikini'),
+          ('25','Polyatomic Robot','PolyatomicRobot'),
+          ('26','Red Pinafore','RedPinafore'),
+          ('27','Sega Genesis','SegaGenesis'),
+          ('28','Severe Beret','SevereBeret'),
+          ('29','Shield of Judgement','ShieldOfJudgement'),
+          ('30','Sienna Notebook','SiennaNotebook'),
+          ('31','Soldierly Parasol','SoldierlyParasol'),
+          ('32','Sparkling Necklace','SparklingNecklace'),
+          ('33','Super-Accurate Tri-Square','SuperAccurateTriSquare'),
+          ('34','Tacky Jeweled Helm','TackyJeweledHelm'),
+          ('35','Tamil Liqueur','TamilLiqueur'),
+          ('36','Ultima III: Exodus','UltimaIIIExodus'),
+          ('37','Ultrasonic Boots','UltrasonicBoots'),
+          ('38','Unsafe Mtorolite','UnsafeMtorolite'),
+          ('39','Worn Loop of Gold','WornLoopOfGold')
           ] %}
 
     {% for item_number in range(40) %}
       {% if ('ITEM' + item_names[item_number][0]) in team_inventory.get('inventoryItems',[]) %}
-        {{ inventory_individual_listing(item_names[item_number][0], item_names[item_number][1]) }}
+        {{ inventory_individual_listing(item_names[item_number][2], item_names[item_number][1], asset_url_for) }}
       {% endif %}
     {% endfor %}
   {% endif %}

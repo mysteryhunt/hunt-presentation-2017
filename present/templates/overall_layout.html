@@ -24,7 +24,7 @@
             <button type="button" class="close" data-dismiss="modal">&times;</button>
           </div>
           <div class="modal-body">
-            {{ inventory.inventory_grid(inventory_complete, (team_properties.get('teamProperties',{}).get('InventoryProperty',{})) if team_properties else {}) }}
+            {{ inventory.inventory_grid(inventory_complete, (team_properties.get('teamProperties',{}).get('InventoryProperty',{})) if team_properties else {}, asset_url_for) }}
           </div>
         </div>
       </div>
