@@ -1,0 +1,35 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_round_id = 'thespians' %}
+{% block title_block %}Digital Display{% endblock %}
+{% block puzzle_name_block %}Digital Display{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    td {
+      font-size: 0.58em;
+      text-align: center;
+    }
+
+    td.numerator {
+      border-bottom: 1px solid black;
+    }
+  </style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+  Actors' names scroll by on the digital marquee. With a cast numbering in the
+  double digits, you lose patience before it starts repeating.
+{% endblock %}
+
+{% block puzzle_content_block %}
+  <div>
+    <table>
+      <tr>
+        <td class="numerator">155619367777177344298579121640577930358466048997080741489502115154736052423438639656322566701951512888971130859442675019505459646950828457775128</td>
+      </tr>
+      <tr>
+        <td class="denominator">814295694336200301695257325143637445297122644140195688542610298982742658367669506161728178242191616818890832959609127053599963426497407079941861</td>
+      </tr>
+    </table>
+  </div>
+{% endblock %}
