@@ -21,22 +21,23 @@
 }
 .merchant-number {
   position: absolute;
-  width: 48px;
-  height: 48px;
-  line-height: 48px;
+  width: 51px;
+  height: 51px;
+  line-height: 51px;
   text-align: center;
   vertical-align: center;
-  top: 161px;
+  top: 177px;
   font-size: 28px;
 }
 .merchant-label {
   position: absolute;
-  top: 481px;
+  top: 551px;
   right: 80px;
   padding: 5px;
   border: 3px #665F4F solid;
   border-radius: 5px;
   font-size: 24px;
+  background-color: #D1B780;
 }
 </style>
 {% endblock %}
@@ -47,10 +48,10 @@
 {% block puzzle_content_block %}
 <div id="merchants">
   {% for merchant_data in [
-      (1, 'Facetious Frank', 7, 8, 6, 5, 5),
+      (1, 'Facetious Frank', 7, 8, 3, 5, 5),
       (2, 'Suitable Sarah', 1, 5, 5, 11, 1),
       (3, 'Little Larry', 10, 3, 3, 6, 3),
-      (4, 'Star-Crossed Steve', '?', '?', '?', '?', '?'),
+      (4, 'Star-Crossed Steve', 9, 3, 1, 4, 5),
       (5, 'Holy Hannah', 7, 13, 13, 2, 1),
       (6, 'Mourning Mike', 3, 7, 15, 18, 18),
       (7, 'Flag-Bearing Flo', 14, 3, 2, 3, 10),
@@ -59,12 +60,12 @@
     <div class="merchant">
       <div class="merchant-image-container">
         {% for numeric_index in range(2,7) %}
-          <div class="merchant-number" style="left: {{ -28 + numeric_index * 58 }}px;">{{merchant_data[numeric_index]}}</div>
+          <div class="merchant-number" style="left: {{ -56 + numeric_index * 63 }}px;">{{merchant_data[numeric_index]}}</div>
         {% endfor %}
         <div class="merchant-label scroll-color-background">
           {{ merchant_data[1] }}
         </div>
-        <img src="{{ url_for('static', filename='temp/art/Merchants/merchant-image0%s.png' % merchant_data[0])}}" class="merchant-image"/>
+        <img src="{{ asset_url_for('merchants/merchant-image0%s.png' % merchant_data[0])}}" class="merchant-image"/>
       </div>
     </div>
   {% endfor %}

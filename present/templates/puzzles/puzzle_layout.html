@@ -48,6 +48,10 @@
     <div id="reward">
       <span class="puzzle-reward-solution-label">Reward:</span> <span class="puzzle-reward">New member of your party!</span>
     </div>
+  {% elif puzzle_id in ['merchants'] %}
+    <div id="reward">
+      <span class="puzzle-reward-solution-label">Reward:</span> <span class="puzzle-reward">????????</span>
+    </div>
   {% elif round_id in ['fighter','wizard','cleric','linguist','chemist','economist'] %}
     <div id="reward">
       <span class="puzzle-reward-solution-label">Reward:</span> <span class="puzzle-reward"><img src="{{ asset_url_for('general/characters/%s-logo.png' % round_id) }}" style="width:30px;height:30px;vertical-align:middle;"/> The {{ round_id|capitalize }} levels up!</span>
