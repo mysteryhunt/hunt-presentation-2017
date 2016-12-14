@@ -77,10 +77,20 @@
         {% endif %}
         {% if 'fortress' in visible_puzzle_ids %}
           <a href="{{ url_for('puzzle', puzzle_id = 'fortress') }}">
-            <div class="individual-quest caption-control" style="width:108px; height:81px<em></em>; position:absolute; top:470px; left:470px; z-index:200;" data-toggle="tooltip" data-placement="bottom" title="The Final Fortress">
+            <div class="individual-quest caption-control" style="width:108px; height:81px; position:absolute; top:470px; left:470px; z-index:200;" data-toggle="tooltip" data-placement="bottom" title="The Final Fortress">
               <img src="{{ asset_url_for('general/quests/fortress-scene.png') }}"/>
             </div>
           </a>
+        {% endif %}
+        {% if fog_number < 13 %}
+          {% set fog_reveal_data = [(6,30,20),(12,140,20),(18,170,160),(24,100,330),(32,160,410),(40,200,420),(48,240,270),(54,310,110),(64,370,30),(74,450,130),(84,440,270),(92,390,410),(140,500,430)] %}
+          <div id="fog-reveal-label" style="top:{{ fog_reveal_data[fog_number][1] }}px;left:{{ fog_reveal_data[fog_number][2] }}px;"><img src="{{ asset_url_for('general/icons/lock.png') }}" style="height:24px;vertical-align:bottom;"/>
+            {% if fog_number == 0 %}
+              Start exploring at<br/>Total Level {{ fog_reveal_data[fog_number][0] }}
+            {% else %}
+              Explore more at<br/>Total Level {{ fog_reveal_data[fog_number][0] }}
+            {% endif %}
+          </div>
         {% endif %}
     </div>
   </div>

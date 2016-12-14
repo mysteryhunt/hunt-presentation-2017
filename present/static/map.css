@@ -124,3 +124,8 @@ body {
 .individual-rescue img {
   height: 100%;
 }
+
+#fog-reveal-label {
+  position:absolute;
+  z-index:300;
+}
