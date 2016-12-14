@@ -1,0 +1,166 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'dynast' %}
+{% block title_block %}Swedish Strivers: Solution{% endblock %}
+{% block puzzle_name_block %}Swedish Strivers: Solution{% endblock %}
+{% block byline %}By Matt McGann and Jeff Roberts{% endblock %}
+{% block solution %}BE OF GOOD CHEER{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    table.s {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+    table.s td, th {
+      text-align: center;
+      border: 1px solid black;
+    }
+  </style>
+{% endblock %}
+
+{% block solution_content_block %}
+  <div>
+    <p>
+      This is a map puzzle using
+      the <a href="http://www.nytimes.com/2016/07/10/sports/cycling/driven-by-data-pros-and-joes-alike-vie-for-cycling-crowns.html">popular</a>
+      cycling (and running) social media
+      app <a href="https://www.strava.com/">Strava</a>. Strava means “strive”
+      in Swedish, and one popular feature is the “Queen of the Mountain” and
+      “King of the Mountain,” the fastest female and male, respectively, on each
+      of its segments.
+    </p>
+    <p>
+      Each map shows a segment; segments can be found using
+      the <a href="https://www.strava.com/segments/explore">Segment
+      Explorer</a>. The maps show the segment’s beginning (green dot), end
+      (checkered dot), and a particular location along the route (blue dot).
+      Each blue dot appears at a mile marker. By indexing into the segment name
+      with the mile number, you get a letter, spelling out the cluephrase IKEA
+      WAY STOUGHTON. The segment overlapping with Ikea Way in Stoughton,
+      Massachusetts is
+      called <b><a href="https://www.strava.com/segments/13590355">BE OF GOOD
+      CHEER</a></b>.
+    </p>
+    <table class="s">
+      <tr>
+        <th>Location</th>
+        <th>Segment name</th>
+        <th>Segment ID</th>
+        <th>Mile marker</th>
+        <th>Indexed letter</th>
+      </tr>
+      <tr>
+        <td>Amsterdam, Netherlands</td>
+        <td>Ringvaart (Sloten>Halfweg)</td>
+        <td><a href="https://www.strava.com/segments/1280081">1280081</a></td>
+        <td>2</td>
+        <td>I</td>
+      </tr>
+      <tr>
+        <td>Hong Kong</td>
+        <td>HKPeakClimb</td>
+        <td><a href="https://www.strava.com/segments/631238">631238</a></td>
+        <td>2</td>
+        <td>K</td>
+      </tr>
+      <tr>
+        <td>El Paso, TX / Juarez, Mexico</td>
+        <td>P. Negro - X</td>
+        <td><a href="https://www.strava.com/segments/8392311">8392311</a></td>
+        <td>3</td>
+        <td>E</td>
+      </tr>
+      <tr>
+        <td>American Samoa</td>
+        <td>Samoa Along The Coast Road</td>
+        <td><a href="https://www.strava.com/segments/11431110">11431110</a></td>
+        <td>16</td>
+        <td>A</td>
+      </tr>
+      <tr>
+        <td>Utqiaġvik (Barrow), Alaska</td>
+        <td>Pt Barrow to Barrow</td>
+        <td><a href="https://www.strava.com/segments/7110306">7110306</a></td>
+        <td>8</td>
+        <td>W</td>
+      </tr>
+      <tr>
+        <td>Istanbul, Turkey</td>
+        <td>Sarayburnu Sprint</td>
+        <td><a href="https://www.strava.com/segments/6435760">6435760</a></td>
+        <td>2</td>
+        <td>A</td>
+      </tr>
+      <tr>
+        <td>Bangkok, Thailand</td>
+        <td>Sky Lane 1 Lap</td>
+        <td><a href="https://www.strava.com/segments/11065617">11065617</a></td>
+        <td>3</td>
+        <td>Y</td>
+      </tr>
+      <tr>
+        <td>Erie, PA</td>
+        <td>Presque Isle TT</td>
+        <td><a href="https://www.strava.com/segments/750826">750826</a></td>
+        <td>4</td>
+        <td>S</td>
+      </tr>
+      <tr>
+        <td>Mount Rogers, VA</td>
+        <td>Whitetop MTN full</td>
+        <td><a href="https://www.strava.com/segments/3664453">3664453</a></td>
+        <td>4</td>
+        <td>T</td>
+      </tr>
+      <tr>
+        <td>Hampton Bays, NY</td>
+        <td>Quogue to Hampton Diner</td>
+        <td><a href="https://www.strava.com/segments/2231293">2231293</a></td>
+        <td>3</td>
+        <td>O</td>
+      </tr>
+      <tr>
+        <td>Minuteman Bike Trail, MA</td>
+        <td>Minuteman: Arlington-Lexington (short)</td>
+        <td><a href="https://www.strava.com/segments/755654">755654</a></td>
+        <td>4</td>
+        <td>U</td>
+      </tr>
+      <tr>
+        <td>Rio de Janeiro, Brazil</td>
+        <td>Garcia - Leblon</td>
+        <td><a href="https://www.strava.com/segments/7675624">7675624</a></td>
+        <td>1</td>
+        <td>G</td>
+      </tr>
+      <tr>
+        <td>Portland, OR</td>
+        <td>Thompson FULL CLIMB from 25th ave.</td>
+        <td><a href="https://www.strava.com/segments/6744281">6744281</a></td>
+        <td>2</td>
+        <td>H</td>
+      </tr>
+      <tr>
+        <td>Key West, FL</td>
+        <td>Highway 1 Sprint</td>
+        <td><a href="https://www.strava.com/segments/3791460">3791460</a></td>
+        <td>14</td>
+        <td>T</td>
+      </tr>
+      <tr>
+        <td>Dubai, UAE</td>
+        <td>Down the Palm</td>
+        <td><a href="https://www.strava.com/segments/3676274">3676274</a></td>
+        <td>2</td>
+        <td>O</td>
+      </tr>
+      <tr>
+        <td>Baghdad, IRAQ</td>
+        <td>Green Zone Baghdad</td>
+        <td><a href="https://www.strava.com/segments/10449475">10449475</a></td>
+        <td>5</td>
+        <td>N</td>
+      </tr>
+    </table>
+  </div>
+{% endblock %}
