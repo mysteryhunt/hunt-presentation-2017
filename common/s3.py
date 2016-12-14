@@ -2,6 +2,7 @@ import optparse
 import sys
 
 from boto.s3.connection import S3Connection
+from boto.cloudfront.distribution import Distribution
 
 def sign(bucket, path, access_key, secret_key, https, expiry=631138519):
     c = S3Connection(access_key, secret_key)
@@ -13,3 +14,12 @@ def sign(bucket, path, access_key, secret_key, https, expiry=631138519):
         query_auth=True,
         force_http=(not https)
     )
+    
+def cloudfront_sign(access_key, secret_key, asset_path, expiry=1485864000):
+  dist = Distribution(domain_name='d1gy1csjh89rhq.cloudfront.net')
+  key_pair_id = 'APKAIQD6FQE7UOMX3R2Q'
+  priv_key_file = "pk-APKAIQD6FQE7UOMX3R2Q.pem"
+  
+  http_resource = 'https://assets.monsters-et-manus.com/' + asset_path
+  http_signed_url = dist.create_signed_url(http_resource, key_pair_id, expiry, private_key_file=priv_key_file)
+  return http_signed_url

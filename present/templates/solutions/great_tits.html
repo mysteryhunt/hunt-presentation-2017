@@ -5,6 +5,14 @@
 {% block byline %}By Guy Jacobson{% endblock %}
 {% block solution %}ZASTAVA KORAL{% endblock %}
 
+{% block puzzle_head_block %}
+  <style>
+    ul {
+      list-style-type: none;
+    }
+  </style>
+{% endblock %}
+
 {% block solution_content_block %}
   <p>
     This puzzle is titled "Great Tits!" because it is based on
@@ -29,8 +37,13 @@
     enumeration of all the encodings followed by a check to see if the result
     looks like plausible English can be programmed up. This is a non-trivial
     programming task because you have to be somewhat careful about memory usage
-    and efficiency.
+    and efficiency. Here are some example implementations:
   </p>
+
+  <ul>
+    <li><a href="{{ asset_url_for('great_tits/gt.c') }}">C implementation</a></li>
+    <li><a href="{{ asset_url_for('great_tits/gt.py') }}">Python implementation</a></li>
+  </ul>
 
   <p>
     The block of text decrypts to what is mostly a sequence of very large numbers written out in English (broken into lines for readability):
