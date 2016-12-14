@@ -27,7 +27,7 @@ def utility_processor():
     def cloudfront_asset_url_for(asset_path):
       access_key = app.config["AWS_ASSET_ACCESS_KEY"]
       secret_key = app.config["AWS_ASSET_SECRET_KEY"]
-      return s3.cloudfront_sign(access_key, secret_key, asset_path)
+      return s3.cloudfront_sign(app, access_key, secret_key, asset_path)
     
     def get_google_api_key():
       return app.config["GOOGLE_API_KEY"]
