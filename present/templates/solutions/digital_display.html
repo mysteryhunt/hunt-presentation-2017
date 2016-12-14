@@ -1,0 +1,232 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'thespians' %}
+{% block title_block %}Digital Display: Solution{% endblock %}
+{% block puzzle_name_block %}Digital Display: Solution{% endblock %}
+{% block byline %}By Guy Jacobson and Kiran Kedlaya{% endblock %}
+{% block solution %}LINDEN LAB{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    table.d td {
+      text-align: center;
+    }
+    pre.code {
+      font-size: 0.75em;
+    }
+  </style>
+{% endblock %}
+
+{% block solution_content_block %}
+  <div>
+    <p>
+      This is a numerical steganography puzzle. Solvers need to have access to a
+      tool that can manipulate very large integers; I will use python here,
+      since it has baked-in support for arbritrary precision arithmetic. The
+      fraction shown is just what it looks like: a rational number. Solvers need
+      to convert the number into its decimal expansion and then go on a brief
+      treasure hunt through the digits found there, delving deep. The final step
+      will require using a bit of mathematical finesse and not mere brute force.
+    </p>
+    <p>
+      Looking at the initial segment of the expansion just beyond the decimal point
+    </p>
+    <blockquote>
+      .1911091620152008...
+    </blockquote>
+    <p>
+      solvers should notice that the digits taken in pairs are the alphabetic
+      indices (A=01, B=02, ...) of the beginning of a message:
+    </p>
+    <blockquote>
+      <table class="d">
+        <tr>
+          <td>19</td><td>11</td><td>09</td><td>16</td><td>20</td><td>15</td><td>20</td><td>08</td><td>...</td>
+        </tr>
+        <tr>
+          <td>S</td><td>K</td><td>I</td><td>P</td><td>T</td><td>O</td><td>T</td><td>H</td><td>...</td>
+        </tr>
+      </table>
+    </blockquote>
+    <p>
+      Looking at more digit pairs, solvers can recover a complete message,
+      terminated by 00:
+    </p>
+    <blockquote>
+      <table class="d">
+        <tr>
+          <td>19</td><td>11</td><td>09</td><td>16</td><td>20</td><td>15</td><td>20</td><td>08</td><td>15</td><td>21</td><td>19</td><td>01</td><td>14</td><td>04</td><td>20</td><td>08</td><td>04</td><td>09</td><td>01</td><td>09</td><td>20</td><td>00</td>
+        </tr>
+        <tr>
+          <td>S</td><td>K</td><td>I</td><td>P</td><td>T</td><td>O</td><td>T</td><td>H</td><td>O</td><td>U</td><td>S</td><td>A</td><td>N</td><td>D</td><td>T</td><td>H</td><td>D</td><td>I</td><td>G</td><td>I</td><td>T</td>
+
+        </tr>
+      </table>
+    </blockquote>
+    <p>
+      So it looks like we will need to venture considerably deeper into the
+      decimal expansion. It is not difficult to compute a few thousand digits of
+      this fraction; in python, for example, you can just write
+    </p>
+    <blockquote>
+      <pre>10**2000 * a // b</pre>
+    </blockquote>
+    <p>
+      to get the first 2000 digits of the fraction <i>a</i>/<i>b</i>, expressed
+      as a large integer.
+    </p>
+    <p>
+      The digits starting at position 1000 in the decimal expansion encode
+      another alphabetic-index message, again terminated by 00:
+    </p>
+    <blockquote>
+      <table class="d">
+        <tr>
+          <td>20</td><td>08</td><td>05</td><td>14</td><td>20</td><td>15</td><td>07</td><td>15</td><td>15</td><td>07</td><td>15</td><td>12</td><td>20</td><td>08</td><td>04</td><td>09</td><td>01</td><td>09</td><td>20</td><td>00</td>
+        </tr>
+        <tr>
+          <td>T</td><td>H</td><td>E</td><td>N</td><td>T</td><td>O</td><td>G</td><td>O</td><td>O</td><td>G</td><td>O</td><td>L</td><td>T</td><td>H</td><td>D</td><td>I</td><td>G</td><td>I</td><td>T</td>
+        </tr>
+      </table>
+    </blockquote>
+    <p>
+      At this point, solvers need to find a way of computing specific digits of
+      <i>a</i>/<i>b</i> without generating the entire decimal expansion starting
+      from the decimal point, since there is no practical way of computing or
+      storing a googol (10<sup>100</sup>) digits. You might think, "Hey, since
+      this is a rational number, it's going to have a repeating decimal, so we
+      can just compute the repeating part and use that to find the googolth
+      digit". But the fraction was intentionally constructed to have a very
+      large repeating sequence in its expansion (with a length of
+      16,859,147,591,006,830,465,663,878 digits, if you must know), so ... good
+      luck with that approach!
+    </p>
+    <p>
+      There are probably several ways to find digits deep inside the expansion
+      of a rational number quickly, but here's a fairly straightforward method
+      that relies on a few modular arithmetic tricks.  We want to calculate
+      the <i>k</i><sup>th</sup> digit of
+      <i>a</i>/<i>b</i>. We noted earlier that we can shift the decimal
+      point by simply multiplying by 10<sup><i>k</i></sup> to get
+      10<sup><i>k</i></sup>&middot;<i>a</i>/<i>b</i>. This will be a number whose
+      decimal value will have the desired digit in the ones place (just to
+      the left of the decimal point). But it will also have a fractional part
+      to the right of the decimal point. We can get rid of this fractional
+      part by first subtracting off 10<sup><i>k</i></sup>&middot;<i>a</i> mod
+      <i>b</i> from 10<sup><i>k</i></sup>&middot;<i>a</i> before dividing by
+      <i>b</i>. Then
+    </p>
+    <blockquote>
+      [10<sup><i>k</i></sup>&middot;<i>a</i> -
+      (10<sup><i>k</i></sup>&middot;<i>a</i> mod
+      <i>b</i>)] / <i>b</i>
+    </blockquote>
+    <p>
+      is an integer whose least-significant digit is the <i>k</i><sup>th</sup>
+      digit of
+      <i>a</i>/<i>b</i>. If we take this value mod 10, we will get the digit we
+      seek:
+    </p>
+    <blockquote>
+      ([10<sup><i>k</i></sup>&middot;<i>a</i> -
+      (10<sup><i>k</i></sup>&middot;<i>a</i> mod
+      <i>b</i>)] / <i>b</i>) mod 10
+    </blockquote>
+    <p>
+      Assuming that the original denominator <i>b</i> is relatively prime to 10,
+      the multiplicative inverse of <i>b</i> mod 10 exists; let's call this
+      value <i>b</i><sup>-1</sup>. (For our fraction, where the denominator ends
+      in 1, <i>b</i><sup>-1</sup> = 1.) We can replace the division in our
+      formula with a multiplication by <i>b</i><sup>-1</sup> to get:
+    </p>
+    <blockquote>
+      [<i>b</i><sup>-1</sup>&middot;10<sup><i>k</i></sup>&middot;<i>a</i>
+      - <i>b</i><sup>-1</sup>&middot;(10<sup><i>k</i></sup>&middot;<i>a</i> mod
+      <i>b</i>)] mod 10
+    </blockquote>
+    <p>
+      Since the first term inside the brackets has a factor of
+      10<sup><i>k</i></sup>, it will vanish when we mod by 10 at the end
+      (assuming <i>k</i> > 0), leaving just
+    </p>
+    <blockquote>
+      [-<i>b</i><sup>-1</sup>&middot;(10<sup><i>k</i></sup>&middot;<i>a</i> mod
+      <i>b</i>)] mod 10
+    </blockquote>
+    <p>
+      Now the only tricky bit remaining is to compute 10<sup><i>k</i></sup>
+      mod <i>b</i> efficiently for very large values of <i>k</i>. We cannot do
+      the obvious thing and multiply 10 by itself a googol times, or we would be
+      still be computing at the heat death of the universe. Fortunately, there
+      is the well-known trick
+      of <a href="https://en.wikipedia.org/wiki/Exponentiation_by_squaring">exponentiation
+      by squaring</a> that allows us to compute powers quickly. In fact, this
+      technique is used by python's three-argument <code>pow()</code> function
+      which does exponentiation modulo a given base, so we don't even need to
+      code up the trick ourselves if we program in python. (See the code at the
+      end of this solution for an example implementation.)
+    </p>
+    <p>
+      Using this method, we can find the sequence of digits in
+      <i>a</i>/<i>b</i> starting at position 10<sup>100</sup> and recover
+      the final message as we did previously:
+    </p>
+    <blockquote>
+      <table class="d">
+        <tr>
+          <td>12</td><td>09</td><td>14</td><td>04</td><td>05</td><td>14</td><td>12</td><td>01</td><td>02</td><td>00</td>
+        </tr>
+        <tr>
+          <td>L</td><td>I</td><td>N</td><td>D</td><td>E</td><td>N</td><td>L</td><td>A</td><td>B</td>
+        </tr>
+      </table>
+    </blockquote>
+    <p>
+      yielding the solution to this puzzle, <b>LINDEN LAB</b>.
+    </p>
+    <hr>
+    <p>
+      Here is a bit of code in python to solve the problem, using the
+      digit-extraction technique described above:
+    </p>
+    <pre class="code">
+#!/usr/bin/python
+
+def gcd(b, n):
+    x0, x1, y0, y1 = 1, 0, 0, 1
+    while n != 0:
+        q, b, n = b // n, n, b % n
+        x0, x1 = x1, x0 - q * x1
+        y0, y1 = y1, y0 - q * y1
+    return b, x0, y0
+
+def mulinv(b, n):
+    g, x, _ = gcd(b, n)
+    if g == 1:
+        return x % n
+
+# generate digits of num/denom starting at d in a given base
+def digit (num, denom, d = 1, base = 10): # assumes denom is relatively prime to base
+    denominv = mulinv (denom, base)
+    n = (num * pow (base, d - 1, denom)) % denom
+    while True:
+        n = (n * base) % denom
+        yield (-n * denominv) % base
+
+# decode ASCII from fraction
+def decodefrac(num, denom, start = 1):
+    d = digit(num, denom, start)
+    s = ''
+    while True:
+        c = 10 * d.next() + d.next();
+        if (c == 0):    # terminated by 00
+            return s
+        s += chr(c + ord('A') - 1)
+
+a = 155619367777177344298579121640577930358466048997080741489502115154736052423438639656...
+b = 814295694336200301695257325143637445297122644140195688542610298982742658367669506161...
+
+print decodefrac (a, b, 1)
+print decodefrac (a, b, 1000)
+print decodefrac (a, b, 10**100)</pre>
+  </div>
+{% endblock %}
