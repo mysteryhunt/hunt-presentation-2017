@@ -43,7 +43,7 @@ td.not-unlocked {
             {% set puzzle_link_action = 'full_puzzle' if full_access else 'puzzle' %}
             {% set puzzle_id = puzzle_data[0] %}
             {% set link_puzzle_id = puzzle_properties.get(puzzle_id,{}).get('puzzleProperties',{}).get('DisplayIdProperty',{}).get('displayId',puzzle_id) %}
-            <td{% if puzzle_visibilities.get(puzzle_data[0]).status != 'SOLVED' and puzzle_visibilities.get(puzzle_data[0]).status != 'UNLOCKED' %} class=" not-unlocked"{% else %} data-toggle="tooltip" data-placement="bottom" data-container="body" title="{{ puzzle_properties.get(puzzle_id).puzzleProperties.DisplayNameProperty.displayName }}"{% endif %}>
+            <td{% if puzzle_visibilities.get(puzzle_data[0]).status != 'SOLVED' and puzzle_visibilities.get(puzzle_data[0]).status != 'UNLOCKED' %} class=" not-unlocked"{% endif %}>
               {% if puzzle_visibilities.get(puzzle_data[0]).status == 'SOLVED' or puzzle_visibilities.get(puzzle_data[0]).status == 'UNLOCKED' %}
                 {% if puzzle_visibilities.get(puzzle_data[0]).status == 'SOLVED' %}
                   {{ puzzle_data[i+1] }}
