@@ -9,6 +9,17 @@ def handle_cube_error(error):
         "error.html",
         error=error)
 
+@app.context_processor
+def utility_processor():
+    def puzzle_url_for(puzzle_id):
+        if puzzle_id in ['fighter','wizard','cleric','linguist','economist','chemist','dynast','dungeon'
+                'thespians','bridge','criminal','minstrels','cube','warlord']:
+            return '/round/' + puzzle_id
+        return '/puzzle/' + puzzle_id
+
+    return dict(puzzle_url_for=puzzle_url_for)
+
+
 @app.route("/")
 @login_required.solvingteam
 def index():
@@ -37,6 +48,7 @@ def puzzle(puzzle_id):
             abort(400)
 
     submissions = cube.get_submissions(app, puzzle_id)
+    puzzle = cube.get_puzzle(app, puzzle_id)
     visibility = cube.get_puzzle_visibility(app, puzzle_id)
     hints = cube.get_hints(app, puzzle_id)
     interactions = cube.get_interactions(app, puzzle_id)
@@ -44,6 +56,7 @@ def puzzle(puzzle_id):
     return render_template(
         "puzzle.html",
         puzzle_id=puzzle_id,
+        puzzle=puzzle,
         submissions=submissions,
         visibility=visibility,
         hints=hints,

@@ -178,7 +178,7 @@ body {
 #overall-layout-header {
   background-color: #D1B780;
   border-bottom: 2px #665F4F solid;
-  min-height: 40px;
+  height: 40px;
   line-height: 40px;
   color: black;
   width: 100%;

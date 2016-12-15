@@ -1,41 +1,95 @@
-<h2>{{ visibility['puzzleDisplayName'] }}</h2>
-{% if visibility['status'] != 'SOLVED' %}
-<form action="{{ url_for('puzzle', puzzle_id=puzzle_id) }}" method="post">
-  <span>Submit an answer:</span>
-  <input type="text" name="submission">
-  <input type="submit" value="Submit">
-</form>
-<form action="{{ url_for('puzzle', puzzle_id=puzzle_id) }}" method="post">
-  <span>Ask for a hint:</span>
-  <input type="text" name="hintrequest">
-  <input type="submit" value="Submit">
-</form>
-{% endif %}
-<form action="{{ url_for('puzzle', puzzle_id=puzzle_id) }}" method="post">
-  <span>Request an interaction or report a problem:</span>
-  <input type="text" name="interactionrequest">
-  <input type="submit" value="Submit">
-</form>
-<ul>
-  {% for submission in submissions %}
-  <li>{{ submission.submission }} at {{ submission.timestamp | datetime }} - {{ submission.status }}
-  {% endfor %}
-</ul>
-{% if hints %}
-<h3>Hints</h3>
-<ul>
-  {% for hint in hints %}
-  <li>{{ hint.request }} at {{ hint.timestamp | datetime }} - {{ hint.status }}
-    {% if hint.response %}<br>{{ hint.response }}{% endif %}
-  {% endfor %}
-</ul>
-{% endif %}
-{% if interactions %}
-<h3>Requests</h3>
-<ul>
-  {% for interaction in interactions %}
-  <li>{{ interaction.request }} at {{ interaction.timestamp | datetime }} - {{ interaction.status }}
-    {% if interaction.response %}<br>{{ interaction.response }}{% endif %}
-  {% endfor %}
-</ul>
-{% endif %}
+<html>
+  <head>
+    <title>Submit</title>
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='submit.css') }}">
+  </head>
+  <body>
+    <div id="overall-layout-header">
+      <div id="header-link"><a href="{{ puzzle_url_for(puzzle_id) }}">Return to Puzzle</a></div>
+    </div>
+    <div id="forms">
+      <div id="title-header" class="small-horizontal-scroll">{{ puzzle.get('puzzleProperties',{}).get('DisplayNameProperty',{}).get('displayName',puzzle_id) }}</div>
+
+      <div class="submission-section">
+        <div class="submission-section-header">Submissions</div>
+        {% if visibility['status'] != 'SOLVED' %}
+        <div class="submission-section-form">
+          <form action="{{ url_for('puzzle', puzzle_id=puzzle_id) }}" method="post">
+            <span>Submit an answer:</span>
+            <input type="text" name="submission">
+            <input type="submit" value="Submit">
+          </form>
+        </div>
+        {% endif %}
+        <div class="submission-section-previous-subsection">
+          <div class="submission-section-previous-header">Previous Submissions</div>
+          <div class="submission-section-previous-listing">
+            <ul>
+              {% for submission in submissions %}
+              <li>{{ submission.submission }} at {{ submission.timestamp | datetime }} - {{ submission.status }}
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="submission-section">
+        <div class="submission-section-header">Requests</div>
+        <div class="submission-section-form">
+          <form action="{{ url_for('puzzle', puzzle_id=puzzle_id) }}" method="post">
+            <span>Request an interaction or report a problem:</span>
+            <input type="text" name="interactionrequest">
+            <input type="submit" value="Submit">
+          </form>
+        </div>
+        <div class="submission-section-explanation">
+          Requests are your way to communicate with us about a particular puzzle. Examples include scheduling a time to give us something or reporting an erratum. If you have found a message in a puzzle directing you to interact with us, please include the message from the puzzle in your request.
+        </div>
+        {% if interactions %}
+        <div class="submission-section-previous-subsection">
+          <div class="submission-section-previous-header">Previous Requests</div>
+          <div class="submission-section-previous-listing">
+            <ul>
+              {% for interaction in interactions %}
+              <li>{{ interaction.request }} at {{ interaction.timestamp | datetime }} - {{ interaction.status }}
+                {% if interaction.response %}<br>{{ interaction.response }}{% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        {% endif %}
+      </div>
+
+      <div class="submission-section">
+        <div class="submission-section-header">Hints</div>
+        {% if visibility['status'] != 'SOLVED' %}
+        <div class="submission-section-form">
+          <form action="{{ url_for('puzzle', puzzle_id=puzzle_id) }}" method="post">
+            <span>Ask for a hint:</span>
+            <input type="text" name="hintrequest">
+            <input type="submit" value="Submit">
+          </form>
+        </div>
+        <div class="submission-section-explanation">
+          With hints, you may ask a yes/no question about the puzzle. Hints cost 100 Gold.
+        </div>
+        {% endif %}
+        {% if hints %}
+        <div class="submission-section-previous-subsection">
+          <div class="submission-section-previous-header">Previous Hints</div>
+          <div class="submission-section-previous-listing">
+            <ul>
+              {% for hint in hints %}
+              <li>{{ hint.request }} at {{ hint.timestamp | datetime }} - {{ hint.status }}
+                {% if hint.response %}<br>{{ hint.response }}{% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        {% endif %}
+      </div>
+      
+    </div>
+  </body>
+</html>
