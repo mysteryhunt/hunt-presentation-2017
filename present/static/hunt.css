@@ -282,6 +282,24 @@ body {
   padding: 5px 5px;
 }
 
+#header-navigation .modal-body {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+#header-navigation .modal-body ul {
+  list-style-type: none;
+  padding-left: 0px;
+}
+
+#header-navigation .navigation-column {
+  width: 33%;
+}
+
+#header-navigation .navigation-column-header {
+  font-weight: bold;
+}
+
 /* Captions */
 
 .tooltip {

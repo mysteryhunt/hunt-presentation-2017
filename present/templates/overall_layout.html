@@ -14,6 +14,42 @@
     {% block styling_block %}{% endblock %}
   </head>
   <body>
+    <div id="header-navigation" class="modal fade" role="dialog" aria-labelledby="navigationModal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="small-horizontal-scroll">
+              Navigation
+            </div>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            <div class="navigation-column">
+              <div class="navigation-column-header">General</div>
+              <ul>
+                <li><a href="{{ url_for('index') }}">World Map</a></li>
+              </ul>
+            </div>
+            <div class="navigation-column">
+              <div class="navigation-column-header">Characters</div>
+              <ul>
+                {% for character_id in ['fighter','wizard','cleric','linguist','economist','chemist'] if character_id in visible_puzzle_ids %}
+                  <li><a href="{{ url_for('round', round_id=character_id) }}">{{ character_id }}</a></li>
+                {% endfor %}
+              </ul>
+            </div>
+            <div class="navigation-column">
+              <div class="navigation-column-header">Quests</div>
+              <ul>
+                {% for quest_id in ['dynast','dungeon','thespians','bridge','criminal','minstrels','cube','warlord'] if quest_id in visible_puzzle_ids %}
+                  <li><a href="{{ url_for('round', round_id=quest_id) }}">{{ quest_id }}</a></li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div id="header-inventory-grid" class="modal fade" role="dialog" aria-labelledby="inventoryModal">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -32,7 +68,7 @@
     
     
     <div id="overall-layout-header">
-      <div id="header-index-link"><a href="{{ url_for('index') }}">World Map</a></div>
+      <div id="header-index-link" data-toggle="modal" data-target="#header-navigation"><a href="#">Navigation</a></div>
       <div id="header-statuses">
         {% for character_class in ['fighter','wizard','cleric','linguist','economist','chemist'] if character_class in visible_puzzle_ids %}
           <a href="{{ url_for('round', round_id = character_class) }}">
