@@ -7,8 +7,8 @@
 {% block puzzle_content_block %}
 <div>
   {{ inventory.inventory_listing(
-        puzzle_visibilities.get('merchants',{}).get('status','') == 'SOLVED',
-        team_properties.get('teamProperties',{}).get('InventoryProperty',{}) if team_properties else {},
+        core_display_data['merchants_solved'],
+        core_display_data['inventory_items'],
         asset_url_for) }}
 </div>
 {% endblock %}

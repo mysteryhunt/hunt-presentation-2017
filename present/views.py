@@ -132,14 +132,8 @@ def puzzle(puzzle_id):
 @app.route("/inventory")
 @login_required.solvingteam
 def inventory():
-    visible_puzzle_ids = set(cube.get_visible_puzzle_ids(app))
-    team_properties = cube.get_team_properties(app)
-    puzzle_visibilities = cube.get_puzzle_visibilities(app)
-    puzzle_visibilities = {visibility.get('puzzleId'): visibility for visibility in puzzle_visibilities}
-    return render_template("inventory.html",
-        team_properties=team_properties,
-        visible_puzzle_ids=visible_puzzle_ids,
-        puzzle_visibilities=puzzle_visibilities)
+    core_display_data = get_core_display_data()
+    return render_template("inventory.html", core_display_data=core_display_data)
 
 @app.route("/full/puzzle")
 @login_required.writingteam

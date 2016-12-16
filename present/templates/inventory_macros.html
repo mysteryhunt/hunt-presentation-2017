@@ -120,7 +120,7 @@
     {% for item_number in range(6) %}
       {{ inventory_individual_listing(item_names[item_number][2], item_names[item_number][1], asset_url_for) }}
     {% endfor %}
-  {% elif team_inventory.get('inventoryItems',[])|length <= 0 %}
+  {% elif team_inventory_items|length <= 0 %}
     There is nothing in your inventory.
   {% else %}
     {% set item_names = [
