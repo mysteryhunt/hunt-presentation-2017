@@ -71,6 +71,18 @@ def get_core_display_data():
     core_display_data['gold'] = team_properties.get('teamProperties',{}).get('GoldProperty',{}).get('gold',0)
     return core_display_data
 
+def get_full_path_core_display_data():
+    core_display_data = { }
+    core_display_data['visible_characters'] = ['fighter','wizard','cleric','linguist','economist','chemist']
+    core_display_data['merchants_solved'] = False
+    core_display_data['character_levels'] = { \
+        char_id: 0 \
+        for char_id in core_display_data['visible_characters'] }
+    core_display_data['total_character_level'] = sum(core_display_data['character_levels'].itervalues())
+    core_display_data['inventory_items'] = ['ITEM' + str(i) for i in range(14,24)]
+    core_display_data['gold'] = 0
+    return core_display_data
+
 @app.route("/")
 @login_required.solvingteam
 @metrics.time(app, "present.index")
@@ -141,9 +153,10 @@ def full_puzzle_index():
     files = os.listdir(os.path.join(app.root_path, 'templates/puzzles'))
     puzzle_ids = [file.split('.')[0] for file in files]
     puzzle_ids = sorted([puzzle_id for puzzle_id in puzzle_ids if puzzle_id not in ['puzzle_layout','sample_draft']])
+    core_display_data = get_full_path_core_display_data()
     return render_template("full_puzzle_index.html",
-        puzzle_ids=puzzle_ids,
-        puzzle_visibilities={})
+        core_display_data=core_display_data,
+        puzzle_ids=puzzle_ids)
         
 @app.route("/full/puzzle/<puzzle_id>")
 @login_required.writingteam
@@ -152,19 +165,21 @@ def full_puzzle(puzzle_id):
         puzzle = cube.get_puzzle(app, puzzle_id)
     except:
         puzzle = None
+    core_display_data = get_full_path_core_display_data()
     return render_template(
         "puzzles/%s.html" % puzzle_id,
+        core_display_data=core_display_data,
         puzzle_id=puzzle_id,
-        puzzle=puzzle,
-        puzzle_visibilities={})
+        puzzle=puzzle)
 
 @app.route("/full/solution/<puzzle_id>")
 @login_required.writingteam
 def full_solution(puzzle_id):
+    core_display_data = get_full_path_core_display_data()
     return render_template(
         "solutions/%s.html" % puzzle_id,
-        puzzle_id=puzzle_id,
-        puzzle_visibilities={})
+        core_display_data=core_display_data,
+        puzzle_id=puzzle_id)
 
 @app.route("/full/round/<round_id>")
 @login_required.writingteam
@@ -172,11 +187,13 @@ def full_round(round_id):
     puzzle_properties = cube.get_puzzles(app)
     puzzle_properties = {puzzle.get('puzzleId'): puzzle for puzzle in puzzle_properties}
     
+    core_display_data = get_full_path_core_display_data()
     visibility = request.args.get('visibility','VISIBLE')
     puzzle_visibilities = {puzzle_id: {'status': visibility} for puzzle_id in puzzle_properties.keys()}
     
     return render_template(
         "rounds/%s.html" % round_id,
+        core_display_data=core_display_data,
         round_id=round_id,
         puzzle_properties=puzzle_properties,
         puzzle_visibilities=puzzle_visibilities,
@@ -185,7 +202,7 @@ def full_round(round_id):
 @app.route("/full/inventory")
 @login_required.writingteam
 def full_inventory():
+    core_display_data = get_full_path_core_display_data()
     return render_template("inventory.html",
-        puzzle_visibilities={},
-        team_properties={})
+        core_display_data=core_display_data)
 
