@@ -16,14 +16,14 @@
     <div class="vertically-enscrolled">
       <div id="total-character-level">Total: {{ total_level }}</div>
       <div id="character-displays">
-        {% for character_class in ['fighter','wizard','cleric','linguist','economist','chemist'] if character_class in visible_puzzle_ids %}
+        {% for character_class in core_display_data['visible_characters'] %}
           <a href="{{ url_for('round', round_id = character_class) }}">
             <div id="character-{{ character_class }}" class="individual-character">
               <div class="individual-character-class">The {{ character_class|capitalize }}</div>
               <img src="{{ asset_url_for('general/characters/%s-ring.png' % character_class) }}"/>
               <div class="individual-character-status-container">
                 <img src="{{ asset_url_for('general/characters/%s-logo.png' % character_class) }}"/>
-                <span class="individual-character-level">{{ team_properties.teamProperties.CharacterLevelsProperty.levels[character_class.upper()]|default(0) }}</span>
+                <span class="individual-character-level">{{ core_display_data['character_levels'][character_class] }}</span>
               </div>
             </div>
           </a>
@@ -34,15 +34,15 @@
           <div class="individual-inventory-gold" data-toggle="tooltip" data-placement="bottom" title="Inventory">
             <a href="{{ url_for('inventory') }}">
               <img src="{{ asset_url_for('general/icons/chest.png') }}" style="width:50px;height:50px;vertical-align:middle;"/>
-              {% if puzzle_visibilities.get('merchants',{}).get('status','') == 'SOLVED' %}
+              {% if core_display_data['merchants_solved'] %}
                 6/6
               {% else %}
-                {{ team_properties.get('teamProperties',{}).get('InventoryProperty',{}).get('inventoryItems',[])|length if team_properties else 'NA' }}/40
+                {{ core_display_data['inventory_items']|length }}/40
               {% endif %}
             </a>
           </div>
           <div class="individual-inventory-gold" data-toggle="tooltip" data-placement="bottom" title="Gold">
-            <img src="{{ asset_url_for('general/icons/coin.png') }}" style="width:50px;height:50px;vertical-align:middle;"/>&nbsp;{{ team_properties.get('teamProperties',{}).get('GoldProperty',{}).get('gold',0) if team_properties else 'NA'}}
+            <img src="{{ asset_url_for('general/icons/coin.png') }}" style="width:50px;height:50px;vertical-align:middle;"/>&nbsp;{{ core_display_data['gold'] }}
           </div>
       </div>
     </div>

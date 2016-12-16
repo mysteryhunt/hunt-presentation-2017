@@ -54,6 +54,10 @@ def get_puzzle_visibilities(app):
     response = get(app, "/visibilities?teamId=%s" % session["username"])
     return sorted(response["visibilities"], key=lambda v: v["puzzleId"])
 
+def get_puzzle_visibilities_for_list(app, puzzle_ids):
+    response = get(app, "/visibilities?teamId=%s&puzzleId=%s" % (session["username"], ','.join(puzzle_ids)))
+    return { v["puzzleId"]: v for v in response["visibilities"] }
+
 def get_puzzle_visibility(app, puzzle_id):
     return get(app, "/visibilities/%s/%s" % (session["username"], puzzle_id))
 
@@ -70,6 +74,10 @@ def is_puzzle_unlocked(app, puzzle_id):
 def get_all_puzzle_properties(app):
     response = get(app, "/puzzles?teamId=%s" % session["username"])
     return response
+
+def get_all_puzzle_properties_for_list(app, puzzle_ids):
+    response = get(app, "/puzzles?teamId=%s&puzzleId=%s" % (session["username"], ','.join(puzzle_ids)))
+    return {puzzle.get('puzzleId'): puzzle for puzzle in response.get('puzzles',[])}
 
 def get_puzzles(app):
     response = get(app, "/puzzles")

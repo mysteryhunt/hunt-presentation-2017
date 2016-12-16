@@ -44,34 +44,52 @@ def utility_processor():
     return dict(submit_url_for=submit_url_for, asset_url_for=asset_url_for,
         get_google_api_key=get_google_api_key,
         single_character_unlock_requirement=single_character_unlock_requirement)
-    
 
+
+ROUND_PUZZLE_MAP = {
+  'index': ['dynast','rescue_the_linguist','dungeon','rescue_the_economist','thespians',\
+            'rescue_the_chemist','bridge','criminal','minstrels','cube','warlord','merchants','fortress'],
+  'fighter': ['f' + str(i) for i in range(1,11+1)],
+  'wizard': ['w' + str(i) for i in range(1,11+1)]
+}
+    
+def get_core_display_data():
+    visibilities = cube.get_puzzle_visibilities_for_list(app, \
+        ['fighter','wizard','cleric','linguist','economist','chemist','merchants'])
+    team_properties = cube.get_team_properties(app)
+
+    core_display_data = { }
+    core_display_data['visible_characters'] = \
+        [char_id for char_id in ['fighter','wizard','cleric','linguist','economist','chemist'] if \
+        visibilities.get(char_id,{}).get('status','INVISIBLE') != 'INVISIBLE']
+    core_display_data['merchants_solved'] = visibilities.get('merchants',{}).get('status','INVISIBLE') == 'SOLVED'
+    core_display_data['character_levels'] = { \
+        char_id: team_properties.get('teamProperties',{}).get('CharacterLevelsProperty',{}).get('levels',{}).get(char_id.upper(),0) \
+        for char_id in core_display_data['visible_characters'] }
+    core_display_data['total_character_level'] = sum(core_display_data['character_levels'].itervalues())
+    core_display_data['inventory_items'] = team_properties.get('teamProperties',{}).get('InventoryProperty',{}).get('inventoryItems',[])
+    core_display_data['gold'] = team_properties.get('teamProperties',{}).get('GoldProperty',{}).get('gold',0)
+    return core_display_data
 
 @app.route("/")
 @login_required.solvingteam
 @metrics.time(app, "present.index")
 def index():
-    puzzle_visibilities = cube.get_puzzle_visibilities(app)
-    puzzle_visibilities = {visibility.get('puzzleId'): visibility for visibility in puzzle_visibilities}
+    core_display_data = get_core_display_data()
+    round_puzzle_ids = ROUND_PUZZLE_MAP.get('index')
+    puzzle_visibilities = cube.get_puzzle_visibilities_for_list(app, round_puzzle_ids)
+    puzzle_properties = cube.get_all_puzzle_properties_for_list(app, round_puzzle_ids)
     visible_puzzle_ids = set([key for key in puzzle_visibilities if puzzle_visibilities.get(key,{}).get('status','') != 'INVISIBLE'])
-    team_properties = cube.get_team_properties(app)
     fog_number = len([map_item for map_item in \
         ['dynast','dungeon','thespians','bridge','criminal','minstrels','cube','warlord','rescue_the_linguist','rescue_the_chemist','rescue_the_economist','merchants','fortress']\
         if map_item in visible_puzzle_ids])
     
-    total_level = sum([team_properties.get('teamProperties',{}).get('CharacterLevelsProperty',{}).get('levels',{}).get(character_class.upper(), 0) \
-      for character_class in ['fighter','wizard','cleric','linguist','chemist','economist'] \
-      if character_class in visible_puzzle_ids])
-    if total_level is None:
-      total_level = 0
-    
     return render_template(
         "index.html",
+        core_display_data=core_display_data,
         visible_puzzle_ids=visible_puzzle_ids,
-        team_properties=team_properties,
         fog_number=fog_number,
-        puzzle_visibilities=puzzle_visibilities,
-        total_level=total_level)
+        puzzle_visibilities=puzzle_visibilities)
 
 @app.route("/round/<round_id>")
 @login_required.solvingteam
@@ -80,20 +98,17 @@ def round(round_id):
     if not cube.is_puzzle_unlocked(app, round_id):
         abort(403)
 
-    puzzle_visibilities = cube.get_puzzle_visibilities(app)
-    puzzle_visibilities = {visibility.get('puzzleId'): visibility for visibility in puzzle_visibilities}
-    visible_puzzle_ids = set([key for key in puzzle_visibilities if puzzle_visibilities.get(key,{}).get('status','') != 'INVISIBLE'])
-    puzzle_properties = cube.get_all_puzzle_properties(app)
-    puzzle_properties = {puzzle.get('puzzleId'): puzzle for puzzle in puzzle_properties.get('puzzles',[])}
-    team_properties = cube.get_team_properties(app)
+    core_display_data = get_core_display_data()
+    round_puzzle_ids = ROUND_PUZZLE_MAP.get(round_id)
+    puzzle_visibilities = cube.get_puzzle_visibilities_for_list(app, round_puzzle_ids)
+    puzzle_properties = cube.get_all_puzzle_properties_for_list(app, round_puzzle_ids)
     
     return render_template(
         "rounds/%s.html" % round_id,
+        core_display_data=core_display_data,
         round_id=round_id,
         puzzle_properties=puzzle_properties,
-        puzzle_visibilities=puzzle_visibilities,
-        team_properties=team_properties,
-        visible_puzzle_ids=visible_puzzle_ids)
+        puzzle_visibilities=puzzle_visibilities)
 
 
 @app.route("/puzzle/<puzzle_id>")
@@ -102,22 +117,17 @@ def round(round_id):
 def puzzle(puzzle_id):
     if not cube.is_puzzle_unlocked(app, puzzle_id):
         abort(403)
-        
-    puzzle_visibilities = cube.get_puzzle_visibilities(app)
-    puzzle_visibilities = {visibility.get('puzzleId'): visibility for visibility in puzzle_visibilities}
-    visible_puzzle_ids = set([key for key in puzzle_visibilities if puzzle_visibilities.get(key,{}).get('status','') != 'INVISIBLE'])
+
+    core_display_data = get_core_display_data()
     puzzle = cube.get_puzzle(app, puzzle_id)
     puzzle_visibility = cube.get_puzzle_visibility(app, puzzle_id)
-    team_properties = cube.get_team_properties(app)
 
     return render_template(
         "puzzles/%s.html" % puzzle_id,
+        core_display_data=core_display_data,
         puzzle_id=puzzle_id,
         puzzle=puzzle,
-        puzzle_visibilities=puzzle_visibilities,
-        puzzle_visibility=puzzle_visibility,
-        team_properties=team_properties,
-        visible_puzzle_ids=visible_puzzle_ids)
+        puzzle_visibility=puzzle_visibility)
         
 @app.route("/inventory")
 @login_required.solvingteam

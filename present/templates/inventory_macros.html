@@ -11,7 +11,7 @@
     </div>
 {% endmacro %}
 
-{% macro inventory_grid(inv_complete, team_inventory, asset_url_for) %}
+{% macro inventory_grid(inv_complete, team_inventory_items, asset_url_for) %}
   {% if inv_complete %}
     {% set item_names = [
           ('F00','Wicked Cursed Broadsword -7','character-items/WickedCursedBroadsword'),
@@ -83,7 +83,7 @@
         <tr>
         {% for column_number in range(8) %}
           <td>
-            {% if ('ITEM' + item_names[row_number * 8 + column_number][0]) in team_inventory.get('inventoryItems',[]) %}
+            {% if ('ITEM' + item_names[row_number * 8 + column_number][0]) in team_inventory_items %}
               {{ filled_inventory_grid_space(item_names[row_number * 8 + column_number][2], item_names[row_number * 8 + column_number][1], asset_url_for) }}
             {% else %}
               {{ empty_inventory_grid_space() }}
@@ -106,7 +106,7 @@
   </div>
 {% endmacro %}
 
-{% macro inventory_listing(inv_complete, team_inventory, asset_url_for) %}
+{% macro inventory_listing(inv_complete, team_inventory_items, asset_url_for) %}
   {% if inv_complete %}
     {% set item_names = [
           ('F00','Wicked Cursed Broadsword -7','character-items/WickedCursedBroadsword'),
@@ -167,7 +167,7 @@
           ] %}
 
     {% for item_number in range(40) %}
-      {% if ('ITEM' + item_names[item_number][0]) in team_inventory.get('inventoryItems',[]) %}
+      {% if ('ITEM' + item_names[item_number][0]) in team_inventory_items %}
         {{ inventory_individual_listing(item_names[item_number][2], item_names[item_number][1], asset_url_for) }}
       {% endif %}
     {% endfor %}

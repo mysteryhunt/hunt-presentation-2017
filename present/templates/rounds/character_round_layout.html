@@ -45,7 +45,7 @@
       <div id="character-level-container" class="standard-horizontal-scroll">
         <img src="{{ asset_url_for('general/characters/%s-logo.png' % round_id) }}" style="width:50px;height:50px;"/>
         <span id="character-level-value">
-          {{ team_properties.teamProperties.CharacterLevelsProperty.levels.get(round_id.upper(), 0) if team_properties else 'NA' }}
+          {{ core_display_data.character_levels[round_id] }}
         </span>
       </div>
       <img id="character-image" src="{{ asset_url_for('general/characters/%s-full.png' % round_id) }}"/>
