@@ -144,12 +144,16 @@ def puzzle(puzzle_id):
 
     core_display_data = get_core_display_data()
     puzzle = cube.get_puzzle(app, puzzle_id)
+    canonical_puzzle_id = puzzle.get('puzzleId')
+    puzzle_round_id = [r_id for r_id, round_puzzle_ids in ROUND_PUZZLE_MAP.iteritems() if canonical_puzzle_id in round_puzzle_ids]
+    puzzle_round_id = puzzle_round_id[0] if len(puzzle_round_id) > 0 else None
     puzzle_visibility = cube.get_puzzle_visibility(app, puzzle_id)
 
     return render_template(
         "puzzles/%s.html" % puzzle_id,
         core_display_data=core_display_data,
         puzzle_id=puzzle_id,
+        puzzle_round_id=puzzle_round_id,
         puzzle=puzzle,
         puzzle_visibility=puzzle_visibility)
         
@@ -175,13 +179,18 @@ def full_puzzle_index():
 def full_puzzle(puzzle_id):
     try:
         puzzle = cube.get_puzzle(app, puzzle_id)
+        canonical_puzzle_id = puzzle.get('puzzleId')
+        puzzle_round_id = [r_id for r_id, round_puzzle_ids in ROUND_PUZZLE_MAP.iteritems() if canonical_puzzle_id in round_puzzle_ids]
+        puzzle_round_id = puzzle_round_id[0] if len(puzzle_round_id) > 0 else None
     except:
         puzzle = None
+        puzzle_round_id = None
     core_display_data = get_full_path_core_display_data()
     return render_template(
         "puzzles/%s.html" % puzzle_id,
         core_display_data=core_display_data,
         puzzle_id=puzzle_id,
+        puzzle_round_id=puzzle_round_id,
         puzzle=puzzle)
 
 @app.route("/full/solution/<puzzle_id>")
