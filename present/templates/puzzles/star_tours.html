@@ -1,0 +1,139 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}Star Tours{% endblock %}
+{% block puzzle_name_block %}Star Tours{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    .blue {
+      color: #2af;
+    }
+    .pink {
+      color: #f7f;
+    }
+    .no-vertical-margin {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    .italic {
+      font-style: italic;
+    }
+    .a {
+      display: flex;
+      align-items: center;
+      margin-bottom: 3em;
+    }
+    .b {
+      margin-right: 50px;
+    }
+    .c {
+      width: 100%;
+    }
+    table.d {
+      border: 2px solid black;
+      border-collapse: collapse;
+    }
+    table.d td {
+      border: 2px solid black;
+      text-align: right;
+      padding: 4px;
+      width: 2em;
+    }
+    table.d td.e {
+      width: 10px;
+    }
+    .h {
+      page-break-inside: avoid;
+    }
+    table.g {
+      margin-top: 3em;
+      border-collapse: collapse;
+    }
+    table.g td {
+      width: 24px;
+      height: 24px;
+    }
+    table.g td.bluebox {
+      border: 1px solid black;
+      background-color: #9cf;
+      box-shadow: inset 0 0 0 1000px #9cf;
+    }
+    table.g td.pinkbox {
+      border: 1px solid black;
+      background-color: #faf;
+      box-shadow: inset 0 0 0 1000px #faf;
+    }
+    table.g td.redtop {
+      border-top: 3px solid red;
+      border-left: 3px solid red;
+      border-right: 3px solid red;
+    }
+    table.g td.redmid {
+      border-left: 3px solid red;
+      border-right: 3px solid red;
+    }
+    table.g td.redbot {
+      border-bottom: 3px solid red;
+      border-left: 3px solid red;
+      border-right: 3px solid red;
+    }
+    table.g tr.header {
+      text-align: center;
+    }
+  </style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+  Near the ceiling of the dungeon, a small window yields a glimpse of the night
+  sky. You try to regain your earthly bearings by noting the appearances of
+  star-crossed lovers across the scattered dust of NGC7000.
+{% endblock %}
+
+{% block puzzle_content_block %}
+  <div>
+    <p class="blue italic no-vertical-margin">My World in blue</p>
+    <p class="pink italic no-vertical-margin">Stars Dance in pink</p>
+    <p class="italic">The real stars work in concert with real cities</p>
+    <div class="a">
+      <div class="b"><img class="c" src="{{ asset_url_for('star_tours/image01.jpg') }}"></div>
+      <div>
+        <table class="d">
+          <tr class="blue"><td>20</td><td>58</td><td>59</td><td class="e"></td><td>44</td><td>9</td><td>38</td></tr>
+          <tr class="pink"><td>21</td><td>1</td><td>25</td><td class="e"></td><td>44</td><td>41</td><td>40</td></tr>
+          <tr class="blue"><td>20</td><td>55</td><td>19</td><td class="e"></td><td>44</td><td>18</td><td>25</td></tr>
+          <tr class="pink"><td>20</td><td>55</td><td>14</td><td class="e"></td><td>44</td><td>21</td><td>27</td></tr>
+          <tr class="blue"><td>20</td><td>59</td><td>8.2</td><td class="e"></td><td>43</td><td>56</td><td>2</td></tr>
+          <tr class="pink"><td>20</td><td>58</td><td>55</td><td class="e"></td><td>44</td><td>42</td><td>8</td></tr>
+          <tr class="blue"><td>21</td><td>0</td><td>11</td><td class="e"></td><td>44</td><td>19</td><td>40</td></tr>
+          <tr class="pink"><td>20</td><td>57</td><td>11</td><td class="e"></td><td>44</td><td>19</td><td>19</td></tr>
+          <tr class="blue"><td>20</td><td>58</td><td>6.5</td><td class="e"></td><td>43</td><td>57</td><td>50</td></tr>
+          <tr class="pink"><td>20</td><td>56</td><td>54</td><td class="e"></td><td>44</td><td>5</td><td>46</td></tr>
+          <tr class="blue"><td>20</td><td>59</td><td>26</td><td class="e"></td><td>43</td><td>47</td><td>37</td></tr>
+          <tr class="pink"><td>21</td><td>1</td><td>18</td><td class="e"></td><td>44</td><td>5</td><td>5</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="h">
+      <h3>Vegas and Orlando</h3>
+      <table class="d">
+        <tr><td>21</td><td>1</td><td>47</td><td>HD200407</td><td>44</td><td>11</td><td>13</td></tr>
+        <tr><td>20</td><td>56</td><td>25</td><td>HD199547</td><td>43</td><td>54</td><td>2</td></tr>
+      </table>
+    </div>
+    <table class="g">
+      <tr class="header">{% for i in range(21) %}<td></td>{% endfor %}<td>S</td><td>T</td><td>A</td><td>R</td></tr>
+      <tr class="header">{% for i in range(21) %}<td></td>{% endfor %}<td>D</td><td>A</td><td>T</td><td>E</td></tr>
+      <tr>{% for i in range(3) %}<td></td>{% endfor %}{% for i in range(8) %}<td class="bluebox"></td>{% endfor %}<td class="bluebox redtop"></td>{% for i in range(3) %}<td class="bluebox"></td>{% endfor %}{% for i in range(6) %}<td></td>{% endfor %}{% for i in range(3) %}<td class="bluebox"></td>{% endfor %}<td class="bluebox redtop"></td></tr>
+      <tr>{% for i in range(5) %}<td></td>{% endfor %}{% for i in range(6) %}<td class="pinkbox"></td>{% endfor %}<td class="pinkbox redmid"></td>{% for i in range(3) %}<td class="pinkbox"></td>{% endfor %}{% for i in range(6) %}<td></td>{% endfor %}{% for i in range(3) %}<td class="pinkbox"></td>{% endfor %}<td class="pinkbox redmid"></td></tr>
+      <tr>{% for i in range(6) %}<td></td>{% endfor %}{% for i in range(5) %}<td class="bluebox"></td>{% endfor %}<td class="bluebox redmid"></td>{% for i in range(6) %}<td class="bluebox"></td>{% endfor %}{% for i in range(3) %}<td></td>{% endfor %}{% for i in range(3) %}<td class="bluebox"></td>{% endfor %}<td class="bluebox redmid"></td></tr>
+      <tr>{% for i in range(8) %}<td></td>{% endfor %}{% for i in range(3) %}<td class="pinkbox"></td>{% endfor %}<td class="pinkbox redmid"></td>{% for i in range(7) %}<td class="pinkbox"></td>{% endfor %}{% for i in range(2) %}<td></td>{% endfor %}{% for i in range(3) %}<td class="pinkbox"></td>{% endfor %}<td class="pinkbox redmid"></td></tr>
+      <tr>{% for i in range(8) %}<td></td>{% endfor %}{% for i in range(3) %}<td class="bluebox"></td>{% endfor %}<td class="bluebox redmid"></td>{% for i in range(6) %}<td class="bluebox"></td>{% endfor %}{% for i in range(3) %}<td></td>{% endfor %}{% for i in range(3) %}<td class="bluebox"></td>{% endfor %}<td class="bluebox redmid"></td></tr>
+      <tr>{% for i in range(8) %}<td></td>{% endfor %}{% for i in range(3) %}<td class="pinkbox"></td>{% endfor %}<td class="pinkbox redmid"></td>{% for i in range(4) %}<td class="pinkbox"></td>{% endfor %}{% for i in range(5) %}<td></td>{% endfor %}{% for i in range(3) %}<td class="pinkbox"></td>{% endfor %}<td class="pinkbox redbot"></td></tr>
+      <tr>{% for i in range(2) %}<td></td>{% endfor %}{% for i in range(9) %}<td class="bluebox"></td>{% endfor %}<td class="bluebox redmid"></td>{% for i in range(9) %}<td></td>{% endfor %}{% for i in range(3) %}<td class="bluebox"></td>{% endfor %}<td class="bluebox redtop"></td></tr>
+      <tr>{% for i in range(11) %}<td class="pinkbox"></td>{% endfor %}<td class="pinkbox redmid"></td>{% for i in range(9) %}<td></td>{% endfor %}{% for i in range(3) %}<td class="pinkbox"></td>{% endfor %}<td class="pinkbox redmid"></td></tr>
+      <tr>{% for i in range(5) %}<td></td>{% endfor %}{% for i in range(6) %}<td class="bluebox"></td>{% endfor %}<td class="bluebox redmid"></td>{% for i in range(2) %}<td class="bluebox"></td>{% endfor %}{% for i in range(7) %}<td></td>{% endfor %}{% for i in range(3) %}<td class="bluebox"></td>{% endfor %}<td class="bluebox redmid"></td></tr>
+      <tr>{% for i in range(8) %}<td></td>{% endfor %}{% for i in range(3) %}<td class="pinkbox"></td>{% endfor %}<td class="pinkbox redmid"></td>{% for i in range(3) %}<td class="pinkbox"></td>{% endfor %}{% for i in range(6) %}<td></td>{% endfor %}{% for i in range(3) %}<td class="pinkbox"></td>{% endfor %}<td class="pinkbox redmid"></td></tr>
+      <tr>{% for i in range(8) %}<td></td>{% endfor %}{% for i in range(3) %}<td class="bluebox"></td>{% endfor %}<td class="bluebox redmid"></td>{% for i in range(5) %}<td class="bluebox"></td>{% endfor %}{% for i in range(4) %}<td></td>{% endfor %}{% for i in range(3) %}<td class="bluebox"></td>{% endfor %}<td class="bluebox redmid"></td></tr>
+      <tr>{% for i in range(8) %}<td></td>{% endfor %}{% for i in range(3) %}<td class="pinkbox"></td>{% endfor %}<td class="pinkbox redbot"></td>{% for i in range(3) %}<td class="pinkbox"></td>{% endfor %}{% for i in range(6) %}<td></td>{% endfor %}{% for i in range(3) %}<td class="pinkbox"></td>{% endfor %}<td class="pinkbox redbot"></td></tr>
+    </table>
+  </div>
+{% endblock %}
