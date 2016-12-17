@@ -208,6 +208,8 @@ body {
 
 #header-inventory-grid .modal-content {
   text-align: center;
+  background-image: url('https://assets-open.monsters-et-manus.com/general/fabric-background.png');
+  background-size: 100% 100%;
 }
 
 #header-inventory-grid .modal-header {
@@ -221,7 +223,7 @@ body {
 
 #header-inventory-grid td {
   border: 3px solid #665F4F;
-  background-color: white;
+  background-color: rgba(255,255,255,0.7);
   padding: 0px 0px;
   text-align: center;
   vertical-align: bottom;
