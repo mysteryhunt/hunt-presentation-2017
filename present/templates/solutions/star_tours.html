@@ -1,0 +1,266 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'dungeon' %}
+{% block title_block %}Star Tours: Solution{% endblock %}
+{% block puzzle_name_block %}Star Tours: Solution{% endblock %}
+{% block byline %}By Mauri Rosenthal, Alex Rosenthal, and Nancy Taubenslag{% endblock %}
+{% block solution %}NEWBERN TENNESSEE{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    .blue {
+      color: #2af;
+    }
+    .pink {
+      color: #f7f;
+    }
+    .no-vertical-margin {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    table.coords td {
+      padding: 4px;
+    }
+    table.citydates {
+      border: 1px solid black;
+      border-collapse: collapse;
+      font-size: 0.8em;
+    }
+    table.citydates th, table.citydates td {
+      border: 1px solid black;
+      padding: 2px;
+    }
+    table.g {
+      border-collapse: collapse;
+    }
+    table.g td {
+      width: 24px;
+      height: 24px;
+    }
+    table.g td.bluebox {
+      border: 1px solid black;
+      background-color: #9cf;
+      box-shadow: inset 0 0 0 1000px #9cf;
+      text-align: center;
+    }
+    table.g td.pinkbox {
+      border: 1px solid black;
+      background-color: #faf;
+      box-shadow: inset 0 0 0 1000px #faf;
+      text-align: center;
+    }
+    table.g td.redtop {
+      border-top: 3px solid red;
+      border-left: 3px solid red;
+      border-right: 3px solid red;
+    }
+    table.g td.redmid {
+      border-left: 3px solid red;
+      border-right: 3px solid red;
+    }
+    table.g td.redbot {
+      border-bottom: 3px solid red;
+      border-left: 3px solid red;
+      border-right: 3px solid red;
+    }
+    table.g tr.header {
+      text-align: center;
+    }
+    ul {
+      list-style-type: none;
+    }
+  </style>
+{% endblock %}
+
+{% block solution_content_block %}
+  <div>
+    <p>
+      The image is of a well-known nebula called the North America Nebula,
+      thanks to the strong resemblance between the nebula shape and the shape of
+      the North American continent. Whether or not the solver sees this
+      resemblance, they should be able to learn the nebula’s name through any of
+      the following:
+    </p>
+    <ol>
+      <li>a Google image search</li>
+      <li>
+        checking on “NGC 7000” in the flavor text (this is the commonly used
+        catalogue number for the nebula) with Google or a star chart
+      </li>
+      <li>
+        the information labeled “Vegas and Orlando”. This small table below the
+        image shows the catalog numbers for two stars which are positioned in
+        the Nebula, information which can be gleaned from a Google search or
+        star chart software. It may take someone with no astronomy background a
+        bit of reading to ascertain that the numbers flanking the star catalog
+        numbers are celestial coordinates for these stars, the Right Ascension
+        (RA) and Declination (Dec), which play the same roles on a star chart as
+        longitude and latitude on a terrestrial map.
+      </li>
+    </ol>
+    <p>
+      While a solver familiar with astronomy and planetarium software may sort
+      this out quicker, the pivotal “aha” can be found in the top Google hits
+      for HD200407. The Simbad database shows the coordinates and has a small
+      image of the star in an interactive “AladinLite view”. Clicking on this
+      and zooming out will reveal the same thing that could be found in
+      planetarium/star chart software – this star is found within the NA Nebula,
+      and in fact is in a position that could correspond to Las Vegas if the
+      Nebula were indeed a map of North America. Similar information can be
+      found for the second star HD199547 and the solver will see that this is in
+      the nebula region which approximates the Florida peninsula. The two
+      labeled stars are indicated below for reference.
+    </p>
+    <img src="{{ asset_url_for('star_tours/solution01.jpg') }}">
+    <p>
+      The solver will need to grasp that the table showing 12 sets of
+      coordinates, which also lie in space within the nebula, are meant to
+      indicate a series of cities on the North American continent. The
+      alternating blue and pink colors will be related in some way to the text
+      which says:
+    </p>
+    <p class="blue no-vertical-margin">My World in blue</p>
+    <p class="pink no-vertical-margin">Stars Dance in pink</p>
+    <p>
+      Note that the coincidental resemblance between the nebula and the
+      continent means that there is no “correct” or “perfect” alignment of the
+      two. The solver might want to go through the exercise of lining up the
+      nebula image with a map. This step is not necessary, but it may help them
+      get a good handle on the transformation they will need to do with the set
+      of celestial coordinates to find specific locations in North America. If
+      they’re skilled with photoshop and make some good choices on maps, they
+      may be able to solve the puzzle graphically by plotting the 12 sets of
+      coordinates on the nebula image and then seeing how these points overlay
+      with a map. There are a number of ways that this can go wrong, however, so
+      solvers will almost certainly need to do an arithmetic transformation of
+      the celestial RA and Dec into longitude and latitude to find the North
+      American cities which are clued in the colored table. Either way, they
+      will need to use the relationships between the two alignment stars and Las
+      Vegas and Orlando.
+    </p>
+    <p>
+      The calculations used to set up the puzzle use the coordinates provided by
+      a google search for Las Vegas and Orlando and are very likely to be the
+      obvious starting point for solvers. These are:
+    </p>
+    <table class="coords">
+      <tr><td>Las Vegas</td><td>36.1699412</td><td>-115.1398296</td></tr>
+      <tr><td>Orlando</td><td>28.5383312</td><td>-81.3792396</td></tr>
+    </table>
+    <p>
+      The solver will also need to make the “aha” connection to Justin Bieber’s
+      2010 My World Tour, and his one-time girlfriend Selena Gomez’s 2013 Stars
+      Dance Tour. Google search of the phrases “My World” and “Stars Dance”
+      should turn up links to these tours, as they were the debut tours for each
+      artist and were named after their debut solo albums. The puzzle title
+      “Star Tours” should lead solvers to the tour information (rather than the
+      albums); the Wikipedia entry for each tour includes the full sequence of
+      cities and dates. The solver will need to look up the date from the
+      appropriate tour in each of the clued cities to complete the grid labeled
+      “Star Date” (“Star Date” has no real meaning but here refers to the month
+      and date, e.g. 11/19). The puzzle cannot be solved without these dates.
+    </p>
+    <p>
+      To identify the cities, the solver will convert RA to Longitude and Dec to
+      Latitude using the fixed ratios between Orlando and Las Vegas. In excel or
+      Google Sheets they will do the following steps or similar:
+    </p>
+    <ol>
+      <li>
+        Coordinates are best manipulated when in digital format, so they will
+        need to convert RA and Dec to digital from Hours, Minutes, Seconds and
+        Degrees, Minutes and Seconds using formulas along these lines:
+        <ul>
+          <li>RA (digital) = (Hours)+(Minutes/60)+(Seconds/3600)</li>
+          <li>Dec (digital) = (Degrees)+(Minutes/60)+(Seconds/3600)</li>
+        </ul>
+      </li>
+      <li>
+        Calculate these ratios:
+        <ul>
+          <li>∆ for RA between the stars ⁄ ∆ for Longitude between the cities</li>
+          <li>∆ for Dec between the stars ⁄ ∆ for Latitude between the cities</li>
+        </ul>
+      </li>
+      <li>
+        Use the ratios to add the right ∆’s for Longitude and Latitude to the
+        actual coordinates for Vegas (or Orlando depending on how you set up the
+        arithmetic).
+      </li>
+      <li>
+        This will generate a series of terrestrial coordinates for cities in
+        digital form.
+      </li>
+      <li>
+        The complete data table showing digital terrestrial coordinates and
+        corresponding cities is shown below. Note that the cities can be
+        efficiently identified by importing the latitude and longitude columns
+        into Google’s My Maps. Simply pasting each set into Google Search one at
+        a time will also work. The tour dates are also shown here and would be
+        found from the Wikipedia data table for each of the two tours, but only
+        after identifying the cities. Note that the tour lists also enable
+        solvers to confirm cities like Broomfield (near Denver) for the answer
+        grid.
+      </li>
+    </ol>
+    <table class="citydates">
+      <tr>
+        <th colspan="3">Celestial RA</th>
+        <th colspan="3">Celestial Dec</th>
+        <th>RA</th>
+        <th>Dec</th>
+        <th>Lat</th>
+        <th>Long</th>
+        <th>City</th>
+        <th>Tour Date</th>
+      </tr>
+      <tr><td>20</td><td>58</td><td>59</td><td>44</td><td>9</td><td>38</td><td>20.9830555556</td><td>44.1605555556</td><td>35.4667375628</td><td>-97.5256087304</td><td>Oklahoma City</td><td>11/03/10</td></tr>
+      <tr><td>21</td><td>1</td><td>25</td><td>44</td><td>41</td><td>40</td><td>21.0236111111</td><td>44.6944444444</td><td>49.6936574658</td><td>-112.8332054385</td><td>Lethbridge</td><td>08/16/13</td></tr>
+      <tr><td>20</td><td>55</td><td>19</td><td>44</td><td>18</td><td>25</td><td>20.9219444444</td><td>44.3069444444</td><td>39.3676672136</td><td>-74.4593671155</td><td>Atlantic City</td><td>11/20/10</td></tr>
+      <tr><td>20</td><td>55</td><td>14</td><td>44</td><td>21</td><td>27</td><td>20.9205555556</td><td>44.3575</td><td>40.7148573397</td><td>-73.9351343516</td><td>New York City</td><td>10/16/13</td></tr>
+      <tr><td>20</td><td>59</td><td>8.2</td><td>43</td><td>56</td><td>2</td><td>20.9856111111</td><td>43.9338888889</td><td>29.426588426</td><td>-98.4901970161</td><td>San Antonio</td><td>11/05/10</td></tr>
+      <tr><td>20</td><td>58</td><td>55</td><td>44</td><td>42</td><td>8</td><td>20.9819444444</td><td>44.7022222222</td><td>49.9009174852</td><td>-97.1062225193</td><td>Winnipeg</td><td>08/19/13</td></tr>
+      <tr><td>21</td><td>0</td><td>11</td><td>44</td><td>19</td><td>40</td><td>21.0030555556</td><td>44.3277777778</td><td>39.9228279798</td><td>-105.0745605317</td><td>Broomfield</td><td>07/08/10</td></tr>
+      <tr><td>20</td><td>57</td><td>11</td><td>44</td><td>19</td><td>19</td><td>20.9530555556</td><td>44.3219444444</td><td>39.7673829653</td><td>-86.2021810286</td><td>Indianapolis</td><td>11/19/13</td></tr>
+      <tr><td>20</td><td>58</td><td>6.5</td><td>43</td><td>57</td><td>50</td><td>20.9684722222</td><td>43.9638888889</td><td>30.2260199294</td><td>-92.0211647087</td><td>LaFayette</td><td>08/01/10</td></tr>
+      <tr><td>20</td><td>56</td><td>54</td><td>44</td><td>5</td><td>46</td><td>20.9483333333</td><td>44.0961111111</td><td>33.7494402592</td><td>-84.4197896311</td><td>Atlanta</td><td>10/26/13</td></tr>
+      <tr><td>20</td><td>59</td><td>26</td><td>43</td><td>47</td><td>37</td><td>20.9905555556</td><td>43.7936111111</td><td>25.6885059333</td><td>-100.3564656559</td><td>Monterrey</td><td>09/30/11</td></tr>
+      <tr><td>21</td><td>1</td><td>18</td><td>44</td><td>5</td><td>5</td><td>21.0216666667</td><td>44.0847222222</td><td>33.4459523736</td><td>-112.0992795689</td><td>Phoenix</td><td>11/05/13</td></tr>
+    </table>
+    <p>
+      Complete the two indicated grids:
+    </p>
+    <table class="g">
+      <tr class="header">{% for i in range(21) %}<td></td>{% endfor %}<td>S</td><td>T</td><td>A</td><td>R</td></tr>
+      <tr class="header">{% for i in range(21) %}<td></td>{% endfor %}<td>D</td><td>A</td><td>T</td><td>E</td></tr>
+      <tr>{% for i in range(3) %}<td></td>{% endfor %}{% for l in 'OKLAHOMA' %}<td class="bluebox">{{ l }}</td>{% endfor %}<td class="bluebox redtop">C</td>{% for l in 'ITY' %}<td class="bluebox">{{ l }}</td>{% endfor %}{% for i in range(6) %}<td></td>{% endfor %}{% for l in '110' %}<td class="bluebox">{{ l }}</td>{% endfor %}<td class="bluebox redtop">3</td></tr>
+      <tr>{% for i in range(5) %}<td></td>{% endfor %}{% for l in 'LETHBR' %}<td class="pinkbox">{{ l }}</td>{% endfor %}<td class="pinkbox redmid">I</td>{% for l in 'DGE' %}<td class="pinkbox">{{ l }}</td>{% endfor %}{% for i in range(6) %}<td></td>{% endfor %}{% for l in '081' %}<td class="pinkbox">{{ l }}</td>{% endfor %}<td class="pinkbox redmid">6</td></tr>
+      <tr>{% for i in range(6) %}<td></td>{% endfor %}{% for l in 'ATLAN' %}<td class="bluebox">{{ l }}</td>{% endfor %}<td class="bluebox redmid">T</td>{% for l in 'ICCITY' %}<td class="bluebox">{{ l }}</td>{% endfor %}{% for i in range(3) %}<td></td>{% endfor %}{% for l in '112' %}<td class="bluebox">{{ l }}</td>{% endfor %}<td class="bluebox redmid">0</td></tr>
+      <tr>{% for i in range(8) %}<td></td>{% endfor %}{% for l in 'NEW' %}<td class="pinkbox">{{ l }}</td>{% endfor %}<td class="pinkbox redmid">Y</td>{% for l in 'ORKCITY' %}<td class="pinkbox">{{ l }}</td>{% endfor %}{% for i in range(2) %}<td></td>{% endfor %}{% for l in '101' %}<td class="pinkbox">{{ l }}</td>{% endfor %}<td class="pinkbox redmid">6</td></tr>
+      <tr>{% for i in range(8) %}<td></td>{% endfor %}{% for l in 'SAN' %}<td class="bluebox">{{ l }}</td>{% endfor %}<td class="bluebox redmid">A</td>{% for l in 'NTONIO' %}<td class="bluebox">{{ l }}</td>{% endfor %}{% for i in range(3) %}<td></td>{% endfor %}{% for l in '110' %}<td class="bluebox">{{ l }}</td>{% endfor %}<td class="bluebox redmid">5</td></tr>
+      <tr>{% for i in range(8) %}<td></td>{% endfor %}{% for l in 'WIN' %}<td class="pinkbox">{{ l }}</td>{% endfor %}<td class="pinkbox redmid">N</td>{% for l in 'IPEG' %}<td class="pinkbox">{{ l }}</td>{% endfor %}{% for i in range(5) %}<td></td>{% endfor %}{% for l in '081' %}<td class="pinkbox">{{ l }}</td>{% endfor %}<td class="pinkbox redbot">9</td></tr>
+      <tr>{% for i in range(2) %}<td></td>{% endfor %}{% for l in 'BROOMFIEL' %}<td class="bluebox">{{ l }}</td>{% endfor %}<td class="bluebox redmid">D</td>{% for i in range(9) %}<td></td>{% endfor %}{% for l in '070' %}<td class="bluebox">{{ l }}</td>{% endfor %}<td class="bluebox redtop">8</td></tr>
+      <tr>{% for l in 'INDIANAPOLI' %}<td class="pinkbox">{{ l }}</td>{% endfor %}<td class="pinkbox redmid">S</td>{% for i in range(9) %}<td></td>{% endfor %}{% for l in '111' %}<td class="pinkbox">{{ l }}</td>{% endfor %}<td class="pinkbox redmid">9</td></tr>
+      <tr>{% for i in range(5) %}<td></td>{% endfor %}{% for l in 'LAFAYE' %}<td class="bluebox">{{ l }}</td>{% endfor %}<td class="bluebox redmid">T</td>{% for l in 'TE' %}<td class="bluebox">{{ l }}</td>{% endfor %}{% for i in range(7) %}<td></td>{% endfor %}{% for l in '080' %}<td class="bluebox">{{ l }}</td>{% endfor %}<td class="bluebox redmid">1</td></tr>
+      <tr>{% for i in range(8) %}<td></td>{% endfor %}{% for l in 'ATL' %}<td class="pinkbox">{{ l }}</td>{% endfor %}<td class="pinkbox redmid">A</td>{% for l in 'NTA' %}<td class="pinkbox">{{ l }}</td>{% endfor %}{% for i in range(6) %}<td></td>{% endfor %}{% for l in '102' %}<td class="pinkbox">{{ l }}</td>{% endfor %}<td class="pinkbox redmid">6</td></tr>
+      <tr>{% for i in range(8) %}<td></td>{% endfor %}{% for l in 'MON' %}<td class="bluebox">{{ l }}</td>{% endfor %}<td class="bluebox redmid">T</td>{% for l in 'ERREY' %}<td class="bluebox">{{ l }}</td>{% endfor %}{% for i in range(4) %}<td></td>{% endfor %}{% for l in '093' %}<td class="bluebox">{{ l }}</td>{% endfor %}<td class="bluebox redmid">0</td></tr>
+      <tr>{% for i in range(8) %}<td></td>{% endfor %}{% for l in 'PHO' %}<td class="pinkbox">{{ l }}</td>{% endfor %}<td class="pinkbox redbot">E</td>{% for l in 'NIX' %}<td class="pinkbox">{{ l }}</td>{% endfor %}{% for i in range(6) %}<td></td>{% endfor %}{% for l in '110' %}<td class="pinkbox">{{ l }}</td>{% endfor %}<td class="pinkbox redbot">5</td></tr>
+    </table>
+    <p>
+      The last step of the extraction requires using the 12 digits of the answer
+      as coordinates in degrees, minutes and seconds format (just as the
+      original celestial coordinates are in minute and second format). “City and
+      State” is a clear indication that we are looking for a location in the
+      US. Placing any of the following into Google will bring a pointer to a
+      location in Tennessee:
+    </p>
+    <ul>
+      <li>36 06 59 -89 16 05</li>
+      <li>36 06 59N 89 16 05W</li>
+      <li>36°06’59” -89°16’05”</li>
+      <li>36°06’59”N 89°16’05”W</li>
+    </ul>
+    <p>
+      Zooming in will show that the City and State are <b>NEWBERN TENNESSEE</b>.
+    </p>
+  </div>
+{% endblock %}
