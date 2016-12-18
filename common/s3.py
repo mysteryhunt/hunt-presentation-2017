@@ -1,6 +1,7 @@
 import optparse
 import os
 import sys
+import time
 
 from boto.s3.connection import S3Connection
 from boto.cloudfront.distribution import Distribution
@@ -38,6 +39,6 @@ def cloudfront_sign(app, access_key, secret_key, asset_path, expiry=1485864000):
     http_resource = 'https://assets.monsters-et-manus.com/' + asset_path
     http_signed_url = dist.create_signed_url(http_resource, key_pair_id, expiry, private_key_string=g.cloudfront_private_key)
 
-    CLOUDFRONT_URL_CACHE.set(cache_key, http_signed_url)
+    CLOUDFRONT_URL_CACHE.set(cache_key, http_signed_url, timeout=int(expiry - time.time()))
 
     return http_signed_url
