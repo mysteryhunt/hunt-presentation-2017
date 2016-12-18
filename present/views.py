@@ -20,14 +20,10 @@ def utility_processor():
       bucket = app.config["AWS_ASSET_BUCKET"]
       if (bucket == 'eastern-toys-assets'):
         return cloudfront_asset_url_for(asset_path)
-      access_key = app.config["AWS_ASSET_ACCESS_KEY"]
-      secret_key = app.config["AWS_ASSET_SECRET_KEY"]
-      return s3.sign(bucket, asset_path, access_key, secret_key, True)
+      return s3.sign(bucket, asset_path, True)
 
     def cloudfront_asset_url_for(asset_path):
-      access_key = app.config["AWS_ASSET_ACCESS_KEY"]
-      secret_key = app.config["AWS_ASSET_SECRET_KEY"]
-      return s3.cloudfront_sign(app, access_key, secret_key, asset_path)
+      return s3.cloudfront_sign(asset_path)
     
     def get_google_api_key():
       return app.config["GOOGLE_API_KEY"]
