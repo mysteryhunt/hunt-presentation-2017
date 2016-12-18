@@ -14,9 +14,6 @@
       margin-top: 0;
       margin-bottom: 0;
     }
-    .italic {
-      font-style: italic;
-    }
     .a {
       display: flex;
       align-items: center;
@@ -90,9 +87,9 @@
 
 {% block puzzle_content_block %}
   <div>
-    <p class="blue italic no-vertical-margin">My World in blue</p>
-    <p class="pink italic no-vertical-margin">Stars Dance in pink</p>
-    <p class="italic">The real stars work in concert with real cities</p>
+    <p class="blue no-vertical-margin">My World in blue</p>
+    <p class="pink no-vertical-margin">Stars Dance in pink</p>
+    <p>The real stars work in concert with real cities</p>
     <div class="a">
       <div class="b"><img class="c" src="{{ asset_url_for('star_tours/image01.jpg') }}"></div>
       <div>
