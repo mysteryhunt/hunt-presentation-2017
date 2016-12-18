@@ -1,0 +1,43 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}Pic of the Litter{% endblock %}
+{% block puzzle_name_block %}Pic of the Litter{% endblock %}
+
+{% block puzzle_head_block %}
+  <link type="text/css" href="{{ asset_url_for('pic_of_the_litter/magnifier.css') | safe }}" rel="stylesheet" />
+  <script src="{{ asset_url_for('pic_of_the_litter/magnifier.js') }}"></script>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+  The Cleric has always taught his son Shelby that cleanliness is next to
+  godliness. But despite appearances to the contrary, Shelby knows exactly where
+  everything goes.
+{% endblock %}
+
+{% block puzzle_content_block %}
+  <div>
+    <p>
+      Click on the grid in the photo for a printable version. The solution is
+      five letters long.
+    </p>
+    <div class="magnifier" style="width: 900px; height: 702px;">
+      <div class="maglens" style="width: 400px; height: 400px;">
+        <img
+           src="{{ asset_url_for('pic_of_the_litter/image.jpg') }}"
+           class="maglarge"
+           ismap="ismap"
+           usemap="#gridmap"
+           style="width: 3300px; height: 2575px;"
+        />
+      </div>
+    </div>
+    <map name="gridmap">
+      <area
+         shape="poly"
+         coords="1444,1144,1929,1119,1955,1716,1484,1732"
+         href="{{ asset_url_for('pic_of_the_litter/grid.png') }}"
+         alt="grid.png"
+         target="_blank"
+      >
+    </map>
+  </div>
+{% endblock %}
