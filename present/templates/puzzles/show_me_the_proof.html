@@ -1,0 +1,20 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}Show Me The Proof{% endblock %}
+{% block puzzle_name_block %}Show Me The Proof{% endblock %}
+
+{% block puzzle_flavortext_block %}
+  You've seen poor impersonations before, but watching this troupe, you can tell
+  they're actually pretty good performers.
+{% endblock %}
+
+{% block puzzle_content_block %}
+  <div>
+    <iframe
+       src="{{ config.SHOWMETHEPROOF_URL }}"
+       width="900"
+       height="500"
+       frameBorder="0"
+    >
+    </iframe>
+  </div>
+{% endblock %}
