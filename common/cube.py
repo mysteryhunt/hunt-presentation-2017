@@ -3,6 +3,7 @@ import json
 import urllib2
 
 from flask import session
+import requests
 
 class CubeError(Exception):
     def __init__(self, request, http_error):
@@ -16,31 +17,41 @@ class CubeError(Exception):
             self.request,
             self.error_message)
 
-def add_auth_header(request):
-    auth_token = base64.b64encode("%s:%s" % (session["username"], session["password"]))
-    request.add_header("Authorization", "Basic %s" % auth_token)
+def create_requests_session(username, password):
+    s = requests.Session()
+    s.auth = (username, password)
+    return s
 
-def get(app, path):
+def get(app, path, username=None, password=None, requests_session=None):
+    if not requests_session:
+        if not username:
+            username = session["username"]
+        if not password:
+            password = session["password"]
+        requests_session = create_requests_session(username, password)
     url = app.config["CUBE_API_SERVICE"] + path
-    request = urllib2.Request(url)
-    add_auth_header(request)
     try:
-        response = urllib2.urlopen(request).read()
-    except urllib2.HTTPError, e:
+        r = requests_session.get(url)
+        return r.json()
+    except requests.exceptions.RequestException, e:
         raise CubeError(path, e)
-    return json.loads(response)
 
-def post(app, path, data):
+def post(app, path, data, username=None, password=None, requests_session=None):
+    if not requests_session:
+        if not username:
+            username = session["username"]
+        if not password:
+            password = session["password"]
+        requests_session = create_requests_session(username, password)
     url = app.config["CUBE_API_SERVICE"] + path
-    request = urllib2.Request(url)
-    add_auth_header(request)
-    request.add_header("Content-Type", "application/json")
+    headers = { "Content-Type": "application/json" }
     json_post_data = json.dumps(data)
     try:
-        response = urllib2.urlopen(request, json_post_data).read()
-    except urllib2.HTTPError, e:
+        r = requests_session.post(url, data=json_post_data, headers=headers)
+        return r.json()
+    except requests.exceptions.RequestException, e:
         raise CubeError(path + "\n" + json_post_data, e)
-    return json.loads(response)
+    
 
 def authorized(app, permission):
     response = get(app, "/authorized?permission=%s" % permission)
@@ -54,12 +65,17 @@ def get_puzzle_visibilities(app):
     response = get(app, "/visibilities?teamId=%s" % session["username"])
     return sorted(response["visibilities"], key=lambda v: v["puzzleId"])
 
-def get_puzzle_visibilities_for_list(app, puzzle_ids):
-    response = get(app, "/visibilities?teamId=%s&puzzleId=%s" % (session["username"], ','.join(puzzle_ids)))
+def get_puzzle_visibilities_for_list(app, puzzle_ids, team_id=None, password=None):
+    if not team_id:
+        team_id = session["username"]
+    response = get(app, "/visibilities?teamId=%s&puzzleId=%s" % (team_id, ','.join(puzzle_ids)), \
+        username = team_id, password = password)
     return { v["puzzleId"]: v for v in response["visibilities"] }
 
-def get_puzzle_visibility(app, puzzle_id):
-    return get(app, "/visibilities/%s/%s" % (session["username"], puzzle_id))
+def get_puzzle_visibility(app, puzzle_id, team_id=None, password=None):
+    if not team_id:
+        team_id = session["username"]
+    return get(app, "/visibilities/%s/%s" % (team_id, puzzle_id), username=team_id, password=password)
 
 def update_puzzle_visibility(app, team_id, puzzle_id, status):
     post(app, "/visibilities/%s/%s" % (team_id, puzzle_id), {
@@ -75,22 +91,25 @@ def get_all_puzzle_properties(app):
     response = get(app, "/puzzles?teamId=%s" % session["username"])
     return response
 
-def get_all_puzzle_properties_for_list(app, puzzle_ids):
-    response = get(app, "/puzzles?teamId=%s&puzzleId=%s" % (session["username"], ','.join(puzzle_ids)))
+def get_all_puzzle_properties_for_list(app, puzzle_ids, team_id=None, password=None):
+    if not team_id:
+        team_id = session["username"]
+    response = get(app, "/puzzles?teamId=%s&puzzleId=%s" % (team_id, ','.join(puzzle_ids)),
+        username=team_id, password=password)
     return {puzzle.get('puzzleId'): puzzle for puzzle in response.get('puzzles',[])}
 
 def get_puzzles(app):
     response = get(app, "/puzzles")
     return response["puzzles"]
 
-def get_puzzle(app, puzzle_id):
-    response = get(app, "/puzzles/%s" % puzzle_id)
+def get_puzzle(app, puzzle_id, team_id=None, password=None):
+    response = get(app, "/puzzles/%s" % puzzle_id, username=team_id, password=password)
     return response
 
-def get_team_properties(app, team_id=None):
+def get_team_properties(app, team_id=None, password=None):
     if not team_id:
         team_id = session["username"]
-    response = get(app, "/teams/%s" % team_id)
+    response = get(app, "/teams/%s" % team_id, username=team_id, password=password)
     return response
 
 def get_submissions(app, puzzle_id):
