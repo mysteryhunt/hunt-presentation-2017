@@ -97,7 +97,7 @@ def get_full_path_core_display_data():
 
 @app.route("/")
 @login_required.solvingteam
-@metrics.time(app, "present.index")
+@metrics.time("present.index")
 def index():
     core_display_data = get_core_display_data()
     round_puzzle_ids = ROUND_PUZZLE_MAP.get('index')
@@ -107,17 +107,18 @@ def index():
     fog_number = len([map_item for map_item in \
         ['dynast','dungeon','thespians','bridge','criminal','minstrels','cube','warlord','rescue_the_linguist','rescue_the_chemist','rescue_the_economist','merchants','fortress']\
         if map_item in visible_puzzle_ids])
-    
-    return render_template(
-        "index.html",
-        core_display_data=core_display_data,
-        visible_puzzle_ids=visible_puzzle_ids,
-        fog_number=fog_number,
-        puzzle_visibilities=puzzle_visibilities)
+
+    with metrics.timer("present.index_render"):
+        return render_template(
+            "index.html",
+            core_display_data=core_display_data,
+            visible_puzzle_ids=visible_puzzle_ids,
+            fog_number=fog_number,
+            puzzle_visibilities=puzzle_visibilities)
 
 @app.route("/round/<round_id>")
 @login_required.solvingteam
-@metrics.time(app, "present.round")
+@metrics.time("present.round")
 def round(round_id):
     if not cube.is_puzzle_unlocked(app, round_id):
         abort(403)
@@ -126,18 +127,19 @@ def round(round_id):
     round_puzzle_ids = ROUND_PUZZLE_MAP.get(round_id)
     puzzle_visibilities = cube.get_puzzle_visibilities_for_list(app, round_puzzle_ids)
     puzzle_properties = cube.get_all_puzzle_properties_for_list(app, round_puzzle_ids)
-    
-    return render_template(
-        "rounds/%s.html" % round_id,
-        core_display_data=core_display_data,
-        round_id=round_id,
-        puzzle_properties=puzzle_properties,
-        puzzle_visibilities=puzzle_visibilities)
+
+    with metrics.timer("present.round_render"):
+        return render_template(
+            "rounds/%s.html" % round_id,
+            core_display_data=core_display_data,
+            round_id=round_id,
+            puzzle_properties=puzzle_properties,
+            puzzle_visibilities=puzzle_visibilities)
 
 
 @app.route("/puzzle/<puzzle_id>")
 @login_required.solvingteam
-@metrics.time(app, "present.puzzle")
+@metrics.time("present.puzzle")
 def puzzle(puzzle_id):
     if not cube.is_puzzle_unlocked(app, puzzle_id):
         abort(403)
@@ -149,14 +151,15 @@ def puzzle(puzzle_id):
     puzzle_round_id = puzzle_round_id[0] if len(puzzle_round_id) > 0 else None
     puzzle_visibility = cube.get_puzzle_visibility(app, puzzle_id)
 
-    return render_template(
-        "puzzles/%s.html" % puzzle_id,
-        core_display_data=core_display_data,
-        puzzle_id=puzzle_id,
-        puzzle_round_id=puzzle_round_id,
-        puzzle=puzzle,
-        puzzle_visibility=puzzle_visibility)
-        
+    with metrics.timer("present.puzzle_render"):
+        return render_template(
+            "puzzles/%s.html" % puzzle_id,
+            core_display_data=core_display_data,
+            puzzle_id=puzzle_id,
+            puzzle_round_id=puzzle_round_id,
+            puzzle=puzzle,
+            puzzle_visibility=puzzle_visibility)
+
 @app.route("/inventory")
 @login_required.solvingteam
 def inventory():

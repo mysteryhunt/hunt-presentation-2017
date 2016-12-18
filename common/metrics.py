@@ -10,11 +10,14 @@ def create_reporter(app):
             reporting_interval=30)
         reporter.start()
 
-def time(app, key):
+def time(key):
     def decorator(f):
         @wraps(f)
         def decorated_function(*args, **kwargs):
-            with global_registry().timer(key).time():
+            with timer(key):
                 return f(*args, **kwargs)
         return decorated_function
     return decorator
+
+def timer(key):
+    return global_registry().timer(key).time()
