@@ -16,14 +16,18 @@ class CubeError(Exception):
             self.request,
             self.error_message)
 
-def add_auth_header(request):
-    auth_token = base64.b64encode("%s:%s" % (session["username"], session["password"]))
+def add_auth_header(request, username=None, password=None):
+    if not username:
+        username = session["username"]
+    if not password:
+        password = session["password"]
+    auth_token = base64.b64encode("%s:%s" % (username, password))
     request.add_header("Authorization", "Basic %s" % auth_token)
 
-def get(app, path):
+def get(app, path, username=None, password=None):
     url = app.config["CUBE_API_SERVICE"] + path
     request = urllib2.Request(url)
-    add_auth_header(request)
+    add_auth_header(request, username, password)
     try:
         response = urllib2.urlopen(request).read()
     except urllib2.HTTPError, e:
@@ -54,12 +58,17 @@ def get_puzzle_visibilities(app):
     response = get(app, "/visibilities?teamId=%s" % session["username"])
     return sorted(response["visibilities"], key=lambda v: v["puzzleId"])
 
-def get_puzzle_visibilities_for_list(app, puzzle_ids):
-    response = get(app, "/visibilities?teamId=%s&puzzleId=%s" % (session["username"], ','.join(puzzle_ids)))
+def get_puzzle_visibilities_for_list(app, puzzle_ids, team_id=None, password=None):
+    if not team_id:
+        team_id = session["username"]
+    response = get(app, "/visibilities?teamId=%s&puzzleId=%s" % (team_id, ','.join(puzzle_ids)), \
+        username = team_id, password = password)
     return { v["puzzleId"]: v for v in response["visibilities"] }
 
-def get_puzzle_visibility(app, puzzle_id):
-    return get(app, "/visibilities/%s/%s" % (session["username"], puzzle_id))
+def get_puzzle_visibility(app, puzzle_id, team_id=None, password=None):
+    if not team_id:
+        team_id = session["username"]
+    return get(app, "/visibilities/%s/%s" % (team_id, puzzle_id), username=team_id, password=password)
 
 def update_puzzle_visibility(app, team_id, puzzle_id, status):
     post(app, "/visibilities/%s/%s" % (team_id, puzzle_id), {
@@ -75,22 +84,25 @@ def get_all_puzzle_properties(app):
     response = get(app, "/puzzles?teamId=%s" % session["username"])
     return response
 
-def get_all_puzzle_properties_for_list(app, puzzle_ids):
-    response = get(app, "/puzzles?teamId=%s&puzzleId=%s" % (session["username"], ','.join(puzzle_ids)))
+def get_all_puzzle_properties_for_list(app, puzzle_ids, team_id=None, password=None):
+    if not team_id:
+        team_id = session["username"]
+    response = get(app, "/puzzles?teamId=%s&puzzleId=%s" % (team_id, ','.join(puzzle_ids)),
+        username=team_id, password=password)
     return {puzzle.get('puzzleId'): puzzle for puzzle in response.get('puzzles',[])}
 
 def get_puzzles(app):
     response = get(app, "/puzzles")
     return response["puzzles"]
 
-def get_puzzle(app, puzzle_id):
-    response = get(app, "/puzzles/%s" % puzzle_id)
+def get_puzzle(app, puzzle_id, team_id=None, password=None):
+    response = get(app, "/puzzles/%s" % puzzle_id, username=team_id, password=password)
     return response
 
-def get_team_properties(app, team_id=None):
+def get_team_properties(app, team_id=None, password=None):
     if not team_id:
         team_id = session["username"]
-    response = get(app, "/teams/%s" % team_id)
+    response = get(app, "/teams/%s" % team_id, username=team_id, password=password)
     return response
 
 def get_submissions(app, puzzle_id):

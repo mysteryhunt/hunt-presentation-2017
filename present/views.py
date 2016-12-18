@@ -4,6 +4,7 @@ from common import cube, login_required, metrics, s3
 from flask import abort, redirect, render_template, request, send_from_directory, session, url_for
 
 import os
+from threading import Thread
 
 @app.errorhandler(cube.CubeError)
 def handle_cube_error(error):
@@ -64,11 +65,36 @@ ROUND_PUZZLE_MAP = {
   'cube': ['cube' + str(i) for i in range(1,8+1)],
   'warlord': ['warlord-' + direction for direction in ['nw','nc','ne','cw','cc','ce','sw','sc','se']]
 }
-    
-def get_core_display_data():
-    visibilities = cube.get_puzzle_visibilities_for_list(app, \
-        ['fighter','wizard','cleric','linguist','economist','chemist','merchants'])
-    team_properties = cube.get_team_properties(app)
+
+def wrap_raw_handler(output_dict, output_key, raw_handler, *args, **kwargs):
+    raw_return = raw_handler(*args, **kwargs)
+    output_dict[output_key] = raw_return
+
+def wrapping_thread(output_dict, output_key, raw_handler, *args, **kwargs):
+    thread_args = [output_dict, output_key, raw_handler]
+    thread_args.extend(args)
+    return Thread(target=wrap_raw_handler, args=thread_args, kwargs=kwargs)
+
+def get_core_display_data(team_id=None, password=None):
+    if not team_id:
+        team_id = session["username"]
+    if not password:
+        password = session["password"]
+  
+    raw_retrieved_data = {}
+    threads = [wrapping_thread(raw_retrieved_data, 'visibilities', cube.get_puzzle_visibilities_for_list,
+                               app, ['fighter','wizard','cleric','linguist','economist','chemist','merchants'],
+                               team_id=team_id, password=password),
+               wrapping_thread(raw_retrieved_data, 'team_properties', cube.get_team_properties,
+                               app,
+                               team_id=team_id, password=password)]
+    for t in threads:
+        t.start()
+    for t in threads:
+        t.join()
+        
+    visibilities = raw_retrieved_data['visibilities']
+    team_properties = raw_retrieved_data['team_properties']
 
     core_display_data = { }
     core_display_data['visible_characters'] = \
@@ -99,10 +125,23 @@ def get_full_path_core_display_data():
 @login_required.solvingteam
 @metrics.time("present.index")
 def index():
-    core_display_data = get_core_display_data()
     round_puzzle_ids = ROUND_PUZZLE_MAP.get('index')
-    puzzle_visibilities = cube.get_puzzle_visibilities_for_list(app, round_puzzle_ids)
-    puzzle_properties = cube.get_all_puzzle_properties_for_list(app, round_puzzle_ids)
+
+    raw_retrieved_data = {}
+    threads = [wrapping_thread(raw_retrieved_data, 'core_display_data', get_core_display_data,
+                               team_id=session["username"], password=session["password"]),
+               wrapping_thread(raw_retrieved_data, 'puzzle_visibilities', cube.get_puzzle_visibilities_for_list,
+                               app, round_puzzle_ids, team_id=session["username"], password=session["password"]),
+               wrapping_thread(raw_retrieved_data, 'puzzle_properties', cube.get_all_puzzle_properties_for_list,
+                               app, round_puzzle_ids, team_id=session["username"], password=session["password"])]
+    for t in threads:
+        t.start()
+    for t in threads:
+        t.join()
+
+    core_display_data = raw_retrieved_data['core_display_data']
+    puzzle_visibilities = raw_retrieved_data['puzzle_visibilities']
+    puzzle_properties = raw_retrieved_data['puzzle_properties']
     visible_puzzle_ids = set([key for key in puzzle_visibilities if puzzle_visibilities.get(key,{}).get('status','') != 'INVISIBLE'])
     fog_number = len([map_item for map_item in \
         ['dynast','dungeon','thespians','bridge','criminal','minstrels','cube','warlord','rescue_the_linguist','rescue_the_chemist','rescue_the_economist','merchants','fortress']\
@@ -122,11 +161,24 @@ def index():
 def round(round_id):
     if not cube.is_puzzle_unlocked(app, round_id):
         abort(403)
-
-    core_display_data = get_core_display_data()
+    
     round_puzzle_ids = ROUND_PUZZLE_MAP.get(round_id)
-    puzzle_visibilities = cube.get_puzzle_visibilities_for_list(app, round_puzzle_ids)
-    puzzle_properties = cube.get_all_puzzle_properties_for_list(app, round_puzzle_ids)
+
+    raw_retrieved_data = {}
+    threads = [wrapping_thread(raw_retrieved_data, 'core_display_data', get_core_display_data,
+                               team_id=session["username"], password=session["password"]),
+               wrapping_thread(raw_retrieved_data, 'puzzle_visibilities', cube.get_puzzle_visibilities_for_list,
+                               app, round_puzzle_ids, team_id=session["username"], password=session["password"]),
+               wrapping_thread(raw_retrieved_data, 'puzzle_properties', cube.get_all_puzzle_properties_for_list,
+                               app, round_puzzle_ids, team_id=session["username"], password=session["password"])]
+    for t in threads:
+        t.start()
+    for t in threads:
+        t.join()
+
+    core_display_data = raw_retrieved_data['core_display_data']
+    puzzle_visibilities = raw_retrieved_data['puzzle_visibilities']
+    puzzle_properties = raw_retrieved_data['puzzle_properties']
 
     with metrics.timer("present.round_render"):
         return render_template(
@@ -144,12 +196,24 @@ def puzzle(puzzle_id):
     if not cube.is_puzzle_unlocked(app, puzzle_id):
         abort(403)
 
-    core_display_data = get_core_display_data()
-    puzzle = cube.get_puzzle(app, puzzle_id)
+    raw_retrieved_data = {}
+    threads = [wrapping_thread(raw_retrieved_data, 'core_display_data', get_core_display_data,
+                               team_id=session["username"], password=session["password"]),
+               wrapping_thread(raw_retrieved_data, 'puzzle', cube.get_puzzle,
+                               app, puzzle_id, team_id=session["username"], password=session["password"]),
+               wrapping_thread(raw_retrieved_data, 'puzzle_visibility', cube.get_puzzle_visibility,
+                               app, puzzle_id, team_id=session["username"], password=session["password"])]
+    for t in threads:
+        t.start()
+    for t in threads:
+        t.join()
+
+    core_display_data = raw_retrieved_data['core_display_data']
+    puzzle = raw_retrieved_data['puzzle']
     canonical_puzzle_id = puzzle.get('puzzleId')
     puzzle_round_id = [r_id for r_id, round_puzzle_ids in ROUND_PUZZLE_MAP.iteritems() if canonical_puzzle_id in round_puzzle_ids]
     puzzle_round_id = puzzle_round_id[0] if len(puzzle_round_id) > 0 else None
-    puzzle_visibility = cube.get_puzzle_visibility(app, puzzle_id)
+    puzzle_visibility = raw_retrieved_data['puzzle_visibility']
 
     with metrics.timer("present.puzzle_render"):
         return render_template(
