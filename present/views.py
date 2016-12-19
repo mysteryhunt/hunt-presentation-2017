@@ -71,6 +71,9 @@ def get_core_display_data():
     core_display_data['visible_characters'] = \
         [char_id for char_id in ['fighter','wizard','cleric','linguist','economist','chemist'] if \
         visibilities.get(char_id,{}).get('status','INVISIBLE') != 'INVISIBLE']
+    core_display_data['solved_characters'] = \
+        [char_id for char_id in ['fighter','wizard','cleric','linguist','economist','chemist'] if \
+        visibilities.get(char_id,{}).get('status','INVISIBLE') == 'SOLVED']
     core_display_data['visible_quests'] = \
         [quest_id for quest_id in ['dynast','dungeon','thespians','bridge','criminal','minstrels','cube','warlord'] if \
         visibilities.get(quest_id,{}).get('status','INVISIBLE') != 'INVISIBLE']
