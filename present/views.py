@@ -126,6 +126,7 @@ def round(round_id):
 
     core_display_data = get_core_display_data()
     round_puzzle_ids = ROUND_PUZZLE_MAP.get(round_id)
+    round_puzzle_ids.append(round_id)
     puzzle_visibilities = cube.get_puzzle_visibilities_for_list(app, round_puzzle_ids)
     puzzle_properties = cube.get_all_puzzle_properties_for_list(app, round_puzzle_ids)
 
