@@ -20,14 +20,10 @@ def utility_processor():
       bucket = app.config["AWS_ASSET_BUCKET"]
       if (bucket == 'eastern-toys-assets'):
         return cloudfront_asset_url_for(asset_path)
-      access_key = app.config["AWS_ASSET_ACCESS_KEY"]
-      secret_key = app.config["AWS_ASSET_SECRET_KEY"]
-      return s3.sign(bucket, asset_path, access_key, secret_key, True)
+      return s3.sign(bucket, asset_path, True)
 
     def cloudfront_asset_url_for(asset_path):
-      access_key = app.config["AWS_ASSET_ACCESS_KEY"]
-      secret_key = app.config["AWS_ASSET_SECRET_KEY"]
-      return s3.cloudfront_sign(app, access_key, secret_key, asset_path)
+      return s3.cloudfront_sign(asset_path)
     
     def get_google_api_key():
       return app.config["GOOGLE_API_KEY"]
@@ -73,6 +69,12 @@ def make_core_display_data(visibilities_async, team_properties_async):
     core_display_data['visible_characters'] = \
         [char_id for char_id in ['fighter','wizard','cleric','linguist','economist','chemist'] if \
         visibilities.get(char_id,{}).get('status','INVISIBLE') != 'INVISIBLE']
+    core_display_data['solved_characters'] = \
+        [char_id for char_id in ['fighter','wizard','cleric','linguist','economist','chemist'] if \
+        visibilities.get(char_id,{}).get('status','INVISIBLE') == 'SOLVED']
+    core_display_data['visible_quests'] = \
+        [quest_id for quest_id in ['dynast','dungeon','thespians','bridge','criminal','minstrels','cube','warlord'] if \
+        visibilities.get(quest_id,{}).get('status','INVISIBLE') != 'INVISIBLE']
     core_display_data['merchants_solved'] = visibilities.get('merchants',{}).get('status','INVISIBLE') == 'SOLVED'
     core_display_data['character_levels'] = { \
         char_id: team_properties.get('teamProperties',{}).get('CharacterLevelsProperty',{}).get('levels',{}).get(char_id.upper(),0) \
@@ -85,6 +87,7 @@ def make_core_display_data(visibilities_async, team_properties_async):
 def get_full_path_core_display_data():
     core_display_data = { }
     core_display_data['visible_characters'] = ['fighter','wizard','cleric','linguist','economist','chemist']
+    core_display_data['visible_quests'] = ['dynast','dungeon','thespians','bridge','criminal','minstrels','cube','warlord']
     core_display_data['merchants_solved'] = False
     core_display_data['character_levels'] = { \
         char_id: 0 \
@@ -127,6 +130,7 @@ def index():
 @metrics.time("present.round")
 def round(round_id):
     round_puzzle_ids = ROUND_PUZZLE_MAP.get(round_id,[])
+    round_puzzle_ids.append(round_id)
 
     round_visibility_async = cube.get_puzzle_visibility_async(app, round_id)
     core_visibilities_async = cube.get_puzzle_visibilities_for_list_async(app, \

@@ -19,7 +19,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <div class="small-horizontal-scroll">
-              Navigation
+              Links
             </div>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
           </div>
@@ -28,21 +28,23 @@
               <div class="navigation-column-header">General</div>
               <ul>
                 <li><a href="{{ url_for('index') }}">World Map</a></li>
+                <li><a href="{{ url_for('inventory') }}">Inventory</a></li>
               </ul>
             </div>
             <div class="navigation-column">
               <div class="navigation-column-header">Characters</div>
               <ul>
                 {% for character_id in core_display_data.visible_characters %}
-                  <li><a href="{{ url_for('round', round_id=character_id) }}">{{ character_id }}</a></li>
+                  <li><a href="{{ url_for('round', round_id=character_id) }}">The {{ character_id|capitalize }}</a></li>
                 {% endfor %}
               </ul>
             </div>
             <div class="navigation-column">
               <div class="navigation-column-header">Quests</div>
               <ul>
-                {% for quest_id in ['dynast','dungeon','thespians','bridge','criminal','minstrels','cube','warlord'] if quest_id in visible_puzzle_ids %}
-                  <li><a href="{{ url_for('round', round_id=quest_id) }}">{{ quest_id }}</a></li>
+                {% set quest_displays = {'dynast':'The Despondent Dynast','dungeon':'The Dismal Dungeon','thespians':'The Thrilling Thespians','bridge':'The Broken Bridge','criminal':'The Crafty Criminal','minstrels':'The Modest Minstrels','cube':'The Curious Cube','warlord':'The Woeful Warlord'} %}
+                {% for quest_id in core_display_data.visible_quests %}
+                  <li><a href="{{ url_for('round', round_id=quest_id) }}">{{ quest_displays[quest_id] }}</a></li>
                 {% endfor %}
               </ul>
             </div>
@@ -68,7 +70,10 @@
     
     
     <div id="overall-layout-header">
-      <div id="header-index-link" data-toggle="modal" data-target="#header-navigation"><a href="#">Navigation</a></div>
+      <div id="header-navigation-links">
+        <div id="header-index-link"><a href="{{ url_for('index') }}">Map</a></div>
+        <div id="header-general-navigation-link" data-toggle="modal" data-target="#header-navigation"><a href="#">Links</a></div>
+      </div>
       <div id="header-statuses">
         {% for character_class in core_display_data['visible_characters'] %}
           <a href="{{ url_for('round', round_id = character_class) }}">

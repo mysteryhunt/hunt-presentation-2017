@@ -1,4 +1,4 @@
-from common import metrics
+from common import metrics, s3
 from present import app
 
 import default_config
@@ -11,6 +11,7 @@ except ImportError:
 
 from common import login
 app.register_blueprint(login.blueprint)
+app.register_blueprint(s3.blueprint)
 
 metrics.create_reporter(app)
 

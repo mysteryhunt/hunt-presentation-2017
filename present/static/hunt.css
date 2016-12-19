@@ -193,13 +193,17 @@ body {
   padding-right: 5px;
 }
 
-#header-statuses {
+#header-navigation-links, #header-statuses {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 }
 
 /* Inventory Grid */
+
+.modal-content {
+  text-align: center;
+}
 
 #header-inventory-grid .modal-dialog {
   width: 570px;
@@ -284,9 +288,16 @@ body {
   padding: 5px 5px;
 }
 
+#header-navigation .modal-header {
+  background-image: url('https://assets-open.monsters-et-manus.com/general/wooden-background.png');
+  background-size: 100% auto;
+  border-bottom: none;
+}
+
 #header-navigation .modal-body {
   display: flex;
   flex-flow: row nowrap;
+  justify-content: space-between;
 }
 
 #header-navigation .modal-body ul {
@@ -295,7 +306,7 @@ body {
 }
 
 #header-navigation .navigation-column {
-  width: 33%;
+
 }
 
 #header-navigation .navigation-column-header {

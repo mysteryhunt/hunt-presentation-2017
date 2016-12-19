@@ -95,6 +95,20 @@ body {
   vertical-align: middle;
 }
 
+.individual-character-solve-icon {
+  position: absolute;
+  height: 35px;
+  width: 35px;
+  left: 10px;
+  top: 25px;
+  z-index: 20;
+}
+
+.individual-character-solve-icon img {
+  height: 100%;
+  width: 100%;
+}
+
 #inventory-gold-display {
   display: flex;
   justify-content: center;
@@ -105,6 +119,34 @@ body {
   margin-right: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.quest-solve-icon {
+  position: absolute;
+  height: 35px;
+  width: 35px;
+  left: 0px;
+  top: 0px;
+  z-index: 20;
+}
+
+.quest-solve-icon img {
+  height: 100%;
+  width: 100%;
+}
+
+.rescue-solve-icon {
+  position: absolute;
+  height: 35px;
+  width: 35px;
+  left: -25px;
+  top: 0px;
+  z-index: 20;
+}
+
+.rescue-solve-icon img {
+  height: 100%;
+  width: 100%;
 }
 
 .event-entry {
