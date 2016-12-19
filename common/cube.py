@@ -4,6 +4,11 @@ import urllib2
 
 from flask import session
 import requests
+from concurrent.futures import ThreadPoolExecutor
+from requests_futures.sessions import FuturesSession
+
+#This number is currently a guess and probably needs changing based on load testing
+THREAD_POOL = ThreadPoolExecutor(max_workers=100)
 
 class CubeError(Exception):
     def __init__(self, request, http_error):
@@ -17,24 +22,34 @@ class CubeError(Exception):
             self.request,
             self.error_message)
 
-def create_requests_session(username, password):
+def create_requests_session(username=None, password=None):
+    if not username:
+        username = session["username"]
+    if not password:
+        password = session["password"]
     s = requests.Session()
     s.auth = (username, password)
     return s
 
-def get(app, path, username=None, password=None, requests_session=None):
+def get_url_for_path(app, path):
+    return app.config["CUBE_API_SERVICE"] + path
+
+def get_async(app, path, username=None, password=None, requests_session=None):
     if not requests_session:
         if not username:
             username = session["username"]
         if not password:
             password = session["password"]
         requests_session = create_requests_session(username, password)
-    url = app.config["CUBE_API_SERVICE"] + path
+    futures_session = FuturesSession(session=requests_session, executor=THREAD_POOL)
+    url = get_url_for_path(app, path)
     try:
-        r = requests_session.get(url)
-        return r.json()
+        return futures_session.get(url)
     except requests.exceptions.RequestException, e:
         raise CubeError(path, e)
+
+def get(app, path, username=None, password=None, requests_session=None):
+    return get_async(app, path, username=username, password=password, requests_session=requests_session).result().json()
 
 def post(app, path, data, username=None, password=None, requests_session=None):
     if not requests_session:
@@ -43,7 +58,7 @@ def post(app, path, data, username=None, password=None, requests_session=None):
         if not password:
             password = session["password"]
         requests_session = create_requests_session(username, password)
-    url = app.config["CUBE_API_SERVICE"] + path
+    url = get_url_for_path(app, path)
     headers = { "Content-Type": "application/json" }
     json_post_data = json.dumps(data)
     try:
@@ -51,7 +66,6 @@ def post(app, path, data, username=None, password=None, requests_session=None):
         return r.json()
     except requests.exceptions.RequestException, e:
         raise CubeError(path + "\n" + json_post_data, e)
-    
 
 def authorized(app, permission):
     response = get(app, "/authorized?permission=%s" % permission)
@@ -71,11 +85,22 @@ def get_puzzle_visibilities_for_list(app, puzzle_ids, team_id=None, password=Non
     response = get(app, "/visibilities?teamId=%s&puzzleId=%s" % (team_id, ','.join(puzzle_ids)), \
         username = team_id, password = password)
     return { v["puzzleId"]: v for v in response["visibilities"] }
+    
+def get_puzzle_visibilities_for_list_async(app, puzzle_ids, team_id=None, password=None):
+    if not team_id:
+        team_id = session["username"]
+    return get_async(app, "/visibilities?teamId=%s&puzzleId=%s" % (team_id, ','.join(puzzle_ids)), \
+        username = team_id, password = password)
 
 def get_puzzle_visibility(app, puzzle_id, team_id=None, password=None):
     if not team_id:
         team_id = session["username"]
     return get(app, "/visibilities/%s/%s" % (team_id, puzzle_id), username=team_id, password=password)
+
+def get_puzzle_visibility_async(app, puzzle_id, team_id=None, password=None):
+    if not team_id:
+        team_id = session["username"]
+    return get_async(app, "/visibilities/%s/%s" % (team_id, puzzle_id), username=team_id, password=password)
 
 def update_puzzle_visibility(app, team_id, puzzle_id, status):
     post(app, "/visibilities/%s/%s" % (team_id, puzzle_id), {
@@ -98,6 +123,12 @@ def get_all_puzzle_properties_for_list(app, puzzle_ids, team_id=None, password=N
         username=team_id, password=password)
     return {puzzle.get('puzzleId'): puzzle for puzzle in response.get('puzzles',[])}
 
+def get_all_puzzle_properties_for_list_async(app, puzzle_ids, team_id=None, password=None):
+    if not team_id:
+        team_id = session["username"]
+    return get_async(app, "/puzzles?teamId=%s&puzzleId=%s" % (team_id, ','.join(puzzle_ids)),
+        username=team_id, password=password)
+
 def get_puzzles(app):
     response = get(app, "/puzzles")
     return response["puzzles"]
@@ -106,11 +137,19 @@ def get_puzzle(app, puzzle_id, team_id=None, password=None):
     response = get(app, "/puzzles/%s" % puzzle_id, username=team_id, password=password)
     return response
 
+def get_puzzle_async(app, puzzle_id, team_id=None, password=None):
+    return get_async(app, "/puzzles/%s" % puzzle_id, username=team_id, password=password)
+
 def get_team_properties(app, team_id=None, password=None):
     if not team_id:
         team_id = session["username"]
     response = get(app, "/teams/%s" % team_id, username=team_id, password=password)
     return response
+
+def get_team_properties_async(app, team_id=None, password=None):
+    if not team_id:
+        team_id = session["username"]
+    return get_async(app, "/teams/%s" % team_id, username=team_id, password=password)
 
 def get_submissions(app, puzzle_id):
     response = get(app, "/submissions?teamId=%s&puzzleId=%s" % (session["username"], puzzle_id))
