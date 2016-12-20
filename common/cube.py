@@ -36,10 +36,6 @@ def get_url_for_path(app, path):
 
 def get_async(app, path, username=None, password=None, requests_session=None):
     if not requests_session:
-        if not username:
-            username = session["username"]
-        if not password:
-            password = session["password"]
         requests_session = create_requests_session(username, password)
     futures_session = FuturesSession(session=requests_session, executor=THREAD_POOL)
     url = get_url_for_path(app, path)
@@ -53,10 +49,6 @@ def get(app, path, username=None, password=None, requests_session=None):
 
 def post(app, path, data, username=None, password=None, requests_session=None):
     if not requests_session:
-        if not username:
-            username = session["username"]
-        if not password:
-            password = session["password"]
         requests_session = create_requests_session(username, password)
     url = get_url_for_path(app, path)
     headers = { "Content-Type": "application/json" }
@@ -79,28 +71,18 @@ def get_puzzle_visibilities(app):
     response = get(app, "/visibilities?teamId=%s" % session["username"])
     return sorted(response["visibilities"], key=lambda v: v["puzzleId"])
 
-def get_puzzle_visibilities_for_list(app, puzzle_ids, team_id=None, password=None):
-    if not team_id:
-        team_id = session["username"]
-    response = get(app, "/visibilities?teamId=%s&puzzleId=%s" % (team_id, ','.join(puzzle_ids)), \
-        username = team_id, password = password)
+def get_puzzle_visibilities_for_list(app, puzzle_ids):
+    response = get(app, "/visibilities?teamId=%s&puzzleId=%s" % (session["username"], ','.join(puzzle_ids)))
     return { v["puzzleId"]: v for v in response["visibilities"] }
     
-def get_puzzle_visibilities_for_list_async(app, puzzle_ids, team_id=None, password=None):
-    if not team_id:
-        team_id = session["username"]
-    return get_async(app, "/visibilities?teamId=%s&puzzleId=%s" % (team_id, ','.join(puzzle_ids)), \
-        username = team_id, password = password)
+def get_puzzle_visibilities_for_list_async(app, puzzle_ids):
+    return get_async(app, "/visibilities?teamId=%s&puzzleId=%s" % (session["username"], ','.join(puzzle_ids)))
 
-def get_puzzle_visibility(app, puzzle_id, team_id=None, password=None):
-    if not team_id:
-        team_id = session["username"]
-    return get(app, "/visibilities/%s/%s" % (team_id, puzzle_id), username=team_id, password=password)
+def get_puzzle_visibility(app, puzzle_id):
+    return get(app, "/visibilities/%s/%s" % (session["username"], puzzle_id))
 
-def get_puzzle_visibility_async(app, puzzle_id, team_id=None, password=None):
-    if not team_id:
-        team_id = session["username"]
-    return get_async(app, "/visibilities/%s/%s" % (team_id, puzzle_id), username=team_id, password=password)
+def get_puzzle_visibility_async(app, puzzle_id):
+    return get_async(app, "/visibilities/%s/%s" % (session["username"], puzzle_id))
 
 def update_puzzle_visibility(app, team_id, puzzle_id, status):
     post(app, "/visibilities/%s/%s" % (team_id, puzzle_id), {
@@ -116,40 +98,30 @@ def get_all_puzzle_properties(app):
     response = get(app, "/puzzles?teamId=%s" % session["username"])
     return response
 
-def get_all_puzzle_properties_for_list(app, puzzle_ids, team_id=None, password=None):
-    if not team_id:
-        team_id = session["username"]
-    response = get(app, "/puzzles?teamId=%s&puzzleId=%s" % (team_id, ','.join(puzzle_ids)),
-        username=team_id, password=password)
+def get_all_puzzle_properties_for_list(app, puzzle_ids):
+    response = get(app, "/puzzles?teamId=%s&puzzleId=%s" % (session["username"], ','.join(puzzle_ids)))
     return {puzzle.get('puzzleId'): puzzle for puzzle in response.get('puzzles',[])}
 
-def get_all_puzzle_properties_for_list_async(app, puzzle_ids, team_id=None, password=None):
-    if not team_id:
-        team_id = session["username"]
-    return get_async(app, "/puzzles?teamId=%s&puzzleId=%s" % (team_id, ','.join(puzzle_ids)),
-        username=team_id, password=password)
+def get_all_puzzle_properties_for_list_async(app, puzzle_ids):
+    return get_async(app, "/puzzles?teamId=%s&puzzleId=%s" % (session["username"], ','.join(puzzle_ids)))
 
 def get_puzzles(app):
     response = get(app, "/puzzles")
     return response["puzzles"]
 
-def get_puzzle(app, puzzle_id, team_id=None, password=None):
-    response = get(app, "/puzzles/%s" % puzzle_id, username=team_id, password=password)
+def get_puzzle(app, puzzle_id):
+    response = get(app, "/puzzles/%s" % puzzle_id)
     return response
 
-def get_puzzle_async(app, puzzle_id, team_id=None, password=None):
-    return get_async(app, "/puzzles/%s" % puzzle_id, username=team_id, password=password)
+def get_puzzle_async(app, puzzle_id):
+    return get_async(app, "/puzzles/%s" % puzzle_id)
 
-def get_team_properties(app, team_id=None, password=None):
-    if not team_id:
-        team_id = session["username"]
-    response = get(app, "/teams/%s" % team_id, username=team_id, password=password)
+def get_team_properties(app):
+    response = get(app, "/teams/%s" % session["username"])
     return response
 
-def get_team_properties_async(app, team_id=None, password=None):
-    if not team_id:
-        team_id = session["username"]
-    return get_async(app, "/teams/%s" % team_id, username=team_id, password=password)
+def get_team_properties_async(app):
+    return get_async(app, "/teams/%s" % session["username"])
 
 def get_submissions(app, puzzle_id):
     response = get(app, "/submissions?teamId=%s&puzzleId=%s" % (session["username"], puzzle_id))
