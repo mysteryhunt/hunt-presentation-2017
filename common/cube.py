@@ -34,9 +34,9 @@ def create_requests_session(username=None, password=None):
 def get_url_for_path(app, path):
     return app.config["CUBE_API_SERVICE"] + path
 
-def get_async(app, path, username=None, password=None, requests_session=None):
+def get_async(app, path, requests_session=None):
     if not requests_session:
-        requests_session = create_requests_session(username, password)
+        requests_session = create_requests_session()
     futures_session = FuturesSession(session=requests_session, executor=THREAD_POOL)
     url = get_url_for_path(app, path)
     try:
@@ -44,12 +44,12 @@ def get_async(app, path, username=None, password=None, requests_session=None):
     except requests.exceptions.RequestException, e:
         raise CubeError(path, e)
 
-def get(app, path, username=None, password=None, requests_session=None):
-    return get_async(app, path, username=username, password=password, requests_session=requests_session).result().json()
+def get(app, path, requests_session=None):
+    return get_async(app, path, requests_session=requests_session).result().json()
 
-def post(app, path, data, username=None, password=None, requests_session=None):
+def post(app, path, data, requests_session=None):
     if not requests_session:
-        requests_session = create_requests_session(username, password)
+        requests_session = create_requests_session()
     url = get_url_for_path(app, path)
     headers = { "Content-Type": "application/json" }
     json_post_data = json.dumps(data)
@@ -116,8 +116,10 @@ def get_puzzle(app, puzzle_id):
 def get_puzzle_async(app, puzzle_id):
     return get_async(app, "/puzzles/%s" % puzzle_id)
 
-def get_team_properties(app):
-    response = get(app, "/teams/%s" % session["username"])
+def get_team_properties(app, team_id=None):
+    if not team_id:
+        team_id = session["username"]
+    response = get(app, "/teams/%s" % team_id)
     return response
 
 def get_team_properties_async(app):
