@@ -201,6 +201,16 @@ body {
 
 /* Inventory Grid */
 
+#header-inventory-grid {
+  font: inherit;
+  font-family: 'Lora', serif;
+}
+
+#header-inventory-grid table {
+  font: inherit;
+  font-family: 'Lora', serif;
+}
+
 .modal-content {
   text-align: center;
 }
