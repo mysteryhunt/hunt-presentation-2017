@@ -1,0 +1,266 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'dynast' %}
+{% block title_block %}Basic Phrenology: Solution{% endblock %}
+{% block puzzle_name_block %}Basic Phrenology: Solution{% endblock %}
+{% block byline %}By Alex Rosenthal{% endblock %}
+{% block solution %}CRANIOGRAPHER{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    table.a {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+    table.a td {
+      border: 1px solid black;
+      padding: 4px;
+    }
+  </style>
+{% endblock %}
+
+{% block solution_content_block %}
+  <div>
+    <p>
+      The solver is presented with two images of heads, and 33 TIL statements.
+    </p>
+    <p>
+      It’s possible to trans-delete a word in each statement to make it
+      true. For example, “A man began to hiccup after a goth fell on him, and he
+      wasn't able to stop until 68 years later.” GOTH = HOG + T.
+    </p>
+    <p>
+      All of these statements are facts that can be found within TED-Ed
+      videos. The 33 cells within the first image of the head all contain stills
+      from those same videos. Identify them. The head image can be found at the
+      beginning of every TED-Ed video.
+    </p>
+    <p>
+      Place the added letters from the TIL’s into the second image of the head,
+      in the corresponding spot to the still from that video. For example, the
+      lower left still is from the video
+      <a href="https://www.youtube.com/watch?v=DMMPYkRrd4o">“Could we actually
+      live on Mars?”</a>. The added letter in that video was a T (TRAMS = MARS +
+      T), so place a T in that spot in the second head image.
+    </p>
+    <p>
+      Reading off the 33 letters in the order suggested by the black dots
+      between cells in the second image yields the clue phrase: TIL HANDS CAN
+      COUNT USING BIRYANI AT END.
+    </p>
+    <p>
+      Iterate on the trans-deletion technique to get TIL HANDS CAN COUNT USING
+      BINARY AT END.
+    </p>
+    <p>
+      This is a reference to the TED-Ed
+      video <a href="https://www.youtube.com/watch?v=UixU1oRW64Q">“How high can
+      you count on your fingers?”</a>. At the end of that video
+      (at <a href="https://www.youtube.com/watch?v=UixU1oRW64Q&t=237s">time
+      3:57</a>), solvers will find 13 hands around a computer chip, cycling
+      through a sequence of binary finger positions. Either by pausing, or
+      focusing on an individual hand going through the full sequence, solvers
+      can translate the binary into decimal, then into letters (00011 = 3 = C),
+      yielding the answer <b>CRANIOGRAPHER</b>.
+    </p>
+    <table class="a">
+      <tr>
+        <td>TIL On TRAMS (MARS + T), you could expect to watch spectacular blue sunsets in the normally red sky.</td>
+        <td>TRAMS</td>
+        <td>MARS</td>
+        <td>T</td>
+      </tr>
+      <tr>
+        <td>TIL One group of bottlenose dolphins off the Australian coast has learned how to put PIGEONS (SPONGE + I) on their rostra with when rooting in sharp corals.</td>
+        <td>PIGEONS</td>
+        <td>SPONGE</td>
+        <td>I</td>
+      </tr>
+      <tr>
+        <td>TIL Ancient Egyptians used to pee on WEALTH (wheat + L) as a somewhat reliable test of the genders of their unborn children.</td>
+        <td>WEALTH</td>
+        <td>WHEAT</td>
+        <td>L</td>
+      </tr>
+      <tr>
+        <td>TIL You can shed three different types of HATERS (TEARS + H).</td>
+        <td>HATERS</td>
+        <td>TEARS</td>
+        <td>H</td>
+      </tr>
+      <tr>
+        <td>TIL Throughout the course of history, the global percentage of FEALTIES (LEFTIES + A) has hovered around 10%.</td>
+        <td>FEALTIES</td>
+        <td>LEFTIES</td>
+        <td>A</td>
+      </tr>
+      <tr>
+        <td>TIL It takes light 170,000 years to leave the NUNS (SUN + N).</td>
+        <td>NUNS</td>
+        <td>SUN</td>
+        <td>N</td>
+      </tr>
+      <tr>
+        <td>TIL that ENFIELD (FELINE + D) purrs may have healing powers.</td>
+        <td>ENFIELD</td>
+        <td>FELINE</td>
+        <td>D</td>
+      </tr>
+      <tr>
+        <td>TIL London may run out of RAILBUS (burial + S) space by 2035.</td>
+        <td>RAILBUS</td>
+        <td>BURIAL</td>
+        <td>S</td>
+      </tr>
+      <tr>
+        <td>TIL NARCISSUS (RUSSIANS + C) and Americans once almost initiated a global nuclear apocalypse, but the world was saved by a man named Vasili Arkhipov.</td>
+        <td>NARCISSUS</td>
+        <td>RUSSIANS</td>
+        <td>C</td>
+      </tr>
+      <tr>
+        <td>TIL Extreme heat PROCREATES (RECEPTORS + A) in your mouth are also triggered by spicy food.</td>
+        <td>PROCREATES</td>
+        <td>RECEPTORS</td>
+        <td>A</td>
+      </tr>
+      <tr>
+        <td>TIL In 2014, a devoted soccer fan DINED (DIED + N) after staying awake for 48 hours to watch the World Cup.</td>
+        <td>DINED</td>
+        <td>DIED</td>
+        <td>N</td>
+      </tr>
+      <tr>
+        <td>TIL A single MECHANIC (Machine + C) could colonize the entire galaxy in just 4 million years.</td>
+        <td>MECHANIC</td>
+        <td>MACHINE</td>
+        <td>C</td>
+      </tr>
+      <tr>
+        <td>TIL The Homeric villain CICERO (Circe + O) may have been an accomplished chemist.</td>
+        <td>CICERO</td>
+        <td>CIRCE</td>
+        <td>O</td>
+      </tr>
+      <tr>
+        <td>TIL Michael ADJOURN (JORDAN + U) at his prime could have dunked from behind half-court on the moon, with a hang time of 5.5 seconds.</td>
+        <td>ADJOURN</td>
+        <td>JORDAN</td>
+        <td>U</td>
+      </tr>
+      <tr>
+        <td>TIL Gold comes from PECANS (SPACE + N).</td>
+        <td>PECANS</td>
+        <td>SPACE</td>
+        <td>N</td>
+      </tr>
+      <tr>
+        <td>TIL A man began to hiccup after a GOTH (HOG + T) fell on him, and he wasn&rsquo;t able to stop until 68 years later.</td>
+        <td>GOTH</td>
+        <td>HOG</td>
+        <td>T</td>
+      </tr>
+      <tr>
+        <td>TIL The Greek AUDIOTAPE (POTIDAEA + U) was once saved by either an act of nature or Poseidon (depending on whom you ask).</td>
+        <td>AUDIOTAPE</td>
+        <td>POTIDAEA</td>
+        <td>U</td>
+      </tr>
+      <tr>
+        <td>TIL The first 13 Olympics only had one STEVEN (EVENT + S)</td>
+        <td>STEVEN</td>
+        <td>EVENT</td>
+        <td>S</td>
+      </tr>
+      <tr>
+        <td>TIL Most clouds don&rsquo;t float; they slowly FLAIL (FALL + I) to earth under the influence of gravity.</td>
+        <td>FLAIL</td>
+        <td>FALL</td>
+        <td>I</td>
+      </tr>
+      <tr>
+        <td>TIL Van Gogh's RANT (ART + N) unintentionally modelled one of the most complex phenomena in physics.</td>
+        <td>RANT</td>
+        <td>ART</td>
+        <td>N</td>
+      </tr>
+      <tr>
+        <td>TIL There are almost zero GLEAM (MALE + G) Whiptail lizards.</td>
+        <td>GLEAM</td>
+        <td>MALE</td>
+        <td>G</td>
+      </tr>
+      <tr>
+        <td>TIL The name of a certain small, stringed instrument means jumping FABLE (FLEA + B) in Hawaiian, despite the instrument not actually originating in Hawaii.</td>
+        <td>FABLE</td>
+        <td>FLEA</td>
+        <td>B</td>
+      </tr>
+      <tr>
+        <td>TIL Chronic SISTERS (STRESS + I) can change the size of your brain.</td>
+        <td>SISTERS</td>
+        <td>STRESS</td>
+        <td>I</td>
+      </tr>
+      <tr>
+        <td>TIL You can write a valid sentence just by repeating the word NARC (CAN + R) over and over.</td>
+        <td>NARC</td>
+        <td>CAN</td>
+        <td>R</td>
+      </tr>
+      <tr>
+        <td>TIL The Lion's MEANY (Mane + Y) jellyfish has tentacles that can extend longer than a blue whale.</td>
+        <td>MEANY</td>
+        <td>MANE</td>
+        <td>Y</td>
+      </tr>
+      <tr>
+        <td>TIL Monkeys, apes, bats, humans, and elephant WASHERS (SHREWS + A) are the only mammals on Earth that menstruate.</td>
+        <td>WASHERS</td>
+        <td>SHREWS</td>
+        <td>A</td>
+      </tr>
+      <tr>
+        <td>TIL Early examples of TARIFFING (GRAFFITI + N) could be found in Ancient Rome, Mayan cities, and Pompeii.</td>
+        <td>TARIFFING</td>
+        <td>GRAFFITI</td>
+        <td>N</td>
+      </tr>
+      <tr>
+        <td>TIL Neutrinos make it possible to detect exploding SITARS (STARS + I) before their light reaches the earth.</td>
+        <td>SITARS</td>
+        <td>STARS</td>
+        <td>I</td>
+      </tr>
+      <tr>
+        <td>TIL The philosopher TAPALO (PLATO + A) believed that a woman's womb was a live animal that could wander around in her body and cause illness.</td>
+        <td>TAPALO</td>
+        <td>PLATO</td>
+        <td>A</td>
+      </tr>
+      <tr>
+        <td>TIL Baleen whales sing using large inflatable SCATS (SACS + T).</td>
+        <td>SCATS</td>
+        <td>SACS</td>
+        <td>T</td>
+      </tr>
+      <tr>
+        <td>TIL A popular exercise machine was invented to torture british REPRESSION (PRISONERS + E)</td>
+        <td>REPRESSION</td>
+        <td>PRISONERS</td>
+        <td>E</td>
+      </tr>
+      <tr>
+        <td>TIL It's possible to WRONG (GROW + N) bones outside the human body.</td>
+        <td>WRONG</td>
+        <td>GROW</td>
+        <td>N</td>
+      </tr>
+      <tr>
+        <td>TIL Ocular DEFLATORS (FLOATERS + D) are made of bits of tissue, red blood cells, or clumps of protein.</td>
+        <td>DEFLATORS</td>
+        <td>FLOATERS</td>
+        <td>D</td>
+      </tr>
+    </table>
+  </div>
+{% endblock %}
