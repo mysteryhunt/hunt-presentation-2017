@@ -178,6 +178,27 @@ def puzzle(puzzle_id):
             puzzle=puzzle,
             puzzle_visibility=puzzle_visibility)
 
+@app.route("/puzzle")
+@login_required.solvingteam
+@metrics.time("present.puzzle_list")
+def puzzle_list():
+    core_visibilities_async = cube.get_puzzle_visibilities_for_list_async(app, CHARACTER_IDS + ['merchants'])
+    core_team_properties_async = cube.get_team_properties_async(app)
+    all_visibilities_async = cube.get_puzzle_visibilities_async(app)
+    all_puzzles_async = cube.get_all_puzzle_properties_async(app)
+
+    core_display_data = make_core_display_data(core_visibilities_async, core_team_properties_async)
+    all_visibilities = { v["puzzleId"]: v for v in all_visibilities_async.result().json()["visibilities"] }
+    all_puzzles = { v["puzzleId"]: v for v in all_puzzles_async.result().json()["puzzles"] }
+
+    with metrics.timer("present.puzzle_list_render"):
+        return render_template(
+            "puzzle_list.html",
+            core_display_data=core_display_data,
+            all_visibilities=all_visibilities,
+            all_puzzles=all_puzzles,
+            round_puzzle_map=ROUND_PUZZLE_MAP)
+
 @app.route("/inventory")
 @login_required.solvingteam
 def inventory():

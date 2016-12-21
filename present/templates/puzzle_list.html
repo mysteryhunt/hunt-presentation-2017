@@ -1,0 +1,55 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}List of Puzzles{% endblock %}
+{% block puzzle_name_block %}List of Puzzles{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+body {
+  background-image: url('https://assets-open.monsters-et-manus.com/general/wooden-background.png');
+}
+.round-list-item {
+  margin-bottom: 24px;
+}
+.puzzle-list-item {
+  margin-left: 24px;
+}
+</style>
+{% endblock %}
+
+{% block puzzle_content_block %}
+<div>
+  {% for round_id in ['fighter','wizard','cleric','linguist','economist','chemist',
+                      'dynast','dungeon','thespians',
+                      'bridge','criminal','minstrels',
+                      'cube','warlord'] %}
+    
+    {% if all_visibilities.get(round_id,{}).get('status','') in ['UNLOCKED','SOLVED'] %}
+      <div class="round-list-item">
+        <div class="round-list-header">
+          <a href="{{ url_for('round', round_id=round_id) }}">{{ all_puzzles.get(round_id).get('puzzleProperties',{}).get('DisplayNameProperty',{}).get('displayName',round_id) }}</a>
+        </div>
+        {% for puzzle_id in round_puzzle_map.get(round_id,[]) %}
+          {% if all_visibilities.get(puzzle_id,{}).get('status','') in ['UNLOCKED','SOLVED'] %}
+            <div class="puzzle-list-item">
+              <a href="{{ url_for('puzzle', puzzle_id=all_puzzles.get(puzzle_id).get('puzzleProperties',{}).get('DisplayIdProperty',{}).get('displayId',puzzle_id)) }}">{{ all_puzzles.get(puzzle_id).get('puzzleProperties',{}).get('DisplayNameProperty',{}).get('displayName',puzzle_id) }}</a>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}
+
+  {% endfor %}
+  
+  {% for puzzle_id in ['rescue_the_linguist','rescue_the_economist','rescue_the_chemist','merchants'] %}
+    
+    {% if all_visibilities.get(puzzle_id,{}).get('status','') in ['UNLOCKED','SOLVED'] %}
+      <div class="round-list-item">
+        <div class="round-list-header">
+          <a href="{{ url_for('puzzle', puzzle_id=all_puzzles.get(puzzle_id).get('puzzleProperties',{}).get('DisplayIdProperty',{}).get('displayId',puzzle_id)) }}">{{ all_puzzles.get(puzzle_id).get('puzzleProperties',{}).get('DisplayNameProperty',{}).get('displayName',puzzle_id) }}</a>
+        </div>
+      </div>
+    {% endif %}
+
+  {% endfor %}
+</div>
+{% endblock %}
