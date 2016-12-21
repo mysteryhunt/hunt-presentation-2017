@@ -56,6 +56,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
+            <img src="{{ asset_url_for('general/icons/backpack.png') }}" style="width:50px;height:50px;vertical-align:middle;"/>
             <div class="small-horizontal-scroll">
               Inventory
             </div>
@@ -87,7 +88,7 @@
         <div id="header-inventory" data-toggle="modal" data-target="#header-inventory-grid">
           <a href="#" id="header-inventory-control" data-toggle="tooltip" data-placement="bottom" title="Inventory">
             <div id="header-inventory-status">
-              <img src="{{ asset_url_for('general/icons/chest.png') }}" style="width:30px;height:30px;vertical-align:middle;padding-right:3px;"/>
+              <img src="{{ asset_url_for('general/icons/backpack.png') }}" style="width:30px;height:30px;vertical-align:middle;padding-right:3px;"/>
               {%- if core_display_data.merchants_solved -%}
                 6/6
               {%- else -%}
