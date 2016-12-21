@@ -9,7 +9,7 @@
     text-align: center;
   }
 
-  #puzzle-container img {
+  #housekeeping-container img {
     width: 180px;
     margin: 16px;
   }
@@ -21,7 +21,7 @@ The warlord has conquered many lands, but it can be a burden to keep track of al
 {% endblock %}
 
 {% block puzzle_content_block %}
-<div>
+<div id="housekeeping-container">
   <div class="row">
     <img src="{{ asset_url_for('housekeeping/01.png') }}">
     <img src="{{ asset_url_for('housekeeping/02.png') }}">
