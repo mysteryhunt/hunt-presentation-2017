@@ -21,7 +21,7 @@ def record(setup_state):
         blueprint.cloudfront_private_key = private_key_file.read()
 
     print " * Prepopulating Cloudfront URL cache in background"
-#    threading.Thread(target=prepopulate_cloudfront_url_cache).start()
+    threading.Thread(target=prepopulate_cloudfront_url_cache).start()
 
 def sign(bucket, path, https, expiry=631138519):
     c = S3Connection(blueprint.s3_access_key, blueprint.s3_secret_key)
