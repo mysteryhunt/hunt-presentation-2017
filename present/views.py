@@ -129,8 +129,7 @@ def index():
 @login_required.solvingteam
 @metrics.time("present.round")
 def round(round_id):
-    round_puzzle_ids = ROUND_PUZZLE_MAP.get(round_id,[])
-    round_puzzle_ids.append(round_id)
+    round_puzzle_ids = ROUND_PUZZLE_MAP.get(round_id,[]) + [round_id]
 
     round_visibility_async = cube.get_puzzle_visibility_async(app, round_id)
     core_visibilities_async = cube.get_puzzle_visibilities_for_list_async(app, CHARACTER_IDS + ['merchants'])
