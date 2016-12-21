@@ -36,10 +36,15 @@ def utility_processor():
       if len(sum_constraint.get('characters')) != 1:
         return {}
       return {'character':sum_constraint.get('characters')[0],'levels':sum_constraint.get('levels')}
+    
+    def handle_title_underscores(title):
+      return title.replace('_____','<u>&emsp;&emsp;&emsp;&emsp;&emsp;</u>')
+      pass
 
     return dict(submit_url_for=submit_url_for, asset_url_for=asset_url_for,
         get_google_api_key=get_google_api_key,
-        single_character_unlock_requirement=single_character_unlock_requirement)
+        single_character_unlock_requirement=single_character_unlock_requirement,
+        handle_title_underscores=handle_title_underscores)
 
 CHARACTER_IDS = ['fighter','wizard','cleric','linguist','economist','chemist']
 QUEST_IDS = ['dynast','dungeon','thespians','bridge','criminal','minstrels','cube','warlord']

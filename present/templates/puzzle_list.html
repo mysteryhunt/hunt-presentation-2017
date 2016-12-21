@@ -31,7 +31,7 @@ body {
         {% for puzzle_id in round_puzzle_map.get(round_id,[]) %}
           {% if all_visibilities.get(puzzle_id,{}).get('status','') in ['UNLOCKED','SOLVED'] %}
             <div class="puzzle-list-item">
-              <a href="{{ url_for('puzzle', puzzle_id=all_puzzles.get(puzzle_id).get('puzzleProperties',{}).get('DisplayIdProperty',{}).get('displayId',puzzle_id)) }}">{{ all_puzzles.get(puzzle_id).get('puzzleProperties',{}).get('DisplayNameProperty',{}).get('displayName',puzzle_id) }}</a>
+              <a href="{{ url_for('puzzle', puzzle_id=all_puzzles.get(puzzle_id).get('puzzleProperties',{}).get('DisplayIdProperty',{}).get('displayId',puzzle_id)) }}">{{ handle_title_underscores(all_puzzles.get(puzzle_id).get('puzzleProperties',{}).get('DisplayNameProperty',{}).get('displayName',puzzle_id))|safe }}</a>
             </div>
           {% endif %}
         {% endfor %}
