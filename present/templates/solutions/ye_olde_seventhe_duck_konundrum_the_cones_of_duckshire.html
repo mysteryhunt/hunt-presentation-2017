@@ -1,0 +1,129 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'economist' %}
+{% block title_block %}Ye Olde Seventhe Duck Konundrum: The Cones of Duckshire: Solution{% endblock %}
+{% block puzzle_name_block %}Ye Olde Seventhe Duck Konundrum: The Cones of Duckshire: Solution{% endblock %}
+{% block byline %}By Dan Katz{% endblock %}
+{% block solution %}LIGHTHOUSE{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    .standard-horizontal-scroll {
+      font-size: 28px;
+    }
+    ul {
+      list-style-type: none;
+    }
+    li {
+      margin-bottom: 0.5em;
+    }
+    img.solution {
+      width: 900px;
+    }
+    table.s {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+    table.s th, td {
+      border: 1px solid black;
+      padding: 4px;
+    }
+    table.s th {
+      text-align: left;
+    }
+    div.horizontal-scroll-box {
+      width: 900px;
+      overflow-x: scroll;
+    }
+  </style>
+{% endblock %}
+
+{% block solution_content_block %}
+  <div>
+    <p>
+      After completing the game (which takes 25 turns before the Ledgerman wins
+      4-2-2-2), the instructions indicate that the players, in seat order,
+      should look at the area in front of their cones from left to right. For
+      each cone, there is one letter taking up most of the space in front of the
+      cone from the owner's vantage point:
+    </p>
+    <ul>
+      <li>Arbiter (Seat 1) - FLP cone - L</li>
+      <li>Arbiter (Seat 1) - IJX cone - I</li>
+      <li>Maverick (Seat 3) - GRW cone - G</li>
+      <li>Maverick (Seat 3) - EHN cone - H</li>
+      <li>Ledgerman (Seat 6) - ETV cone - T</li>
+      <li>Ledgerman (Seat 6) - HKY cone - H</li>
+      <li>Ledgerman (Seat 6) - ACO cone - O</li>
+      <li>Ledgerman (Seat 6) - MPU cone - U</li>
+      <li>Corporal (Seat 8) - APS cone - S</li>
+      <li>Corporal (Seat 8) - CEI cone - E</li>
+    </ul>
+    <img class="solution" src="{{ asset_url_for('ye_olde_seventhe_duck_konundrum_the_cones_of_duckshire/dk7-solution.png') }}">
+    <p>
+      Thus, the answer is <b>LIGHTHOUSE</b>. Below are two tables showing the
+      token placements and actions taken in each turn, and a running account of
+      each player's seat, tokens on the board, cones on the board, and
+      dollarbucks after each turn.
+    </p>
+    <table class="s">
+      <tr><th>Turn</th><th>Player</th><th>Seat</th><th>Tokens Placed</th><th>Actions</th></tr>
+      <tr><td>1</td><td>Arbiter</td><td>1</td><td>WXY</td><td>Sell WY, Sanction Ledgerman</td></tr>
+      <tr><td>2</td><td>Maverick</td><td>3</td><td>EHN</td><td>Relocate H to Y, Sell EY</td></tr>
+      <tr><td>3</td><td>Ledgerman</td><td>5</td><td>EOU</td><td>Take 1 DB from Arbiter, Relocate E to C</td></tr>
+      <tr><td>4</td><td>Corporal</td><td>7</td><td>EHU</td><td>Remove U (Ledgerman), Sell HU, Move to Seat 2</td></tr>
+      <tr><td>5</td><td>Arbiter</td><td>1</td><td>IRS</td><td>Sanction Corporal</td></tr>
+      <tr><td>6</td><td>Corporal</td><td>2</td><td>GHI</td><td>Sell GH</td></tr>
+      <tr><td>7</td><td>Maverick</td><td>3</td><td>ABD</td><td>Sell BD, Switch A (Maverick) & E (Corporal), move to Seat 4</td></tr>
+      <tr><td>8</td><td>Maverick</td><td>4</td><td>DHP</td><td>Switch R (Arbiter) & P (Maverick), Build on [EHN]</td></tr>
+      <tr><td>9</td><td>Ledgerman</td><td>5</td><td>APS</td><td>Take 1 DB from Corporal, Build on [ACO], Arbiter moves to Seat 6, Move to Seat 7</td></tr>
+      <tr><td>10</td><td>Arbiter</td><td>6</td><td>JLW</td><td>Sell SW, Relocate P to F</td></tr>
+      <tr><td>11</td><td>Ledgerman</td><td>7</td><td>BMU</td><td>Sell BS, Take 1 DB from Corporal</td></tr>
+      <tr><td>12</td><td>Corporal</td><td>2</td><td>CES</td><td>Sell ES, Remove C (Ledgerman), Move to Seat 4, Maverick moves to Seat 3</td></tr>
+      <tr><td>13</td><td>Maverick</td><td>3</td><td>AGU</td><td>Sell EU, Switch A (Maverick) & X (Arbiter)</td></tr>
+      <tr><td>14</td><td>Corporal</td><td>4</td><td>DEG</td><td>Sell DG, Build on [CEI], Arbiter moves to Seat 5, Ledgerman moves to Seat 6, Maverick moves to Seat 7, Move to Seat 8</td></tr>
+      <tr><td>15</td><td>Arbiter</td><td>5</td><td>BVX</td><td>Sell BV, Build on [IJX]</td></tr>
+      <tr><td>16</td><td>Ledgerman</td><td>6</td><td>ETV</td><td>Build on [ETV], Take 1 DB from Maverick</td></tr>
+      <tr><td>17</td><td>Maverick</td><td>7</td><td>BWY</td><td>Steal 1 DB from bank, Sell DX, Build on [GRW], Move to Seat 3</td></tr>
+      <tr><td>18</td><td>Corporal</td><td>8</td><td>NRY</td><td>Remove N (Maverick), Remove Y (Maverick)</td></tr>
+      <tr><td>19</td><td>Corporal</td><td>8</td><td>PST</td><td>Remove R (Maverick), Sell AI</td></tr>
+      <tr><td>20</td><td>Ledgerman</td><td>6</td><td>FLY</td><td>Sell AF, Build on [MPU]</td></tr>
+      <tr><td>21</td><td>Arbiter</td><td>5</td><td>NOP</td><td>Sell NJ, Sanction Maverick</td></tr>
+      <tr><td>22</td><td>Maverick</td><td>3</td><td>DJK</td><td>Put 3 DB from bank on table</td></tr>
+      <tr><td>23</td><td>Arbiter</td><td>1</td><td>CHS</td><td>Sell HI, Build on [FLP]</td></tr>
+      <tr><td>24</td><td>Corporal</td><td>8</td><td>AFX</td><td>Sell CR, Build on [APS]</td></tr>
+      <tr><td>25</td><td>Ledgerman</td><td>6</td><td>HKS</td><td>Sell OS, Build on [HKY]</td></tr>
+    </table>
+    <br>
+    <div class="horizontal-scroll-box">
+    <table class="s">
+      <tr><th colspan="5">Arbiter</th><th colspan="5">Maverick</th><th colspan="5">Ledgerman</th><th colspan="5">Corporal</th></tr>
+      <tr><th>Turn</th><th>Seat</th><th>Tokens</th><th>Cones</th><th>DBs</th><th>Turn</th><th>Seat</th><th>Tokens</th><th>Cones</th><th>DBs</th><th>Turn</th><th>Seat</th><th>Tokens</th><th>Cones</th><th>DBs</th><th>Turn</th><th>Seat</th><th>Tokens</th><th>Cones</th><th>DBs</th></tr>
+      <tr><td>1</td><td>1</td><td>X</td><td></td><td>1</td><td>1</td><td>3</td><td></td><td></td><td>0</td><td>1</td><td>5</td><td></td><td></td><td>0</td><td>1</td><td>7</td><td></td><td></td><td>0</td></tr>
+      <tr><td>2</td><td>1</td><td>X</td><td></td><td>1</td><td>2</td><td>3</td><td>N</td><td></td><td>1</td><td>2</td><td>5</td><td></td><td></td><td>0</td><td>2</td><td>7</td><td></td><td></td><td>0</td></tr>
+      <tr><td>3</td><td>1</td><td>X</td><td></td><td>0</td><td>3</td><td>3</td><td>N</td><td></td><td>1</td><td>3</td><td>5</td><td>COU</td><td></td><td>1</td><td>3</td><td>7</td><td></td><td></td><td>0</td></tr>
+      <tr><td>4</td><td>1</td><td>X</td><td></td><td>0</td><td>4</td><td>3</td><td>N</td><td></td><td>1</td><td>4</td><td>5</td><td>CO</td><td></td><td>1</td><td>4</td><td>2</td><td>E</td><td></td><td>1</td></tr>
+      <tr><td>5</td><td>1</td><td>IRSX</td><td></td><td>0</td><td>5</td><td>3</td><td>N</td><td></td><td>1</td><td>5</td><td>5</td><td>CO</td><td></td><td>1</td><td>5</td><td>2</td><td>E</td><td></td><td>1</td></tr>
+      <tr><td>6</td><td>1</td><td>IRSX</td><td></td><td>0</td><td>6</td><td>3</td><td>N</td><td></td><td>1</td><td>6</td><td>5</td><td>CO</td><td></td><td>1</td><td>6</td><td>2</td><td>EI</td><td></td><td>2</td></tr>
+      <tr><td>7</td><td>1</td><td>IRSX</td><td></td><td>0</td><td>7</td><td>4</td><td>EN</td><td></td><td>2</td><td>7</td><td>5</td><td>CO</td><td></td><td>1</td><td>7</td><td>2</td><td>AI</td><td></td><td>2</td></tr>
+      <tr><td>8</td><td>1</td><td>IPSX</td><td></td><td>0</td><td>8</td><td>4</td><td>DEHNR</td><td>[EHN]</td><td>0</td><td>8</td><td>5</td><td>CO</td><td></td><td>1</td><td>8</td><td>2</td><td>AI</td><td></td><td>2</td></tr>
+      <tr><td>9</td><td>6</td><td>IPSX</td><td></td><td>0</td><td>9</td><td>4</td><td>DEHNR</td><td>[EHN]</td><td>0</td><td>9</td><td>7</td><td>ACOPS</td><td>[ACO]</td><td>0</td><td>9</td><td>2</td><td>AI</td><td></td><td>1</td></tr>
+      <tr><td>10</td><td>6</td><td>FIJLX</td><td></td><td>1</td><td>10</td><td>4</td><td>DEHNR</td><td>[EHN]</td><td>0</td><td>10</td><td>7</td><td>ACOPS</td><td>[ACO]</td><td>0</td><td>10</td><td>2</td><td>AI</td><td></td><td>1</td></tr>
+      <tr><td>11</td><td>6</td><td>FIJLX</td><td></td><td>1</td><td>11</td><td>4</td><td>DEHNR</td><td>[EHN]</td><td>0</td><td>11</td><td>7</td><td>ACMOPU</td><td>[ACO]</td><td>2</td><td>11</td><td>2</td><td>AI</td><td></td><td>0</td></tr>
+      <tr><td>12</td><td>6</td><td>FIJLX</td><td></td><td>1</td><td>12</td><td>3</td><td>DEHNR</td><td>[EHN]</td><td>0</td><td>12</td><td>7</td><td>AMOPU</td><td>[ACO]</td><td>2</td><td>12</td><td>4</td><td>ACI</td><td></td><td>1</td></tr>
+      <tr><td>13</td><td>6</td><td>AFIJL</td><td></td><td>1</td><td>13</td><td>3</td><td>DGHNRX</td><td>[EHN]</td><td>1</td><td>13</td><td>7</td><td>AMOPU</td><td>[ACO]</td><td>2</td><td>13</td><td>4</td><td>ACI</td><td></td><td>1</td></tr>
+      <tr><td>14</td><td>5</td><td>AFIJL</td><td></td><td>1</td><td>14</td><td>7</td><td>DGHNRX</td><td>[EHN]</td><td>1</td><td>14</td><td>6</td><td>AMOPU</td><td>[ACO]</td><td>2</td><td>14</td><td>8</td><td>ACEI</td><td>[CEI]</td><td>0</td></tr>
+      <tr><td>15</td><td>5</td><td>AFIJLX</td><td>[IJX]</td><td>0</td><td>15</td><td>7</td><td>DGHNRX</td><td>[EHN]</td><td>1</td><td>15</td><td>6</td><td>AMOPU</td><td>[ACO]</td><td>2</td><td>15</td><td>8</td><td>ACEI</td><td>[CEI]</td><td>0</td></tr>
+      <tr><td>16</td><td>5</td><td>AFIJLX</td><td>[IJX]</td><td>0</td><td>16</td><td>7</td><td>DGHNRX</td><td>[EHN]</td><td>1</td><td>16</td><td>6</td><td>AEMOPTUV</td><td>[ACO], [ETV]</td><td>1</td><td>16</td><td>8</td><td>ACEI</td><td>[CEI]</td><td>0</td></tr>
+      <tr><td>17</td><td>5</td><td>AFIJLX</td><td>[IJX]</td><td>0</td><td>17</td><td>3</td><td>BGHNRWY</td><td>[EHN], [GRW]</td><td>0</td><td>17</td><td>6</td><td>AEMOPTUV</td><td>[ACO], [ETV]</td><td>1</td><td>17</td><td>8</td><td>ACEI</td><td>[CEI]</td><td>0</td></tr>
+      <tr><td>18</td><td>5</td><td>AFIJLX</td><td>[IJX]</td><td>0</td><td>18</td><td>3</td><td>BGHRW</td><td>[EHN], [GRW]</td><td>0</td><td>18</td><td>6</td><td>AEMOPTUV</td><td>[ACO], [ETV]</td><td>1</td><td>18</td><td>8</td><td>ACEIRNY</td><td>[CEI]</td><td>0</td></tr>
+      <tr><td>19</td><td>5</td><td>AFIJLX</td><td>[IJX]</td><td>0</td><td>19</td><td>3</td><td>BGHW</td><td>[EHN], [GRW]</td><td>0</td><td>19</td><td>6</td><td>AEMOPTUV</td><td>[ACO], [ETV]</td><td>1</td><td>19</td><td>8</td><td>CENPRSTY</td><td>[CEI]</td><td>1</td></tr>
+      <tr><td>20</td><td>5</td><td>AFIJLX</td><td>[IJX]</td><td>0</td><td>20</td><td>3</td><td>BGHW</td><td>[EHN], [GRW]</td><td>0</td><td>20</td><td>6</td><td>ELMOPTUVY</td><td>[ACO], [ETV], [MPU]</td><td>0</td><td>20</td><td>8</td><td>CENPRSTY</td><td>[CEI]</td><td>1</td></tr>
+      <tr><td>21</td><td>1</td><td>AFILOPX</td><td>[IJX]</td><td>1</td><td>21</td><td>3</td><td>BGHW</td><td>[EHN], [GRW]</td><td>0</td><td>21</td><td>6</td><td>ELMOPTUVY</td><td>[ACO], [ETV], [MPU]</td><td>0</td><td>21</td><td>8</td><td>CENPRSTY</td><td>[CEI]</td><td>1</td></tr>
+      <tr><td>22</td><td>1</td><td>AFILOPX</td><td>[IJX]</td><td>1</td><td>22</td><td>3</td><td>BDGHJKW</td><td>[EHN], [GRW]</td><td>0</td><td>22</td><td>6</td><td>ELMOPTUVY</td><td>[ACO], [ETV], [MPU]</td><td>0</td><td>22</td><td>8</td><td>CENPRSTY</td><td>[CEI]</td><td>1</td></tr>
+      <tr><td>23</td><td>1</td><td>ACFLOPSX</td><td>[IJX], [FLP]</td><td>0</td><td>23</td><td>3</td><td>BDGHJKW</td><td>[EHN], [GRW]</td><td>0</td><td>23</td><td>6</td><td>ELMOPTUVY</td><td>[ACO], [ETV], [MPU]</td><td>0</td><td>23</td><td>8</td><td>CENPRSTY</td><td>[CEI]</td><td>1</td></tr>
+      <tr><td>24</td><td>1</td><td>ACFLOPSX</td><td>[IJX], [FLP]</td><td>0</td><td>24</td><td>3</td><td>BDGHJKW</td><td>[EHN], [GRW]</td><td>0</td><td>24</td><td>6</td><td>ELMOPTUVY</td><td>[ACO], [ETV], [MPU]</td><td>0</td><td>24</td><td>8</td><td>AEFNPSTXY</td><td>[CEI], [APS]</td><td>0</td></tr>
+      <tr><td>25</td><td>1</td><td>ACFLOPSX</td><td>[IJX], [FLP]</td><td>0</td><td>25</td><td>3</td><td>BDGHJKW</td><td>[EHN], [GRW]</td><td>0</td><td>25</td><td>6</td><td>EHKLMPTUVY</td><td>[ACO], [ETV], [MPU], [HKY]</td><td>0</td><td>25</td><td>8</td><td>AEFNPSTXY</td><td>[CEI], [APS]</td><td>0</td></tr>
+    </table>
+    </div>
+  </div>
+{% endblock %}
