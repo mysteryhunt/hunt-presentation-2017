@@ -387,6 +387,6 @@ span.puzzle-reward {
   white-space: nowrap;
 }
 
-span.underline {
-  text-decoration: underline;
+span.underline, span.answer-blank {
+  font-family: 'Times New Roman', serif;
 }
