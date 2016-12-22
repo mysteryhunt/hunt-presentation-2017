@@ -40,13 +40,14 @@
     table.g td {
       border: 1px solid black;
       padding: 0;
-      width: 1.5em;
-      height: 1.5em;
+      width: 30px;
+      height: 30px;
+      box-sizing: border-box;
+      vertical-align: top;
     }
-    table.g td.b {
-      outline: 0.75em solid black;
-      outline-offset: -0.75em;
-      box-shadow: 0 0 0 1.5em black inset;
+    table.g td.b::before {
+      content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAQAAACROWYpAAAAHklEQVR42mNk+M9ANmAc1TyqeVTzqOZRzaOah7NmAJ7UHgH+uhixAAAAAElFTkSuQmCC");
+      position: absolute;
     }
     span.blank {
       text-decoration: underline;
