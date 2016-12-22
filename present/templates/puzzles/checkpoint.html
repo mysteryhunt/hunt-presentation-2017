@@ -1,0 +1,19 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}Checkpoint{% endblock %}
+{% block puzzle_name_block %}Checkpoint{% endblock %}
+
+{% block puzzle_flavortext_block %}
+  You've gotten past tougher obstacles than this cube before.
+{% endblock %}
+
+{% block puzzle_content_block %}
+  <div>
+    <iframe
+       src="{{ config.CHECKPOINT_URL }}"
+       width="900"
+       height="1000"
+       frameBorder="0"
+    >
+    </iframe>
+  </div>
+{% endblock %}

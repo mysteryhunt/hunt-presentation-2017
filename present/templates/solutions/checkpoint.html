@@ -1,0 +1,139 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'cube' %}
+{% block title_block %}Checkpoint: Solution{% endblock %}
+{% block puzzle_name_block %}Checkpoint: Solution{% endblock %}
+{% block byline %}By Connor Stokes{% endblock %}
+{% block solution %}PAPERS{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    img.gridimage {
+      width: 300px;
+    }
+    table.gridtable td {
+      padding-bottom: 100px;
+    }
+    img.textcaptcha {
+      width: 300px;
+    }
+  </style>
+{% endblock %}
+
+{% block solution_content_block %}
+  <div>
+    <p>
+      Puzzlers are prompted to solve a series of successive image grid captchas
+      with odd items to ID (e.g. select every Texan, or every Nobel
+      Laureate). If a puzzler gets a captcha grid wrong, they are sent back to
+      the first grid. There are six captcha grids total, and after solving them,
+      the puzzler is presented with a fake text captcha. Regardless of what the
+      solver types into the text captcha, they will be sent back to the first
+      captcha grid, but now they are prompted to select a different set of
+      photos out of the same image grid. Each of the six captchas is used three
+      times in fact, with solutions presented here:
+    </p>
+    <table class="gridtable">
+      <tr class="padded">
+        <td>
+          <b>Texans</b><br>
+          <img class="gridimage" src="{{ asset_url_for('checkpoint/texans.png') }}">
+        </td>
+        <td>
+          <b>Professional Football Players</b><br>
+          <img class="gridimage" src="{{ asset_url_for('checkpoint/footballers.png') }}">
+        </td>
+        <td>
+          <b>Browns</b><br>
+          <img class="gridimage" src="{{ asset_url_for('checkpoint/browns.png') }}">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <b>Germans</b><br>
+          <img class="gridimage" src="{{ asset_url_for('checkpoint/germans.png') }}">
+        </td>
+        <td>
+          <b>Composers</b><br>
+          <img class="gridimage" src="{{ asset_url_for('checkpoint/composers.png') }}">
+        </td>
+        <td>
+          <b>Philosophers</b><br>
+          <img class="gridimage" src="{{ asset_url_for('checkpoint/philosophers.png') }}">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <b>Boy Band Members</b><br>
+          <img class="gridimage" src="{{ asset_url_for('checkpoint/boyband.png') }}">
+        </td>
+        <td>
+          <b>Wilsons</b><br>
+          <img class="gridimage" src="{{ asset_url_for('checkpoint/wilson.png') }}">
+        </td>
+        <td>
+          <b>SNL Hosts</b><br>
+          <img class="gridimage" src="{{ asset_url_for('checkpoint/snl.png') }}">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <b>Dogs</b><br>
+          <img class="gridimage" src="{{ asset_url_for('checkpoint/dog.png') }}">
+        </td>
+        <td>
+          <b>Robots</b><br>
+          <img class="gridimage" src="{{ asset_url_for('checkpoint/robot.png') }}">
+        </td>
+        <td>
+          <b>Teddies</b><br>
+          <img class="gridimage" src="{{ asset_url_for('checkpoint/teddy.png') }}">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <b><br>Nobel Laureates</b><br>
+          <img class="gridimage" src="{{ asset_url_for('checkpoint/nobel.png') }}">
+        </td>
+        <td>
+          <b>People With Elements<br>Named After Them</b><br>
+          <img class="gridimage" src="{{ asset_url_for('checkpoint/element.png') }}">
+        </td>
+        <td>
+          <b><br>People With Erdos Number &lt; 3</b><br>
+          <img class="gridimage" src="{{ asset_url_for('checkpoint/erdos.png') }}">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <b>Gary Oldman</b><br>
+          <img class="gridimage" src="{{ asset_url_for('checkpoint/oldman.png') }}">
+        </td>
+        <td>
+          <b>Oscar Winners</b><br>
+          <img class="gridimage" src="{{ asset_url_for('checkpoint/oscar.png') }}">
+        </td>
+        <td>
+          <b>People With Bacon Number 2</b><br>
+          <img class="gridimage" src="{{ asset_url_for('checkpoint/bacon.png') }}">
+        </td>
+      </tr>
+    </table>
+    <p>
+      There are three text captchas, one after each pass through the image grid.
+    </p>
+    <div><img class="textcaptcha" src="{{ asset_url_for('checkpoint/captcha_1.png') }}"></div>
+    <div><img class="textcaptcha" src="{{ asset_url_for('checkpoint/captcha_2.png') }}"></div>
+    <div><img class="textcaptcha" src="{{ asset_url_for('checkpoint/captcha_3.png') }}"></div>
+    <p>
+      If you overlay these images, you get the following:
+    </p>
+    <div><img class="textcaptcha" src="{{ asset_url_for('checkpoint/union.png') }}"></div>
+    <p>
+      This message is encouraging puzzlers to do the same thing with the captcha
+      grids that they did with the text captcha - take the union for a
+      message. If puzzlers look at every cell they clicked across the 3 passes
+      over the 6 grids, they will notice the cells spell out 3x5 letters. They
+      spell <b>PAPERS</b>, which is the answer to this puzzle.
+    </p>
+  </div>
+{% endblock %}
