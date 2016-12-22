@@ -26,16 +26,18 @@
     table.g td {
       border: 1px solid #aaa;
       box-sizing: border-box;
-      padding: 1px;
+      padding: 0;
       width: 30px;
       height: 30px;
       font-size: 10px;
       vertical-align: top;
     }
-    table.g td.b {
-      outline: 1px solid #aaa;
-      outline-offset: -1px;
-      box-shadow: 0 0 0 1000px #aaa inset;
+    table.g td:not(.b) {
+      padding: 1px;
+    }
+    table.g td.b::before {
+      content: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAQAAACROWYpAAAAHklEQVR42mNc8J+BbMA4qnlU86jmUc2jmkc1D2fNANA/MMHBYys8AAAAAElFTkSuQmCC);
+      position: absolute;
     }
     td.n {
       vertical-align: top;
