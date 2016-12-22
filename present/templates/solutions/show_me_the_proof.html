@@ -1,0 +1,122 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'thespians' %}
+{% block title_block %}Show Me The Proof: Solution{% endblock %}
+{% block puzzle_name_block %}Show Me The Proof: Solution{% endblock %}
+{% block byline %}By Connor Stokes{% endblock %}
+{% block solution %}EMAIL SCAM{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+  </style>
+{% endblock %}
+
+{% block solution_content_block %}
+  <div>
+    <p>
+      First, solvers are presented with a page asking for their email
+      address. When solvers submit a real address, an e-mail is sent to that
+      account.
+    </p>
+    <p>
+      The e-mail contains a link to a login page, prompting the puzzler for an
+      e-mail address and password. However, when registering, the puzzler only
+      provided an address, no password. If they click on the "Forgot password?"
+      link, they're presented with a couple of security questions: "What is the
+      first name of your best friend?" and "What was the last name of your
+      favorite teacher?"
+    </p>
+    <p>
+      At this point, solvers need to take note of the original e-mail sent to
+      them. The to: field of the e-mail was addressed to o@amchicago.com, and
+      mentions an "aha moment", a phrase widely credited to Oprah. The e-mail is
+      implying that the recipient is in fact Oprah, so they should answer the
+      security questions as though they were her. Oprah's best friend and the
+      name of her favorite teacher are both matters of public record.
+    </p>
+    <p>
+      After resetting the password, they'll be sent an e-mail with their new
+      password <b>QueenOfAllMedia</b> which they can use to log in with the
+      e-mail address o@amchicago.com.
+    </p>
+    <p>
+      When solvers enter Oprah's fake e-mail address into the e-mail field on
+      the login page, an "image key" will appear as a blank data URL base64
+      image. The image appears blank because the data URL actually contains a
+      private key for PGP, a common method of e-mail encryption. If the solver
+      logs in as Oprah, they will be shown her part of the puzzle, which looks
+      like some gibberish characters. These characters are in fact a message
+      encrypted using PGP.
+    </p>
+    <p>
+      Using publicly available tools, solvers can decrypt this message assuming
+      they know the passphrase and private key. The passphrase is their new
+      password <b>QueenOfAllMedia</b>, and the private key is hidden in the
+      "image key" data URL. After decrypting Oprah's part of the puzzle, solvers
+      will get the letters RZ.
+    </p>
+    <p>
+      After logging in as Oprah, solvers will actually be sent another email
+      titled "Puzzling Activity On Your Account", which alerts them of an
+      unauthorized login to their account by another person, and encourages them
+      to reset their password. This e-mail is actually addressed to
+      saxman92@whitehouse.gov, and part of the copy implies the recipient is
+      Bill Clinton. By answering his security questions, they can reset his
+      password, log in as him, and get a new piece of the puzzle. This process
+      repeats for 6 different famous people who have security questions with
+      varying degrees of trickiness:
+    </p>
+    <h4>Oprah</h4>
+    <blockquote>
+      e-mail address: o@amchicago.com<br>
+      What is the first name of your best friend? Gayle<br>
+      What was the last name of your favorite teacher? Duncan<br>
+      new password: QueenOfAllMedia<br>
+      decrypted puzzle piece: RZ<br>
+    </blockquote>
+    <h4>Bill Clinton</h4>
+    <blockquote>
+      e-mail address: saxman92@whitehouse.gov<br>
+      What is the name of your favorite movie? High Noon<br>
+      What was the name of your first cat? Socks<br>
+      new password: IAmTheEagle<br>
+      decrypted puzzle piece: NV<br>
+    </blockquote>
+    <h4>Reese Witherspoon</h4>
+    <blockquote>
+      e-mail address: little.type.a@pacificstandard.com<br>
+      What is your mother's maiden name? Reese<br>
+      What was the first name of your first kiss? Graham<br>
+      new password: NoWithAKnife<br>
+      decrypted puzzle piece: YF<br>
+    </blockquote>
+    <h4>John Lennon</h4>
+    <blockquote>
+      e-mail address: dr.oboogie@applecorps.com<br>
+      What is the name of the street you grew up on? Menlove Avenue<br>
+      What was the first name of your first manager? Nigel<br>
+      new password: RealNowhereMan<br>
+      decrypted puzzle piece: PN<br>
+    </blockquote>
+    <h4>Henry Ford</h4>
+    <blockquote>
+      e-mail address: crazyhenry@valleyfarm.org<br>
+      What was the model of your first car? A<br>
+      What is your high school's athletic team name? Trojans<br>
+      new password: BabyYouCanDriveMyCar<br>
+      decrypted puzzle piece: Z<br>
+    </blockquote>
+    <h4>W.S. Gilbert</h4>
+    <blockquote>
+      e-mail address: bab@kcl.ac.uk<br>
+      What is your favorite internet browser? Opera<br>
+      What is your father's middle name? (leave blank)<br>
+      new password: ModernMajorGeneral<br>
+      decrypted puzzle piece: concatenate then rot 13 for your answer<br>
+    </blockquote>
+    <p>
+      The last puzzle piece is a direction, "concatenate then rot 13 for your
+      answer". If you concatenate the other pieces you get <b>RZNVYFPNZ</b>,
+      which after a rot13 results in the answer <b>EMAIL SCAM</b>.
+    </p>
+  </div>
+{% endblock %}
