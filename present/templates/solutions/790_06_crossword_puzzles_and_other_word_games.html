@@ -13,6 +13,8 @@
     table.g {
       border: 2px solid #aaa;
       border-collapse: collapse;
+      width: 450px;
+      height: 450px;
     }
     table.g td {
       border: 1px solid #aaa;
@@ -20,17 +22,30 @@
       padding: 0.1em;
       width: 2rem;
       height: 2rem;
-      font-size: 1.2em;
+    }
+    table.g td {
+      border: 1px solid #aaa;
+      box-sizing: border-box;
+      padding: 0;
+      width: 30px;
+      height: 30px;
+      vertical-align: top;
+      position: relative;
+    }
+    table.g td:not(.b) {
       font-weight: bold;
       vertical-align: middle;
       text-align: center;
     }
-    table.g td.b {
-      background-color: #aaa;
-      box-shadow: 0 0 0 1.5em #aaa inset;
+    table.g td.b::before {
+      content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAQAAACROWYpAAAAHklEQVR42mNc8J+BbMA4qnlU86jmUc2jmkc1D2fNANA/MMHBYys8AAAAAElFTkSuQmCC");
+      position: absolute;
     }
     table.g td.r {
       color: #ff0000;
+    }
+    table.g td.bg {
+      background-color: #a0a0a0;
     }
   </style>
 {% endblock %}
@@ -55,7 +70,7 @@
         <td>M</td>
         <td class="r">A</td>
         <td class="r">R</td>
-        <td class="r b">R</td>
+        <td class="r bg">R</td>
         <td class="r">O</td>
         <td class="r">W</td>
         <td>I</td>
@@ -67,7 +82,7 @@
         <td class="r">K</td>
         <td class="r">A</td>
         <td class="r">T</td>
-        <td class="r b">A</td>
+        <td class="r bg">A</td>
         <td class="r">N</td>
         <td class="r">A</td>
         <td>M</td>
@@ -107,7 +122,7 @@
         <td class="r">H</td>
         <td class="r">A</td>
         <td class="r">R</td>
-        <td class="r b">P</td>
+        <td class="r bg">P</td>
         <td class="r">O</td>
         <td class="r">O</td>
         <td class="r">N</td>
@@ -136,7 +151,7 @@
         <td>C</td>
         <td class="r">K</td>
         <td class="r">N</td>
-        <td class="r b">I</td>
+        <td class="r bg">I</td>
         <td class="r">F</td>
         <td class="r">E</td>
         <td>T</td>
@@ -159,7 +174,7 @@
         <td>I</td>
         <td class="r">S</td>
         <td class="r">P</td>
-        <td class="r b">E</td>
+        <td class="r bg">E</td>
         <td class="r">A</td>
         <td class="r">R</td>
         <td>T</td>
@@ -175,7 +190,7 @@
         <td>I</td>
         <td class="r">C</td>
         <td class="r">A</td>
-        <td class="r b">R</td>
+        <td class="r bg">R</td>
         <td class="r">B</td>
         <td class="r">I</td>
         <td class="r">N</td>
@@ -223,7 +238,7 @@
         <td class="r">N</td>
         <td class="r">G</td>
         <td class="r">S</td>
-        <td class="r b">W</td>
+        <td class="r bg">W</td>
         <td class="r">O</td>
         <td class="r">R</td>
         <td class="r">D</td>
@@ -272,7 +287,7 @@
         <td class="r">H</td>
         <td class="r">U</td>
         <td class="r">R</td>
-        <td class="r b">I</td>
+        <td class="r bg">I</td>
         <td class="r">K</td>
         <td class="r">E</td>
         <td class="r">N</td>
@@ -294,7 +309,7 @@
         <td class="r">P</td>
         <td class="r">I</td>
         <td class="r">S</td>
-        <td class="r b">T</td>
+        <td class="r bg">T</td>
         <td class="r">O</td>
         <td class="r">L</td>
         <td>D</td>

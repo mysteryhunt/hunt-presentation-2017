@@ -64,7 +64,7 @@
     <div class="puzzle-entry">
       <span><img src="{{ asset_url_for('general/icons/chest.png') }}" style="width:24px;height:24px;vertical-align:bottom;"/></span>
       <a href="{{ url_for(puzzle_link_action, puzzle_id = link_puzzle_id) }}">
-        <span class="puzzle-name">{{ puzzle_properties.get(puzzle_id).puzzleProperties.DisplayNameProperty.displayName }}</span>
+        <span class="puzzle-name">{{ handle_title_underscores(puzzle_properties.get(puzzle_id).puzzleProperties.DisplayNameProperty.displayName)|safe }}</span>
       </a>
       {% if audio_id %}
         <br/>
@@ -77,7 +77,7 @@
     <div class="puzzle-entry">
       <span><img src="{{ asset_url_for('general/icons/completion-logo.png') }}" style="width:24px;height:24px;vertical-align:bottom;"/></span>
       <a href="{{ url_for(puzzle_link_action, puzzle_id = link_puzzle_id) }}">
-        <span class="puzzle-name">{{ puzzle_properties.get(puzzle_id).puzzleProperties.DisplayNameProperty.displayName }}</span>
+        <span class="puzzle-name">{{ handle_title_underscores(puzzle_properties.get(puzzle_id).puzzleProperties.DisplayNameProperty.displayName)|safe }}</span>
         <span class="puzzle-solution">
           {% for answer in puzzle_properties.get(puzzle_id).puzzleProperties.AnswersProperty.answers %}
             {{ answer.get('canonicalAnswer','') }}

@@ -20,14 +20,10 @@ def utility_processor():
       bucket = app.config["AWS_ASSET_BUCKET"]
       if (bucket == 'eastern-toys-assets'):
         return cloudfront_asset_url_for(asset_path)
-      access_key = app.config["AWS_ASSET_ACCESS_KEY"]
-      secret_key = app.config["AWS_ASSET_SECRET_KEY"]
-      return s3.sign(bucket, asset_path, access_key, secret_key, True)
+      return s3.sign(bucket, asset_path, True)
 
     def cloudfront_asset_url_for(asset_path):
-      access_key = app.config["AWS_ASSET_ACCESS_KEY"]
-      secret_key = app.config["AWS_ASSET_SECRET_KEY"]
-      return s3.cloudfront_sign(app, access_key, secret_key, asset_path)
+      return s3.cloudfront_sign(asset_path)
     
     def get_google_api_key():
       return app.config["GOOGLE_API_KEY"]
@@ -40,15 +36,21 @@ def utility_processor():
       if len(sum_constraint.get('characters')) != 1:
         return {}
       return {'character':sum_constraint.get('characters')[0],'levels':sum_constraint.get('levels')}
+    
+    def handle_title_underscores(title):
+      return title.replace('_____','<u>&emsp;&emsp;&emsp;&emsp;&emsp;</u>')
+      pass
 
     return dict(submit_url_for=submit_url_for, asset_url_for=asset_url_for,
         get_google_api_key=get_google_api_key,
-        single_character_unlock_requirement=single_character_unlock_requirement)
+        single_character_unlock_requirement=single_character_unlock_requirement,
+        handle_title_underscores=handle_title_underscores)
 
+CHARACTER_IDS = ['fighter','wizard','cleric','linguist','economist','chemist']
+QUEST_IDS = ['dynast','dungeon','thespians','bridge','criminal','minstrels','cube','warlord']
 
 ROUND_PUZZLE_MAP = {
-  'index': ['dynast','rescue_the_linguist','dungeon','rescue_the_economist','thespians',\
-            'rescue_the_chemist','bridge','criminal','minstrels','cube','warlord','merchants','fortress'],
+  'index': CHARACTER_IDS + QUEST_IDS + ['rescue_the_linguist','rescue_the_economist','rescue_the_chemist','merchants','fortress'],
   'fighter': ['f' + str(i) for i in range(1,11+1)],
   'wizard': ['w' + str(i) for i in range(1,11+1)],
   'cleric': ['cl-l' + str(i) for i in range(1,5+1)] + ['cl-r' + str(i) for i in range(1,5+1)],
@@ -64,16 +66,18 @@ ROUND_PUZZLE_MAP = {
   'cube': ['cube' + str(i) for i in range(1,8+1)],
   'warlord': ['warlord-' + direction for direction in ['nw','nc','ne','cw','cc','ce','sw','sc','se']]
 }
-    
-def get_core_display_data():
-    visibilities = cube.get_puzzle_visibilities_for_list(app, \
-        ['fighter','wizard','cleric','linguist','economist','chemist','merchants'])
-    team_properties = cube.get_team_properties(app)
 
+def make_core_display_data(visibilities_async, team_properties_async):
+    visibilities = { v["puzzleId"]: v for v in visibilities_async.result().json().get("visibilities",[]) }
+    team_properties = team_properties_async.result().json()
+    
     core_display_data = { }
     core_display_data['visible_characters'] = \
-        [char_id for char_id in ['fighter','wizard','cleric','linguist','economist','chemist'] if \
-        visibilities.get(char_id,{}).get('status','INVISIBLE') != 'INVISIBLE']
+        [char_id for char_id in CHARACTER_IDS if visibilities.get(char_id,{}).get('status','INVISIBLE') != 'INVISIBLE']
+    core_display_data['solved_characters'] = \
+        [char_id for char_id in CHARACTER_IDS if visibilities.get(char_id,{}).get('status','INVISIBLE') == 'SOLVED']
+    core_display_data['visible_quests'] = \
+        [quest_id for quest_id in QUEST_IDS if visibilities.get(quest_id,{}).get('status','INVISIBLE') != 'INVISIBLE']
     core_display_data['merchants_solved'] = visibilities.get('merchants',{}).get('status','INVISIBLE') == 'SOLVED'
     core_display_data['character_levels'] = { \
         char_id: team_properties.get('teamProperties',{}).get('CharacterLevelsProperty',{}).get('levels',{}).get(char_id.upper(),0) \
@@ -82,14 +86,13 @@ def get_core_display_data():
     core_display_data['inventory_items'] = team_properties.get('teamProperties',{}).get('InventoryProperty',{}).get('inventoryItems',[])
     core_display_data['gold'] = team_properties.get('teamProperties',{}).get('GoldProperty',{}).get('gold',0)
     return core_display_data
-
+    
 def get_full_path_core_display_data():
     core_display_data = { }
-    core_display_data['visible_characters'] = ['fighter','wizard','cleric','linguist','economist','chemist']
+    core_display_data['visible_characters'] = CHARACTER_IDS
+    core_display_data['visible_quests'] = QUEST_IDS
     core_display_data['merchants_solved'] = False
-    core_display_data['character_levels'] = { \
-        char_id: 0 \
-        for char_id in core_display_data['visible_characters'] }
+    core_display_data['character_levels'] = { char_id: 0 for char_id in core_display_data['visible_characters'] }
     core_display_data['total_character_level'] = sum(core_display_data['character_levels'].itervalues())
     core_display_data['inventory_items'] = ['ITEM' + str(i) for i in range(14,24)]
     core_display_data['gold'] = 0
@@ -99,10 +102,16 @@ def get_full_path_core_display_data():
 @login_required.solvingteam
 @metrics.time("present.index")
 def index():
-    core_display_data = get_core_display_data()
     round_puzzle_ids = ROUND_PUZZLE_MAP.get('index')
-    puzzle_visibilities = cube.get_puzzle_visibilities_for_list(app, round_puzzle_ids)
-    puzzle_properties = cube.get_all_puzzle_properties_for_list(app, round_puzzle_ids)
+
+    core_visibilities_async = cube.get_puzzle_visibilities_for_list_async(app, CHARACTER_IDS + ['merchants'])
+    core_team_properties_async = cube.get_team_properties_async(app)
+    puzzle_visibilities_async = cube.get_puzzle_visibilities_for_list_async(app, round_puzzle_ids)
+    puzzle_properties_async = cube.get_all_puzzle_properties_for_list_async(app, round_puzzle_ids)
+    
+    core_display_data = make_core_display_data(core_visibilities_async, core_team_properties_async)
+    puzzle_visibilities = { v["puzzleId"]: v for v in puzzle_visibilities_async.result().json().get("visibilities",[]) }
+    puzzle_properties = {puzzle.get('puzzleId'): puzzle for puzzle in puzzle_properties_async.result().json().get('puzzles',[])}
     visible_puzzle_ids = set([key for key in puzzle_visibilities if puzzle_visibilities.get(key,{}).get('status','') != 'INVISIBLE'])
     fog_number = len([map_item for map_item in \
         ['dynast','dungeon','thespians','bridge','criminal','minstrels','cube','warlord','rescue_the_linguist','rescue_the_chemist','rescue_the_economist','merchants','fortress']\
@@ -120,13 +129,21 @@ def index():
 @login_required.solvingteam
 @metrics.time("present.round")
 def round(round_id):
-    if not cube.is_puzzle_unlocked(app, round_id):
-        abort(403)
+    round_puzzle_ids = ROUND_PUZZLE_MAP.get(round_id,[]) + [round_id]
 
-    core_display_data = get_core_display_data()
-    round_puzzle_ids = ROUND_PUZZLE_MAP.get(round_id)
-    puzzle_visibilities = cube.get_puzzle_visibilities_for_list(app, round_puzzle_ids)
-    puzzle_properties = cube.get_all_puzzle_properties_for_list(app, round_puzzle_ids)
+    round_visibility_async = cube.get_puzzle_visibility_async(app, round_id)
+    core_visibilities_async = cube.get_puzzle_visibilities_for_list_async(app, CHARACTER_IDS + ['merchants'])
+    core_team_properties_async = cube.get_team_properties_async(app)
+    puzzle_visibilities_async = cube.get_puzzle_visibilities_for_list_async(app, round_puzzle_ids)
+    puzzle_properties_async = cube.get_all_puzzle_properties_for_list_async(app, round_puzzle_ids)
+    
+    round_visibility = round_visibility_async.result().json()
+    if round_visibility['status'] not in ['UNLOCKED','SOLVED']:
+        abort(403)
+    
+    core_display_data = make_core_display_data(core_visibilities_async, core_team_properties_async)
+    puzzle_visibilities = { v["puzzleId"]: v for v in puzzle_visibilities_async.result().json().get("visibilities",[]) }
+    puzzle_properties = {puzzle.get('puzzleId'): puzzle for puzzle in puzzle_properties_async.result().json().get('puzzles',[])}
 
     with metrics.timer("present.round_render"):
         return render_template(
@@ -141,15 +158,20 @@ def round(round_id):
 @login_required.solvingteam
 @metrics.time("present.puzzle")
 def puzzle(puzzle_id):
-    if not cube.is_puzzle_unlocked(app, puzzle_id):
+    puzzle_visibility_async = cube.get_puzzle_visibility_async(app, puzzle_id)
+    core_visibilities_async = cube.get_puzzle_visibilities_for_list_async(app, CHARACTER_IDS + ['merchants'])
+    core_team_properties_async = cube.get_team_properties_async(app)
+    puzzle_async = cube.get_puzzle_async(app, puzzle_id)
+
+    puzzle_visibility = puzzle_visibility_async.result().json()
+    if puzzle_visibility['status'] not in ['UNLOCKED','SOLVED']:
         abort(403)
 
-    core_display_data = get_core_display_data()
-    puzzle = cube.get_puzzle(app, puzzle_id)
+    core_display_data = make_core_display_data(core_visibilities_async, core_team_properties_async)
+    puzzle = puzzle_async.result().json()
     canonical_puzzle_id = puzzle.get('puzzleId')
     puzzle_round_id = [r_id for r_id, round_puzzle_ids in ROUND_PUZZLE_MAP.iteritems() if canonical_puzzle_id in round_puzzle_ids]
     puzzle_round_id = puzzle_round_id[0] if len(puzzle_round_id) > 0 else None
-    puzzle_visibility = cube.get_puzzle_visibility(app, puzzle_id)
 
     with metrics.timer("present.puzzle_render"):
         return render_template(
@@ -160,10 +182,34 @@ def puzzle(puzzle_id):
             puzzle=puzzle,
             puzzle_visibility=puzzle_visibility)
 
+@app.route("/puzzle")
+@login_required.solvingteam
+@metrics.time("present.puzzle_list")
+def puzzle_list():
+    core_visibilities_async = cube.get_puzzle_visibilities_for_list_async(app, CHARACTER_IDS + ['merchants'])
+    core_team_properties_async = cube.get_team_properties_async(app)
+    all_visibilities_async = cube.get_puzzle_visibilities_async(app)
+    all_puzzles_async = cube.get_all_puzzle_properties_async(app)
+
+    core_display_data = make_core_display_data(core_visibilities_async, core_team_properties_async)
+    all_visibilities = { v["puzzleId"]: v for v in all_visibilities_async.result().json()["visibilities"] }
+    all_puzzles = { v["puzzleId"]: v for v in all_puzzles_async.result().json()["puzzles"] }
+
+    with metrics.timer("present.puzzle_list_render"):
+        return render_template(
+            "puzzle_list.html",
+            core_display_data=core_display_data,
+            all_visibilities=all_visibilities,
+            all_puzzles=all_puzzles,
+            round_puzzle_map=ROUND_PUZZLE_MAP)
+
 @app.route("/inventory")
 @login_required.solvingteam
 def inventory():
-    core_display_data = get_core_display_data()
+    core_visibilities_async = cube.get_puzzle_visibilities_for_list_async(app, CHARACTER_IDS + ['merchants'])
+    core_team_properties_async = cube.get_team_properties_async(app)
+
+    core_display_data = make_core_display_data(core_visibilities_async, core_team_properties_async)
     return render_template("inventory.html", core_display_data=core_display_data)
 
 @app.route("/full/puzzle")

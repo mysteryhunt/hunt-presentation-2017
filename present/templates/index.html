@@ -25,6 +25,11 @@
                 <img src="{{ asset_url_for('general/characters/%s-logo.png' % character_class) }}"/>
                 <span class="individual-character-level">{{ core_display_data['character_levels'][character_class] }}</span>
               </div>
+              {% if character_class in core_display_data['solved_characters'] %}
+                <div class="individual-character-solve-icon">
+                  <img src="{{ asset_url_for('general/icons/completion-logo.png') }}"/>
+                </div>
+              {% endif %}
             </div>
           </a>
         {% endfor %}
@@ -33,7 +38,7 @@
       <div id="inventory-gold-display">
           <div class="individual-inventory-gold" data-toggle="tooltip" data-placement="bottom" title="Inventory">
             <a href="{{ url_for('inventory') }}">
-              <img src="{{ asset_url_for('general/icons/chest.png') }}" style="width:50px;height:50px;vertical-align:middle;"/>
+              <img src="{{ asset_url_for('general/icons/backpack.png') }}" style="width:50px;height:50px;vertical-align:middle;"/>
               {% if core_display_data['merchants_solved'] %}
                 6/6
               {% else %}
@@ -58,6 +63,11 @@
           <a href="{{ url_for('round', round_id = quest[0]) }}">
             <div id="quest-map-{{ quest[0] }}" class="individual-quest" style="width:108px; height:81px; position:absolute; top:{{ quest[1] }}px; left:{{ quest[2] }}px; z-index:200;" data-toggle="tooltip" data-placement="bottom" title="{{ quest[3] }}">
               <img src="{{ asset_url_for('general/quests/%s-scene.png' % quest[0]) }}"/>
+              {% if puzzle_visibilities[quest[0]].get('status','INVISIBLE') == 'SOLVED' %}
+                <div class="quest-solve-icon">
+                  <img src="{{ asset_url_for('general/icons/completion-logo.png') }}"/>
+                </div>
+              {% endif %}
             </div>
           </a>
         {% endfor %}
@@ -65,6 +75,11 @@
           <a href="{{ url_for('puzzle', puzzle_id = 'rescue_the_' + rescue[0]) }}">
             <div id="rescue-map-{{ rescue[0] }}" class="individual-rescue caption-control" style="height: 96px; position:absolute; top:{{ rescue[1] }}px; left:{{ rescue[2] }}px; z-index:200;" data-toggle="tooltip" data-placement="bottom" title="Rescue the {{ rescue[0]|capitalize }}">
               <img src="{{ asset_url_for('general/characters/%s-full.png' % rescue[0]) }}"/>
+              {% if puzzle_visibilities['rescue_the_' + rescue[0]].get('status','INVISIBLE') == 'SOLVED' %}
+                <div class="rescue-solve-icon">
+                  <img src="{{ asset_url_for('general/icons/completion-logo.png') }}"/>
+                </div>
+              {% endif %}
             </div>
           </a>
         {% endfor %}
@@ -72,6 +87,11 @@
           <a href="{{ url_for('puzzle', puzzle_id = 'merchants') }}">
             <div class="individual-quest caption-control" style="width:108px; height:81px; position:absolute; top:340px; left:420px; z-index:200;" data-toggle="tooltip" data-placement="bottom" title="The Maniacal Merchants">
               <img src="{{ asset_url_for('general/quests/merchants-scene.png') }}"/>
+              {% if puzzle_visibilities['merchants'].get('status','INVISIBLE') == 'SOLVED' %}
+                <div class="quest-solve-icon">
+                  <img src="{{ asset_url_for('general/icons/completion-logo.png') }}"/>
+                </div>
+              {% endif %}
             </div>
           </a>
         {% endif %}
@@ -79,6 +99,11 @@
           <a href="{{ url_for('puzzle', puzzle_id = 'fortress') }}">
             <div class="individual-quest caption-control" style="width:108px; height:81px; position:absolute; top:470px; left:470px; z-index:200;" data-toggle="tooltip" data-placement="bottom" title="The Final Fortress">
               <img src="{{ asset_url_for('general/quests/fortress-scene.png') }}"/>
+              {% if puzzle_visibilities['fortress'].get('status','INVISIBLE') == 'SOLVED' %}
+                <div class="quest-solve-icon">
+                  <img src="{{ asset_url_for('general/icons/completion-logo.png') }}"/>
+                </div>
+              {% endif %}
             </div>
           </a>
         {% endif %}
