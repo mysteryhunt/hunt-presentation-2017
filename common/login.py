@@ -1,5 +1,5 @@
 from flask import Blueprint, redirect, render_template, request, session, url_for
-from urllib2 import HTTPError
+from requests.exceptions import RequestException
 
 import cube
 
@@ -26,9 +26,9 @@ def login():
                 session["usertype"] = "writingteam"
             else:
                 session["usertype"] = "solvingteam"
-        except HTTPError, e:
+        except RequestException, e:
             clear_session()
-            if e.code == 401 or e.code == 403:
+            if e.response.status_code == 401 or e.response.status_code == 403:
                 return render_template(
                     "login.html",
                     error="Invalid login for user '%s'." % request.form["username"])

@@ -10,17 +10,14 @@ from requests_futures.sessions import FuturesSession
 #This number is currently a guess and probably needs changing based on load testing
 THREAD_POOL = ThreadPoolExecutor(max_workers=100)
 
-class CubeError(Exception):
-    def __init__(self, request, http_error):
-        self.request = request
-        self.code = http_error.code
-        self.error_message = http_error.read()
+class ResponseCheckingFutureWrapper(object):
+    def __init__(self, response_future):
+        self.response_future = response_future
 
-    def __str__(self):
-        return "HTTP Error %d\nRequest: %s\nResponse:\n%s\n" % (
-            self.code,
-            self.request,
-            self.error_message)
+    def result(self):
+        response = self.response_future.result()
+        response.raise_for_status()
+        return response
 
 def create_requests_session(username=None, password=None):
     if not username:
@@ -39,10 +36,7 @@ def get_async(app, path, requests_session=None):
         requests_session = create_requests_session()
     futures_session = FuturesSession(session=requests_session, executor=THREAD_POOL)
     url = get_url_for_path(app, path)
-    try:
-        return futures_session.get(url)
-    except requests.exceptions.RequestException, e:
-        raise CubeError(path, e)
+    return ResponseCheckingFutureWrapper(futures_session.get(url))
 
 def get(app, path, requests_session=None):
     return get_async(app, path, requests_session=requests_session).result().json()
@@ -53,11 +47,9 @@ def post(app, path, data, requests_session=None):
     url = get_url_for_path(app, path)
     headers = { "Content-Type": "application/json" }
     json_post_data = json.dumps(data)
-    try:
-        r = requests_session.post(url, data=json_post_data, headers=headers)
-        return r.json()
-    except requests.exceptions.RequestException, e:
-        raise CubeError(path + "\n" + json_post_data, e)
+    response = requests_session.post(url, data=json_post_data, headers=headers)
+    response.raise_for_status()
+    return response.json()
 
 def authorized(app, permission):
     response = get(app, "/authorized?permission=%s" % permission)
@@ -77,7 +69,7 @@ def get_puzzle_visibilities_async(app):
 def get_puzzle_visibilities_for_list(app, puzzle_ids):
     response = get(app, "/visibilities?teamId=%s&puzzleId=%s" % (session["username"], ','.join(puzzle_ids)))
     return { v["puzzleId"]: v for v in response["visibilities"] }
-    
+
 def get_puzzle_visibilities_for_list_async(app, puzzle_ids):
     return get_async(app, "/visibilities?teamId=%s&puzzleId=%s" % (session["username"], ','.join(puzzle_ids)))
 
