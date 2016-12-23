@@ -1,0 +1,320 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}Replenish the Treasury{% endblock %}
+{% block puzzle_name_block %}Replenish the Treasury{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  .team-reqs {
+    list-style: none;
+    padding: 0;
+  }
+
+  .team-reqs li {
+    padding-left: 12px;
+  }
+
+  .item-reqs {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .item-reqs li {
+    padding-left: 12px;
+  }
+  .item-reqs li.cat {
+      font-weight: bold;
+      padding-left: 0px;
+    }
+</style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+The king has put out a call for intrepid adventurers who can help him replace some items lost in the last raid.
+{% endblock %}
+
+{% block puzzle_content_block %}
+<div>
+  <p>
+    Please gather at least N of the 15 objects listed below, where N is determined by your official team size (see below). Each object will be assessed according to the attributes listed below it. All attributes are applicable and will be combined to determine
+    an object’s net modifier value. Each object must meet the given minimum modifier value. The items must be physically presented in person; photographs, drawings, computer programs, and other such representations are not acceptable. The judges may request
+    an explanation or demonstration of any claimed attribute that is not obvious to them.
+  </p>
+  <p>
+    The following bonus attributes may be applied to any of your team's items; however, you may only use up to two bonus attributes, and each may only be used once:
+  </p>
+  <ul>
+    <li>+1 Accompanied by an original theme song (between 30 and 60 seconds long)</li>
+    <li>+1 Accompanied by a puzzle, written by your team, related to the item</li>
+    <li>+1 Accompanied by tasty cookies and/or donuts (which we will keep)</li>
+  </ul>
+  <p>
+    When you believe you have all of the items required, call HQ and we will send judges to evaluate your submission. If the items pass inspection, you will be given the solution to this puzzle.
+  </p>
+  <p>
+    <ul class="team-reqs">
+      <li>If your team size is 1-20, N = 4; in addition, you may subtract 1 from every minimum value.</li>
+      <li>If your team size is 21-40, N = 5</li>
+      <li>If your team size is 41-60, N = 6</li>
+      <li>If your team size is 61-80, N = 7</li>
+      <li>If your team size is 81-100, N = 8</li>
+      <li>If your team size is over 100, N = 10</li>
+    </ul>
+  </p>
+
+  <p>
+    <ul class="item-reqs">
+      <li class="cat">Amulet (minimum +6)</li>
+      <li>+3 Wards off evil spirits</li>
+      <li>+3 Removes curses</li>
+      <li>+2 Removes stains</li>
+      <li>+2 Is embedded with an African coin</li>
+      <li>+2 Is embedded with an Asian coin</li>
+      <li>+1 Is embedded with a North American coin</li>
+      <li>+1 Is embedded with an evil eye</li>
+      <li>+1 Has feathers</li>
+      <li>+1 Has a pentagram</li>
+      <li>+1 Has a chain made of metal</li>
+      <li>-1 Has a chain made of textiles or paper</li>
+      <li>-3 Has no chain</li>
+    </ul>
+  </p>
+
+  <p>
+    <ul class="item-reqs">
+      <li class="cat">Book (minimum +4)</li>
+      <li>+3 Is over 500 years old</li>
+      <li>+2 Needs to be unlocked with a metal key</li>
+      <li>+2 Includes a secret compartment</li>
+      <li>+1 Weighs more than 2 pounds</li>
+      <li>+1 Author’s full name, as shown on the cover, includes at least 2 of the letters J, Q, X, and Z</li>
+      <li>+1 Title is at least 10 words long</li>
+      <li>+1 Has a chapter whose title includes any form of the word “magic” or “wizard”</li>
+      <li>+1 Includes an illustration of a dragon breathing fire</li>
+      <li>+1 Back cover includes a photo of the author</li>
+      <li>-1 First word of the title is “The”</li>
+      <li>-1 Was published in or after the year 2000</li>
+      <li>-2 Was never published</li>
+    </ul>
+  </p>
+
+  <p>
+    <ul class="item-reqs">
+      <li class="cat">Bow (minimum +5)</li>
+      <li>+2 Can shoot an arrow</li>
+      <li>+2 Can play a stringed musical instrument</li>
+      <li>+2 Bends in reaction to applause</li>
+      <li>+1 Is entirely in black and white</li>
+      <li>+1 Is attached to a ship</li>
+      <li>+1 Makes the noise of a dog</li>
+      <li>+1 Is attached to a wrapped gift</li>
+      <li>+1 Can be worn in the hair</li>
+      <li>+1 Can be tied in a knot</li>
+      <li>-1 Is straight</li>
+      <li>-1 Is made from the limb of a tree or shrub</li>
+    </ul>
+  </p>
+
+  <p>
+    <ul class="item-reqs">
+      <li class="cat">Chest (minimum +5)</li>
+      <li>+3 Can be opened by waving a magic wand at it</li>
+      <li>+2 Can be opened by voice command</li>
+      <li>+2 Has a troll standing guard over it</li>
+      <li>+2 Is large enough for a member of your team to fit inside with the cover closed</li>
+      <li>+1 Has a force field</li>
+      <li>+1 Has a metal lock</li>
+      <li>+1 Is filled with gems and/or pieces of gold</li>
+      <li>+1 Has a false bottom</li>
+      <li>+1 Has wheels</li>
+      <li>-1 Primarily made of anything other than wood</li>
+    </ul>
+  </p>
+
+  <p>
+    <ul class="item-reqs">
+      <li class="cat">Cloak (minimum +4)</li>
+      <li>+3 Makes the wearer invisible</li>
+      <li>+2 Protects wearer from magic</li>
+      <li>+2 Protects wearer from weapons</li>
+      <li>+1 Functions electrically</li>
+      <li>+1 Changes color</li>
+      <li>+1 Glows in the dark</li>
+      <li>+1 Measures at least eight feet in length</li>
+      <li>+1 Is waterproof</li>
+      <li>+1 Has a designer label</li>
+      <li>-1 Contains paper</li>
+      <li>-1 Contains glue, tape, or metal fasteners</li>
+    </ul>
+  </p>
+
+  <p>
+    <ul class="item-reqs">
+      <li class="cat">Elixir (minimum +5)</li>
+      <li>+2 Serves as a love potion</li>
+      <li>+2 Has a strongly sweet aroma</li>
+      <li>+2 Changes color when you shake it</li>
+      <li>+2 Is purple or pink in color</li>
+      <li>+1 Is blue, green, or orange in color</li>
+      <li>+1 Is in a test tube or beaker</li>
+      <li>+1 Fizzes when shaken</li>
+      <li>+1 Is chugged by a member of your team (after the other attributes are checked)</li>
+      <li>-1 Has an unpleasant aroma</li>
+      <li>-1 Is in a cup, mug, or drinking glass</li>
+      <li>-1 Is clear, white, black, or brown in color</li>
+    </ul>
+  </p>
+
+  <p>
+    <ul class="item-reqs">
+      <li class="cat">Gloves (minimum +4)</li>
+      <li>+3 Emit blasts of either heat or cold</li>
+      <li>+2 Are primarily made of metal</li>
+      <li>+2 Extend upward to at least the middle of the forearm</li>
+      <li>+1 Have a falcon resting on them</li>
+      <li>+1 Are primarily made of leather or silk</li>
+      <li>+1 Are bejeweled</li>
+      <li>+1 Are golden-colored</li>
+      <li>+1 Can catch a ball thrown from across the room by one of the judges</li>
+      <li>-1 Are primarily made of cotton, wool, or polyester</li>
+      <li>-1 Are just plain ugly</li>
+    </ul>
+  </p>
+
+  <p>
+    <ul class="item-reqs">
+      <li class="cat">Goblet (minimum +4)</li>
+      <li>+3 Refills itself</li>
+      <li>+2 Contains fire</li>
+      <li>+2 Produces musical tones</li>
+      <li>+1 Is engraved</li>
+      <li>+1 Is bejeweled</li>
+      <li>+1 Is made of gold</li>
+      <li>+1 Is made of ice</li>
+      <li>+1 Is made of Lego bricks</li>
+      <li>+1 Has a child-safe lid</li>
+      <li>-1 Is between 5 and 15 inches tall</li>
+      <li>-1 Is symmetrical</li>
+      <li>-1 Has fewer than two handles</li>
+    </ul>
+  </p>
+
+  <p>
+    <ul class="item-reqs">
+      <li class="cat">Helmet (minimum +7)</li>
+      <li>+3 Glows when it is worn</li>
+      <li>+3 Gives wearer superhuman strength</li>
+      <li>+2 Gives wearer the ability to sing Wagnerian opera</li>
+      <li>+2 Has a beaver</li>
+      <li>+1 Has horns</li>
+      <li>+1 Has spikes</li>
+      <li>+1 Has a comb</li>
+      <li>+1 Has a gorget</li>
+      <li>+1 Has a facemask</li>
+      <li>+1 Has an NFL team logo</li>
+      <li>-1 Is made of plastic, aluminum foil, paper, or cardboard</li>
+    </ul>
+  </p>
+
+  <p>
+    <ul class="item-reqs">
+      <li class="cat">Orb (minimum +5)</li>
+      <li>+3 Captures magical creatures</li>
+      <li>+3 Affects the weather</li>
+      <li>+2 Is filled with smoke</li>
+      <li>+2 Is filled with candy</li>
+      <li>+1 Has a transparent surface</li>
+      <li>+1 Has a sparkly surface</li>
+      <li>+1 Inspires fealty</li>
+      <li>+1 Features a religious symbol</li>
+      <li>+1 Is made from an edible fruit or vegetable</li>
+      <li>-1 Is not a solid of revolution</li>
+      <li>-1 Is made of rubber or plastic</li>
+    </ul>
+  </p>
+
+  <p>
+    <ul class="item-reqs">
+      <li class="cat">Ring (minimum +6)</li>
+      <li>+3 Shows wearer’s mood</li>
+      <li>+2 Show’s wearer’s academic affiliation</li>
+      <li>+2 Shows wearer’s athletic championship</li>
+      <li>+1 Helps wearer with an engagement</li>
+      <li>+1 Helps wearer with a friendship</li>
+      <li>+1 Helps wearer with a promise</li>
+      <li>+1 Helps wearer solve a puzzle</li>
+      <li>+1 Make wearer pure</li>
+      <li>-1 Contains no metal</li>
+      <li>-1 Contains no stones</li>
+    </ul>
+  </p>
+
+  <p>
+    <ul class="item-reqs">
+      <li class="cat">Scroll (minimum +5)</li>
+      <li>+3 Is written in glow-in-the-dark ink</li>
+      <li>+2 Is written in invisible ink, that can be made visible upon request</li>
+      <li>+1 Is written in Elvish or Dwarvish</li>
+      <li>+1 Is written using calligraphy</li>
+      <li>+1 Contains illuminations</li>
+      <li>+1 Contains a phrase that is an anagram of SETEC ASTRONOMY</li>
+      <li>+1 Is sealed with a wax signet</li>
+      <li>+1 Is at least 4 feet long when fully unrolled</li>
+      <li>+1 Is made of leather</li>
+      <li>-1 Is made of standard printer paper</li>
+      <li>-1 Contains fewer than 500 words</li>
+    </ul>
+  </p>
+
+  <p>
+    <ul class="item-reqs">
+      <li class="cat">Shield (minimum +9)</li>
+      <li>+3 Depicts an animated image</li>
+      <li>+2 Depicts an animal mascot in passant guardant attitude</li>
+      <li>+2 Depicts a motto that is an anagram of the team name</li>
+      <li>+2 Depicts a puzzle</li>
+      <li>+2 Is engraved or embossed</li>
+      <li>+1 Has a “heater shield” shape</li>
+      <li>+1 Has a reflective surface</li>
+      <li>+1 Has eyeholes</li>
+      <li>+1 Contains three or more colors</li>
+      <li>+1 Contains metal</li>
+      <li>-1 Contains cardboard or paper</li>
+      <li>-2 Is made from a container lid</li>
+    </ul>
+  </p>
+
+  <p>
+    <ul class="item-reqs">
+      <li class="cat">Staff (minimum +5)</li>
+      <li>+3 Will return when thrown horizontally, like a boomerang</li>
+      <li>+2 Can create the sound of a thunderclap</li>
+      <li>+2 Can be bent into a circle</li>
+      <li>+1 Is at least four feet tall</li>
+      <li>+1 Emits a strong light</li>
+      <li>+1 Has a carved animal head at one end</li>
+      <li>+1 Contains a concealed knife (or fork or spoon)</li>
+      <li>+1 Is made of cherry wood or bamboo</li>
+      <li>+1 Can stand on its end without falling and without assistance for at least 10 seconds</li>
+      <li>-1 Contains any metal, including screws or nails</li>
+    </ul>
+  </p>
+
+  <p>
+    <ul class="item-reqs">
+      <li class="cat">Tunic (minimum +6)</li>
+      <li>+3 Is worn by a dwarf, elf, or orc</li>
+      <li>+3 Is worn by an extraterrestrial or robot</li>
+      <li>+2 Is worn by a living thing with blue skin</li>
+      <li>+2 Is worn by a cat, dog, or rodent</li>
+      <li>+2 Is worn by an MIT professor</li>
+      <li>+2 Is worn by a human between 4 and 8 years old</li>
+      <li>+2 Is worn by a living thing over 78 inches tall</li>
+      <li>+2 Is worn by a living thing performing a headstand</li>
+      <li>+1 Has buttons and is closed while being worn</li>
+      <li>+1 Is tea length</li>
+      <li>-1 Is sleeveless</li>
+      <li>-1 Is removed and worn by someone else (penalty for each occurrence)</li>
+    </ul>
+  </p>
+</div>
+{% endblock %}
