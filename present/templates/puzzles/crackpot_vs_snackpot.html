@@ -1,0 +1,205 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}Crackpot vs. Snackpot{% endblock %}
+{% block puzzle_name_block %}Crackpot vs. Snackpot{% endblock %}
+
+{% block puzzle_head_block %}
+<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+<script>
+var baseServiceUrl = 'http://54.88.237.118/crackpot_vs_snackpot';
+
+var getProblem = function(onSuccess) {
+  $.get({
+    url: baseServiceUrl + '/problem',
+    success: onSuccess,
+    dataType: 'json'
+  });
+};
+
+var putProblemInDisplay = function(problemData) {
+  $('#live-problem-display .problem-display-left .title').html(problemData.left);
+  $('#live-problem-display .problem-display-right .title').html(problemData.right);
+  $('#live-problem-display').data('problem-token',problemData.problem_token);
+};
+
+var handleLiveProblemClick = function(liveProblemClickData) {
+  var $target = $(liveProblemClickData.target);
+  var $liveDisplay = $target.closest('#live-problem-display');
+  var problemToken = $liveDisplay.data('problem-token');
+  if (problemToken === undefined) {
+    return;
+  }
+  $liveDisplay.removeData('problem-token');
+  var answer = 'R';
+  if ($target.hasClass('problem-display-left')) {
+    answer = 'L';
+  }
+  var stateToken = $liveDisplay.data('state-token');
+  $liveDisplay.removeData('state-token');
+  getSolution(problemToken, answer, stateToken, handleSolution);
+};
+
+var getSolution = function(problemToken, answer, stateToken, onSuccess) {
+  var getUrl = baseServiceUrl + '/solution?problem_token=' + encodeURIComponent(problemToken) +
+      '&answer=' + answer;
+  if (stateToken !== undefined) {
+    getUrl += '&state_token=' + stateToken;
+  }
+  $.get({
+    url: getUrl,
+    success: onSuccess,
+    dataType: 'json'
+  });
+};
+
+var handleSolution = function(solutionData) {
+  console.log(solutionData);
+  $('#crackpot-score-display span#crackpot-correct').text(solutionData.state.correct);
+  $('#crackpot-score-display span#crackpot-total').text(solutionData.state.total);
+  $('#live-problem-display').data('state-token', solutionData.state_token);
+  $('#crackpot-score-display span#crackpot-percentage').text(Math.round(100.0 * solutionData.state.correct / solutionData.state.total));
+  $('#crackpot-score-display span#crackpot-hint').html(solutionData.hint);
+
+  var $previousProblemDisplays = $('#previous-problem-displays');
+  var $previousDisplay = $('<div class="problem-display"></div>');
+  var $previousDisplayPanel = $('<div class="problem-display-panel"></div>').appendTo($previousDisplay);
+  populateSolutionDisplay($previousDisplayPanel, solutionData.fake);
+
+  $previousProblemDisplays.prepend($previousDisplay);
+
+  getProblem(putProblemInDisplay);
+};
+
+var populateSolutionDisplay = function($displayPanel, data) {
+  console.log(data);
+  $displayPanel.append('<div class="archive-id">' + data.archive + ':' + data.archive_id + ' (January 2017)</div>');
+  $displayPanel.append('<div class="title">' + data.title + '</div>');
+  $displayPanel.append('<div class="authors">' + data.authors + '</div>');
+};
+
+$(document).ready(function() {
+
+  $('#live-problem-display .problem-display-panel').click(handleLiveProblemClick);
+  getProblem(putProblemInDisplay);
+
+});
+</script>
+<style>
+#overall-header {
+  margin-bottom: 30px;
+  font-size: 20px;
+}
+#crackpot-container {
+  margin: 0 auto;
+  font-family: sans-serif;
+}
+#crackpot-container, #previous-problem-displays {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+#crackpot-header {
+  font-weight: bold;
+  font-size: 72px;
+  background-color: black;
+  color: white;
+  padding: 20px 40px;
+  margin-bottom: 40px;
+}
+#crackpot-header a {
+  color: inherit;
+  text-decoration: none;
+}
+#crackpot-header .vixra:hover {
+  color: green;
+}
+#crackpot-header .snixra:hover {
+  color: red;
+}
+.problem-display {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.problem-display {
+  font-size: 24px;
+  color: blue;
+}
+.problem-display .title:hover {
+  color: green;
+}
+.problem-display .authors {
+  color: black;
+  font-size: 20px;
+}
+#live-problem-display .problem-display-panel:hover .title {
+  color: green;
+}
+#live-problem-display {
+  min-height: 120px;
+}
+.problem-display-panel {
+  background: rgb(255, 255, 255);
+  padding: 0px 20px 0px 20px;
+  flex-grow: 1;
+  flex-basis: 1px;
+  max-width: 40%;
+}
+.problem-display .archive-id {
+  color: #aaa;
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+#live-problem-display .problem-display-panel {
+  cursor: pointer;
+}
+#live-problem-display .problem-display-panel:hover {
+  background: rgb(230, 230, 230);
+}
+.problem-display-icon-display {
+  width: 45px;
+}
+#crackpot-score-display {
+  font-size: 24px;
+  text-align: center;
+}
+.cursive {
+  font-family: 'Pacifico', cursive;
+}
+#crackpot-score-display span#crackpot-correct, #crackpot-score-display span#crackpot-total {
+  padding: 0px 5px 0px 10px;
+}
+</style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+An enthusiastic peasant is shouting about his bridge repair scheme to anyone who will listen. You back away slowly.
+{% endblock %}
+
+{% block puzzle_content_block %}
+<div id="crackpot-container">
+  <div id="crackpot-header">
+    <a href="http://vixra.org" class="vixra">viXra</a><span class="cursive"> vs. </span><a class="snixra">sniXra</a>
+  </div>
+  <div id="live-problem-display" class="problem-display">
+    <div class="problem-display-icon-display"></div>
+    <div class="problem-display-panel problem-display-left">
+      <div class="title"></div>
+    </div>
+    <div class="problem-display-panel problem-display-right">
+      <div class="title"></div>
+    </div>
+    <div class="problem-display-icon-display"></div>
+  </div>
+  <div id="crackpot-score-display">
+    <span id="crackpot-correct">0</span><span class="cursive"> Correct out of </span><span id="crackpot-total">0</span><span class="cursive"> Guesses </span>(<span id="crackpot-percentage">0</span>%) - Pick the real viXra paper<br/><span id="crackpot-hint"><span> 
+  </div>
+  <div id="previous-problem-displays">
+  </div>
+</div>
+{% endblock %}
