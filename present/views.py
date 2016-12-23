@@ -2,11 +2,12 @@ from present import app
 
 from common import cube, login_required, metrics, s3
 from flask import abort, redirect, render_template, request, send_from_directory, session, url_for
+from requests.exceptions import RequestException
 
 import os
 
-@app.errorhandler(cube.CubeError)
-def handle_cube_error(error):
+@app.errorhandler(RequestException)
+def handle_request_exception(error):
     return render_template(
         "error.html",
         error=error)
