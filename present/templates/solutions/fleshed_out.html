@@ -1,0 +1,116 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'cube' %}
+{% block title_block %}Fleshed Out: Solution{% endblock %}
+{% block puzzle_name_block %}Fleshed Out: Solution{% endblock %}
+{% block byline %}By Dan Katz{% endblock %}
+{% block solution %}SKEWER{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    img.a {
+      width: 900px;
+    }
+  </style>
+{% endblock %}
+
+{% block solution_content_block %}
+  <div>
+    <p>
+      The answers to the cryptic clues are:
+    </p>
+    <p>
+      <b>ACROSS</b><br>
+      <br>
+      1. CLAMBAKE (anag.)<br>
+      10. REVEALS (anag.)<br>
+      17. M AS T<br>
+      18. BEL+UGA<br>
+      19. GRIMM (hom.)<br>
+      22. misERAble<br>
+      23. ENT+ENT+E<br>
+      25. C+RIP<br>
+      26. S(T becomes P)ORKS<br>
+      28. FORT+"UN-ATE"<br>
+      29. DI+YER (rev.)<br>
+      31. URN (hom.)<br>
+      33. CENTRIPETAL (anag.)<br>
+      36. fIDO<br>
+      37. GGE(NO)A (anag.)<br>
+      41. ORBISONGS (anag.)<br>
+      45. BE(MUS (rev.))E<br>
+      46. W+A+RM<br>
+      48. M(Y+CENA)E<br>
+      50. nOVAk<br>
+      53. sAUDI+S<br>
+      54. HATERS (anag.)<br>
+      55. reTTOP (rev.)<br>
+      56. SH(AMP)OO<br>
+      57. DELI+VERY<br>
+      <br>
+      <b>DOWN</b><br>
+      <br>
+      2. LAW+N<br>
+      3 & 7. ASHTON KUTCHER (anag.)<br>
+      4. SETTER (anag.)<br>
+      5. B,E,G<br>
+      6. AL+IE+N<br>
+      8. E+GER<br>
+      9. TA+HIT+I<br>
+      11. ER(A'S)E<br>
+      12. VI+M<br>
+      13. (NI+MROD) (rev.)<br>
+      14. E(MER)IL (rev.)<br>
+      15. A+GEN(C)Y<br>
+      16. SPASm<br>
+      18. BU(N)T<br>
+      19. G+APE<br>
+      20. IR(K)ED (anag.)<br>
+      21. DEBUG (first letters)<br>
+      24. TU(N)ES<br>
+      27. PATS+Y<br>
+      30. ROLE+X<br>
+      32. RE+EVE<br>
+      33. CO(MPAS (anag.))S<br>
+      34. PIRANHA (anag.)<br>
+      35. PE(RMU (anag.))TE<br>
+      36. KINDLE (hid.)<br>
+      38. NEVADA (anag.)<br>
+      39. AURUM (hid.)<br>
+      40. HE+LIO (rev.)<br>
+      41. 'OWLS<br>
+      42. IMPEi+L<br>
+      43. OCHS (hom.)<br>
+      44. NECTAR (anag.)<br>
+      45. B(O)Y+S<br>
+      47. ROAD (hom.)<br>
+      49. A+M+OR<br>
+      51. G(D)P<br>
+      52. sAwRuIn
+    </p>
+    <p>
+      In order to complete the grid, nine across entries must skip a square, and
+      the intersecting down entries must have two letters entered into those
+      squares.
+    </p>
+    <img class="a" src="{{ asset_url_for('fleshed_out/solution01.gif') }}">
+    <p>
+      These across entries all contain the names of types of meat, and the
+      skipped squares fall within each meat. The meats are illustrated next to
+      the grid; these meats are, in order from top to bottom, LIVER, EMU, BISON,
+      LAMB, TRIPE, VEAL, PORK, TUNA, and HAM.  (Some of these are admittedly
+      tricky to differentiate just from the pictures. EMU, BISON, and VEAL are
+      arguably the toughest to recognize, but in a worst-case scenario, the
+      solver can just see which arrangement of those three gives a coherent clue
+      phrase.)
+    </p>
+    <p>
+      Stacking the letters in the skipped squares in the same order as the meats
+      in the image creates a clue phrase reading downward:
+    </p>
+    <img class="a" src="{{ asset_url_for('fleshed_out/solution02.gif') }}">
+    <p>
+      In chess, a reverse pin is also called a <b>SKEWER</b>, an appropriate
+      answer for this meat-piercing clue phrase.
+    </p>
+  </div>
+{% endblock %}
