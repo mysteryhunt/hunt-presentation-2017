@@ -1,0 +1,43 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'bridge' %}
+{% block title_block %}Patience for the Bridge Builder{% endblock %}
+{% block puzzle_name_block %}Patience for the Bridge Builder{% endblock %}
+{% block byline %}By Stephen Peters{% endblock %}
+{% block solution %}TURNPIKE{% endblock %}
+
+{% block solution_content_block %}
+  <div>
+    <p>
+      The puzzle page deals out what appears to be a game of FreeCell, but with
+      a pair of jokers added into the deck. As it turns out, this is
+      a <a href="https://en.wikipedia.org/wiki/Jokers_in_Solitaire#Joker_Freecell">variant
+      of FreeCell</a> in which the jokers can be used as wild cards when
+      building up from the foundation.
+    </p>
+    <p>
+      Once the game is complete, a dialog box appears with text referring to a
+      member of the Collegium Pontificum and giving a short string of encrypted
+      text: <code>JJMIZ LEKUN OBQOQ CNJR</code>. The reference to the Collegium
+      Pontificum hints to the word "pontifex", and as it happens there is an
+      encryption algorithm nicknamed Pontifex,
+      aka <a href="https://www.schneier.com/academic/solitaire/">Solitaire</a>
+      and using a deck of cards (with jokers) for encryption and decryption.
+    </p>
+    <p>
+      The Solitaire algorithm uses the order of cards in the deck as the key. If
+      you take the order that the cards were dealt for the game of FreeCell:
+    </p>
+    <p style="margin: 1em;">
+      <code>
+        8♥ 4♣ J♥ J♠ A♠ 6♠
+        A♦ 7♥ 5♦ 3♥ 4♠ 2♦ 10♣ 10♠ A♥ 5♠ 3♣ J♣ 8♦ 9♣ 2♠ 9♦ Joker-B 3♦ 3♠ 4♥
+        J♦ Q♦ 4♦ Q♠ 9♥ 7♠ A♣ K♣ Joker-A 2♥ 6♣ K♠ 5♣ Q♣ 9♠ 8♣ 7♣ 6♦ 8♠ 7♦
+        10♦ 2♣ Q♥ 10♥ 5♥ K♥ 6♥ K♦
+      </code>
+    </p>
+    <p>
+      You can then use Solitaire to decrypt the cipher text and get
+      the phrase <code>THE ANSWER IS <b>TURNPIKE</b></code>.
+    </p>
+  </div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}Patience for the Bridge Builder{% endblock %}
+{% block puzzle_name_block %}Patience for the Bridge Builder{% endblock %}
+
+{% block puzzle_head_block %}
+  <script src="{{ asset_url_for('patience_for_the_bridge_builder/phaser-2.3.0.min.js') }}" charset="UTF-8" ></script>
+  <script src="{{ asset_url_for('patience_for_the_bridge_builder/underscore-min.js') }}"></script>
+  <script src="{{ asset_url_for('patience_for_the_bridge_builder/msg.js') }}"></script>
+  <script src="{{ asset_url_for('patience_for_the_bridge_builder/cards.js') }}" charset="UTF-8" ></script>
+  <script src="{{ asset_url_for('patience_for_the_bridge_builder/game.js') }}" charset="UTF-8"></script>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+  As you wait for the bridge builder to arrive to help assess the damage, you
+  sit down and play a little solitaire.
+{% endblock %}
+
+{% block puzzle_content_block %}
+  <div>
+    <div id="game"></div>
+    <script type="text/javascript">
+      freeCellGame();
+    </script>
+  </div>
+{% endblock %}
