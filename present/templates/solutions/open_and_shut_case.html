@@ -1,0 +1,24 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'warlord' %}
+{% block title_block %}Open and Shut Case: Solution{% endblock %}
+{% block puzzle_name_block %}Open and Shut Case: Solution{% endblock %}
+{% block byline %}By Guy Jacobson and Chad Brown{% endblock %}
+{% block solution %}REXX{% endblock %}
+
+{% block solution_content_block %}
+<div>
+  <p>As the flavortext suggests, solvers need to order all 26 Exhibits A-Z. The title hints that this must be accomplished such that the parentheses and square brackets are properly balanced (while also satisfying the handful of "somewhere before" constraints).</p>
+
+  <p>There is a unique ordering that works, perhaps best found using programming (unless you are an insane masochist and want to balance thousands of parentheses by hand). Here is a sample <a href="{{ asset_url_for('open_and_shut_case/balance.py') }}">Python program</a>    that accomplishes this.</p>
+
+  <p>When solvers assemble the 26 fragments into a single complete "<a href="{{ asset_url_for('open_and_shut_case/sol.txt') }}">whole</a>", they may be nonplussed as to what to do with it. But if they inspect the sequence of fragment letters used to form
+    the complete plan, solvers will see
+    <b>BDHPLZNOWGIVEJSFUCKATRYMQX</b> which contains the string <b>PLZ NOW GIVE JSFUCK
+  A TRY</b> (with some alphabetized junk on either side -- hey, perfect pangrams are hard!)
+  </p>
+
+  <p><a href="https://en.wikipedia.org/wiki/JSFuck">JSFuck</a> is an esoteric variety of JavaScript that uses only the characters [ , ], ( , ) , + , and !. It is nonetheless perfectly valid JavaScript that you can run in any interpreter. Running the resulting
+    JSFuck using a JavaScript interpreter pops up an alert that says "Answer: REXX". So the answer to this puzzle is
+    <b>REXX</b> (the name of another interpreted language).</p>
+</div>
+{% endblock %}
