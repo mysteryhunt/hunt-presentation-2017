@@ -1,0 +1,36 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'cube' %}
+{% block title_block %}Long Time No See: Solution{% endblock %}
+{% block puzzle_name_block %}Long Time No See: Solution{% endblock %}
+{% block byline %}By Greg Pliska{% endblock %}
+{% block solution %}FAULTY{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  img {
+    max-width: 900px;
+  }
+
+  .pic {
+    padding-top: 30px;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<div>
+  <p>
+    To properly fill the diagramless puzzle, solvers must leave all Cs out of the grid. (The clues are also written without the letter C.)
+  </p>
+  <p>
+    The completed grid is in the shape of MIT Buildings 1, 2, 3, 4 and 10. There is one X in the completed grid, located at a point in a hallway in Building 2. That location features a wall, pictured below, with the word FACULTY at the top of it. Removing
+    the C gives the answer <b>FAULTY</b>.
+  </p>
+  <div>
+    <img src="{{ asset_url_for('long_time_no_see/image01.png') }}">
+  </div>
+  <div class="pic">
+    <img src="{{ asset_url_for('long_time_no_see/image02.png') }}">
+  </div>
+</div>
+{% endblock %}
