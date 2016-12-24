@@ -1,0 +1,72 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'wizard' %}
+{% block title_block %}A Penny For Your Thoughts: Solution{% endblock %}
+{% block puzzle_name_block %}A Penny For Your Thoughts: Solution{% endblock %}
+{% block byline %}By Roger Barkan{% endblock %}
+{% block solution %}CONFLAGRATE{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    table.a td {
+      padding: 4px;
+    }
+  </style>
+{% endblock %}
+
+{% block solution_content_block %}
+  <div>
+    <p>
+      Each image in the left column clues a word that contains the string CENT.
+      In each case, you can replace the "CENT" with one of the items pictured in
+      the center column, to produce one of the images in the right column.
+      Carrying the indices over and applying them to the words in the right
+      column, in order, spells CONCENTRATE.  Pairing CONCENTRATE with the
+      remaining unused item in the center column, a FLAG, produces the answer
+      <b>CONFLAGRATE</b>.
+    </p>
+    <table class="a">
+      <tr><td>ACCENT</td><td>AND</td><td>CHESTERFIELD (C)</td></tr>
+      <tr><td>ASCENT</td><td>CHEST</td><td>DOMINION (O)</td></tr>
+      <tr><td>CENTAUR</td><td>CORN</td><td>ANDROID (N)</td></tr>
+      <tr><td>CENTERFIELD</td><td>FLAG</td><td>CORNERPIECE (C)</td></tr>
+      <tr><td>CENTERPIECE</td><td>MILL</td><td>ASPEN (E)</td></tr>
+      <tr><td>CENTIPEDE</td><td>MINION</td><td>PERSIMMONS (N)</td></tr>
+      <tr><td>CENTROID</td><td>MINOT</td><td>ACTRESSES (T)</td></tr>
+      <tr><td>DOCENT</td><td>PEN</td><td>LUTHOR (R)</td></tr>
+      <tr><td>FIFTYCENT</td><td>SHADES</td><td>FIFTYSHADES (A)</td></tr>
+      <tr><td>LUCENT</td><td>SIMMONS</td><td>MINOTAUR (T)</td></tr>
+      <tr><td>PERCENT</td><td>THOR</td><td>MILLIPEDE (E)</td></tr>
+      <tr><td></td><td>TRESSES</td><td></td></tr>
+    </table>
+    <p>
+      Notes:<br>
+      ACCENT/ACCORD,ACQUIRE,ACTRESSES (T)<br>
+      ASCENT/ASPEN (E)<br>
+      DOCENT/DOMINION (O)<br>
+      LUCENT/LUTHOR, LUPIN (R)<br>
+      CENTAUR/MINOTAUR (T)<br>
+      CENTROID/ANDROID (N)<br>
+      PERCENT/PERMUTATION,PERSPIRE, PERSIMMONS (N)<br>
+      CENTIPEDE/MILLIPEDE (E)<br>
+      FIFTYCENT/FIFTYSHADES (A)<br>
+      CENTERFIELD/CHESTERFIELD (C)<br>
+      CENTERPIECE/MASTERPIECE,CORNERPIECE (C)
+    </p>
+    <p>
+      Others:<br>
+      CENTERICE/ORANGERICE<br>
+      FITNESSCENTER/FITNESSTRAINER,FITNESSTRACKER
+    </p>
+    <p>
+      Don't work:<br>
+      CENTAVO<br>
+      CENTURY<br>
+      VINCENT<br>
+      CRESCENT<br>
+      MCENTIRE<br>
+      MILLICENT<br>
+      ADOLESCENT<br>
+      CENTERFOLD
+    </p>
+  </div>
+{% endblock %}
