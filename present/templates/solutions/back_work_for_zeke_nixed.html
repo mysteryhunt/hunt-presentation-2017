@@ -1,0 +1,56 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'minstrels' %}
+{% block title_block %}Back work for Zeke? Nixed: Solution{% endblock %}
+{% block puzzle_name_block %}Back work for Zeke? Nixed: Solution{% endblock %}
+{% block byline %}By Benjamin Monreal{% endblock %}
+{% block solution %}SWALLOW{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    .left {
+      text-align: left;
+    }
+    .right {
+      text-align: right;
+    }
+  </style>
+{% endblock %}
+
+{% block solution_content_block %}
+  <div>
+    <p>
+      This puzzle is about Johann Sebastian Bach&mdash;it's a bunch of chorale
+      titles, but given in pidgin-translations of the sort a non-German speaker
+      might generate from vague homophone guesswork. Actually, there are two
+      things wrong with each translation: first, there are the awful
+      translations; second, in each title one German word has been turned into a
+      proper name by a single letter substitution.
+    </p>
+    <p>
+      The solver should figure out which titles have been butchered, then take
+      the single letter that was used to make the proper name. Read in catalogue
+      order (the standard Bach catalogue is the Bach-werke-verzeichnis, hence
+      &ldquo;Back work for Zeke? nixed&rdquo;) we get the words SCHLUCK and SCHWALBE which
+      are German words meaning <b>SWALLOW</b> which is the answer.
+    </p>
+    <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+      <tbody>
+        <tr><td class="left">Ach, was soll ich Sünder machen</td><td class="right">259</td><td class="left">Soll</td><td class="left">Moll</td><td class="left">Ugh, was Moll making it sounder?</td><td class="left">S</td><td class="right">1</td></tr>
+        <tr><td class="left">Als vierzig Tag nach Ostern</td><td class="right">266</td><td class="left">naCh</td><td class="left">Nash</td><td class="left">All verily tag Nash &ldquo;oysters&rdquo;</td><td class="left">C</td><td class="right">2</td></tr>
+        <tr><td class="left">Christ, der du bist der helle Tag</td><td class="right">273</td><td class="left">Helle</td><td class="left">Belle</td><td class="left">Christ, tag there the best of Belle</td><td class="left">H</td><td class="right">3</td></tr>
+        <tr><td class="left">Christ lag in Todesbanden</td><td class="right">278</td><td class="left">Lag</td><td class="left">Dag</td><td class="left">Christ, Dag's into toad-banding</td><td class="left">L</td><td class="right">4</td></tr>
+        <tr><td class="left">Du, o schönes Weltgebäude</td><td class="right">301</td><td class="left">dU</td><td class="left">Di</td><td class="left">Di, of well-garbed schooners</td><td class="left">U</td><td class="right">5</td></tr>
+        <tr><td class="left">Eins ist Not! ach Herr, dies Eine</td><td class="right">304</td><td class="left">aCh</td><td class="left">Ash</td><td class="left">One is none!  Ash dies here once.</td><td class="left">C</td><td class="right">6</td></tr>
+        <tr><td class="left">Gottes Sohn ist kommen</td><td class="right">318</td><td class="left">Kommen</td><td class="left">Tommen</td><td class="left">It's Tommen got sun.</td><td class="left">K</td><td class="right">7</td></tr>
+        <tr><td class="left">Gott hat das Evangelium</td><td class="right">319</td><td class="left">daS</td><td class="left">Dan</td><td class="left">Has Dan gotten evangelical?</td><td class="left">S</td><td class="right">8</td></tr>
+        <tr><td class="left">Herr, straf mich nicht in deinem Zorn</td><td class="right">338</td><td class="left">miCh</td><td class="left">Minh</td><td class="left">Here, Minh strafes knights in denim horns</td><td class="left">C</td><td class="right">9</td></tr>
+        <tr><td class="left">Ich danke dir, o Gott, in deinem Throne</td><td class="right">350</td><td class="left">tHrone</td><td class="left">Tyrone</td><td class="left">I thank deer&mdash;oh, get Tyrone in denim</td><td class="left">H</td><td class="right">10</td></tr>
+        <tr><td class="left">Jesu meiner Seelen Wonne</td><td class="right">359</td><td class="left">Wonne</td><td class="left">Vonne</td><td class="left">Geez, my seals, Vonne!</td><td class="left">W</td><td class="right">11</td></tr>
+        <tr><td class="left">In allen meinen Taten</td><td class="right">367</td><td class="left">Allen</td><td class="left">Ellen</td><td class="left">In Ellen, my potatoes</td><td class="left">A</td><td class="right">12</td></tr>
+        <tr><td class="left">Nun freut euch, Gottes Kinder all'</td><td class="right">387</td><td class="left">alL</td><td class="left">Ali</td><td class="left">Noone friends you, God's kinder to Ali</td><td class="left">L</td><td class="right">13</td></tr>
+        <tr><td class="left">Nun lob, mein Seel, den Herren</td><td class="right">389</td><td class="left">loB</td><td class="left">Lou</td><td class="left">Noone, Lou!  Mine seal, then herring</td><td class="left">B</td><td class="right">14</td></tr>
+        <tr><td class="left">O Welt, sieh hier dein Leben</td><td class="right">393</td><td class="left">wElt</td><td class="left">Walt</td><td class="left">Oh Walt, stay here during labor</td><td class="left">E</td><td class="right">15</td></tr>
+      </tbody>
+    </table>
+  </div>
+{% endblock %}
