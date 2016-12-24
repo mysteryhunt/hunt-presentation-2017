@@ -5,7 +5,7 @@
 {% block puzzle_head_block %}
 <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
 <script>
-var baseServiceUrl = 'http://54.88.237.118/crackpot_vs_snackpot';
+var baseServiceUrl = 'http://localhost:5000/crackpot_vs_snackpot';
 
 var getProblem = function(onSuccess) {
   $.get({
@@ -22,7 +22,7 @@ var putProblemInDisplay = function(problemData) {
 };
 
 var handleLiveProblemClick = function(liveProblemClickData) {
-  var $target = $(liveProblemClickData.target);
+  var $target = $(liveProblemClickData.target).closest(".problem-display-panel");
   var $liveDisplay = $target.closest('#live-problem-display');
   var problemToken = $liveDisplay.data('problem-token');
   if (problemToken === undefined) {
@@ -71,7 +71,7 @@ var handleSolution = function(solutionData) {
 
 var populateSolutionDisplay = function($displayPanel, data) {
   console.log(data);
-  $displayPanel.append('<div class="archive-id">' + data.archive + ':' + data.archive_id + ' (January 2017)</div>');
+  $displayPanel.append('<div class="archive-id">' + data.archive + ':' + data.archive_id + '</div>');
   $displayPanel.append('<div class="title">' + data.title + '</div>');
   $displayPanel.append('<div class="authors">' + data.authors + '</div>');
 };
@@ -118,7 +118,7 @@ $(document).ready(function() {
   color: red;
 }
 .problem-display {
-  width: 60%;
+  width: 80%;
   display: flex;
   justify-content: center;
   margin-top: 20px;
@@ -146,7 +146,6 @@ $(document).ready(function() {
   padding: 0px 20px 0px 20px;
   flex-grow: 1;
   flex-basis: 1px;
-  max-width: 40%;
 }
 .problem-display .archive-id {
   color: #aaa;
@@ -164,7 +163,7 @@ $(document).ready(function() {
 .problem-display-icon-display {
   width: 45px;
 }
-#crackpot-score-display {
+#crackpot-score-display, #pick-header {
   font-size: 24px;
   text-align: center;
 }
@@ -186,6 +185,7 @@ An enthusiastic peasant is shouting about his bridge repair scheme to anyone who
   <div id="crackpot-header">
     <a href="http://vixra.org" class="vixra">viXra</a><span class="cursive"> vs. </span><a class="snixra">sniXra</a>
   </div>
+  <div id="pick-header">Pick the real viXra paper</div>
   <div id="live-problem-display" class="problem-display">
     <div class="problem-display-icon-display"></div>
     <div class="problem-display-panel problem-display-left">
@@ -197,7 +197,7 @@ An enthusiastic peasant is shouting about his bridge repair scheme to anyone who
     <div class="problem-display-icon-display"></div>
   </div>
   <div id="crackpot-score-display">
-    <span id="crackpot-correct">0</span><span class="cursive"> Correct out of </span><span id="crackpot-total">0</span><span class="cursive"> Guesses </span>(<span id="crackpot-percentage">0</span>%) - Pick the real viXra paper<br/><span id="crackpot-hint"><span> 
+    <span id="crackpot-correct">0</span><span class="cursive"> Correct out of </span><span id="crackpot-total">0</span><span class="cursive"> Guesses </span>(<span id="crackpot-percentage">0</span>%)<br/><span id="crackpot-hint"><span> 
   </div>
   <div id="previous-problem-displays">
   </div>
