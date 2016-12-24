@@ -1,0 +1,794 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'warlord' %}
+{% block title_block %}Dispatches from the Foreign Service Units: Solution{% endblock %}
+{% block puzzle_name_block %}Dispatches from the Foreign Service Units: Solution{% endblock %}
+{% block byline %}By Ben Monreal{% endblock %}
+{% block solution %}KILO{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+#header {
+  font-size: 36px;
+}
+@font-face {
+    font-family: 'Everson Mono';
+    src: url("{{ asset_url_for('dispatches_from_the_foreign_service_units/EversonMono.ttf')|safe }}") format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Everson Mono Bold';
+    src: url("{{ asset_url_for('dispatches_from_the_foreign_service_units/EversonMonoBold.ttf')|safe }}") format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+#puzzle-container table {
+  font-family: 'Everson Mono';
+}
+#puzzle-container span.mono {
+  font-family: 'Everson Mono';
+}
+.character-table-and-image {
+  display: flex;
+  flex-flow: row nowrap;
+  flex-basis: auto;
+  margin-bottom: 30px;
+  width: 700px;
+}
+.character-table-and-image * {
+  flex-basis: auto;
+}
+.character-table-and-image img {
+  max-height: 300px;
+  max-width: 400px;
+  margin-left: 20px;
+  height: auto;
+}
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<p>The puzzle is to identify a bunch of non-Latin words/character sets, and collect the Unicode characters used to write them.   The table is a 5x16 grid which should lead you to identify three particular lists of Unicode characters: Latin from U+20, Cyrillic from U+410, Greek from U+3A0, Hebrew from 0x5C0, some Latin-1 supplement characters from 0x140, katakana from 0x30A0, and miscellaneous symbols from 0x2630.</p>
+<p>The image clues should lead you to: the title <span class="mono">MI-5</span> (including the hyphen!), the Russian word "element" spelled in capitals <span class="mono">&#1069;&#1051;&#1045;&#1052;&#1045;&#1053;&#1058;</span>, the number 28 in Hebrew as <span class="mono">&#1499;&#1495;</span>, the Japanese word "chiketto" in katakana, <span class="mono">&#12481;&#12465;&#12483;&#12488;</span>, the capital Sigma Chi from the fraternity symbol, <span class="mono">&Sigma;&Chi;</span>, two characters from the Phaistos disk <span class="mono">&#66007</span> and <span class="mono">&#66012;</span>, and finally the Polish town name (in all-caps) <span class="mono">E&#321;K</span>. Color in the blank grid wherever you find a character.  The colored squares are pixels that spell the answer <b>KILO</b>.</p>
+<div class="character-table-and-image">
+<table border=1>
+<tr><td bgcolor="ffffff">&#16;</td>
+<td bgcolor="ffffff">&#17;</td>
+<td bgcolor="ffffff">&#18;</td>
+<td bgcolor="ffffff">&#19;</td>
+<td bgcolor="ffffff">&#20;</td>
+<td bgcolor="ffffff">&#21;</td>
+<td bgcolor="ffffff">&#22;</td>
+<td bgcolor="ffffff">&#23;</td>
+<td bgcolor="ffffff">&#24;</td>
+<td bgcolor="ffffff">&#25;</td>
+<td bgcolor="ffffff">&#26;</td>
+<td bgcolor="ffffff">&#27;</td>
+<td bgcolor="ffffff">&#28;</td>
+<td bgcolor="ffffff">&#29;</td>
+<td bgcolor="ffffff">&#30;</td>
+<td bgcolor="ffffff">&#31;</td>
+</tr>
+<tr><td bgcolor="ffffff">&#32;</td>
+<td bgcolor="ffffff">&#33;</td>
+<td bgcolor="ffffff">&#34;</td>
+<td bgcolor="ffffff">&#35;</td>
+<td bgcolor="ffffff">&#36;</td>
+<td bgcolor="ffffff">&#37;</td>
+<td bgcolor="ffffff">&#38;</td>
+<td bgcolor="ffffff">&#39;</td>
+<td bgcolor="ffffff">&#40;</td>
+<td bgcolor="ffffff">&#41;</td>
+<td bgcolor="ffffff">&#42;</td>
+<td bgcolor="ffffff">&#43;</td>
+<td bgcolor="ffffff">&#44;</td>
+<td bgcolor="#ff00ff">&#45;</td>
+<td bgcolor="ffffff">&#46;</td>
+<td bgcolor="ffffff">&#47;</td>
+</tr>
+<tr><td bgcolor="ffffff">&#48;</td>
+<td bgcolor="ffffff">&#49;</td>
+<td bgcolor="ffffff">&#50;</td>
+<td bgcolor="ffffff">&#51;</td>
+<td bgcolor="ffffff">&#52;</td>
+<td bgcolor="#ff00ff">&#53;</td>
+<td bgcolor="ffffff">&#54;</td>
+<td bgcolor="ffffff">&#55;</td>
+<td bgcolor="ffffff">&#56;</td>
+<td bgcolor="ffffff">&#57;</td>
+<td bgcolor="ffffff">&#58;</td>
+<td bgcolor="ffffff">&#59;</td>
+<td bgcolor="ffffff">&#60;</td>
+<td bgcolor="ffffff">&#61;</td>
+<td bgcolor="ffffff">&#62;</td>
+<td bgcolor="ffffff">&#63;</td>
+</tr>
+<tr><td bgcolor="ffffff">&#64;</td>
+<td bgcolor="ffffff">&#65;</td>
+<td bgcolor="ffffff">&#66;</td>
+<td bgcolor="ffffff">&#67;</td>
+<td bgcolor="ffffff">&#68;</td>
+<td bgcolor="#ff00ff">&#69;</td>
+<td bgcolor="ffffff">&#70;</td>
+<td bgcolor="ffffff">&#71;</td>
+<td bgcolor="ffffff">&#72;</td>
+<td bgcolor="#ff00ff">&#73;</td>
+<td bgcolor="ffffff">&#74;</td>
+<td bgcolor="#ff00ff">&#75;</td>
+<td bgcolor="ffffff">&#76;</td>
+<td bgcolor="#ff00ff">&#77;</td>
+<td bgcolor="ffffff">&#78;</td>
+<td bgcolor="ffffff">&#79;</td>
+</tr>
+<tr><td bgcolor="ffffff">&#80;</td>
+<td bgcolor="ffffff">&#81;</td>
+<td bgcolor="ffffff">&#82;</td>
+<td bgcolor="ffffff">&#83;</td>
+<td bgcolor="ffffff">&#84;</td>
+<td bgcolor="ffffff">&#85;</td>
+<td bgcolor="ffffff">&#86;</td>
+<td bgcolor="ffffff">&#87;</td>
+<td bgcolor="ffffff">&#88;</td>
+<td bgcolor="ffffff">&#89;</td>
+<td bgcolor="ffffff">&#90;</td>
+<td bgcolor="ffffff">&#91;</td>
+<td bgcolor="ffffff">&#92;</td>
+<td bgcolor="ffffff">&#93;</td>
+<td bgcolor="ffffff">&#94;</td>
+<td bgcolor="ffffff">&#95;</td>
+</tr>
+</table>
+<div>
+  <img src="{{ asset_url_for('dispatches_from_the_foreign_service_units/solution-image01.png') }}"/>
+</div>
+</div>
+
+<div class="character-table-and-image">
+<table border=1>
+<tr><td bgcolor="ffffff">&#1024;</td>
+<td bgcolor="ffffff">&#1025;</td>
+<td bgcolor="ffffff">&#1026;</td>
+<td bgcolor="ffffff">&#1027;</td>
+<td bgcolor="ffffff">&#1028;</td>
+<td bgcolor="ffffff">&#1029;</td>
+<td bgcolor="ffffff">&#1030;</td>
+<td bgcolor="ffffff">&#1031;</td>
+<td bgcolor="ffffff">&#1032;</td>
+<td bgcolor="ffffff">&#1033;</td>
+<td bgcolor="ffffff">&#1034;</td>
+<td bgcolor="ffffff">&#1035;</td>
+<td bgcolor="ffffff">&#1036;</td>
+<td bgcolor="ffffff">&#1037;</td>
+<td bgcolor="ffffff">&#1038;</td>
+<td bgcolor="ffffff">&#1039;</td>
+</tr>
+<tr><td bgcolor="ffffff">&#1040;</td>
+<td bgcolor="ffffff">&#1041;</td>
+<td bgcolor="ffffff">&#1042;</td>
+<td bgcolor="ffffff">&#1043;</td>
+<td bgcolor="ffffff">&#1044;</td>
+<td bgcolor="#ff00ff">&#1045;</td>
+<td bgcolor="ffffff">&#1046;</td>
+<td bgcolor="ffffff">&#1047;</td>
+<td bgcolor="ffffff">&#1048;</td>
+<td bgcolor="ffffff">&#1049;</td>
+<td bgcolor="ffffff">&#1050;</td>
+<td bgcolor="#ff00ff">&#1051;</td>
+<td bgcolor="#ff00ff">&#1052;</td>
+<td bgcolor="#ff00ff">&#1053;</td>
+<td bgcolor="ffffff">&#1054;</td>
+<td bgcolor="ffffff">&#1055;</td>
+</tr>
+<tr><td bgcolor="ffffff">&#1056;</td>
+<td bgcolor="ffffff">&#1057;</td>
+<td bgcolor="#ff00ff">&#1058;</td>
+<td bgcolor="ffffff">&#1059;</td>
+<td bgcolor="ffffff">&#1060;</td>
+<td bgcolor="ffffff">&#1061;</td>
+<td bgcolor="ffffff">&#1062;</td>
+<td bgcolor="ffffff">&#1063;</td>
+<td bgcolor="ffffff">&#1064;</td>
+<td bgcolor="ffffff">&#1065;</td>
+<td bgcolor="ffffff">&#1066;</td>
+<td bgcolor="ffffff">&#1067;</td>
+<td bgcolor="ffffff">&#1068;</td>
+<td bgcolor="#ff00ff">&#1069;</td>
+<td bgcolor="ffffff">&#1070;</td>
+<td bgcolor="ffffff">&#1071;</td>
+</tr>
+<tr><td bgcolor="ffffff">&#1072;</td>
+<td bgcolor="ffffff">&#1073;</td>
+<td bgcolor="ffffff">&#1074;</td>
+<td bgcolor="ffffff">&#1075;</td>
+<td bgcolor="ffffff">&#1076;</td>
+<td bgcolor="ffffff">&#1077;</td>
+<td bgcolor="ffffff">&#1078;</td>
+<td bgcolor="ffffff">&#1079;</td>
+<td bgcolor="ffffff">&#1080;</td>
+<td bgcolor="ffffff">&#1081;</td>
+<td bgcolor="ffffff">&#1082;</td>
+<td bgcolor="ffffff">&#1083;</td>
+<td bgcolor="ffffff">&#1084;</td>
+<td bgcolor="ffffff">&#1085;</td>
+<td bgcolor="ffffff">&#1086;</td>
+<td bgcolor="ffffff">&#1087;</td>
+</tr>
+<tr><td bgcolor="ffffff">&#1088;</td>
+<td bgcolor="ffffff">&#1089;</td>
+<td bgcolor="ffffff">&#1090;</td>
+<td bgcolor="ffffff">&#1091;</td>
+<td bgcolor="ffffff">&#1092;</td>
+<td bgcolor="ffffff">&#1093;</td>
+<td bgcolor="ffffff">&#1094;</td>
+<td bgcolor="ffffff">&#1095;</td>
+<td bgcolor="ffffff">&#1096;</td>
+<td bgcolor="ffffff">&#1097;</td>
+<td bgcolor="ffffff">&#1098;</td>
+<td bgcolor="ffffff">&#1099;</td>
+<td bgcolor="ffffff">&#1100;</td>
+<td bgcolor="ffffff">&#1101;</td>
+<td bgcolor="ffffff">&#1102;</td>
+<td bgcolor="ffffff">&#1103;</td>
+</tr>
+</table>
+<div>
+  <img src="{{ asset_url_for('dispatches_from_the_foreign_service_units/solution-image07.png') }}"/>
+</div>
+</div>
+
+<div class="character-table-and-image">
+<table border=1>
+<tr><td bgcolor="ffffff">&#912;</td>
+<td bgcolor="ffffff">&#913;</td>
+<td bgcolor="ffffff">&#914;</td>
+<td bgcolor="ffffff">&#915;</td>
+<td bgcolor="ffffff">&#916;</td>
+<td bgcolor="ffffff">&#917;</td>
+<td bgcolor="ffffff">&#918;</td>
+<td bgcolor="ffffff">&#919;</td>
+<td bgcolor="ffffff">&#920;</td>
+<td bgcolor="ffffff">&#921;</td>
+<td bgcolor="ffffff">&#922;</td>
+<td bgcolor="ffffff">&#923;</td>
+<td bgcolor="ffffff">&#924;</td>
+<td bgcolor="ffffff">&#925;</td>
+<td bgcolor="ffffff">&#926;</td>
+<td bgcolor="ffffff">&#927;</td>
+</tr>
+<tr><td bgcolor="ffffff">&#928;</td>
+<td bgcolor="ffffff">&#929;</td>
+<td bgcolor="ffffff">&#930;</td>
+<td bgcolor="#ff00ff">&#931;</td>
+<td bgcolor="ffffff">&#932;</td>
+<td bgcolor="ffffff">&#933;</td>
+<td bgcolor="ffffff">&#934;</td>
+<td bgcolor="#ff00ff">&#935;</td>
+<td bgcolor="ffffff">&#936;</td>
+<td bgcolor="ffffff">&#937;</td>
+<td bgcolor="ffffff">&#938;</td>
+<td bgcolor="ffffff">&#939;</td>
+<td bgcolor="ffffff">&#940;</td>
+<td bgcolor="ffffff">&#941;</td>
+<td bgcolor="ffffff">&#942;</td>
+<td bgcolor="ffffff">&#943;</td>
+</tr>
+<tr><td bgcolor="ffffff">&#944;</td>
+<td bgcolor="ffffff">&#945;</td>
+<td bgcolor="ffffff">&#946;</td>
+<td bgcolor="ffffff">&#947;</td>
+<td bgcolor="ffffff">&#948;</td>
+<td bgcolor="ffffff">&#949;</td>
+<td bgcolor="ffffff">&#950;</td>
+<td bgcolor="ffffff">&#951;</td>
+<td bgcolor="ffffff">&#952;</td>
+<td bgcolor="ffffff">&#953;</td>
+<td bgcolor="ffffff">&#954;</td>
+<td bgcolor="ffffff">&#955;</td>
+<td bgcolor="ffffff">&#956;</td>
+<td bgcolor="ffffff">&#957;</td>
+<td bgcolor="ffffff">&#958;</td>
+<td bgcolor="ffffff">&#959;</td>
+</tr>
+<tr><td bgcolor="ffffff">&#960;</td>
+<td bgcolor="ffffff">&#961;</td>
+<td bgcolor="ffffff">&#962;</td>
+<td bgcolor="ffffff">&#963;</td>
+<td bgcolor="ffffff">&#964;</td>
+<td bgcolor="ffffff">&#965;</td>
+<td bgcolor="ffffff">&#966;</td>
+<td bgcolor="ffffff">&#967;</td>
+<td bgcolor="ffffff">&#968;</td>
+<td bgcolor="ffffff">&#969;</td>
+<td bgcolor="ffffff">&#970;</td>
+<td bgcolor="ffffff">&#971;</td>
+<td bgcolor="ffffff">&#972;</td>
+<td bgcolor="ffffff">&#973;</td>
+<td bgcolor="ffffff">&#974;</td>
+<td bgcolor="ffffff">&#975;</td>
+</tr>
+<tr><td bgcolor="ffffff">&#976;</td>
+<td bgcolor="ffffff">&#977;</td>
+<td bgcolor="ffffff">&#978;</td>
+<td bgcolor="ffffff">&#979;</td>
+<td bgcolor="ffffff">&#980;</td>
+<td bgcolor="ffffff">&#981;</td>
+<td bgcolor="ffffff">&#982;</td>
+<td bgcolor="ffffff">&#983;</td>
+<td bgcolor="ffffff">&#984;</td>
+<td bgcolor="ffffff">&#985;</td>
+<td bgcolor="ffffff">&#986;</td>
+<td bgcolor="ffffff">&#987;</td>
+<td bgcolor="ffffff">&#988;</td>
+<td bgcolor="ffffff">&#989;</td>
+<td bgcolor="ffffff">&#990;</td>
+<td bgcolor="ffffff">&#991;</td>
+</tr>
+</table>
+<div>
+  <img src="{{ asset_url_for('dispatches_from_the_foreign_service_units/solution-image04.png') }}"/>
+</div>
+</div>
+
+<div class="character-table-and-image">
+<table border=1>
+<tr><td bgcolor="ffffff">&#1456;</td>
+<td bgcolor="ffffff">&#1457;</td>
+<td bgcolor="ffffff">&#1458;</td>
+<td bgcolor="ffffff">&#1459;</td>
+<td bgcolor="ffffff">&#1460;</td>
+<td bgcolor="ffffff">&#1461;</td>
+<td bgcolor="ffffff">&#1462;</td>
+<td bgcolor="ffffff">&#1463;</td>
+<td bgcolor="ffffff">&#1464;</td>
+<td bgcolor="ffffff">&#1465;</td>
+<td bgcolor="ffffff">&#1466;</td>
+<td bgcolor="ffffff">&#1467;</td>
+<td bgcolor="ffffff">&#1468;</td>
+<td bgcolor="ffffff">&#1469;</td>
+<td bgcolor="ffffff">&#1470;</td>
+<td bgcolor="ffffff">&#1471;</td>
+</tr>
+<tr><td bgcolor="ffffff">&#1472;</td>
+<td bgcolor="ffffff">&#1473;</td>
+<td bgcolor="ffffff">&#1474;</td>
+<td bgcolor="ffffff">&#1475;</td>
+<td bgcolor="ffffff">&#1476;</td>
+<td bgcolor="ffffff">&#1477;</td>
+<td bgcolor="ffffff">&#1478;</td>
+<td bgcolor="ffffff">&#1479;</td>
+<td bgcolor="ffffff">&#1480;</td>
+<td bgcolor="ffffff">&#1481;</td>
+<td bgcolor="ffffff">&#1482;</td>
+<td bgcolor="ffffff">&#1483;</td>
+<td bgcolor="ffffff">&#1484;</td>
+<td bgcolor="ffffff">&#1485;</td>
+<td bgcolor="ffffff">&#1486;</td>
+<td bgcolor="ffffff">&#1487;</td>
+</tr>
+<tr><td bgcolor="ffffff">&#1488;</td>
+<td bgcolor="ffffff">&#1489;</td>
+<td bgcolor="ffffff">&#1490;</td>
+<td bgcolor="ffffff">&#1491;</td>
+<td bgcolor="ffffff">&#1492;</td>
+<td bgcolor="ffffff">&#1493;</td>
+<td bgcolor="ffffff">&#1494;</td>
+<td bgcolor="#ff00ff">&#1495;</td>
+<td bgcolor="ffffff">&#1496;</td>
+<td bgcolor="ffffff">&#1497;</td>
+<td bgcolor="ffffff">&#1498;</td>
+<td bgcolor="#ff00ff">&#1499;</td>
+<td bgcolor="ffffff">&#1500;</td>
+<td bgcolor="ffffff">&#1501;</td>
+<td bgcolor="ffffff">&#1502;</td>
+<td bgcolor="ffffff">&#1503;</td>
+</tr>
+<tr><td bgcolor="ffffff">&#1504;</td>
+<td bgcolor="ffffff">&#1505;</td>
+<td bgcolor="ffffff">&#1506;</td>
+<td bgcolor="ffffff">&#1507;</td>
+<td bgcolor="ffffff">&#1508;</td>
+<td bgcolor="ffffff">&#1509;</td>
+<td bgcolor="ffffff">&#1510;</td>
+<td bgcolor="ffffff">&#1511;</td>
+<td bgcolor="ffffff">&#1512;</td>
+<td bgcolor="ffffff">&#1513;</td>
+<td bgcolor="ffffff">&#1514;</td>
+<td bgcolor="ffffff">&#1515;</td>
+<td bgcolor="ffffff">&#1516;</td>
+<td bgcolor="ffffff">&#1517;</td>
+<td bgcolor="ffffff">&#1518;</td>
+<td bgcolor="ffffff">&#1519;</td>
+</tr>
+<tr><td bgcolor="ffffff">&#1520;</td>
+<td bgcolor="ffffff">&#1521;</td>
+<td bgcolor="ffffff">&#1522;</td>
+<td bgcolor="ffffff">&#1523;</td>
+<td bgcolor="ffffff">&#1524;</td>
+<td bgcolor="ffffff">&#1525;</td>
+<td bgcolor="ffffff">&#1526;</td>
+<td bgcolor="ffffff">&#1527;</td>
+<td bgcolor="ffffff">&#1528;</td>
+<td bgcolor="ffffff">&#1529;</td>
+<td bgcolor="ffffff">&#1530;</td>
+<td bgcolor="ffffff">&#1531;</td>
+<td bgcolor="ffffff">&#1532;</td>
+<td bgcolor="ffffff">&#1533;</td>
+<td bgcolor="ffffff">&#1534;</td>
+<td bgcolor="ffffff">&#1535;</td>
+</tr>
+</table>
+<div>
+  <img src="{{ asset_url_for('dispatches_from_the_foreign_service_units/solution-image06.png') }}"/>
+</div>
+</div>
+
+<div class="character-table-and-image">
+<table border=1>
+<tr><td bgcolor="ffffff">&#304;</td>
+<td bgcolor="ffffff">&#305;</td>
+<td bgcolor="ffffff">&#306;</td>
+<td bgcolor="ffffff">&#307;</td>
+<td bgcolor="ffffff">&#308;</td>
+<td bgcolor="ffffff">&#309;</td>
+<td bgcolor="ffffff">&#310;</td>
+<td bgcolor="ffffff">&#311;</td>
+<td bgcolor="ffffff">&#312;</td>
+<td bgcolor="ffffff">&#313;</td>
+<td bgcolor="ffffff">&#314;</td>
+<td bgcolor="ffffff">&#315;</td>
+<td bgcolor="ffffff">&#316;</td>
+<td bgcolor="ffffff">&#317;</td>
+<td bgcolor="ffffff">&#318;</td>
+<td bgcolor="ffffff">&#319;</td>
+</tr>
+<tr><td bgcolor="ffffff">&#320;</td>
+<td bgcolor="#ff00ff">&#321;</td>
+<td bgcolor="ffffff">&#322;</td>
+<td bgcolor="ffffff">&#323;</td>
+<td bgcolor="ffffff">&#324;</td>
+<td bgcolor="ffffff">&#325;</td>
+<td bgcolor="ffffff">&#326;</td>
+<td bgcolor="ffffff">&#327;</td>
+<td bgcolor="ffffff">&#328;</td>
+<td bgcolor="ffffff">&#329;</td>
+<td bgcolor="ffffff">&#330;</td>
+<td bgcolor="ffffff">&#331;</td>
+<td bgcolor="ffffff">&#332;</td>
+<td bgcolor="ffffff">&#333;</td>
+<td bgcolor="ffffff">&#334;</td>
+<td bgcolor="ffffff">&#335;</td>
+</tr>
+<tr><td bgcolor="ffffff">&#336;</td>
+<td bgcolor="ffffff">&#337;</td>
+<td bgcolor="ffffff">&#338;</td>
+<td bgcolor="ffffff">&#339;</td>
+<td bgcolor="ffffff">&#340;</td>
+<td bgcolor="ffffff">&#341;</td>
+<td bgcolor="ffffff">&#342;</td>
+<td bgcolor="ffffff">&#343;</td>
+<td bgcolor="ffffff">&#344;</td>
+<td bgcolor="ffffff">&#345;</td>
+<td bgcolor="ffffff">&#346;</td>
+<td bgcolor="ffffff">&#347;</td>
+<td bgcolor="ffffff">&#348;</td>
+<td bgcolor="ffffff">&#349;</td>
+<td bgcolor="ffffff">&#350;</td>
+<td bgcolor="ffffff">&#351;</td>
+</tr>
+<tr><td bgcolor="ffffff">&#352;</td>
+<td bgcolor="ffffff">&#353;</td>
+<td bgcolor="ffffff">&#354;</td>
+<td bgcolor="ffffff">&#355;</td>
+<td bgcolor="ffffff">&#356;</td>
+<td bgcolor="ffffff">&#357;</td>
+<td bgcolor="ffffff">&#358;</td>
+<td bgcolor="ffffff">&#359;</td>
+<td bgcolor="ffffff">&#360;</td>
+<td bgcolor="ffffff">&#361;</td>
+<td bgcolor="ffffff">&#362;</td>
+<td bgcolor="ffffff">&#363;</td>
+<td bgcolor="ffffff">&#364;</td>
+<td bgcolor="ffffff">&#365;</td>
+<td bgcolor="ffffff">&#366;</td>
+<td bgcolor="ffffff">&#367;</td>
+</tr>
+<tr><td bgcolor="ffffff">&#368;</td>
+<td bgcolor="ffffff">&#369;</td>
+<td bgcolor="ffffff">&#370;</td>
+<td bgcolor="ffffff">&#371;</td>
+<td bgcolor="ffffff">&#372;</td>
+<td bgcolor="ffffff">&#373;</td>
+<td bgcolor="ffffff">&#374;</td>
+<td bgcolor="ffffff">&#375;</td>
+<td bgcolor="ffffff">&#376;</td>
+<td bgcolor="ffffff">&#377;</td>
+<td bgcolor="ffffff">&#378;</td>
+<td bgcolor="ffffff">&#379;</td>
+<td bgcolor="ffffff">&#380;</td>
+<td bgcolor="ffffff">&#381;</td>
+<td bgcolor="ffffff">&#382;</td>
+<td bgcolor="ffffff">&#383;</td>
+</tr>
+</table>
+<div>
+  <img src="{{ asset_url_for('dispatches_from_the_foreign_service_units/solution-image02.png') }}"/>
+</div>
+</div>
+
+
+<div class="character-table-and-image">
+<table border=1>
+<tr><td bgcolor="ffffff">&#12432;</td>
+<td bgcolor="ffffff">&#12433;</td>
+<td bgcolor="ffffff">&#12434;</td>
+<td bgcolor="ffffff">&#12435;</td>
+<td bgcolor="ffffff">&#12436;</td>
+<td bgcolor="ffffff">&#12437;</td>
+<td bgcolor="ffffff">&#12438;</td>
+<td bgcolor="ffffff">&#12439;</td>
+<td bgcolor="ffffff">&#12440;</td>
+<td bgcolor="ffffff">&#12441;</td>
+<td bgcolor="ffffff">&#12442;</td>
+<td bgcolor="ffffff">&#12443;</td>
+<td bgcolor="ffffff">&#12444;</td>
+<td bgcolor="ffffff">&#12445;</td>
+<td bgcolor="ffffff">&#12446;</td>
+<td bgcolor="ffffff">&#12447;</td>
+</tr>
+<tr><td bgcolor="ffffff">&#12448;</td>
+<td bgcolor="ffffff">&#12449;</td>
+<td bgcolor="ffffff">&#12450;</td>
+<td bgcolor="ffffff">&#12451;</td>
+<td bgcolor="ffffff">&#12452;</td>
+<td bgcolor="ffffff">&#12453;</td>
+<td bgcolor="ffffff">&#12454;</td>
+<td bgcolor="ffffff">&#12455;</td>
+<td bgcolor="ffffff">&#12456;</td>
+<td bgcolor="ffffff">&#12457;</td>
+<td bgcolor="ffffff">&#12458;</td>
+<td bgcolor="ffffff">&#12459;</td>
+<td bgcolor="ffffff">&#12460;</td>
+<td bgcolor="ffffff">&#12461;</td>
+<td bgcolor="ffffff">&#12462;</td>
+<td bgcolor="ffffff">&#12463;</td>
+</tr>
+<tr><td bgcolor="ffffff">&#12464;</td>
+<td bgcolor="#ff00ff">&#12465;</td>
+<td bgcolor="ffffff">&#12466;</td>
+<td bgcolor="ffffff">&#12467;</td>
+<td bgcolor="ffffff">&#12468;</td>
+<td bgcolor="ffffff">&#12469;</td>
+<td bgcolor="ffffff">&#12470;</td>
+<td bgcolor="ffffff">&#12471;</td>
+<td bgcolor="ffffff">&#12472;</td>
+<td bgcolor="ffffff">&#12473;</td>
+<td bgcolor="ffffff">&#12474;</td>
+<td bgcolor="ffffff">&#12475;</td>
+<td bgcolor="ffffff">&#12476;</td>
+<td bgcolor="ffffff">&#12477;</td>
+<td bgcolor="ffffff">&#12478;</td>
+<td bgcolor="ffffff">&#12479;</td>
+</tr>
+<tr><td bgcolor="ffffff">&#12480;</td>
+<td bgcolor="#ff00ff">&#12481;</td>
+<td bgcolor="ffffff">&#12482;</td>
+<td bgcolor="#ff00ff">&#12483;</td>
+<td bgcolor="ffffff">&#12484;</td>
+<td bgcolor="ffffff">&#12485;</td>
+<td bgcolor="ffffff">&#12486;</td>
+<td bgcolor="ffffff">&#12487;</td>
+<td bgcolor="#ff00ff">&#12488;</td>
+<td bgcolor="ffffff">&#12489;</td>
+<td bgcolor="ffffff">&#12490;</td>
+<td bgcolor="ffffff">&#12491;</td>
+<td bgcolor="ffffff">&#12492;</td>
+<td bgcolor="ffffff">&#12493;</td>
+<td bgcolor="ffffff">&#12494;</td>
+<td bgcolor="ffffff">&#12495;</td>
+</tr>
+<tr><td bgcolor="ffffff">&#12496;</td>
+<td bgcolor="ffffff">&#12497;</td>
+<td bgcolor="ffffff">&#12498;</td>
+<td bgcolor="ffffff">&#12499;</td>
+<td bgcolor="ffffff">&#12500;</td>
+<td bgcolor="ffffff">&#12501;</td>
+<td bgcolor="ffffff">&#12502;</td>
+<td bgcolor="ffffff">&#12503;</td>
+<td bgcolor="ffffff">&#12504;</td>
+<td bgcolor="ffffff">&#12505;</td>
+<td bgcolor="ffffff">&#12506;</td>
+<td bgcolor="ffffff">&#12507;</td>
+<td bgcolor="ffffff">&#12508;</td>
+<td bgcolor="ffffff">&#12509;</td>
+<td bgcolor="ffffff">&#12510;</td>
+<td bgcolor="ffffff">&#12511;</td>
+</tr>
+</table>
+<div>
+  <img src="{{ asset_url_for('dispatches_from_the_foreign_service_units/solution-image03.png') }}"/>
+</div>
+</div>
+
+<div class="character-table-and-image">
+<table border=1>
+<tr><td bgcolor="ffffff">&#65952;</td>
+<td bgcolor="ffffff">&#65953;</td>
+<td bgcolor="ffffff">&#65954;</td>
+<td bgcolor="ffffff">&#65955;</td>
+<td bgcolor="ffffff">&#65956;</td>
+<td bgcolor="ffffff">&#65957;</td>
+<td bgcolor="ffffff">&#65958;</td>
+<td bgcolor="ffffff">&#65959;</td>
+<td bgcolor="ffffff">&#65960;</td>
+<td bgcolor="ffffff">&#65961;</td>
+<td bgcolor="ffffff">&#65962;</td>
+<td bgcolor="ffffff">&#65963;</td>
+<td bgcolor="ffffff">&#65964;</td>
+<td bgcolor="ffffff">&#65965;</td>
+<td bgcolor="ffffff">&#65966;</td>
+<td bgcolor="ffffff">&#65967;</td>
+</tr>
+<tr><td bgcolor="ffffff">&#65968;</td>
+<td bgcolor="ffffff">&#65969;</td>
+<td bgcolor="ffffff">&#65970;</td>
+<td bgcolor="ffffff">&#65971;</td>
+<td bgcolor="ffffff">&#65972;</td>
+<td bgcolor="ffffff">&#65973;</td>
+<td bgcolor="ffffff">&#65974;</td>
+<td bgcolor="ffffff">&#65975;</td>
+<td bgcolor="ffffff">&#65976;</td>
+<td bgcolor="ffffff">&#65977;</td>
+<td bgcolor="ffffff">&#65978;</td>
+<td bgcolor="ffffff">&#65979;</td>
+<td bgcolor="ffffff">&#65980;</td>
+<td bgcolor="ffffff">&#65981;</td>
+<td bgcolor="ffffff">&#65982;</td>
+<td bgcolor="ffffff">&#65983;</td>
+</tr>
+<tr><td bgcolor="ffffff">&#65984;</td>
+<td bgcolor="ffffff">&#65985;</td>
+<td bgcolor="ffffff">&#65986;</td>
+<td bgcolor="ffffff">&#65987;</td>
+<td bgcolor="ffffff">&#65988;</td>
+<td bgcolor="ffffff">&#65989;</td>
+<td bgcolor="ffffff">&#65990;</td>
+<td bgcolor="ffffff">&#65991;</td>
+<td bgcolor="ffffff">&#65992;</td>
+<td bgcolor="ffffff">&#65993;</td>
+<td bgcolor="ffffff">&#65994;</td>
+<td bgcolor="ffffff">&#65995;</td>
+<td bgcolor="ffffff">&#65996;</td>
+<td bgcolor="ffffff">&#65997;</td>
+<td bgcolor="ffffff">&#65998;</td>
+<td bgcolor="ffffff">&#65999;</td>
+</tr>
+<tr><td bgcolor="ffffff">&#66000;</td>
+<td bgcolor="ffffff">&#66001;</td>
+<td bgcolor="ffffff">&#66002;</td>
+<td bgcolor="ffffff">&#66003;</td>
+<td bgcolor="ffffff">&#66004;</td>
+<td bgcolor="ffffff">&#66005;</td>
+<td bgcolor="ffffff">&#66006;</td>
+<td bgcolor="#ff00ff">&#66007;</td>
+<td bgcolor="ffffff">&#66008;</td>
+<td bgcolor="ffffff">&#66009;</td>
+<td bgcolor="ffffff">&#66010;</td>
+<td bgcolor="ffffff">&#66011;</td>
+<td bgcolor="#ff00ff">&#66012;</td>
+<td bgcolor="ffffff">&#66013;</td>
+<td bgcolor="ffffff">&#66014;</td>
+<td bgcolor="ffffff">&#66015;</td>
+</tr>
+<tr><td bgcolor="ffffff">&#66016;</td>
+<td bgcolor="ffffff">&#66017;</td>
+<td bgcolor="ffffff">&#66018;</td>
+<td bgcolor="ffffff">&#66019;</td>
+<td bgcolor="ffffff">&#66020;</td>
+<td bgcolor="ffffff">&#66021;</td>
+<td bgcolor="ffffff">&#66022;</td>
+<td bgcolor="ffffff">&#66023;</td>
+<td bgcolor="ffffff">&#66024;</td>
+<td bgcolor="ffffff">&#66025;</td>
+<td bgcolor="ffffff">&#66026;</td>
+<td bgcolor="ffffff">&#66027;</td>
+<td bgcolor="ffffff">&#66028;</td>
+<td bgcolor="ffffff">&#66029;</td>
+<td bgcolor="ffffff">&#66030;</td>
+<td bgcolor="ffffff">&#66031;</td>
+</tr>
+</table>
+<div>
+  <img src="{{ asset_url_for('dispatches_from_the_foreign_service_units/solution-image08.png') }}"/>
+</div>
+</div>
+
+<div class="character-table-and-image">
+<table border=1>
+<tr><td bgcolor="ffffff">X</td>
+<td bgcolor="ffffff">X</td>
+<td bgcolor="ffffff">X</td>
+<td bgcolor="ffffff">X</td>
+<td bgcolor="ffffff">X</td>
+<td bgcolor="ffffff">X</td>
+<td bgcolor="ffffff">X</td>
+<td bgcolor="ffffff">X</td>
+<td bgcolor="ffffff">X</td>
+<td bgcolor="ffffff">X</td>
+<td bgcolor="ffffff">X</td>
+<td bgcolor="ffffff">X</td>
+<td bgcolor="ffffff">X</td>
+<td bgcolor="ffffff">X</td>
+<td bgcolor="ffffff">X</td>
+<td bgcolor="ffffff">X</td>
+</tr>
+<tr><td bgcolor="ffffff">X</td>
+<td bgcolor="#ff00ff">X</td>
+<td bgcolor="ffffff">X</td>
+<td bgcolor="#ff00ff">X</td>
+<td bgcolor="ffffff">X</td>
+<td bgcolor="#ff00ff">X</td>
+<td bgcolor="ffffff">X</td>
+<td bgcolor="#ff00ff">X</td>
+<td bgcolor="ffffff">X</td>
+<td bgcolor="ffffff">X</td>
+<td bgcolor="ffffff">X</td>
+<td bgcolor="#ff00ff">X</td>
+<td bgcolor="#ff00ff">X</td>
+<td bgcolor="#ff00ff">X</td>
+<td bgcolor="ffffff">X</td>
+<td bgcolor="ffffff">X</td>
+</tr>
+<tr><td bgcolor="ffffff">X</td>
+<td bgcolor="#ff00ff">X</td>
+<td bgcolor="#ff00ff">X</td>
+<td bgcolor="ffffff">X</td>
+<td bgcolor="ffffff">X</td>
+<td bgcolor="#ff00ff">X</td>
+<td bgcolor="ffffff">X</td>
+<td bgcolor="#ff00ff">X</td>
+<td bgcolor="ffffff">X</td>
+<td bgcolor="ffffff">X</td>
+<td bgcolor="ffffff">X</td>
+<td bgcolor="#ff00ff">X</td>
+<td bgcolor="ffffff">X</td>
+<td bgcolor="#ff00ff">X</td>
+<td bgcolor="ffffff">X</td>
+<td bgcolor="ffffff">X</td>
+</tr>
+<tr><td bgcolor="ffffff">X</td>
+<td bgcolor="#ff00ff">X</td>
+<td bgcolor="ffffff">X</td>
+<td bgcolor="#ff00ff">X</td>
+<td bgcolor="ffffff">X</td>
+<td bgcolor="#ff00ff">X</td>
+<td bgcolor="ffffff">X</td>
+<td bgcolor="#ff00ff">X</td>
+<td bgcolor="#ff00ff">X</td>
+<td bgcolor="#ff00ff">X</td>
+<td bgcolor="ffffff">X</td>
+<td bgcolor="#ff00ff">X</td>
+<td bgcolor="#ff00ff">X</td>
+<td bgcolor="#ff00ff">X</td>
+<td bgcolor="ffffff">X</td>
+<td bgcolor="ffffff">X</td>
+</tr>
+<tr><td bgcolor="ffffff">X</td>
+<td bgcolor="ffffff">X</td>
+<td bgcolor="ffffff">X</td>
+<td bgcolor="ffffff">X</td>
+<td bgcolor="ffffff">X</td>
+<td bgcolor="ffffff">X</td>
+<td bgcolor="ffffff">X</td>
+<td bgcolor="ffffff">X</td>
+<td bgcolor="ffffff">X</td>
+<td bgcolor="ffffff">X</td>
+<td bgcolor="ffffff">X</td>
+<td bgcolor="ffffff">X</td>
+<td bgcolor="ffffff">X</td>
+<td bgcolor="ffffff">X</td>
+<td bgcolor="ffffff">X</td>
+<td bgcolor="ffffff">X</td>
+</tr>
+</table>
+</div>
+{% endblock %}
