@@ -154,6 +154,10 @@ body {
   font-size: 16px;
 }
 
+.event-name {
+  font-weight: bold;
+}
+
 .event-name, .event-time {
   font-size: 20px;
 }
