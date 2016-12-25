@@ -10,33 +10,35 @@
   justify-content space-between;
 }
 .merchant {
-  width: 450px;
+  width: 225px;
 }
 .merchant-image-container {
   position: relative;
 }
 .merchant-image {
-  width: 450px;
+  width: 225px;
 }
 .merchant-number {
   position: absolute;
-  width: 51px;
-  height: 51px;
-  line-height: 51px;
+  width: 26px;
+  height: 26px;
+  line-height: 26px;
   text-align: center;
   vertical-align: center;
-  top: 177px;
-  font-size: 28px;
+  top: 88px;
+  font-size: 24px;
 }
 .merchant-label {
   position: absolute;
-  top: 551px;
-  right: 80px;
+  top: 275px;
+  left: 40px;
+  width: 129px;
   padding: 5px;
   border: 3px #665F4F solid;
   border-radius: 5px;
-  font-size: 24px;
+  font-size: 20px;
   background-color: #D1B780;
+  text-align: center;
 }
 </style>
 {% endblock %}
@@ -59,7 +61,7 @@
     <div class="merchant">
       <div class="merchant-image-container">
         {% for numeric_index in range(2,7) %}
-          <div class="merchant-number" style="left: {{ -56 + numeric_index * 63 }}px;">{{merchant_data[numeric_index]}}</div>
+          <div class="merchant-number" style="left: {{ -30 + numeric_index * 32 }}px;">{{merchant_data[numeric_index]}}</div>
         {% endfor %}
         <div class="merchant-label scroll-color-background">
           {{ merchant_data[1] }}
