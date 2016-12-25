@@ -3,6 +3,14 @@
 {% block puzzle_name_block %}Open and Shut Case{% endblock %}
 
 {% block puzzle_head_block %}
+<style>
+#puzzle-content table {
+  width: 100%;
+}
+#puzzle-content table td {
+  width: 50%;
+}
+</style>
 {% endblock %}
 
 {% block puzzle_flavortext_block %}
@@ -14,39 +22,39 @@ The warlord's advisers have uncovered evidence of treason! The 26 exhibits are o
   <table>
     <tr>
       <td>
-        <a href="{{ asset_url_for('open_and_shut_case/exhibit/A.txt') }}">Exhibit A</a><br>
-        <a href="{{ asset_url_for('open_and_shut_case/exhibit/B.txt') }}">Exhibit B</a><br>
-        <a href="{{ asset_url_for('open_and_shut_case/exhibit/C.txt') }}">Exhibit C</a><br>
-        <a href="{{ asset_url_for('open_and_shut_case/exhibit/D.txt') }}">Exhibit D</a><br>
-        <a href="{{ asset_url_for('open_and_shut_case/exhibit/E.txt') }}">Exhibit E</a><br>
-        <a href="{{ asset_url_for('open_and_shut_case/exhibit/F.txt') }}">Exhibit F</a> <i>(comes somewhere before Exhibit Y)</i><br>
-        <a href="{{ asset_url_for('open_and_shut_case/exhibit/G.txt') }}">Exhibit G</a> <i>(comes somewhere before Exhibit V)</i><br>
-        <a href="{{ asset_url_for('open_and_shut_case/exhibit/H.txt') }}">Exhibit H</a> <i>(comes somewhere before Exhibit I)</i><br>
-        <a href="{{ asset_url_for('open_and_shut_case/exhibit/I.txt') }}">Exhibit I</a> <i>(comes somewhere before Exhibit R)</i><br>
-        <a href="{{ asset_url_for('open_and_shut_case/exhibit/J.txt') }}">Exhibit J</a><br>
-        <a href="{{ asset_url_for('open_and_shut_case/exhibit/K.txt') }}">Exhibit K</a><br>
-        <a href="{{ asset_url_for('open_and_shut_case/exhibit/L.txt') }}">Exhibit L</a><br>
-        <a href="{{ asset_url_for('open_and_shut_case/exhibit/M.txt') }}">Exhibit M</a>
+        <a class="standard-link" href="{{ asset_url_for('open_and_shut_case/exhibit/A.txt') }}">Exhibit A</a><br>
+        <a class="standard-link" href="{{ asset_url_for('open_and_shut_case/exhibit/B.txt') }}">Exhibit B</a><br>
+        <a class="standard-link" href="{{ asset_url_for('open_and_shut_case/exhibit/C.txt') }}">Exhibit C</a><br>
+        <a class="standard-link" href="{{ asset_url_for('open_and_shut_case/exhibit/D.txt') }}">Exhibit D</a><br>
+        <a class="standard-link" href="{{ asset_url_for('open_and_shut_case/exhibit/E.txt') }}">Exhibit E</a><br>
+        <a class="standard-link" href="{{ asset_url_for('open_and_shut_case/exhibit/F.txt') }}">Exhibit F</a> <i>(comes somewhere before Exhibit Y)</i><br>
+        <a class="standard-link" href="{{ asset_url_for('open_and_shut_case/exhibit/G.txt') }}">Exhibit G</a> <i>(comes somewhere before Exhibit V)</i><br>
+        <a class="standard-link" href="{{ asset_url_for('open_and_shut_case/exhibit/H.txt') }}">Exhibit H</a> <i>(comes somewhere before Exhibit I)</i><br>
+        <a class="standard-link" href="{{ asset_url_for('open_and_shut_case/exhibit/I.txt') }}">Exhibit I</a> <i>(comes somewhere before Exhibit R)</i><br>
+        <a class="standard-link" href="{{ asset_url_for('open_and_shut_case/exhibit/J.txt') }}">Exhibit J</a><br>
+        <a class="standard-link" href="{{ asset_url_for('open_and_shut_case/exhibit/K.txt') }}">Exhibit K</a><br>
+        <a class="standard-link" href="{{ asset_url_for('open_and_shut_case/exhibit/L.txt') }}">Exhibit L</a><br>
+        <a class="standard-link" href="{{ asset_url_for('open_and_shut_case/exhibit/M.txt') }}">Exhibit M</a>
       </td>
       <td>
-        <a href="{{ asset_url_for('open_and_shut_case/exhibit/N.txt') }}">Exhibit N</a><br>
-        <a href="{{ asset_url_for('open_and_shut_case/exhibit/O.txt') }}">Exhibit O</a><br>
-        <a href="{{ asset_url_for('open_and_shut_case/exhibit/P.txt') }}">Exhibit P</a><br>
-        <a href="{{ asset_url_for('open_and_shut_case/exhibit/Q.txt') }}">Exhibit Q</a><br>
-        <a href="{{ asset_url_for('open_and_shut_case/exhibit/R.txt') }}">Exhibit R</a><br>
-        <a href="{{ asset_url_for('open_and_shut_case/exhibit/S.txt') }}">Exhibit S</a><br>
-        <a href="{{ asset_url_for('open_and_shut_case/exhibit/T.txt') }}">Exhibit T</a><br>
-        <a href="{{ asset_url_for('open_and_shut_case/exhibit/U.txt') }}">Exhibit U</a><br>
-        <a href="{{ asset_url_for('open_and_shut_case/exhibit/V.txt') }}">Exhibit V</a><br>
-        <a href="{{ asset_url_for('open_and_shut_case/exhibit/W.txt') }}">Exhibit W</a> <i>(comes somewhere before Exhibit F)</i><br>
-        <a href="{{ asset_url_for('open_and_shut_case/exhibit/X.txt') }}">Exhibit X</a><br>
-        <a href="{{ asset_url_for('open_and_shut_case/exhibit/Y.txt') }}">Exhibit Y</a><br>
-        <a href="{{ asset_url_for('open_and_shut_case/exhibit/Z.txt') }}">Exhibit Z</a>
+        <a class="standard-link" href="{{ asset_url_for('open_and_shut_case/exhibit/N.txt') }}">Exhibit N</a><br>
+        <a class="standard-link" href="{{ asset_url_for('open_and_shut_case/exhibit/O.txt') }}">Exhibit O</a><br>
+        <a class="standard-link" href="{{ asset_url_for('open_and_shut_case/exhibit/P.txt') }}">Exhibit P</a><br>
+        <a class="standard-link" href="{{ asset_url_for('open_and_shut_case/exhibit/Q.txt') }}">Exhibit Q</a><br>
+        <a class="standard-link" href="{{ asset_url_for('open_and_shut_case/exhibit/R.txt') }}">Exhibit R</a><br>
+        <a class="standard-link" href="{{ asset_url_for('open_and_shut_case/exhibit/S.txt') }}">Exhibit S</a><br>
+        <a class="standard-link" href="{{ asset_url_for('open_and_shut_case/exhibit/T.txt') }}">Exhibit T</a><br>
+        <a class="standard-link" href="{{ asset_url_for('open_and_shut_case/exhibit/U.txt') }}">Exhibit U</a><br>
+        <a class="standard-link" href="{{ asset_url_for('open_and_shut_case/exhibit/V.txt') }}">Exhibit V</a><br>
+        <a class="standard-link" href="{{ asset_url_for('open_and_shut_case/exhibit/W.txt') }}">Exhibit W</a> <i>(comes somewhere before Exhibit F)</i><br>
+        <a class="standard-link" href="{{ asset_url_for('open_and_shut_case/exhibit/X.txt') }}">Exhibit X</a><br>
+        <a class="standard-link" href="{{ asset_url_for('open_and_shut_case/exhibit/Y.txt') }}">Exhibit Y</a><br>
+        <a class="standard-link" href="{{ asset_url_for('open_and_shut_case/exhibit/Z.txt') }}">Exhibit Z</a>
       </td>
     </tr>
   </table>
   <p>
-    (Here are <a href="{{ asset_url_for('open_and_shut_case/exhibit.zip') }}">all the exhibits in a zip archive</a>.)
+    (Here are <a class="standard-link" href="{{ asset_url_for('open_and_shut_case/exhibit.zip') }}">all the exhibits in a zip archive</a>.)
   </p>
 </div>
 {% endblock %}
