@@ -7,6 +7,9 @@
     table.a td {
       width: 450px;
     }
+    #puzzle-image {
+      margin-top: 80px;
+    }
   </style>
 {% endblock %}
 
@@ -57,6 +60,8 @@
       <tr><td>One-third of a major or minor chord</td><td>Sorenstam's sport</td></tr>
     </table>
     <hr>
-    <img src="{{ asset_url_for('hand_them_over/image01.gif') }}">
+    <div id="puzzle-image">
+      <img src="{{ asset_url_for('hand_them_over/image01.gif') }}">
+    </div>
   </div>
 {% endblock %}
