@@ -60,20 +60,20 @@
               <input type="submit" value="Submit">
             </form>
           </div>
-          {% if interactions %}
-          <div class="submission-section-previous-subsection">
-            <div class="submission-section-previous-header">Previous Requests</div>
-            <div class="submission-section-previous-listing">
-              <ul>
-                {% for interaction in interactions %}
-                <li>{{ interaction.request }} at {{ interaction.timestamp | datetime }} - {{ interaction.status }}
-                  {% if interaction.response %}<br>{{ interaction.response }}{% endif %}
-                {% endfor %}
-              </ul>
-            </div>
-          </div>
-          {% endif %}
         </div>
+        {% if interactions %}
+        <div class="submission-section-previous-subsection">
+          <div class="submission-section-previous-header">Previous Requests</div>
+          <div class="submission-section-previous-listing">
+            <ul>
+              {% for interaction in interactions %}
+              <li>{{ interaction.request }} at {{ interaction.timestamp | datetime }} - {{ interaction.status }}
+                {% if interaction.response %}<br>{{ interaction.response }}{% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        {% endif %}
       </div>
 
       <div class="submission-section submission-section-closed">
@@ -91,20 +91,20 @@
             </form>
           </div>
           {% endif %}
-          {% if hints %}
-          <div class="submission-section-previous-subsection">
-            <div class="submission-section-previous-header">Previous Hints</div>
-            <div class="submission-section-previous-listing">
-              <ul>
-                {% for hint in hints %}
-                <li>{{ hint.request }} at {{ hint.timestamp | datetime }} - {{ hint.status }}
-                  {% if hint.response %}<br>{{ hint.response }}{% endif %}
-                {% endfor %}
-              </ul>
-            </div>
-          </div>
-          {% endif %}
         </div>
+        {% if hints %}
+        <div class="submission-section-previous-subsection">
+          <div class="submission-section-previous-header">Previous Hints</div>
+          <div class="submission-section-previous-listing">
+            <ul>
+              {% for hint in hints %}
+              <li>{{ hint.request }} at {{ hint.timestamp | datetime }} - {{ hint.status }}
+                {% if hint.response %}<br>{{ hint.response }}{% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        {% endif %}
       </div>
       
     </div>
