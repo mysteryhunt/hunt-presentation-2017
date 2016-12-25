@@ -1,0 +1,328 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'dungeon' %}
+{% block title_block %}Elf/Dwarf Brawl: Solution{% endblock %}
+{% block puzzle_name_block %}Elf/Dwarf Brawl: Solution{% endblock %}
+{% block byline %}By Jeff Roberts and Tom Buehler{% endblock %}
+{% block solution %}SEAN LENNON{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  td,
+  th {
+    font-size: 14px;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<div>
+  <p>
+    This puzzle is a reference to the popular "East/West Bowl" sketch from the show "Key and Peele." In the puzzle version, each contestant's name (except for a couple special ones at the end) contains the name of a mascot and/or nickname of a particular
+    college sports team. Those colleges (or other institutions) are the ones referenced in the original K&amp;P version. That reference links each character in the puzzle version to a specific character in the K&amp;P video. The "LEVEL" of each puzzle
+    character gives an index into that K&amp;P character.
+  </p>
+  <p>
+    The tracking of puzzle characters to characters in the original video, and extracted letters, are in the table below. The final result, SEND TWO CLIPS USE MIT AND OLIN COLLEGE, tells you to make similar video clips with characters incorporating the mascots
+    and/or nicknames of those institutions (Tim the Beaver/Engineer, Frank/Phoenix). When those are submitted, the team will receive the final answer for the puzzle, <b>SEAN LENNON</b>.
+  </p>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>LEVEL</th>
+      <th>Hidden Mascot</th>
+      <th>Hidden Nickname</th>
+      <th>College</th>
+      <th>Player Name from K&amp;P Video</th>
+      <th>Letter</th>
+    </tr>
+    <tr>
+      <td>GREVEILLE ERAGGIEL</td>
+      <td>1</td>
+      <td>REVEILLE</td>
+      <td>AGGIE</td>
+      <td>Texas A&amp;M</td>
+      <td>Saggitariutt Jefferspin</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <td>BAZTEC G'WARRIORIC</td>
+      <td>2</td>
+      <td>AZTEC</td>
+      <td>AZTEC WARRIOR</td>
+      <td>San Diego State University</td>
+      <td>Eeeee Eeeeeeeee</td>
+      <td>E</td>
+    </tr>
+    <tr>
+      <td>COSMORN COUGARI</td>
+      <td>3</td>
+      <td>COSMO</td>
+      <td>COUGAR</td>
+      <td>BYU</td>
+      <td>Dan Smith</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>PERCHAUNCEY ENCHANTICLEER</td>
+      <td>1</td>
+      <td>CHAUNCEY</td>
+      <td>CHANTICLEER</td>
+      <td>Coastal Carolina University</td>
+      <td>D'Isiah T. Billings-Clyde</td>
+      <td>D</td>
+    </tr>
+    <tr>
+      <td>FALSPARTYL SPARTANNIC</td>
+      <td>11</td>
+      <td>SPARTY</td>
+      <td>SPARTAN</td>
+      <td>Michigan State University</td>
+      <td>Jackmerius Tacktheritrix</td>
+      <td>T</td>
+    </tr>
+    <tr>
+      <td>ALTRUMAN TIGERION</td>
+      <td>21</td>
+      <td>TRUMAN</td>
+      <td>TIGER</td>
+      <td>University of Missouri, Columbia</td>
+      <td>The Player Formerly Known as Mousecop</td>
+      <td>W</td>
+    </tr>
+    <tr>
+      <td>SAMMIEL SPARTANNIC</td>
+      <td>6</td>
+      <td>SAMMY</td>
+      <td>SPARTAN</td>
+      <td>San Jose State University</td>
+      <td>Quatro Quatro</td>
+      <td>O</td>
+    </tr>
+    <tr>
+      <td>NITTANYEL FLIONIDIR</td>
+      <td>8</td>
+      <td>NITTANY LION</td>
+      <td>NITTANY LION</td>
+      <td>Penn State University</td>
+      <td>Hingle McCringleberry</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <td>ELBRIT ELBRITON</td>
+      <td>12</td>
+      <td>BRIT</td>
+      <td>BRITON</td>
+      <td>Albion College</td>
+      <td>T.J. A.J. R.J. Backslashinfourth V</td>
+      <td>L</td>
+    </tr>
+    <tr>
+      <td>G'WARRI-OR G'WARRIORIC</td>
+      <td>5</td>
+      <td>WARRIOR</td>
+      <td>WARRIOR</td>
+      <td>Merrimack College</td>
+      <td>T'variusness King</td>
+      <td>I</td>
+    </tr>
+    <tr>
+      <td>FOWLSLEY FOWLINGEL</td>
+      <td>5</td>
+      <td>OWLSLEY</td>
+      <td>OWL</td>
+      <td>Florida Atlantic University</td>
+      <td>L'Carpetron Dookmarriot</td>
+      <td>P</td>
+    </tr>
+    <tr>
+      <td>D'OBEL-YUE G'WARRIORIC</td>
+      <td>7</td>
+      <td>W</td>
+      <td>WARRIOR</td>
+      <td>Wayne State University</td>
+      <td>T.J. Juckson</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <td>OLEP-RECHAUNIL ELFIGH-TIN-GIRISHIEL</td>
+      <td>4</td>
+      <td>LEPRECHAUN</td>
+      <td>FIGHTING IRISH</td>
+      <td>University of Notre Dame</td>
+      <td>D'Squarius Green, Jr.</td>
+      <td>U</td>
+    </tr>
+    <tr>
+      <td>SEY-MOUR D'CAMPUS GOL-DENEAGLE</td>
+      <td>7</td>
+      <td>SEYMOUR D'CAMPUS</td>
+      <td>GOLDEN EAGLE</td>
+      <td>University of Southern Mississippi</td>
+      <td>Davoin Shower-Handel</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <td>BAL'OUIEL VELLUMBER-JACKELITH</td>
+      <td>20</td>
+      <td>LOUIE</td>
+      <td>LUMBERJACK</td>
+      <td>University of Northern Arizona (actually NAU)</td>
+      <td>Shakiraquan T.G.I.F. Carter</td>
+      <td>E</td>
+    </tr>
+    <tr>
+      <td>KOJ-ACKRABBITHIA</td>
+      <td>19</td>
+      <td>[No mascot]</td>
+      <td>JACKRABBIT</td>
+      <td>South Dakota State University</td>
+      <td>Scoish Velociraptor Maloish</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <td>SCRAPPIAR HUMOCK</td>
+      <td>6</td>
+      <td>SCRAPPY</td>
+      <td>MOC</td>
+      <td>University of Tennessee at Chattanooga</td>
+      <td>Ibrahim Moizoos</td>
+      <td>I</td>
+    </tr>
+    <tr>
+      <td>BAMBUSTER BRONCOR</td>
+      <td>7</td>
+      <td>BUSTER</td>
+      <td>BRONCO</td>
+      <td>Boise State University</td>
+      <td>Donkey Teeth</td>
+      <td>T</td>
+    </tr>
+    <tr>
+      <td>GALBLAZE VULCANSHIELD</td>
+      <td>6</td>
+      <td>BLAZE</td>
+      <td>VULCAN</td>
+      <td>California University of Pennsylvania</td>
+      <td>Xmus Jaxon Flaxon-Waxon</td>
+      <td>A</td>
+    </tr>
+    <tr>
+      <td>LATREEN ASCAR-DINALI</td>
+      <td>16</td>
+      <td>TREE</td>
+      <td>CARDINAL</td>
+      <td>Stanford University</td>
+      <td>Ozamataz Buckshank</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>THROCKY BULLFUR</td>
+      <td>2</td>
+      <td>ROCKY</td>
+      <td>BULL</td>
+      <td>University of South Florida</td>
+      <td>J'Dinkalage Morgoone</td>
+      <td>D</td>
+    </tr>
+    <tr>
+      <td>TORPEEDEE SPIRATE</td>
+      <td>3</td>
+      <td>PEEDEE</td>
+      <td>PIRATE</td>
+      <td>East Carolina University</td>
+      <td>Leoz Maxwell Jilliumz</td>
+      <td>O</td>
+    </tr>
+    <tr>
+      <td>GRIZZLIOR BEARSTONE</td>
+      <td>16</td>
+      <td>GRIZZLY BEAR</td>
+      <td>GRIZZLIES</td>
+      <td>Adams State</td>
+      <td>Sequester Grundelplith M.D.</td>
+      <td>L</td>
+    </tr>
+    <tr>
+      <td>UGA ABULLDOGNOR</td>
+      <td>9</td>
+      <td>UGA</td>
+      <td>BULLDOG</td>
+      <td>University of Georgia</td>
+      <td>D'Marcus Williums</td>
+      <td>I</td>
+    </tr>
+    <tr>
+      <td>BUCKYON BAD-GERM</td>
+      <td>14</td>
+      <td>BUCKY</td>
+      <td>BADGER</td>
+      <td>University of Wisconsin</td>
+      <td>D'Glester Hardunkichud</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>ABULLDOG ABULLDOGNOR</td>
+      <td>14</td>
+      <td>BULLDOG</td>
+      <td>BULLDOG</td>
+      <td>South Carolina State University</td>
+      <td>D'Jasper Probincrux III</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <td>THOWLER BATHUSKY</td>
+      <td>13</td>
+      <td>HOWLER</td>
+      <td>HUSKY</td>
+      <td>Saskatchewan University</td>
+      <td>Swirvithan L'Goodling-Splatt</td>
+      <td>O</td>
+    </tr>
+    <tr>
+      <td>ALPHAMAX GRIFFONK</td>
+      <td>7</td>
+      <td>MAX</td>
+      <td>GRIFFON</td>
+      <td>Missouri Western State University</td>
+      <td>X-Wing @Aliciousness</td>
+      <td>L</td>
+    </tr>
+    <tr>
+      <td>BALLIGHTNINGRAM KABLU-ERAIDERMON</td>
+      <td>22</td>
+      <td>LIGHTNING</td>
+      <td>BLUE RAIDER</td>
+      <td>University of Middle Tennessee (actually MTSU)</td>
+      <td>Javaris Jamar Javarison-Lamar</td>
+      <td>L</td>
+    </tr>
+    <tr>
+      <td>NORSE-BASTIAN THURRICANEX</td>
+      <td>14</td>
+      <td>SEBASTIAN</td>
+      <td>HURRICANE</td>
+      <td>University of Miami</td>
+      <td>Tyroil Smoochie-Wallace</td>
+      <td>E</td>
+    </tr>
+    <tr>
+      <td>[The unnamed Dwarf from the vanished realm of Jo-Nes]</td>
+      <td>19</td>
+      <td>[None]</td>
+      <td>[None]</td>
+      <td>Jones College</td>
+      <td>Beezer Twelve Washingbeard</td>
+      <td>G</td>
+    </tr>
+    <tr>
+      <td>CLINK</td>
+      <td>25</td>
+      <td>[None]</td>
+      <td>[None]</td>
+      <td>Nevada State Penitentiary</td>
+      <td>Torque [Construction Noise] Lewith</td>
+      <td>E</td>
+    </tr>
+  </table>
+</div>
+{% endblock %}
