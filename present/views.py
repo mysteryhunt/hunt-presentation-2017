@@ -213,6 +213,15 @@ def inventory():
     core_display_data = make_core_display_data(core_visibilities_async, core_team_properties_async)
     return render_template("inventory.html", core_display_data=core_display_data)
 
+@app.route("/manual")
+@login_required.solvingteam
+def manual():
+    core_visibilities_async = cube.get_puzzle_visibilities_for_list_async(app, CHARACTER_IDS + ['merchants'])
+    core_team_properties_async = cube.get_team_properties_async(app)
+
+    core_display_data = make_core_display_data(core_visibilities_async, core_team_properties_async)
+    return render_template("manual.html", core_display_data=core_display_data)
+
 @app.route("/full/puzzle")
 @login_required.writingteam
 def full_puzzle_index():

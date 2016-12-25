@@ -1,0 +1,21 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}Monsters et Manus{% endblock %}
+{% block puzzle_name_block %}Monsters et Manus{% endblock %}
+{% block header_content %}{% endblock %}
+
+{% block styling_block %}
+    <style>
+    body {
+      background-image: url("{{ asset_url_for('general/wooden-background.png')|safe }}");
+    }
+    </style>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='puzzle.css') }}">
+    {% block puzzle_head_block %}{% endblock %}
+{% endblock %}
+
+
+{% block puzzle_content_block %}
+<div>
+  Some instructional content or something
+</div>
+{% endblock %}
