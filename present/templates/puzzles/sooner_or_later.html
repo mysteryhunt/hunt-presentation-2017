@@ -4,29 +4,48 @@
 
 {% block puzzle_head_block %}
 <style>
-  td {
-    padding-top: 3px;
-    padding-right: 15px;
-  }
-
   span.red-text {
     color: #D16A6A;
   }
   span.blue-text {
     color: #76A1E8;
   }
-  span.red {
-    background-color: #D16A6A;
+  table.p {
+    border-collapse: collapse;
   }
-  span.blue {
-    background-color: #76A1E8;
+  table.p td {
+    padding: 0;
+    height: 28px;
+  }
+  table.p td.c {
+    padding-right: 20px;
+    vertical-align: middle;
+  }
+  table.p td.red, table.p td.blue {
+    box-sizing: border-box;
+    min-width: 200px;
+    min-height: 24px;
+    vertical-align: top;
+  }
+  table.p td.red::before, table.p td.blue::before {
+    position: absolute;
+  }
+  table.p td.red::after, table.p td.blue::after {
+    position: absolute;
+    content: "___________________";
+    font-family: 'Times New Roman', serif;
+    padding-left: 4px;
+  }
+  table.p td.red::before {
+    content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAAAYCAYAAAC/ZrKxAAAASUlEQVR42u3TMQEAAAQAMOpqKxEF3K6tw7KrJoBTCgKCgCAgCAgCgoAgIAgIAoIAgoAgIAgIAoKAICAICAKCgCCCgCAgCAgCXxaQej95v4TgHgAAAABJRU5ErkJggg==");
+  }
+  table.p td.blue::before {
+    position: absolute;
+    content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAAAYCAYAAAC/ZrKxAAAATElEQVR42u3TMQEAMAgAoFl6fWxnCy3g7QUdiJ/VD1iFICAICAKCgCAgCAgCgoAgIAggCAgCgoAgIAgIAoKAICAICCIICAKCgCBwZQB/EEfpI6NSCAAAAABJRU5ErkJggg==");
   }
   @media print {
-    span.red {
-      box-shadow: inset 0 0 0 1000px #D16A6A;
-    }
-    span.blue {
-      box-shadow: inset 0 0 0 1000px #76A1E8;
+    table.p td.c {
+      font-size: 0.6em;
     }
   }
 }
@@ -39,106 +58,107 @@ The Linguist always splits words and phrases, <span class="blue-text">sooner</sp
 
 {% block puzzle_content_block %}
 <div>
-  <table>
+  <table class="p">
     <tr>
-      <td>Mountain pass on Interstate 90 (10)</td>
-      <td><span class="red answer-blank">______________________</span><span class="blue answer-blank">______________________</span></td>
+      <td class="c">Mountain pass on Interstate 90 (10)</td>
+      <td class="red"></td><td class="blue"></td>
     </tr>
     <tr>
-      <td>City on the Nidelva (9)</td>
-      <td><span class="red answer-blank">______________________</span><span class="blue answer-blank">______________________</span></td>
+      <td class="c">City on the Nidelva (9)</td>
+      <td class="red"></td><td class="blue"></td>
     </tr>
     <tr>
-      <td>Winter visitor (4 5)</td>
-      <td><span class="blue answer-blank">______________________</span><span class="red answer-blank">______________________</span></td>
+      <td class="c">Winter visitor (4 5)</td>
+      <td class="blue"></td><td class="red"></td>
     </tr>
     <tr>
-      <td>1996 Natalie Merchant hit (8)</td>
-      <td><span class="blue answer-blank">______________________</span><span class="red answer-blank">______________________</span></td>
+      <td class="c">1996 Natalie Merchant hit (8)</td>
+      <td class="blue"></td><td class="red"></td>
     </tr>
     <tr>
-      <td>Disease usually contracted by children (7 3)</td>
-      <td><span class="blue answer-blank">______________________</span><span class="red answer-blank">______________________</span></td>
+      <td class="c">Disease usually contracted by children (7 3)</td>
+      <td class="blue"></td><td class="red"></td>
     </tr>
     <tr>
-      <td>Not coniferous (9)</td>
-      <td><span class="blue answer-blank">______________________</span><span class="red answer-blank">______________________</span></td>
+      <td class="c">Not coniferous (9)</td>
+      <td class="blue"></td><td class="red"></td>
     </tr>
     <tr>
-      <td>Open to interpretation (9)</td>
-      <td><span class="blue answer-blank">______________________</span><span class="red answer-blank">______________________</span></td>
+      <td class="c">Open to interpretation (9)</td>
+      <td class="blue"></td><td class="red"></td>
     </tr>
     <tr>
-      <td>With "modern," a design movement (3-7)</td>
-      <td><span class="blue answer-blank">______________________</span><span class="red answer-blank">______________________</span></td>
+      <td class="c">With "modern," a design movement (3-7)</td>
+      <td class="blue"></td><td class="red"></td>
     </tr>
     <tr>
-      <td>American Chinese pre-meal selection (3 4 4)</td>
-      <td><span class="blue answer-blank">______________________</span><span class="red answer-blank">______________________</span></td>
+      <td class="c">American Chinese pre-meal selection (3 4 4)</td>
+      <td class="blue"></td><td class="red"></td>
     </tr>
     <tr>
-      <td>Answer lake in 2002 Hunt (8)</td>
-      <td><span class="red answer-blank">______________________</span><span class="blue answer-blank">______________________</span></td>
+      <td class="c">Answer lake in 2002 Hunt (8)</td>
+      <td class="red"></td><td class="blue"></td>
     </tr>
     <tr>
-      <td>Tom who played Loki (10)</td>
-      <td><span class="blue answer-blank">______________________</span><span class="red answer-blank">______________________</span></td>
+      <td class="c">Tom who played Loki (10)</td>
+      <td class="blue"></td><td class="red"></td>
     </tr>
     <tr>
-      <td>Hydrogen cyanide (7 4)</td>
-      <td><span class="red answer-blank">______________________</span><span class="blue answer-blank">______________________</span></td>
+      <td class="c">Hydrogen cyanide (7 4)</td>
+      <td class="red"></td><td class="blue"></td>
     </tr>
     <tr>
-      <td>Catch-y team-building activity (5 4)</td>
-      <td><span class="red answer-blank">______________________</span><span class="blue answer-blank">______________________</span></td>
+      <td class="c">Catch-y team-building activity (5 4)</td>
+      <td class="red"></td><td class="blue"></td>
     </tr>
     <tr>
-      <td>Pok&eacute;mon #069 (10)</td>
-      <td><span class="blue answer-blank">______________________</span><span class="red answer-blank">______________________</span></td>
+      <td class="c">Pok&eacute;mon #069 (10)</td>
+      <td class="blue"></td><td class="red"></td>
     </tr>
     <tr>
-      <td>February subject of study (5 7)</td>
-      <td><span class="blue answer-blank">______________________</span><span class="red answer-blank">______________________</span></td>
+      <td class="c">February subject of study (5 7)</td>
+      <td class="blue"></td><td class="red"></td>
     </tr>
     <tr>
-      <td>Cavalier's opponent (9)</td>
-      <td><span class="red answer-blank">______________________</span><span class="blue answer-blank">______________________</span></td>
+      <td class="c">Cavalier's opponent (9)</td>
+      <td class="red"></td><td class="blue"></td>
     </tr>
     <tr>
-      <td>Louis Gossett Jr. boxing flop (9)</td>
-      <td><span class="blue answer-blank">______________________</span><span class="red answer-blank">______________________</span></td>
+      <td class="c">Louis Gossett Jr. boxing flop (9)</td>
+      <td class="blue"></td><td class="red"></td>
     </tr>
     <tr>
-      <td>Can't be halted (11)</td>
-      <td><span class="red answer-blank">______________________</span><span class="blue answer-blank">______________________</span></td>
+      <td class="c">Can't be halted (11)</td>
+      <td class="red"></td><td class="blue"></td>
     </tr>
     <tr>
-      <td>Olympic racquet sport (9)</td>
-      <td><span class="blue answer-blank">______________________</span><span class="red answer-blank">______________________</span></td>
+      <td class="c">Olympic racquet sport (9)</td>
+      <td class="blue"></td><td class="red"></td>
     </tr>
     <tr>
-      <td><i>Family Ties</i> actor (7 5)</td>
-      <td><span class="blue answer-blank">______________________</span><span class="red answer-blank">______________________</span></td>
+      <td class="c"><i>Family Ties</i> actor (7 5)</td>
+      <td class="blue"></td><td class="red"></td>
     </tr>
     <tr>
-      <td>Old receptacle for waste (10)</td>
-      <td><span class="blue answer-blank">______________________</span><span class="red answer-blank">______________________</span></td>
+      <td class="c">Old receptacle for waste (10)</td>
+      <td class="blue"></td><td class="red"></td>
     </tr>
     <tr>
-      <td>Cruise ship stop (4 2 4)</td>
-      <td><span class="red answer-blank">______________________</span><span class="blue answer-blank">______________________</span></td>
+      <td class="c">Cruise ship stop (4 2 4)</td>
+      <td class="red"></td><td class="blue"></td>
     </tr>
     <tr>
-      <td>Four-ingredient dessert (5 4)</td>
-      <td><span class="red answer-blank">______________________</span><span class="blue answer-blank">______________________</span></td>
+      <td class="c">Four-ingredient dessert (5 4)</td>
+      <td class="red"></td><td class="blue"></td>
     </tr>
     <tr>
       <td>&nbsp;</td>
       <td>&nbsp;</td>
+      <td>&nbsp;</td>
     </tr>
     <tr>
-      <td>(5)</td>
-      <td><span class="red answer-blank">______________________</span><span class="blue answer-blank">______________________</span></td>
+      <td class="c">(5)</td>
+      <td class="red"></td><td class="blue"></td>
     </tr>
   </table>
 </div>
