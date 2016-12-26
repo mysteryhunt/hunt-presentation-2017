@@ -1,0 +1,72 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}A Penny For Your Thoughts{% endblock %}
+{% block puzzle_name_block %}A Penny For Your Thoughts{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    div.a {
+      display: flex;
+    }
+    div.b {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 30%;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    div.rl {
+      border-right: 1px solid black;
+    }
+    div.b img {
+      max-height: 150px;
+      max-width: 250px;
+      border: 2px solid black;
+      margin: 10px;
+    }
+  </style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+  The Wizard can magically convert money into goods and services. Although, so
+  can anyone, so it's not that impressive.
+{% endblock %}
+
+{% block puzzle_content_block %}
+  <div class="a">
+    <div class="b rl">
+      <img src="{{ asset_url_for('a_penny_for_your_thoughts/left1.jpg') }}">
+      <img src="{{ asset_url_for('a_penny_for_your_thoughts/left2.jpg') }}">
+      <img src="{{ asset_url_for('a_penny_for_your_thoughts/left3.jpg') }}">
+      <img src="{{ asset_url_for('a_penny_for_your_thoughts/left4.jpg') }}">
+      <img src="{{ asset_url_for('a_penny_for_your_thoughts/left5.png') }}">
+      <img src="{{ asset_url_for('a_penny_for_your_thoughts/left6.jpg') }}">
+      <img src="{{ asset_url_for('a_penny_for_your_thoughts/left7.jpg') }}">
+      <img src="{{ asset_url_for('a_penny_for_your_thoughts/left8.png') }}">
+      <img src="{{ asset_url_for('a_penny_for_your_thoughts/left9.png') }}">
+    </div>
+    <div class="b rl">
+      <img src="{{ asset_url_for('a_penny_for_your_thoughts/middle1.jpg') }}">
+      <img src="{{ asset_url_for('a_penny_for_your_thoughts/middle2.png') }}">
+      <img src="{{ asset_url_for('a_penny_for_your_thoughts/middle3.png') }}">
+      <img src="{{ asset_url_for('a_penny_for_your_thoughts/middle4.jpg') }}">
+      <img src="{{ asset_url_for('a_penny_for_your_thoughts/middle5.png') }}">
+      <img src="{{ asset_url_for('a_penny_for_your_thoughts/middle6.jpg') }}">
+      <img src="{{ asset_url_for('a_penny_for_your_thoughts/middle7.jpg') }}">
+      <img src="{{ asset_url_for('a_penny_for_your_thoughts/middle8.jpg') }}">
+      <img src="{{ asset_url_for('a_penny_for_your_thoughts/middle9.jpg') }}">
+      <img src="{{ asset_url_for('a_penny_for_your_thoughts/middle10.jpg') }}">
+    </div>
+    <div class="b">
+      <img src="{{ asset_url_for('a_penny_for_your_thoughts/right1.jpg') }}">
+      <img src="{{ asset_url_for('a_penny_for_your_thoughts/right2.jpg') }}">
+      <img src="{{ asset_url_for('a_penny_for_your_thoughts/right3.jpg') }}">
+      <img src="{{ asset_url_for('a_penny_for_your_thoughts/right4.jpg') }}">
+      <img src="{{ asset_url_for('a_penny_for_your_thoughts/right5.jpg') }}">
+      <img src="{{ asset_url_for('a_penny_for_your_thoughts/right6.jpg') }}">
+      <img src="{{ asset_url_for('a_penny_for_your_thoughts/right7.png') }}">
+      <img src="{{ asset_url_for('a_penny_for_your_thoughts/right8.jpg') }}">
+      <img src="{{ asset_url_for('a_penny_for_your_thoughts/right9.jpg') }}">
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'wizard' %}
+{% block title_block %}A Penny For Your Thoughts: Solution{% endblock %}
+{% block puzzle_name_block %}A Penny For Your Thoughts: Solution{% endblock %}
+{% block byline %}By Roger Barkan{% endblock %}
+{% block solution %}CONFLAGRATE{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    #puzzle-container table {
+      border-collapse: collapse;
+    }
+    #puzzle-container table td, #puzzle-container table th {
+      border-left: 3px solid black;
+      border-right: 3px solid black;
+      padding: 4px;
+    }
+    #puzzle-container th {
+      border-top: 3px solid black;
+      border-bottom: 3px solid black;
+    }
+    #puzzle-container table tr:last-child td {
+      border-bottom: 3px solid black;
+    }
+  </style>
+{% endblock %}
+
+{% block solution_content_block %}
+  <div>
+    <p>
+      Each image in the left column clues a word that contains the string CENT.  In each case, you can replace the "CENT" with one of the items pictured in the center column, to produce one of the images in the right column.  Carrying the indices over and applying them to the words in the right column, in order, spells THINK HARD, which clues CONCENTRATE.  Pairing CONCENTRATE with the remaining unused item in the center column, a FLAG, produces the answer <b>CONFLAGRATE</b>.
+    </p>
+
+<table>
+<tr><th>Left</th><th>Center</th><th>Right</th><th>Extracted</th></tr>
+<tr><td>AC[CENT] (3)</td><td> AND</td><td> AC[TRESSES] (3)</td><td align=center>T</td>
+<tr><td>AS[CENT] (5)</td><td> CHEST</td><td> LU[THOR] (4)</td><td align=center>H</td>
+<tr><td>[CENT]ERFIELD (2)</td><td> FLAG</td><td> DO[MINION] (4)</td><td align=center>I</td>
+<tr><td>[CENT]IPEDE (8)</td><td> MILL</td><td> AS[PEN] (5)</td><td align=center>N</td>
+<tr><td>[CENT]ROID (1)</td><td> MINION</td><td> FITNESS[TRACK]ER (12)</td><td align=center>K</td>
+<tr><td>DO[CENT] (4)</td><td> PEN</td><td> [CHEST]ERFIELD (2)</td><td align=center>H</td>
+<tr><td>FITNESS[CENT]ER (12)</td><td> SIMMONS</td><td> [AND]ROID (1)</td><td align=center>A</td>
+<tr><td>LU[CENT] (4)</td><td> THOR</td><td> PER[SIMMONS] (3)</td><td align=center>R</td>
+<tr><td>PER[CENT] (3)</td><td> TRACK</td><td> [MILL]IPEDE (8)</td><td align=center>D</td>
+<tr><td></td><td> TRESSES</td><td></td><td align=center></td>
+</table>
+
+  </div>
+{% endblock %}
