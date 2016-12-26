@@ -7,8 +7,20 @@
 
 {% block puzzle_head_block %}
   <style>
-    table.a td {
+    #puzzle-container table {
+      border-collapse: collapse;
+    }
+    #puzzle-container table td, #puzzle-container table th {
+      border-left: 3px solid black;
+      border-right: 3px solid black;
       padding: 4px;
+    }
+    #puzzle-container th {
+      border-top: 3px solid black;
+      border-bottom: 3px solid black;
+    }
+    #puzzle-container table tr:last-child td {
+      border-bottom: 3px solid black;
     }
   </style>
 {% endblock %}
@@ -16,57 +28,22 @@
 {% block solution_content_block %}
   <div>
     <p>
-      Each image in the left column clues a word that contains the string CENT.
-      In each case, you can replace the "CENT" with one of the items pictured in
-      the center column, to produce one of the images in the right column.
-      Carrying the indices over and applying them to the words in the right
-      column, in order, spells CONCENTRATE.  Pairing CONCENTRATE with the
-      remaining unused item in the center column, a FLAG, produces the answer
-      <b>CONFLAGRATE</b>.
+      Each image in the left column clues a word that contains the string CENT.  In each case, you can replace the "CENT" with one of the items pictured in the center column, to produce one of the images in the right column.  Carrying the indices over and applying them to the words in the right column, in order, spells THINK HARD, which clues CONCENTRATE.  Pairing CONCENTRATE with the remaining unused item in the center column, a FLAG, produces the answer <b>CONFLAGRATE</b>.
     </p>
-    <table class="a">
-      <tr><td>ACCENT</td><td>AND</td><td>CHESTERFIELD (C)</td></tr>
-      <tr><td>ASCENT</td><td>CHEST</td><td>DOMINION (O)</td></tr>
-      <tr><td>CENTAUR</td><td>CORN</td><td>ANDROID (N)</td></tr>
-      <tr><td>CENTERFIELD</td><td>FLAG</td><td>CORNERPIECE (C)</td></tr>
-      <tr><td>CENTERPIECE</td><td>MILL</td><td>ASPEN (E)</td></tr>
-      <tr><td>CENTIPEDE</td><td>MINION</td><td>PERSIMMONS (N)</td></tr>
-      <tr><td>CENTROID</td><td>MINOT</td><td>ACTRESSES (T)</td></tr>
-      <tr><td>DOCENT</td><td>PEN</td><td>LUTHOR (R)</td></tr>
-      <tr><td>FIFTYCENT</td><td>SHADES</td><td>FIFTYSHADES (A)</td></tr>
-      <tr><td>LUCENT</td><td>SIMMONS</td><td>MINOTAUR (T)</td></tr>
-      <tr><td>PERCENT</td><td>THOR</td><td>MILLIPEDE (E)</td></tr>
-      <tr><td></td><td>TRESSES</td><td></td></tr>
-    </table>
-    <p>
-      Notes:<br>
-      ACCENT/ACCORD,ACQUIRE,ACTRESSES (T)<br>
-      ASCENT/ASPEN (E)<br>
-      DOCENT/DOMINION (O)<br>
-      LUCENT/LUTHOR, LUPIN (R)<br>
-      CENTAUR/MINOTAUR (T)<br>
-      CENTROID/ANDROID (N)<br>
-      PERCENT/PERMUTATION,PERSPIRE, PERSIMMONS (N)<br>
-      CENTIPEDE/MILLIPEDE (E)<br>
-      FIFTYCENT/FIFTYSHADES (A)<br>
-      CENTERFIELD/CHESTERFIELD (C)<br>
-      CENTERPIECE/MASTERPIECE,CORNERPIECE (C)
-    </p>
-    <p>
-      Others:<br>
-      CENTERICE/ORANGERICE<br>
-      FITNESSCENTER/FITNESSTRAINER,FITNESSTRACKER
-    </p>
-    <p>
-      Don't work:<br>
-      CENTAVO<br>
-      CENTURY<br>
-      VINCENT<br>
-      CRESCENT<br>
-      MCENTIRE<br>
-      MILLICENT<br>
-      ADOLESCENT<br>
-      CENTERFOLD
-    </p>
+
+<table>
+<tr><th>Left</th><th>Center</th><th>Right</th><th>Extracted</th></tr>
+<tr><td>AC[CENT] (3)</td><td> AND</td><td> AC[TRESSES] (3)</td><td align=center>T</td>
+<tr><td>AS[CENT] (5)</td><td> CHEST</td><td> LU[THOR] (4)</td><td align=center>H</td>
+<tr><td>[CENT]ERFIELD (2)</td><td> FLAG</td><td> DO[MINION] (4)</td><td align=center>I</td>
+<tr><td>[CENT]IPEDE (8)</td><td> MILL</td><td> AS[PEN] (5)</td><td align=center>N</td>
+<tr><td>[CENT]ROID (1)</td><td> MINION</td><td> FITNESS[TRACK]ER (12)</td><td align=center>K</td>
+<tr><td>DO[CENT] (4)</td><td> PEN</td><td> [CHEST]ERFIELD (2)</td><td align=center>H</td>
+<tr><td>FITNESS[CENT]ER (12)</td><td> SIMMONS</td><td> [AND]ROID (1)</td><td align=center>A</td>
+<tr><td>LU[CENT] (4)</td><td> THOR</td><td> PER[SIMMONS] (3)</td><td align=center>R</td>
+<tr><td>PER[CENT] (3)</td><td> TRACK</td><td> [MILL]IPEDE (8)</td><td align=center>D</td>
+<tr><td></td><td> TRESSES</td><td></td><td align=center></td>
+</table>
+
   </div>
 {% endblock %}
