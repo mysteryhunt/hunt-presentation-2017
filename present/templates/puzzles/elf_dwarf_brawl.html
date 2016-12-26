@@ -1,0 +1,19 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}Elf/Dwarf Brawl{% endblock %}
+{% block puzzle_name_block %}Elf/Dwarf Brawl{% endblock %}
+
+{% block puzzle_head_block %}
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+This dungeon hosts a violent contest pitting teams of prisoners against each other. It seems like the most flamboyant personalities came to the forefront.
+{% endblock %}
+
+{% block puzzle_content_block %}
+<div>
+  <video src="{{ asset_url_for('elf_dwarf_brawl/puzzle.mp4') }}" width="900" controls>
+    Your browser does not support HTML5 video.
+    <a href="{{ asset_url_for('elf_dwarf_brawl/puzzle.mp4') }}">Download Video</a>
+  </video>
+</div>
+{% endblock %}
