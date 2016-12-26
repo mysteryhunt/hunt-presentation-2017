@@ -72,11 +72,15 @@ body {
   z-index: 10;
   position: absolute;
   left: 10px;
-  top: 20px;
+  top: 0px;
 }
 
 .individual-character-class {
   font-size: 16px;
+  position: absolute;
+  top: 104px;
+  width: 100%;
+  text-align: center;
 }
 
 .individual-character-status-container {
@@ -85,7 +89,7 @@ body {
   z-index: 20;
   position: absolute;
   white-space: nowrap;
-  top: 90px;
+  top: 65px;
   left: 65px;
 }
 
