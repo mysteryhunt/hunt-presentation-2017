@@ -532,7 +532,7 @@ HINTS = [
   ]
   
 def make_hint(correct, total):
-  return HINTS[min(total-1,int(correct*1.0/total*9))]
+  return HINTS[min(8,min(total-1,int(correct*1.0/total*9)))]
   
 @app.route('/crackpot_vs_snackpot/problem')
 def problem():
