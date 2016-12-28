@@ -1,0 +1,47 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}Vennder Bender{% endblock %}
+{% block puzzle_name_block %}Vennder Bender{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+#puzzle-content {
+  display: flex;
+  flex-flow: row nowrap;
+}
+#puzzle-image  {
+  width: 100%;
+}
+#listing-container {
+  width: 30%;
+}
+#image-container {
+  width: 70%;
+}
+</style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+  The Linguist, seeing a tangled mess ahead, begins to grumble. &ldquo;Look, I like predicates as well as anybody, but how many of these ridiculous hoops am I going to have to jump through?&rdquo;
+{% endblock %}
+
+{% block puzzle_content_block %}
+  <div id="listing-container">
+    <ol>
+      <li>Geoffrey Rush</li>
+      <li>Marlee Matlin</li>
+      <li>Aziz Ansari</li>
+      <li>Mel Brooks</li>
+      <li>Kristen Wiig</li>
+      <li>Nat King Cole</li>
+      <li>Rashida Jones</li>
+      <li>Shirley Jones</li>
+      <li>Nilo Cruz</li>
+      <li>Yul Brynner</li>
+      <li>Tracy Letts</li>
+    </ol>
+  </div>
+  <div id="image-container">
+    <a class="standard-link" href="{{ asset_url_for('vennder_bender/image01.png') }}">[Click to enlarge]</a>
+    <a href="{{ asset_url_for('vennder_bender/image01.png') }}"><img id="puzzle-image" src="{{ asset_url_for('vennder_bender/image01.png') }}"/></a>
+  </div>
+{% endblock %}
