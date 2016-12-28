@@ -1,0 +1,140 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}The Leaning Tower of Sheshach{% endblock %}
+{% block puzzle_name_block %}The Leaning Tower of Sheshach{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    div.a {
+      font-size: 0.65em;
+    }
+    div.b {
+      width: 24em;
+      height: 12em;
+      border: 2px dashed black;
+      position: relative;
+      font-family: sans-serif;
+      margin: 1em;
+      display: inline-block;
+    }
+    div.c {
+      border-left: 1px solid black;
+      position: relative;
+      left: 12em;
+      top: 11em;
+      width: 1px;
+      height: 1em;
+    }
+    div.d {
+      border-left: none;
+      border-bottom: none;
+    }
+    div.d div.e {
+      position: absolute;
+      height: 8.57143em;
+      border-left: 2px dashed black;
+    }
+    div.d div.f {
+      position: absolute;
+      top: 10.28572em;
+      width: 24em;
+      transform: rotate(8deg);
+      border-bottom: 2px dashed black;
+    }
+    span.g, span.h {
+      position: absolute;
+      font-size: 4em;
+      top: 1em;
+      transform: rotate(8deg);
+    }
+    span.g {
+      left: 1.5em;
+    }
+    span.h {
+      left: 4em;
+    }
+    div.i, div.j {
+      position: absolute;
+      border: 1px solid black;
+      box-sizing: border-box;
+      top: 2em;
+      height: 8em;
+      width: 1.5em;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    div.i {
+      left: 0.5em;
+    }
+    div.j {
+      left: 22em;
+    }
+    div.i span, div.j span {
+      flex: 0 1;
+      text-align: center;
+      width: 1em;
+    }
+    div.k {
+      position: absolute;
+      top: 0.2em;
+      left: 2.5em;
+      width: 18em;
+      height: 2em;
+      line-height: 2em;
+    }
+    div.l {
+      position: absolute;
+      top: 9.8em;
+      left: 3.5em;
+      width: 18em;
+      height: 2em;
+      line-height: 2em;
+      text-align: right;
+    }
+    svg.m {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 24em;
+      height: 12em;
+    }
+    svg.m line {
+      stroke-width: 1px;
+      stroke: black;
+    }
+  </style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+  In his youth, the emperor dreamed of inviting people from all over the world
+  to contribute to a grand architectural wonder. Now it sits unfinished - almost
+  as low and old as the emperor himself.
+{% endblock %}
+
+{% block puzzle_content_block %}
+  <div class="a">
+    <div class="b"><div class="c"></div><span class="g">A</span><span class="h">G</span><div class="i"><span></span></div><div class="k">upuszcza&#263;</div><svg class="m"><line x1="2.25em" y1="1.25em" x2="0" y2="1.25em" /><line x1="0" y1="10.75em" x2="1.25em" y2="10.75em" /><line x1="1.25em" y1="10.75em" x2="1.25em" y2="10em" /><line x1="1.25em" y1="10em" x2="1em" y2="10.25em" /><line x1="1.25em" y1="10em" x2="1.5em" y2="10.25em" /></svg><div class="j"><span></span></div><div class="l">krzycze&#263;</div><svg class="m"><line x1="21.75em" y1="10.75em" x2="24em" y2="10.75em" /><line x1="24em" y1="1.25em" x2="22.75em" y2="1.25em" /><line x1="22.75em" y1="1.25em" x2="22.75em" y2="2em" /><line x1="22.75em" y1="2em" x2="22.5em" y2="1.75em" /><line x1="22.75em" y1="2em" x2="23em" y2="1.75em" /></svg></div>
+    <div class="b d"><div class="e"></div><div class="f"></div><span class="g">A</span><span class="h">I</span><div class="j"></div><div class="l" style="top: 9.5em">drizzling</div><svg class="m"><line x1="21.75em" y1="10.75em" x2="24em" y2="10.75em" /><line x1="24em" y1="1.25em" x2="22.75em" y2="1.25em" /><line x1="22.75em" y1="1.25em" x2="22.75em" y2="2em" /><line x1="22.75em" y1="2em" x2="22.5em" y2="1.75em" /><line x1="22.75em" y1="2em" x2="23em" y2="1.75em" /></svg></div>
+    <div class="b"><div class="c"></div><span class="g">A</span><span class="h">I</span><div class="i"><span></span></div><div class="k">z&#322;apa&#263;</div><svg class="m"><line x1="2.25em" y1="1.25em" x2="0" y2="1.25em" /><line x1="0" y1="10.75em" x2="1.25em" y2="10.75em" /><line x1="1.25em" y1="10.75em" x2="1.25em" y2="10em" /><line x1="1.25em" y1="10em" x2="1em" y2="10.25em" /><line x1="1.25em" y1="10em" x2="1.5em" y2="10.25em" /></svg><div class="j"><span></span></div><div class="l">dowcip</div><svg class="m"><line x1="21.75em" y1="10.75em" x2="24em" y2="10.75em" /><line x1="24em" y1="1.25em" x2="22.75em" y2="1.25em" /><line x1="22.75em" y1="1.25em" x2="22.75em" y2="2em" /><line x1="22.75em" y1="2em" x2="22.5em" y2="1.75em" /><line x1="22.75em" y1="2em" x2="23em" y2="1.75em" /></svg></div>
+    <div class="b"><div class="c"></div><span class="g">E</span><span class="h">O</span><div class="i"><span></span></div><div class="k">oliviers</div><svg class="m"><line x1="2.25em" y1="1.25em" x2="0" y2="1.25em" /><line x1="0" y1="10.75em" x2="1.25em" y2="10.75em" /><line x1="1.25em" y1="10.75em" x2="1.25em" y2="10em" /><line x1="1.25em" y1="10em" x2="1em" y2="10.25em" /><line x1="1.25em" y1="10em" x2="1.5em" y2="10.25em" /></svg><div class="j"><span></span></div><div class="l">proie</div><svg class="m"><line x1="21.75em" y1="10.75em" x2="24em" y2="10.75em" /><line x1="24em" y1="1.25em" x2="22.75em" y2="1.25em" /><line x1="22.75em" y1="1.25em" x2="22.75em" y2="2em" /><line x1="22.75em" y1="2em" x2="22.5em" y2="1.75em" /><line x1="22.75em" y1="2em" x2="23em" y2="1.75em" /></svg></div>
+    <div class="b"><div class="c"></div><span class="g">H</span><span class="h">D</span><div class="i"><span></span></div><div class="k">&eacute;ternel</div><svg class="m"><line x1="2.25em" y1="1.25em" x2="0" y2="1.25em" /><line x1="0" y1="10.75em" x2="1.25em" y2="10.75em" /><line x1="1.25em" y1="10.75em" x2="1.25em" y2="10em" /><line x1="1.25em" y1="10em" x2="1em" y2="10.25em" /><line x1="1.25em" y1="10em" x2="1.5em" y2="10.25em" /></svg><div class="j"><span></span></div><div class="l">chlore</div><svg class="m"><line x1="21.75em" y1="10.75em" x2="24em" y2="10.75em" /><line x1="24em" y1="1.25em" x2="22.75em" y2="1.25em" /><line x1="22.75em" y1="1.25em" x2="22.75em" y2="2em" /><line x1="22.75em" y1="2em" x2="22.5em" y2="1.75em" /><line x1="22.75em" y1="2em" x2="23em" y2="1.75em" /></svg></div>
+    <div class="b"><div class="c"></div><span class="g">J</span><span class="h">F</span><div class="i"><span></span></div><div class="k">zuckungen</div><svg class="m"><line x1="2.25em" y1="1.25em" x2="0" y2="1.25em" /><line x1="0" y1="10.75em" x2="1.25em" y2="10.75em" /><line x1="1.25em" y1="10.75em" x2="1.25em" y2="10em" /><line x1="1.25em" y1="10em" x2="1em" y2="10.25em" /><line x1="1.25em" y1="10em" x2="1.5em" y2="10.25em" /></svg><div class="j"><span></span></div><div class="l">ulme</div><svg class="m"><line x1="21.75em" y1="10.75em" x2="24em" y2="10.75em" /><line x1="24em" y1="1.25em" x2="22.75em" y2="1.25em" /><line x1="22.75em" y1="1.25em" x2="22.75em" y2="2em" /><line x1="22.75em" y1="2em" x2="22.5em" y2="1.75em" /><line x1="22.75em" y1="2em" x2="23em" y2="1.75em" /></svg></div>
+    <div class="b"><div class="c"></div><span class="g">K</span><span class="h">R</span><div class="i"><span></span></div><div class="k">ciep&#322;y</div><svg class="m"><line x1="2.25em" y1="1.25em" x2="0" y2="1.25em" /><line x1="0" y1="10.75em" x2="1.25em" y2="10.75em" /><line x1="1.25em" y1="10.75em" x2="1.25em" y2="10em" /><line x1="1.25em" y1="10em" x2="1em" y2="10.25em" /><line x1="1.25em" y1="10em" x2="1.5em" y2="10.25em" /></svg><div class="j"><span></span></div><div class="l">pr&#243;ba</div><svg class="m"><line x1="21.75em" y1="10.75em" x2="24em" y2="10.75em" /><line x1="24em" y1="1.25em" x2="22.75em" y2="1.25em" /><line x1="22.75em" y1="1.25em" x2="22.75em" y2="2em" /><line x1="22.75em" y1="2em" x2="22.5em" y2="1.75em" /><line x1="22.75em" y1="2em" x2="23em" y2="1.75em" /></svg></div>
+    <div class="b"><div class="c"></div><span class="g">L</span><span class="h">M</span><div class="i"><span></span></div><div class="k">abgeneigt</div><svg class="m"><line x1="2.25em" y1="1.25em" x2="0" y2="1.25em" /><line x1="0" y1="10.75em" x2="1.25em" y2="10.75em" /><line x1="1.25em" y1="10.75em" x2="1.25em" y2="10em" /><line x1="1.25em" y1="10em" x2="1em" y2="10.25em" /><line x1="1.25em" y1="10em" x2="1.5em" y2="10.25em" /></svg><div class="j"><span></span></div><div class="l">achtern</div><svg class="m"><line x1="21.75em" y1="10.75em" x2="24em" y2="10.75em" /><line x1="24em" y1="1.25em" x2="22.75em" y2="1.25em" /><line x1="22.75em" y1="1.25em" x2="22.75em" y2="2em" /><line x1="22.75em" y1="2em" x2="22.5em" y2="1.75em" /><line x1="22.75em" y1="2em" x2="23em" y2="1.75em" /></svg></div>
+    <div class="b"><div class="c"></div><span class="g">N</span><span class="h">H</span><div class="i"><span></span></div><div class="k">fil</div><svg class="m"><line x1="2.25em" y1="1.25em" x2="0" y2="1.25em" /><line x1="0" y1="10.75em" x2="1.25em" y2="10.75em" /><line x1="1.25em" y1="10.75em" x2="1.25em" y2="10em" /><line x1="1.25em" y1="10em" x2="1em" y2="10.25em" /><line x1="1.25em" y1="10em" x2="1.5em" y2="10.25em" /></svg><div class="j"><span></span></div><div class="l">t&auml;lt</div><svg class="m"><line x1="21.75em" y1="10.75em" x2="24em" y2="10.75em" /><line x1="24em" y1="1.25em" x2="22.75em" y2="1.25em" /><line x1="22.75em" y1="1.25em" x2="22.75em" y2="2em" /><line x1="22.75em" y1="2em" x2="22.5em" y2="1.75em" /><line x1="22.75em" y1="2em" x2="23em" y2="1.75em" /></svg></div>
+    <div class="b"><div class="c"></div><span class="g">P</span><span class="h">M</span><div class="i"><span></span></div><div class="k">&ouml;</div><svg class="m"><line x1="2.25em" y1="1.25em" x2="0" y2="1.25em" /><line x1="0" y1="10.75em" x2="1.25em" y2="10.75em" /><line x1="1.25em" y1="10.75em" x2="1.25em" y2="10em" /><line x1="1.25em" y1="10em" x2="1em" y2="10.25em" /><line x1="1.25em" y1="10em" x2="1.5em" y2="10.25em" /></svg><div class="j"><span></span></div><div class="l">sv&auml;ra</div><svg class="m"><line x1="21.75em" y1="10.75em" x2="24em" y2="10.75em" /><line x1="24em" y1="1.25em" x2="22.75em" y2="1.25em" /><line x1="22.75em" y1="1.25em" x2="22.75em" y2="2em" /><line x1="22.75em" y1="2em" x2="22.5em" y2="1.75em" /><line x1="22.75em" y1="2em" x2="23em" y2="1.75em" /></svg></div>
+    <div class="b"><div class="c"></div><span class="g">R</span><span class="h">G</span><div class="i"><span></span></div><div class="k">mania</div><svg class="m"><line x1="2.25em" y1="1.25em" x2="0" y2="1.25em" /><line x1="0" y1="10.75em" x2="1.25em" y2="10.75em" /><line x1="1.25em" y1="10.75em" x2="1.25em" y2="10em" /><line x1="1.25em" y1="10em" x2="1em" y2="10.25em" /><line x1="1.25em" y1="10em" x2="1.5em" y2="10.25em" /></svg><div class="j"><span></span></div><div class="l">cuore</div><svg class="m"><line x1="21.75em" y1="10.75em" x2="24em" y2="10.75em" /><line x1="24em" y1="1.25em" x2="22.75em" y2="1.25em" /><line x1="22.75em" y1="1.25em" x2="22.75em" y2="2em" /><line x1="22.75em" y1="2em" x2="22.5em" y2="1.75em" /><line x1="22.75em" y1="2em" x2="23em" y2="1.75em" /></svg></div>
+    <div class="b"><div class="c"></div><span class="g">R</span><span class="h">W</span><div class="i"><span></span></div><div class="k">verleitet</div><svg class="m"><line x1="2.25em" y1="1.25em" x2="0" y2="1.25em" /><line x1="0" y1="10.75em" x2="1.25em" y2="10.75em" /><line x1="1.25em" y1="10.75em" x2="1.25em" y2="10em" /><line x1="1.25em" y1="10em" x2="1em" y2="10.25em" /><line x1="1.25em" y1="10em" x2="1.5em" y2="10.25em" /></svg><div class="j"><span></span></div><div class="l">vergoldet</div><svg class="m"><line x1="21.75em" y1="10.75em" x2="24em" y2="10.75em" /><line x1="24em" y1="1.25em" x2="22.75em" y2="1.25em" /><line x1="22.75em" y1="1.25em" x2="22.75em" y2="2em" /><line x1="22.75em" y1="2em" x2="22.5em" y2="1.75em" /><line x1="22.75em" y1="2em" x2="23em" y2="1.75em" /></svg></div>
+    <div class="b"><div class="c"></div><span class="g">S</span><span class="h">Q</span><div class="i"><span></span></div><div class="k">train</div><svg class="m"><line x1="2.25em" y1="1.25em" x2="0" y2="1.25em" /><line x1="0" y1="10.75em" x2="1.25em" y2="10.75em" /><line x1="1.25em" y1="10.75em" x2="1.25em" y2="10em" /><line x1="1.25em" y1="10em" x2="1em" y2="10.25em" /><line x1="1.25em" y1="10em" x2="1.5em" y2="10.25em" /></svg><div class="j"><span></span></div><div class="l">wolf</div><svg class="m"><line x1="21.75em" y1="10.75em" x2="24em" y2="10.75em" /><line x1="24em" y1="1.25em" x2="22.75em" y2="1.25em" /><line x1="22.75em" y1="1.25em" x2="22.75em" y2="2em" /><line x1="22.75em" y1="2em" x2="22.5em" y2="1.75em" /><line x1="22.75em" y1="2em" x2="23em" y2="1.75em" /></svg></div>
+    <div class="b"><div class="c"></div><span class="g">S</span><span class="h">S</span><div class="i"><span></span></div><div class="k">przebieg&#322;y</div><svg class="m"><line x1="2.25em" y1="1.25em" x2="0" y2="1.25em" /><line x1="0" y1="10.75em" x2="1.25em" y2="10.75em" /><line x1="1.25em" y1="10.75em" x2="1.25em" y2="10em" /><line x1="1.25em" y1="10em" x2="1em" y2="10.25em" /><line x1="1.25em" y1="10em" x2="1.5em" y2="10.25em" /></svg><div class="j"><span></span></div><div class="l">kruk</div><svg class="m"><line x1="21.75em" y1="10.75em" x2="24em" y2="10.75em" /><line x1="24em" y1="1.25em" x2="22.75em" y2="1.25em" /><line x1="22.75em" y1="1.25em" x2="22.75em" y2="2em" /><line x1="22.75em" y1="2em" x2="22.5em" y2="1.75em" /><line x1="22.75em" y1="2em" x2="23em" y2="1.75em" /></svg></div>
+    <div class="b"><div class="c"></div><span class="g">T</span><span class="h">L</span><div class="i"><span></span></div><div class="k">k&ouml;lar</div><svg class="m"><line x1="2.25em" y1="1.25em" x2="0" y2="1.25em" /><line x1="0" y1="10.75em" x2="1.25em" y2="10.75em" /><line x1="1.25em" y1="10.75em" x2="1.25em" y2="10em" /><line x1="1.25em" y1="10em" x2="1em" y2="10.25em" /><line x1="1.25em" y1="10em" x2="1.5em" y2="10.25em" /></svg><div class="j"><span></span></div><div class="l">gr&ouml;n</div><svg class="m"><line x1="21.75em" y1="10.75em" x2="24em" y2="10.75em" /><line x1="24em" y1="1.25em" x2="22.75em" y2="1.25em" /><line x1="22.75em" y1="1.25em" x2="22.75em" y2="2em" /><line x1="22.75em" y1="2em" x2="22.5em" y2="1.75em" /><line x1="22.75em" y1="2em" x2="23em" y2="1.75em" /></svg></div>
+    <div class="b"><div class="c"></div><span class="g">T</span><span class="h">N</span><div class="i"><span></span></div><div class="k">from</div><svg class="m"><line x1="2.25em" y1="1.25em" x2="0" y2="1.25em" /><line x1="0" y1="10.75em" x2="1.25em" y2="10.75em" /><line x1="1.25em" y1="10.75em" x2="1.25em" y2="10em" /><line x1="1.25em" y1="10em" x2="1em" y2="10.25em" /><line x1="1.25em" y1="10em" x2="1.5em" y2="10.25em" /></svg><div class="j"><span></span></div><div class="l">poultry</div><svg class="m"><line x1="21.75em" y1="10.75em" x2="24em" y2="10.75em" /><line x1="24em" y1="1.25em" x2="22.75em" y2="1.25em" /><line x1="22.75em" y1="1.25em" x2="22.75em" y2="2em" /><line x1="22.75em" y1="2em" x2="22.5em" y2="1.75em" /><line x1="22.75em" y1="2em" x2="23em" y2="1.75em" /></svg></div>
+    <div class="b"><div class="c"></div><span class="g">U</span><span class="h">M</span><div class="i"><span></span></div><div class="k">trough</div><svg class="m"><line x1="2.25em" y1="1.25em" x2="0" y2="1.25em" /><line x1="0" y1="10.75em" x2="1.25em" y2="10.75em" /><line x1="1.25em" y1="10.75em" x2="1.25em" y2="10em" /><line x1="1.25em" y1="10em" x2="1em" y2="10.25em" /><line x1="1.25em" y1="10em" x2="1.5em" y2="10.25em" /></svg><div class="j"><span></span></div><div class="l">rough</div><svg class="m"><line x1="21.75em" y1="10.75em" x2="24em" y2="10.75em" /><line x1="24em" y1="1.25em" x2="22.75em" y2="1.25em" /><line x1="22.75em" y1="1.25em" x2="22.75em" y2="2em" /><line x1="22.75em" y1="2em" x2="22.5em" y2="1.75em" /><line x1="22.75em" y1="2em" x2="23em" y2="1.75em" /></svg></div>
+    <div class="b"><div class="c"></div><span class="g">V</span><span class="h">H</span><div class="i"><span></span></div><div class="k">fire</div><svg class="m"><line x1="2.25em" y1="1.25em" x2="0" y2="1.25em" /><line x1="0" y1="10.75em" x2="1.25em" y2="10.75em" /><line x1="1.25em" y1="10.75em" x2="1.25em" y2="10em" /><line x1="1.25em" y1="10em" x2="1em" y2="10.25em" /><line x1="1.25em" y1="10em" x2="1.5em" y2="10.25em" /></svg><div class="j"><span></span></div><div class="l">gin</div><svg class="m"><line x1="21.75em" y1="10.75em" x2="24em" y2="10.75em" /><line x1="24em" y1="1.25em" x2="22.75em" y2="1.25em" /><line x1="22.75em" y1="1.25em" x2="22.75em" y2="2em" /><line x1="22.75em" y1="2em" x2="22.5em" y2="1.75em" /><line x1="22.75em" y1="2em" x2="23em" y2="1.75em" /></svg></div>
+    <div class="b"><div class="c"></div><span class="g">Z</span><span class="h">I</span><div class="i"><span></span></div><div class="k">bricka</div><svg class="m"><line x1="2.25em" y1="1.25em" x2="0" y2="1.25em" /><line x1="0" y1="10.75em" x2="1.25em" y2="10.75em" /><line x1="1.25em" y1="10.75em" x2="1.25em" y2="10em" /><line x1="1.25em" y1="10em" x2="1em" y2="10.25em" /><line x1="1.25em" y1="10em" x2="1.5em" y2="10.25em" /></svg><div class="j"><span></span></div><div class="l">mostrar</div><svg class="m"><line x1="21.75em" y1="10.75em" x2="24em" y2="10.75em" /><line x1="24em" y1="1.25em" x2="22.75em" y2="1.25em" /><line x1="22.75em" y1="1.25em" x2="22.75em" y2="2em" /><line x1="22.75em" y1="2em" x2="22.5em" y2="1.75em" /><line x1="22.75em" y1="2em" x2="23em" y2="1.75em" /></svg></div>
+    <div class="b"><div class="c"></div><span class="g">Z</span><span class="h">N</span><div class="i"><span></span></div><div class="k">polerad</div><svg class="m"><line x1="2.25em" y1="1.25em" x2="0" y2="1.25em" /><line x1="0" y1="10.75em" x2="1.25em" y2="10.75em" /><line x1="1.25em" y1="10.75em" x2="1.25em" y2="10em" /><line x1="1.25em" y1="10em" x2="1em" y2="10.25em" /><line x1="1.25em" y1="10em" x2="1.5em" y2="10.25em" /></svg></div>
+    <div class="b"><div class="c"></div><span class="g">Z</span><span class="h">O</span><div class="i"><span></span></div><div class="k">eredit&agrave;</div><svg class="m"><line x1="2.25em" y1="1.25em" x2="0" y2="1.25em" /><line x1="0" y1="10.75em" x2="1.25em" y2="10.75em" /><line x1="1.25em" y1="10.75em" x2="1.25em" y2="10em" /><line x1="1.25em" y1="10em" x2="1em" y2="10.25em" /><line x1="1.25em" y1="10em" x2="1.5em" y2="10.25em" /></svg><div class="j"><span></span></div><div class="l">trapanare</div><svg class="m"><line x1="21.75em" y1="10.75em" x2="24em" y2="10.75em" /><line x1="24em" y1="1.25em" x2="22.75em" y2="1.25em" /><line x1="22.75em" y1="1.25em" x2="22.75em" y2="2em" /><line x1="22.75em" y1="2em" x2="22.5em" y2="1.75em" /><line x1="22.75em" y1="2em" x2="23em" y2="1.75em" /></svg></div>
+  </div>
+{% endblock %}
