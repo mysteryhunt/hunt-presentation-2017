@@ -1,0 +1,343 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'bridge' %}
+{% block title_block %}Above Your Pay Grade: Solution{% endblock %}
+{% block puzzle_name_block %}Above Your Pay Grade: Solution{% endblock %}
+{% block byline %}By Ben Monreal{% endblock %}
+{% block solution %}GOOD HOPE{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+#puzzle-content table {
+  border-collapse: collapse;
+}
+#puzzle-content table td, #puzzle-content table th {
+  border: 1px solid black;
+  padding: 2px;
+}
+span.highlight-letters {
+  font-weight: bold;
+  color: red;
+}
+span.highlight-letters2 {
+  font-weight: bold;
+  color: blue;
+}
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<p>
+  This is a multi-step puzzle. Step one is to solve all the clues associated with the defendants; each answer has a standard military rank abbreviation hidden in it. Each such rank is (uniquely) associated with a pay-grade, from E1--E11 or O1--O11 for enlistees and officers. (While some rank abbreviations are used for different paygrades in different services branch, each defendant's branch is given here.) Sort the characters alphabetically and use the paygrade number to index into the character's name.
+</p>
+<table>
+<tr><th>Branch</th><th>Clue</th><th>Answer/Rank</th><th>Paygrade</th><th>Defendant</th></tr>
+<tr>
+  <td>USAF</td>
+  <td>English beer cocktail</td>
+  <td>shandy<span class="highlight-letters">gaf</span>f</td>
+  <td>O11</td>
+  <td>Blaise Barr<span class="highlight-letters">i</span>er</td>
+</tr>
+<tr>
+  <td>USN</td>
+  <td>Smelly compounds added to natural gas</td>
+  <td>mer<span class="highlight-letters">capt</span>ans</td>
+  <td>O6</td>
+  <td>Camry<span class="highlight-letters">n</span> Cheddar</td>
+</tr>
+<tr>
+  <td>USN</td>
+  <td>Mass divided by volume</td>
+  <td>d<span class="highlight-letters">ens</span>ity</td>
+  <td>O1</td>
+  <td><span class="highlight-letters">D</span>eng Dragoon</td>
+</tr>
+<tr>
+  <td>USAF</td>
+  <td>AKA German turnip</td>
+  <td>kohlr<span class="highlight-letters">ab</span>i</td>
+  <td>E1</td>
+  <td><span class="highlight-letters">E</span>rin Erg </td>
+</tr>
+<tr>
+  <td>USA</td>
+  <td>Non-SI unit of radiation exposure</td>
+  <td>roent<span class="highlight-letters">gen</span></td>
+  <td>O10</td>
+  <td>Fatimah Fo<span class="highlight-letters">x</span></td>
+</tr>
+<tr>
+  <td>USN</td>
+  <td>State formerly in Yugoslavia</td>
+  <td>Bo<span class="highlight-letters">sn</span>ia and Herzegovina</td>
+  <td>E3</td>
+  <td>Ga<span class="highlight-letters">b</span>by Gadfly</td>
+</tr>
+<tr>
+  <td>USN</td>
+  <td>Element 48</td>
+  <td>c<span class="highlight-letters">adm</span>ium</td>
+  <td>O10</td>
+  <td>Hermione H<span class="highlight-letters">y</span>rax</td>
+</tr>
+<tr>
+  <td>USAF</td>
+  <td>It can be retrograde or anterograde</td>
+  <td><span class="highlight-letters">amn</span>esia</td>
+  <td>E2</td>
+  <td>I<span class="highlight-letters">f</span>eoma Ifill</td>
+</tr>
+<tr>
+  <td>USA</td>
+  <td>What galvanization applies</td>
+  <td>zin<span class="highlight-letters">c pl</span>ating</td>
+  <td>E4</td>
+  <td>Jer<span class="highlight-letters">r</span>y Jetski</td>
+</tr>
+<tr>
+  <td>USA</td>
+  <td>Honey Boo Boo matriarch</td>
+  <td>Ma<span class="highlight-letters">ma J</span>une</td>
+  <td>O4</td>
+  <td>Kat<span class="highlight-letters">a</span>shi Kneecap</td>
+</tr>
+<tr>
+  <td>USN</td>
+  <td>Package management system for OSX</td>
+  <td>Ma<span class="highlight-letters">cPo</span>rts</td>
+  <td>E7</td>
+  <td>Lew Lif<span class="highlight-letters">t</span>gate</td>
+</tr>
+<tr>
+  <td>USN</td>
+  <td>Protagonist of "The Crow"</td>
+  <td>Eri<span class="highlight-letters">c Dr</span>aven</td>
+  <td>O5</td>
+  <td>McGr<span class="highlight-letters">e</span>gor Muggle</td>
+</tr>
+<tr>
+  <td>USA</td>
+  <td>Catshill's district</td>
+  <td>Bro<span class="highlight-letters">msg</span>rove</td>
+  <td>E8</td>
+  <td>Norah No<span class="highlight-letters">r</span>malville</td>
+</tr>
+<tr>
+  <td>USA</td>
+  <td>Thermoplastic adhesive sold in stick form</td>
+  <td>hot me<span class="highlight-letters">lt g</span>lue</td>
+  <td>O9</td>
+  <td>Olivia Om<span class="highlight-letters">n</span>ibus</td>
+</tr>
+<tr>
+  <td>USA</td>
+  <td>High-pitched woodwind</td>
+  <td>pic<span class="highlight-letters">col</span>o</td>
+  <td>O6</td>
+  <td>Pip Pr<span class="highlight-letters">i</span>mordial</td>
+</tr>
+<tr>
+  <td>USA</td>
+  <td>One of four fundamental states of matter</td>
+  <td>pla<span class="highlight-letters">sma</span></td>
+  <td>E9</td>
+  <td>Quint Qui<span class="highlight-letters">z</span>bowl</td>
+</tr>
+<tr>
+  <td>USN</td>
+  <td>Lightweight craft wood</td>
+  <td>bal<span class="highlight-letters">sa</span></td>
+  <td>E2</td>
+  <td>R<span class="highlight-letters">e</span>becca Rotifer</td>
+</tr>
+<tr>
+  <td>USAF</td>
+  <td>Philosphical principle of parsimony</td>
+  <td>Occam'<span class="highlight-letters">s ra</span>zor</td>
+  <td>E4</td>
+  <td>Spi<span class="highlight-letters">r</span>os Spokane</td>
+</tr>
+</table>
+<p>
+  You should extract INDEX BY FRATERNIZER.
+</p>
+<p>
+  Next, get to work on the next set of clues. Note that the cited UCMJ article prohibits fraternization between officers and enlistees. The ten pieces of evidence serve to &ldquo;pair up&rdquo; the characters. &ldquo;Captive bolt gun&rdquo; contains the substrings &ldquo;capt&rdquo; and &ldquo;ltg&rdquo;, which means that the captain (Camryn Cheddar, paygrade O6) fraternized with the lieutenant-general (Olivia Omnibus, paygrade O9). (Some of the pairings are between two enlisted ranks, or two officer ranks, rather than enlistee-officer, which is why some of the defendants are pleading guilty and some are not.)
+</p>
+<table>
+<tr>
+  <td>Three-word stop on outer half of Craigieburn Line</td>
+  <td>Bro<span class="highlight-letters">adm</span>eadow<span class="highlight-letters2">s Ra</span>ilway Station</td>
+</tr>
+<tr>
+  <td>Anton Chigurh's weapon of choice</td>
+  <td><span class="highlight-letters">capt</span>ive bo<span class="highlight-letters2">lt g</span>un</td>
+</tr>
+<tr>
+  <td>Collective term for large animals whose conservation is especially popular</td>
+  <td>chari<span class="highlight-letters">sma</span>tic me<span class="highlight-letters2">gaf</span>auna</td>
+</tr>
+<tr>
+  <td>Common animal protein</td>
+  <td><span class="highlight-letters">col</span>la<span class="highlight-letters2">gen</span></td>
+</tr>
+<tr>
+  <td>Dr. Douglas Filmore's specialty on <i>Bones</i></td>
+  <td>for<span class="highlight-letters">ens</span>i<span class="highlight-letters2">c po</span>diatry</td>
+</tr>
+<tr>
+  <td>The royal we, formally</td>
+  <td><span class="highlight-letters">maj</span>esti<span class="highlight-letters2">c pl</span>ural</td>
+</tr>
+<tr>
+  <td>Nickname of Seattle's first madam</td>
+  <td>Mother D<span class="highlight-letters">amn</span><span class="highlight-letters2">ab</span>le</td>
+</tr>
+<tr>
+  <td>Mr Mxyzptlk's girlfriend</td>
+  <td><span class="highlight-letters">Ms G</span>sptl<span class="highlight-letters2">sn</span>z</td>
+</tr>
+<tr>
+  <td>One of the three varieties of Athenian theater</td>
+  <td><span class="highlight-letters">sa</span>tyri<span class="highlight-letters2">c dr</span>ama</td>
+</tr>
+</table>
+<p>
+  So, repeat the extraction from the introduction, but using the character's partner's paygrade rather than the character's own.
+</p>
+<table>
+<tr><th>Name</th><th>Rank</th><th>Fraternized with</th><th>Paygrade</th><th>Nth letter of name</th></tr>
+<tr>
+  <td>Blaise Ba<span class="highlight-letters">r</span>rier</td>
+  <td>gaf</td>
+  <td>sma</td>
+  <td>E9</td>
+  <td>r</td>
+</tr>
+<tr>
+  <td>Camryn Ch<span class="highlight-letters">e</span>ddar</td>
+  <td>capt</td>
+  <td>ltg</td>
+  <td>O9</td>
+  <td>e</td>
+</tr>
+<tr>
+  <td>Deng Dr<span class="highlight-letters">a</span>goon</td>
+  <td>ens</td>
+  <td>cpo</td>
+  <td>E7</td>
+  <td>a</td>
+</tr>
+<tr>
+  <td>E<span class="highlight-letters">r</span>in Erg</td>
+  <td>ab</td>
+  <td>amn</td>
+  <td>E2</td>
+  <td>r</td>
+</tr>
+<tr>
+  <td>Fatim<span class="highlight-letters">a</span>h Fox</td>
+  <td>gen</td>
+  <td>col</td>
+  <td>O6</td>
+  <td>a</td>
+</tr>
+<tr>
+  <td>Gabby Ga<span class="highlight-letters">d</span>fly</td>
+  <td>sn</td>
+  <td>msg</td>
+  <td>E8</td>
+  <td>d</td>
+</tr>
+<tr>
+  <td>Her<span class="highlight-letters">m</span>ione Hyrax</td>
+  <td>adm</td>
+  <td>sra</td>
+  <td>E4</td>
+  <td>m</td>
+</tr>
+<tr>
+  <td><span class="highlight-letters">I</span>feoma Ifill</td>
+  <td>amn</td>
+  <td>ab</td>
+  <td>E1</td>
+  <td>i</td>
+</tr>
+<tr>
+  <td>Jer<span class="highlight-letters">r</span>y Jetski</td>
+  <td>cpl</td>
+  <td>maj</td>
+  <td>O4</td>
+  <td>r</td>
+</tr>
+<tr>
+  <td>Kat<span class="highlight-letters">a</span>shi Kneecap</td>
+  <td>maj</td>
+  <td>cpl</td>
+  <td>E4</td>
+  <td>a</td>
+</tr>
+<tr>
+  <td><span class="highlight-letters">L</span>ew Liftgate</td>
+  <td>cpo</td>
+  <td>ens</td>
+  <td>O1</td>
+  <td>l</td>
+</tr>
+<tr>
+  <td>M<span class="highlight-letters">c</span>Gregor Muggle</td>
+  <td>cdr</td>
+  <td>sa</td>
+  <td>E2</td>
+  <td>c</td>
+</tr>
+<tr>
+  <td>No<span class="highlight-letters">r</span>ah Normalville</td>
+  <td>msg</td>
+  <td>sn</td>
+  <td>E3</td>
+  <td>r</td>
+</tr>
+<tr>
+  <td>Olivi<span class="highlight-letters">a</span> Omnibus</td>
+  <td>ltg</td>
+  <td>capt</td>
+  <td>O6</td>
+  <td>a</td>
+</tr>
+<tr>
+  <td>Pip Primor<span class="highlight-letters">d</span>ial</td>
+  <td>col</td>
+  <td>gen</td>
+  <td>O10</td>
+  <td>d</td>
+</tr>
+<tr>
+  <td>Quint Quizb<span class="highlight-letters">o</span>wl</td>
+  <td>sma</td>
+  <td>gaf</td>
+  <td>O11</td>
+  <td>o</td>
+</tr>
+<tr>
+  <td>Rebe<span class="highlight-letters">c</span>ca Rotifer</td>
+  <td>sa</td>
+  <td>cdr</td>
+  <td>O5</td>
+  <td>c</td>
+</tr>
+<tr>
+  <td>Spiros Spo<span class="highlight-letters">k</span>ane</td>
+  <td>sra</td>
+  <td>adm</td>
+  <td>O10</td>
+  <td>k</td>
+</tr>
+</table>
+<p>
+  REAR ADMIRAL CRADOCK was, in answer to judge's inquiry, Sir Christopher "Kit" George Francis Maurice Cradock KCVO CB SGM, who went down with his ship when it sank at the Battle of Coronel during World War I. The answer the judge is looking for is that ship, the <i>HMS</i> ... what? <i><b>GOOD HOPE</b></i>.
+</p>
+<div>
+  <img src="{{ asset_url_for('above_your_pay_grade/solution-image-01.jpg') }}"/>
+</div>
+{% endblock %}
