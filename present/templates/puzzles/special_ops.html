@@ -67,6 +67,11 @@ You find the criminal's fantasy baseball notes. He might steal the shirt off you
 
 {% block puzzle_content_block %}
 <div>
+  <ul>
+    <li>All data is from the 2016 Major League regular season, and all statistical data is from <a href="http://fangraphs.com">fangraphs.com</a>.</li>
+    <li>Statistics are calculated only for players with a qualifying number of at bats.</li>
+    <li>Any fielding statistics are calculated using every position a player played, regardless of how few innings.</li>
+  </ul>
   <div id="stat-images">
         <span class="stats-header">Stats:</span><br/>
         <img src="{{ asset_url_for('special_ops/image01.jpg') }}"/>
