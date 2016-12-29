@@ -1,0 +1,100 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'thespians' %}
+{% block title_block %}Cabin Fever: Solution{% endblock %}
+{% block puzzle_name_block %}Cabin Fever: Solution{% endblock %}
+{% block byline %}By Greg Pliska, Justin Werfel, and Matt Gruskin{% endblock %}
+{% block solution %}DWARF SUMAC{% endblock %}
+
+{% block solution_content_block %}
+  <div>
+    <p>
+      This puzzle centers on <i>Cabin Pressure</i>, a BBC radio sitcom about a small
+      (one-plane) charter airline, MJN Air. Each of the 26 episodes is named for
+      a city beginning with a different letter of the alphabet. A recurring
+      element has the members of its crew playing small games, to pass the time
+      and/or compete with each other.
+    </p>
+    <p>
+      The puzzle gives a collection of ten mini-puzzles. Each is based on a game
+      played by one or more members of the crew in one episode. Solving each
+      mini-puzzle gives three letters; stringing all letters together gives the
+      phrase EPISODES MJN AIR PLAYED THESE GAMES. Identifying the relevant
+      episodes and concatenating their starting letters gives the final
+      answer, <b>DWARF SUMAC</b>.
+    </p>
+    <hr>
+    <p>
+      (D) Finding a workable set of slider values will get the cricket ball past
+      each of the three batsmen to hit the wicket; the number revealed on the
+      batsman's uniform indicates an index into the batsman's name, and the
+      number of stumps knocked down gives the ordering of the three letters
+      (EPI). In the episode &ldquo;Douz,&rdquo; the first officer plays cricket with the
+      members of a Scottish cricket team.
+    </p>
+    <p>
+      (W) These are famous quotations expressed in words of one syllable (&ldquo;Don't
+      worry about the world coming to an end today. It's already tomorrow in
+      Australia&rdquo;, Charles Schulz; &ldquo;All animals are equal, but some animals are
+      more equal than others&rdquo;, George Orwell; &ldquo;The greatest happiness is to know
+      the source of unhappiness&rdquo;, Fyodor Dostoevsky); the first letters of the
+      authors' names give SOD. In the episode &ldquo;Wokingham,&rdquo; the crew compete to
+      see who can go the longest speaking exclusively in words of one syllable.
+    </p>
+    <p>
+      (A) These cryptic clues indicate three famous Britons with the first name
+      Brian (Brian Eno, Brian Reffin Smith, Brian May); the first letters of
+      their last names give ESM. In the episode &ldquo;Abu Dhabi,&rdquo; the captain and
+      first officer play a game naming &ldquo;Brians of Britain.&rdquo;
+    </p>
+    <p>
+      (R) Drawing a line from each item on the left to the city that rhymes with
+      it on the right (fork/York; gnome/Rome; hibachi/Karachi; kidney/Sydney;
+      trombone/Cologne; Zima/Lima) results in intersections at three of the
+      letters: from top left to bottom right, JNA. In the episode &ldquo;Rotterdam,&rdquo;
+      the captain and first officer play a game of &ldquo;Through Customs&rdquo; with such
+      rhymes.
+    </p>
+    <img src="{{ asset_url_for('cabin_fever/solution_customs.png') }}" height="400px">
+    <p>
+      (F) The phrases describe titles of books missing their last letter: <i>The
+      Gift of the Mag(I)</i>, <i>The Silver Chai(R)</i>, <i>The World According to Gar(P)</i>. In
+      the episode &ldquo;Fitton,&rdquo; the crew plays &ldquo;Books That Sound More Interesting
+      with the Final Letter Knocked Off.&rdquo;
+    </p>
+    <p>
+      (S) These itineraries go from one city to another in rhyming pairs
+      (Chester to Leicester; Tehran to Amman; Petaluma to Yuma); the first
+      letters of the destination cities give LAY. In the episode &ldquo;St
+      Petersburg,&rdquo; the captain and first officer play a game of &ldquo;Rhyming
+      Journeys.&rdquo;
+    </p>
+
+    <p>
+      (U) The first two letters of each traveler's name are the symbol of an
+      element on the periodic table; taking the last initials of the three
+      corresponding to metals gives EDT. In the episode &ldquo;Uskerty,&rdquo; the steward
+      plays a &ldquo;game&rdquo; of seeing if the security gate can tell if someone is
+      carrying metal.
+    </p>
+    <p>
+      (M) The clue phrases point to filling in the blanks with HAYSTACK
+      MOUNTAIN, EASTER ISLAND STATUES, STAR WARS CANTINA; the first letters of
+      those answers give HES; the highlighted blanks in each one spell SANTA. In
+      the episode &ldquo;Molokai,&rdquo; the crew does a Secret Santa gift exchange.
+    </p>
+    <p>
+      (A) The &ldquo;word list&rdquo; gives a set of vessels, whose captains can be fit into
+      the criss-cross. The marked boxes in the result, from top to bottom, give
+      EGA. Through the episode &ldquo;Abu Dhabi,&rdquo; the first officer names famous
+      captains whom the plane's captain has never heard of.
+    </p>
+    <img src="{{ asset_url_for('cabin_fever/solution_captains.png') }}" height="400px">
+    <p>
+      (C) This cabin address incorporates passages from three Frank Sinatra
+      songs: &ldquo;My Way,&rdquo; &ldquo;Ever Homeward,&rdquo; and &ldquo;Strangers in the Night.&rdquo; The first
+      letters of those titles give MES. In the episode &ldquo;Cremona,&rdquo; the captain
+      and first officer give cabin addresses over the intercom using the lyrics
+      of Frank Sinatra songs.
+    </p>
+  </div>
+{% endblock %}
