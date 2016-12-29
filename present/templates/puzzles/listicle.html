@@ -1,0 +1,58 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}Listicle{% endblock %}
+{% block puzzle_name_block %}Listicle{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  #puzzle-content img {
+    padding: 10px;
+    width: 275px;
+  }
+</style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+The thespians' latest production is strange but very popular. It'll begin once the remaining cast member shows up.
+{% endblock %}
+
+{% block puzzle_content_block %}
+<div>
+  <table>
+    <tr>
+      <td><img src="{{ asset_url_for('listicle/image01.jpg') }}"></td>
+      <td><img src="{{ asset_url_for('listicle/image02.jpg') }}"></td>
+      <td><img src="{{ asset_url_for('listicle/image03.jpg') }}"></td>
+    </tr>
+    <tr>
+      <td><img src="{{ asset_url_for('listicle/image04.jpg') }}"></td>
+      <td><img src="{{ asset_url_for('listicle/image05.jpg') }}"></td>
+      <td><img src="{{ asset_url_for('listicle/image06.jpg') }}"></td>
+    </tr>
+    <tr>
+      <td><img src="{{ asset_url_for('listicle/image07.jpg') }}"></td>
+      <td><img src="{{ asset_url_for('listicle/image08.jpg') }}"></td>
+      <td><img src="{{ asset_url_for('listicle/image09.jpg') }}"></td>
+    </tr>
+    <tr>
+      <td><img src="{{ asset_url_for('listicle/image10.jpg') }}"></td>
+      <td><img src="{{ asset_url_for('listicle/image11.jpg') }}"></td>
+      <td><img src="{{ asset_url_for('listicle/image12.jpg') }}"></td>
+    </tr>
+    <tr>
+      <td><img src="{{ asset_url_for('listicle/image13.jpg') }}"></td>
+      <td><img src="{{ asset_url_for('listicle/image14.jpg') }}"></td>
+      <td><img src="{{ asset_url_for('listicle/image15.jpg') }}"></td>
+    </tr>
+    <tr>
+      <td><img src="{{ asset_url_for('listicle/image16.jpg') }}"></td>
+      <td><img src="{{ asset_url_for('listicle/image17.jpg') }}"></td>
+      <td><img src="{{ asset_url_for('listicle/image18.jpg') }}"></td>
+    </tr>
+    <tr>
+      <td><img src="{{ asset_url_for('listicle/image19.jpg') }}"></td>
+      <td><img src="{{ asset_url_for('listicle/image20.jpg') }}"></td>
+      <td><img src="{{ asset_url_for('listicle/image21.jpg') }}"></td>
+    </tr>
+  </table>
+</div>
+{% endblock %}
