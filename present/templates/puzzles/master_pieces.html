@@ -1,0 +1,55 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}Master Pieces{% endblock %}
+{% block puzzle_name_block %}Master Pieces{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  img {
+    width: 600px;
+    height: auto;
+  }
+
+  .i {
+    text-align: center;
+  }
+</style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+The Wizard admires the artistry with which modern magicians assemble their spell components.
+{% endblock %}
+
+{% block puzzle_content_block %}
+<div>
+  <div class="i">
+    <a href="{{ asset_url_for('master_pieces/image1.jpg') }}"><img src="{{ asset_url_for('master_pieces/image1.jpg') }}"></a>
+  </div>
+  <div class="i">
+    <a href="{{ asset_url_for('master_pieces/image2.jpg') }}"><img src="{{ asset_url_for('master_pieces/image2.jpg') }}"></a>
+  </div>
+  <div class="i">
+    <a href="{{ asset_url_for('master_pieces/image3.jpg') }}"><img src="{{ asset_url_for('master_pieces/image3.jpg') }}"></a>
+  </div>
+  <div class="i">
+    <a href="{{ asset_url_for('master_pieces/image4.jpg') }}"><img src="{{ asset_url_for('master_pieces/image4.jpg') }}"></a>
+  </div>
+  <div class="i">
+    <a href="{{ asset_url_for('master_pieces/image5.jpg') }}"><img src="{{ asset_url_for('master_pieces/image5.jpg') }}"></a>
+  </div>
+  <div class="i">
+    <a href="{{ asset_url_for('master_pieces/image6.jpg') }}"><img src="{{ asset_url_for('master_pieces/image6.jpg') }}"></a>
+  </div>
+  <div class="i">
+    <a href="{{ asset_url_for('master_pieces/image7.jpg') }}"><img src="{{ asset_url_for('master_pieces/image7.jpg') }}"></a>
+  </div>
+  <div class="i">
+    <a href="{{ asset_url_for('master_pieces/image8.jpg') }}"><img src="{{ asset_url_for('master_pieces/image8.jpg') }}"></a>
+  </div>
+  <div class="i">
+    <a href="{{ asset_url_for('master_pieces/image9.jpg') }}"><img src="{{ asset_url_for('master_pieces/image9.jpg') }}"></a>
+  </div>
+  <div class="i">
+    <a href="{{ asset_url_for('master_pieces/image10.jpg') }}"><img src="{{ asset_url_for('master_pieces/image10.jpg') }}"></a>
+  </div>
+</div>
+{% endblock %}
