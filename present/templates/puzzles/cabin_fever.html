@@ -1,0 +1,228 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}Cabin Fever{% endblock %}
+{% block puzzle_name_block %}Cabin Fever{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    #gameContainer {
+      position: relative;
+    }
+    #game {
+      border: 1px solid black;
+    }
+    #pitchControls {
+      position: absolute;
+      top: 450px;
+      left: 500px;
+      padding: 8px;
+      border: 1px solid black;
+    }
+    .leftLabel {
+      text-align: right;
+    }
+    #bowlButton {
+      width: 100%;
+    }
+    #velocity, #angle, #spin {
+      width: 100px;
+    }
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    ul.s li {
+      margin-bottom: 1em;
+    }
+    div.r {
+      display: flex;
+      justify-content: space-between;
+    }
+    div.g {
+      display: flex;
+      align-items: center;
+    }
+  </style>
+  <script src="{{ asset_url_for('cabin_fever/isomer.min.js') }}"></script>
+  <script src="{{ asset_url_for('cabin_fever/game.js') }}"></script>
+  <script>
+    window.onload = function() {
+      initPuzzle();
+    };
+  </script>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+  The traveling thespians have lots of ways to amuse themselves on long trips.
+{% endblock %}
+
+{% block puzzle_content_block %}
+  <div>
+    <hr>
+    <div id="gameContainer">
+      <canvas width="800" height="600" id="game"></canvas>
+      <div id="pitchControls">
+        <table>
+          <tr>
+            <td>Speed:</td>
+            <td class="leftLabel">slow</td>
+            <td><input type="range" min="0.5" max="0.9" step="0.02" id="velocity"></td>
+            <td>fast</td>
+          </tr>
+          <tr>
+            <td>Angle:</td>
+            <td class="leftLabel">L</td>
+            <td><input type="range" min="-0.5" max="0.5" step="0.05" id="angle"></td>
+            <td>R</td>
+          </tr>
+          <tr>
+            <td>Spin:</td>
+            <td class="leftLabel">CCW</td>
+            <td><input type="range" min="-1.5" max="1.5" step="0.1" id="spin"></td>
+            <td>CW</td>
+          </tr>
+        </table>
+        <button id="bowlButton" onclick="onBowlClick()">Bowl</button>
+      </div>
+    </div>
+    <hr>
+    <ul class="s">
+      <li>
+        &ldquo;Don&rsquo;t fear that the world might end this day. It&rsquo;s
+        the next day right now, in the land named as the south land.&rdquo;
+      </li>
+      <li>
+        &ldquo;All beasts are the same, but some beasts are more the same than
+        the rest.&rdquo;
+      </li>
+      <li>
+        &ldquo;The most deep joy is to know the source of what is not
+        joy.&rdquo;
+      </li>
+    </ul>
+    <hr>
+    <ul class="s">
+      <li>Reviewed one composer of ambient music</li>
+      <li>Metalworker is 1987 winner of the Prix Ars Electronica</li>
+      <li>Emma Young embraces Queen&rsquo;s guitarist</li>
+    </ul>
+    <hr>
+    <a class="standard-link" href="{{ asset_url_for('cabin_fever/image01.png') }}">[Click to enlarge]</a>
+    <a href="{{ asset_url_for('cabin_fever/image01.png') }}">
+      <img src="{{ asset_url_for('cabin_fever/image01.png') }}" width="900">
+    </a>
+    <hr>
+    <ul class="s">
+      <li>
+        O. Henry story about a young couple with very little money who buy
+        themselves a subscription to Ladies&rsquo; Home Journal for Christmas.
+      </li>
+      <li>
+        C.S. Lewis abandons his Christian symbolism for something more ancient
+        in this novel about Aslan&rsquo;s precious-metal necklace that says
+        &ldquo;life&rdquo;.
+      </li>
+      <li>
+        This book looks at writing, wrestling, and sex&mdash;three of John
+        Irving&rsquo;s favorite subjects&mdash;as seen through the eyes of
+        elongated, ganoid-scaled fish.
+      </li>
+    </ul>
+    <hr>
+    <p><i>&ldquo;Destination, please:&rdquo;</i></p>
+    <div class="r">
+      <div>
+        <a class="standard-link" href="{{ asset_url_for('cabin_fever/image02.jpg') }}">[Click to enlarge]</a><br>
+        <a href="{{ asset_url_for('cabin_fever/image02.jpg') }}">
+          <img src="{{ asset_url_for('cabin_fever/image02.jpg') }}" width="280">
+        </a>
+      </div>
+      <div>
+        <a class="standard-link" href="{{ asset_url_for('cabin_fever/image03.jpg') }}">[Click to enlarge]</a><br>
+        <a href="{{ asset_url_for('cabin_fever/image03.jpg') }}">
+          <img src="{{ asset_url_for('cabin_fever/image03.jpg') }}" width="280">
+        </a>
+      </div>
+      <div>
+        <a class="standard-link" href="{{ asset_url_for('cabin_fever/image04.jpg') }}">[Click to enlarge]</a><br>
+        <a href="{{ asset_url_for('cabin_fever/image04.jpg') }}">
+          <img src="{{ asset_url_for('cabin_fever/image04.jpg') }}" width="280">
+        </a>
+      </div>
+    </div>
+    <hr>
+    <p>As the travelers pass through the security gate, it beeps periodically.</p>
+    <ul>
+      <li>Agnes E.
+      <li>Arlene S.
+      <li>Bruce T.
+      <li>Clyde N.
+      <li>Felicity D.
+      <li>Helen E.
+      <li>Kristen M.
+      <li>Neville E.
+      <li>Nils T.
+      <li>Serena L.
+      <li>Xerxes E.
+    </ul>
+    <hr>
+    <ul>
+      <li>
+        Craft school on Deer Isle, Maine:<br>
+        <pre>_ _ _ _ _ _ _ _   _ _ _ _ _ _ _ _
+      *   *             * * *</pre>
+      </li>
+      <li>Moai:<br>
+        <pre>_ _ _ _ _ _   _ _ _ _ _ _   _ _ _ _ _ _ _
+    *               * *       * *</pre>
+      </li>
+      <li>
+        Mos Eisley bar, and song parodying &ldquo;Copacabana&rdquo;:<br>
+        <pre>_ _ _ _   _ _ _ _   _ _ _ _ _ _ _
+*           *           * *     *</pre>
+      </li>
+    </ul>
+    <hr>
+    <div class="g">
+      <div>
+        <ul>
+          <li>Pequod
+          <li>Bounty
+          <li>Santa Maria
+          <li>Endeavour
+          <li>Golden Hind
+          <li>Walrus
+          <li>Karaboudjan
+          <li>Jolly Roger
+          <li>Treasure House
+          <li>Wind Song
+          <li>Satisfaction
+          <li>Nautilus
+          <li>Black Pig
+          <li>Caine
+          <li>Serenity
+          <li>Millennium Falcon
+          <li>Black Pearl
+          <li>Balliol College
+        </ul>
+      </div>
+      <div>
+        <a class="standard-link" href="{{ asset_url_for('cabin_fever/image05.png') }}">[Click to enlarge grid]</a><br>
+        <a href="{{ asset_url_for('cabin_fever/image05.png') }}">
+          <img src="{{ asset_url_for('cabin_fever/image05.png') }}" width="400">
+        </a>
+      </div>
+    </div>
+    <hr>
+    <p>
+      &ldquo;Good evening, ladies and gentlemen. Thank you for joining us on our
+      flight this evening. We&rsquo;ve planned each charted course, each careful
+      step along the byway; and more, much more than this, should have you
+      arriving at your destination by 8:35 PM local time. If this will be your
+      final destination, we look forward to delivering you to the warm embraces
+      and friendly faces, saying welcome home. We hope you enjoy your trip with
+      us, from the moment when we said our first hello, to your final
+      deplaning. Cabin crew, please prepare for takeoff.&rdquo;
+    </p>
+    <hr>
+  </div>
+{% endblock %}
