@@ -1,0 +1,84 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'cube' %}
+{% block title_block %}Horse Code: Solution{% endblock %}
+{% block puzzle_name_block %}Horse Code: Solution{% endblock %}
+{% block byline %}By Dave Savitt{% endblock %}
+{% block solution %}DECOYS{% endblock %}
+
+{% block solution_content_block %}
+  <div>
+    <p>
+      The unusual sounds shed light on the ancient mystery: What Does the Fox
+      Say?
+    </p>
+    <p>
+      The plaintext consists of Ylvis's proposals for what the fox may say:
+    </p>
+    <hr>
+    Ring-ding-ding-ding-dingeringeding!<br>
+    Gering-ding-ding-ding-dingeringeding!<br>
+    Gering-ding-ding-ding-dingeringeding!<br>
+    <br>
+    Wa-pa-pa-pa-pa-pa-pow!<br>
+    Wa-pa-pa-pa-pa-pa-pow!<br>
+    Wa-pa-pa-pa-pa-pa-pow!<br>
+    <br>
+    Hatee-hatee-hatee-ho!<br>
+    Hatee-hatee-hatee-ho!<br>
+    Hatee-hatee-hatee-ho!<br>
+    <br>
+    Joff-tchoff-tchoffo-tchoffo-tchoff!<br>
+    Tchoff-tchoff-tchoffo-tchoffo-tchoff!<br>
+    Joff-tchoff-tchoffo-tchoffo-tchoff!<br>
+    <br>
+    Jacha-chacha-chacha-chow!<br>
+    Chacha-chacha-chacha-chow!<br>
+    Chacha-chacha-chacha-chow!<br>
+    <br>
+    Fraka-kaka-kaka-kaka-kow!<br>
+    Fraka-kaka-kaka-kaka-kow!<br>
+    Fraka-kaka-kaka-kaka-kow!<br>
+    <br>
+    A-hee-ahee ha-hee!<br>
+    A-hee-ahee ha-hee!<br>
+    A-hee-ahee ha-hee!<br>
+    <br>
+    A-oo-oo-oo-ooo!<br>
+    Woo-oo-oo-ooo!<br>
+    <hr>
+
+    <p>
+      The plaintext has been encrypted using a substitution cipher. The
+      ciphertext has been written in Morse code (since the fox, meeting a
+      friendly horse, may communicate in Mo-o-o-o-orse). The hyphen (-....-) and
+      exclamation point (-.-.--) have also been encoded, and all inter-element
+      gaps between letters have been removed (the space between ‘A-hee-ahee’ and
+      ‘ha-hee’ has been left in).
+    </p>
+    <p>
+      Once you have realized how the cipher text comes from the song, it is
+      possible to deduce the substitution key. For instance, the next-to-last
+      line tells you what stand for ‘a’ and ‘o’, and then these can be used to
+      make other deductions. The whole key can be deduced in this manner except
+      that the letters ‘i’ and ’n’ always occur in the plaintext together as
+      'in', which encodes as ‘---..’. There are four ways to split this up.
+    </p>
+    <p>
+      - / --.. = T/Z<br>
+      -- / -.. = M/D<br>
+      --- / .. = O/I<br>
+      ---. / . = [no letter]/E
+    </p>
+    <p>
+      But by this point you will have found that T,Z,O,I,E are already used in
+      the cipher alphabet, so we must have plaintext i = ciphertext M and
+      plaintext n = ciphertext D. The full substitution key, ordered by
+      plaintext letter, is as follows.
+    </p>
+    <pre>abcdefghijklmnopqrstuvwxyz    [plaintext]
+H*ARKZUBMIT**DEC*O*Y**S***    [ciphertext]</pre>
+    <p>
+      The answer is <b>DECOYS</b>.
+    </p>
+  </div>
+{% endblock %}
