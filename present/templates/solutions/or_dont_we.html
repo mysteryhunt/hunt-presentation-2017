@@ -1,0 +1,102 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'linguist' %}
+{% block title_block %}...Or Don't We?: Solution{% endblock %}
+{% block puzzle_name_block %}...Or Don't We?: Solution{% endblock %}
+{% block byline %}By Justin Werfel{% endblock %}
+{% block solution %}MAIL{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    ul {
+      list-style-type: none;
+    }
+  </style>
+{% endblock %}
+
+{% block solution_content_block %}
+  <div>
+    <p>
+      Fill in the bookcase according to each book's top-level classification in
+      the Dewey Decimal System. (The puzzle title implies "Do We"; "class"
+      refers to the designation for the top-level categories in the Dewey
+      Decimal System, and the labels on the bookcase point toward ten categories
+      designated by three digits, of which only the first is relevant; the text
+      and bookcase suggest using the books to fill in the grid.)  Classify each
+      book (either by using the Dewey Decimal System directly, which doesn't
+      require identifying the books precisely in all cases, or by just looking
+      the classification up online if you insist); for each pair, fill in the
+      grid cell whose row corresponds to the first book's class and whose column
+      corresponds to the second's.
+    </p>
+    <img src="{{ asset_url_for('or_dont_we/solution.png') }}" width="400">
+    <p>
+      ("Letters" in the flavortext confirms both the letters spelled out by the
+      bookcase and the answer itself.)
+    </p>
+    <p>The books are as follows:</p>
+    <p>Left column:</p>
+    <ul>
+      <li>300: Bowling Alone (Robert D. Putnam)</li>
+      <li>500: A Brief History of Time (Stephen Hawking)</li>
+      <li>900: Bury My Heart at Wounded Knee (Dee Brown)</li>
+      <li>200: The Confessions of St. Augustine</li>
+      <li>800: The Count of Monte Cristo (Alexandre Dumas)</li>
+      <li>100: Critique of Pure Reason (Immanual Kant)</li>
+      <li>200: Dictionary of Hindu Lore and Legend</li>
+      <li>400: Eats Shoots and Leaves (Lynne Truss)</li>
+      <li>000: Foundations of Library and Information Science (Richard E. Rubin)</li>
+      <li>300: Freakonomics (Steven D. Levitt and Stephen J. Dubner)</li>
+      <li>600: Gray's Anatomy</li>
+      <li>100: The Interpretation of Dreams (Sigmund Freud)</li>
+      <li>600: Introductory Mining Engineering</li>
+      <li>200: The Jew in the Lotus (Rodger Kamenetz)</li>
+      <li>700: Juggling for the Complete Klutz (John Cassidy and B. C. Rimbeaux)</li>
+      <li>100: The Last Days of Socrates (Plato)</li>
+      <li>900: Long Walk to Freedom (Nelson Mandela)</li>
+      <li>100: Meditations on First Philosophy (Rene Descartes)</li>
+      <li>400: Merriam-Webster's Collegiate Dictionary</li>
+      <li>300: Miss Manners' Guide to Excruciatingly Correct Behavior (Judith Martin)</li>
+      <li>800: Moby-Dick (Herman Melville)</li>
+      <li>700: The Negative (Ansel Adams)</li>
+      <li>000: Our Dumb Century (The Onion)</li>
+      <li>100: Psychology of the Unconscious (C. G. Jung)</li>
+      <li>300: The Rule of Law (Tom Bingham)</li>
+      <li>200: The Search for God at Harvard (Ari L. Goldman)</li>
+      <li>900: The Travels of Marco Polo</li>
+      <li>300: Why Johnny Can't Read (Rudolf Flesch)</li>
+      <li>200: World Religions (John Bowker)</li>
+    </ul>
+    <p>Right column:</p>
+    <ul>
+      <li>800: Pride and Prejudice (Jane Austen)</li>
+      <li>300: Collapse (Jared Diamond)</li>
+      <li>700: Escher on Escher: Exploring the Infinite</li>
+      <li>400: The Language Instinct (Steven Pinker)</li>
+      <li>700: On Architecture (Frank Lloyd Wright)</li>
+      <li>000: Merriam-Webster's Collegiate Encyclopedia</li>
+      <li>200: The Holy Qu'ran</li>
+      <li>600: The Way Things Work (David Macaulay)</li>
+      <li>400: Our Magnificent Bastard Tongue (John McWhorter)</li>
+      <li>000: Artificial Intelligence: A Modern Approach (Stuart Russell and Peter Norvig)</li>
+      <li>300: The Communist Manifesto (Karl Marx and Frederick Engels)</li>
+      <li>100: Thus Spoke Zarathustra (Friedrich Nietzsche)</li>
+      <li>700: Seaforms (Dale Chihuly)</li>
+      <li>600: Anthology for the New Millennium (Buckminster Fuller)</li>
+      <li>700: Dali</li>
+      <li>400: Syntactic Structures (Noam Chomsky)</li>
+      <li>800: The Complete Works of William Shakespeare</li>
+      <li>300: The Omnivore's Dilemma (Michael Pollan)</li>
+      <li>800: This Side of Paradise (F. Scott Fitzgerald)</li>
+      <li>400: 501 Spanish Verbs</li>
+      <li>300: The Tipping Point (Malcolm Gladwell)</li>
+      <li>300: Blackberry Winter (Margaret Mead)</li>
+      <li>000: The Book of Lost Books (Stuart Kelly)</li>
+      <li>700: Learning to Weave (Deborah Chandler)</li>
+      <li>600: How to Create a Mind (Ray Kurzweil)</li>
+      <li>800: The Adventures of Tom Sawyer (Mark Twain)</li>
+      <li>900: Quick Reference World Atlas (Rand McNally)</li>
+      <li>700: The World of the Dark Crystal (Brian Froud)</li>
+      <li>000: The C Programming Language (Kernighan and Ritchie)</li>
+    </ul>
+  </div>
+{% endblock %}
