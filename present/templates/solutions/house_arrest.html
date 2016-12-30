@@ -1,0 +1,138 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'criminal' %}
+{% block title_block %}House Arrest: Solution{% endblock %}
+{% block puzzle_name_block %}House Arrest: Solution{% endblock %}
+{% block byline %}By Jennifer Braun{% endblock %}
+{% block solution %}PAVING TILE{% endblock %}
+
+{% block solution_content_block %}
+  <div>
+    <p>
+      These are all paths through the 11 undergraduate dorms at MIT. Solvers
+      need to figure out which dorm is which and use the internet and the dorm
+      floor plans (available with Kerberos access at mit.edu) to trace the path
+      followed to the suspect’s room. Take the indicated numbers of the room,
+      convert to letters and sort by dorm name to spell the answer: <b>PAVING
+      TILE</b>.
+    </p>
+    <p>
+      “All points bulletin, we’re tracking the suspect in through the main
+      entrance. They made a left and are heading to the closest stairwell. Up
+      two floors, made a right out of the stairs, another right through the
+      first door, left at the end and a left into the stairs. Down three
+      floors. Left out of the stairs, through the door, a right and then a left
+      down the hallway, through a door and keeping straight to just before the
+      end and made a left into the stairs. Up two floors. Out of the stairs, and
+      diagonally right into the room across the hall. We’ve got them now!”<br>
+      <b>3</b><br>
+      <b>(Room 217 - Conference Room) McCormick - 7 - G</b>
+    </p>
+    <p>
+      “Criminal entered building through entrance closest to the desk. Made a
+      right and ran all the way down the hall and in the farthest door on the
+      right. In the door three doors on the right into the stairwell. Up two
+      floors. Made a left into the hall. Another left, through the door, a right
+      at the first junction then in the first door on the left. Down one floor,
+      out the door into the hallway, went right and another right at the
+      junction and then into the door of the room straight ahead at the end of
+      the hall. We’ve got them now!”<br>
+      <b>1, 2</b><br>
+      <b>(Room 206 - House 2) New House - 20 - T</b>
+    </p>
+    <p>
+      “Following suspect into the building through the main entrance, straight
+      up a small flight of stairs then around to the left and up another small
+      flight of stairs to the landing. Looks like they made a left through the
+      double doors. In pursuit up to the 3rd floor. Left through the door into
+      the hallway, then turning right, following the corridor, through the
+      lounge to the emergency stairwell at the end of the hall. Up two floors,
+      out into the hall and into the second double on the right. We’ve got them
+      now!”<br>
+      <b>2, 3</b><br>
+      <b>(Room 516) - Baker House - 16 - P</b>
+    </p>
+    <p>
+      “I’m following the suspect in the courtyard entrance to the lobby and
+      bearing left to the elevator. Looks like they took it up as far as they
+      could. Made a left out of the elevator, curved around to the left and down
+      one floor. They turned right out of the stairs, straight through a door,
+      following the hallway right then a left and a left into the first door on
+      the left... well, you gotta do what you gotta do. We’ve got them now!”<br>
+      <b>3</b><br>
+      <b>(Room 415 - Bathroom) Senior House - 5 - E</b>
+    </p>
+    <p>
+      “In pursuit of suspect heading in to the main entrance. Making a right, up
+      some stairs and then another right into a stairwell. Up two floors. Left
+      out of the stairs and straight down the hall and made a right into another
+      stairwell and up one floor. Left out of the stairs and down the corridor,
+      a right before the next set of stairs and straight through.  Left at the
+      end of the hall, through the door and in the room straight ahead. We’ve
+      got them now!”<br>
+      <b>2, 1</b><br>
+      <b>(Room 4101) Masseh Hall - 14 - N</b>
+    </p>
+    <p>
+      “Our suspect went down the outdoor stairs and has entered the main lobby
+      on the left.  Straight to the end, then a right down a long
+      corridor. Another right all the way through two doors to the next lobby
+      and up the stairs on the left until they stop. Out the door, make a left,
+      straight through another door, then in the second door on the right and
+      down the corridor. Right at the end of the hall and straight through two
+      doors and up one floor. Making a left out of the stairs, then a left at
+      the next hall, straight through the door, down the hall to the stairs on
+      the left. Into the stairwell, out of the stairwell and straight
+      ahead. They’re cornered! We’ve got them now!”<br>
+      <b>3</b><br>
+      <b>(Room 219 - Lounge, H Entry) MacGregor - 9 - I</b>
+    </p>
+    <p>
+      “Perpetrator has entered the building from the center entrance of the
+      right most courtyard on the river side. Made a left around the door and
+      down the hallway to the staircase on the left and went up one floor. They
+      made a left, straight into the old dining hall, around the columns,
+      another left, through a janitors closet, and jig left and straight down
+      the hall to the stairs on the right. Down one floor, a left out of the
+      stairs then a right down the hall, through the double doors, then
+      immediately made a right, heading around with the stairs on your left then
+      another right and a left into the stair well. Up three floors, made a
+      right into the corridor, around the corner, through the double doors and
+      in the first door on the right. We’ve got them now!”<br>
+      <b>2</b><br>
+      <b>(Suite 312) Burton Conner - 1 - A</b>
+    </p>
+    <p>
+      “Suspect has entered through the main door, headed straight to the left of
+      the desk, through the lounge, up the ramp and up the elevator to the 3rd
+      floor. Straight out of the elevator, a right at the end of the hall and in
+      the second door on the left past the stairs.  We’ve got them now!”<br>
+      <b>3</b><br>
+      <b>(Room 359) Next House - 9 - I</b>
+    </p>
+    <p>
+      “Tailing suspect in the right front entrance, turned right into the lounge
+      and through two doors to the back stairs. Up two floors, made a right out
+      of the stairs, following the corridor, through to the opposite side of the
+      building, left through the lounge, into the stairwell, down one floor, out
+      of the door on the right and into the second room on the left. We’ve got
+      them now!”<br>
+      <b>2, 3</b><br>
+      <b>(Room 212) Random Hall - 12 - L</b>
+    </p>
+    <p>
+      “The suspect entered the building through the door by the desk. They made
+      a quick left and went down one floor. Made a left then a quick left and
+      another left before a right through the door and straight down the
+      hall. Made a tight right 180 at the end and went up two floors. Suspect
+      made a left down the hall, through into the next section and in the fourth
+      room on the left. We’ve got them now!”<br>
+      <b>1, 3</b><br>
+      <b>(Room 212 - 2nd East, Bemis) East Campus - 22 - V</b>
+    </p>
+    <p>
+      “The suspect went into the front entrance and… you know what? No. I’m not
+      following them in there. Just no. That’s it. I’m done.”<br>
+      <b>Simmons</b> ❤
+    </p>
+  </div>
+{% endblock %}
