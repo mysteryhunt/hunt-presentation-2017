@@ -1,0 +1,91 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}You Blew It!{% endblock %}
+{% block puzzle_name_block %}You Blew It!{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    li {
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+    }
+  </style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+  When her grant proposals are rejected, the Chemist tends to react explosively.
+{% endblock %}
+
+{% block puzzle_content_block %}
+  <div>
+    <p>Come to Hunt HQ to pick up baking soda, vinegar, and other supplies.</p>
+    <h3>Rules</h3>
+    <p>
+      You must build a baking soda and vinegar volcano and demonstrate its
+      eruption (send us a video or schedule a visit from a Hunt official).
+    </p>
+    <p>
+      N represents the number of registered players on your team. sqrt(N) should
+      be rounded to the nearest integer.
+    </p>
+    <p>
+      To obtain a passing grade in the science fair, you must score N points
+      total according to the scoring rubric below. Please show HQ what points
+      you plan on claiming.
+    </p>
+    <p>
+      Each separate item can be claimed only once.  For example, you cannot
+      claim 20 points for running two instances of the ten-point item "a
+      would-be victim escapes".
+    </p>
+    <h3>Scoring</h3>
+    <ol>
+      <li>
+        For sqrt(N) points:  A volcano whose eruption knocks over sqrt(N) distinct objects representing "victims".
+        <ol type="a">
+          <li> For sqrt(N) bonus points: Each of the sqrt(N) victims is hand-decorated to represent a member of your team.
+        </ol>
+      </li>
+      <li>
+        For 5 points: A volcano whose lava breaches a dam or a levee. The structure should hold back the lava for at least 2 seconds before breaching; the failure must be set off by the lava or other automated internal mechanisms, not external intervention.
+        <ol type="a">
+          <li> For 5 bonus points: The dam holds back the <i>entire</I> lava outflow before failing.
+        </ol>
+      </li>
+      <li>
+        For 5 points:  A volcano that erupts at least 2 times, with the subseqent eruption set of by a simple trigger accessed from the edge of the model.  (A crank, a string, a button, etc.---not "pick up the baking soda box again")
+        <ol type="a">
+          <li> For 5 bonus points: Each of the repeated eruptions breaches another dam or levee.
+          <li> For 10 bonus points: The repeated eruptions are from a single crater.
+          <li> For 15 bonus points: The repeated eruptions are triggered by a time-delay mechanism with no specific human intervention.  (It is not "specific intervention" if the operator is performing some continuous action and the time-delayed 2nd eruption is one of the effects of this action.)
+        </ol>
+      </li>
+      <li>For 3 points: the model includes examples of sedimentary, igneous, AND metamorphic rock.
+      <li>For 3 points: The presenter provides estimates of the Reynolds number, Lockhart-Martinelli parameter, and Manning roughness coefficient of the lava flow.
+      <li>For 15 points each:
+        <ol type="a">
+          <li> Without the presenter's specific intervention, a would-be model victim who starts in the path of the lava makes an escape.
+          <li> The model includes a manometer capable of showing the presence of excess pressure in the vent, which the presenter should point out with a thematically-appropriate film quote.
+          <li> The lava follows a path that circles the vent 1.5 or more times.
+        </ol>
+      </li>
+      <li>For 30 points: Without the presenter's intervention, a group of <i>immobile</i> would-be victims is saved by a Rube Goldberg mechanism that redirects the lava flow; the final saving action must take place after the eruption has begun but before any of this victim-group has been knocked over.
+        <ol>
+          <li type="a">For 5 bonus points: the mechanism should include an object which occurs in the game "Mousetrap"
+        </ol>
+      </li>
+      <li>For 40 points: Characters from "Journey to the Center of the Earth" enter the depths of the model via one opening, then are ejected along with the lava via a different opening.
+      <li>For 70 points, do <i>either</i> of the following.   There can be multiple operator interventions to trigger multiple actions but they must all be mechanisms accessed from the edge of the model.
+        <ol type="a">
+          <li>The model recapitulates the main plot of the film "Dante's Peak" by representing, in order: two pre-eruption victims, the beginning of the eruption, the third victim (Ruth), the dam breach, the fourth victim (Paul), the protagonists escaping peril to shelter in a cave, the town's destruction, the protagonists' reemergence.
+            <ol type="i">
+              <li>For 20 bonus points, do the above without specific operator interventions as explained in rule in 3c.
+            </ol>
+          <li> The model creatively recapitulates the plot of the all-star 1980 Irwin Allen flop "When Time Ran Out", including four distinct events of your choosing.  The presenters should recite dialogue/narration accompanying the eruption, which must include actual lines of dialogue from the film and which must pass the Bechdel test.
+            <ol type="i">
+              <li>For 20 bonus points, do the above without specific operator interventions as explained in rule in 3c.
+            </ol>
+        </ol>
+      </li>
+    </ol>
+  </div>
+{% endblock %}
