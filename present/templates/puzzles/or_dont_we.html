@@ -1,0 +1,166 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}...Or Don't We?{% endblock %}
+{% block puzzle_name_block %}...Or Don't We?{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    div.p {
+      position: relative;
+    }
+    div.x {
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    div.r {
+      display: flex;
+      align-items: flex-end;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #ccc;
+      page-break-inside: avoid;
+    }
+    div.r img.l {
+      height: 400px;
+      padding-right: 10px;
+    }
+    div.r img.r {
+      width: 400px;
+    }
+  </style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+  The Linguist is a classy lady, and a woman of letters. Her collection of books
+  is a mess, with tattered covers and tumbled volumes; it might clear things up
+  to put them back in that bookcase.
+{% endblock %}
+
+{% block puzzle_content_block %}
+  <div class="p">
+    <div class="x">
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="900px" height="600px">
+        <line stroke-linecap="round" x1="5" y1="5" x2="700" y2="400" style="stroke:rgb(0,0,0);stroke-width:6" />
+        <line stroke-linecap="round" x1="700" y1="5" x2="5" y2="400" style="stroke:rgb(0,0,0);stroke-width:6" />
+      </svg>
+    </div>
+    <div class="r">
+      <img class="l" src="{{ asset_url_for('or_dont_we/pic01.png') }}">
+      <img class="r" src="{{ asset_url_for('or_dont_we/pic30.png') }}">
+    </div>
+    <div class="r">
+      <img class="l" src="{{ asset_url_for('or_dont_we/pic02.png') }}">
+      <img class="r" src="{{ asset_url_for('or_dont_we/pic31.png') }}">
+    </div>
+    <div class="r">
+      <img class="l" src="{{ asset_url_for('or_dont_we/pic03.png') }}">
+      <img class="r" src="{{ asset_url_for('or_dont_we/pic32.png') }}">
+    </div>
+    <div class="r">
+      <img class="l" src="{{ asset_url_for('or_dont_we/pic04.png') }}">
+      <img class="r" src="{{ asset_url_for('or_dont_we/pic33.png') }}">
+    </div>
+    <div class="r">
+      <img class="l" src="{{ asset_url_for('or_dont_we/pic05.png') }}">
+      <img class="r" src="{{ asset_url_for('or_dont_we/pic34.png') }}">
+    </div>
+    <div class="r">
+      <img class="l" src="{{ asset_url_for('or_dont_we/pic06.png') }}">
+      <img class="r" src="{{ asset_url_for('or_dont_we/pic35.png') }}">
+    </div>
+    <div class="r">
+      <img class="l" src="{{ asset_url_for('or_dont_we/pic07.png') }}">
+      <img class="r" src="{{ asset_url_for('or_dont_we/pic36.png') }}">
+    </div>
+    <div class="r">
+      <img class="l" src="{{ asset_url_for('or_dont_we/pic08.png') }}">
+      <img class="r" src="{{ asset_url_for('or_dont_we/pic37.png') }}">
+    </div>
+    <div class="r">
+      <img class="l" src="{{ asset_url_for('or_dont_we/pic09.png') }}">
+      <img class="r" src="{{ asset_url_for('or_dont_we/pic38.png') }}">
+    </div>
+    <div class="r">
+      <img class="l" src="{{ asset_url_for('or_dont_we/pic10.png') }}">
+      <img class="r" src="{{ asset_url_for('or_dont_we/pic39.png') }}">
+    </div>
+    <div class="r">
+      <img class="l" src="{{ asset_url_for('or_dont_we/pic11.png') }}">
+      <img class="r" src="{{ asset_url_for('or_dont_we/pic40.png') }}">
+    </div>
+    <div class="r">
+      <img class="l" src="{{ asset_url_for('or_dont_we/pic12.png') }}">
+      <img class="r" src="{{ asset_url_for('or_dont_we/pic41.png') }}">
+    </div>
+    <div class="r">
+      <img class="l" src="{{ asset_url_for('or_dont_we/pic13.png') }}">
+      <img class="r" src="{{ asset_url_for('or_dont_we/pic42.png') }}">
+    </div>
+    <div class="r">
+      <img class="l" src="{{ asset_url_for('or_dont_we/pic14.png') }}">
+      <img class="r" src="{{ asset_url_for('or_dont_we/pic43.png') }}">
+    </div>
+    <div class="r">
+      <img class="l" src="{{ asset_url_for('or_dont_we/pic15.png') }}">
+      <img class="r" src="{{ asset_url_for('or_dont_we/pic44.png') }}">
+    </div>
+    <div class="r">
+      <img class="l" src="{{ asset_url_for('or_dont_we/pic16.png') }}">
+      <img class="r" src="{{ asset_url_for('or_dont_we/pic45.png') }}">
+    </div>
+    <div class="r">
+      <img class="l" src="{{ asset_url_for('or_dont_we/pic17.png') }}">
+      <img class="r" src="{{ asset_url_for('or_dont_we/pic46.png') }}">
+    </div>
+    <div class="r">
+      <img class="l" src="{{ asset_url_for('or_dont_we/pic18.png') }}">
+      <img class="r" src="{{ asset_url_for('or_dont_we/pic47.png') }}">
+    </div>
+    <div class="r">
+      <img class="l" src="{{ asset_url_for('or_dont_we/pic19.png') }}">
+      <img class="r" src="{{ asset_url_for('or_dont_we/pic48.png') }}">
+    </div>
+    <div class="r">
+      <img class="l" src="{{ asset_url_for('or_dont_we/pic20.png') }}">
+      <img class="r" src="{{ asset_url_for('or_dont_we/pic49.png') }}">
+    </div>
+    <div class="r">
+      <img class="l" src="{{ asset_url_for('or_dont_we/pic21.png') }}">
+      <img class="r" src="{{ asset_url_for('or_dont_we/pic50.png') }}">
+    </div>
+    <div class="r">
+      <img class="l" src="{{ asset_url_for('or_dont_we/pic22.png') }}">
+      <img class="r" src="{{ asset_url_for('or_dont_we/pic51.png') }}">
+    </div>
+    <div class="r">
+      <img class="l" src="{{ asset_url_for('or_dont_we/pic23.png') }}">
+      <img class="r" src="{{ asset_url_for('or_dont_we/pic52.png') }}">
+    </div>
+    <div class="r">
+      <img class="l" src="{{ asset_url_for('or_dont_we/pic24.png') }}">
+      <img class="r" src="{{ asset_url_for('or_dont_we/pic53.png') }}">
+    </div>
+    <div class="r">
+      <img class="l" src="{{ asset_url_for('or_dont_we/pic25.png') }}">
+      <img class="r" src="{{ asset_url_for('or_dont_we/pic54.png') }}">
+    </div>
+    <div class="r">
+      <img class="l" src="{{ asset_url_for('or_dont_we/pic26.png') }}">
+      <img class="r" src="{{ asset_url_for('or_dont_we/pic55.png') }}">
+    </div>
+    <div class="r">
+      <img class="l" src="{{ asset_url_for('or_dont_we/pic27.png') }}">
+      <img class="r" src="{{ asset_url_for('or_dont_we/pic56.png') }}">
+    </div>
+    <div class="r">
+      <img class="l" src="{{ asset_url_for('or_dont_we/pic28.png') }}">
+      <img class="r" src="{{ asset_url_for('or_dont_we/pic57.png') }}">
+    </div>
+    <div class="r">
+      <img class="l" src="{{ asset_url_for('or_dont_we/pic29.png') }}">
+      <img class="r" src="{{ asset_url_for('or_dont_we/pic58.png') }}">
+    </div>
+
+    <table style="margin-left:auto; margin-right:auto; margin-top: 50px;"><tr><td style="width=100%; horizontal-align:right;"><img style="display:block;" height="600px" src="{{ asset_url_for('or_dont_we/pic59.png') }}"></td></tr></table>
+  </div>
+{% endblock %}
