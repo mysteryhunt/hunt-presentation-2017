@@ -13,7 +13,7 @@ def handle_request_exception(error):
 @app.context_processor
 def utility_processor():
     def puzzle_url_for(puzzle_id):
-        if puzzle_id in ['fighter','wizard','cleric','linguist','economist','chemist','dynast','dungeon'
+        if puzzle_id in ['fighter','wizard','cleric','linguist','economist','chemist','dynast','dungeon',
                 'thespians','bridge','criminal','minstrels','cube','warlord']:
             return '/round/' + puzzle_id
         return '/puzzle/' + puzzle_id
