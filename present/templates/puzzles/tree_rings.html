@@ -1,0 +1,126 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}Tree Rings{% endblock %}
+{% block puzzle_name_block %}Tree Rings{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    div.clues {
+      -webkit-column-count: 2; /* Chrome, Safari, Opera */
+      -moz-column-count: 2; /* Firefox */
+      column-count: 2;
+      font-size: 0.7em;
+      margin-top: 20px;
+    }
+    div.clues li {
+      margin-bottom: 8px;
+      -webkit-column-break-inside: avoid;
+                page-break-inside: avoid;
+                     break-inside: avoid;
+    }
+  </style>
+  <script src="{{ asset_url_for('tree_rings/target.js') }}"></script>
+  <script src="{{ asset_url_for('tree_rings/treerings.js') }}"></script>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+  A stump near the bridge is surrounded by small objects, connected to some kind
+  of local ceremony.
+{% endblock %}
+
+{% block puzzle_content_block %}
+  <div>
+    <table class="r">
+      <tr>
+        <td>
+          <svg id="tree" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            Sorry, your browser does not support inline SVG.
+          </svg>
+        </td>
+        <td style="padding-top: 50px">
+          <svg id="target" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            Sorry, your browser does not support inline SVG.
+          </svg>
+          <div id="submitter"><br>Answer: <input id="answer" type="text" autofocus> <button onclick="submit();">Submit</button></div>
+        </td>
+      </tr>
+    </table>
+    <div class="clues">
+      <ol id="clues">
+        <li>
+          This entry in the bull's-eye grid is the title of a number in a
+          movie musical; take the first number in that musical and change one
+          bigram to TA to get the answer.
+        </li>
+        <li>
+          This entry, when placed inside a Mexican music style followed by
+          two consecutive letters of the alphabet, becomes a person whose
+          field of renown can have its fifth letter changed to become the
+          answer.
+        </li>
+        <li>
+          This entry has a nine-letter synonym with alternating vowels and
+          consonants; do what that word suggests to its vowels, then insert
+          the same vowel three times to get the answer.
+        </li>
+        <li>
+          This entry's antonym, when followed by two words that are antonyms
+          of each other, becomes the two-word name of a fictional school whose
+          TV show is the answer.
+        </li>
+        <li>
+          The letters of this entry's third most populous city appear in
+          order (though not necessarily consecutively) in the two-word name of a
+          notable 2016 athlete whose event is the answer.
+        </li>
+        <li>
+          This entry is the title of a <i>Star Trek: Voyager</i> seventh-season
+          episode which preceded an episode whose title was also the title of
+          a song that won a 2012 Grammy over another song whose title contains
+          the three-letter title of a TV show whose female star is the answer.
+        </li>
+        <li>
+          This entry, after you move its last letter to the seventh position
+          in the word and then change the penultimate letter to an A, becomes
+          a family of an animal whose homophone is the answer.
+        </li>
+        <li>
+          This entry is a band whose biggest hit's lyrics mention another
+          band who had a #1 hit whose title appears in the lyrics of a 1968
+          song that is the answer.
+        </li>
+        <li>
+          This entry is a city that has a radio station whose last letter
+          can be changed to a 3 to form a chemical compound whose common name
+          can have its third letter changed to an IN to get the answer.
+        </li>
+        <li>
+          This entry is the surname of a person who hosted a game show that
+          contains six consecutive letters that can anagram into a 2013
+          British thriller and which can be replaced with the name of a bird
+          from "Angry Birds" to form the answer.
+        </li>
+        <li>
+          This entry is a musical, one of whose original male stars has a
+          first name that, when added to the letters ABCDE and anagrammed, forms
+          a two-word scientific phrase that is the answer.
+        </li>
+        <li>
+          This entry is a brand name for a food that can have its middle
+          letter changed to form the last name of a literary hero of a story who
+          became this (according to SparkNotes), which is the answer.
+        </li>
+        <li>
+          This entry is the start of a minor planet numbered in the 3400s;
+          the remainder of that minor planet's name, when preceded by the name
+          (minus one diagonal line) of a minor planet numbered in the 3800s,
+          is the answer.
+        </li>
+        <li>
+          These two entries, placed together to form a phrase, form a ship
+          that appears in a place whose tenth word can have two of its vowels
+          changed to form the answer.
+        </li>
+      </ol>
+    </div>
+  </div>
+{% endblock %}
