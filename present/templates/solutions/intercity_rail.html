@@ -1,0 +1,83 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'bridge' %}
+{% block title_block %}Intercity Rail: Solution{% endblock %}
+{% block puzzle_name_block %}Intercity Rail: Solution{% endblock %}
+{% block byline %}By Philip Z Loh and Greg Pliska{% endblock %}
+{% block solution %}MUSSOLINI{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    table.t {
+      padding: 4px;
+      font-size: 0.75em;
+    }
+  </style>
+{% endblock %}
+
+{% block solution_content_block %}
+  <div>
+    <p>
+      Solvers are given a list of metro station names, and a quick glance
+      reveals that they must be from different cities around the world (a
+      reasonable conclusion given the existence of Arabic and Chinese
+      characters). Solvers go to town finding possible world cities that these
+      stations could be located in, and some are, by design, ambiguous (e.g.,
+      the Phoenix station should ultimately be placed in
+      Singapore!). Eventually, solvers find that there is only one way to place
+      every station on the map such that the station's line color and unique
+      markings (e.g., there is an Amtrak connection at Boston's Back Bay and an
+      R-line connection between Madrid's Príncipe Pío and Ópera) match that in
+      real life and such that each city is spatially contiguous on the map.
+    </p>
+    <p>
+      That map is presented here:
+      <a class="standard-link" href="{{ asset_url_for('intercity_rail/mapSolution.pdf') }}">
+        The map (solution)
+      </a>
+    </p>
+    <p>
+      Solvers then use the number of stations a city has on each line to index
+      into the city's name for a letter (e.g., Singapore gives both a blue N and
+      a gray E). Chaining letters together by line, traveling in the direction
+      of the "spatial incontiguity" arrows, yields a word. Reading the words by
+      line in resistor color order results in the phrase "HE MADE THE TRAINS RUN
+      ON TIME SURNAME."
+      That <a href="http://www.snopes.com/history/govern/trains.asp">mythical
+      man</a> is the answer to the puzzle, <b>MUSSOLINI</b>.
+    </p>
+    <table class="t">
+      <tr><th style="min-width: 100px">"LINE"</th><th>NO.</th><th>LETTER</th><th style="min-width: 150px">CITY</th><th>INDEX</th><th>STATIONS</th></tr>
+      <tr><td>1 BROWN</td><td>1</td><td>H</td><td>SHANGHAI</td><td>2</td><td> 枫桥路, 曹杨路</td></tr>
+      <tr><td></td><td>2</td><td>E</td><td>TAIPEI</td><td>5</td><td>松山機場, 中山國中, 南京復興, 忠孝復興, 大安</td></tr>
+      <tr><td>2 RED</td><td>3</td><td>M</td><td>HAMBURG</td><td>3</td><td>Burgstraße, Berliner Tor, Hauptbahnhof</td></tr>
+      <tr><td></td><td>4</td><td>A</td><td>CHICAGO</td><td>5</td><td>Fullerton, North/Clybourn, Clark/Division, Chicago, Grand</td></tr>
+      <tr><td></td><td>5</td><td>D</td><td>MADRID</td><td>6</td><td>Noviciado, Santo Domingo, Ópera, Sol, Sevilla, Banco de España</td></tr>
+      <tr><td></td><td>6</td><td>E</td><td>BUENOS AIRES</td><td>3</td><td>Dorrego, Malabia, Ángel Gallardo</td></tr>
+      <tr><td>3 ORANGE</td><td>7</td><td>T</td><td>BOSTON</td><td>4</td><td>Roxbury Crossing, Ruggles, Mass. Ave, Back Bay</td></tr>
+      <tr><td></td><td>8</td><td>H</td><td>PHILADELPHIA</td><td>2</td><td>Walnut-Locust, Lombard-South</td></tr>
+      <tr><td></td><td>9</td><td>E</td><td>ST. PETERSBURG</td><td>4</td><td>Ли́говский проспéкт, Достоéвская, Спáсская, Театра́льная</td></tr>
+      <tr><td>4 YELLOW</td><td>10</td><td>T</td><td>AMSTERDAM</td><td>4</td><td>Spaklerweg,  Van Der Madeweg, Station Duivendrecht, Strandvliet</td></tr>
+      <tr><td></td><td>11</td><td>R</td><td>FRANKFURT</td><td>2</td><td>Nieder-Eschbach, Bonames Mitte</td></tr>
+      <tr><td></td><td>12</td><td>A</td><td>SHANGHAI</td><td>3</td><td>曹杨路, 金沙江路, 中山公园</td></tr>
+      <tr><td></td><td>13</td><td>I</td><td>MADRID</td><td>5</td><td>Sol, Callao, Plaza de España, Ventura Rodríguez, Argüelles</td></tr>
+      <tr><td></td><td>14</td><td>N</td><td>TORONTO</td><td>5</td><td>Lawrence, Eglinton, Davisville, St Clair, Summerhill</td></tr>
+      <tr><td></td><td>15</td><td>S</td><td>WASHINGTON</td><td>3</td><td>L'Enfant Plaza, Pentagon, Pentagon City</td></tr>
+      <tr><td>5 GREEN</td><td>16</td><td>R</td><td>CAIRO</td><td>4</td><td>Attaba العتبة, Nasser جمال عبدالناصر, Maspero ماسبيرو, Zamalek الزمالك</td></tr>
+      <tr><td></td><td>17</td><td>U</td><td>HAMBURG</td><td>5</td><td>Hauptbahnhof, Berliner Tor, Landwehr, Hasselbrook, Wandsbeker Chaussee</td></tr>
+      <tr><td></td><td>18</td><td>N</td><td>WASHINGTON</td><td>6</td><td>Congress Heights, Anacostia, Navy Yard-Ballpark, Waterfront, L'Enfant Plaza, Archives</td></tr>
+      <tr><td>6 BLUE</td><td>19</td><td>O</td><td>CAIRO</td><td>5</td><td>Ghamra غمرة, Al-Shohadaa الشهداء, Orabi عرابي, Nasser جمال عبدالناصر, Sadat السادات</td></tr>
+      <tr><td></td><td>20</td><td>N</td><td>SINGAPORE</td><td>3</td><td>Bukit Panjang, Cashew, Hillview</td></tr>
+      <tr><td>7 VIOLET</td><td>21</td><td>T</td><td>ST. PETERSBURG</td><td>2</td><td>Адмиралте́йская. Садовая</td></tr>
+      <tr><td></td><td>22</td><td>I</td><td>CHICAGO</td><td>3</td><td>Wellington, Diversey, Fullerton</td></tr>
+      <tr><td></td><td>23</td><td>M</td><td>MANILA</td><td>1</td><td>Betty Go-Belmonte</td></tr>
+      <tr><td></td><td>24</td><td>E</td><td>BARCELONA</td><td>5</td><td>Universitat, Passeig de Gràcia, Tetuan, Monumental, Sagrada Familia</td></tr>
+      <tr><td>8 GRAY</td><td>25</td><td>S</td><td>WASHINGTON</td><td>3</td><td>Federal Triangle, Smithsonian, L'Enfant Plaza</td></tr>
+      <tr><td></td><td>26</td><td>U</td><td>SAO PAULO</td><td>6</td><td>Quitaúna, General Miguel Costa, Carapicuíba, Santa Terezinha, Antônio João, Barueri</td></tr>
+      <tr><td></td><td>27</td><td>R</td><td>MADRID</td><td>4</td><td>Argüelles, Príncipe Pío, Puerta del Ángel, Alto de Extremadura</td></tr>
+      <tr><td></td><td>28</td><td>N</td><td>LONDON</td><td>3</td><td>London Bridge, Bermondsey, Canada Water</td></tr>
+      <tr><td></td><td>29</td><td>A</td><td>LOS ANGELES</td><td>4</td><td>Carson, Harbor Gateway Transit Ctr, Rosecrans, Harbor Fwy</td></tr>
+      <tr><td></td><td>30</td><td>M</td><td>MOSCOW</td><td>1</td><td>Полянка</td></tr>
+      <tr><td></td><td>31</td><td>E</td><td>SINGAPORE</td><td>9</td><td>Phoenix, Bukit Panjang, Senja, Jelapang, Segar, Fajar, Bangkit, Pending, Petir</td></tr>
+    </table>
+  </div>
+{% endblock %}

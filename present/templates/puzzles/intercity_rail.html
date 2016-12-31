@@ -1,0 +1,145 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}Intercity Rail{% endblock %}
+{% block puzzle_name_block %}Intercity Rail{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    p.asn {
+      page-break-before: always;
+    }
+    ul {
+      list-style-type: none;
+      -webkit-column-count: 3;
+      -moz-column-count: 3;
+      column-count: 3;
+    }
+  </style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+  The bridge is broken, but the village metro system is still operational.
+{% endblock %}
+
+{% block puzzle_content_block %}
+  <div>
+    <a class="standard-link" href="{{ asset_url_for('intercity_rail/image01.pdf') }}">
+      [Click to enlarge]
+    </a>
+    <a href="{{ asset_url_for('intercity_rail/image01.pdf') }}">
+      <img src="{{ asset_url_for('intercity_rail/image01.png') }}" width="900">
+    </a>
+    <p class="asn">All station names, alphabetically:</p>
+    <ul>
+      <li>Alto de Extremadura</li>
+      <li>Anacostia</li>
+      <li>Antônio João</li>
+      <li>Archives</li>
+      <li>Argüelles</li>
+      <li>Back Bay</li>
+      <li>Banco de España</li>
+      <li>Bangkit</li>
+      <li>Barueri</li>
+      <li>Berliner Tor</li>
+      <li>Bermondsey</li>
+      <li>Betty Go-Belmonte</li>
+      <li>Bonames Mitte</li>
+      <li>Bukit Panjang</li>
+      <li>Burgstraße</li>
+      <li>Callao</li>
+      <li>Canada Water</li>
+      <li>Carapicuíba</li>
+      <li>Carson</li>
+      <li>Cashew</li>
+      <li>Chicago</li>
+      <li>Clark/Division</li>
+      <li>Congress Heights</li>
+      <li>Davisville</li>
+      <li>Diversey</li>
+      <li>Dorrego</li>
+      <li>Eglinton</li>
+      <li>Fajar</li>
+      <li>Federal Triangle</li>
+      <li>Fullerton</li>
+      <li>General Miguel Costa</li>
+      <li>Grand</li>
+      <li>Harbor Fwy</li>
+      <li>Harbor Gateway Transit Ctr</li>
+      <li>Hasselbrook</li>
+      <li>Hauptbahnhof</li>
+      <li>Hillview</li>
+      <li>Jelapang</li>
+      <li>Landwehr</li>
+      <li>Lawrence</li>
+      <li>Lombard-South</li>
+      <li>London Bridge</li>
+      <li>L’Enfant Plaza</li>
+      <li>Malabia</li>
+      <li>Mass. Ave</li>
+      <li>Monumental</li>
+      <li>Navy Yard Ballpark</li>
+      <li>Nieder-Eschbach</li>
+      <li>North/Clybourn</li>
+      <li>Noviciado</li>
+      <li>Passeig de Gràcia</li>
+      <li>Pending</li>
+      <li>Pentagon City</li>
+      <li>Pentagon</li>
+      <li>Petir</li>
+      <li>Phoenix</li>
+      <li>Plaza de España</li>
+      <li>Príncipe Pío</li>
+      <li>Puerta del Ángel</li>
+      <li>Quitaúna</li>
+      <li>Rosecrans</li>
+      <li>Roxbury Crossing</li>
+      <li>Ruggles</li>
+      <li>Sagrada Familia</li>
+      <li>Santa Terezinha</li>
+      <li>Santo Domingo</li>
+      <li>Segar</li>
+      <li>Senja</li>
+      <li>Sevilla</li>
+      <li>Smithsonian</li>
+      <li>Sol</li>
+      <li>Spaklerweg</li>
+      <li>St Clair</li>
+      <li>Station Duivendrecht</li>
+      <li>Strandvliet</li>
+      <li>Summerhill</li>
+      <li>Tetuan</li>
+      <li>Universitat</li>
+      <li>Van Der Madeweg</li>
+      <li>Ventura Rodríguez</li>
+      <li>Walnut-Locust</li>
+      <li>Wandsbeker Chaussee</li>
+      <li>Waterfront</li>
+      <li>Wellington</li>
+      <li>Ángel Gallardo</li>
+      <li>Ópera</li>
+      <li>Адмиралтейская</li>
+      <li>Достоéвская</li>
+      <li>Лиговский проспéкт</li>
+      <li>Полянка</li>
+      <li>Садовая</li>
+      <li>Спáсская</li>
+      <li>Театральная</li>
+      <li>الزمالك</li>
+      <li>السادات</li>
+      <li>الشهداء</li>
+      <li>العتبة</li>
+      <li>جمال عبدالناصر</li>
+      <li>عرابي</li>
+      <li>غمرة</li>
+      <li>ماسبيرو</li>
+      <li>中山公园</li>
+      <li>中山國中</li>
+      <li>南京復興</li>
+      <li>大安</li>
+      <li>忠孝復興</li>
+      <li>曹杨路</li>
+      <li>松山機場</li>
+      <li>枫桥路</li>
+      <li>金沙江路</li>
+    </ul>
+  </div>
+{% endblock %}
