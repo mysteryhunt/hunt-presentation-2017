@@ -218,10 +218,11 @@ def user(username):
             "username": username,
         }
 
-        user = cube.get_user(app, username)
-        roles = build_roles_list(request.form)
-        if user["roles"] != roles:
-            update["roles"] = roles
+        if cube.authorized(app, "userroles:update:%s" % username):
+            user = cube.get_user(app, username)
+            roles = build_roles_list(request.form)
+            if user["roles"] != roles:
+                update["roles"] = roles
 
         logout = False
         if request.form["password"]:
