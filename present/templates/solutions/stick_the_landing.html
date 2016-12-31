@@ -1,0 +1,102 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'thespians' %}
+{% block title_block %}Stick the Landing: Solution{% endblock %}
+{% block puzzle_name_block %}Stick the Landing: Solution{% endblock %}
+{% block byline %}By Dan Katz{% endblock %}
+{% block solution %}LLOYD GEORGE{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    ul {
+      list-style-type: none;
+    }
+    ul.a li {
+      margin-bottom: 0.5em;
+    }
+  </style>
+{% endblock %}
+
+{% block solution_content_block %}
+  <div>
+    <p>
+      Each of the strings of letters is a clue in which a transformation has
+      been applied to the words and the spaces have been removed. It is natural
+      to apply that same transformation to the answer to each clue; in other
+      puzzles with modified clues like this, the modified answers often fit into
+      a category, but in this puzzle the resulting strings are not recognizable
+      as words.
+    </p>
+    <ul class="a">
+      <li>ADAM'S BONE THAT TURNED INTO EVE: RIB becomes RIIBB [second and third letters are doubled]</li>
+      <li>RAPPER WHO RECORDED THE SONG PHOTO COPIED: FUTURE becomes UTURE [first letters are removed]</li>
+      <li>CAPITAL CITY OF THE UNITED KINGDOM: LONDON becomes LONDO [last letters are removed]</li>
+      <li>CORPORATION ADVERTISED AS THE SUPERSTAR IN RENTACAR: HERTZ becomes HEBETZ [all R's are replaced by BE]</li>
+      <li>FOOTBALL PLAYER WHO SHARES HIS HOME STADIUM WITH THE ATHLETICS: RAIDER becomes OAIDER [first letters are shifted three positions earlier in the alphabet]</li>
+      <li>PERFORMER WHO DOESN'T SPEAK SUCH AS MARCEL MARCEAU: MIME becomes IIME [first letters are replaced by second letters]</li>
+      <li>FLOUR BASED BAKED GOOD OR SLANG TERM FOR MONEY: BREAD becomes BNREAD [N's are added after the first letters]</li>
+      <li>FINAL WORD IN THE TITLE OF THE FIFTH BOND FILM: TWICE becomes TWUCE [all I's are changed to U's]</li>
+      <li>INDONESIAN SOY PRODUCT TRADITIONALLY WRAPPED WITH BANANA LEAVES: TEMPEH becomes TEUPEH [third letters are replaced by U's]</li>
+      <li>JEMAINE'S PARTNER IN FLIGHT OF THE CONCHORDS: BRET becomes BREEET [all vowels are tripled]</li>
+      <li>ALFRED HITCHCOCK FILM THAT WON BEST PICTURE: REBECCA becomes EBECC [first and last letters are removed]</li>
+      <li>PROFESSIONAL GRAPPLER MARTY WHO BEAT DRAGON LEE AND MARTY SCURLL AT FINAL BATTLE: SCURLL becomes SCURAL [first halves of double letters are replaced by A's]</li>
+      <li>FRIDAY NIGHT BLOCK ON ABC IN THE NINETIES: TGIF becomes RTGIFI [R's and I's added at the beginning and end respectively]</li>
+      <li>SQUIRREL WHO STARRED IN HIS OWN ADUIT ORIENTED VIDEO GAME: CONKER becomes CONKIR [penultimate letters are replaced by I's]</li>
+      <li>STICK EMPLOYED BY AN ORCHESTRA CONDUCTOR: BATON becomes BATTN [all O's are deleted, all T's are removed]</li>
+      <li>MEAT THAT IS WHAT'S FOR DINNER ACCORDING TO AN AD CAMPAIGN: BEEF becomes FEEB [order of letters is reversed]</li>
+      <li>TELEVISION SITCOM FEATURING LATKA GRAVAS: TAXI becomes TAYYIJ [third letters become the letters following them in the alphabet doubled, letters following the last letters in the alphabet are added at the end]</li>
+      <li>THREE WHEELED CONVEYANCES FOR CHILDREN FOR SHORT: TRIKES becomes TRKES [third letters are removed]</li>
+      <li>TITLE INDIANA CITY WHERE MARSHALL TELLER LIVES:  EERIE becomes EEIIE [third letters are replaced by fourth letters]</li>
+      <li>THE JOINT WHERE A HUMAN TYPICALLY WEARS A WATCH:  WRIST becomes WRLST [middle letters are replaced by L's]</li>
+      <li>UBER COMPETITOR KNOWN FOR CARS WITH PINK MUSTACHES: LYFT becomes LYFXI [last letters are replaced by Roman numerals for alphabet positions of first letters, minus one]</li>
+    </ul>
+
+    <p>
+      Each of the modified answers fits into exactly one of the columns so that
+      the given letter is correct. This creates a dropquote, a puzzle in which
+      the solver must rearrange the letters into the white squares below to
+      create words reading across. In this case, the "words" are all brands of
+      chewing gum, though each is missing one letter.
+    </p>
+
+    <img src="{{ asset_url_for('stick_the_landing/stickthelanding-solution-grid.gif') }}" width="600">
+
+    <p>The gums are as follows:</p>
+
+    <ul>
+      <li>OR(B)IT</li>
+      <li>EXT(R)A</li>
+      <li>N(I)CORETTE</li>
+      <li>DENTY(N)E</li>
+      <li>BIGLEA(G)UECHEW</li>
+      <li>B(U)BBLEYUM</li>
+      <li>FRUIT(S)TRIPE</li>
+      <li>BI(G)RED</li>
+      <li>JUICYFR(U)IT</li>
+      <li>DOUBLE(M)INT</li>
+      <li>STRI(D)E</li>
+      <li>ICEB(R)EAKERS</li>
+      <li>BAZO(O)KA</li>
+      <li>ECLI(P)SE</li>
+      <li>WINTERFRE(S)H</li>
+    </ul>
+
+    <p>
+      The missing letters, in order, spell BRING US GUM DROPS. When a team does
+      so, they are given a handout with the dropquote shown below:
+    </p>
+
+    <img src="{{ asset_url_for('stick_the_landing/stickthelanding-coda-puzzle.gif') }}" width="600">
+
+    <p>This is a standard dropquote with no gimmicks, yielding the solution below:</p>
+
+    <img src="{{ asset_url_for('stick_the_landing/stickthelanding-coda-solution.gif') }}" width="600">
+
+    <p>
+      The message reads "FIRST NAMES OF FOURTH AND SECOND CHARACTERS TO SPEAK IN
+      THEMATIC EPISODE OF SEINFELD." The <i>Seinfeld</i> episode relevant to
+      this puzzle's theme is "The Gum," in which the fourth and second
+      characters to speak are Lloyd Braun and George Costanza respectively. The
+      answer to this puzzle is <b>LLOYD GEORGE</b>.
+    </p>
+  </div>
+{% endblock %}
