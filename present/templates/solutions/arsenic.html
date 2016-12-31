@@ -1,0 +1,70 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'dungeon' %}
+{% block title_block %}Arsenic: Solution{% endblock %}
+{% block puzzle_name_block %}Arsenic: Solution{% endblock %}
+{% block byline %}By Sarah Bagby{% endblock %}
+{% block solution %}SINN FEIN{% endblock %}
+
+{% block solution_content_block %}
+  <div>
+    <p>
+      The pattern has two sections. Rows 1–12 produce a wide strip of fabric in
+      which Braille patterns (hinted by the flavortext “feeling your way”) made
+      by yarn-over holes encode ROW COUNT IN WALKER MOTIF:
+    </p>
+    <img src="{{ asset_url_for('arsenic/image01.png') }}" width="900">
+    <p>
+      Walker is Barbara Walker, who collected and codified traditional knitting
+      motifs in her multivolume <i>Treasury of Knitting Patterns</i>. Knitted motifs
+      are worked over a set number of stitches and rows, with the pattern
+      repeating every n rows. The Braille should indicate to solvers that they
+      need to identify some motif or motifs found in the Walker Treasury, and
+      that they will need to find the number of rows per motif repeat. Where are
+      the motifs to be found? Rows 13–36 of the pattern, which give instructions
+      for a lace sampler.
+    </p>
+    <p>
+      It should become clear within a few rows of knitting that (1) the pattern
+      gives side-by-side lace motifs (“paneled...riddled with mysterious
+      patterns of holes”) and (2) the panels are separated by plain two-stitch
+      columns of reverse stockinette. At this point, continuing to knit is not
+      necessary, as solvers have enough information available to parse the
+      pattern, separating out the instructions for each motif. Particularly
+      enthusiastic solvers may wish to keep knitting to identify the patterns
+      visually; if they do, they will obtain the following:
+    </p>
+    <img src="{{ asset_url_for('arsenic/image02.png') }}" width="900">
+    <p>
+      Given the number of stitches over which each motif is worked and the
+      number of rows per repeat, solvers can use online resources like
+      the <a class="standard-link"
+      href="http://www.knittingonthenet.com/stitches/bw.htm">Walker Treasury
+      Project’s collection of pattern data</a> to narrow the search space to one
+      or a few possibilities for each motif. Pattern text can be compared with
+      any of a number of online resources to make a conclusive identification;
+      all the motifs used are pictured in swatches accompanied by pattern
+      instructions at <a class="standard-link"
+      href="http://knittingfool.com.">knittingfool.com</a>.
+    </p>
+    <img src="{{ asset_url_for('arsenic/image03.png') }}" width="900">
+    <p>
+      Once the motifs have been identified, solvers should follow the Braille
+      clue phrase, using the row count for each motif to index into the pattern
+      name:
+    </p>
+    <blockquote>
+      PEARLBARREDSCALLOP (12 rows)<br>
+      RICKRIB (2 rows)<br>
+      TRAVELINGLEAF (8 rows)<br>
+      DIAGONALFERNLACE (12 rows)<br>
+      FEATHERFAGGOT (1 row)<br>
+      LITTLELACECHAIN (6 rows)<br>
+      MINIATURELEAFPATTERN2 (4 rows)<br>
+      FOUNTAINLACE (8 rows)
+    </blockquote>
+    <p>
+      Solvers may read off <b>SINN FEIN</b> from left to right across the
+      finished sampler.
+    </p>
+  </div>
+{% endblock %}
