@@ -31,7 +31,9 @@
       {{ link('interactionqueue', 'Interaction Queue') }}
       {{ link('teams', 'Teams') }}
       {{ link('users', 'Users') }}
+      {% if is_authorized('events:create:*') %}
       {{ link('admintools', 'Admin Tools') }}
+      {% endif %}
 
       <div class="ha-navbar-title">
         {{ session["username"] }} -<a href="{{ url_for('login.logout') }}">Log Out</a>

@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block page_body %}
+{% if is_authorized('users:create:*') %}
 <div class="ha-control-boxes-container">
   <form class="ha-column-control-box" action="{{ url_for('users') }}" method="post">
     <span class="ha-control-box-title">
@@ -29,6 +30,7 @@
     <input type="submit" value="Add User">
   </form>
 </div>
+{% endif %}
 <div class="ha-page-section">
   <table class="ha-table">
     <thead>
