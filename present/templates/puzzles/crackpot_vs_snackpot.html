@@ -82,6 +82,12 @@ $(document).ready(function() {
   getProblem(putProblemInDisplay);
 
 });
+
+window.addEventListener("beforeunload", function (e) {
+	var warnMsg = "Leaving this page will cause any unsaved data to be lost";
+  e.returnValue = warnMsg; // Gecko, Trident, Chrome 34+
+  return warnMsg; // Gecko, WebKit, Chrome <34
+});
 </script>
 <style>
 #overall-header {
@@ -183,7 +189,7 @@ An enthusiastic peasant is shouting about his bridge repair scheme to anyone who
 {% block puzzle_content_block %}
 <div id="crackpot-container">
   <div id="crackpot-header">
-    <a href="http://vixra.org" class="vixra">viXra</a><span class="cursive"> vs. </span><a class="snixra">sniXra</a>
+    <a href="http://vixra.org" class="vixra" target="_blank">viXra</a><span class="cursive"> vs. </span><a class="snixra">sniXra</a>
   </div>
   <div id="pick-header">Pick the real viXra paper</div>
   <div id="live-problem-display" class="problem-display">
