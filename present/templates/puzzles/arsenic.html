@@ -1,0 +1,390 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}Arsenic{% endblock %}
+{% block puzzle_name_block %}Arsenic{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    table.glossary {
+      padding-left: 1em;
+    }
+    table.glossary td {
+      padding-bottom: 0.5em;
+    }
+    table.glossary td.key {
+      font-style: italic;
+      text-align: right;
+      padding-right: 1em;
+      min-width: 8em;
+      vertical-align: top;
+    }
+    table.sts td {
+      padding-bottom: 0.5em;
+    }
+    table.sts td.r {
+      min-width: 6em;
+      vertical-align: top;
+    }
+  </style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+  You enter a darkened treasury. Feeling your way, you discover that the paneled
+  walls are riddled with mysterious patterns of holes.
+{% endblock %}
+
+{% block puzzle_content_block %}
+  <div>
+    <h3>Stitch glossary</h3>
+    <table class="glossary">
+      <tr>
+        <td class="key">k</td>
+        <td>knit</td>
+      </tr>
+      <tr>
+        <td class="key">k2 tog</td>
+        <td>knit 2 stitches together as one</td>
+      </tr>
+      <tr>
+        <td class="key">k3 tog</td>
+        <td>knit 3 stitches together as one</td>
+      </tr>
+      <tr>
+        <td class="key">p</td>
+        <td>purl</td>
+      </tr>
+      <tr>
+        <td class="key">p2 tog</td>
+        <td>purl 2 stitches together as one</td>
+      </tr>
+      <tr>
+        <td class="key">sl 1 wyif-p1-psso</td>
+        <td>
+          with yarn in front, slip 1 stitch from the left-hand needle to the
+          right-hand needle without working the stitch; purl 1; pass slipped
+          stitch over the stitch just worked and off right-hand needle
+        </td>
+      </tr>
+      <tr>
+        <td class="key">sl 1-k2 tog-psso</td>
+        <td>
+          slip 1 stitch; knit 2 stitches together as one stitch; pass slipped
+          stitch over the stitch just worked and off right-hand needle
+        </td>
+      </tr>
+      <tr>
+        <td class="key">ssk</td>
+        <td>
+          (slip, slip, knit): slip 2 stitches knitwise, return slipped stitches
+          to left needle, knit 2 together through back loop
+        </td>
+      </tr>
+      <tr>
+        <td class="key">yo</td>
+        <td>
+          (yarn over): take the yarn over the top of the needle once before
+          making the next stitch. If the next stitch is to be knitted, simply
+          take yarn over the top of the right-hand needle to the back. If the
+          next stitch is to be purled, take yarn over the top of the right-hand
+          needle and then under the needle to the front.
+        </td>
+      </tr>
+      <tr>
+        <td class="key">(yo) twice</td>
+        <td>
+          (double yarn-over): take the yarn twice over the top of the right-hand
+          needle before making the next stitch, i.e., over the needle to the
+          back, under the needle to the front, over to the back again to
+          position to knit the next stitch. If the next stitch is to be purled,
+          the yarn is brought under the needle to the front once more to purl
+          position.
+        </td>
+      </tr>
+    </table>
+    <table class="sts">
+      <tr>
+        <td>CO 121 sts.</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="r">Row 1 (ws):</td>
+        <td>
+          k121
+        </td>
+      </tr>
+      <tr>
+        <td class="r">Row 2 (rs):</td>
+        <td>
+          p121
+        </td>
+      </tr>
+      <tr>
+        <td class="r">Row 3 (ws):</td>
+        <td>
+          k4, p113, k4
+        </td>
+      </tr>
+      <tr>
+        <td class="r">Row 4 (rs):</td>
+        <td>
+          p4, k12, ssk, yo, k3, ssk, yo, k3, ssk, yo, k5, ssk, yo, k8,ssk, yo, k3, ssk, yo, k7, yo, k2 tog, k6, ssk, yo,
+          k10, ssk, yo, k3, ssk, yo, k2, yo, sl 1-k2 tog-psso, yo, k3, ssk, yo, k9, yo, k2 tog, k4, ssk, yo, k3, ssk, yo,
+          k1, p4
+        </td>
+      </tr>
+      <tr>
+        <td class="r">Row 5 (ws):</td>
+        <td>
+          k4, p113, k4
+        </td>
+      </tr>
+      <tr>
+        <td class="r">Row 6 (rs):</td>
+        <td>
+          p4, k2, ssk, yo, k3, ssk, yo, k2, yo, sl 1-k2 tog-psso, yo, k2, yo, k2 tog, k10, yo, sl 1-k2 tog-psso, yo, k2,
+          yo, k2 tog, k9, ssk, yo, k7, yo, sl 1-k2 tog-psso, yo, k4, yo, k2 tog, k4, ssk, yo, k4, yo, sl 1-k2 tog-psso,
+          yo, k2, yo, k2 tog, k8, yo, k2 tog, k10, yo, sl 1-k2 tog-psso, yo, k2, yo, k2 tog, k3, yo, sl 1-k2 tog-psso,
+          yo, k1, p4
+        </td>
+      </tr>
+      <tr>
+        <td class="r">Row 7 (ws):</td>
+        <td>
+          k4, p113, k4
+        </td>
+      </tr>
+      <tr>
+        <td class="r">Row 8 (rs):</td>
+        <td>
+          p4, k1, yo, sl 1-k2 tog-psso, yo, k2, yo, k2 tog, k3, yo, k2 tog, k4, ssk, yo, k2, yo, sl 1-k2 tog-psso, yo,
+          k5, ssk, yo, k3, ssk, yo, k3, ssk, yo, k3, ssk, yo, k3, ssk, yo, k2, yo, k2 tog, k5, yo, sl 1-k2 tog-psso, yo,
+          k2, yo, k2 tog, k5, yo, k2 tog, k3, yo, sl 1-k2 tog-psso, yo, k3, ssk, yo, k3, ssk, yo, k2, yo, sl 1-k2 togpsso,
+          yo, k4, yo, k2 tog, k4, ssk, yo, k3, ssk, yo, k1, p4
+        </td>
+      </tr>
+      <tr>
+        <td class="r">Row 9 (ws):</td>
+        <td>
+          k4, p113, k4
+        </td>
+      </tr>
+      <tr>
+        <td class="r">Row 10 (rs):</td>
+        <td>
+          p121
+        </td>
+      </tr>
+      <tr>
+        <td class="r">Row 11 (ws):</td>
+        <td>
+          k121
+        </td>
+      </tr>
+      <tr>
+        <td class="r">Row 12 (rs):</td>
+        <td>
+          p4, k17, p2, k8, p2, k8, p2, k8, p2, k20, p2, k17, p2, k6, p2, k15, p4
+        </td>
+      </tr>
+      <tr>
+        <td class="r">Row 13 (ws):</td>
+        <td>
+          k4, p15, k2, p1, * yo, sl 1 wyif-p1-psso * 2x, p1, k2, p17, k2, p20, k2, * k1, yo, p2 tog, k1 * 2x, k2,
+          p8, k2, p8, k2, p17, k4
+        </td>
+      </tr>
+      <tr>
+        <td class="r">Row 14 (rs):</td>
+        <td>
+          p4, ssk, yo, k2, k2 tog, yo, k1, yo, sl 1-k2 tog-psso, yo, k1, yo, ssk, k2, yo, k2 tog, p2, k1, k3, yo, sl 1-k2
+          tog-psso, yo, k1, p2, k1, k2 tog, yo, k2 tog but do not slip from needle, insert right-hand needle
+          between the stitches just knitted together and knit the first stitch again; then slip both stitches off
+          the needle together; yo, ssk, k1, p2, * k1, yo, p2 tog, k1 * 2x, p2, p2, k9, yo, k1, yo, k3, sl 1-k2 togpsso,
+          p2, p2, k2, k1, yo, k3, k2 tog, k1, ssk, k3, yo, k3, p2, k1, * yo, ssk * 2x, k1, p2, k1, yo, k3, ssk,
+          yo, sl 1-k2 tog-psso, yo, k2 tog, k3, yo, k1, p4
+        </td>
+      </tr>
+      <tr>
+        <td class="r">Row 15 (ws):</td>
+        <td>
+          k4, p15, k2, p1, * yo, sl 1 wyif-p1-psso * 2x, p1, k2, p17, k2, p20, k2, * k1, yo, p2 tog, k1 * 2x, k2,
+          p8, k2, p8, k2, p17, k4
+        </td>
+      </tr>
+      <tr>
+        <td class="r">Row 16 (rs):</td>
+        <td>
+          p4, ssk, k3, yo, k2 tog, yo, k3, yo, ssk, yo, k3, k2 tog, p2, k1, yo, sl 1-k2 tog-psso, yo, k3, k1, p2, k2
+          tog, yo, k2 tog, (yo) twice, ssk, yo, ssk, p2, * k1, yo, p2 tog, k1 * 2x, p2, p2, k10, yo, k1, yo, k2, sl 1-k2
+          tog-psso, p2, p2, k2, k1, yo, k3, k2 tog, k1, ssk, k3, yo, k3, p2, k1, * yo, ssk * 2x, k1, p2, k1, yo, k3,
+          ssk, yo, sl 1-k2 tog-psso, yo, k2 tog, k3, yo, k1, p4
+        </td>
+      </tr>
+      <tr>
+        <td class="r">Row 17 (ws):</td>
+        <td>
+          k4, p15, k2, p1, * yo, sl 1 wyif-p1-psso * 2x, p1, k2, p17, k2, p20, k2, * k1, yo, p2 tog, k1 * 2x, k2,
+          p3, (k1, p1) into the double yo of previous row, p3, k2, p8, k2, p17, k4
+        </td>
+      </tr>
+      <tr>
+        <td class="r">Row 18 (rs):</td>
+        <td>
+          p4, ssk, (k2, yo) twice, k2 tog, k1, ssk, (yo, k2) twice, k2 tog, p2, k1, k3, yo, sl 1-k2 tog-psso, yo, k1,
+          p2, k2, yo, ssk, k2 tog, yo, k2, p2, * k1, yo, p2 tog, k1 * 2x, p2, p2, k3 tog, k4, yo, k1, yo, k3, (yo, k1)
+          twice, sl 1-k2 tog-psso, p2, p2, k2, k1, ssk, k3, yo, k1, yo, k3, k2 tog, k3, p2, k1, * yo, ssk * 2x, k1, p2,
+          k1, yo, k3, ssk, yo, sl 1-k2 tog-psso, yo, k2 tog, k3, yo, k1, p4
+        </td>
+      </tr>
+      <tr>
+        <td class="r">Row 19 (ws):</td>
+        <td>
+          k4, p15, k2, p1, * yo, sl 1 wyif-p1-psso * 2x, p1, k2, p17, k2, p20, k2, * k1, yo, p2 tog, k1 * 2x, k2,
+          p8, k2, p8, k2, p17, k4
+        </td>
+      </tr>
+      <tr>
+        <td class="r">Row 20 (rs):</td>
+        <td>
+          p4, ssk, k1, yo, k3, yo, k2 tog, k1, ssk, yo, k3, yo, k1, k2 tog, p2, k1, yo, sl 1-k2 tog-psso, yo, k3, k1,
+          p2, k1, k2 tog, yo, k2 tog but do not slip from needle, insert right-hand needle between the stitches
+          just knitted together and knit the first stitch again; then slip both stitches off the needle together;
+          yo, ssk, k1, p2, * k1, yo, p2 tog, k1 * 2x, p2, p2, k3 tog, k3, yo, k1, yo, k9, p2, p2, k2, k1, ssk, k3, yo,
+          k1, yo, k3, k2 tog, k3, p2, k1, * yo, ssk * 2x, k1, p2, k1, yo, k3, ssk, yo, sl 1-k2 tog-psso, yo, k2 tog,
+          k3, yo, k1, p4
+        </td>
+      </tr>
+      <tr>
+        <td class="r">Row 21 (ws):</td>
+        <td>
+          k4, p15, k2, p1, * yo, sl 1 wyif-p1-psso * 2x, p1, k2, p17, k2, p20, k2, * k1, yo, p2 tog, k1 * 2x, k2,
+          p8, k2, p8, k2, p17, k4
+        </td>
+      </tr>
+      <tr>
+        <td class="r">Row 22 (rs):</td>
+        <td>
+          p4, ssk, yo, k2, k2 tog, yo, k1, yo, sl 1-k2 tog-psso, yo, k1, yo, ssk, k2, yo, k2 tog, p2, k1, k3, yo, sl 1-k2
+          tog-psso, yo, k1, p2, k2 tog, yo, k2 tog, (yo) twice, ssk, yo, ssk, p2, * k1, yo, p2 tog, k1 * 2x, p2, p2, k3
+          tog, k2, yo, k1, yo, k10, p2, p2, k2, k1, yo, k3, k2 tog, k1, ssk, k3, yo, k3, p2, k1, * yo, ssk * 2x, k1, p2,
+          k1, yo, k3, ssk, yo, sl 1-k2 tog-psso, yo, k2 tog, k3, yo, k1, p4
+        </td>
+      </tr>
+      <tr>
+        <td class="r">Row 23 (ws):</td>
+        <td>
+          k4, k15, k2, p1, * yo, sl 1 wyif-p1-psso * 2x, p1, k2, p17, k2, p20, k2, * k1, yo, p2 tog, k1 * 2x, k2,
+          p3, (k1, p1) into the double yo of previous row, p3, k2, p8, k2, p17, k4
+        </td>
+      </tr>
+      <tr>
+        <td class="r">Row 24 (rs):</td>
+        <td>
+          p4, ssk, k3, yo, k2 tog, yo, k3, yo, ssk, yo, k3, k2 tog, p2, k1, yo, sl 1-k2 tog-psso, yo, k3, k1, p2, k2,
+          yo, ssk, k2 tog, yo, k2, p2, * k1, yo, p2 tog, k1 * 2x, p2, p2, k3 tog, (k1, yo) twice, k3, yo, k1, yo, k4, sl
+          1-k2 tog-psso, p2, p2, k2, k1, yo, k3, k2 tog, k1, ssk, k3, yo, k3, p2, k1, * yo, ssk * 2x, k1, p2, p15, p4
+        </td>
+      </tr>
+      <tr>
+        <td class="r">Row 25 (ws):</td>
+        <td>
+          k4, p15, k2, p1, * yo, sl 1 wyif-p1-psso * 2x, p1, k2, p17, k2, p20, k2, * k1, yo, p2 tog, k1 * 2x, k2,
+          p8, k2, p8, k2, p17, k4
+        </td>
+      </tr>
+      <tr>
+        <td class="r">Row 26 (rs):</td>
+        <td>
+          p4, ssk, (k2, yo) twice, k2 tog, k1, ssk, (yo, k2) twice, k2 tog, p2, k1, k3, yo, sl 1-k2 tog-psso, yo, k1,
+          p2, k1, k2 tog, yo, k2 tog but do not slip from needle, insert right-hand needle between the stitches
+          just knitted together and knit the first stitch again; then slip both stitches off the needle together;
+          yo, ssk, k1, p2, * k1, yo, p2 tog, k1 * 2x, p2, p2, k9, yo, k1, yo, k3, sl 1-k2 tog-psso, p2, p2, k2, k1,
+          ssk, k3, yo, k1, yo, k3, k2 tog, k3, p2, k1, * yo, ssk * 2x, k1, p2, k1, yo, k3, ssk, yo, sl 1-k2 tog-psso,
+          yo, k2 tog, k3, yo, k1, p4
+        </td>
+      </tr>
+      <tr>
+        <td class="r">Row 27 (ws):</td>
+        <td>
+          k4, p15, k2, p1, * yo, sl 1 wyif-p1-psso * 2x, p1, k2, p17, k2, p20, k2, * k1, yo, p2 tog, k1 * 2x, k2,
+          p8, k2, p8, k2, p17, k4
+        </td>
+      </tr>
+      <tr>
+        <td class="r">Row 28 (rs):</td>
+        <td>
+          p4, ssk, k1, yo, k3, yo, k2 tog, k1, ssk, yo, k3, yo, k1, k2 tog, p2, k1, yo, sl 1-k2 tog-psso, yo, k3, k1,
+          p2, k2 tog, yo, k2 tog, (yo) twice, ssk, yo, ssk, p2, * k1, yo, p2 tog, k1 * 2x, p2, p2, k10, yo, k1, yo, k2,
+          sl 1-k2 tog-psso, p2, p2, k2, k1, ssk, k3, yo, k1, yo, k3, k2 tog, k3, p2, k1, * yo, ssk * 2x, k1, p2, k1,
+          yo, k3, ssk, yo, sl 1-k2 tog-psso, yo, k2 tog, k3, yo, k1, p4
+        </td>
+      </tr>
+      <tr>
+        <td class="r">Row 29 (ws):</td>
+        <td>
+          k4, p15, k2, p1, * yo, sl 1 wyif-p1-psso * 2x, p1, k2, p17, k2, p20, k2, * k1, yo, p2 tog, k1 * 2x, k2,
+          p3, (k1, p1) into the double yo of previous row, p3, k2, p8, k2, p17, k4
+        </td>
+      </tr>
+      <tr>
+        <td class="r">Row 30 (rs):</td>
+        <td>
+          p4, ssk, yo, k2, k2 tog, yo, k1, yo, sl 1-k2 tog-psso, yo, k1, yo, ssk, k2, yo, k2 tog, p2, k1, k3, yo, sl 1-k2
+          tog-psso, yo, k1, p2, k2, yo, ssk, k2 tog, yo, k2, p2, * k1, yo, p2 tog, k1 * 2x, p2, p2, k3 tog, k4, yo,
+          k1, yo, k3, (yo, k1) twice, sl 1-k2 tog-psso, p2, p2, k2, k1, yo, k3, k2 tog, k1, ssk, k3, yo, k3, p2, k1, *
+          yo, ssk * 2x, k1, p2, k1, yo, k3, ssk, yo, sl 1-k2 tog-psso, yo, k2 tog, k3, yo, k1, p4
+        </td>
+      </tr>
+      <tr>
+        <td class="r">Row 31 (ws):</td>
+        <td>
+          k4, p15, k2, p1, * yo, sl 1 wyif-p1-psso * 2x, p1, k2, p17, k2, p20, k2, * k1, yo, p2 tog, k1 * 2x, k2,
+          p8, k2, p8, k2, p17, k4
+        </td>
+      </tr>
+      <tr>
+        <td class="r">Row 32 (rs):</td>
+        <td>
+          p4, ssk, k3, yo, k2 tog, yo, k3, yo, ssk, yo, k3, k2 tog, p2, k1, yo, sl 1-k2 tog-psso, yo, k3, k1, p2, k1, k2
+          tog, yo, k2 tog but do not slip from needle, insert right-hand needle between the stitches just
+          knitted together and knit the first stitch again; then slip both stitches off the needle together; yo,
+          ssk, k1, p2, * k1, yo, p2 tog, k1 * 2x, p2, p2, k3 tog, k3, yo, k1, yo, k9, p2, p2, k2, k1, yo, k3, k2 tog,
+          k1, ssk, k3, yo, k3, p2, k1, * yo, ssk * 2x, k1, p2, k1, yo, k3, ssk, yo, sl 1-k2 tog-psso, yo, k2 tog, k3,
+          yo, k1, p4
+        </td>
+      </tr>
+      <tr>
+        <td class="r">Row 33 (ws):</td>
+        <td>
+          k4, p15, k2, p1, * yo, sl 1 wyif-p1-psso * 2x, p1, k2, p17, k2, p20, k2, * k1, yo, p2 tog, k1 * 2x, k2,
+          p8, k2, p8, k2, p17, k4
+        </td>
+      </tr>
+      <tr>
+        <td class="r">Row 34 (rs):</td>
+        <td>
+          p4, ssk, (k2, yo) twice, k2 tog, k1, ssk, (yo, k2) twice, k2 tog, p2, k1, k3, yo, sl 1-k2 tog-psso, yo, k1,
+          p2, k2 tog, yo, k2 tog, (yo) twice, ssk, yo, ssk, p2, * k1, yo, p2 tog, k1 * 2x, p2, p2, k3 tog, k2, yo, k1,
+          yo, k10, p2, p2, k2, k1, ssk, k3, yo, k1, yo, k3, k2 tog, k3, p2, k1, * yo, ssk * 2x, k1, p2, k1, yo, k3, ssk,
+          yo, sl 1-k2 tog-psso, yo, k2 tog, k3, yo, k1, p4
+        </td>
+      </tr>
+      <tr>
+        <td class="r">Row 35 (ws):</td>
+        <td>
+          k4, k15, k2, p1, * yo, sl 1 wyif-p1-psso * 2x, p1, k2, p17, k2, p20, k2, * k1, yo, p2 tog, k1 * 2x, k2,
+          p3, (k1, p1) into the double yo of previous row, p3, k2, p8, k2, p17, k4
+        </td>
+      </tr>
+      <tr>
+        <td class="r">Row 36 (rs):</td>
+        <td>
+          p4, ssk, k1, yo, k3, yo, k2 tog, k1, ssk, yo, k3, yo, k1, k2 tog, p2, k1, yo, sl 1-k2 tog-psso, yo, k3, k1,
+          p2, k2, yo, ssk, k2 tog, yo, k2, p2, * k1, yo, p2 tog, k1 * 2x, p2, p2, k3 tog, (k1, yo) twice, k3, yo, k1,
+          yo, k4, sl 1-k2 tog-psso, p2, p2, k2, k1, ssk, k3, yo, k1, yo, k3, k2 tog, k3, p2, k1, * yo, ssk * 2x, k1,
+          p2, p15, p4
+        </td>
+      </tr>
+    </table>
+    <p>Repeat rows 13–36 as many times as desired. BO all sts.</p>
+  </div>
+{% endblock %}
