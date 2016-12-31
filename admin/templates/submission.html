@@ -56,10 +56,22 @@
   {% if submission.status == 'SUBMITTED' %}
   <form action="{{ url_for('submission', submission_id=submission.submissionId) }}" method="post">
     <input type="hidden" name="status" value="ASSIGNED">
-    <input type="submit" value="Claim">
+    <input type="submit" value="Assign to Me">
   </form>
   {% elif submission.status == 'ASSIGNED' %}
   {% if submission.callerUsername == session['username'] %}
+  <h3>Step 1: Call team {{ submission.teamId }} at {{ team.primaryPhone }}.</h3>
+  <p>
+    If there's no answer, try their secondary phone number
+    {{ team.secondaryPhone }} or e-mail them at {{ team.email }} to try to get
+    updated contact info.
+  </p>
+  <p>
+    Tell the team whether or not their submitted answer
+    <b>{{ submission.submission }}</b> matches the expected correct answer
+    <b>{{ puzzle.puzzleProperties.AnswersProperty.answers[0].canonicalAnswer }}</b>.
+  </p>
+  <h3>Step 2: After the call, mark this submission as either Correct or Incorrect.</h3>
   <form action="{{ url_for('submission', submission_id=submission.submissionId) }}" method="post">
     <input type="hidden" name="status" value="CORRECT">
     <input type="submit" value="Correct">
@@ -71,7 +83,10 @@
   {% endif %}
   <form action="{{ url_for('submission', submission_id=submission.submissionId) }}" method="post">
     <input type="hidden" name="status" value="SUBMITTED">
-    <input type="submit" value="Unassign">
+    <p>
+      If the assigned user is no longer able to handle this submission, please click
+      <input type="submit" value="Unassign">.
+    </p>
   </form>
   {% endif %}
 </div>
