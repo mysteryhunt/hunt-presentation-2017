@@ -315,10 +315,10 @@ vixradb = get_vixradb()
 pre = set(("on","of","through","towards","for","with","to","from","by","in","that","between","as"))
 con = set(("and","or"))
 art = set(("the","a","its","not"))
-adj = set(("thermal","transformative","big","small","electromagnetic","brown","never","gaseous","motionless","combustible","interstellar","polarizable","fundamental","new","kirchhoffs","Earths","magnetic","gravitational","bulk","young","hypothetical","venusian","fermats","boys","last","may","not","new","three","planetary","further","away","dark","observable","electrochemically","nuclear","stellar","luminous","dark","hypothetical","grand","fifth","fundamental","proposed","ballistic","light","future","induced","gev","milroy","grand","ballistic","proposed"))
-ver = set(("happened","field","form","design","provides","be","is","process","proposed","test","induced","determine","why"))
+adj = set(("thermal","transformative","big","small","electromagnetic","brown","never","gaseous","motionless","combustible","interstellar","polarizable","fundamental","new","kirchhoffs","Earths","magnetic","gravitational","bulk","young","hypothetical","venusian","fermats","boys","last","may","not","new","three","planetary","further","away","dark","observable","electrochemically","nuclear","stellar","luminous","dark","hypothetical","grand","fifth","fundamental","proposed","ballistic","light","future","induced","gev","milroy","grand","ballistic","proposed","possible","left-right"))
+ver = set(("happened","field","form","design","provides","be","is","process","proposed","test","induced","determine","why","approach"))
 ger = set(("transgressing","eliminating","engineering","getting"))
-nou = set(("bang","boundaries","quantum","brown","chance","design","device","electro-gravity","electrodynamics","engineering","emission","explanation","field","flight","form","generator","gravity","hermeneutics","inference","law","o(3)","probabilities","townsend","vacuum","validity","water","zero-point","fundamental","basis","mechanics","possibility","shielding","bulk","superconductor","YBa2Cu207-x","energy","confirmation","age","biofield","signals","transmission","neutrinos","process","physics","information","theory","quantum","space","matter","snake","object","fauna","quiton/perceptron","existence","perception","phenomena","theorem","hanson","grammar","school","proof","hole","escape","velocity","case","study","decay","experiment","data","quantum","entanglement","laws","motion","rate","earth","sun","process","physics","information","theory","space","matter","cobe","wmap","signal","analysis","fact","fiction","dark","matter","observable","oscillations","fusion","deuterium","astrophysics","connections","ignition","matter","axion","rockets","terms","energy","flow","wire","milroy","engine","concept","bio-force","force","fundamental","test","theory","emission","light","particles","energy","lithium","entropy","neutrino","physics","problem","stars","matter-antimatter","gamma","ray","laser","rocket","propulsion","flow","wire","engine","unification","concept","test","theory"))
+nou = set(("bang","boundaries","quantum","brown","chance","design","device","electro-gravity","electrodynamics","engineering","emission","explanation","field","flight","form","generator","gravity","hermeneutics","inference","law","o(3)","probabilities","townsend","vacuum","validity","water","zero-point","fundamental","basis","mechanics","possibility","shielding","bulk","superconductor","YBa2Cu207-x","energy","confirmation","age","biofield","signals","transmission","neutrinos","process","physics","information","theory","quantum","space","matter","snake","object","fauna","quiton/perceptron","existence","perception","phenomena","theorem","hanson","grammar","school","proof","hole","escape","velocity","case","study","decay","experiment","data","quantum","entanglement","laws","motion","rate","earth","sun","process","physics","information","theory","space","matter","cobe","wmap","signal","analysis","fact","fiction","dark","matter","observable","oscillations","fusion","deuterium","astrophysics","connections","ignition","matter","axion","rockets","terms","energy","flow","wire","milroy","engine","concept","bio-force","force","fundamental","test","theory","emission","light","particles","energy","lithium","entropy","neutrino","physics","problem","stars","matter-antimatter","gamma","ray","laser","rocket","propulsion","flow","wire","engine","unification","concept","test","theory","answer","asymmetry","beta","decay","airfoil","approach","propulsion"))
 postfix = set(("why",))
 
 
@@ -395,14 +395,14 @@ def exclude(x):
 titleset = [
     'Electrochemically induced nuclear fusion of deuterium',
     'Questioning Astrophysics and Revealing Connections Between Stellar Ignition Luminous',
-    'Matter-Antimatter GeV Gamma Ray Laser Rocket Propulsion',
+    'Airfoil Force Approach to the Rocket Propulsion',
     'Electromagnetic Energy Flow in the Wire and Milroy Engine',
     'Grand Unification Concept with Bio-force as the Fifth Fundamental',
     'A proposed astronomical test of the ballistic theory of',
-    'Dark Particles Answer Dark energy',
+    'A Possible Answer to the Right-Left Asymmetry of Beta Decay',
     'Entropy Neutrino Physics and the Lithium Problem Why Stars']
 titleset = [x.lower().split() for x in titleset] # clean it up a little
-authorset = [["Pons","Fleischmann"],["Herndon",],["Winterberg",],["Khmelnik",],["Kodukula",],["Dingle",],["Haller",],["Beckwith",]]
+authorset = [["Pons","Fleischmann"],["Herndon",],["Jovanovich",],["Khmelnik",],["Kodukula",],["Dingle",],["Yie",],["Beckwith",]]
 
 #one word from each title will go unused.  we'll clue them later and they will read off the answer.
 #counting from 1=first word
