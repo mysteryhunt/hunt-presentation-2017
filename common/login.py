@@ -3,7 +3,7 @@ from requests.exceptions import RequestException
 
 import cube
 
-blueprint = Blueprint("login", __name__, template_folder="templates")
+blueprint = Blueprint("login", __name__, template_folder="templates", static_folder="loginstatic")
 
 @blueprint.record
 def record(setup_state):
