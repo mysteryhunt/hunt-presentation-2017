@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block page_body %}
+{% set editable = is_authorized('teams:%s:update' % team.teamId) %}
 <div class="ha-control-boxes-container">
   <form class="ha-column-control-box" action="{{ url_for('team', team_id=team.teamId) }}" method="post">
     <span class="ha-control-box-title">
@@ -12,20 +13,21 @@
       </label>
       <label>
         Email
-        <input type="text" name="email" value="{{ team.email }}">
+        <input type="text" name="email" value="{{ team.email }}" {% if not editable %}disabled{% endif %}>
       </label>
       <label>
         Primary Phone
-        <input type="text" name="primaryPhone" value="{{ team.primaryPhone }}">
+        <input type="text" name="primaryPhone" value="{{ team.primaryPhone }}" {% if not editable %}disabled{% endif %}>
       </label>
       <label>
         Secondary Phone
-        <input type="text" name="secondaryPhone" value="{{ team.secondaryPhone }}">
+        <input type="text" name="secondaryPhone" value="{{ team.secondaryPhone }}" {% if not editable %}disabled{% endif %}>
       </label>
     </div>
     <input type="hidden" name="action" value="ChangeContactInfo">
-    <input type="submit" value="Change Contact Info">
+    <input type="submit" value="Change Contact Info" {% if not editable %}disabled{% endif %}>
   </form>
+  {% if is_authorized('visibilities:%s:update' % team.teamId) %}
   <form class="ha-column-control-box" action="{{ url_for('team', team_id=team.teamId) }}" method="post">
     <span class="ha-control-box-title">
       Set Puzzle Status
@@ -60,6 +62,7 @@
       <input id="solveButton" type="submit" name="actionType" value="Solve" disabled>
     </div>
   </form>
+  {% endif %}
 </div>
 {% if team.teamProperties %}
 <div class="ha-page-section">

@@ -28,6 +28,10 @@ def login():
                 session["usertype"] = "solvingteam"
         except RequestException, e:
             clear_session()
+            if e.response is None:
+                return render_template(
+                    "login.html",
+                    error="Login failed - backend not available. %s" % e)
             if e.response.status_code == 401 or e.response.status_code == 403:
                 return render_template(
                     "login.html",
