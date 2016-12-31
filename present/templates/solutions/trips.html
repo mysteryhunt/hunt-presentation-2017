@@ -28,8 +28,8 @@
 {% block solution_content_block %}
   <div>
     <p>
-      The puzzle is a file named "trips.pcap". The first step is to download
-      this file and figure out what kind of file it is, if it's not clear from
+      The solver should download "trips.pcap" using the download link. The first
+      step is to figure out what kind of file this is, if it's not clear from
       the file extension. A Google search for "pcap" would return results
       indicating that this is
       a <a href="https://wiki.wireshark.org/Development/LibpcapFileFormat">pcap
@@ -110,7 +110,7 @@ reading from file trips.pcap, link-type RAW (Raw IP)
     </p>
     <p>
       Looking up the IP addresses in an IP geolocation database
-      (e.g. <a href="https://geoiptool.com">https://geoiptool.com</a>) will
+      (e.g., <a href="https://geoiptool.com">https://geoiptool.com</a>) will
       reveal locations around the world. For example, the 1964-02-07 packet has
       a source IP of 85.90.227.224, which geolocates near London, and it has a
       destination IP of 100.12.116.128, which geolocates to New York City.
