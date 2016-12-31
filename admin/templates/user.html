@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block page_body %}
-{% set editable = is_authorized('users:%s:update' % user.username) %}
+{% set editable = is_authorized('users:update:%s' % user.username) %}
+{% set roles_editable = is_authorized('userroles:update:%s' % user.username) %}
 <div class="ha-control-boxes-container">
   <form class="ha-column-control-box" action="{{ url_for('user', username=user.username) }}" method="post">
     <span class="ha-control-box-title">
@@ -18,11 +19,11 @@
       <label>
         Roles
         <label>
-          <input type="checkbox" name="role_writingteam" {% if 'writingteam' in user.roles %} checked {% endif %} {% if not editable %}disabled{% endif %}>
+          <input type="checkbox" name="role_writingteam" {% if 'writingteam' in user.roles %} checked {% endif %} {% if not roles_editable %}disabled{% endif %}>
           writingteam
         </label>
         <label>
-          <input type="checkbox" name="role_admin" {% if 'admin' in user.roles %} checked {% endif %} {% if not editable %}disabled{% endif %}>
+          <input type="checkbox" name="role_admin" {% if 'admin' in user.roles %} checked {% endif %} {% if not roles_editable %}disabled{% endif %}>
           admin
         </label>
       </label>

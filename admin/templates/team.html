@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block page_body %}
-{% set editable = is_authorized('teams:%s:update' % team.teamId) %}
+{% set editable = is_authorized('teams:update:%s' % team.teamId) %}
 <div class="ha-control-boxes-container">
   <form class="ha-column-control-box" action="{{ url_for('team', team_id=team.teamId) }}" method="post">
     <span class="ha-control-box-title">
@@ -27,7 +27,7 @@
     <input type="hidden" name="action" value="ChangeContactInfo">
     <input type="submit" value="Change Contact Info" {% if not editable %}disabled{% endif %}>
   </form>
-  {% if is_authorized('visibilities:%s:update' % team.teamId) %}
+  {% if is_authorized('visibilities:update:%s' % team.teamId) %}
   <form class="ha-column-control-box" action="{{ url_for('team', team_id=team.teamId) }}" method="post">
     <span class="ha-control-box-title">
       Set Puzzle Status
