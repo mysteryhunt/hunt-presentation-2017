@@ -1,0 +1,110 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'dynast' %}
+{% block title_block %}On Numbers and Games: Solution{% endblock %}
+{% block puzzle_name_block %}On Numbers and Games: Solution{% endblock %}
+{% block byline %}By Greg Pliska and Guy Jacobson{% endblock %}
+{% block solution %}MIDDLE KINGDOM{% endblock %}
+
+{% block solution_content_block %}
+<div>
+  <p>
+    The title of the puzzle is the name of <a href="https://en.wikipedia.org/wiki/On_Numbers_and_Games">a well-known book</a> by mathematician John Horton Conway, in which he discusses
+    (among other things) combinatorial games, the <a
+    href="https://en.wikipedia.org/wiki/Sprague%E2%80%93Grundy_theorem">Sprague-Grundy
+    theorem</a>, and in
+    particular the <a href="https://en.wikipedia.org/wiki/Nim">game of Nim</a> and
+    nimbers. The game of Nim is played with &ldquo;heaps&rdquo; of items, with the number of
+    items in each heap being important. Nim is not itself directly involved with
+    this puzzle, although concepts from that game will be needed to solve.
+  </p>
+  <p>
+    Each of the Emperor&rsquo;s misguided reviews (styled as posts on the <a href ="https://boardgamegeek.com">Board Game Geek web 
+    site</a>) describes a popular game&mdash;or at least presents what the Emperor 
+    <i>thinks</i> the game is about. The reviews are always posted in the
+    year of the game&rsquo;s release, and they are listed 
+    in alphabetical order of the game titles.
+  </p>
+  <p>
+    In order of appearance, the games reviewed are: Agricola, Bruges, Dice Town,
+    Genoa, Go, Imperial, Istanbul, Lost Cities, Love Letter, Medici,
+    Morels, Notre Dame, Saboteur, Set, and Uno. Each of these review posts
+    recieved a unique number of thumbs from 1 through 15; ordering the
+    game titles by thumb count and reading the first letters spells
+    NIMSUMALLBGGIDS, which is meant to be parsed as the instruction
+    &ldquo;Nim-sum all BGG IDs.&rdquo;
+  </p>
+  <p>
+    <a href="https://en.wikipedia.org/wiki/Nim">Nim-sum</A> is a concept that is
+    important in finding a winning strategy for the game of Nim (or any impartial
+    game). The whole idea of nim-summing involves combining
+    multiple impartial games into a single game, and associating an integer with
+    [a position in] the game.
+  </p>
+  <p>
+    On Board Game Geek (aka BGG), every game gets a unique ID
+    number, which is readily seen in the URL of the page associated with that
+    game. For the set of games reviewed:
+  </p>
+
+  <table>
+    <tr>
+      <th>BGG ID</th>
+      <th>Game</th>
+      <th>Thumbs</th>
+      <th>Year</th>
+    </tr>
+  <tr><td>31260</td><td><a href="https://boardgamegeek.com/boardgame/31260/agricola">Agricola</a></td><td>7</td><td>2007</td></tr>
+  <tr><td>136888</td><td><a href="https://boardgamegeek.com/boardgame/136888/bruges">Bruges</a></td><td>10</td><td>2013</td></tr>
+  <tr><td>40793</td><td><a href="https://boardgamegeek.com/boardgame/40793/dice-town">Dice Town</a></td><td>14</td><td>2009</td></tr>
+  <tr><td>1345</td><td><a href="https://boardgamegeek.com/boardgame/1345/genoa">Genoa</a></td><td>11</td><td>2001</td></tr>
+  <tr><td>188</td><td><a href="https://boardgamegeek.com/boardgame/188/go">Go</a></td><td>12</td><td>-2200</td></tr>
+  <tr><td>24181</td><td><a href="https://boardgamegeek.com/boardgame/24181/imperal">Imperial</a></td><td>2</td><td>2006</td></tr>
+  <tr><td>148949</td><td><a href="https://boardgamegeek.com/boardgame/148949/istanbul">Istanbul</a></td><td>13</td><td>2014</td></tr>
+  <tr><td>50</td><td><a href="https://boardgamegeek.com/boardgame/50/lost-cities">Lost Cities</a></td><td>8</td><td>1999</td></tr>
+  <tr><td>129622</td><td><a href="https://boardgamegeek.com/boardgame/129622/love-letter">Love Letter</a></td><td>9</td><td>2012</td></tr>
+  <tr><td>46</td><td><a href="https://boardgamegeek.com/boardgame/46/medici">Medici</a></td><td>3</td><td>1995</td></tr>
+  <tr><td>122298</td><td><a href="https://boardgamegeek.com/boardgame/122298/morels">Morels</a></td><td>6</td><td>2012</td></tr>
+  <tr><td>25554</td><td><a href="https://boardgamegeek.com/boardgame/25554/notre-dame">Notre Dame</a></td><td>1</td><td>2007</td></tr>
+  <tr><td>9220</td><td><a href="https://boardgamegeek.com/boardgame/9220/saboteur">Saboteur</a></td><td>15</td><td>2004</td></tr>
+  <tr><td>1198</td><td><a href="https://boardgamegeek.com/boardgame/1198/set">Set</a></td><td>4</td><td>1988</td></tr>
+  <tr><td>2223</td><td><a href="https://boardgamegeek.com/boardgame/2223/uno">Uno</a></td><td>5</td><td>1971</td></tr>
+  </table>
+  <p>
+  To nim-sum of a set of numbers, we simply take the the bitwise XOR (&#8853;)
+  of their binary representations. Taking the BGG ID numbers of the games in the
+  reviews and nim-summing them (that is, XORing them all
+  together) forms a number that is the BGG ID of another game.<BR>
+  <BR>
+  So 31260
+  &#8853;
+  136888
+  &#8853;
+  40793
+  &#8853;
+  1345
+  &#8853;
+  188
+  &#8853;
+  24181
+  &#8853;
+  148949
+  &#8853;
+  50
+  &#8853;
+  129622
+  &#8853;
+  46
+  &#8853;
+  122298
+  &#8853;
+  25554
+  &#8853;
+  9220
+  &#8853;
+  1198
+  &#8853;
+  2223
+  =
+  <b>33159</b>, which is the BGG ID number of <a href="https://boardgamegeek.com/boardgame/33159/middle-kingdom"><b>MIDDLE KINGDOM</b></a>, the answer to the puzzle.</p>
+</div>
+{% endblock %}
