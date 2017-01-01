@@ -73,7 +73,7 @@
       World Map
     </div>
     <div id="world-map">
-      <div id="world-map-background" style="content: url({{ asset_url_for('general/map/map-fog-%s.png' % fog_number)}});"></div>
+      <div id="world-map-background"><img src="{{ asset_url_for('general/map/map-fog-%s.png' % fog_number)}}"/></div>
         {% for quest in [('dynast',10,20,'The Despondent Dynast'),('dungeon',70,160,'The Dismal Dungeon'),('thespians',75,465,'The Thrilling Thespians'),('bridge',215,310,'The Broken Bridge'),('criminal',245,150,'The Crafty Criminal'),('minstrels',350,40,'The Modest Minstrels'),('cube',450,130,'The Curious Cube'),('warlord',360,250,'The Woeful Warlord')] if quest[0] in visible_puzzle_ids %}
           <a href="{{ url_for('round', round_id = quest[0]) }}">
             <div id="quest-map-{{ quest[0] }}" class="individual-quest" style="width:108px; height:81px; position:absolute; top:{{ quest[1] }}px; left:{{ quest[2] }}px; z-index:200;" data-toggle="tooltip" data-placement="bottom" title="{{ quest[3] }}">
