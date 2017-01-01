@@ -44,6 +44,10 @@
     table.t tr.b {
       border-top: 3px solid black;
     }
+    .board-images-link {
+      text-align: center;
+      margin-bottom: 2em;
+    }
   </style>
 {% endblock %}
 
@@ -82,7 +86,7 @@
         <td></td>
       </tr>
     </table>
-    <p>
+    <p class="board-images-link">
       <a class="standard-link" href="{{ asset_url_for('marvels_of_the_ancient_world/BoardScans.pdf') }}">
         Board images for reference
       </a>
