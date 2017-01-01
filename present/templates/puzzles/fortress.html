@@ -14,7 +14,7 @@
 {% block puzzle_content_block %}
   {% if core_display_data['merchants_solved'] and core_display_data['encounter_solved'] %}
     <p>
-      Contact HQ to schedule your final showdown with the villain.
+      <a class="standard-link" href="{{ submit_url_for(puzzle_id) }}">Contact HQ</a> to schedule your final showdown with the villain.
     </p>
   {% elif not core_display_data['encounter_solved'] %}
     <p>
