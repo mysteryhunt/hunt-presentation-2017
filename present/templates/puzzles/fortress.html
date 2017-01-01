@@ -12,5 +12,17 @@
 {% endblock %}
 
 {% block puzzle_content_block %}
-
+  {% if core_display_data['merchants_solved'] and core_display_data['encounter_solved'] %}
+    <p>
+      Contact HQ to schedule your final showdown with the villain.
+    </p>
+  {% elif not core_display_data['encounter_solved'] %}
+    <p>
+      The villian is not at the fortress. You&rsquo;ll need to find him out in the world first.
+    </p>
+  {% elif not core_display_data['merchants_solved'] %}
+    <p>
+      You can&rsquo;t take on the villain with the equipment you have now. You&rsquo;ll need to find better equipment first.
+    </p>
+  {% endif %}
 {% endblock %}
