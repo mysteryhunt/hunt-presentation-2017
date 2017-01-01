@@ -17,6 +17,19 @@
     </div>
     <div class="vertically-enscrolled">
       <div id="total-character-level">Total: {{ core_display_data['total_character_level'] }}</div>
+      {% if 'encounter' in visible_puzzle_ids %}
+        <div id="encounter-display" style="margin-bottom: 10px; position: relative;">
+          <a href="{{ url_for('puzzle', puzzle_id='encounter')}}">
+            <img id="group-image" src="{{ asset_url_for('general/characters/all-headshot.png')}}" style="width:100%;"/>
+            <div id="encounter-label" style="font-size:16px;">The Ensnaring Encounter</div>
+          </a>
+          {% if puzzle_visibilities['encounter'].get('status','INVISIBLE') == 'SOLVED' %}
+            <div class="quest-solve-icon">
+              <img src="{{ asset_url_for('general/icons/completion-logo.png') }}"/>
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
       <div id="character-displays">
         {% for character_class in core_display_data['visible_characters'] %}
           <a href="{{ url_for('round', round_id = character_class) }}">
