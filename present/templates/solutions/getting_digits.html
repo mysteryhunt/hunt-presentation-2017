@@ -1,0 +1,102 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'flex' %}
+{% block title_block %}Getting Digits: Solution{% endblock %}
+{% block puzzle_name_block %}Getting Digits: Solution{% endblock %}
+{% block byline %}By Chris Morse{% endblock %}
+{% block solution %}FLEX1{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  #puzzle-content ul {
+    list-style-type: none;
+    padding-left: 0px;
+  }
+  #puzzle-content p.phone-number {
+    font-size: 24px;
+  }
+  #puzzle-content span.phone-number {
+    white-space: nowrap;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<div id="clues-explanation">
+  <p>In this puzzle, there are seven sets of seven clues that need to be solved, with an odd looking phone number at the bottom. Somehow the clues have to yield digits, and the standard digital display used to represent numbers in simple computer displays is a 7-bit standard display. Each of the clues leads to an answer that contains either ON or OFF (ignoring spacing and punctuation) exactly once in it.  Each of these can be converted into a single digit, each represented by the numbers 1 through 7 (from the clues).</p>
+  <ul>
+    <li>1a. Dahlonega - on</li>
+    <li>1b. <i>Wheel of Fortune</i> - off</li>
+    <li>1c. Basil Rathbone - on</li>
+    <li>1d. Euston Road - on</li>
+    <li>1e. Porto-Novo - on</li>
+    <li>1f. O&rsquo;Connor - on</li>
+    <li>1g. Baton Rouge - on</li>
+  </ul>
+  <ul>
+    <li>2a. <i>Veronica Mars</i> - on</li>
+    <li>2b. Brontosaurus - on</li>
+    <li>2c. Donatella Versace - on</li>
+    <li>2d. Willem de Kooning - on</li>
+    <li>2e. Commonwealth - on</li>
+    <li>2f. Quonset hut - on</li>
+    <li>2g. <i>Rabbit-Proof Fence</i> - off</li>
+  </ul>
+  <ul>
+    <li>3a. Honshu - on</li>
+    <li>3b. <i>Blondie</i> - on</li>
+    <li>3c. Pioneer Football League - on</li>
+    <li>3d. Toronto - on</li>
+    <li>3e. Nick Offerman - off</li>
+    <li>3f. Otis Spofford - off</li>
+    <li>3g. Michael Ondaatje - on</li>
+  </ul>
+  <ul>
+    <li>4a. Helena Bonham Carter - on</li>
+    <li>4b. San Antonio - on</li>
+    <li>4c. The Gang of Four - off</li>
+    <li>4d. cat-o&rsquo;-nine-tails - on</li>
+    <li>4e. <i>Pulp Fiction</i> - on</li>
+    <li>4f. soffit - off</li>
+    <li>4g. Lyle Waggoner - on</li>
+    <br>
+    <li>5a. Harry Belafonte - on</li>
+    <li>5b. Eug&egrave;ne Ionesco - on</li>
+    <li>5c. <i>Do No Harm</i> - on</li>
+    <li>5d. <i>High Noon</i> - on</li>
+    <li>5e. Steven Moffat - off</li>
+    <li>5f. Freedonia - on</li>
+    <li>5g. ammonia - on</li>
+    <br>
+    <li>6a. Jonah - on</li>
+    <li>6b. coffee - off</li>
+    <li>6c. Al Capone - on</li>
+    <li>6d. Longfellow Bridge - on</li>
+    <li>6e. Bernie Madoff - off</li>
+    <li>6f. Mr. Moviefone - on</li>
+    <li>6g. Geronimo - on</li>
+    <br>
+    <li>7a. <i>In the Line of Fire</i> - off</li>
+    <li>7b. Anne Bront&euml; - on</li>
+    <li>7c. Madonna - on</li>
+    <li>7d. The Offspring - off</li>
+    <li>7e. Gary Burghoff - off</li>
+    <li>7f. coffin - off</li>
+    <li>7g. Jacques Offenbach - off</li>
+  </ul>
+</div>
+<div id="end-explanation">
+  <p>Using the standard 7-bit display below, you can make the follow table to find the new numbers for the phone number.<p>
+  <p><img src="{{ asset_url_for('getting_digits/solution-image01.jpg') }}" width='200'/></p>
+  <ul>
+    <li> 1 represents 6</li>
+    <li> 2 represents 0</li>
+    <li> 3 represents 3</li>
+    <li> 4 represents 2</li>
+    <li> 5 represents 9</li>
+    <li> 6 represents 5</li>
+    <li> 7 represents 1</li>
+  </ul>
+  <p class="phone-number">(123) 445-6622 x1767</p>
+  <p> This dummy phone number is then converted to the actual number you want to dial: <span class="phone-number">(603) 229-5500 x6151</span>. When you call this number, you are given the answer to the puzzle <b>FLEXA</b>.</p>
+</div>
+{% endblock %}
