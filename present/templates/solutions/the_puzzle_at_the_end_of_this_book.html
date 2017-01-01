@@ -1,0 +1,57 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'cube' %}
+{% block title_block %}The Puzzle at the End of This Book: Solution{% endblock %}
+{% block puzzle_name_block %}The Puzzle at the End of This Book: Solution{% endblock %}
+{% block byline %}By TK Focht{% endblock %}
+{% block solution %}MAKEUP{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+#puzzle-content table {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#puzzle-content table td {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<div>
+<p>
+    There are six subpuzzles embedded within the book, each using a different mechanism and encoding. Each results in an answer with a unique length. In a nod to the original <i>The Monster at the End of This Book</i>, each one is a form of monster, creature, or other supernatural being.
+  </p>
+  <p>
+    Each of the four distractions or obstacles Grover uses to try to keep the reader from reaching the end of the book has a Braille sextet in it: the ship&rsquo;s portholes, a black and white set of blocks, the nails in the boards, and the holes and dents in the bucket. Reading the Braille for each of these gives the answer <b>HUMA</b>.
+  </p>
+  <p>
+    In the original book, every time Grover says &ldquo;Monster&rdquo; it is in special coloring. In this version, whenever he says &ldquo;Puzzle&rdquo; it is in a special font. The fonts, in order, are Times New Roman, Impact, Twentieth Century, Arial, and Nosifer. (All of these are fonts available in Google Documents.) Reading off the first letters gives <b>TITAN</b>.
+  </p>
+  <p>
+    Each time Grover speaks before the last page, some of his text is emphasized with balloon lettering and coloring. These words form the cryptic clue &ldquo;Wooden ship turned around before understanding (six),&rdquo; and the clue&rsquo;s answer is <b>KRAKEN</b>.
+  </p>
+  <p>
+    Each time Grover speaks before the last page, there is a monster hidden inside of his words&mdash;a Pok&eacute;mon, to be exact. The hidden monsters are Sandshrew, Pinsir, Ekans, Clefairy, Tentacruel, Eevee, and Rapidash. Reading off the first letters gives the answer <b>SPECTER</b>.
+  </p>
+  <p>
+    Each time Grover speaks before the last page, part of his speech bubble has Morse encoding, consistently reading counter-clockwise, with the top of the letters inward. This message reads &ldquo;Lilith, Morrigan, Scarlet, or Queen of Pain.&rdquo; Each of these is a <b>SUCCUBUS</b>.
+  </p>
+  <p>
+    Grover appears in the book nine times, including the cover. Each time, his arms form a semaphore letter. This spells out the answer <b>QALUPALIK</b>.
+  </p>
+  <p>
+    Like the answers, each of the Muppet friends at the end of the book has a unique length, and the lengths match the answer lengths. In each correpsonding answer and Muppet name, exactly one letter matches. Taking these in length order gives the final answer.
+    <table>
+      <tr><td>ELMO</td><td>HUMA</td><td>M</td></tr>
+      <tr><td>OSCAR</td><td>TITAN</td><td>A</td></tr>
+      <tr><td>KERMIT</td><td>KRAKEN</td><td>K</td></tr>
+      <tr><td>BARKLEY</td><td>SPECTER</td><td>E</td></tr>
+      <tr><td>DONMUSIC</td><td>SUCCUBUS</td><td>U</td></tr>
+      <tr><td>MISSPIGGY</td><td>QALUPALIK</td><td>P</td></tr>
+    </table>
+    The final answer to the puzzle is <b>MAKEUP</b>.
+  </p>
+</div>
+{% endblock %}
