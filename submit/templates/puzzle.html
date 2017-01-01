@@ -21,32 +21,34 @@
     <div id="forms">
       <div id="title-header" class="small-horizontal-scroll">{{ puzzle.get('puzzleProperties',{}).get('DisplayNameProperty',{}).get('displayName',puzzle_id) }}</div>
 
-      <div class="submission-section">
-        <div class="submission-section-header">Submissions</div>
-        {% if visibility['status'] != 'SOLVED' %}
-        <div class="submission-section-form">
-          <form action="{{ url_for('puzzle', puzzle_id=puzzle_id) }}" method="post">
-            <span>Submit an answer:</span>
-            <input type="text" name="submission">
-            <input type="submit" value="Submit">
-          </form>
-        </div>
-        {% endif %}
-        {% if submissions %}
-          <div class="submission-section-previous-subsection">
-            <div class="submission-section-previous-header">Previous Submissions</div>
-            <div class="submission-section-previous-listing">
-              <ul>
-                {% for submission in submissions %}
-                <li>{{ submission.submission }} at {{ submission.timestamp | datetime }} - {{ submission.status }}
-                {% endfor %}
-              </ul>
-            </div>
+      {% if puzzle_id not in ['rescue_the_chemist','rescue_the_linguist','rescue_the_economist','encounter','fortress'] %}
+        <div class="submission-section">
+          <div class="submission-section-header">Submissions</div>
+          {% if visibility['status'] != 'SOLVED' %}
+          <div class="submission-section-form">
+            <form action="{{ url_for('puzzle', puzzle_id=puzzle_id) }}" method="post">
+              <span>Submit an answer:</span>
+              <input type="text" name="submission">
+              <input type="submit" value="Submit">
+            </form>
           </div>
-        {% endif %}
-      </div>
+          {% endif %}
+          {% if submissions %}
+            <div class="submission-section-previous-subsection">
+              <div class="submission-section-previous-header">Previous Submissions</div>
+              <div class="submission-section-previous-listing">
+                <ul>
+                  {% for submission in submissions %}
+                  <li>{{ submission.submission }} at {{ submission.timestamp | datetime }} - {{ submission.status }}
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
 
-      <div class="submission-section submission-section-closed">
+      <div class="submission-section{% if puzzle_id not in ['rescue_the_chemist','rescue_the_linguist','rescue_the_economist','encounter','fortress'] %} submission-section-closed{% else %} submission-section-open{% endif %}">
         <div class="submission-section-header use-pointer"><span class="submission-section-closed-content"><a class="fa fa-caret-right" aria-hidden="true"></a></span><span class="submission-section-open-content"><a class="fa fa-caret-down" aria-hidden="true"></a></span>Requests</div>
         <div class="submission-section-open-content">
           <div class="submission-section-explanation">

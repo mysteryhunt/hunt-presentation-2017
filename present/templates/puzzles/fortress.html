@@ -8,6 +8,10 @@
 </style>
 {% endblock %}
 
+{% block header_content %}
+  <div id="submit"><a href="{{ submit_url_for(puzzle_id) }}">Request interaction</a></div>
+{% endblock %}
+
 {% block puzzle_flavortext_block %}
 {% endblock %}
 

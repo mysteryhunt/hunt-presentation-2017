@@ -3,7 +3,10 @@
 {% set suppress_display_solution = True %}
 {% block title_block %}Rescue the Economist{% endblock %}
 {% block puzzle_name_block %}Rescue the Economist{% endblock %}
-{% block header_content %}{% endblock %}
+
+{% block header_content %}
+  <div id="submit"><a href="{{ submit_url_for(puzzle_id) }}">Request interaction</a></div>
+{% endblock %}
 
 {% block puzzle_head_block %}
 {% endblock %}
