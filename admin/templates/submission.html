@@ -1,58 +1,74 @@
 {% extends "base.html" %}
 {% block page_body %}
 <div class="ha-page-section">
-  <table>
-    <tr>
-      <td>Submission Time</td>
-      <td>{{ submission.timestamp | datetime }}</td>
-    </tr>
-    <tr>
-      <td>Team</td>
-      <td>{{ submission.teamId }}</td>
-    </tr>
-    <tr>
-      <td>Team Primary Phone</td>
-      <td>{{ team.primaryPhone }}</td>
-    </tr>
-    <tr>
-      <td>Team Secondary Phone</td>
-      <td>{{ team.secondaryPhone }}</td>
-    </tr>
-    <tr>
-      <td>Team Email</td>
-      <td>{{ team.email }}</td>
-    </tr>
-    <tr>
-      <td>Puzzle ID</td>
-      <td>{{ submission.puzzleId }}</td>
-    </tr>
-    <tr>
-      <td>Puzzle Name</td>
-      <td>
-        {% if 'puzzleProperties' in puzzle and 'DisplayNameProperty' in puzzle.puzzleProperties %}
+  <div class="ha-section-row">
+    <table class="ha-section-row-box">
+      <tr>
+        <td>Submission Time</td>
+        <td>{{ submission.timestamp | datetime }}</td>
+      </tr>
+      <tr>
+        <td>Team</td>
+        <td>{{ submission.teamId }}</td>
+      </tr>
+      <tr>
+        <td>Team Primary Phone</td>
+        <td>{{ team.primaryPhone }}</td>
+      </tr>
+      <tr>
+        <td>Team Secondary Phone</td>
+        <td>{{ team.secondaryPhone }}</td>
+      </tr>
+      <tr>
+        <td>Team Email</td>
+        <td>{{ team.email }}</td>
+      </tr>
+      <tr>
+        <td>Puzzle ID</td>
+        <td>{{ submission.puzzleId }}</td>
+      </tr>
+      <tr>
+        <td>Puzzle Name</td>
+        <td>
+          {% if 'puzzleProperties' in puzzle and 'DisplayNameProperty' in puzzle.puzzleProperties %}
           {{ puzzle.puzzleProperties.DisplayNameProperty.displayName }}
-        {% else %}
+          {% else %}
           unknown
-        {% endif %}
-      </td>
-    </tr>
-    <tr>
-      <td>Submitted Answer</td>
-      <td>{{ submission.submission }}</td>
-    </tr>
-    <tr>
-      <td>Correct Answer</td>
-      <td>{{ puzzle.puzzleProperties.AnswersProperty.answers[0].canonicalAnswer }}</td>
-    </tr>
-    <tr>
-      <td>Assigned to Caller</td>
-      <td>{{ submission.callerUsername }}</td>
-    </tr>
-    <tr>
-      <td>Status</td>
-      <td>{{ submission.status }}</td>
-    </tr>
-  </table>
+          {% endif %}
+        </td>
+      </tr>
+      <tr>
+        <td>Submitted Answer</td>
+        <td>{{ submission.submission }}</td>
+      </tr>
+      <tr>
+        <td>Correct Answer</td>
+        <td>{{ puzzle.puzzleProperties.AnswersProperty.answers[0].canonicalAnswer }}</td>
+      </tr>
+      <tr>
+        <td>Assigned to Caller</td>
+        <td>{{ submission.callerUsername }}</td>
+      </tr>
+      <tr>
+        <td>Status</td>
+        <td>{{ submission.status }}</td>
+      </tr>
+    </table>
+    {% if past_submissions %}
+    <div class="ha-section-row-box">
+      <h3 class="ha-section-row-heading">Previous Submissions</h3>
+      <ul>
+        {% for s in past_submissions %}
+        <li>
+          {{ s.timestamp | datetime }} - {{ s.status }} - {{ s.submission }} - handled by {{ s.callerUsername }}
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+  </div>
+</div>
+<div class="ha-page-section">
   {% if submission.status == 'SUBMITTED' %}
   <form action="{{ url_for('submission', submission_id=submission.submissionId) }}" method="post">
     <input type="hidden" name="status" value="ASSIGNED">

@@ -74,12 +74,15 @@ def submission(submission_id):
             abort(400)
 
     submission = cube.get_submission(app, submission_id)
+    past_submissions = cube.get_submissions(app, submission['puzzleId'], submission['teamId'])
+    past_submissions = [s for s in past_submissions if s['submissionId'] != submission_id]
     puzzle = cube.get_puzzle(app, submission['puzzleId'])
     team = cube.get_team_properties(app, team_id=submission['teamId'])
 
     return render_template(
         "submission.html",
         submission=submission,
+        past_submissions=past_submissions,
         puzzle=puzzle,
         team=team)
 
