@@ -48,20 +48,18 @@
         </div>
       {% endif %}
 
-      <div class="submission-section{% if puzzle_id not in ['rescue_the_chemist','rescue_the_linguist','rescue_the_economist','encounter','fortress'] %} submission-section-closed{% else %} submission-section-open{% endif %}">
-        <div class="submission-section-header use-pointer"><span class="submission-section-closed-content"><a class="fa fa-caret-right" aria-hidden="true"></a></span><span class="submission-section-open-content"><a class="fa fa-caret-down" aria-hidden="true"></a></span>Requests</div>
-        <div class="submission-section-open-content">
-          <div class="submission-section-explanation">
-            <p>Requests are your way to communicate with us about a particular puzzle. Examples include scheduling a time to give us something or reporting an erratum.</p>
-            <p>If you have found a message in a puzzle directing you to interact with us, please <b>include the message</b> from the puzzle in your request.</p>
-          </div>
-          <div class="submission-section-form">
-            <form action="{{ url_for('puzzle', puzzle_id=puzzle_id) }}" method="post">
-              <span>Request an interaction or report a problem:</span>
-              <input type="text" name="interactionrequest">
-              <input type="submit" value="Submit">
-            </form>
-          </div>
+      <div class="submission-section">
+        <div class="submission-section-header">Requests</div>
+        <div class="submission-section-explanation">
+          <p>Requests are your way to communicate with us about a particular puzzle. Examples include scheduling a time to give us something or reporting an erratum.</p>
+          <p>If you have found a message in a puzzle directing you to interact with us, please <b>include the message</b> from the puzzle in your request.</p>
+        </div>
+        <div class="submission-section-form">
+          <form action="{{ url_for('puzzle', puzzle_id=puzzle_id) }}" method="post">
+            <span>Request an interaction or report a problem:</span>
+            <input type="text" name="interactionrequest" size="100"/>
+            <input type="submit" value="Submit"/>
+          </form>
         </div>
         {% if interactions %}
         <div class="submission-section-previous-subsection">
@@ -88,8 +86,8 @@
           <div class="submission-section-form">
             <form action="{{ url_for('puzzle', puzzle_id=puzzle_id) }}" method="post">
               <span>Ask for a hint:</span>
-              <input type="text" name="hintrequest">
-              <input type="submit" value="Submit">
+              <input type="text" name="hintrequest" size="100">
+              <input type="submit" value="Submit and PAY 100 GOLD">
             </form>
           </div>
           {% endif %}
