@@ -8,32 +8,32 @@
 {% block solution_content_block %}
 <div>
   <p>
-    Each of the "stats" is a picture of a player whose last name is used as a madeup pseudo-sabermetric statistic in a leaderboard. The stat players are shown in alphabetical order by last name, and each leaderboard has the enumeration of its stat, matching
-    the set of enumerations of the pictured players' last names. The leaderboards also show that a stat with name of length N is the sum of N other stats, just as OPS is calculated by adding together two base stats.
+    Each of the &ldquo;stats&rdquo; is a picture of a player whose last name is used as a madeup pseudo-sabermetric statistic in a leaderboard. The stat players are shown in alphabetical order by last name, and each leaderboard has the enumeration of its stat, matching
+    the set of enumerations of the pictured players&rsquo; last names. The leaderboards also show that a stat with name of length N is the sum of N other stats, just as OPS is calculated by adding together two base stats.
   </p>
   <p>
-    The fourth leaderboard's fourth column has values given. This leaderboard has a unique enumeration and must be ARCIA, so the fourth column is I. The values provided are each player's ISO for the season. This provides a clue that each letter pairs with
-    a base statistic that is associated with that letter. Using this as a hypothesis allows solving for the rest of ARCIA = At bats + Runs + Caught stealing + ISO + At bats, starting the puzzle's combination of cryptogram, math, and logic problem. All
+    The fourth leaderboard&rsquo;s fourth column has values given. This leaderboard has a unique enumeration and must be ARCIA, so the fourth column is I. The values provided are each player&rsquo;s ISO for the season. This provides a clue that each letter pairs with
+    a base statistic that is associated with that letter. Using this as a hypothesis allows solving for the rest of ARCIA = At bats + Runs + Caught stealing + ISO + At bats, starting the puzzle&rsquo;s combination of cryptogram, math, and logic problem. All
     values for base statistics are taken from Fangraphs leaderboards, as noted in the instructions.
   </p>
   <p>
     One possible solve path is:
   </p>
   <p>
-    1) Start with ARCIA, which has a unique enumeration and is short. ISO is given and matches the decimal components of all of the listed players. This means A, R, and C are all whole numbers. C narrows down to Caught Stealing. There are a couple valid A's
-    (At Bats, Assists) and valid R's (Runs, Runs Batted In) that are whole numbers but you need At Bats to get into the right magnitude of numbers. Then Runs is the R that works.
+    1) Start with ARCIA, which has a unique enumeration and is short. ISO is given and matches the decimal components of all of the listed players. This means A, R, and C are all whole numbers. C narrows down to Caught Stealing. There are a couple valid A&rsquo;s
+    (At Bats, Assists) and valid R&rsquo;s (Runs, Runs Batted In) that are whole numbers but you need At Bats to get into the right magnitude of numbers. Then Runs is the R that works.
   </p>
   <p>
     2) Two of the four four-letter stats use I (AOKI, DIFO). These can be picked out with the hundredths and thousandths places matching ISO - they are leaderboard #8 and #9. Both of them need something added in the tenths place. This is easier to work with
-    on AOKI, because A is already known and must be on #8 (because #9 doesn't have values large enough). O = offense and K = strikeouts are derivable from here. On DIFO, both D and F are whole numbers, which is restricts to find D = doubles and F = flyballs.
+    on AOKI, because A is already known and must be on #8 (because #9 doesn&rsquo;t have values large enough). O = offense and K = strikeouts are derivable from here. On DIFO, both D and F are whole numbers, which is restricts to find D = doubles and F = flyballs.
   </p>
   <p>
-    3) For the remaining two four-letter stats (BELT, BAEZ), BAEZ is #12 because A is large. BELT is #2. BAEZ contains three decimal values but doesn't have any known stats that have decimals. However, there aren't a lot of options for B, E, and Z, and Z-Swing%
-    for Z matches the decimal places shown. The values for B and E probably aren't fully workable yet without trial and error.
+    3) For the remaining two four-letter stats (BELT, BAEZ), BAEZ is #12 because A is large. BELT is #2. BAEZ contains three decimal values but doesn&rsquo;t have any known stats that have decimals. However, there aren&rsquo;t a lot of options for B, E, and Z, and Z-Swing%
+    for Z matches the decimal places shown. The values for B and E probably aren&rsquo;t fully workable yet without trial and error.
   </p>
   <p>
     4) I, O, and Z are known to be fractional, and the six-letter stats are full of different combinations of those letters. Based on the decimal places, this allows the identification of #1 as DOZIER, #5 as COZART, #11 as WRIGHT, #13 as CORREA, and #16 as
-    SCHOOP. SEAGER and SEGURA are still ambiguous, but one has decimal values and the other doesn't. Most of these letters are already defined, and from here everything starts falling.
+    SCHOOP. SEAGER and SEGURA are still ambiguous, but one has decimal values and the other doesn&rsquo;t. Most of these letters are already defined, and from here everything starts falling.
   </p>
   <p>
     5) DOZIER and CORREA are all defined except for E, so find that. COZART gets you T. With E and T known, ESCOBAR and BAEZ give B, then BELT gives L. DESCALSO gives S, then BOGAERTS gives G.
@@ -126,13 +126,13 @@
     </tr>
   </table>
   <p>
-    One important source of difficulty solvers may encounter is in handling E (errors). While offensive stats are listed online by player-season, fielding statistics are listed by player-position-season: the same player will be separately listed at each position, and sometimes for all outfield versus all infield. Additionally, default fielding statistic leaderboards only use player-positions with a qualifying number of innings, which would lead to inconsistencies when added to the offensive statistics if the puzzle's rules did not specify how to handle this. For example, Jean Segura needs to be credited with ten errors, which includes his error at shortstop, instead of just the nine he committed at second base. This also addresses anomalies such as Kris Bryant not having any default fielding statistics due to splitting time between the infield and outfield.
+    One important source of difficulty solvers may encounter is in handling E (errors). While offensive stats are listed online by player-season, fielding statistics are listed by player-position-season: the same player will be separately listed at each position, and sometimes for all outfield versus all infield. Additionally, default fielding statistic leaderboards only use player-positions with a qualifying number of innings, which would lead to inconsistencies when added to the offensive statistics if the puzzle&rsquo;s rules did not specify how to handle this. For example, Jean Segura needs to be credited with ten errors, which includes his error at shortstop, instead of just the nine he committed at second base. This also addresses anomalies such as Kris Bryant not having any default fielding statistics due to splitting time between the infield and outfield.
   </p>
   <p>
     With the stats defined, finding the missing players from the leaderboards is accomplishable by building a custom leaderboard of the base stats and exporting to CSV, then adding additional sortable columns using the base stats.
   </p>
   <p>
-    The flavortext indicates that "the shirt off your back" is important - this is the players' jersey numbers. The players missing from the leaderboards generally have numbers that are too large for use as an index, but the stat players all have jersey numbers
+    The flavortext indicates that &ldquo;the shirt off your back&rdquo; is important&mdash;this is the players&rsquo; jersey numbers. The players missing from the leaderboards generally have numbers that are too large for use as an index, but the stat players all have jersey numbers
     from 1 to 9. Once the stats and leaderboards have been matched up and the missing players from the leaderboards determined, we have:
   </p>
   <table>
@@ -257,7 +257,7 @@
     </tr>
   </table>
   <p>
-    The extracted letters read ANSWER <b>TAMPER WITH</b>, which is something the criminal is doing if he's spitballing.
+    The extracted letters read ANSWER <b>TAMPER WITH</b>, which is something the criminal is doing if he&rsquo;s spitballing.
   </p>
 </div>
 {% endblock %}
