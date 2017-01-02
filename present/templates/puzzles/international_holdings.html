@@ -4,8 +4,18 @@
 
 {% block puzzle_head_block %}
 <style>
-img {
+#puzzle-content img {
   max-width: 100%;
+}
+#puzzle-content .international-holding {
+  border-bottom: 2px solid black;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+#puzzle-content .international-holding:last-child {
+  border-bottom: 0;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 </style>
 {% endblock %}
@@ -30,43 +40,43 @@ The emperor has treasure hidden all over his domain.
   <p>It might be jib-headed, jackyard or cornish (7)</p>
   <p>Grill whose prototype was two half-spheres used in buoy making (5 6)</p>
   <div>
-    <div>
+    <div class="international-holding">
       <img src="{{ asset_url_for('international_holdings/asset_1.png') }}">
     </div>
-    <div>
+    <div  class="international-holding">
       <img src="{{ asset_url_for('international_holdings/asset_2.png') }}">
     </div>
-    <div>
+    <div  class="international-holding">
       <img src="{{ asset_url_for('international_holdings/asset_3.png') }}">
     </div>
-    <div>
+    <div  class="international-holding">
       <img src="{{ asset_url_for('international_holdings/asset_4.png') }}">
     </div>
-    <div>
+    <div  class="international-holding">
       <img src="{{ asset_url_for('international_holdings/asset_5.png') }}">
     </div>
-    <div>
+    <div  class="international-holding">
       <img src="{{ asset_url_for('international_holdings/asset_6.png') }}">
     </div>
-    <div>
+    <div  class="international-holding">
       <img src="{{ asset_url_for('international_holdings/asset_7.png') }}">
     </div>
-    <div>
+    <div  class="international-holding">
       <img src="{{ asset_url_for('international_holdings/asset_8.png') }}">
     </div>
-    <div>
+    <div  class="international-holding">
       <img src="{{ asset_url_for('international_holdings/asset_9.png') }}">
     </div>
-    <div>
+    <div  class="international-holding">
       <img src="{{ asset_url_for('international_holdings/asset_10.png') }}">
     </div>
-    <div>
+    <div  class="international-holding">
       <img src="{{ asset_url_for('international_holdings/asset_11.png') }}">
     </div>
-    <div>
+    <div  class="international-holding">
       <img src="{{ asset_url_for('international_holdings/asset_12.png') }}">
     </div>
-    <div>
+    <div  class="international-holding">
       <img src="{{ asset_url_for('international_holdings/asset_13.png') }}">
     </div>
   </div>
