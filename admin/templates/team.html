@@ -30,6 +30,24 @@
   {% if is_authorized('visibilities:update:%s' % team.teamId) %}
   <form class="ha-column-control-box" action="{{ url_for('team', team_id=team.teamId) }}" method="post">
     <span class="ha-control-box-title">
+      Complete Character Rescue
+    </span>
+    <div class="ha-labeled-input-form">
+      <label>
+        Team ID
+        <span>{{ team.teamId }}</span>
+      </label>
+    </div>
+    {% for character in ['linguist', 'economist', 'chemist'] %}
+    <div>
+      {% set rescued = rescue_visibilities.get(character, {}).get('status', 'INVISIBLE') != 'INVISIBLE' %}
+      <button type="submit" name="character" value="{{ character }}" {% if rescued %}disabled{% endif %}>Rescue the {{ character | capitalize }}</button>
+    </div>
+    {% endfor %}
+    <input type="hidden" name="action" value="RescueCharacter">
+  </form>
+  <form class="ha-column-control-box" action="{{ url_for('team', team_id=team.teamId) }}" method="post">
+    <span class="ha-control-box-title">
       Set Puzzle Status
     </span>
     <div class="ha-labeled-input-form">

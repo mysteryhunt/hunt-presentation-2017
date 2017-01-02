@@ -66,12 +66,16 @@ def get_puzzle_visibilities(app):
 def get_puzzle_visibilities_async(app):
     return get_async(app, "/visibilities?teamId=%s" % session["username"])
 
-def get_puzzle_visibilities_for_list(app, puzzle_ids):
-    response = get(app, "/visibilities?teamId=%s&puzzleId=%s" % (session["username"], ','.join(puzzle_ids)))
+def get_puzzle_visibilities_for_list(app, puzzle_ids, team_id=None):
+    if not team_id:
+        team_id = session["username"]
+    response = get(app, "/visibilities?teamId=%s&puzzleId=%s" % (team_id, ','.join(puzzle_ids)))
     return { v["puzzleId"]: v for v in response["visibilities"] }
 
-def get_puzzle_visibilities_for_list_async(app, puzzle_ids):
-    return get_async(app, "/visibilities?teamId=%s&puzzleId=%s" % (session["username"], ','.join(puzzle_ids)))
+def get_puzzle_visibilities_for_list_async(app, puzzle_ids, team_id=None):
+    if not team_id:
+        team_id = session["username"]
+    return get_async(app, "/visibilities?teamId=%s&puzzleId=%s" % (team_id, ','.join(puzzle_ids)))
 
 def get_puzzle_visibility(app, puzzle_id):
     return get(app, "/visibilities/%s/%s" % (session["username"], puzzle_id))
