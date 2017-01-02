@@ -1,7 +1,7 @@
 {% extends "solutions/solution_layout.html" %}
 {% set puzzle_round_id = 'dungeon' %}
-{% block title_block %}It's Only a Model: Solution{% endblock %}
-{% block puzzle_name_block %}It's Only a Model: Solution{% endblock %}
+{% block title_block %}It&rsquo;s Only a Model: Solution{% endblock %}
+{% block puzzle_name_block %}It&rsquo;s Only a Model: Solution{% endblock %}
 {% block byline %}By Justin Werfel{% endblock %}
 {% block solution %}EVEN STEVEN{% endblock %}
 
@@ -41,10 +41,10 @@
         <b>Jump</b>: jump a piece over a piece of the opposite color, removing
         the jumped piece. You can likewise string together as many jumps as you
         can manage as part of a single move, removing each jumped piece
-        immediately as it's jumped (like multiple jumps in checkers).
+        immediately as it&rsquo;s jumped (like multiple jumps in checkers).
       </li>
       <li>
-        <b>Knight's Charge</b>: Knights (but not Men) can do a Canter followed
+        <b>Knight&rsquo;s Charge</b>: Knights (but not Men) can do a Canter followed
         by a Jump as part of one move. That is, the Knight jumps over a string
         of as many pieces of its own color as it likes, followed by jumping over
         a string of as many pieces of the other color as it can manage.
@@ -58,37 +58,37 @@
     </p>
     <p>
       Each board shows a situation where one side or the other can win in the
-      specified number of moves, ending by capturing all of the opponent's
-      pieces with a single Knight's Charge (cued in the flavortext). The length
-      of that Knight's Charge is specified for each board.
+      specified number of moves, ending by capturing all of the opponent&rsquo;s
+      pieces with a single Knight&rsquo;s Charge (cued in the flavortext). The length
+      of that Knight&rsquo;s Charge is specified for each board.
     </p>
     <p>
-      In each Knight's Charge, the two indicated steps provide directions
+      In each Knight&rsquo;s Charge, the two indicated steps provide directions
       encoding a letter in semaphore (cued by the flags mentioned in the
       flavortext).
     </p>
     <p>Individual board solutions:</p>
     <ul>
-      <li>Red wins in 1: Knight's Charge SE - SW - NW - NE - <b>NE</b> - <b>S</b> - S - SE. The fifth and sixth steps (NE, S) encode the semaphore letter E.</li>
-      <li>White wins in 2: First White's top-left piece moves NE, forcing Red to jump SE. Then the Knight's Charge goes N - <b>N</b> - E - NW - E - <b>SE</b> - N. The second and sixth steps (N, SE) encode V.</li>
-      <li>Red wins in 3: (1) Red's topmost piece moves NW, forcing White to jump S. (2) Red's bottom-left piece moves SW, forcing White to jump NW. (3) Knight's Charge <b>NE</b> - S - NW - W - S - S - NW - S - <b>NW</b>, with steps 1 and 8 encoding E.</li>
-      <li>White wins in 1: Knight's Charge N - <b>SE</b> - <b>SW</b> - W - NW - [E - N - SW], where the brackets indicate that those three pieces can be jumped in either that direction or the opposite direction (NE - S - W). Steps 2 and 3 encode N.</li>
-      <li>Red wins in 2: (1) Red's second-from-leftmost piece canters SW over its leftmost piece, forcing White to jump three pieces (N - E - SE). (2) Knight's Charge <b>W</b> - <b>SE</b> - SW - S - [NW - S - E] - SW - NW (encoding S).</li>
-      <li>White wins in 3: (1) White's leftmost piece moves SW, forcing Red to jump N. (2) White's (now) top-left piece moves NW, forcing Red to jump SW. (3) Knight's Charge with the right-hand Knight: W - SW - E - NW - W - <b>N</b> - <b>NW</b> - S - S - SE (encoding T).</li>
-      <li>Red wins in 1: Knight's Charge NW - <b>S</b> - <b>NE</b> - NW - SW - [S - W - NE] - NW - N (encoding E).</li>
-      <li>White wins in 2: (1) White's rightmost piece moves E, forcing Red to jump SW - NW. (2) Knight's Charge <b>SE</b> - NE - NW - NE - W - <b>N</b> - E - [E - S - NW] - NW (encoding V).</li>
-      <li>Red wins in 3: (1) Red's top-left piece moves NW, forcing White to jump S. (2) Red's (now) top piece moves NW, forcing White to jump SW. (3) Knight's Charge W - N - <b>NE</b> - S - NW - NW - S - S - NW - <b>S</b> - SE - W (encoding E).</li>
-      <li>White wins in 4: (1) White's topmost piece canters S, forcing Red to jump NE. (2) White's rightmost piece moves S, forcing Red to jump NW. (3) The piece northeast of White's lower knight moves E, forcing Red to jump NW. (4) White's lower Knight Charges N - NW - N - <b>SE</b> - N - E - S - <b>SW</b> - E - E - S - S - NW (encoding N).</li>
+      <li>Red wins in 1: Knight&rsquo;s Charge SE&ndash;SW&ndash;NW&ndash;NE&ndash;<b>NE</b>&ndash;<b>S</b>&ndash;S&ndash;SE. The fifth and sixth steps (NE, S) encode the semaphore letter E.</li>
+      <li>White wins in 2: First White&rsquo;s top-left piece moves NE, forcing Red to jump SE. Then the Knight&rsquo;s Charge goes N&ndash;<b>N</b>&ndash;E&ndash;NW&ndash;E&ndash;<b>SE</b>&ndash;N. The second and sixth steps (N, SE) encode V.</li>
+      <li>Red wins in 3: (1) Red&rsquo;s topmost piece moves NW, forcing White to jump S. (2) Red&rsquo;s bottom-left piece moves SW, forcing White to jump NW. (3) Knight&rsquo;s Charge <b>NE</b>&ndash;S&ndash;NW&ndash;W&ndash;S&ndash;S&ndash;NW&ndash;S&ndash;<b>NW</b>, with steps 1 and 8 encoding E.</li>
+      <li>White wins in 1: Knight&rsquo;s Charge N&ndash;<b>SE</b>&ndash;<b>SW</b>&ndash;W&ndash;NW&ndash;[E&ndash;N&ndash;SW], where the brackets indicate that those three pieces can be jumped in either that direction or the opposite direction (NE&ndash;S&ndash;W). Steps 2 and 3 encode N.</li>
+      <li>Red wins in 2: (1) Red&rsquo;s second-from-leftmost piece canters SW over its leftmost piece, forcing White to jump three pieces (N&ndash;E&ndash;SE). (2) Knight&rsquo;s Charge <b>W</b>&ndash;<b>SE</b>&ndash;SW&ndash;S&ndash;[NW&ndash;S&ndash;E]&ndash;SW&ndash;NW (encoding S).</li>
+      <li>White wins in 3: (1) White&rsquo;s leftmost piece moves SW, forcing Red to jump N. (2) White&rsquo;s (now) top-left piece moves NW, forcing Red to jump SW. (3) Knight&rsquo;s Charge with the right-hand Knight: W&ndash;SW&ndash;E&ndash;NW&ndash;W&ndash;<b>N</b>&ndash;<b>NW</b>&ndash;S&ndash;S&ndash;SE (encoding T).</li>
+      <li>Red wins in 1: Knight&rsquo;s Charge NW&ndash;<b>S</b>&ndash;<b>NE</b>&ndash;NW&ndash;SW&ndash;[S&ndash;W&ndash;NE]&ndash;NW&ndash;N (encoding E).</li>
+      <li>White wins in 2: (1) White&rsquo;s rightmost piece moves E, forcing Red to jump SW&ndash;NW. (2) Knight&rsquo;s Charge <b>SE</b>&ndash;NE&ndash;NW&ndash;NE&ndash;W&ndash;<b>N</b>&ndash;E&ndash;[E&ndash;S&ndash;NW]&ndash;NW (encoding V).</li>
+      <li>Red wins in 3: (1) Red&rsquo;s top-left piece moves NW, forcing White to jump S. (2) Red&rsquo;s (now) top piece moves NW, forcing White to jump SW. (3) Knight&rsquo;s Charge W&ndash;N&ndash;<b>NE</b>&ndash;S&ndash;NW&ndash;NW&ndash;S&ndash;S&ndash;NW&ndash;<b>S</b>&ndash;SE&ndash;W (encoding E).</li>
+      <li>White wins in 4: (1) White&rsquo;s topmost piece canters S, forcing Red to jump NE. (2) White&rsquo;s rightmost piece moves S, forcing Red to jump NW. (3) The piece northeast of White&rsquo;s lower knight moves E, forcing Red to jump NW. (4) White&rsquo;s lower Knight Charges N&ndash;NW&ndash;N&ndash;<b>SE</b>&ndash;N&ndash;E&ndash;S&ndash;<b>SW</b>&ndash;E&ndash;E&ndash;S&ndash;S&ndash;NW (encoding N).</li>
     </ul>
     <p>
       The answer is <b>EVEN STEVEN.</b>
     </p>
     <p>
       (N.B. The note about the current rules is there because in the original
-      version of the rules, capturing all but one of the opponent's pieces was
+      version of the rules, capturing all but one of the opponent&rsquo;s pieces was
       sufficient for victory. In the current version, all pieces must be
-      captured. The current rules are what you'll find online, but in case you
-      happen to have grown up with a 1930s printing of the game...)
+      captured. The current rules are what you&rsquo;ll find online, but in case you
+      happen to have grown up with a 1930s printing of the game&nbsp;.&nbsp;.&nbsp;.&nbsp;)
     </p>
   </div>
 {% endblock %}
