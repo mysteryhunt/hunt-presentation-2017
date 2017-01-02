@@ -16,6 +16,14 @@ audio {
     max-height: 8.5in;    
   }
 }
+@media screen {
+  #img-container {
+    margin-top: 50px;
+  }
+  #img-container img {
+    width: 50%;
+  }
+}
 </style>
 {% endblock %}
 
@@ -32,7 +40,7 @@ The troupe&rsquo;s director is very particular about how the productions&rsquo; 
     </audio>
   </div>
   <div id="img-container">
-    <img src="{{ asset_url_for('matchbox_twenty/image01.png') }}"/>
+    <img src="{{ asset_url_for('matchbox_twenty/image01.svg') }}"/>
   </div>
 </div>
 {% endblock %}
