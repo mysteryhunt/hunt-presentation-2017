@@ -28,9 +28,9 @@
 {% block solution_content_block %}
   <div>
     <p>
-      The solver should download "trips.pcap" using the download link. The first
-      step is to figure out what kind of file this is, if it's not clear from
-      the file extension. A Google search for "pcap" would return results
+      The solver should download &ldquo;trips.pcap&rdquo; using the download link. The first
+      step is to figure out what kind of file this is, if it&rsquo;s not clear from
+      the file extension. A Google search for &ldquo;pcap&rdquo; would return results
       indicating that this is
       a <a href="https://wiki.wireshark.org/Development/LibpcapFileFormat">pcap
       packet capture file</a>.
@@ -84,9 +84,9 @@ reading from file trips.pcap, link-type RAW (Raw IP)
       the source and destination port numbers, and the payload length.
     </p>
     <p>
-      The timestamps in the tcpdump look suspicious - why do many of them have
+      The timestamps in the tcpdump look suspicious&mdash;why do many of them have
       negative hours? Running tcpdump again with fuller timestamp formatting
-      (the -tttt option) would result in the following output (we'll also pass
+      (the -tttt option) would result in the following output (we&rsquo;ll also pass
       -n now to skip the IP DNS lookups):
     </p>
     <pre>$ tcpdump -r trips.pcap -tttt -n
@@ -117,8 +117,8 @@ reading from file trips.pcap, link-type RAW (Raw IP)
     </p>
     <p>
       The combination of February 7, 1964, a starting point of London, and an
-      ending point of New York City, suggests The Beatles' first trip to the
-      United States. The payload string "THE BEATLES" has a length of 11 bytes,
+      ending point of New York City, suggests The Beatles&rsquo; first trip to the
+      United States. The payload string &ldquo;THE BEATLES&rdquo; has a length of 11 bytes,
       which matches the missing UDP payload length, the pattern of Xs and
       spaces, and the checksum. Each packet has metadata like this that clues a
       famous trip.
