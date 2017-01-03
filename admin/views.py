@@ -1,7 +1,7 @@
 from admin import app
 
 from common import cube, login_required
-from flask import abort, redirect, render_template, request, session, url_for
+from flask import abort, flash, redirect, render_template, request, session, url_for
 from requests.exceptions import RequestException
 
 @app.context_processor
@@ -67,7 +67,14 @@ def interactionqueue():
 def submission(submission_id):
     if request.method == "POST":
         if "status" in request.form:
-            cube.update_submission_status(app, submission_id, request.form["status"])
+            try:
+                cube.update_submission_status(app, submission_id, request.form["status"])
+            except RequestException, e:
+                if e.response is None:
+                    raise e
+                flash("Failed to update submission: %s" % e.response.json())
+                return redirect(url_for("callqueue"))
+
             if request.form["status"] == "SUBMITTED":
                 return redirect(url_for("callqueue"))
         else:
@@ -94,7 +101,15 @@ def hintrequest(hint_request_id):
             response = ""
             if "response" in request.form:
                 response = request.form["response"]
-            cube.update_hint_request(app, hint_request_id, request.form["status"], response)
+
+            try:
+                cube.update_hint_request(app, hint_request_id, request.form["status"], response)
+            except RequestException, e:
+                if e.response is None:
+                    raise e
+                flash("Failed to update hint request: %s" % e.response.json())
+                return redirect(url_for("callqueue"))
+
             if request.form["status"] == "REQUESTED":
                 return redirect(url_for("callqueue"))
         else:
@@ -118,7 +133,15 @@ def interactionrequest(interaction_request_id):
             response = ""
             if "response" in request.form:
                 response = request.form["response"]
-            cube.update_interaction_request(app, interaction_request_id, request.form["status"], response)
+
+            try:
+                cube.update_interaction_request(app, interaction_request_id, request.form["status"], response)
+            except RequestException, e:
+                if e.response is None:
+                    raise e
+                flash("Failed to update interaction request: %s" % e.response.json())
+                return redirect(url_for("interactionqueue"))
+
             if request.form["status"] == "REQUESTED":
                 return redirect(url_for("interactionqueue"))
         else:

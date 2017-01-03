@@ -51,6 +51,7 @@ form {
 }
 
 .ha-error-bar {
+    margin: 1em;
     border: 2px solid red;
     background-color: #ffcccc;
     display: flex;
