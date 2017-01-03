@@ -4,13 +4,19 @@ from common import cube, login_required
 from flask import abort, redirect, render_template, request, session, url_for
 from requests.exceptions import RequestException
 
+import time
+
 @app.context_processor
 def utility_processor():
     def is_authorized(permission):
         return cube.authorized(app, permission)
 
+    def current_timestamp():
+        return int(time.time() * 1000)
+
     return {
         "is_authorized": is_authorized,
+        "current_timestamp": current_timestamp,
     }
 
 def get_puzzles():
