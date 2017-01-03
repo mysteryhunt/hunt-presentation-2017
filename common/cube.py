@@ -123,8 +123,10 @@ def get_team_properties(app, team_id=None):
 def get_team_properties_async(app):
     return get_async(app, "/teams/%s" % session["username"])
 
-def get_submissions(app, puzzle_id):
-    response = get(app, "/submissions?teamId=%s&puzzleId=%s" % (session["username"], puzzle_id))
+def get_submissions(app, puzzle_id, team_id=None):
+    if not team_id:
+        team_id = session["username"]
+    response = get(app, "/submissions?teamId=%s&puzzleId=%s" % (team_id, puzzle_id))
     return response["submissions"]
 
 def get_all_pending_submissions(app):
