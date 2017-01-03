@@ -14,6 +14,10 @@
       border: 1px solid black;
       padding: 4px;
     }
+    #puzzle-content span.highlight-letter {
+      color: red;
+      font-weight: bold;
+    }
   </style>
 {% endblock %}
 
@@ -29,24 +33,24 @@
     </p>
     <table>
       <tr><th>Extracted</th><th>Order</th><th>Song</th><th>Artist</th><th>Quoted Lyrics</th></tr>
-      <tr><td>F</td><td>01</td><td>Can&rsquo;t Get Enough o<b>f</b> You Baby</td><td>Smash Mouth</td><td>It feels so nice I want your arms to wrap around me twice</td></tr>
-      <tr><td>U</td><td>02</td><td>Love to Love Yo<b>u</b> Baby</td><td>Donna Summer</td><td>When you&rsquo;re laying so close to me / There&rsquo;s no place I&rsquo;d rather you be than with me</td></tr>
-      <tr><td>L</td><td>03</td><td>Baby <b>L</b>ove</td><td>The Supremes</td><td>Instead of breaking up / Let&rsquo;s do some kissing and making up</td></tr>
-      <tr><td>F</td><td>04</td><td>Baby Don&rsquo;t <b>F</b>orget My Number</td><td>Milli Vanilli</td><td>I&rsquo;ve been searching high / I&rsquo;ve been searching low</td></tr>
-      <tr><td>I</td><td>05</td><td><b>I</b>ce Ice Baby</td><td>Vanilla Ice</td><td>If there was a problem Yo I&rsquo;ll solve it</td></tr>
-      <tr><td>L</td><td>06</td><td>Baby, It&rsquo;s Co<b>l</b>d Outside</td><td>Dean Martin</td><td>At least I&rsquo;m gonna say that I tried / What&rsquo;s the sense in hurtin&rsquo; my pride?</td></tr>
-      <tr><td>L</td><td>07</td><td>Baby, I <b>L</b>ove Your Way</td><td>Peter Frampton</td><td>Shadows grow so long before my eyes / and they&rsquo;re moving across the page</td></tr>
-      <tr><td>M</td><td>08</td><td>Co<b>m</b>e Baby Come</td><td>K7</td><td>You gotta give me lovin&rsquo; and you gotta give me some</td></tr>
-      <tr><td>Y</td><td>09</td><td>Baby I Need <b>Y</b>our Lovin&rsquo;</td><td>Four Tops</td><td>Some say it&rsquo;s a sign of weakness / For a man to beg</td></tr>
-      <tr><td>F</td><td>10</td><td>You Must Have Been a Beauti<b>f</b>ul Baby</td><td>Bing Crosby</td><td>Does your mother realize / The stork delivered quite a prize</td></tr>
-      <tr><td>A</td><td>11</td><td><b>A</b>lways Be My Baby</td><td>Mariah Carey</td><td>You&rsquo;ll always be a part of me / I&rsquo;m part of you indefinitely</td></tr>
-      <tr><td>N</td><td>12</td><td>(You&rsquo;re) Havi<b>n</b>g My Baby</td><td>Paul Anka</td><td>You&rsquo;re a woman in love / And I love what&rsquo;s goin through ya</td></tr>
-      <tr><td>T</td><td>13</td><td>Baby One More <b>T</b>ime</td><td>Britney Spears</td><td>My loneliness is killing me / I must confess I still believe</td></tr>
-      <tr><td>A</td><td>14</td><td>Baby Got B<b>a</b>ck</td><td>Sir Mix-A-Lot</td><td>But Fonda ain&rsquo;t got a motor in the back of her Honda</td></tr>
-      <tr><td>S</td><td>15</td><td>Christma<b>s</b> (Baby Please Come Home)</td><td>Darlene Love</td><td>The snow&rsquo;s coming down / I&rsquo;m watching it fall</td></tr>
-      <tr><td>I</td><td>16</td><td>I&rsquo;m Your Baby Ton<b>i</b>ght</td><td>Whitney Houston</td><td>Whatever you want from me / I&rsquo;m giving you everything</td></tr>
-      <tr><td>E</td><td>17</td><td>Com<b>e</b> On Over Baby (All I Want Is You)</td><td>Christina Aguilera</td><td>I&rsquo;ve got an invitation / Don&rsquo;t you keep me waiting all night long</td></tr>
-      <tr><td>S</td><td>18</td><td><b>S</b>anta Baby</td><td>Eartha Kitt</td><td>Next year I could be just as good / If you&rsquo;ll check off my Christmas list</td></tr>
+      <tr><td>F</td><td>01</td><td>Can&rsquo;t Get Enough o<span class="highlight-letter">f</span> You Baby</td><td>Smash Mouth</td><td>It feels so nice I want your arms to wrap around me twice</td></tr>
+      <tr><td>U</td><td>02</td><td>Love to Love Yo<span class="highlight-letter">u</span> Baby</td><td>Donna Summer</td><td>When you&rsquo;re laying so close to me / There&rsquo;s no place I&rsquo;d rather you be than with me</td></tr>
+      <tr><td>L</td><td>03</td><td>Baby <span class="highlight-letter">L</span>ove</td><td>The Supremes</td><td>Instead of breaking up / Let&rsquo;s do some kissing and making up</td></tr>
+      <tr><td>F</td><td>04</td><td>Baby Don&rsquo;t <span class="highlight-letter">F</span>orget My Number</td><td>Milli Vanilli</td><td>I&rsquo;ve been searching high / I&rsquo;ve been searching low</td></tr>
+      <tr><td>I</td><td>05</td><td><span class="highlight-letter">I</span>ce Ice Baby</td><td>Vanilla Ice</td><td>If there was a problem Yo I&rsquo;ll solve it</td></tr>
+      <tr><td>L</td><td>06</td><td>Baby, It&rsquo;s Co<span class="highlight-letter">l</span>d Outside</td><td>Dean Martin</td><td>At least I&rsquo;m gonna say that I tried / What&rsquo;s the sense in hurtin&rsquo; my pride?</td></tr>
+      <tr><td>L</td><td>07</td><td>Baby, I <span class="highlight-letter">L</span>ove Your Way</td><td>Peter Frampton</td><td>Shadows grow so long before my eyes / and they&rsquo;re moving across the page</td></tr>
+      <tr><td>M</td><td>08</td><td>Co<span class="highlight-letter">m</span>e Baby Come</td><td>K7</td><td>You gotta give me lovin&rsquo; and you gotta give me some</td></tr>
+      <tr><td>Y</td><td>09</td><td>Baby I Need <span class="highlight-letter">Y</span>our Lovin&rsquo;</td><td>Four Tops</td><td>Some say it&rsquo;s a sign of weakness / For a man to beg</td></tr>
+      <tr><td>F</td><td>10</td><td>You Must Have Been a Beauti<span class="highlight-letter">f</span>ul Baby</td><td>Bing Crosby</td><td>Does your mother realize / The stork delivered quite a prize</td></tr>
+      <tr><td>A</td><td>11</td><td><span class="highlight-letter">A</span>lways Be My Baby</td><td>Mariah Carey</td><td>You&rsquo;ll always be a part of me / I&rsquo;m part of you indefinitely</td></tr>
+      <tr><td>N</td><td>12</td><td>(You&rsquo;re) Havi<span class="highlight-letter">n</span>g My Baby</td><td>Paul Anka</td><td>You&rsquo;re a woman in love / And I love what&rsquo;s goin through ya</td></tr>
+      <tr><td>T</td><td>13</td><td>Baby One More <span class="highlight-letter">T</span>ime</td><td>Britney Spears</td><td>My loneliness is killing me / I must confess I still believe</td></tr>
+      <tr><td>A</td><td>14</td><td>Baby Got B<span class="highlight-letter">a</span>ck</td><td>Sir Mix-A-Lot</td><td>But Fonda ain&rsquo;t got a motor in the back of her Honda</td></tr>
+      <tr><td>S</td><td>15</td><td>Christma<span class="highlight-letter">s</span> (Baby Please Come Home)</td><td>Darlene Love</td><td>The snow&rsquo;s coming down / I&rsquo;m watching it fall</td></tr>
+      <tr><td>I</td><td>16</td><td>I&rsquo;m Your Baby Ton<span class="highlight-letter">i</span>ght</td><td>Whitney Houston</td><td>Whatever you want from me / I&rsquo;m giving you everything</td></tr>
+      <tr><td>E</td><td>17</td><td>Com<span class="highlight-letter">e</span> On Over Baby (All I Want Is You)</td><td>Christina Aguilera</td><td>I&rsquo;ve got an invitation / Don&rsquo;t you keep me waiting all night long</td></tr>
+      <tr><td>S</td><td>18</td><td><span class="highlight-letter">S</span>anta Baby</td><td>Eartha Kitt</td><td>Next year I could be just as good / If you&rsquo;ll check off my Christmas list</td></tr>
     </table>
 
 {% endblock %}
