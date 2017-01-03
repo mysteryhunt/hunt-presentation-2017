@@ -152,8 +152,6 @@ def teams():
 @app.route("/team/<team_id>", methods=["GET", "POST"])
 @login_required.writingteam
 def team(team_id):
-    RESCUE_PUZZLE_IDS = ["linguist", "economist", "chemist"]
-
     if request.method == "POST":
         if request.form["action"] == "ChangeContactInfo":
             if ("email" not in request.form or
@@ -178,27 +176,18 @@ def team(team_id):
                 team_id,
                 request.form["puzzleId"],
                 status)
-        elif request.form["action"] == "RescueCharacter":
-            if request.form["character"] not in RESCUE_PUZZLE_IDS:
-                abort(400)
-            cube.update_puzzle_visibility(
-                app,
-                team_id,
-                "rescue_the_%s" % request.form["character"],
-                "SOLVED")
-            cube.update_puzzle_visibility(
-                app,
-                team_id,
-                request.form["character"],
-                "UNLOCKED")
         else:
             abort(400)
 
     team = cube.get_team(app, team_id)
     puzzles = get_puzzles()
+
+    CHARACTER_ROUND_IDS = ["linguist", "economist", "chemist"]
+    CHARACTER_RESCUE_IDS = ["rescue_the_%s" % id for id in CHARACTER_ROUND_IDS]
+
     rescue_visibilities = cube.get_puzzle_visibilities_for_list(
         app,
-        RESCUE_PUZZLE_IDS,
+        CHARACTER_ROUND_IDS + CHARACTER_RESCUE_IDS,
         team_id)
 
     return render_template(
