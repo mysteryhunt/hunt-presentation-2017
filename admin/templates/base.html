@@ -73,6 +73,18 @@
         {{ session["username"] }} -<a href="{{ url_for('login.logout') }}">Log Out</a>
       </div>
     </div>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <div class="ha-error-bar">
+      <span class="ha-error-bar-title">Error</span>
+      {% for message in messages %}
+      <p>{{ message }}</p>
+      {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+
     {% block page_body %}{% endblock %}
   </body>
 </html>
