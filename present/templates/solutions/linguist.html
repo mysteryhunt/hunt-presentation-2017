@@ -1,0 +1,94 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'linguist' %}
+{% block title_block %}The Linguist: Solution{% endblock %}
+{% block puzzle_name_block %}The Linguist: Solution{% endblock %}
+{% block byline %}By Greg Pliska and Guy Jacobson{% endblock %}
+{% block solution %}SILVER TONGUE{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  #puzzle-content ul {
+    list-style-type: none;
+    padding-left: 0px;
+  }
+  #puzzle-content li {
+    padding-bottom: 3px;
+  }
+  #puzzle-content td {
+    padding: 4px;
+  }
+  #puzzle-content td.answer-listing {
+    font-family: monospace;
+  }
+  #puzzle-content span.highlight-group {
+    font-weight: bold;
+    color: blue;
+  }
+  #puzzle-content span.highlight-letter {
+    font-weight: bold;
+    color: red;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<div>
+  <p>
+    The letters from each answer, with the addition of one letter, can be rearranged to form the name of a language. Take the added letters and they spell <b>SILVER TONGUE</b>.
+  </p>
+  <table>
+    <tr>
+      <th>Answer</th>
+      <th>Language</th>
+    </tr>
+    <tr>
+      <td class="answer-listing">HOAX</td>
+      <td>Xho<span class="highlight-letter">s</span>a</td>
+    </tr>
+    <tr>
+      <td class="answer-listing">HAT</td>
+      <td>Tha<span class="highlight-letter">i</span></td>
+    </tr>
+    <tr>
+      <td class="answer-listing">ANTI</td>
+      <td><span class="highlight-letter">L</span>atin</td>
+    </tr>
+    <tr>
+      <td class="answer-listing">SKOAL</td>
+      <td>Slo<span class="highlight-letter">v</span>ak</td>
+    </tr>
+    <tr>
+      <td class="answer-listing">PATERSON</td>
+      <td>Esp<span class="highlight-letter">e</span>ranto</td>
+    </tr>
+    <tr>
+      <td class="answer-listing">MANGE</td>
+      <td>Ge<span class="highlight-letter">r</span>man</td>
+    </tr>
+    <tr>
+      <td class="answer-listing">MAIL</td>
+      <td><span class="highlight-letter">T</span>amil</td>
+    </tr>
+    <tr>
+      <td class="answer-listing">STAPH</td>
+      <td>Pasht<span class="highlight-letter">o</span></td>
+    </tr>
+    <tr>
+      <td class="answer-listing">SLEIGH</td>
+      <td>E<span class="highlight-letter">n</span>glish</td>
+    </tr>
+    <tr>
+      <td class="answer-listing">BINAURAL</td>
+      <td>Bul<span class="highlight-letter">g</span>arian</td>
+    </tr>
+    <tr>
+      <td class="answer-listing">GUEST ROPE</td>
+      <td>Port<span class="highlight-letter">u</span>guese</td>
+    </tr>
+    <tr>
+      <td class="answer-listing">SQUAB</td>
+      <td>Basqu<span class="highlight-letter">e</span></td>
+    </tr>
+  </table>
+</div>
+{% endblock %}

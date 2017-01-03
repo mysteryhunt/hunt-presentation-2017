@@ -1,0 +1,90 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'wizard' %}
+{% block title_block %}The Wizard: Solution{% endblock %}
+{% block puzzle_name_block %}The Wizard: Solution{% endblock %}
+{% block byline %}By Dan Katz and Todd Radford{% endblock %}
+{% block solution %}OWL FAMILIAR{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  #puzzle-content ul {
+    list-style-type: none;
+    padding-left: 0px;
+  }
+  #puzzle-content li {
+    padding-bottom: 3px;
+  }
+  #puzzle-content td {
+    padding: 4px;
+  }
+  #puzzle-content td.answer-listing {
+    font-family: monospace;
+  }
+  #puzzle-content span.highlight-group {
+    font-weight: bold;
+    color: blue;
+  }
+  #puzzle-content span.highlight-letter {
+    font-weight: bold;
+    color: red;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<div>
+  <p>
+    Each of these actions is accomplished by a spell/charm in the <i>Harry Potter</i> universe. The first letters of the words used to invoke these spells spells the answer, <b>OWL FAMILIAR</b>.
+  </p>
+  <table>
+    <tr>
+      <th>Answer</th>
+      <th>Spell/Charm</th>
+    </tr>
+    <tr>
+      <td class="answer-listing">REPRESS MEMORIES</td>
+      <td><span class="highlight-letter">O</span>bliviate</td>
+    </tr>
+    <tr>
+      <td class="answer-listing">SEND FLYING</td>
+      <td><span class="highlight-letter">W</span>ingardium Leviosa</td>
+    </tr>
+    <tr>
+      <td class="answer-listing">READ MINDS</td>
+      <td><span class="highlight-letter">L</span>egilimens</td>
+    </tr>
+    <tr>
+      <td class="answer-listing">COUNTER</td>
+      <td><span class="highlight-letter">F</span>inite Incantatem</td>
+    </tr>
+    <tr>
+      <td class="answer-listing">SUMMON</td>
+      <td><span class="highlight-letter">A</span>ccio</td>
+    </tr>
+    <tr>
+      <td class="answer-listing">BUZZ</td>
+      <td><span class="highlight-letter">M</span>uffliato</td>
+    </tr>
+    <tr>
+      <td class="answer-listing">WATERPROOF</td>
+      <td><span class="highlight-letter">I</span>mpervius</td>
+    </tr>
+    <tr>
+      <td class="answer-listing">ILLUMINATE</td>
+      <td><span class="highlight-letter">L</span>umos</td>
+    </tr>
+    <tr>
+      <td class="answer-listing">CONFLAGRATE</td>
+      <td><span class="highlight-letter">I</span>ncendio</td>
+    </tr>
+    <tr>
+      <td class="answer-listing">UNLOCK</td>
+      <td><span class="highlight-letter">A</span>lohomora</td>
+    </tr>
+    <tr>
+      <td class="answer-listing">SHRINK</td>
+      <td><span class="highlight-letter">R</span>educio</td>
+    </tr>
+  </table>
+</div>
+{% endblock %}

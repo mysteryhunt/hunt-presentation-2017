@@ -1,0 +1,92 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'chemist' %}
+{% block title_block %}The Chemist: Solution{% endblock %}
+{% block puzzle_name_block %}The Chemist: Solution{% endblock %}
+{% block byline %}By Connor Stokes and Dan Katz{% endblock %}
+{% block solution %}POSITIVE SPIN{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  #puzzle-content ul {
+    list-style-type: none;
+    padding-left: 0px;
+  }
+  #puzzle-content li {
+    padding-bottom: 3px;
+  }
+  #puzzle-content td {
+    padding: 4px;
+  }
+  #puzzle-content td.answer-listing {
+    font-family: monospace;
+  }
+  #puzzle-content span.highlight-group {
+    font-weight: bold;
+    color: blue;
+  }
+  #puzzle-content span.highlight-letter {
+    font-weight: bold;
+    color: red;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<div>
+  <p>
+    Each answer consists of an O with a chemical symbol on each side. For each answer, the two symbols on either side of the O reference elements with atomic numbers of the same parity (i.e., are both even or both odd), which suggests that you can take the &ldquo;average&rdquo; of the two elements, or the element midway between them. Take those symbols and they spell the answer, <b>POSITIVE SPIN</b>.
+  </p>
+  <table>
+    <tr>
+      <th>Answer</th>
+      <th>Average Element</th>
+      <th>Abbreviation</th>
+    </tr>
+    <tr>
+      <td class="answer-listing">CROC</td>
+      <td>(24+6)/2 = 15 Phosphorus</td>
+      <td>P</td>
+    </tr>
+    <tr>
+      <td class="answer-listing">CONE</td>
+      <td>(6+10)/2 = 8 Oxygen</td>
+      <td>O</td>
+    </tr>
+    <tr>
+      <td class="answer-listing">NIOBE</td>
+      <td>(28+4)/2 = 16 Sulfur</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <td class="answer-listing">NOES</td>
+      <td>(7+99)/2 = 53 Iodine</td>
+      <td>I</td>
+    </tr>
+    <tr>
+      <td class="answer-listing">BOY</td>
+      <td>(5+39)/2 = 22 Titanium</td>
+      <td>Ti</td>
+    </tr>
+    <tr>
+      <td class="answer-listing">COOK</td>
+      <td>(27+19)/2 = 23 Vanadium</td>
+      <td>V</td>
+    </tr>
+    <tr>
+      <td class="answer-listing">BHOPA</td>
+      <td>(107+91)/2 = 99 Einsteinium</td>
+      <td>Es</td>
+    </tr>
+    <tr>
+      <td class="answer-listing">KONA</td>
+      <td>(19+11)/2 = 15 Phosphorus</td>
+      <td>P</td>
+    </tr>
+    <tr>
+      <td class="answer-listing">CROW</td>
+      <td>(24+74)/2 = 49</td>
+      <td>In</td>
+    </tr>
+  </table>
+</div>
+{% endblock %}
