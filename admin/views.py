@@ -181,14 +181,23 @@ def team(team_id):
                 status)
         else:
             abort(400)
-        return redirect(url_for("teams"))
 
     team = cube.get_team(app, team_id)
+    puzzles = get_puzzles()
+
+    CHARACTER_ROUND_IDS = ["linguist", "economist", "chemist"]
+    CHARACTER_RESCUE_IDS = ["rescue_the_%s" % id for id in CHARACTER_ROUND_IDS]
+
+    rescue_visibilities = cube.get_puzzle_visibilities_for_list(
+        app,
+        CHARACTER_ROUND_IDS + CHARACTER_RESCUE_IDS,
+        team_id)
 
     return render_template(
         "team.html",
         team=team,
-        puzzles=get_puzzles())
+        puzzles=puzzles,
+        rescue_visibilities=rescue_visibilities)
 
 def build_roles_list(form):
     roles = []
