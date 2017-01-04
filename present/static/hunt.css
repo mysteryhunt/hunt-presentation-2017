@@ -323,6 +323,21 @@ body {
   font-weight: bold;
 }
 
+#header-change-contact-info .modal-header {
+  background-image: url('https://assets-open.monsters-et-manus.com/general/wooden-background.png');
+  background-size: 100% auto;
+  border-bottom: none;
+}
+
+#header-change-contact-info table.centered {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#header-change-contact-info .text-align-right {
+  text-align: right;
+}
+
 /* Captions */
 
 .tooltip {
