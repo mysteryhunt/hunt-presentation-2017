@@ -97,7 +97,15 @@
     <input type="hidden" name="action" value="SetPuzzleStatus">
     <input type="hidden" name="actionType" value="Unlock">
   </form>
+  {% endif %}
 
+  {#
+  Technically, anyone with visibility update access can use the below
+  form, but we really only want admin users using it for safety
+  reasons. So we'll check for a permission that only admins have
+  (event creation).
+  #}
+  {% if is_authorized('events:create:*') %}
   <form class="ha-column-control-box" action="{{ url_for('team', team_id=team.teamId) }}" method="post">
     <span class="ha-control-box-title">
       Set Puzzle Status
