@@ -306,4 +306,5 @@ def admintools():
 
     return render_template(
         "admintools.html",
-        puzzles=get_puzzles())
+        puzzles=get_puzzles(),
+        is_hunt_started=cube.is_hunt_started_async(app).result())

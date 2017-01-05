@@ -5,7 +5,12 @@
     <span class="ha-control-box-title">
       Start Hunt
     </span>
-    <input type="button" value="Yes, I'm sure" onclick="document.getElementById('startHuntButton').removeAttribute('disabled')">
+    <input
+       type="button"
+       value="Yes, I'm sure"
+       onclick="document.getElementById('startHuntButton').removeAttribute('disabled')"
+       {% if is_hunt_started %}disabled{% endif %}
+    >
     <input type="hidden" name="action" value="HuntStart">
     <input id="startHuntButton" type="submit" value="Start Hunt" disabled>
   </form>
