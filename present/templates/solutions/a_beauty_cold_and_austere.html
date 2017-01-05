@@ -1,0 +1,213 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'dungeon' %}
+{% block title_block %}A Beauty Cold and Austere: Solution{% endblock %}
+{% block puzzle_name_block %}A Beauty Cold and Austere: Solution{% endblock %}
+{% block byline %}By Ben Monreal and Justin Werfel{% endblock %}
+{% block solution %}ST ELSEWHERE{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    img.i {
+      display: block;
+      margin-bottom: 1em;
+    }
+    ul {
+      list-style-type: none;
+    }
+  </style>
+{% endblock %}
+
+{% block solution_content_block %}
+  <div>
+    <p>
+      First, the title:
+    </p>
+    <blockquote>
+      &ldquo;Mathematics, rightly viewed, possesses not only truth, but supreme
+      beauty&mdash;a beauty cold and austere, like that of sculpture, without
+      appeal to any part of our weaker nature, without the gorgeous trappings of
+      painting or music, yet sublimely pure, and capable of a stern perfection
+      such as only the greatest art can show.&rdquo; &ndash;Bertrand Russell
+    </blockquote>
+    <p>
+      The expressions given all define parametric curves corresponding to the
+      shapes of sculptures and art in the MIT Public Art Collection.
+    </p>
+    <p>
+      Type or copy the equations into your favorite plotting
+      routines. Mathematica will import MathML without much trouble, or you can
+      copy/paste into Python or C code with only light editing. Each set of
+      equations is a 2D or 3D vector (xy or xyz) which you can plot over a
+      parameter range. If there&rsquo;s one parameter, u, you&rsquo;ll get a
+      line. If there are two (u,v) you&rsquo;ll get a surface. When
+      there&rsquo;s an integer parameter like i, you should draw a separate line
+      for each value of i.  Look at the plots.
+    </p>
+    <p>
+      (There are some you can&rsquo;t recognize yet, you don&rsquo;t know all
+      the plotting parameters. We&rsquo;ll get back to these later.)
+    </p>
+    <p>
+      You should recognize some familiar MIT public-art works, and you can click
+      through the MIT Public Art Collection on the web to identify some more
+      obscure ones.
+    </p>
+    <p>
+      Now, look at the list of &ldquo;parameter values you like.&rdquo; When you
+      made a plot over a parameter range, you were probably thinking about the
+      limits. But any specific value of the parameter, between the limits,
+      identifies a particular place along the curve. In this puzzle,
+      you&rsquo;ll find that every &ldquo;parameter value you like&rdquo; is a
+      number between 1 and 26. Convert these to letters with A=1, etc., to get
+      the answer <b>ST ELSEWHERE</b>.
+    </p>
+    <p>
+      Below we show all of the equations, and parametric plots with the
+      appropriate readout-value highlighted.
+    </p>
+    <p>
+      (This solution file is available as a <a href="{{
+      asset_url_for('a_beauty_cold_and_austere/solution.nb') }}">Mathematica
+      notebook</a>.)
+    </p>
+    <h3><i>Non-Object (Plane)</i> by Anish Kapoor</h3>
+    <p>
+      If you stand in the spot described, you see a picture of a pool reflected
+      near u = 8, v = 5, so a8 = H and a9 = E.
+    </p>
+    <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_1.gif') }}">
+    <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_2.png') }}">
+    <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_3.gif') }}">
+    <p>
+      Here is where you have to stand.
+    </p>
+    <img src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_4.gif') }}" width="600">
+    <p>
+      And here is what the Kapoor looks like when you stand there.  The blue
+      patch is the reflecting pool.
+    </p>
+    <img src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_5.gif') }}" width="600">
+    <h3><i>Coming To Light</i> by James Melchert</h3>
+    <p>
+      There is an electrical outlet under the next-to-last ring, which is the
+      one plotted by the i=5 curve. Therefore a6 = E.
+    </p>
+    <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_7.png') }}">
+    <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_8.png') }}">
+    <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_9.png') }}">
+    <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_10.gif') }}">
+    <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_11.gif') }}" width="600">
+    <h3><i>Ring Stone</i> by Cai-Guo Qiang</h3>
+    <p>
+      The ninth ring, counting west to east, is uniquely the treeless ring
+      flanked by treeful ones.  That&rsquo;s the ring you plot when i = 5, so
+      a11 = E.
+    </p>
+    <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_12.gif') }}">
+    <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_13.png') }}">
+    <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_14.gif') }}">
+    <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_15.gif') }}">
+    <h3><i>Yin/Yang Pavilion</i> by Dan Graham</h3>
+    <p>
+      This parameterization plots a solid yin-yang about the shape and height of
+      Graham&rsquo;s pavilion inside Simmons Hall.  The real thing has a gap in the
+      glass around u=18, so a10 = R.
+    </p>
+    <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_16.png') }}">
+    <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_17.png') }}">
+    <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_18.gif') }}">
+    <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_19.gif') }}">
+    <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_20.gif') }}">
+    <h3><i>Wall Drawing #254</i> by Sol Lewitt</h3>
+    <p>
+      This parameterization is a pseudorandom-length collection of radial lines.
+      (The pseudorandomness comes from the large numbers in the trig function
+      arguments.)  And it&rsquo;s the first time you're being asked to plot
+      something over an unknown range.  &ldquo;Try different values of imax and
+      see what it looks like&rdquo; is a fine approach, especially if
+      you&rsquo;ve realized that the parameter should fall between 1 and 26.
+      But you can also inspect the expression.  Whatever value of imax you
+      choose, you&rsquo;ll wind up drawing imax+7 lines.  Choosing imax = 23
+      will get you 30 lines, the number in the real Sol Lewitt wall drawing, so
+      a7 = W.
+    </p>
+    <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_21.png') }}">
+    <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_22.png') }}">
+    <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_23.gif') }}">
+    <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_24.gif') }}">
+    <h3><i>Two Indeterminate Lines</i> by Bernar Venet</h3>
+    <p>
+      You&rsquo;re given the complete parameterization and endpoints of one of
+      the two spirally elements of Venet&rsquo;s sculpture.  Go ahead and plot that
+      one and try to recognize it.  To get the other element to be the right
+      length, fiddle with the endpoints umin and umax until you have something
+      that looks like the sculpture.  Setting umin too low will make the second
+      spiral crash into the first one; setting umax too high will give it a
+      slinky tail stretching far to one side.  To get the real thing you have to
+      plot from u=5 to u=12, so a4 = E and a5 = L.
+    </p>
+    <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_26.gif') }}">
+    <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_27.png') }}">
+    <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_28.png') }}">
+    <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_29.gif') }}">
+    <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_30.gif') }}">
+    <h3><i>Aesop&rsquo;s Fables II</i> by Mark di Suvero</h3>
+    <p>
+      Here we&rsquo;ve parameterized a collection of straight lines (fairly
+      accurately!) and a twiddly curve (less accurately, but you&rsquo;ve done
+      more than enough typing by now) that look like Mark di Suvero&rsquo;s red
+      welded beam assembly.  Di Suvero&rsquo;s signature is plasma-cut into the
+      foot of the eastern leg of the triangle, something you may only be able to
+      identify by going there and searching.  That&rsquo;s given by the third
+      line parameterized here.  Two beams meet that one: the nearer one about
+      3/4 of the way along, which you can find by trial and error is u=19. and
+      the further one at the endpoint which is given as u=20.  (In the example
+      plot below those are shown in cyan and red segments respectively.)
+      Therefore a1=S and a2=T.
+    </p>
+    <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_31.gif') }}">
+    <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_32.png') }}">
+    <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_33.gif') }}">
+    <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_34.gif') }}">
+    <h3><i>Invaders</i> by Gary Wiley</h3>
+    <p>
+      The antennas of this butterfly, part of a collection visible on the back
+      of Building 44, have curls which develop very rapidly with u.  The
+      antennas are obtained at the correct length by plotting with umax = 19, so
+      a5 = S.  It's a fairly steep function.  Below, I provide examples of the
+      butterfly you'll draw if you incorrectly guess umax=18 or umax=20.
+    </p>
+    <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_35.png') }}">
+    <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_36.png') }}">
+    <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_37.png') }}">
+    <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_38.png') }}">
+    <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_39.gif') }}">
+    <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_40.gif') }}">
+    <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_41.gif') }}">
+    <h3>Putting it all together</h3>
+    <p>
+      If you just typed all that math into plotting software by hand
+      .&nbsp;.&nbsp;. good for you! You are glad Louise Nevelson&rsquo;s
+      <i>Transparent Horizons</i> wasn&rsquo;t here, aren&rsquo;t you?
+    </p>
+    <p>
+      Put all of the extracted answers together to get:
+    </p>
+    <ul>
+      <li>a1 = 19 = S from di Suvero beam nearer signature</li>
+      <li>a2 = 20 = T from di Suvero beam further from signature</li>
+      <li>a3 = 5 = E from one end of Venet spiral</li>
+      <li>a4 = 12 = L from other end of Venet spiral</li>
+      <li>a5 = 19 = S from antenna length of Wiley</li>
+      <li>a6 = 5 = E from selecting the right Melchert ring</li>
+      <li>a7 = 23 = W from Lewitt line counting</li>
+      <li>a8 = 8 = H from the x-coordinate and .&nbsp;.&nbsp;.</li>
+      <li>a9  = 5 = E from the y-coordinate of the pool reflecting in the surface of the Kapoor</li>
+      <li>a10 = 18 = R from locating the gap in the Graham yin - yang</li>
+      <li>a11 = 5 = E from finding the treeless link in the Qiang chain</li>
+    </ul>
+    <p>
+      and the answer is <b>ST ELSEWHERE</b>.
+    </p>
+  </div>
+{% endblock %}
