@@ -18,83 +18,86 @@
 
 {% block solution_content_block %}
   <p>
-    This puzzle consists of a two-part instruction and a final clue phrase. The
-    two parts of the instruction can be derived in either order since they rely
-    on separate channels of information within the puzzle. (The sorting of all
-    derived data in this puzzle is in the given puzzle order, i.e., from WEEK 1
-    to WEEK 18 as presented.)
+  This puzzle is presented as a series of game recaps of a full season of games 
+  played by the Greyhawk University dungeonball team. The extraction consists of
+  a two-part instruction and a final clue phrase. The two parts of the 
+  instruction can be derived in either order since they rely on separate 
+  channels of information within the puzzle. (The sorting of all derived data in
+  this puzzle is in the given puzzle order, i.e. from WEEK 1 to WEEK 18 as 
+  presented.)
   </p>
-
   <p>
-    First, notice that the scores of each game are suspiciously close (never
-    more than 26 points apart, hmm). Subtracting the scores and converting to
-    alpha (A=1) yields MODULE LETTER SHIFTS. The higher score is always given
-    first so hopefully that makes the subtraction more obvious. You don&rsquo;t use
-    the &ldquo;win/loss&rdquo; aspect of each game in this step, however.
+  First, notice that the scores of each game are suspiciously close (never more 
+  than 26 points apart, hmm). Subtracting the scores and converting to alpha 
+  (A=1) yields SHIFT MODULE LETTERS. The higher score is always given first so 
+  hopefully that makes the subtraction more obvious.
   </p>
-
   <p>
-    Second, notice that each of the game recaps contains a (very) thinly veiled
-    reference to a classic D&D module. (This does assume that someone on the
-    team is familiar with classic D&D, but I included enough place names and
-    keywords that once you have the idea, Google should get you to the right
-    places.) The word MODULE from subtracting the scores also fits this notion
-    since D&D adventures were called &ldquo;modules&rdquo; back then.
+  Solvers should also notice that each of the game recaps contains references 
+  to a classic <em>Dungeons &amp; Dragons</em> published adventure. (This does 
+  assume that someone on the team is familiar with classic D&amp;D, but there 
+  should be enough place names and keywords included that once you have the 
+  idea, the Internet can get you to the right places.) The word MODULE from 
+  subtracting the scores also fits this notion since D&amp;D adventures were 
+  called &ldquo;modules&rdquo; back then.
   </p>
-
   <p>
-    When you look up the modules, the key piece of information is that each
-    module has an adventure code (e.g. S1 for &ldquo;Tomb of Horrors&rdquo;). The adventure
-    codes are (and were) an important part of how old D&D adventures were
-    grouped into series, and the codes are featured on the covers of each
-    booklet, so the adventure code is a prominent feature (in other words, I do
-    not believe solvers who are familiar with D&D would consider the adventure
-    codes obscure in relation to the adventure titles.)
+  When you look up the modules, the key piece of information is that each 
+  module has an adventure code (e.g. S1 for &ldquo;Tomb of Horrors&rdquo;). The adventure 
+  codes are (and were) an important part of how old D&amp;D adventures were 
+  grouped into series, and the codes are featured on the covers of each 
+  booklet, so the adventure code is a prominent feature (in other words, I do 
+  not believe solvers who are familiar with D&amp;D would consider the 
+  adventure codes obscure in relation to the adventure titles.)
   </p>
-
   <p>
-    You only have half an instruction at this point (MODULE LETTER SHIFTS... by
-    what?). Someone might try to break the puzzle by shifting the module letter
-    by the module code, or trying all possible shifts, but some of the shifts
-    are backwards and they hopefully won&rsquo;t think of trying that, not to mention
-    the pattern of forward/backward shifts is basically random, so I think it is
-    harder to brute-force just from this point than it might otherwise appear.
+  You only have half an instruction at this point (SHIFT MODULE LETTERS&nbsp;.&nbsp;.&nbsp;. by 
+  what?). Someone might try to break the puzzle at this point, and indeed 
+  several groups did so during test-solving. The use of the modlue codes and 
+  each game&rsquo;s win/loss aspect of the puzzle haven&rsquo;t been clued yet, but it&rsquo;s 
+  not that much of a stretch to think of the idea, and teams who do so may be 
+  rewarded with an early break. C&rsquo;est la vie.
   </p>
-
   <p>
-    Another part of each game recap that seems obviously meaningful (apart from
-    the adventure references and the game scores) is that in each recap
-    something happens in the Nth &ldquo;round&rdquo; (&ldquo;round&rdquo; being the unit of time in D&D
-    combat, so it stands to reason that D&D sportsball would be played in
-    rounds). That something is always weirdly described as involving strange
-    materials. Anybody familiar with D&D is likely to know that casting magic
-    spells often requires material components, and the first letters of each
-    recap also spell out FIRST EDITION SPELLS as an extra clue. Look up the
-    listed spell components (using the 1st Edition D&D rules) and it should be
-    clear that in each game recap the material components for one and only one
-    spell are listed.  I think (hope) the obvious thing to do is to index into
-    the spell names using the given round numbers. Doing this yields the second
-    half of the instruction, BY CODE NUM WIN OR LOSE.
+  Assuming the team does not break the puzzle after just subtracting the scores 
+  and identifying the adventures, another part of each game recap that seems 
+  obviously meaningful is that in each recap something happens in the Nth 
+  &ldquo;round&rdquo; (&ldquo;round&rdquo; being the unit of time in D&amp;D combat, so it stands to 
+  reason that dungeonball would be played in rounds). That something is always 
+  described as involving rather estoeric materials. Anybody familiar with 
+  D&amp;D is likely to know that casting magic spells often requires material 
+  components, and the first letters of each recap (which are visually 
+  emphasized) also spell out FIRST EDITION SPELLS as an extra clue.
   </p>
-
   <p>
-    Hopefully MODULE LETTER SHIFTS BY CODE NUM WIN OR LOSE (or BY CODE NUM WIN
-    OR LOSE MODULE LETTER SHIFTS if you derive the phrases in the opposite
-    order) is a sufficiently clear direction that the final step is to shift
-    each module&rsquo;s letter by its code number, positive if you win and negative if
-    you lose.  Going back to Tomb of Horrors, "S1" can therefore be either R
-    (S-1) if the team lost, or T (S+1) if the team won.  This results in the
-    clue phrase NOBODY BLANKS A DWARF, which also ties into the comment in the
-    very last paragraph of the puzzle about how the cheerleaders were never
-    really able to &ldquo;get off the ground&rdquo;, ha ha ha.
+  Look up the listed spell components (using the 1st Edition D&amp;D rules
+  &mdash;several of the spells used do not exist, or have different material 
+  components, in later editions of the game) and it should be clear that in 
+  each game recap the material components for one and only one spell are 
+  listed. One hopes that the obvious thing to do is to index into the spell 
+  names using the given round numbers. Doing this yields the second half of the 
+  instruction, BY NUMS LOSSES GO BACK.
   </p>
-
   <p>
-    The final grid of information is as follows:
+  Hopefully SHIFT MODULE LETTERS BY NUMS LOSSES GO BACK (or BY NUMS LOSSES GO 
+  BACK SHIFT MODULE LETTERS if you derive the phrases in the opposite order) is 
+  a sufficiently clear direction that the final step is to shift each module&rsquo;s 
+  letter by its code number, positive if the team won and negative if the team 
+  lost. Going back to Tomb of Horrors, &ldquo;S1&rdquo; can therefore be either R (S-1) if 
+  the team lost, or T (S+1) if the team won. This results in the clue phrase 
+  NOBODY BLANKS A DWARF, which is a reference to a scene from the 
+  <i>Lord of the Rings</i> movie franchise, specifically 
+  <a href="https://www.youtube.com/watch?v=BVD1RLX_Yuo" target="_blank">this one</a>.
+  </p>
+  <p>
+  The &ldquo;blanked&rdquo; word of the quote is <b>TOSSES</b> and that is the answer to this puzzle.
+  </p>
+  <p>
+  The final grid of information is as follows:
   </p>
 
   <table class="t">
-    <tr>
+    <tbody><tr>
       <th>Week</th>
       <th>Adventure Title</th>
       <th>First Letter of Text</th>
@@ -102,31 +105,32 @@
       <th>Difference</th>
       <th>Letter</th>
       <th>1st Edition Spell</th>
-      <th>Index Extraction</th>
-      <th>Letter</th>
+      <th>Index</th>
+      <th>Extraction</th>
       <th>Operator</th>
       <th>Code</th>
       <th>Number</th>
       <th>Final Output</th>
       <th>Material Components</th>
     </tr>
-    <tr><td>1</td><td>Into the Maelstrom</td><td>F</td><td class="score">Win, 50&ndash;37</td><td>13</td><td>M</td><td>LIGHTNING BOLT</td><td>10</td><td>B</td><td>ADD</td><td>M</td><td>1</td><td>N</td><td>&ldquo;a bit of fur and an amber, crystal, or glass rod&rdquo;</td></tr>
-    <tr><td>2</td><td>Against the Cult of the Reptile God</td><td>I</td><td class="score">Win, 105&ndash;90</td><td>15</td><td>O</td><td>BIGBY&rsquo;S FORCEFUL HAND</td><td>5</td><td>Y</td><td>ADD</td><td>N</td><td>1</td><td>O</td><td>&ldquo;a glove&rdquo;</td></tr>
-    <tr><td>3</td><td>The Hidden Shrine of Tamoachan</td><td>R</td><td class="score">Lose, 19&ndash;15</td><td>4</td><td>D</td><td>STINKING CLOUD</td><td>9</td><td>C</td><td>SUB</td><td>C</td><td>1</td><td>B</td><td>&ldquo;a rotten egg or several skunk cabbage leaves"</tr>
-    <tr><td>4</td><td>Ravenloft</td><td>S</td><td class="score">Win, 72&ndash;51</td><td> 21</td><td> U</td><td>CHARIOT OF SUSTARRE</td><td>6</td><td>O</td><td>ADD</td><td>I</td><td>6</td><td>O</td><td>&ldquo;a small piece of wood, 2 holly berries, and a fire source at least equal to a torch&rdquo;</td></tr>
-    <tr><td>5</td><td>The Keep on the Borderlands</td><td>T</td><td class="score">Win, 36&ndash;24</td><td>12</td><td>L</td><td>ANIMATE DEAD</td><td>8</td><td>D</td><td>ADD</td><td>B</td><td>2</td><td>D</td><td>&ldquo;a drop of blood, a piece of human flesh, an a pinch of bone powder or a bone shard&rdquo;</td></tr>
-    <tr><td>6</td><td>Palace of the Silver Princess</td><td>E</td><td class="score">Lose, 18&ndash;13</td><td>5</td><td>E</td><td>UNSEEN SERVANT</td><td>4</td><td>E</td><td>SUB</td><td>B</td><td>3</td><td>Y</td><td>&ldquo;a piece of string and a bit of wood&rdquo;</td></tr>
-    <tr><td>7</td><td>Slave Pits of the Undercity</td><td>D</td><td class="score">Win, 54&ndash;42</td><td>12</td><td>L</td><td>HALLUCINATORY TERRAIN</td><td>8</td><td>N</td><td>ADD</td><td>A</td><td>1</td><td>B</td><td>&ldquo;a stone, a twig, and a bit of green plant&mdash;leaf or grass blade&rdquo;</td></tr>
-    <tr><td>8</td><td>The Throne of Bloodstone</td><td>I</td><td class="score">Win, 22&ndash;17</td><td>5</td><td>E</td><td>GUST OF WIND</td><td>2</td><td>U</td><td>ADD</td><td>H</td><td>4</td><td>L</td><td>&ldquo;a legume seed&rdquo;</td></tr>
-    <tr><td>9</td><td>In Search of the Unknown</td><td>T</td><td class="score">Lose, 77&ndash;57</td><td>20</td><td>T</td><td>MOVE EARTH</td><td>1</td><td>M</td><td>SUB</td><td>B</td><td>1</td><td>A</td><td>&ldquo;a mixture of soils (clay, loam, sand) in a small bag, and an iron blade&rdquo;</td></tr>
-    <tr><td>10</td><td>The Assassin&rsquo;s Knot</td><td>I</td><td class="score">Win, 32&ndash;12</td><td>20</td><td>T</td><td>DRAWMIJ&rsquo;S INSTANT SUMMONS</td><td>4</td><td>W</td><td>ADD</td><td>L</td><td>2</td><td>N</td><td>&ldquo;a gem of not less than 5,000 g.p. value&rdquo;</td></tr>
-    <tr><td>11</td><td>Tomb of the Lizard King</td><td>O</td><td class="score">Win, 83&ndash;78</td><td>5</td><td>E</td><td>WIZARD EYE</td><td>2</td><td>I</td><td>ADD</td><td>I</td><td>2</td><td>K</td><td>&ldquo;a bit of bat fur&rdquo;</td></tr>
-    <tr><td>12</td><td>Danger at Dunwater</td><td>N</td><td class="score">Lose, 18&ndash;0</td><td>18</td><td>R</td><td>DISINTEGRATE</td><td>5</td><td>N</td><td>SUB</td><td>U</td><td>2</td><td>S</td><td>&ldquo;a lodestone and a pinch of dust&rdquo;</td></tr>
-    <tr><td>13</td><td>The Ghost Tower of Inverness</td><td>S</td><td class="score">Lose, 20&ndash;1</td><td>19</td><td>S</td><td>MORDENKAINEN&rsquo;S FAITHFUL HOUND</td><td>2</td><td>O</td><td>SUB</td><td>C</td><td>2</td><td>A</td><td>&ldquo;a tiny silver whistle, a piece of bone, and a thread&rdquo;</td></tr>
-    <tr><td>14</td><td>Hall of the Fire Giant King</td><td>P</td><td class="score">Lose, 44&ndash;36</td><td>8</td><td>H</td><td>FEAR</td><td>4</td><td>R</td><td>SUB</td><td>G</td><td>3</td><td>D</td><td>&ldquo;either the heart of a hen or a white feather&rdquo;</td></tr>
-    <tr><td>15</td><td>The Isle of Dread</td><td>E</td><td class="score">Lose, 109&ndash;100</td><td>9</td><td>I</td><td>FIREBALL</td><td>7</td><td>L</td><td>SUB</td><td>X</td><td>1</td><td>W</td><td>&ldquo;a tiny ball composed of bat guano and sulphur&rdquo;</td></tr>
-    <tr><td>16</td><td>Vault of the Drow</td><td>L</td><td class="score">Lose, 67&ndash;61</td><td>6</td><td>F</td><td>HYPNOTIC PATTERN</td><td>5</td><td>O</td><td>SUB</td><td>D</td><td>3</td><td>A</td><td>&ldquo;a glowing stick of incense or a crystal rod filled with phosphorescent material&rdquo;</td></tr>
-    <tr><td>17</td><td>Tomb of Horrors</td><td>L</td><td class="score">Lose, 30&ndash;10</td><td>20</td><td>T</td><td>DEATH SPELL</td><td>6</td><td>S</td><td>SUB</td><td>S</td><td>1</td><td>R</td><td>&ldquo;a crushed black pearl with a minimum value of 1000 g.p.&rdquo;</td></tr>
-    <tr><td>18</td><td>The Lost City</td><td>S</td><td class="score">Win, 129&ndash;110</td><td>19</td><td>S</td><td>SLEEP</td><td>3</td><td>E</td><td>ADD</td><td>B</td><td>4</td><td>F</td><td>&ldquo;a pinch of fine sand, rose petals, or a live cricket&rdquo;</td></tr>
-  </table>
+    <tr><td>1</td><td>Into the Maelstrom</td><td>F</td><td class="score">Win, 50&ndash;31</td><td>19</td><td>S</td><td>LIGHTNING BOLT</td><td>10</td><td>B</td><td>ADD</td><td>M</td><td>1</td><td>N</td><td>&ldquo;a bit of fur and an amber, crystal, or glass rod&rdquo;</td></tr>
+    <tr><td>2</td><td>Against the Cult of the Reptile God</td><td>I</td><td class="score">Win, 105&ndash;97</td><td>8</td><td>H</td><td>INVISIBILITY</td><td>12</td><td>Y</td><td>ADD</td><td>N</td><td>1</td><td>O</td><td>&ldquo;an eyelash and a bit of gum arabic, the former encased in the latter&rdquo;</td></tr>
+    <tr><td>3</td><td>The Hidden Shrine of Tamoachan</td><td>R</td><td class="score">Lose, 19&ndash;10</td><td>9</td><td>I</td><td>STINKING CLOUD</td><td>4</td><td>N</td><td>SUB</td><td>C</td><td>1</td><td>B</td><td>&ldquo;a rotten egg or several skunk cabbage leaves&rdquo;</td></tr>
+    <tr><td>4</td><td>Ravenloft</td><td>S</td><td class="score">Win, 72&ndash;66</td><td>6</td><td>F</td><td>CHARIOT OF SUSTARRE</td><td>11</td><td>U</td><td>ADD</td><td>I</td><td>6</td><td>O</td><td>&ldquo;a small piece of wood, 2 holly berries, and a fire source at least equal to a torch&rdquo;</td></tr>
+    <tr><td>5</td><td>The Keep on the Borderlands</td><td>T</td><td class="score">Win, 36&ndash;16</td><td>20</td><td>T</td><td>ANIMATE DEAD</td><td>4</td><td>M</td><td>ADD</td><td>B</td><td>2</td><td>D</td><td>&ldquo;a drop of blood, a piece of human flesh, an a pinch of bone powder or a bone shard&rdquo;</td></tr>
+    <tr><td>6</td><td>Palace of the Silver Princess</td><td>E</td><td class="score">Lose, 18&ndash;5</td><td>13</td><td>M</td><td>UNSEEN SERVANT</td><td>3</td><td>S</td><td>SUB</td><td>B</td><td>3</td><td>Y</td><td>&ldquo;a piece of string and a bit of wood&rdquo;</td></tr>
+    <tr><td>7</td><td>Slave Pits of the Undercity</td><td>D</td><td class="score">Win, 54&ndash;39</td><td>15</td><td>O</td><td>HALLUCINATORY TERRAIN</td><td>4</td><td>L</td><td>ADD</td><td>A</td><td>1</td><td>B</td><td>&ldquo;a stone, a twig, and a bit of green plant&mdash;leaf or grass blade&rdquo;</td></tr>
+    <tr><td>8</td><td>The Throne of Bloodstone</td><td>I</td><td class="score">Win, 22&ndash;18</td><td>4</td><td>D</td><td>GUST OF WIND</td><td>5</td><td>O</td><td>ADD</td><td>H</td><td>4</td><td>L</td><td>&ldquo;a legume seed&rdquo;</td></tr>
+    <tr><td>9</td><td>In Search of the Unknown</td><td>T</td><td class="score">Lose, 77&ndash;56</td><td>21</td><td>U</td><td>SLEEP</td><td>1</td><td>S</td><td>SUB</td><td>B</td><td>1</td><td>A</td><td>&ldquo;a pinch of fine sand, rose petals, or a live cricket&rdquo;</td></tr>
+    <tr><td>10</td><td>The Assassin&rsquo;s Knot</td><td>I</td><td class="score">Win, 34&ndash;22</td><td>12</td><td>L</td><td>DEATH SPELL</td><td>6</td><td>S</td><td>ADD</td><td>L</td><td>2</td><td>N</td><td>&ldquo;a crushed black pearl with a minimum value of 1000 g.p.&rdquo;</td></tr>
+    <tr><td>11</td><td>Tomb of the Lizard King</td><td>O</td><td class="score">Win, 83&ndash;78</td><td>5</td><td>E</td><td>WIZARD EYE</td><td>7</td><td>E</td><td>ADD</td><td>I</td><td>2</td><td>K</td><td>&ldquo;a bit of bat fur&rdquo;</td></tr>
+    <tr><td>12</td><td>Danger at Dunwater</td><td>N</td><td class="score">Lose, 12&ndash;0</td><td>12</td><td>L</td><td>DISINTEGRATE</td><td>3</td><td>S</td><td>SUB</td><td>U</td><td>2</td><td>S</td><td>&ldquo;a lodestone and a pinch of dust&rdquo;</td></tr>
+    <tr><td>13</td><td>The Ghost Tower of Inverness</td><td>S</td><td class="score">Lose, 20&ndash;15</td><td>5</td><td>E</td><td>SHILLELAGH</td><td>9</td><td>G</td><td>SUB</td><td>C</td><td>2</td><td>A</td><td>&ldquo;an oaken club, any mistletoe, and a shamrock leaf&rdquo;</td></tr>
+    <tr><td>14</td><td>Hall of the Fire Giant King</td><td>P</td><td class="score">Lose, 44&ndash;24</td><td>20</td><td>T</td><td>TEMPORAL STASIS</td><td>5</td><td>O</td><td>SUB</td><td>G</td><td>3</td><td>D</td><td>&ldquo;a powder composed of diamond, emerald, ruby, and sapphire dust&rdquo;</td></tr>
+    <tr><td>15</td><td>The Isle of Dread</td><td>E</td><td class="score">Lose, 109&ndash;89</td><td>20</td><td>T</td><td>FIREBALL</td><td>5</td><td>B</td><td>SUB</td><td>X</td><td>1</td><td>W</td><td>&ldquo;a tiny ball composed of bat guano and sulphur&rdquo;</td></tr>
+    <tr><td>16</td><td>Vault of the Drow</td><td>L</td><td class="score">Lose, 67&ndash;62</td><td>5</td><td>E</td><td>HYPNOTIC PATTERN</td><td>10</td><td>A</td><td>SUB</td><td>D</td><td>3</td><td>A</td><td>&ldquo;a glowing stick of incense or a crystal rod filled with phosphorescent material&rdquo;</td></tr>
+    <tr><td>17</td><td>Tomb of Horrors</td><td>L</td><td class="score">Lose, 30&ndash;12</td><td>18</td><td>R</td><td>BIBGY&rsquo;S CRUSHING HAND</td><td>7</td><td>C</td><td>SUB</td><td>S</td><td>1</td><td>R</td><td>&ldquo;a glove of snake skin and the shell of an egg&rdquo;</td></tr>
+    <tr><td>18</td><td>The Lost City</td><td>S</td><td class="score">Win, 129&ndash;110</td><td>19</td><td>S</td><td>MORDENKAINEN&rsquo;S FAITHFUL HOUND</td><td>7</td><td>K</td><td>ADD</td><td>B</td><td>4</td><td>F</td><td>&ldquo;a tiny silver whistle, a piece of bone, and a thread&rdquo;</td></tr>
+  </tbody></table>
+
 {% endblock %}
