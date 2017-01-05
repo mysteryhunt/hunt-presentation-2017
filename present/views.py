@@ -87,6 +87,9 @@ def make_core_display_data(visibilities_async, team_properties_async):
     core_display_data['total_character_level'] = sum(core_display_data['character_levels'].itervalues())
     core_display_data['inventory_items'] = team_properties.get('teamProperties',{}).get('InventoryProperty',{}).get('inventoryItems',[])
     core_display_data['gold'] = team_properties.get('teamProperties',{}).get('GoldProperty',{}).get('gold',0)
+    core_display_data['email'] = team_properties.get('email','')
+    core_display_data['primaryPhone'] = team_properties.get('primaryPhone','')
+    core_display_data['secondaryPhone'] = team_properties.get('secondaryPhone','')
     return core_display_data
     
 def get_full_path_core_display_data():
@@ -98,6 +101,9 @@ def get_full_path_core_display_data():
     core_display_data['total_character_level'] = sum(core_display_data['character_levels'].itervalues())
     core_display_data['inventory_items'] = ['ITEM' + str(i) for i in range(14,24)]
     core_display_data['gold'] = 0
+    core_display_data['email'] = ''
+    core_display_data['primaryPhone'] = ''
+    core_display_data['secondaryPhone'] = ''
     return core_display_data
 
 @app.route("/")
@@ -222,6 +228,19 @@ def manual():
 
     core_display_data = make_core_display_data(core_visibilities_async, core_team_properties_async)
     return render_template("manual.html", core_display_data=core_display_data)
+
+@app.route("/change_contact_info", methods=["POST"])
+@login_required.solvingteam
+def change_contact_info():
+    cube.update_team(app, session["username"], {
+        "teamId": session["username"],
+        "email": request.form["email"],
+        "primaryPhone": request.form["primaryPhone"],
+        "secondaryPhone": request.form["secondaryPhone"],
+    })
+    if request.referrer:
+        return redirect(request.referrer)
+    return redirect(url_for("index"))
 
 @app.route("/full/puzzle")
 @login_required.writingteam
