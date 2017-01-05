@@ -4,9 +4,15 @@
 
 {% block puzzle_head_block %}
 <style>
-  td {
-    padding-right: 5em;
-    padding-top: 7px;
+  table.t {
+    border-collapse: collapse;
+  }
+  table.t td {
+    padding-right: 1em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
   }
 </style>
 {% endblock %}
@@ -16,7 +22,7 @@ The Fighter is an expert in the joust, where two people dash toward each other a
 {% endblock %}
 
 {% block puzzle_content_block %}
-<table>
+<table class="t">
   <tr>
     <td>Capital of Okinawa</td>
     <td>Red Italian wine grape</td>
@@ -30,7 +36,7 @@ The Fighter is an expert in the joust, where two people dash toward each other a
     <td>Rogers, the late MIT math professor</td>
   </tr>
   <tr>
-    <td>5-season Fox sitcom named after its title character and star</td>
+    <td>Five-season Fox sitcom named after its title character and star</td>
     <td>Sound from a dog</td>
   </tr>
   <tr>
@@ -75,10 +81,10 @@ The Fighter is an expert in the joust, where two people dash toward each other a
   </tr>
   <tr>
     <td>One who cripples or mutilates</td>
-    <td>Emmanuel Lewis&rsquo; TV series</td>
+    <td>Emmanuel Lewis&rsquo;s TV series</td>
   </tr>
   <tr>
-    <td>Famed course, with &ldquo;Le&rdquo;</td>
+    <td>Famed race track, with &ldquo;Le&rdquo;</td>
     <td>Police Constable of Dock Green</td>
   </tr>
   <tr>
