@@ -21,6 +21,7 @@ body {
   margin-top: 0;
   margin-bottom: 20px;
   padding: 0;
+  background-image: url('https://assets-open.monsters-et-manus.com/general/wooden-background.png');
   background-color: navajowhite;
   font-size: 20px;
   color: black;
@@ -32,6 +33,36 @@ body {
 
 form {
   margin-bottom: 0;
+}
+
+.standard-horizontal-scroll {
+  display: inline-block;
+  height: 80px;
+  line-height: 74px;
+  vertical-align: center;
+  white-space: nowrap;
+  font-size: 48px;
+  font-family: 'Deutsche Uncialis', 'Georgia', serif;
+  position: relative;
+  background-image: url('https://assets-open.monsters-et-manus.com/general/scroll/horizontal2-left.png'), url('https://assets-open.monsters-et-manus.com/general/scroll/horizontal2-right.png');
+  background-position: left top, right top;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 42px 100%, 42px 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  z-index: 10;
+}
+
+.standard-horizontal-scroll::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 42px;
+  width: calc(100% - 83px);
+  height: 100%;
+  background-image: url('https://assets-open.monsters-et-manus.com/general/scroll/horizontal2-middle.png');
+  background-size: 100% 100%;
+  z-index: -1;
 }
 
 .small-horizontal-scroll {
@@ -64,21 +95,55 @@ form {
   z-index: -1;
 }
 
+.parchmented {
+  position: relative;
+  background-image: url('https://assets-open.monsters-et-manus.com/general/scroll/parchment-top.png'), url('https://assets-open.monsters-et-manus.com/general/scroll/parchment-bottom.png');
+  background-position: left top, left bottom;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 100% 137px, 100% 132px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  padding-left: 9%;
+  padding-right: 5%;
+  max-width: 697px;
+  min-height: 270px;
+}
+
+.parchmented::before {
+  content: "";
+  position: absolute;
+  top: 137px;
+  left: 0;
+  height: calc(100% - 269px);
+  width: 100%;
+  background-image: url('https://assets-open.monsters-et-manus.com/general/scroll/parchment-middle.png');
+  background-size: 100% 100%;
+  z-index: -1;
+}
+
 /* Login */
 
 .center {
+  margin-top: 30px;
   display: flex;
-  justify-content: center;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .login-box {
-  background-color: #ffddbb;
-  border: 2px solid #ddaa66;
-  display: inline-block;
-  padding: 10px;
-  margin-top: 20px;
-  margin-left: auto;
-  margin-right: auto;
+  min-width: 450px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-box .parchmented {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .login-error {
