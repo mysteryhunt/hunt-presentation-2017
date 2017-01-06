@@ -55,6 +55,16 @@ def authorized(app, permission):
     response = get(app, "/authorized?permission=%s" % permission)
     return response["authorized"]
 
+def is_hunt_started_async(app):
+    response = get_async(app, "/run")
+    class IsHuntStartedFutureWrapper(object):
+        def __init__(self, response_future):
+            self.response_future = response_future
+        def result(self):
+            json = self.response_future.result().json()
+            return json.get("startTimestamp", None) is not None
+    return IsHuntStartedFutureWrapper(response)
+
 def get_visible_puzzle_ids(app):
     response = get(app, "/visibilities?teamId=%s" % session["username"])
     return [v["puzzleId"] for v in response["visibilities"]]
