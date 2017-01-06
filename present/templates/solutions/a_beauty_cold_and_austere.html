@@ -11,7 +11,7 @@
       display: block;
       margin-bottom: 1em;
     }
-    ul {
+    #puzzle-content ul {
       list-style-type: none;
     }
   </style>
@@ -44,7 +44,7 @@
       for each value of i.  Look at the plots.
     </p>
     <p>
-      (There are some you can&rsquo;t recognize yet, you don&rsquo;t know all
+      (There are some you can&rsquo;t recognize yet; you don&rsquo;t know all
       the plotting parameters. We&rsquo;ll get back to these later.)
     </p>
     <p>
@@ -73,7 +73,7 @@
     <h3><i>Non-Object (Plane)</i> by Anish Kapoor</h3>
     <p>
       If you stand in the spot described, you see a picture of a pool reflected
-      near u = 8, v = 5, so a8 = H and a9 = E.
+      near <i>u</i>&nbsp;=&nbsp;8, <i>v</i>&nbsp;=&nbsp;5, so <i>a<sub>8</sub></i>&nbsp;=&nbsp;H and <i>a<sub>9</sub></i>&nbsp;=&nbsp;E.
     </p>
     <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_1.gif') }}">
     <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_2.png') }}">
@@ -90,7 +90,7 @@
     <h3><i>Coming To Light</i> by James Melchert</h3>
     <p>
       There is an electrical outlet under the next-to-last ring, which is the
-      one plotted by the i=5 curve. Therefore a6 = E.
+      one plotted by the <i>i</i>&nbsp;=&nbsp;5 curve. Therefore <i>a<sub>6</sub></i>&nbsp;=&nbsp;E.
     </p>
     <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_7.png') }}">
     <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_8.png') }}">
@@ -100,8 +100,8 @@
     <h3><i>Ring Stone</i> by Cai-Guo Qiang</h3>
     <p>
       The ninth ring, counting west to east, is uniquely the treeless ring
-      flanked by treeful ones.  That&rsquo;s the ring you plot when i = 5, so
-      a11 = E.
+      flanked by treeful ones.  That&rsquo;s the ring you plot when <i>i</i>&nbsp;=&nbsp;5, so
+      <i>a<sub>11</sub></i>&nbsp;=&nbsp;E.
     </p>
     <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_12.gif') }}">
     <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_13.png') }}">
@@ -111,7 +111,7 @@
     <p>
       This parameterization plots a solid yin-yang about the shape and height of
       Graham&rsquo;s pavilion inside Simmons Hall.  The real thing has a gap in the
-      glass around u=18, so a10 = R.
+      glass around <i>u</i>&nbsp;=&nbsp;18, so <i>a<sub>10</sub></i>&nbsp;=&nbsp;R.
     </p>
     <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_16.png') }}">
     <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_17.png') }}">
@@ -126,10 +126,10 @@
       something over an unknown range.  &ldquo;Try different values of imax and
       see what it looks like&rdquo; is a fine approach, especially if
       you&rsquo;ve realized that the parameter should fall between 1 and 26.
-      But you can also inspect the expression.  Whatever value of imax you
-      choose, you&rsquo;ll wind up drawing imax+7 lines.  Choosing imax = 23
+      But you can also inspect the expression.  Whatever value of <i>i<sub>max</sub></i> you
+      choose, you&rsquo;ll wind up drawing <i>i<sub>max</sub></i>+7 lines.  Choosing <i>i<sub>max</sub></i>&nbsp;=&nbsp;23
       will get you 30 lines, the number in the real Sol Lewitt wall drawing, so
-      a7 = W.
+      <i>a<sub>7</sub></i>&nbsp;=&nbsp;W.
     </p>
     <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_21.png') }}">
     <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_22.png') }}">
@@ -140,11 +140,11 @@
       You&rsquo;re given the complete parameterization and endpoints of one of
       the two spirally elements of Venet&rsquo;s sculpture.  Go ahead and plot that
       one and try to recognize it.  To get the other element to be the right
-      length, fiddle with the endpoints umin and umax until you have something
-      that looks like the sculpture.  Setting umin too low will make the second
-      spiral crash into the first one; setting umax too high will give it a
+      length, fiddle with the endpoints <i>u<sub>min</sub></i> and <i>u<sub>max</sub></i> until you have something
+      that looks like the sculpture.  Setting <i>u<sub>min</sub></i> too low will make the second
+      spiral crash into the first one; setting <i>u<sub>max</sub></i> too high will give it a
       slinky tail stretching far to one side.  To get the real thing you have to
-      plot from u=5 to u=12, so a4 = E and a5 = L.
+      plot from <i>u</i>&nbsp;=&nbsp;5 to <i>u</i>&nbsp;=&nbsp;12, so <i>a<sub>4</sub></i>&nbsp;=&nbsp;E and <i>a<sub>5</sub></i>&nbsp;=&nbsp;L.
     </p>
     <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_26.gif') }}">
     <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_27.png') }}">
@@ -160,10 +160,10 @@
       foot of the eastern leg of the triangle, something you may only be able to
       identify by going there and searching.  That&rsquo;s given by the third
       line parameterized here.  Two beams meet that one: the nearer one about
-      3/4 of the way along, which you can find by trial and error is u=19. and
-      the further one at the endpoint which is given as u=20.  (In the example
+      3/4 of the way along, which you can find by trial and error is <i>u</i>&nbsp;=&nbsp;19. and
+      the further one at the endpoint which is given as <i>u</i>&nbsp;=&nbsp;20.  (In the example
       plot below those are shown in cyan and red segments respectively.)
-      Therefore a1=S and a2=T.
+      Therefore <i>a<sub>1</sub></i>&nbsp;=&nbsp;S and <i>a<sub>2</sub></i>&nbsp;=&nbsp;T.
     </p>
     <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_31.gif') }}">
     <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_32.png') }}">
@@ -171,11 +171,11 @@
     <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_34.gif') }}">
     <h3><i>Invaders</i> by Gary Wiley</h3>
     <p>
-      The antennas of this butterfly, part of a collection visible on the back
-      of Building 44, have curls which develop very rapidly with u.  The
-      antennas are obtained at the correct length by plotting with umax = 19, so
-      a5 = S.  It's a fairly steep function.  Below, I provide examples of the
-      butterfly you'll draw if you incorrectly guess umax=18 or umax=20.
+      The antennae of this butterfly, part of a collection visible on the back
+      of Building 44, have curls which develop very rapidly with <i>u</i>.  The
+      antennas are obtained at the correct length by plotting with <i>u<sub>max</sub></i>&nbsp;=&nbsp;19, so
+      <i>a<sub>5</sub></i>&nbsp;=&nbsp;S.  It&rsquo;s a fairly steep function.  Below, I provide examples of the
+      butterfly you&rsquo;ll draw if you incorrectly guess <i>u<sub>max</sub></i>&nbsp;=&nbsp;18 or <i>u<sub>max</sub></i>&nbsp;=&nbsp;20.
     </p>
     <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_35.png') }}">
     <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_36.png') }}">
@@ -186,25 +186,25 @@
     <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_41.gif') }}">
     <h3>Putting it all together</h3>
     <p>
-      If you just typed all that math into plotting software by hand
-      .&nbsp;.&nbsp;. good for you! You are glad Louise Nevelson&rsquo;s
+      If you just typed all that math into plotting software by hand&nbsp;.&nbsp;.&nbsp;.
+      good for you! You are glad Louise Nevelson&rsquo;s
       <i>Transparent Horizons</i> wasn&rsquo;t here, aren&rsquo;t you?
     </p>
     <p>
       Put all of the extracted answers together to get:
     </p>
     <ul>
-      <li>a1 = 19 = S from di Suvero beam nearer signature</li>
-      <li>a2 = 20 = T from di Suvero beam further from signature</li>
-      <li>a3 = 5 = E from one end of Venet spiral</li>
-      <li>a4 = 12 = L from other end of Venet spiral</li>
-      <li>a5 = 19 = S from antenna length of Wiley</li>
-      <li>a6 = 5 = E from selecting the right Melchert ring</li>
-      <li>a7 = 23 = W from Lewitt line counting</li>
-      <li>a8 = 8 = H from the x-coordinate and .&nbsp;.&nbsp;.</li>
-      <li>a9  = 5 = E from the y-coordinate of the pool reflecting in the surface of the Kapoor</li>
-      <li>a10 = 18 = R from locating the gap in the Graham yin - yang</li>
-      <li>a11 = 5 = E from finding the treeless link in the Qiang chain</li>
+      <li><i>a<sub>1</sub></i>&nbsp=&nbsp;19&nbsp;=&nbsp;S from di Suvero beam nearer signature</li>
+      <li><i>a<sub>2</sub></i>&nbsp=&nbsp;20&nbsp;=&nbsp;T from di Suvero beam further from signature</li>
+      <li><i>a<sub>3</sub></i>&nbsp=&nbsp;5&nbsp;=&nbsp;E from one end of Venet spiral</li>
+      <li><i>a<sub>4</sub></i>&nbsp=&nbsp;12&nbsp;=&nbsp;L from other end of Venet spiral</li>
+      <li><i>a<sub>5</sub></i>&nbsp=&nbsp;19&nbsp;=&nbsp;S from antenna length of Wiley</li>
+      <li><i>a<sub>6</sub></i>&nbsp=&nbsp;5&nbsp;=&nbsp;E from selecting the right Melchert ring</li>
+      <li><i>a<sub>7</sub></i>&nbsp=&nbsp;23&nbsp;=&nbsp;W from Lewitt line counting</li>
+      <li><i>a<sub>8</sub></i>&nbsp=&nbsp;8&nbsp;=&nbsp;H from the x-coordinate and&nbsp;.&nbsp;.&nbsp;.</li>
+      <li><i>a<sub>9</sub></i>&nbsp=&nbsp;5&nbsp;=&nbsp;E from the y-coordinate of the pool reflecting in the surface of the Kapoor</li>
+      <li><i>a<sub>10</sub></i>&nbsp= 18 = R from locating the gap in the Graham yin - yang</li>
+      <li><i>a<sub>11</sub></i>&nbsp= 5 = E from finding the treeless link in the Qiang chain</li>
     </ul>
     <p>
       and the answer is <b>ST ELSEWHERE</b>.
