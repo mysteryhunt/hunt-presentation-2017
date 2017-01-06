@@ -6,8 +6,29 @@ from requests.exceptions import RequestException
 
 import os
 
-@app.errorhandler(RequestException)
-def handle_request_exception(error):
+@app.errorhandler(Exception)
+def handle_exception(error):
+    error_string = str(error)
+    if isinstance(error, RequestException):
+        error_string += ": " + error.response.json()
+    return render_template(
+        "error.html",
+        error=error_string)
+
+@app.errorhandler(403)
+def handle_forbidden(error):
+    return render_template(
+        "error.html",
+        error=error)
+
+@app.errorhandler(404)
+def handle_not_found(error):
+    return render_template(
+        "error.html",
+        error=error)
+
+@app.errorhandler(500)
+def handle_internal_server_error(error):
     return render_template(
         "error.html",
         error=error)
