@@ -352,6 +352,18 @@ body {
   font-family: 'Lora', serif;
 }
 
+/* Announcements and Errata */
+
+#announcements-and-errata {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding: 0.5em;
+  display: inline-block;
+  background-color: rgba(255, 222, 173, 0.95);
+  border-radius: 10px;
+  border: 2px solid black;
+}
+
 /* Other */
 
 #main-page-content {

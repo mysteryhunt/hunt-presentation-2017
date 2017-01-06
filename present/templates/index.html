@@ -7,8 +7,10 @@
 {% endblock %}
 
 {% block overall_layout_body %}
-<div id="main-page-content">
+<!--<div id="announcements-and-errata"></div>-->
 
+<div id="main-page-content">
+  
   <div id="characters">
     <div id="character-header">
       <div class="small-horizontal-scroll">
@@ -16,7 +18,7 @@
       </div>
     </div>
     <div class="vertically-enscrolled">
-      <div id="total-character-level">Total: {{ core_display_data['total_character_level'] }}</div>
+      <div id="total-character-level">Total Level: {{ core_display_data['total_character_level'] }}</div>
       {% if 'encounter' in visible_puzzle_ids %}
         <div id="encounter-display" style="margin-bottom: 10px; position: relative;">
           <a href="{{ url_for('puzzle', puzzle_id='encounter')}}">
