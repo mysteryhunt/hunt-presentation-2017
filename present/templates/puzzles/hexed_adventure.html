@@ -24,6 +24,7 @@
       height: 24px;
     }
   </style>
+  <script src="{{ asset_url_for('hexed_adventure/hexedadventure.js') }}"></script>
 {% endblock %}
 
 {% block puzzle_flavortext_block %}
@@ -47,60 +48,23 @@
       if (window.confirm("If you restart the game from the beginning, all of your current progress will be lost. You don't need to do this to be able to solve the puzzle.")) {
         gameConsole.value = '';
         document.getElementById('p').innerHTML = '';
-        window.localStorage.clear();
         connect();
         gameConsole.focus();
-      }
-    }
-
-    function resume() {
-      var transcript = window.localStorage.getItem('transcript');
-      if (transcript) {
-        gameConsole.value = transcript;
-        gameConsole.scrollTop = gameConsole.scrollHeight;
-      } else {
-        gameConsole.value = 'Resuming an existing session, but without gameplay history.\n\n> ';
       }
     }
 
     function appendToGameConsole(text) {
       gameConsole.value += text;
       gameConsole.scrollTop = gameConsole.scrollHeight;
-      window.localStorage.setItem('transcript', gameConsole.value);
     }
 
-    var ws;
+    var playerState;
+    var commander;
 
     function connect() {
-      ws = new WebSocket('{{ config.HEXEDADVENTURE_URL  }}');
-      ws.addEventListener('open', function(event) {
-        var sessionId = window.localStorage.getItem('sessionId');
-        if (!sessionId) {
-          sessionId = Date.now() + '_' + Math.floor(Math.random() * Math.pow(2, 31)).toString();
-          window.localStorage.setItem('sessionId', sessionId);
-        }
-        ws.send(sessionId);
-      });
-
-      ws.addEventListener('message', function(event) {
-        var data = JSON.parse(event.data);
-        if (data.r) {
-          resume();
-          return;
-        }
-        if (data.p) {
-          document.getElementById('p').innerHTML = data.p;
-          return;
-        }
-        if (data.t) {
-          appendToGameConsole(data.t + '\n> ');
-          return;
-        }
-      });
-
-      ws.addEventListener('close', function(event) {
-        document.getElementById('gameConsole').disabled = true;
-      });
+      playerState = window.hexedadventure.create();
+      commander = new window.hexedadventure.Commander(playerState);
+      appendToGameConsole(playerState.look() + '\n> ');
     }
 
     function findPromptIndex() {
@@ -188,7 +152,21 @@
 
         appendToGameConsole('\n');
         gameConsole.scrollTop = gameConsole.scrollHeight;
-        ws.send(command);
+        appendToGameConsole(commander.run(command) + '\n> ');
+
+        var inventory = playerState.inventory.getEntities();
+        var passport;
+        for (var i = 0; i < inventory.length; i++) {
+          if (inventory[i] instanceof window.hexedadventure.PassportItem) {
+            passport = inventory[i];
+            break;
+          }
+        }
+        if (passport) {
+          var passportHtml = passport.renderHtml();
+          document.getElementById('p').innerHTML = passportHtml;
+        }
+
         return;
       }
 
