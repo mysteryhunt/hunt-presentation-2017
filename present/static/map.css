@@ -179,3 +179,7 @@ body {
   position:absolute;
   z-index:300;
 }
+
+#more-details {
+  font-size: 20px;
+}

@@ -241,14 +241,14 @@ def inventory():
     core_display_data = make_core_display_data(core_visibilities_async, core_team_properties_async)
     return render_template("inventory.html", core_display_data=core_display_data)
 
-@app.route("/manual")
+@app.route("/handbook")
 @login_required.solvingteam
-def manual():
+def handbook():
     core_visibilities_async = cube.get_puzzle_visibilities_for_list_async(app, CHARACTER_IDS + QUEST_IDS + ['merchants','encounter'])
     core_team_properties_async = cube.get_team_properties_async(app)
 
     core_display_data = make_core_display_data(core_visibilities_async, core_team_properties_async)
-    return render_template("manual.html", core_display_data=core_display_data)
+    return render_template("handbook.html", core_display_data=core_display_data)
 
 @app.route("/change_contact_info", methods=["POST"])
 @login_required.solvingteam
