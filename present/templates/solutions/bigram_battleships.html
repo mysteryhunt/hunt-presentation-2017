@@ -1,0 +1,20 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'fighter' %}
+{% block title_block %}Bigram Battleships: Solution{% endblock %}
+{% block puzzle_name_block %}Bigram Battleships: Solution{% endblock %}
+{% block byline %}By Scott Purdy{% endblock %}
+{% block solution %}HYDROCOOLS{% endblock %}
+
+{% block solution_content_block %}
+  <div>
+    <p>First, solve the three grids:</p>
+    <img src="{{ asset_url_for('bigram_battleships/solution01.svg') }}" width="400">
+    <p>Then, alphabetize all of the answer words, within each word length:</p>
+    <img src="{{ asset_url_for('bigram_battleships/solution02.svg') }}" width="900">
+    <p>
+      Finally, realphabetize just the ten words marked in your alphabetized
+      grids, giving the answer <b>HYDROCOOLS</b>.
+    </p>
+    <img src="{{ asset_url_for('bigram_battleships/solution03.svg') }}" width="250">
+  </div>
+{% endblock %}

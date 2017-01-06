@@ -16,11 +16,19 @@ audio {
     max-height: 8.5in;    
   }
 }
+@media screen {
+  #img-container {
+    margin-top: 50px;
+  }
+  #img-container img {
+    width: 50%;
+  }
+}
 </style>
 {% endblock %}
 
 {% block puzzle_flavortext_block %}
-The troupe's director is very particular about how the productions' musical selections match up.
+The troupe&rsquo;s director is very particular about how the productions&rsquo; musical selections match up.
 {% endblock %}
 
 {% block puzzle_content_block %}
@@ -32,7 +40,7 @@ The troupe's director is very particular about how the productions' musical sele
     </audio>
   </div>
   <div id="img-container">
-    <img src="{{ asset_url_for('matchbox_twenty/image01.png') }}"/>
+    <img src="{{ asset_url_for('matchbox_twenty/image01.svg') }}"/>
   </div>
 </div>
 {% endblock %}

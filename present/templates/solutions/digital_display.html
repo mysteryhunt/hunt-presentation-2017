@@ -20,7 +20,7 @@
   <div>
     <p>
       This is a numerical steganography puzzle. Solvers need to have access to a
-      tool that can manipulate very large integers; I will use python here,
+      tool that can manipulate very large integers; I will use Python here,
       since it has baked-in support for arbritrary precision arithmetic. The
       fraction shown is just what it looks like: a rational number. Solvers need
       to convert the number into its decimal expansion and then go on a brief
@@ -31,19 +31,19 @@
       Looking at the initial segment of the expansion just beyond the decimal point
     </p>
     <blockquote>
-      .1911091620152008...
+      .1911091620152008&nbsp;.&nbsp;.&nbsp;.
     </blockquote>
     <p>
       solvers should notice that the digits taken in pairs are the alphabetic
-      indices (A=01, B=02, ...) of the beginning of a message:
+      indices (A=01, B=02,&nbsp;.&nbsp;.&nbsp;.) of the beginning of a message:
     </p>
     <blockquote>
       <table class="d">
         <tr>
-          <td>19</td><td>11</td><td>09</td><td>16</td><td>20</td><td>15</td><td>20</td><td>08</td><td>...</td>
+          <td>19</td><td>11</td><td>09</td><td>16</td><td>20</td><td>15</td><td>20</td><td>08</td><td>&nbsp;.&nbsp;.&nbsp;.</td>
         </tr>
         <tr>
-          <td>S</td><td>K</td><td>I</td><td>P</td><td>T</td><td>O</td><td>T</td><td>H</td><td>...</td>
+          <td>S</td><td>K</td><td>I</td><td>P</td><td>T</td><td>O</td><td>T</td><td>H</td><td>&nbsp;.&nbsp;.&nbsp;.</td>
         </tr>
       </table>
     </blockquote>
@@ -65,7 +65,7 @@
     <p>
       So it looks like we will need to venture considerably deeper into the
       decimal expansion. It is not difficult to compute a few thousand digits of
-      this fraction; in python, for example, you can just write
+      this fraction; in Python, for example, you can just write
     </p>
     <blockquote>
       <pre>10**2000 * a // b</pre>
@@ -92,17 +92,17 @@
       At this point, solvers need to find a way of computing specific digits of
       <i>a</i>/<i>b</i> without generating the entire decimal expansion starting
       from the decimal point, since there is no practical way of computing or
-      storing a googol (10<sup>100</sup>) digits. You might think, "Hey, since
-      this is a rational number, it's going to have a repeating decimal, so we
+      storing a googol (10<sup>100</sup>) digits. You might think, &ldquo;Hey, since
+      this is a rational number, it&rsquo;s going to have a repeating decimal, so we
       can just compute the repeating part and use that to find the googolth
-      digit". But the fraction was intentionally constructed to have a very
+      digit.&rdquo; But the fraction was intentionally constructed to have a very
       large repeating sequence in its expansion (with a length of
-      16,859,147,591,006,830,465,663,878 digits, if you must know), so ... good
+      16,859,147,591,006,830,465,663,878 digits, if you must know), so&nbsp;.&nbsp;.&nbsp;. good
       luck with that approach!
     </p>
     <p>
       There are probably several ways to find digits deep inside the expansion
-      of a rational number quickly, but here's a fairly straightforward method
+      of a rational number quickly, but here&rsquo;s a fairly straightforward method
       that relies on a few modular arithmetic tricks.  We want to calculate
       the <i>k</i><sup>th</sup> digit of
       <i>a</i>/<i>b</i>. We noted earlier that we can shift the decimal
@@ -133,7 +133,7 @@
     </blockquote>
     <p>
       Assuming that the original denominator <i>b</i> is relatively prime to 10,
-      the multiplicative inverse of <i>b</i> mod 10 exists; let's call this
+      the multiplicative inverse of <i>b</i> mod 10 exists; let&rsquo;s call this
       value <i>b</i><sup>-1</sup>. (For our fraction, where the denominator ends
       in 1, <i>b</i><sup>-1</sup> = 1.) We can replace the division in our
       formula with a multiplication by <i>b</i><sup>-1</sup> to get:
@@ -160,9 +160,9 @@
       is the well-known trick
       of <a href="https://en.wikipedia.org/wiki/Exponentiation_by_squaring">exponentiation
       by squaring</a> that allows us to compute powers quickly. In fact, this
-      technique is used by python's three-argument <code>pow()</code> function
-      which does exponentiation modulo a given base, so we don't even need to
-      code up the trick ourselves if we program in python. (See the code at the
+      technique is used by Python&rsquo;s three-argument <code>pow()</code> function
+      which does exponentiation modulo a given base, so we don&rsquo;t even need to
+      code up the trick ourselves if we program in Python. (See the code at the
       end of this solution for an example implementation.)
     </p>
     <p>
@@ -185,7 +185,7 @@
     </p>
     <hr>
     <p>
-      Here is a bit of code in python to solve the problem, using the
+      Here is a bit of code in Python to solve the problem, using the
       digit-extraction technique described above:
     </p>
     <pre class="code">

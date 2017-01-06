@@ -55,6 +55,16 @@ def authorized(app, permission):
     response = get(app, "/authorized?permission=%s" % permission)
     return response["authorized"]
 
+def is_hunt_started_async(app):
+    response = get_async(app, "/run")
+    class IsHuntStartedFutureWrapper(object):
+        def __init__(self, response_future):
+            self.response_future = response_future
+        def result(self):
+            json = self.response_future.result().json()
+            return json.get("startTimestamp", None) is not None
+    return IsHuntStartedFutureWrapper(response)
+
 def get_visible_puzzle_ids(app):
     response = get(app, "/visibilities?teamId=%s" % session["username"])
     return [v["puzzleId"] for v in response["visibilities"]]
@@ -66,12 +76,16 @@ def get_puzzle_visibilities(app):
 def get_puzzle_visibilities_async(app):
     return get_async(app, "/visibilities?teamId=%s" % session["username"])
 
-def get_puzzle_visibilities_for_list(app, puzzle_ids):
-    response = get(app, "/visibilities?teamId=%s&puzzleId=%s" % (session["username"], ','.join(puzzle_ids)))
+def get_puzzle_visibilities_for_list(app, puzzle_ids, team_id=None):
+    if not team_id:
+        team_id = session["username"]
+    response = get(app, "/visibilities?teamId=%s&puzzleId=%s" % (team_id, ','.join(puzzle_ids)))
     return { v["puzzleId"]: v for v in response["visibilities"] }
 
-def get_puzzle_visibilities_for_list_async(app, puzzle_ids):
-    return get_async(app, "/visibilities?teamId=%s&puzzleId=%s" % (session["username"], ','.join(puzzle_ids)))
+def get_puzzle_visibilities_for_list_async(app, puzzle_ids, team_id=None):
+    if not team_id:
+        team_id = session["username"]
+    return get_async(app, "/visibilities?teamId=%s&puzzleId=%s" % (team_id, ','.join(puzzle_ids)))
 
 def get_puzzle_visibility(app, puzzle_id):
     return get(app, "/visibilities/%s/%s" % (session["username"], puzzle_id))
@@ -123,8 +137,10 @@ def get_team_properties(app, team_id=None):
 def get_team_properties_async(app):
     return get_async(app, "/teams/%s" % session["username"])
 
-def get_submissions(app, puzzle_id):
-    response = get(app, "/submissions?teamId=%s&puzzleId=%s" % (session["username"], puzzle_id))
+def get_submissions(app, puzzle_id, team_id=None):
+    if not team_id:
+        team_id = session["username"]
+    response = get(app, "/submissions?teamId=%s&puzzleId=%s" % (team_id, puzzle_id))
     return response["submissions"]
 
 def get_all_pending_submissions(app):

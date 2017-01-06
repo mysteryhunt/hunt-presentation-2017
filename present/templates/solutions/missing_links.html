@@ -1,0 +1,137 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'dungeon' %}
+{% block title_block %}Missing Links: Solution{% endblock %}
+{% block puzzle_name_block %}Missing Links: Solution{% endblock %}
+{% block byline %}By Todd Radford{% endblock %}
+{% block solution %}ERNIE ELS{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    ul {
+      list-style-type: none;
+    }
+  </style>
+{% endblock %}
+
+{% block solution_content_block %}
+  <div>
+    <p>
+      The index gives an alphabetical list of golf courses which then have
+      images presented in the rest of the brochure.  The courses are:
+    </p>
+    <ul>
+      <li>Augusta National</li>
+      <li>Barnbougle Lost Farm</li>
+      <li>Cape Kidnappers</li>
+      <li>Cypress Point</li>
+      <li>Fishers Island</li>
+      <li>Kingston Heath</li>
+      <li>Merion</li>
+      <li>Mile Square</li>
+      <li>Pebble Beach</li>
+      <li>Pine Valley</li>
+      <li>Royal Dornach (Struie)</li>
+      <li>Royal Melbourne</li>
+      <li>Royal Porthcawl</li>
+      <li>Royal Portrush (Dunluce)</li>
+      <li>Royal St. George&rsquo;s</li>
+      <li>Shinnecock Hills</li>
+      <li>St. Andrews (The Old Course)</li>
+      <li>Winged Foot</li>
+    </ul>
+    <p>
+      In each image, hole numbers have been removed and a set of up to 5 numbers
+      have been added in their place.  The first step is to identify the correct
+      hole numbers.  Extract the letter for the correct hole number from the
+      name of the course.
+    </p>
+    <p>
+      Royal Portrush (Dunluce) : 13,2,6 : HOP</br>
+      <img src="{{ asset_url_for('missing_links/image001.png') }}" width="500">
+    </p>
+    <p>
+      Cypress Point : 5,4,9,6,7 : EROSS</br>
+      <img src="{{ asset_url_for('missing_links/image003.gif') }}" width="500">
+    </p>
+    <p>
+      Royal St. George's : 9,1,11,13 : ERRE</br>
+      <img src="{{ asset_url_for('missing_links/image004.jpg') }}" width="500">
+    </p>
+    <p>Pine Valley : 9,5,4 : EVE</br>
+      <img src="{{ asset_url_for('missing_links/image005.jpg') }}" width="500">
+    </p>
+    <p>
+      Fishers Island : 3,1,10,11 : SFLA</br>
+      <img src="{{ asset_url_for('missing_links/image007.png') }}" width="500">
+    </p>
+    <p>
+      Merion : 1,2 : ME</br>
+      <img src="{{ asset_url_for('missing_links/image009.jpg') }}" width="500">
+    </p>
+    <p>
+      Mile Square : 6,7,4,10 : QUEE</br>
+      <img src="{{ asset_url_for('missing_links/image011.jpg') }}" width="500">
+    </p>
+    <p>
+      St. Andrews (The Old Course) : 4,1,2,3,6 : NSTAR</br>
+      <img src="{{ asset_url_for('missing_links/image013.gif') }}" width="500">
+    </p>
+    <p>
+      Barnbougle Lost Farm : 6,15,2,13 : OFAS</br>
+      <img src="{{ asset_url_for('missing_links/image015.jpg') }}" width="500">
+    </p>
+    <p>
+      Kingston Heath : 2,11,9,7 : IAHO</br>
+      <img src="{{ asset_url_for('missing_links/image017.jpg') }}" width="500">
+    </p>
+    <p>
+      Shinnecock Hills : 8,10,6 : OKE</br>
+      <img src="{{ asset_url_for('missing_links/image019.jpg') }}" width="500">
+    </p>
+    <p>
+      Royal Porthcawl : 8,13,10 : RWH</br>
+      <img src="{{ asset_url_for('missing_links/image021.jpg') }}" width="500">
+    </p>
+    <p>
+      Winged Foot : 2,10,3,5 : ITNE</br>
+      <img src="{{ asset_url_for('missing_links/image023.gif') }}" width="500">
+    </p>
+    <p>
+      Royal Dornach (Struie) : 3,11,4,8 : YCAR</br>
+      <img src="{{ asset_url_for('missing_links/image025.jpg') }}" width="500">
+    </p>
+    <p>
+      Royal Melbourne : 6,7,13,8,11 : MENLU</br>
+      <img src="{{ asset_url_for('missing_links/image026.gif') }}" width="500">
+    </p>
+    <p>
+      Pebble Beach : 10 : C </br>
+      <img src="{{ asset_url_for('missing_links/image028.png') }}" width="500">
+    </p>
+    <p>
+      Augusta National : 11,1,8,7,5 : IANAS</br>
+      <img src="{{ asset_url_for('missing_links/image030.gif') }}" width="500">
+    </p>
+    <p>
+      Cape Kidnappers : 14,9,5 : SAK</br>
+      <img src="{{ asset_url_for('missing_links/image031.png') }}" width="300">
+      <img src="{{ asset_url_for('missing_links/image033.png') }}" width="300">
+    </p>
+    <p>
+      Parsing all of the letters in order gives a set of famous gemstones.
+      Extract a letter based on the month for which the type of gem is the
+      birthstone.
+    </p>
+    <ul>
+      <li>E - HOPE - diamond (4)</li>
+      <li>R - ROSSER REEVES - ruby (7)</li>
+      <li>N - FLAME QUEEN - opal (10)</li>
+      <li>I - STAR OF ASIA - sapphire (9)</li>
+      <li>E - HOOKER - emerald (5)</li>
+      <li>E - WHITNEY - alexandrite (6)</li>
+      <li>L - CARMEN LUCIA - ruby (7)</li>
+      <li>S - NASSAK - diamond (4)</li>
+    </ul>
+    <p>This gives the answer <b>ERNIE ELS</b>.</p>
+  </div>
+{% endblock %}

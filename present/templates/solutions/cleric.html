@@ -1,0 +1,66 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'cleric' %}
+{% block title_block %}The Cleric: Solution{% endblock %}
+{% block puzzle_name_block %}The Cleric: Solution{% endblock %}
+{% block byline %}By Roger Barkan{% endblock %}
+{% block solution %}SMART BALMS{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  #puzzle-content ul {
+    list-style-type: none;
+    padding-left: 0px;
+  }
+  #puzzle-content li {
+    padding-bottom: 3px;
+  }
+  #puzzle-content td {
+    padding: 4px;
+  }
+  #puzzle-content td.answer-listing {
+    font-family: monospace;
+  }
+  #puzzle-content span.highlight-group {
+    font-weight: bold;
+    color: blue;
+  }
+  #puzzle-content span.highlight-letter {
+    font-weight: bold;
+    color: red;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<div>
+  <p>
+    Each pair of answers consists of two words that are two letter changes (one per word) away from being a game piece from the game Operation. The replaced letters, read across, spell <b>SMART BALMS</b>.
+  </p>
+  <table>
+    <tr>
+      <th>Answers</th>
+      <th>Operation piece</th>
+    </tr>
+    <tr>
+      <td class="answer-listing">SPAR<span class="highlight-letter">S</span> RI<span class="highlight-letter">M</span>S</td>
+      <td>Spare Ribs</td>
+    </tr>
+    <tr>
+      <td class="answer-listing">F<span class="highlight-letter">A</span>NNY BO<span class="highlight-letter">R</span>E</td>
+      <td>Funny Bone</td>
+    </tr>
+    <tr>
+      <td class="answer-listing"><span class="highlight-letter">T</span>RAIN <span class="highlight-letter">B</span>REEZE</td>
+      <td>Brain Freeze</td>
+    </tr>
+    <tr>
+      <td class="answer-listing">W<span class="highlight-letter">A</span>ITERS C<span class="highlight-letter">L</span>AMP</td>
+      <td>Writer&rsquo;s Cramp</td>
+    </tr>
+    <tr>
+      <td class="answer-listing">BREA<span class="highlight-letter">M</span> BAS<span class="highlight-letter">S</span>ET</td>
+      <td>Bread Basket</td>
+    </tr>
+  </table>
+</div>
+{% endblock %}

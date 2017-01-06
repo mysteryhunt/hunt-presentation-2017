@@ -1,0 +1,214 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'dynast' %}
+{% block title_block %}The Leaning Tower of Sheshach: Solution{% endblock %}
+{% block puzzle_name_block %}The Leaning Tower of Sheshach: Solution{% endblock %}
+{% block byline %}By Matt Gruskin and Alex Rosenthal{% endblock %}
+{% block solution %}QUOTA SAMPLING{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    #pieces {
+      font-size: 0.65em;
+    }
+    div.piece {
+      width: 24em;
+      height: 12em;
+      border: 2px dashed black;
+      position: relative;
+      font-family: sans-serif;
+      margin: 1em;
+      display: inline-block;
+    }
+    div.centerline {
+      border-left: 1px solid black;
+      position: relative;
+      left: 12em;
+      top: 11em;
+      width: 1px;
+      height: 1em;
+    }
+    div.lang {
+      position: absolute;
+      left: 8em;
+      width: 8em;
+      top: 5em;
+      height: 2em;
+      line-height: 2em;
+      text-align: center;
+    }
+    div.bottompiece {
+      border-left: none;
+      border-bottom: none;
+    }
+    div.bottompiece div.leftborder {
+      position: absolute;
+      height: 8.57143em;
+      border-left: 2px dashed black;
+    }
+    div.bottompiece div.bottomborder {
+      position: absolute;
+      top: 10.28572em;
+      width: 24em;
+      transform: rotate(8deg);
+      border-bottom: 2px dashed black;
+    }
+    span.leftletter, span.rightletter {
+      position: absolute;
+      font-size: 4em;
+      top: 1em;
+      transform: rotate(8deg);
+    }
+    span.leftletter {
+      left: 1.5em;
+    }
+    span.rightletter {
+      left: 4em;
+    }
+    div.leftword, div.rightword {
+      position: absolute;
+      border: 1px solid black;
+      box-sizing: border-box;
+      top: 2em;
+      height: 8em;
+      width: 1.5em;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    div.leftword {
+      left: 0.5em;
+    }
+    div.rightword {
+      left: 22em;
+    }
+    div.leftword span, div.rightword span {
+      text-align: center;
+      width: 1em;
+    }
+    div.leftclue {
+      position: absolute;
+      top: 0.2em;
+      left: 2.5em;
+      width: 18em;
+      height: 2em;
+      line-height: 2em;
+    }
+    div.rightclue {
+      position: absolute;
+      top: 9.8em;
+      left: 3.5em;
+      width: 18em;
+      height: 2em;
+      line-height: 2em;
+      text-align: right;
+    }
+    svg.lines {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 24em;
+      height: 12em;
+    }
+    svg.lines line {
+      stroke-width: 1px;
+      stroke: black;
+    }
+  </style>
+{% endblock %}
+
+{% block solution_content_block %}
+  <div>
+    <p>
+      <a href="https://en.wikipedia.org/wiki/Sheshach">Sheshach</a> is
+      the <a href="https://en.wikipedia.org/wiki/Atbash">Atbash</a>-encrypted
+      word for Babel, as used in the Hebrew Bible, and is the most well-known
+      use of the Atbash cipher. The name of this puzzle suggests that the
+      Atbash cipher will be used in solving it.
+    </p>
+    <p>
+      There&rsquo;s also a use of Atbash hidden in the flavortext: <i>low</i>
+      and <i>old</i> are two English words that are transformed into each other
+      when the Atbash cipher is applied.
+    </p>
+    <p>
+      This clues the primary mechanism that is used throughout this puzzle:
+      words that Atbash-transform into each other. In keeping with the Babel
+      theme, the words that transform into each other are in several different
+      languages: English, French, German, Italian, Polish, and Swedish.
+    </p>
+    <p>
+      Each piece contains two clues in the same language: one associated with
+      the left edge of the piece, and one associated with the right edge. Each
+      edge has an empty box where a word (in the piece&rsquo;s language) should be
+      filled in. The trick is that the piece&rsquo;s clues are actually cluing the
+      word that should be filled in to the piece <i>adjacent</i> to that edge
+      (in the other piece&rsquo;s language). Both words along an edge should
+      Atbash-transform to each other.
+    </p>
+    <p>
+      The solver should cut out the pieces, and then using the above
+      constraints, fill in the words, order the pieces so that the words all
+      pair up, and tape them together into a long strip.
+    </p>
+    <p>
+      This strip can then be spiraled into a tower (placing the piece with an
+      angled bottom edge at the bottom of the tower, and then spiraling the
+      strip up from there, taping as you go). A layer of the tower is completed
+      every 7 large letters.
+    </p>
+    <p>
+      Reading up the columns of large letters, the solver will notice that the
+      letters in a few of the columns spell out ANSWER IS QUOTA SAMPLING. (The
+      rest of the letters spell out the Atbash-transform of ANSWER IS QUOTA
+      SAMPLING in a zig-zag pattern). <b>QUOTA SAMPLING</b> is the answer to
+      this puzzle.
+    </p>
+    <h3>Final tower column letters:</h3>
+    <pre>RTLHDZN
+EOPMVHK
+WUMZIZO
+SQAGRGR
+NSSNHLM
+AIAIJFT</pre>
+    <h3>All pieces, in strip order, with words filled in:</h3>
+    <div id="pieces">
+      <div class="piece bottompiece">
+        <div class="leftborder"></div>
+        <div class="bottomborder"></div>
+        <div class="lang">English</div>
+        <span class="leftletter">A</span>
+        <span class="rightletter">I</span>
+        <div class="rightword"><span>N A B</span></div>
+        <div class="rightclue" style="top: 9.5em">drizzling</div>
+        <svg class="lines">
+          <line x1="21.75em" y1="10.75em" x2="24em" y2="10.75em" />
+          <line x1="24em" y1="1.25em" x2="22.75em" y2="1.25em" />
+          <line x1="22.75em" y1="1.25em" x2="22.75em" y2="2em" />
+          <line x1="22.75em" y1="2em" x2="22.5em" y2="1.75em" />
+          <line x1="22.75em" y1="2em" x2="23em" y2="1.75em" />
+        </svg>
+      </div>
+      <div class="piece"><div class="centerline"></div><div class="lang">Polish</div><span class="leftletter">A</span><span class="rightletter">I</span><div class="leftword"><span>M Z Y</span></div><div class="leftclue">z&#322;apa&#263;</div><svg class="lines"><line x1="2.25em" y1="1.25em" x2="0" y2="1.25em" /><line x1="0" y1="10.75em" x2="1.25em" y2="10.75em" /><line x1="1.25em" y1="10.75em" x2="1.25em" y2="10em" /><line x1="1.25em" y1="10em" x2="1em" y2="10.25em" /><line x1="1.25em" y1="10em" x2="1.5em" y2="10.25em" /></svg><div class="rightword"><span>D R G A</span></div><div class="rightclue">dowcip</div><svg class="lines"><line x1="21.75em" y1="10.75em" x2="24em" y2="10.75em" /><line x1="24em" y1="1.25em" x2="22.75em" y2="1.25em" /><line x1="22.75em" y1="1.25em" x2="22.75em" y2="2em" /><line x1="22.75em" y1="2em" x2="22.5em" y2="1.75em" /><line x1="22.75em" y1="2em" x2="23em" y2="1.75em" /></svg></div>
+      <div class="piece"><div class="centerline"></div><div class="lang">German</div><span class="leftletter">J</span><span class="rightletter">F</span><div class="leftword"><span>W I T Z</span></div><div class="leftclue">zuckungen</div><svg class="lines"><line x1="2.25em" y1="1.25em" x2="0" y2="1.25em" /><line x1="0" y1="10.75em" x2="1.25em" y2="10.75em" /><line x1="1.25em" y1="10.75em" x2="1.25em" y2="10em" /><line x1="1.25em" y1="10em" x2="1em" y2="10.25em" /><line x1="1.25em" y1="10em" x2="1.5em" y2="10.25em" /></svg><div class="rightword"><span>V O N</span></div><div class="rightclue">ulme</div><svg class="lines"><line x1="21.75em" y1="10.75em" x2="24em" y2="10.75em" /><line x1="24em" y1="1.25em" x2="22.75em" y2="1.25em" /><line x1="22.75em" y1="1.25em" x2="22.75em" y2="2em" /><line x1="22.75em" y1="2em" x2="22.5em" y2="1.75em" /><line x1="22.75em" y1="2em" x2="23em" y2="1.75em" /></svg></div>
+      <div class="piece"><div class="centerline"></div><div class="lang">English</div><span class="leftletter">T</span><span class="rightletter">N</span><div class="leftword"><span>E L M</span></div><div class="leftclue">from</div><svg class="lines"><line x1="2.25em" y1="1.25em" x2="0" y2="1.25em" /><line x1="0" y1="10.75em" x2="1.25em" y2="10.75em" /><line x1="1.25em" y1="10.75em" x2="1.25em" y2="10em" /><line x1="1.25em" y1="10em" x2="1em" y2="10.25em" /><line x1="1.25em" y1="10em" x2="1.5em" y2="10.25em" /></svg><div class="rightword"><span>W I L Y</span></div><div class="rightclue">poultry</div><svg class="lines"><line x1="21.75em" y1="10.75em" x2="24em" y2="10.75em" /><line x1="24em" y1="1.25em" x2="22.75em" y2="1.25em" /><line x1="22.75em" y1="1.25em" x2="22.75em" y2="2em" /><line x1="22.75em" y1="2em" x2="22.5em" y2="1.75em" /><line x1="22.75em" y1="2em" x2="23em" y2="1.75em" /></svg></div>
+      <div class="piece"><div class="centerline"></div><div class="lang">Polish</div><span class="leftletter">S</span><span class="rightletter">S</span><div class="leftword"><span>D R O B</span></div><div class="leftclue">przebieg&#322;y</div><svg class="lines"><line x1="2.25em" y1="1.25em" x2="0" y2="1.25em" /><line x1="0" y1="10.75em" x2="1.25em" y2="10.75em" /><line x1="1.25em" y1="10.75em" x2="1.25em" y2="10em" /><line x1="1.25em" y1="10em" x2="1em" y2="10.25em" /><line x1="1.25em" y1="10em" x2="1.5em" y2="10.25em" /></svg><div class="rightword"><span>P L I K</span></div><div class="rightclue">kruk</div><svg class="lines"><line x1="21.75em" y1="10.75em" x2="24em" y2="10.75em" /><line x1="24em" y1="1.25em" x2="22.75em" y2="1.25em" /><line x1="22.75em" y1="1.25em" x2="22.75em" y2="2em" /><line x1="22.75em" y1="2em" x2="22.5em" y2="1.75em" /><line x1="22.75em" y1="2em" x2="23em" y2="1.75em" /></svg></div>
+      <div class="piece"><div class="centerline"></div><div class="lang">Swedish</div><span class="leftletter">N</span><span class="rightletter">H</span><div class="leftword"><span>K O R P</span></div><div class="leftclue">fil</div><svg class="lines"><line x1="2.25em" y1="1.25em" x2="0" y2="1.25em" /><line x1="0" y1="10.75em" x2="1.25em" y2="10.75em" /><line x1="1.25em" y1="10.75em" x2="1.25em" y2="10em" /><line x1="1.25em" y1="10em" x2="1em" y2="10.25em" /><line x1="1.25em" y1="10em" x2="1.5em" y2="10.25em" /></svg><div class="rightword"><span>A V O G</span></div><div class="rightclue">t&auml;lt</div><svg class="lines"><line x1="21.75em" y1="10.75em" x2="24em" y2="10.75em" /><line x1="24em" y1="1.25em" x2="22.75em" y2="1.25em" /><line x1="22.75em" y1="1.25em" x2="22.75em" y2="2em" /><line x1="22.75em" y1="2em" x2="22.5em" y2="1.75em" /><line x1="22.75em" y1="2em" x2="23em" y2="1.75em" /></svg></div>
+      <div class="piece"><div class="centerline"></div><div class="lang">German</div><span class="leftletter">L</span><span class="rightletter">M</span><div class="leftword"><span>Z E L T</span></div><div class="leftclue">abgeneigt</div><svg class="lines"><line x1="2.25em" y1="1.25em" x2="0" y2="1.25em" /><line x1="0" y1="10.75em" x2="1.25em" y2="10.75em" /><line x1="1.25em" y1="10.75em" x2="1.25em" y2="10em" /><line x1="1.25em" y1="10em" x2="1em" y2="10.25em" /><line x1="1.25em" y1="10em" x2="1.5em" y2="10.25em" /></svg><div class="rightword"><span>Z U G</span></div><div class="rightclue">achtern</div><svg class="lines"><line x1="21.75em" y1="10.75em" x2="24em" y2="10.75em" /><line x1="24em" y1="1.25em" x2="22.75em" y2="1.25em" /><line x1="22.75em" y1="1.25em" x2="22.75em" y2="2em" /><line x1="22.75em" y1="2em" x2="22.5em" y2="1.75em" /><line x1="22.75em" y1="2em" x2="23em" y2="1.75em" /></svg></div>
+      <div class="piece"><div class="centerline"></div><div class="lang">English</div><span class="leftletter">S</span><span class="rightletter">Q</span><div class="leftword"><span>A F T</span></div><div class="leftclue">train</div><svg class="lines"><line x1="2.25em" y1="1.25em" x2="0" y2="1.25em" /><line x1="0" y1="10.75em" x2="1.25em" y2="10.75em" /><line x1="1.25em" y1="10.75em" x2="1.25em" y2="10em" /><line x1="1.25em" y1="10em" x2="1em" y2="10.25em" /><line x1="1.25em" y1="10em" x2="1.5em" y2="10.25em" /></svg><div class="rightword"><span>D R O P</span></div><div class="rightclue">wolf</div><svg class="lines"><line x1="21.75em" y1="10.75em" x2="24em" y2="10.75em" /><line x1="24em" y1="1.25em" x2="22.75em" y2="1.25em" /><line x1="22.75em" y1="1.25em" x2="22.75em" y2="2em" /><line x1="22.75em" y1="2em" x2="22.5em" y2="1.75em" /><line x1="22.75em" y1="2em" x2="23em" y2="1.75em" /></svg></div>
+      <div class="piece"><div class="centerline"></div><div class="lang">Polish</div><span class="leftletter">A</span><span class="rightletter">G</span><div class="leftword"><span>W I L K</span></div><div class="leftclue">upuszcza&#263;</div><svg class="lines"><line x1="2.25em" y1="1.25em" x2="0" y2="1.25em" /><line x1="0" y1="10.75em" x2="1.25em" y2="10.75em" /><line x1="1.25em" y1="10.75em" x2="1.25em" y2="10em" /><line x1="1.25em" y1="10em" x2="1em" y2="10.25em" /><line x1="1.25em" y1="10em" x2="1.5em" y2="10.25em" /></svg><div class="rightword"><span>F I O L</span></div><div class="rightclue">krzycze&#263;</div><svg class="lines"><line x1="21.75em" y1="10.75em" x2="24em" y2="10.75em" /><line x1="24em" y1="1.25em" x2="22.75em" y2="1.25em" /><line x1="22.75em" y1="1.25em" x2="22.75em" y2="2em" /><line x1="22.75em" y1="2em" x2="22.5em" y2="1.75em" /><line x1="22.75em" y1="2em" x2="23em" y2="1.75em" /></svg></div>
+      <div class="piece"><div class="centerline"></div><div class="lang">Italian</div><span class="leftletter">R</span><span class="rightletter">G</span><div class="leftword"><span>U R L O</span></div><div class="leftclue">mania</div><svg class="lines"><line x1="2.25em" y1="1.25em" x2="0" y2="1.25em" /><line x1="0" y1="10.75em" x2="1.25em" y2="10.75em" /><line x1="1.25em" y1="10.75em" x2="1.25em" y2="10em" /><line x1="1.25em" y1="10em" x2="1em" y2="10.25em" /><line x1="1.25em" y1="10em" x2="1.5em" y2="10.25em" /></svg><div class="rightword"><span>S V I A</span></div><div class="rightclue">cuore</div><svg class="lines"><line x1="21.75em" y1="10.75em" x2="24em" y2="10.75em" /><line x1="24em" y1="1.25em" x2="22.75em" y2="1.25em" /><line x1="22.75em" y1="1.25em" x2="22.75em" y2="2em" /><line x1="22.75em" y1="2em" x2="22.5em" y2="1.75em" /><line x1="22.75em" y1="2em" x2="23em" y2="1.75em" /></svg></div>
+      <div class="piece"><div class="centerline"></div><div class="lang">German</div><span class="leftletter">R</span><span class="rightletter">W</span><div class="leftword"><span>H E R Z</span></div><div class="leftclue">verleitet</div><svg class="lines"><line x1="2.25em" y1="1.25em" x2="0" y2="1.25em" /><line x1="0" y1="10.75em" x2="1.25em" y2="10.75em" /><line x1="1.25em" y1="10.75em" x2="1.25em" y2="10em" /><line x1="1.25em" y1="10em" x2="1em" y2="10.25em" /><line x1="1.25em" y1="10em" x2="1.5em" y2="10.25em" /></svg><div class="rightword"><span>T R O G</span></div><div class="rightclue">vergoldet</div><svg class="lines"><line x1="21.75em" y1="10.75em" x2="24em" y2="10.75em" /><line x1="24em" y1="1.25em" x2="22.75em" y2="1.25em" /><line x1="22.75em" y1="1.25em" x2="22.75em" y2="2em" /><line x1="22.75em" y1="2em" x2="22.5em" y2="1.75em" /><line x1="22.75em" y1="2em" x2="23em" y2="1.75em" /></svg></div>
+      <div class="piece"><div class="centerline"></div><div class="lang">English</div><span class="leftletter">U</span><span class="rightletter">M</span><div class="leftword"><span>G I L T</span></div><div class="leftclue">trough</div><svg class="lines"><line x1="2.25em" y1="1.25em" x2="0" y2="1.25em" /><line x1="0" y1="10.75em" x2="1.25em" y2="10.75em" /><line x1="1.25em" y1="10.75em" x2="1.25em" y2="10em" /><line x1="1.25em" y1="10em" x2="1em" y2="10.25em" /><line x1="1.25em" y1="10em" x2="1.5em" y2="10.25em" /></svg><div class="rightword"><span>T I L E</span></div><div class="rightclue">rough</div><svg class="lines"><line x1="21.75em" y1="10.75em" x2="24em" y2="10.75em" /><line x1="24em" y1="1.25em" x2="22.75em" y2="1.25em" /><line x1="22.75em" y1="1.25em" x2="22.75em" y2="2em" /><line x1="22.75em" y1="2em" x2="22.5em" y2="1.75em" /><line x1="22.75em" y1="2em" x2="23em" y2="1.75em" /></svg></div>
+      <div class="piece"><div class="centerline"></div><div class="lang">Swedish</div><span class="leftletter">Z</span><span class="rightletter">I</span><div class="leftword"><span>G R O V</span></div><div class="leftclue">bricka</div><svg class="lines"><line x1="2.25em" y1="1.25em" x2="0" y2="1.25em" /><line x1="0" y1="10.75em" x2="1.25em" y2="10.75em" /><line x1="1.25em" y1="10.75em" x2="1.25em" y2="10em" /><line x1="1.25em" y1="10em" x2="1em" y2="10.25em" /><line x1="1.25em" y1="10em" x2="1.5em" y2="10.25em" /></svg><div class="rightword"><span>A R V</span></div><div class="rightclue">mostrar</div><svg class="lines"><line x1="21.75em" y1="10.75em" x2="24em" y2="10.75em" /><line x1="24em" y1="1.25em" x2="22.75em" y2="1.25em" /><line x1="22.75em" y1="1.25em" x2="22.75em" y2="2em" /><line x1="22.75em" y1="2em" x2="22.5em" y2="1.75em" /><line x1="22.75em" y1="2em" x2="23em" y2="1.75em" /></svg></div>
+      <div class="piece"><div class="centerline"></div><div class="lang">Italian</div><span class="leftletter">Z</span><span class="rightletter">O</span><div class="leftword"><span>Z I E</span></div><div class="leftclue">eredit&agrave;</div><svg class="lines"><line x1="2.25em" y1="1.25em" x2="0" y2="1.25em" /><line x1="0" y1="10.75em" x2="1.25em" y2="10.75em" /><line x1="1.25em" y1="10.75em" x2="1.25em" y2="10em" /><line x1="1.25em" y1="10em" x2="1em" y2="10.25em" /><line x1="1.25em" y1="10em" x2="1.5em" y2="10.25em" /></svg><div class="rightword"><span>U L I V I</span></div><div class="rightclue">trapanare</div><svg class="lines"><line x1="21.75em" y1="10.75em" x2="24em" y2="10.75em" /><line x1="24em" y1="1.25em" x2="22.75em" y2="1.25em" /><line x1="22.75em" y1="1.25em" x2="22.75em" y2="2em" /><line x1="22.75em" y1="2em" x2="22.5em" y2="1.75em" /><line x1="22.75em" y1="2em" x2="23em" y2="1.75em" /></svg></div>
+      <div class="piece"><div class="centerline"></div><div class="lang">French</div><span class="leftletter">E</span><span class="rightletter">O</span><div class="leftword"><span>F O R E R</span></div><div class="leftclue">oliviers</div><svg class="lines"><line x1="2.25em" y1="1.25em" x2="0" y2="1.25em" /><line x1="0" y1="10.75em" x2="1.25em" y2="10.75em" /><line x1="1.25em" y1="10.75em" x2="1.25em" y2="10em" /><line x1="1.25em" y1="10em" x2="1em" y2="10.25em" /><line x1="1.25em" y1="10em" x2="1.5em" y2="10.25em" /></svg><div class="rightword"><span>I L E</span></div><div class="rightclue">proie</div><svg class="lines"><line x1="21.75em" y1="10.75em" x2="24em" y2="10.75em" /><line x1="24em" y1="1.25em" x2="22.75em" y2="1.25em" /><line x1="22.75em" y1="1.25em" x2="22.75em" y2="2em" /><line x1="22.75em" y1="2em" x2="22.5em" y2="1.75em" /><line x1="22.75em" y1="2em" x2="23em" y2="1.75em" /></svg></div>
+      <div class="piece"><div class="centerline"></div><div class="lang">Swedish</div><span class="leftletter">P</span><span class="rightletter">M</span><div class="leftword"><span>R O V</span></div><div class="leftclue">&ouml;</div><svg class="lines"><line x1="2.25em" y1="1.25em" x2="0" y2="1.25em" /><line x1="0" y1="10.75em" x2="1.25em" y2="10.75em" /><line x1="1.25em" y1="10.75em" x2="1.25em" y2="10em" /><line x1="1.25em" y1="10em" x2="1em" y2="10.25em" /><line x1="1.25em" y1="10em" x2="1.5em" y2="10.25em" /></svg><div class="rightword"><span>E L D</span></div><div class="rightclue">sv&auml;ra</div><svg class="lines"><line x1="21.75em" y1="10.75em" x2="24em" y2="10.75em" /><line x1="24em" y1="1.25em" x2="22.75em" y2="1.25em" /><line x1="22.75em" y1="1.25em" x2="22.75em" y2="2em" /><line x1="22.75em" y1="2em" x2="22.5em" y2="1.75em" /><line x1="22.75em" y1="2em" x2="23em" y2="1.75em" /></svg></div>
+      <div class="piece"><div class="centerline"></div><div class="lang">English</div><span class="leftletter">V</span><span class="rightletter">H</span><div class="leftword"><span>V O W</span></div><div class="leftclue">fire</div><svg class="lines"><line x1="2.25em" y1="1.25em" x2="0" y2="1.25em" /><line x1="0" y1="10.75em" x2="1.25em" y2="10.75em" /><line x1="1.25em" y1="10.75em" x2="1.25em" y2="10em" /><line x1="1.25em" y1="10em" x2="1em" y2="10.25em" /><line x1="1.25em" y1="10em" x2="1.5em" y2="10.25em" /></svg><div class="rightword"><span>W A R M</span></div><div class="rightclue">gin</div><svg class="lines"><line x1="21.75em" y1="10.75em" x2="24em" y2="10.75em" /><line x1="24em" y1="1.25em" x2="22.75em" y2="1.25em" /><line x1="22.75em" y1="1.25em" x2="22.75em" y2="2em" /><line x1="22.75em" y1="2em" x2="22.5em" y2="1.75em" /><line x1="22.75em" y1="2em" x2="23em" y2="1.75em" /></svg></div>
+      <div class="piece"><div class="centerline"></div><div class="lang">Polish</div><span class="leftletter">K</span><span class="rightletter">R</span><div class="leftword"><span>D Z I N</span></div><div class="leftclue">ciep&#322;y</div><svg class="lines"><line x1="2.25em" y1="1.25em" x2="0" y2="1.25em" /><line x1="0" y1="10.75em" x2="1.25em" y2="10.75em" /><line x1="1.25em" y1="10.75em" x2="1.25em" y2="10em" /><line x1="1.25em" y1="10em" x2="1em" y2="10.25em" /><line x1="1.25em" y1="10em" x2="1.5em" y2="10.25em" /></svg><div class="rightword"><span>K I L E</span></div><div class="rightclue">pr&#243;ba</div><svg class="lines"><line x1="21.75em" y1="10.75em" x2="24em" y2="10.75em" /><line x1="24em" y1="1.25em" x2="22.75em" y2="1.25em" /><line x1="22.75em" y1="1.25em" x2="22.75em" y2="2em" /><line x1="22.75em" y1="2em" x2="22.5em" y2="1.75em" /><line x1="22.75em" y1="2em" x2="23em" y2="1.75em" /></svg></div>
+      <div class="piece"><div class="centerline"></div><div class="lang">Swedish</div><span class="leftletter">T</span><span class="rightletter">L</span><div class="leftword"><span>P R O V</span></div><div class="leftclue">k&ouml;lar</div><svg class="lines"><line x1="2.25em" y1="1.25em" x2="0" y2="1.25em" /><line x1="0" y1="10.75em" x2="1.25em" y2="10.75em" /><line x1="1.25em" y1="10.75em" x2="1.25em" y2="10em" /><line x1="1.25em" y1="10em" x2="1em" y2="10.25em" /><line x1="1.25em" y1="10em" x2="1.5em" y2="10.25em" /></svg><div class="rightword"><span>E V I G</span></div><div class="rightclue">gr&ouml;n</div><svg class="lines"><line x1="21.75em" y1="10.75em" x2="24em" y2="10.75em" /><line x1="24em" y1="1.25em" x2="22.75em" y2="1.25em" /><line x1="22.75em" y1="1.25em" x2="22.75em" y2="2em" /><line x1="22.75em" y1="2em" x2="22.5em" y2="1.75em" /><line x1="22.75em" y1="2em" x2="23em" y2="1.75em" /></svg></div>
+      <div class="piece"><div class="centerline"></div><div class="lang">French</div><span class="leftletter">H</span><span class="rightletter">D</span><div class="leftword"><span>V E R T</span></div><div class="leftclue">&eacute;ternel</div><svg class="lines"><line x1="2.25em" y1="1.25em" x2="0" y2="1.25em" /><line x1="0" y1="10.75em" x2="1.25em" y2="10.75em" /><line x1="1.25em" y1="10.75em" x2="1.25em" y2="10em" /><line x1="1.25em" y1="10em" x2="1em" y2="10.25em" /><line x1="1.25em" y1="10em" x2="1.5em" y2="10.25em" /></svg><div class="rightword"><span>P O L I</span></div><div class="rightclue">chlore</div><svg class="lines"><line x1="21.75em" y1="10.75em" x2="24em" y2="10.75em" /><line x1="24em" y1="1.25em" x2="22.75em" y2="1.25em" /><line x1="22.75em" y1="1.25em" x2="22.75em" y2="2em" /><line x1="22.75em" y1="2em" x2="22.5em" y2="1.75em" /><line x1="22.75em" y1="2em" x2="23em" y2="1.75em" /></svg></div>
+      <div class="piece"><div class="centerline"></div><div class="lang">Swedish</div><span class="leftletter">Z</span><span class="rightletter">N</span><div class="leftword"><span>K L O R</span></div><div class="leftclue">polerad</div><svg class="lines"><line x1="2.25em" y1="1.25em" x2="0" y2="1.25em" /><line x1="0" y1="10.75em" x2="1.25em" y2="10.75em" /><line x1="1.25em" y1="10.75em" x2="1.25em" y2="10em" /><line x1="1.25em" y1="10em" x2="1em" y2="10.25em" /><line x1="1.25em" y1="10em" x2="1.5em" y2="10.25em" /></svg></div>
+    </div>
+  </div>
+{% endblock %}

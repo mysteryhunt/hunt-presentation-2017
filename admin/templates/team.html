@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block page_body %}
+{% set editable = is_authorized('teams:update:%s' % team.teamId) %}
 <div class="ha-control-boxes-container">
   <form class="ha-column-control-box" action="{{ url_for('team', team_id=team.teamId) }}" method="post">
     <span class="ha-control-box-title">
@@ -12,20 +13,99 @@
       </label>
       <label>
         Email
-        <input type="text" name="email" value="{{ team.email }}">
+        <input type="text" name="email" value="{{ team.email }}" {% if not editable %}disabled{% endif %}>
       </label>
       <label>
         Primary Phone
-        <input type="text" name="primaryPhone" value="{{ team.primaryPhone }}">
+        <input type="text" name="primaryPhone" value="{{ team.primaryPhone }}" {% if not editable %}disabled{% endif %}>
       </label>
       <label>
         Secondary Phone
-        <input type="text" name="secondaryPhone" value="{{ team.secondaryPhone }}">
+        <input type="text" name="secondaryPhone" value="{{ team.secondaryPhone }}" {% if not editable %}disabled{% endif %}>
       </label>
     </div>
     <input type="hidden" name="action" value="ChangeContactInfo">
-    <input type="submit" value="Change Contact Info">
+    <input type="submit" value="Change Contact Info" {% if not editable %}disabled{% endif %}>
   </form>
+
+  {% if is_authorized('visibilities:update:%s' % team.teamId) %}
+  {% set rescuable_characters = ['linguist', 'economist', 'chemist'] %}
+  <form class="ha-column-control-box" action="{{ url_for('team', team_id=team.teamId) }}" method="post">
+    <span class="ha-control-box-title">
+      Complete Character Rescue
+    </span>
+    <div class="ha-labeled-input-form">
+      <label>
+        Team ID
+        <span>{{ team.teamId }}</span>
+      </label>
+    </div>
+    {% for character in rescuable_characters %}
+    <div>
+      {% set puzzleId = 'rescue_the_%s' % character %}
+      {% set allow = rescue_visibilities.get(puzzleId, {}).get('status', 'INVISIBLE') == 'UNLOCKED' %}
+      <input
+         type="button"
+         value="Yes, I'm sure"
+         onclick="document.getElementById('{{ puzzleId }}_button').removeAttribute('disabled')"
+         {% if not allow %}disabled{% endif %}
+      >
+      <button
+         id="{{ puzzleId }}_button"
+         type="submit"
+         name="puzzleId"
+         value="{{ puzzleId }}"
+         disabled>
+        Rescue the {{ character | capitalize }}
+      </button>
+    </div>
+    {% endfor %}
+    <input type="hidden" name="action" value="SetPuzzleStatus">
+    <input type="hidden" name="actionType" value="Solve">
+  </form>
+
+  <form class="ha-column-control-box" action="{{ url_for('team', team_id=team.teamId) }}" method="post">
+    <span class="ha-control-box-title">
+      Unlock Character Round
+    </span>
+    <div class="ha-labeled-input-form">
+      <label>
+        Team ID
+        <span>{{ team.teamId }}</span>
+      </label>
+    </div>
+    {% for character in rescuable_characters %}
+    <div>
+      {% set puzzleId = character %}
+      {% set allow = rescue_visibilities.get(puzzleId, {}).get('status', 'INVISIBLE') == 'INVISIBLE' %}
+      <input
+         type="button"
+         value="Yes, I'm sure"
+         onclick="document.getElementById('{{ puzzleId }}_button').removeAttribute('disabled')"
+         {% if not allow %}disabled{% endif %}
+      >
+      <button
+         id="{{ puzzleId }}_button"
+         type="submit"
+         name="puzzleId"
+         value="{{ puzzleId }}"
+         disabled>
+        Unlock {{ character | capitalize }} Round
+      </button>
+    </div>
+    {% endfor %}
+    <input type="hidden" name="action" value="SetPuzzleStatus">
+    <input type="hidden" name="actionType" value="Unlock">
+  </form>
+  {% endif %}
+
+  {#
+  Technically, anyone with visibility update access can use the below
+  form, but we really only want admin users using it for safety
+  reasons. So we'll check for a permission that only admins have
+  (event creation).
+  #}
+  {% if is_authorized('events:create:*') %}
   <form class="ha-column-control-box" action="{{ url_for('team', team_id=team.teamId) }}" method="post">
     <span class="ha-control-box-title">
       Set Puzzle Status
@@ -60,6 +140,7 @@
       <input id="solveButton" type="submit" name="actionType" value="Solve" disabled>
     </div>
   </form>
+  {% endif %}
 </div>
 {% if team.teamProperties %}
 <div class="ha-page-section">

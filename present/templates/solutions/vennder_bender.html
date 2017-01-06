@@ -1,0 +1,45 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'linguist' %}
+{% block title_block %}Vennder Bender: Solution{% endblock %}
+{% block puzzle_name_block %}Vennder Bender: Solution{% endblock %}
+{% block byline %}By Sarah Bagby{% endblock %}
+{% block solution %}HAT{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+span.highlight-letter {
+  color: red;
+  font-weight: bold;
+}
+#puzzle-image  {
+  width: 100%;
+}
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+  <div>
+    <p>
+      Solvers are given an elaborate Venn diagram. Some regions are populated; others are flagged with question marks; all are unlabeled. Solvers must deduce the constraints on each region (see below) and determine which of each of 11 additional names belongs in each question-mark region. Once those names are placed, the question is, how many overlapping regions does each of the 11 lie within? Taking the number-of-regionth letter of each of the names placed, in the order in which the names are presented, gives FEZ OR TRILBY, cluing <b>HAT</b>.
+    </p>
+    <div id="listing-container">
+      <ol>
+        <li>Geo<span class="highlight-letter">f</span>frey Rush</li>
+        <li>Marl<span class="highlight-letter">e</span>e Matlin</li>
+        <li>A<span class="highlight-letter">z</span>iz Ansari</li>
+        <li>Mel Br<span class="highlight-letter">o</span>oks</li>
+        <li>K<span class="highlight-letter">r</span>isten Wiig</li>
+        <li>Na<span class="highlight-letter">t</span> King Cole</li>
+        <li><span class="highlight-letter">R</span>ashida Jones</li>
+        <li>Sh<span class="highlight-letter">i</span>rley Jones</li>
+        <li>Ni<span class="highlight-letter">l</span>o Cruz</li>
+        <li>Yul <span class="highlight-letter">B</span>rynner</li>
+        <li>Trac<span class="highlight-letter">y</span> Letts</li>
+      </ol>
+    </div>
+    <div id="image-container">
+      <a class="standard-link" href="{{ asset_url_for('vennder_bender/solution-image01.png') }}">[Click to enlarge]</a>
+      <a href="{{ asset_url_for('vennder_bender/solution-image01.png') }}"><img id="puzzle-image" src="{{ asset_url_for('vennder_bender/solution-image01.png') }}"/></a>
+    </div>
+  </div>
+{% endblock %}

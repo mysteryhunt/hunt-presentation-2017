@@ -7,8 +7,15 @@
 
 {% block puzzle_head_block %}
   <style>
-    ul {
+    #puzzle-content ul {
       list-style-type: none;
+    }
+    #puzzle-content span.highlight-letter {
+      font-weight: bold;
+      color: red;
+    }
+    #puzzle-content table td {
+      padding: 4px;
     }
   </style>
 {% endblock %}
@@ -16,37 +23,171 @@
 {% block solution_content_block %}
   <div>
     <p>
-      The songs are all by The Police:
+      It's the return of <a href="http://www.mit.edu/~puzzle/2002/purple/D/Puzzle.html">Hum a Few Bars</a> from 2002. This time, the songs are all by The Police:
     </p>
-    <ul>
-      <li>07, 22, 13: Spirits in the Material World</li>
-      <li>08, 06, 13: Every Breath You Take</li>
-      <li>11, 14, 04: Voices Inside My Head</li>
-      <li>07, 13, 13: Don't Stand So Close to Me</li>
-      <li>12, 05, 11: Synchronicity</li>
-      <li>12, 14, 18: Can't Stand Losing You</li>
-      <li>01, 07, 05: Murder by Numbers</li>
-      <li>13, 09, 11: Tea in the Sahara</li>
-      <li>02, 01, 10: Walking on the Moon</li>
-      <li>10, 14, 08: Walking in Your Footsteps</li>
-      <li>02, 10, 01: Bring on the Night</li>
-      <li>11, 09, 12: Wrapped Around Your Finger</li>
-      <li>02, 03, 04: King of Pain</li>
-      <li>12, 09, 14: Message in a Bottle</li>
-      <li>06, 12, 17: Truth Hits Everybody</li>
-      <li>27, 15, 30: Every Little Thing She Does Is Magic</li>
-      <li>12, 11, 09: Hole in My Life</li>
-      <li>02, 02, 01: Roxanne</li>
-    </ul>
+    <table>
+      <tr>
+        <th>Indices</th>
+        <th>Song</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+      
+      <tr>
+        <td>07, 22, 13</td>
+        <td>Spirit<span class="highlight-letter">s</span> in the <span class="highlight-letter">M</span>aterial W<span class="highlight-letter">o</span>rld</td>
+        <td>S</td>
+        <td>O</td>
+        <td>M</td>
+      </tr>
+
+      <tr>
+        <td>08, 06, 13</td>
+        <td>Every <span class="highlight-letter">B</span>r<span class="highlight-letter">e</span>ath Y<span class="highlight-letter">o</span>u Take</td>
+        <td>E</td>
+        <td>B</td>
+        <td>O</td>
+      </tr>
+
+      <tr>
+        <td>11, 14, 04</td>
+        <td>Voi<span class="highlight-letter">c</span>es Insi<span class="highlight-letter">d</span>e M<span class="highlight-letter">y</span> Head</td>
+        <td>D</td>
+        <td>Y</td>
+        <td>C</td>
+      </tr>
+
+      <tr>
+        <td>07, 13, 13</td>
+        <td>Don&rsquo;t St<span class="highlight-letter">a</span>nd So C<span class="highlight-letter">l</span>ose to Me</td>
+        <td>A</td>
+        <td>L</td>
+        <td>L</td>
+      </tr>
+
+      <tr>
+        <td>12, 05, 11</td>
+        <td>Sync<span class="highlight-letter">h</span>ronic<span class="highlight-letter">i</span><span class="highlight-letter">t</span>y</td>
+        <td>T</td>
+        <td>H</td>
+        <td>I</td>
+      </tr>
+
+      <tr>
+        <td>12, 14, 18</td>
+        <td>Can&rsquo;t Stand Lo<span class="highlight-letter">s</span>i<span class="highlight-letter">n</span>g Yo<span class="highlight-letter">u</span></td>
+        <td>S</td>
+        <td>N</td>
+        <td>U</td>
+      </tr>
+
+      <tr>
+        <td>01, 07, 05</td>
+        <td><span class="highlight-letter">M</span>urd<span class="highlight-letter">e</span>r <span class="highlight-letter">b</span>y Numbers</td>
+        <td>M</td>
+        <td>B</td>
+        <td>E</td>
+      </tr>
+
+      <tr>
+        <td>13, 09, 11</td>
+        <td>Tea in the <span class="highlight-letter">S</span>a<span class="highlight-letter">h</span>a<span class="highlight-letter">r</span>a</td>
+        <td>R</td>
+        <td>S</td>
+        <td>H</td>
+      </tr>
+
+      <tr>
+        <td>02, 01, 10</td>
+        <td><span class="highlight-letter">W</span><span class="highlight-letter">a</span>lking on <span class="highlight-letter">t</span>he Moon</td>
+        <td>A</td>
+        <td>W</td>
+        <td>T</td>
+      </tr>
+
+      <tr>
+        <td>10, 14, 08</td>
+        <td>Walking <span class="highlight-letter">i</span>n <span class="highlight-letter">Y</span>our <span class="highlight-letter">F</span>ootsteps</td>
+        <td>Y</td>
+        <td>F</td>
+        <td>I</td>
+      </tr>
+
+      <tr>
+        <td>02, 10, 01</td>
+        <td><span class="highlight-letter">B</span><span class="highlight-letter">r</span>ing on th<span class="highlight-letter">e</span> Night</td>
+        <td>R</td>
+        <td>E</td>
+        <td>B</td>
+      </tr>
+
+      <tr>
+        <td>11, 09, 12</td>
+        <td>Wrapped A<span class="highlight-letter">r</span>o<span class="highlight-letter">u</span><span class="highlight-letter">n</span>d Your Finger</td>
+        <td>U</td>
+        <td>R</td>
+        <td>N</td>
+      </tr>
+
+      <tr>
+        <td>02, 03, 04</td>
+        <td>K<span class="highlight-letter">i</span><span class="highlight-letter">n</span><span class="highlight-letter">g</span> of Pain</td>
+        <td>I</td>
+        <td>N</td>
+        <td>G</td>
+      </tr>
+
+      <tr>
+        <td>12, 09, 14</td>
+        <td>Message i<span class="highlight-letter">n</span> a B<span class="highlight-letter">o</span>t<span class="highlight-letter">t</span>le</td>
+        <td>O</td>
+        <td>N</td>
+        <td>T</td>
+      </tr>
+
+      <tr>
+        <td>06, 12, 17</td>
+        <td>Truth <span class="highlight-letter">H</span>its Ev<span class="highlight-letter">e</span>rybo<span class="highlight-letter">d</span>y</td>
+        <td>H</td>
+        <td>E</td>
+        <td>D</td>
+      </tr>
+
+      <tr>
+        <td>27, 15, 30</td>
+        <td>Every Little Thi<span class="highlight-letter">n</span>g She Does Is M<span class="highlight-letter">a</span>gi<span class="highlight-letter">c</span></td>
+        <td>A</td>
+        <td>N</td>
+        <td>C</td>
+      </tr>
+
+      <tr>
+        <td>12, 11, 09</td>
+        <td>Hole in My <span class="highlight-letter">L</span>i<span class="highlight-letter">f</span><span class="highlight-letter">e</span></td>
+        <td>E</td>
+        <td>F</td>
+        <td>L</td>
+      </tr>
+
+      <tr>
+        <td>02, 02, 01</td>
+        <td><span class="highlight-letter">R</span><span class="highlight-letter">o</span>xanne</td>
+        <td>O</td>
+        <td>O</td>
+        <td>R</td>
+      </tr>
+
+    </table>
     <p>
-      The indicated letters spell "Somebody call THIS NUMBER, shawty fire
-      burning on the dance floor".  That's from a song absolutely not by The
-      Police, and it's not even about the police, but such is life in this
+      The indicated letters spell &ldquo;Somebody call THIS NUMBER, shawty fire
+      burning on the dance floor.&rdquo;  That&rsquo;s from a song absolutely not by The
+      Police, and it&rsquo;s not even about the police, but such is life in this
       treacherous dungeon.
     </p>
     <p>
-      Your answer is the missing lyric, but make sure you spell it out as
-      directed: <b>NINE ONE ONE</b>.
+      Your answer is the missing lyric, spelled out just as all the
+other numbers in the puzzle have been spelled out: <b>NINE ONE ONE</b>.
     </p>
   </div>
 {% endblock %}

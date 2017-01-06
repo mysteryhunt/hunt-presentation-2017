@@ -1,0 +1,41 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}Missing Links{% endblock %}
+{% block puzzle_name_block %}Missing Links{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    img.i {
+      width: 600px;
+      page-break-before: always;
+    }
+  </style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+  In a corner of the dungeon, you find a brochure advertising places you'd much rather be.
+{% endblock %}
+
+{% block puzzle_content_block %}
+  <div>
+    <p>(Click images to enlarge.)</p>
+    <a href="{{ asset_url_for('missing_links/Brochure_Index.png') }}"><img class="i" src="{{ asset_url_for('missing_links/Brochure_Index.png') }}"></a>
+    <a href="{{ asset_url_for('missing_links/Brochure_01.png') }}"><img class="i" src="{{ asset_url_for('missing_links/Brochure_01.png') }}"></a>
+    <a href="{{ asset_url_for('missing_links/Brochure_02.png') }}"><img class="i" src="{{ asset_url_for('missing_links/Brochure_02.png') }}"></a>
+    <a href="{{ asset_url_for('missing_links/Brochure_03.png') }}"><img class="i" src="{{ asset_url_for('missing_links/Brochure_03.png') }}"></a>
+    <a href="{{ asset_url_for('missing_links/Brochure_04.png') }}"><img class="i" src="{{ asset_url_for('missing_links/Brochure_04.png') }}"></a>
+    <a href="{{ asset_url_for('missing_links/Brochure_05.png') }}"><img class="i" src="{{ asset_url_for('missing_links/Brochure_05.png') }}"></a>
+    <a href="{{ asset_url_for('missing_links/Brochure_06.png') }}"><img class="i" src="{{ asset_url_for('missing_links/Brochure_06.png') }}"></a>
+    <a href="{{ asset_url_for('missing_links/Brochure_07.png') }}"><img class="i" src="{{ asset_url_for('missing_links/Brochure_07.png') }}"></a>
+    <a href="{{ asset_url_for('missing_links/Brochure_08.png') }}"><img class="i" src="{{ asset_url_for('missing_links/Brochure_08.png') }}"></a>
+    <a href="{{ asset_url_for('missing_links/Brochure_09.png') }}"><img class="i" src="{{ asset_url_for('missing_links/Brochure_09.png') }}"></a>
+    <a href="{{ asset_url_for('missing_links/Brochure_10.png') }}"><img class="i" src="{{ asset_url_for('missing_links/Brochure_10.png') }}"></a>
+    <a href="{{ asset_url_for('missing_links/Brochure_11.png') }}"><img class="i" src="{{ asset_url_for('missing_links/Brochure_11.png') }}"></a>
+    <a href="{{ asset_url_for('missing_links/Brochure_12.png') }}"><img class="i" src="{{ asset_url_for('missing_links/Brochure_12.png') }}"></a>
+    <a href="{{ asset_url_for('missing_links/Brochure_13.png') }}"><img class="i" src="{{ asset_url_for('missing_links/Brochure_13.png') }}"></a>
+    <a href="{{ asset_url_for('missing_links/Brochure_14.png') }}"><img class="i" src="{{ asset_url_for('missing_links/Brochure_14.png') }}"></a>
+    <a href="{{ asset_url_for('missing_links/Brochure_15.png') }}"><img class="i" src="{{ asset_url_for('missing_links/Brochure_15.png') }}"></a>
+    <a href="{{ asset_url_for('missing_links/Brochure_16.png') }}"><img class="i" src="{{ asset_url_for('missing_links/Brochure_16.png') }}"></a>
+    <a href="{{ asset_url_for('missing_links/Brochure_17.png') }}"><img class="i" src="{{ asset_url_for('missing_links/Brochure_17.png') }}"></a>
+    <a href="{{ asset_url_for('missing_links/Brochure_18.png') }}"><img class="i" src="{{ asset_url_for('missing_links/Brochure_18.png') }}"></a>
+  </div>
+{% endblock %}

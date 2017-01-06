@@ -1,0 +1,80 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}Some Light Hacking{% endblock %}
+{% block puzzle_name_block %}Some Light Hacking{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  #puzzle-content table {
+    width: 100%;
+  }
+
+  #puzzle-content td {
+    height: 100px;
+  }
+
+  .o {
+    color: orange;
+  }
+
+  .p {
+    color: purple;
+  }
+
+  .r {
+    color: red;
+  }
+
+  .g {
+    color: green;
+  }
+
+  .b {
+    color: blue;
+  }
+
+  .y {
+    color: yellow;
+  }
+</style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+As you attempt to leave the cube&rsquo;s lair, a beam of light pierces the archway that forms your means of egress, and refracts into many
+colors. You wonder how many steps it would take to get around it.
+{% endblock %}
+
+{% block puzzle_content_block %}
+<div>
+  <span class="o">Incompatibility</span><br>
+  <span class="o">Quality represented by Crane badge</span><br>
+  <span class="p">Keep enemies away from</span><br>
+  <span class="r">Journey&rsquo;s end</span><br>
+  <span class="r">Science magazine &ldquo;for the curious&rdquo;</span><br>
+  <span class="r">Age of Reason</span><br>
+  <span class="g">The mind-killer</span><br>
+  <span class="b">Position in which a golf ball sits</span><br>
+  <span class="g">Captain Red Herring&rsquo;s <span class="answer-blank">_____</span> Island</span><br>
+  <span class="g">Obad-hai&rsquo;s portfolio</span><br>
+  <span class="b">Show set in Arkwright Provisions, with Hours</span><br>
+  <span class="p">Point of view</span><br>
+  <span class="o">Pin or dance?</span><br>
+  <span class="b">Recently replaced Longhorns coach</span><br>
+  <span class="p">If sufficiently advanced, it&rsquo;s indistinguishable from magic</span><br>
+  <span class="y">Hand in glove</span><br>
+  <span class="y">Like a set of real numbers not contained in any finite interval</span><br>
+  <span class="y">It merged with Sirius in 2008</span><br>
+  <hr>
+  <table>
+    <tr>
+      <td><img src="{{ asset_url_for('some_light_hacking/1.png')  }}"></td>
+      <td><img src="{{ asset_url_for('some_light_hacking/2.png')  }}"></td>
+      <td><img src="{{ asset_url_for('some_light_hacking/3.png')  }}"></td>
+    </tr>
+    <tr>
+      <td><img src="{{ asset_url_for('some_light_hacking/4.png')  }}"></td>
+      <td><img src="{{ asset_url_for('some_light_hacking/5.png')  }}"></td>
+      <td><img src="{{ asset_url_for('some_light_hacking/6.png')  }}"></td>
+    </tr>
+  </table>
+</div>
+{% endblock %}

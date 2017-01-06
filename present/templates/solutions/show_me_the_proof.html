@@ -7,6 +7,20 @@
 
 {% block puzzle_head_block %}
   <style>
+  #puzzle-content .img-code {
+    width: 860px;
+    overflow-x: scroll;
+  }
+  #puzzle-content .account-desc {
+    margin-top: 3em;
+    margin-bottom: 3em;
+  }
+  #puzzle-content .account-desc-entry, #puzzle-content h4.account-desc-entry{
+    margin-bottom: 1em;
+  }
+  #puzzle-content pre.account-desc-pgp {
+    margin-top: 0;
+  }
   </style>
 {% endblock %}
 
@@ -14,109 +28,219 @@
   <div>
     <p>
       First, solvers are presented with a page asking for their email
-      address. When solvers submit a real address, an e-mail is sent to that
+      address. When solvers submit a real address, an email is sent to that
       account.
     </p>
     <p>
-      The e-mail contains a link to a login page, prompting the puzzler for an
-      e-mail address and password. However, when registering, the puzzler only
-      provided an address, no password. If they click on the "Forgot password?"
-      link, they're presented with a couple of security questions: "What is the
-      first name of your best friend?" and "What was the last name of your
-      favorite teacher?"
+      The email contains a link to a login page, prompting the puzzler for an
+      email address and password. However, when registering, the puzzler only
+      provided an address, no password. If they click on the &ldquo;Forgot password?&rdquo;
+      link, they're presented with a couple of security questions: &ldquo;What is the
+      first name of your best friend?&rdquo; and &ldquo;What was the last name of your
+      favorite teacher?&rdquo;
     </p>
     <p>
-      At this point, solvers need to take note of the original e-mail sent to
-      them. The to: field of the e-mail was addressed to o@amchicago.com, and
-      mentions an "aha moment", a phrase widely credited to Oprah. The e-mail is
+      At this point, solvers need to take note of the original email sent to
+      them. The to: field of the email was addressed to o@amchicago.com, and
+      mentions an &ldquo;aha moment,&rdquo; a phrase widely credited to Oprah Winfrey. The email is
       implying that the recipient is in fact Oprah, so they should answer the
-      security questions as though they were her. Oprah's best friend and the
+      security questions as though they were her. Oprah&rsquo;s best friend and the
       name of her favorite teacher are both matters of public record.
     </p>
     <p>
-      After resetting the password, they'll be sent an e-mail with their new
+      After resetting the password, they&rsquo;ll be sent an email with their new
       password <b>QueenOfAllMedia</b> which they can use to log in with the
-      e-mail address o@amchicago.com.
+      email address o@amchicago.com.
     </p>
     <p>
-      When solvers enter Oprah's fake e-mail address into the e-mail field on
-      the login page, an "image key" will appear as a blank data URL base64
-      image. The image appears blank because the data URL actually contains a
-      private key for PGP, a common method of e-mail encryption. If the solver
-      logs in as Oprah, they will be shown her part of the puzzle, which looks
+      When solvers enter Oprah&rsquo;s fake email address into the email field on
+      the login page, an &ldquo;image key&rdquo; will appear as a blank data URI base64
+      image. The image appears blank because the data URI actually contains a
+      private key for PGP, a common method of email encryption. If the solver
+      logs in as Oprah, they will be shown her piece of the puzzle, which looks
       like some gibberish characters. These characters are in fact a message
       encrypted using PGP.
     </p>
     <p>
-      Using publicly available tools, solvers can decrypt this message assuming
+      Using publicly available tools, such as <a href="https://www.igolder.com/PGP/decryption/">this one</a>, solvers can decrypt this message assuming
       they know the passphrase and private key. The passphrase is their new
       password <b>QueenOfAllMedia</b>, and the private key is hidden in the
-      "image key" data URL. After decrypting Oprah's part of the puzzle, solvers
+      &ldquo;image key&rdquo; data URI. After decrypting Oprah&rsquo;s piece of the puzzle, solvers
       will get the letters RZ.
     </p>
     <p>
       After logging in as Oprah, solvers will actually be sent another email
-      titled "Puzzling Activity On Your Account", which alerts them of an
+      titled &ldquo;Puzzling Activity On Your Account,&rdquo; which alerts them of an
       unauthorized login to their account by another person, and encourages them
-      to reset their password. This e-mail is actually addressed to
+      to reset their password. This email is actually addressed to
       saxman92@whitehouse.gov, and part of the copy implies the recipient is
       Bill Clinton. By answering his security questions, they can reset his
       password, log in as him, and get a new piece of the puzzle. This process
       repeats for 6 different famous people who have security questions with
       varying degrees of trickiness:
     </p>
-    <h4>Oprah</h4>
-    <blockquote>
-      e-mail address: o@amchicago.com<br>
-      What is the first name of your best friend? Gayle<br>
-      What was the last name of your favorite teacher? Duncan<br>
-      new password: QueenOfAllMedia<br>
-      decrypted puzzle piece: RZ<br>
-    </blockquote>
-    <h4>Bill Clinton</h4>
-    <blockquote>
-      e-mail address: saxman92@whitehouse.gov<br>
-      What is the name of your favorite movie? High Noon<br>
-      What was the name of your first cat? Socks<br>
-      new password: IAmTheEagle<br>
-      decrypted puzzle piece: NV<br>
-    </blockquote>
-    <h4>Reese Witherspoon</h4>
-    <blockquote>
-      e-mail address: little.type.a@pacificstandard.com<br>
-      What is your mother's maiden name? Reese<br>
-      What was the first name of your first kiss? Graham<br>
-      new password: NoWithAKnife<br>
-      decrypted puzzle piece: YF<br>
-    </blockquote>
-    <h4>John Lennon</h4>
-    <blockquote>
-      e-mail address: dr.oboogie@applecorps.com<br>
-      What is the name of the street you grew up on? Menlove Avenue<br>
-      What was the first name of your first manager? Nigel<br>
-      new password: RealNowhereMan<br>
-      decrypted puzzle piece: PN<br>
-    </blockquote>
-    <h4>Henry Ford</h4>
-    <blockquote>
-      e-mail address: crazyhenry@valleyfarm.org<br>
-      What was the model of your first car? A<br>
-      What is your high school's athletic team name? Trojans<br>
-      new password: BabyYouCanDriveMyCar<br>
-      decrypted puzzle piece: Z<br>
-    </blockquote>
-    <h4>W.S. Gilbert</h4>
-    <blockquote>
-      e-mail address: bab@kcl.ac.uk<br>
-      What is your favorite internet browser? Opera<br>
-      What is your father's middle name? (leave blank)<br>
-      new password: ModernMajorGeneral<br>
-      decrypted puzzle piece: concatenate then rot 13 for your answer<br>
-    </blockquote>
-    <p>
-      The last puzzle piece is a direction, "concatenate then rot 13 for your
-      answer". If you concatenate the other pieces you get <b>RZNVYFPNZ</b>,
-      which after a rot13 results in the answer <b>EMAIL SCAM</b>.
-    </p>
+    
+    
+    <div class="account-desc">
+      <h4 class="account-desc-entry">Oprah Winfrey</h4>
+      <div class="account-desc-entry">Email address: o@amchicago.com</div>
+      <div class="account-desc-entry">What is the first name of your best friend? Gayle</div>
+      <div class="account-desc-entry">What was the last name of your favorite teacher? Duncan</div>
+      <div class="account-desc-entry">New password: QueenOfAllMedia</div>
+      <div class="account-desc-entry">Blank image code with the private key nested between &ldquo;KEYSTARTSHERE&rdquo; and &ldquo;KEYENDSHERE&rdquo;:<br>
+        <div class="img-code">
+          <code>&lt;img&nbsp;src="data:image/pgp;base64,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"&gt;</code>
+        </div>
+      </div>
+      <div class="account-desc-entry">
+        Oprah Winfrey&rsquo;s piece of the puzzle (encrypted PGP message):<br>
+        <pre class="account-dsc-pgp" style="text-align:left;">hQEMA+qPTXk6sHcOAQf6AnPkr/wPOiXoftA1y/S7MFi49fWe2YZEZsZ21hrmZ6wI
+dpSv8ofVIH3226ZHpscrS7BmlZ3k7mGcaOqxiBWy1iIgKfSZf1Pslq15XR+PL5Do
+LiL461ziNZOqFtq/Mn1xmx3U+93JT0NG8TVHHUrrUahCXRWfcCNq5cPz7dc0ZQgX
+IQfpI2NMv7xNSuTlQTg3wQO+C2Z9azM6Ild9IxJf9sR/tDRZYJtn6/58+3Cp9L3y
+TDQ77HkKVV/aRgiaNCC/fF8k+MA9qotfJeqM5P9TGlA++bv1/KVnO9Ay5j1GK85W
+to1VytZJMwco0DtOSGwgy4bi/Enr/LX9+tWHzW1Arckgp/Jrvz2Wm7eFGUircLnj
+uwNbW74kT2rE8H9KV54GJ6Q=
+=7lDF</pre>
+      </div>
+      <div class="account-desc-entry">Decrypted puzzle piece: <b>rz</b></div>
+    </div>
+
+
+    <div class="account-desc">
+      <h4 class="account-desc-entry">Bill Clinton</h4>
+      <div class="account-desc-entry">Email address: saxman92@whitehouse.gov</div>
+      <div class="account-desc-entry">What is the name of your favorite movie? High Noon</div>
+      <div class="account-desc-entry">What was the name of your first cat? Socks</div>
+      <div class="account-desc-entry">New password: IAmTheEagle</div>
+      <div class="account-desc-entry">Blank image code with the private key nested between &ldquo;KEYSTARTSHERE&rdquo; and &ldquo;KEYENDSHERE&rdquo;:<br>
+        <div class="img-code">
+          <code>&lt;img&nbsp;src="data:image/pgp;base64,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"&gt;</code>
+        </div>
+      </div>
+      <div class="account-desc-entry">
+        Bill Clinton&rsquo;s piece of the puzzle (encrypted PGP message):<br>
+        <pre class="account-dsc-pgp" style="text-align:left;">hQEMA2V7yMqanx5RAQf/RANHhuCgxZl/u1LJqQ1OFeVoQ+WofSzpj1CJpyVWMeN/
+VcnpI+yFuzoTDccMViofVI1VxdAb3BODZMaOUcwt+O6vficfsx0kdflM8B1LlYp/
+30ux5PNhf+vg0fo1LDbJhVq5N6G3L4HSJZ3gk+olH5PagbTbg6ffPAawOeLFodT5
+UoX4DPMkax4FqCXExNgTtuP41cIlp7lzqEEQBtXU4pSYcG1+hdD/GIkl96OxyyIp
+dm4HLZ9LnY3QtLa/PVx22FkMmCbYFiEg03yMcrA+5KT/dqKYzPt8P/OmhiUU18YN
+F6FezsgPWMFq8N9MrHaWXVcy6Z6Vu9Y70FWKmJpr78kgsW75m5037tPp8dRrN/S8
+v8itvBurAq6KaZYbD5vlVd4=
+=v0l6</pre>
+      </div>
+      <div class="account-desc-entry">Decrypted puzzle piece: <b>nv</b></div>
+    </div>
+    
+    
+    <div class="account-desc">
+      <h4 class="account-desc-entry">Reese Witherspoon</h4>
+      <div class="account-desc-entry">Email address: little.type.a@pacificstandard.com</div>
+      <div class="account-desc-entry">What is your mother&rsquo;s maiden name? Reese</div>
+      <div class="account-desc-entry">What was the first name of your first kiss? Graham</div>
+      <div class="account-desc-entry">New password: NoWithAKnife</div>
+      <div class="account-desc-entry">Blank image code with the private key nested between &ldquo;KEYSTARTSHERE&rdquo; and &ldquo;KEYENDSHERE&rdquo;:<br>
+        <div class="img-code">
+          <code>&lt;img&nbsp;src="data:image/pgp;base64,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"&gt;</code>
+        </div>
+      </div>
+      <div class="account-desc-entry">
+        Reese Witherspoon&rsquo;s piece of the puzzle (encrypted PGP message):<br>
+        <pre class="account-dsc-pgp" style="text-align:left;">hQEMA0u+b/oIyAu7AQf/RxMnap/I/1Sc/NoBqPyNTd0CS2jp4WP2owBiNTZQ6lRv
+ItdZQmJ5e51h+/gwZZtsb5WZoblvU+5w00zvmp96QLLNLgvHGozVS2wJfDPbgbtA
+HvArz92x9dQC2ddkjY/A+UvuqKdIlDWL4iD7ULcbieSW/2ccGncbKM3kGqaZllsm
+s2I7TD5gMPOSvEv78f4dR8dobbNvmkJMG6/QJWXhIrKltSQXGRM8qh3dCixSUuYM
+QYgszoKJndhrm74YhAnO+qB/exCuKhewAIIL3wsYLkxbR17WiF2vRuuLI+I9L8LL
+1eAeQmQTraiCxnnRNtdce6JYy6p+bA6WgECXbVddL8kg8wPbYgPtuzdVVMAibBKC
+ziuPbVH1veUcNlfizUdN6do=
+=jiPP</pre>
+      </div>
+      <div class="account-desc-entry">Decrypted puzzle piece: <b>yf</b></div>
+    </div>
+
+
+    <div class="account-desc">
+      <h4 class="account-desc-entry">John Lennon</h4>
+      <div class="account-desc-entry">Email address: dr.oboogie@applecorps.com</div>
+      <div class="account-desc-entry">What is the name of the street you grew up on? Menlove Avenue</div>
+      <div class="account-desc-entry">What was the first name of your first manager? Nigel</div>
+      <div class="account-desc-entry">New password: RealNowhereMan</div>
+      <div class="account-desc-entry">Blank image code with the private key nested between &ldquo;KEYSTARTSHERE&rdquo; and &ldquo;KEYENDSHERE&rdquo;:<br>
+        <div class="img-code">
+          <code>&lt;img&nbsp;src="data:image/pgp;base64,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"&gt;</code>
+        </div>
+      </div>
+      <div class="account-desc-entry">
+        John Lennon&rsquo;s piece of the puzzle (encrypted PGP message):<br>
+        <pre class="account-dsc-pgp" style="text-align:left;">hQEMAwpiqEIMY6pwAQf+MA+e3xfZwcpWjSc7ilVCLRvWdmlNB2igFfXCU8MRBjB5
+VO0xuZ6CsEof1BYGWEdEr5OFzBg6mTeSjfubeeCCUWP8mHZsrRMu0C6lqr1F17uk
+UGPBEoOuFgmyg8RbT50RiUT/fSMx3XZIPAqaYYL+TYYxzhw4XS2ZPWbo1NrHOutZ
+h0uBFoI9ALHGWHIJTqsGXPGwM6eGyUO2wtPlUnP0BKuXD80O5hNyDrYee3/Fpxli
+ha9m3rXMrHXWAAl/Qozg851tT8q0X5nVOT0WuwDgTNgSAPY9TVYAIihvN564F/WO
+exQWesmrbaf3r+vYF0x4SQ1UNkKMDBCCTYD0upBz7ckg0iUUJ54ghIHn8+uoly5C
+ROEGrAvEdNf+HlIvLfu3Klw=
+=EaS3</pre>
+      </div>
+      <div class="account-desc-entry">Decrypted puzzle piece: <b>pn</b></div>
+    </div>
+
+
+    <div class="account-desc">
+      <h4 class="account-desc-entry">Henry Ford</h4>
+      <div class="account-desc-entry">Email address: crazyhenry@valleyfarm.org</div>
+      <div class="account-desc-entry">What was the model of your first car? A</div>
+      <div class="account-desc-entry">What is your high school&rsquo;s athletic team name? Trojans</div>
+      <div class="account-desc-entry">New password: BabyYouCanDriveMyCar</div>
+      <div class="account-desc-entry">Blank image code with the private key nested between &ldquo;KEYSTARTSHERE&rdquo; and &ldquo;KEYENDSHERE&rdquo;:<br>
+        <div class="img-code">
+          <code>&lt;img&nbsp;src="data:image/pgp;base64,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"&gt;</code>
+        </div>
+      </div>
+      <div class="account-desc-entry">
+        Henry Ford&rsquo;s piece of the puzzle (encrypted PGP message):<br>
+        <pre class="account-dsc-pgp" style="text-align:left;">hQEMAxoNrKyr8XgPAQgAg6mevMxKm4H9p+bZQMRU8lIFMNkXXgbwRCHmKsj6sD45
+nJ53sCouFNzrO4vCdrb7QsIWgr3lNG7rwFewMeAfDZM7mEHXZTqNy8hggxhoQV2l
+48hvGKQD9N9R4jDbJdTy/p+0SOZJ8XWVhnLYYe+zYhvHluwBxSS0zCuDK1QjXtlr
+6juu4LRds1NlJAL8wxfX41OQ4zmlrVXRCfVgTmPUDOwYmLAum8fF/Kq9aqub5MKU
+0YHed7+vUs8SMogO1TnB6FtqrdA+FE0jMR9wmkqF6qKTaXoFvPT5iziQ+w/cK8Cz
+NC5M9UZdSSyJaIDH9lUMs5eUtosnulcASFU2LRdV+Mkf4MsYR8stMKXA8sJt+bXl
+rgPo9Ki7C0CsaNJ8K7wz3A==
+=d9nm</pre>
+      </div>
+      <div class="account-desc-entry">Decrypted puzzle piece: <b>z</b></div>
+    </div>
+
+
+    <div class="account-desc">
+      <h4 class="account-desc-entry">W.S. Gilbert</h4>
+      <div class="account-desc-entry">Email address: bab@kcl.ac.uk</div>
+      <div class="account-desc-entry">What is your favorite internet browser? Opera</div>
+      <div class="account-desc-entry">What is your father's middle name? (leave blank)</div>
+      <div class="account-desc-entry">New password: ModernMajorGeneral</div>
+      <div class="account-desc-entry">Blank image code with the private key nested between &ldquo;KEYSTARTSHERE&rdquo; and &ldquo;KEYENDSHERE&rdquo;:<br>
+        <div class="img-code">
+          <code>&lt;img&nbsp;src="data:image/pgp;base64,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"&gt;</code>
+        </div>
+      </div>
+      <div class="account-desc-entry">
+        W.S. Gilbert&rsquo;s piece of the puzzle (encrypted PGP message):<br>
+        <pre class="account-dsc-pgp" style="text-align:left;">hQEMA/9oEyE84R6cAQgAuVNwbJa4BKepXr+jHRd1uwkXiXStwzzkPHdwS5heMeD9
+iHu3gfKfIfMoxwgHjjWLxFxWiPc+njD6IINEugvhqAWhPx2Zgs1cPsyPcgVcqjj1
+oVMSuNpZwTIcpkFbezgnHMZfxYwJbLeiFmE1+QghEq1Lqgg+Lpx8Zhlkq1OS6Zz8
+BdfA8tP58LbysvcQOlie7tsV+X66u4ZHLzvOrQ++QxkJyrg4+CbHJ+02IUfToNvN
+whXq4E8c6pf/LW9r9xKau9OCUSTbPF0WHIY9Eebif36kvCnJ9j8J+1sAlMQFMaxw
+/r82fo2ilhiXB8UzgEMdb5XAZeUshxprFvpopM3Ib8lEt9DugoA2UEax2NmESn3h
+6b1c2bgf9QtWVKBbDamPjAsbcjWUlH8CRs5DpW/nCr9ueT+cMZXul0mvWniOqNxE
+KxtvWPI=
+=HjtR</pre>
+      </div>
+      <div class="account-desc-entry">Decrypted puzzle piece: <b>concatenate then rot 13 for your answer</b></div>
+    </div>
+
+    <div>
+      The last puzzle piece is a direction, &ldquo;Concatenate then ROT13 for your
+      answer.&rdquo; If you concatenate the other pieces you get <b>RZNVYFPNZ</b>,
+      which is the answer <b>EMAIL SCAM</b> in ROT13.
+    </div>
   </div>
 {% endblock %}

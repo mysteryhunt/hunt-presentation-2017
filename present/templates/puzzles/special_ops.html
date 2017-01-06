@@ -1,0 +1,924 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}Special OPS{% endblock %}
+{% block puzzle_name_block %}Special OPS{% endblock %}
+
+{% block puzzle_head_block %}
+<link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+<style>
+  img {
+    width: 100px;
+  }
+
+  span.stats-header {
+    font-weight: bold;
+    font-size: 24px;
+  }
+
+  #leaderboards {
+    margin-top: 40px;
+  }
+
+  .leaderboard-container {
+    margin-top: 40px;
+  }
+  
+  .leaderboard-header {
+    font-weight: bold;
+    font-size: larger;
+  }
+
+  .leaderboard-container table {
+    border-collapse: collapse;
+  }
+
+  .leaderboard-container th {
+    min-width: 10px;
+  }
+
+  .leaderboard-container td {
+    border-top: 1px solid black;
+    padding-left: 7px;
+    padding-right: 7px;
+    min-width: 30px;
+  }
+
+  .leaderboard-container td.stat-value {
+    text-align: right;
+  }
+
+  .leaderboard-container td.rank-value, .leaderboard-container td.stat-value {
+    font-family: monospace;
+  }
+
+  span.black {
+    background-color: #000000;
+  }
+
+  @media print {
+    span.black {
+      box-shadow: inset 0 0 0 1000px #000000;
+    }
+  }
+</style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+You find the criminal&rsquo;s fantasy baseball notes. He might steal the shirt off your back to win, but his player evaluations seem like he&rsquo;s just spitballing and putting numbers together.{% endblock %}
+
+{% block puzzle_content_block %}
+<div>
+  <ul>
+    <li>All data is from the 2016 Major League regular season, and all statistical data is from <a class="standard-link" href="http://fangraphs.com">fangraphs.com</a>.</li>
+    <li>Statistics are calculated only for players with a qualifying number of at bats.</li>
+    <li>Any fielding statistics are calculated using every position a player played, regardless of how few innings.</li>
+  </ul>
+  <div id="stat-images">
+        <span class="stats-header">Stats:</span><br/>
+        <img src="{{ asset_url_for('special_ops/image01.jpg') }}"/>
+        <img src="{{ asset_url_for('special_ops/image02.jpg') }}"/>
+        <img src="{{ asset_url_for('special_ops/image03.jpg') }}"/>
+        <img src="{{ asset_url_for('special_ops/image04.jpg') }}"/>
+        <img src="{{ asset_url_for('special_ops/image05.jpg') }}"/>
+        <img src="{{ asset_url_for('special_ops/image06.jpg') }}"/>
+        <img src="{{ asset_url_for('special_ops/image07.jpg') }}"/>
+        <img src="{{ asset_url_for('special_ops/image08.jpg') }}"/>
+        <img src="{{ asset_url_for('special_ops/image09.jpg') }}"/>
+        <img src="{{ asset_url_for('special_ops/image10.jpg') }}"/>
+        <img src="{{ asset_url_for('special_ops/image11.jpg') }}"/>
+        <img src="{{ asset_url_for('special_ops/image12.jpg') }}"/>
+        <img src="{{ asset_url_for('special_ops/image13.jpg') }}"/>
+        <img src="{{ asset_url_for('special_ops/image14.jpg') }}"/>
+        <img src="{{ asset_url_for('special_ops/image15.jpg') }}"/>
+        <img src="{{ asset_url_for('special_ops/image16.jpg') }}"/>
+      </div>
+      <div id="leaderboards">
+      <span class="stats-header">Leaders:</span>
+      <div class="leaderboard-container">
+        <table>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>=</th>
+            <th>??????</th>
+          </tr>
+          <tr>
+            <td class="rank-value">1</td>
+            <td>Trout, Mike</td>
+            <td colspan="12"></td>
+            <td class="stat-value">227.538</td>
+          </tr>
+          <tr>
+            <td class="rank-value">2</td>
+            <td>Bryant, Kris</td>
+            <td colspan="12"></td>
+            <td class="stat-value">219.104</td>
+          </tr>
+          <tr>
+            <td class="rank-value">3</td>
+            <td>Donaldson, Josh</td>
+            <td colspan="12"></td>
+            <td class="stat-value">215.230</td>
+          </tr>
+          <tr>
+            <td class="rank-value">4</td>
+            <td>Betts, Mookie</td>
+            <td colspan="12"></td>
+            <td class="stat-value">206.500</td>
+          </tr>
+          <tr>
+            <td class="rank-value">49</td>
+            <td><span class="black">_______________</span></td>
+            <td colspan="12"></td>
+            <td class="stat-value">142.609</td>
+          </tr>
+        </table>
+      </div>
+      <div class="leaderboard-container">
+        <table>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>=</th>
+            <th>????</th>
+          </tr>
+          <tr>
+            <td class="rank-value">1</td>
+            <td>Altuve, Jose</td>
+            <td colspan="8"></td>
+            <td class="stat-value">170</td>
+          </tr>
+          <tr>
+            <td class="rank-value">2</td>
+            <td>LeMahieu, DJ</td>
+            <td colspan="8"></td>
+            <td class="stat-value">152</td>
+          </tr>
+          <tr>
+            <td class="rank-value">3</td>
+            <td>Hernandez, Cesar</td>
+            <td colspan="8"></td>
+            <td class="stat-value">151</td>
+          </tr>
+          <tr>
+            <td class="rank-value">4</td>
+            <td>Blackmon, Charlie</td>
+            <td colspan="8"></td>
+            <td class="stat-value">149</td>
+          </tr>
+          <tr>
+            <td class="rank-value">142</td>
+            <td><span class="black">_______________</span></td>
+            <td colspan="8"></td>
+            <td class="stat-value">71</td>
+          </tr>
+        </table>
+      </div>
+      <div class="leaderboard-container">
+        <table>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>=</th>
+            <th>??????</th>
+          </tr>
+          <tr>
+            <td class="rank-value">1</td>
+            <td>Betts, Mookie</td>
+            <td colspan="12"></td>
+            <td class="stat-value">1090</td>
+          </tr>
+          <tr>
+            <td class="rank-value">2</td>
+            <td>Bogaerts, Xander</td>
+            <td colspan="12"></td>
+            <td class="stat-value">1086</td>
+          </tr>
+          <tr>
+            <td class="rank-value">3</td>
+            <td>Altuve, Jose</td>
+            <td colspan="12"></td>
+            <td class="stat-value">1068</td>
+          </tr>
+          <tr>
+            <td class="rank-value">4</td>
+            <td>Pedroia, Dustin</td>
+            <td colspan="12"></td>
+            <td class="stat-value">1053</td>
+          </tr>
+          <tr>
+            <td class="rank-value">32</td>
+            <td><span class="black">_______________</span></td>
+            <td colspan="12"></td>
+            <td class="stat-value">963</td>
+          </tr>
+        </table>
+      </div>
+      <div class="leaderboard-container">
+        <table>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>=</th>
+            <th>?????</th>
+          </tr>
+          <tr>
+            <td class="rank-value">1</td>
+            <td>Betts, Mookie</td>
+            <td colspan="6"></td>
+            <td class="stat-value">0.216</td>
+            <td colspan="3"></td>
+            <td class="stat-value">1470.216</td>
+          </tr>
+          <tr>
+            <td class="rank-value">2</td>
+            <td>Bogaerts, Xander</td>
+            <td colspan="6"></td>
+            <td class="stat-value">0.152</td>
+            <td colspan="3"></td>
+            <td class="stat-value">1423.152</td>
+          </tr>
+          <tr>
+            <td class="rank-value">3</td>
+            <td>Cano, Robinson</td>
+            <td colspan="6"></td>
+            <td class="stat-value">0.235</td>
+            <td colspan="3"></td>
+            <td class="stat-value">1418.235</td>
+          </tr>
+          <tr>
+            <td class="rank-value">4</td>
+            <td>Springer, George</td>
+            <td colspan="6"></td>
+            <td class="stat-value">0.196</td>
+            <td colspan="3"></td>
+            <td class="stat-value">1414.196</td>
+          </tr>
+          <tr>
+            <td class="rank-value">136</td>
+            <td><span class="black">_______________</span></td>
+            <td colspan="6"></td>
+            <td><span class="black stat-value">_____</span></td>
+            <td colspan="3"></td>
+            <td class="stat-value">1000.171</td>
+          </tr>
+        </table>
+      </div>
+      <div class="leaderboard-container">
+        <table>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>=</th>
+            <th>??????</th>
+          </tr>
+          <tr>
+            <td class="rank-value">1</td>
+            <td>Betts, Mookie</td>
+            <td colspan="12"></td>
+            <td class="stat-value">844.284</td>
+          </tr>
+          <tr>
+            <td class="rank-value">2</td>
+            <td>Altuve, Jose</td>
+            <td colspan="12"></td>
+            <td class="stat-value">807.012</td>
+          </tr>
+          <tr>
+            <td class="rank-value">3</td>
+            <td>Springer, George</td>
+            <td colspan="12"></td>
+            <td class="stat-value">797.041</td>
+          </tr>
+          <tr>
+            <td class="rank-value">4</td>
+            <td>Cano, Robinson</td>
+            <td colspan="12"></td>
+            <td class="stat-value">796.214</td>
+          </tr>
+          <tr>
+            <td class="rank-value">116</td>
+            <td><span class="black">_______________</span></td>
+            <td colspan="12"></td>
+            <td class="stat-value">576.458</td>
+          </tr>
+        </table>
+      </div>
+      <div class="leaderboard-container">
+        <table>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>=</th>
+            <th>??????????</th>
+          </tr>
+          <tr>
+            <td class="rank-value">1</td>
+            <td>Freeman, Freddie</td>
+            <td colspan="20"></td>
+            <td class="stat-value">440.541</td>
+          </tr>
+          <tr>
+            <td class="rank-value">2</td>
+            <td>Trout, Mike</td>
+            <td colspan="20"></td>
+            <td class="stat-value">426.973</td>
+          </tr>
+          <tr>
+            <td class="rank-value">3</td>
+            <td>Goldschmidt, Paul</td>
+            <td colspan="20"></td>
+            <td class="stat-value">410.991</td>
+          </tr>
+          <tr>
+            <td class="rank-value">4</td>
+            <td>Belt, Brandon</td>
+            <td colspan="20"></td>
+            <td class="stat-value">404.187</td>
+          </tr>
+          <tr>
+            <td class="rank-value">52</td>
+            <td><span class="black">_______________</span></td>
+            <td colspan="20"></td>
+            <td class="stat-value">298.298</td>
+          </tr>
+        </table>
+      </div>
+      <div class="leaderboard-container">
+        <table>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>=</th>
+            <th>???????</th>
+          </tr>
+          <tr>
+            <td class="rank-value">1</td>
+            <td>Betts, Mookie</td>
+            <td colspan="14"></td>
+            <td class="stat-value">977.7</td>
+          </tr>
+          <tr>
+            <td class="rank-value">2</td>
+            <td>Altuve, Jose</td>
+            <td colspan="14"></td>
+            <td class="stat-value">961.3</td>
+          </tr>
+          <tr>
+            <td class="rank-value">3</td>
+            <td>Bogaerts, Xander</td>
+            <td colspan="14"></td>
+            <td class="stat-value">939.7</td>
+          </tr>
+          <tr>
+            <td class="rank-value">4</td>
+            <td>Segura, Jean</td>
+            <td colspan="14"></td>
+            <td class="stat-value">930.7</td>
+          </tr>
+          <tr>
+            <td class="rank-value">111</td>
+            <td><span class="black">_______________</span></td>
+            <td colspan="14"></td>
+            <td class="stat-value">686.9</td>
+          </tr>
+        </table>
+      </div>
+      <div class="leaderboard-container">
+        <table>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>=</th>
+            <th>????</th>
+          </tr>
+          <tr>
+            <td class="rank-value">1</td>
+            <td>Springer, George</td>
+            <td colspan="8"></td>
+            <td class="stat-value">843.496</td>
+          </tr>
+          <tr>
+            <td class="rank-value">2</td>
+            <td>Bryant, Kris</td>
+            <td colspan="8"></td>
+            <td class="stat-value">806.362</td>
+          </tr>
+          <tr>
+            <td class="rank-value">3</td>
+            <td>Freeman, Freddie</td>
+            <td colspan="8"></td>
+            <td class="stat-value">805.767</td>
+          </tr>
+          <tr>
+            <td class="rank-value">4</td>
+            <td>Trumbo, Mark</td>
+            <td colspan="8"></td>
+            <td class="stat-value">799.977</td>
+          </tr>
+          <tr>
+            <td class="rank-value">143</td>
+            <td><span class="black">_______________</span></td>
+            <td colspan="8"></td>
+            <td class="stat-value">534.317</td>
+          </tr>
+        </table>
+      </div>
+      <div class="leaderboard-container">
+        <table>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>=</th>
+            <th>????</th>
+          </tr>
+          <tr>
+            <td class="rank-value">1</td>
+            <td>Betts, Mookie</td>
+            <td colspan="8"></td>
+            <td class="stat-value">317.916</td>
+          </tr>
+          <tr>
+            <td class="rank-value">2</td>
+            <td>Arenado, Nolan</td>
+            <td colspan="8"></td>
+            <td class="stat-value">299.075</td>
+          </tr>
+          <tr>
+            <td class="rank-value">3</td>
+            <td>Dozier, Brian</td>
+            <td colspan="8"></td>
+            <td class="stat-value">295.178</td>
+          </tr>
+          <tr>
+            <td class="rank-value">4</td>
+            <td>Murphy, Daniel</td>
+            <td colspan="8"></td>
+            <td class="stat-value">292.549</td>
+          </tr>
+          <tr>
+            <td class="rank-value">46</td>
+            <td><span class="black">_______________</span></td>
+            <td colspan="8"></td>
+            <td class="stat-value">211.929</td>
+          </tr>
+        </table>
+      </div>
+      <div class="leaderboard-container">
+        <table>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>=</th>
+            <th>????????</th>
+          </tr>
+          <tr>
+            <td class="rank-value">1</td>
+            <td>Betts, Mookie</td>
+            <td colspan="16"></td>
+            <td class="stat-value">1136.7</td>
+          </tr>
+          <tr>
+            <td class="rank-value">2</td>
+            <td>Altuve, Jose</td>
+            <td colspan="16"></td>
+            <td class="stat-value">1117.3</td>
+          </tr>
+          <tr>
+            <td class="rank-value">3</td>
+            <td>Bogaerts, Xander</td>
+            <td colspan="16"></td>
+            <td class="stat-value">1093.7</td>
+          </tr>
+          <tr>
+            <td class="rank-value">4</td>
+            <td>Segura, Jean</td>
+            <td colspan="16"></td>
+            <td class="stat-value">1080.7</td>
+          </tr>
+          <tr>
+            <td class="rank-value">124</td>
+            <td><span class="black">_______________</span></td>
+            <td colspan="16"></td>
+            <td class="stat-value">788.5</td>
+          </tr>
+        </table>
+      </div>
+      <div class="leaderboard-container">
+        <table>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>=</th>
+            <th>??????</th>
+          </tr>
+          <tr>
+            <td class="rank-value">1</td>
+            <td>Trout, Mike</td>
+            <td colspan="12"></td>
+            <td class="stat-value">576.235</td>
+          </tr>
+          <tr>
+            <td class="rank-value">2</td>
+            <td>Donaldson, Josh</td>
+            <td colspan="12"></td>
+            <td class="stat-value">555.265</td>
+          </tr>
+          <tr>
+            <td class="rank-value">3</td>
+            <td>Votto, Joey</td>
+            <td colspan="12"></td>
+            <td class="stat-value">550.225</td>
+          </tr>
+          <tr>
+            <td class="rank-value">4</td>
+            <td>Altuve, Jose</td>
+            <td colspan="12"></td>
+            <td class="stat-value">550.194</td>
+          </tr>
+          <tr>
+            <td class="rank-value">53</td>
+            <td><span class="black">_______________</span></td>
+            <td colspan="12"></td>
+            <td class="stat-value">457.167</td>
+          </tr>
+        </table>
+      </div>
+      <div class="leaderboard-container">
+        <table>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>=</th>
+            <th>????</th>
+          </tr>
+          <tr>
+            <td class="rank-value">1</td>
+            <td>Betts, Mookie</td>
+            <td colspan="8"></td>
+            <td class="stat-value">675.584</td>
+          </tr>
+          <tr>
+            <td class="rank-value">2</td>
+            <td>Bogaerts, Xander</td>
+            <td colspan="8"></td>
+            <td class="stat-value">667.591</td>
+          </tr>
+          <tr>
+            <td class="rank-value">3</td>
+            <td>Escobar, Alcides</td>
+            <td colspan="8"></td>
+            <td class="stat-value">666.693</td>
+          </tr>
+          <tr>
+            <td class="rank-value">4</td>
+            <td>Cano, Robinson</td>
+            <td colspan="8"></td>
+            <td class="stat-value">658.714</td>
+          </tr>
+          <tr>
+            <td class="rank-value">106</td>
+            <td><span class="black">_______________</span></td>
+            <td colspan="8"></td>
+            <td class="stat-value">528.678</td>
+          </tr>
+        </table>
+      </div>
+      <div class="leaderboard-container">
+        <table>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>=</th>
+            <th>??????</th>
+          </tr>
+          <tr>
+            <td class="rank-value">1</td>
+            <td>Betts, Mookie</td>
+            <td colspan="12"></td>
+            <td class="stat-value">961.7</td>
+          </tr>
+          <tr>
+            <td class="rank-value">2</td>
+            <td>Bogaerts, Xander</td>
+            <td colspan="12"></td>
+            <td class="stat-value">916.7</td>
+          </tr>
+          <tr>
+            <td class="rank-value">3</td>
+            <td>Altuve, Jose</td>
+            <td colspan="12"></td>
+            <td class="stat-value">916.3</td>
+          </tr>
+          <tr>
+            <td class="rank-value">4</td>
+            <td>Bryant, Kris</td>
+            <td colspan="12"></td>
+            <td class="stat-value">912.1</td>
+          </tr>
+          <tr>
+            <td class="rank-value">94</td>
+            <td><span class="black">_______________</span></td>
+            <td colspan="12"></td>
+            <td class="stat-value">698.4</td>
+          </tr>
+        </table>
+      </div>
+      <div class="leaderboard-container">
+        <table>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>=</th>
+            <th>??????</th>
+          </tr>
+          <tr>
+            <td class="rank-value">1</td>
+            <td>Betts, Mookie</td>
+            <td colspan="12"></td>
+            <td class="stat-value">1094.9</td>
+          </tr>
+          <tr>
+            <td class="rank-value">2</td>
+            <td>Bogaerts, Xander</td>
+            <td colspan="12"></td>
+            <td class="stat-value">1076.9</td>
+          </tr>
+          <tr>
+            <td class="rank-value">3</td>
+            <td>Altuve, Jose</td>
+            <td colspan="12"></td>
+            <td class="stat-value">1059.9</td>
+          </tr>
+          <tr>
+            <td class="rank-value">4</td>
+            <td>Cano, Robinson</td>
+            <td colspan="12"></td>
+            <td class="stat-value">1046.5</td>
+          </tr>
+          <tr>
+            <td class="rank-value">21</td>
+            <td><span class="black">_______________</span></td>
+            <td colspan="12"></td>
+            <td class="stat-value">971.2</td>
+          </tr>
+        </table>
+      </div>
+      <div class="leaderboard-container">
+        <table>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>=</th>
+            <th>????????</th>
+          </tr>
+          <tr>
+            <td class="rank-value">1</td>
+            <td>Altuve, Jose</td>
+            <td colspan="16"></td>
+            <td class="stat-value">1182.3</td>
+          </tr>
+          <tr>
+            <td class="rank-value">2</td>
+            <td>Betts, Mookie</td>
+            <td colspan="16"></td>
+            <td class="stat-value">1146.7</td>
+          </tr>
+          <tr>
+            <td class="rank-value">3</td>
+            <td>Pedroia, Dustin</td>
+            <td colspan="16"></td>
+            <td class="stat-value">1125.7</td>
+          </tr>
+          <tr>
+            <td class="rank-value">4</td>
+            <td>Segura, Jean</td>
+            <td colspan="16"></td>
+            <td class="stat-value">1097.7</td>
+          </tr>
+          <tr>
+            <td class="rank-value">78</td>
+            <td><span class="black">_______________</span></td>
+            <td colspan="16"></td>
+            <td class="stat-value">887.1</td>
+          </tr>
+        </table>
+      </div>
+      <div class="leaderboard-container">
+        <table>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>+</th>
+            <th>?</th>
+            <th>=</th>
+            <th>??????</th>
+          </tr>
+          <tr>
+            <td class="rank-value">1</td>
+            <td>Altuve, Jose</td>
+            <td colspan="12"></td>
+            <td class="stat-value">1174.6</td>
+          </tr>
+          <tr>
+            <td class="rank-value">2</td>
+            <td>Betts, Mookie</td>
+            <td colspan="12"></td>
+            <td class="stat-value">1165.4</td>
+          </tr>
+          <tr>
+            <td class="rank-value">3</td>
+            <td>Trout, Mike</td>
+            <td colspan="12"></td>
+            <td class="stat-value">1103.4</td>
+          </tr>
+          <tr>
+            <td class="rank-value">4</td>
+            <td>Segura, Jean</td>
+            <td colspan="12"></td>
+            <td class="stat-value">1097.4</td>
+          </tr>
+          <tr>
+            <td class="rank-value">29</td>
+            <td><span class="black">_______________</span></td>
+            <td colspan="12"></td>
+            <td class="stat-value">999.0</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+</div>
+{% endblock %}

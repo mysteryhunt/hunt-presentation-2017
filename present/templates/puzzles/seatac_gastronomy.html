@@ -1,0 +1,97 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}SeaTac Gastronomy{% endblock %}
+{% block puzzle_name_block %}SeaTac Gastronomy{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+#puzzle-content #seatac-menu {
+  text-align: center;
+}
+#puzzle-content .seatac-menu-section {
+  margin-top: 3em;
+}
+#puzzle-content .seatac-menu-entry {
+  margin-top: 1em;
+}
+#puzzle-content .seatac-menu-section-headline {
+  font-size: 1.5em;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+#puzzle-content .seatac-menu-entry-headline {
+  font-size: 1.1em;
+}
+#puzzle-content .seatac-menu-entry span.seatac-menu-entry-name {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+#puzzle-content .seatac-menu-entry .seatac-menu-entry-description {
+  font-style: italic;
+}
+</style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+As your party travels about, it occasionally has to stop for sustenance.
+{% endblock %}
+
+{% macro menu_listing(item_name, restaurant_name, description) %}
+  <div class="seatac-menu-entry">
+    <div class="seatac-menu-entry-headline">
+      <span class="seatac-menu-entry-name">{{ item_name|safe }}</span>
+      <span class="seatac-menu-entry-restaurant">({{ restaurant_name|safe }})</span>
+    </div>
+    <div class="seatac-menu-entry-description">
+      {{ description|safe }}
+    </div>
+  </div>
+{% endmacro %}
+
+
+{% block puzzle_content_block %}
+<div id="introduction">
+  Prepare an entr&eacute;e, appetizer/side item, and dessert for us, based on the following actual restaurant
+  menu items from the vicinity of SeaTac airport. Your items do not need to resemble or taste like the
+  actual food provided by these restaurants so long as they are yummy and match the ingredients and
+  preparation in these names and descriptions. Each dish should be a normal restaurant-size portion.
+  <b>DO NOT INCLUDE NUTS IN ANY OF THESE DISHES.</b>
+  <a class="standard-link" href="{{ submit_url_for(puzzle_id) }}">Contact HQ</a> when you are ready to
+  deliver your dishes; after your dishes have been approved, we will give you the answer. In addition,
+  teams with the best entr&eacute;e, appetizer/side item, and dessert will win prizes at wrap-up on Monday.
+</div>
+<div id="seatac-menu">
+  <div class="seatac-menu-section">
+    <div class="seatac-menu-section-headline">Entre&eacute;s</div>
+    {{ menu_listing('BLACKENED HALIBUT TACOS', 'Anthony&rsquo;s Restaurant and Fish Bar', 'Served with cabbage and mango-pineapple-kiwi salsa') }}
+    {{ menu_listing('BREAKFAST BURRITO', 'Seattle Taproom', 'Sausage, salsa verde, cheddar jack, caramelized onion and pepper, scrambled egg, avocado crema') }}
+    {{ menu_listing('CRAB EGGS BENEDICT', '13 Coins', 'Our original eggs Benedict with Dungeness crab and housemade hollandaise sauce, sprinkled with green onions.  Served with hash browns') }}
+    {{ menu_listing('GARDEN RIGATONI POMODORO', 'Gregory&rsquo;s Bar &amp; Grill', 'Spicy rich tomato sauce with zucchini, yellow squash, bell peppers, mushrooms, broccoli, and basil') }}
+    {{ menu_listing('PAD RUAM MIT', 'Mango Thai', 'Fresh tofu, broccoli, carrots, snow peas, cabbage') }}
+    {{ menu_listing('PORK BBQ SLIDERS', 'Sports Page Pub', 'Slow cooked tender pork in tangy BBQ sauce on Hawaiian rolls with crunchy cole slaw') }}
+    {{ menu_listing('ROASTED LAMB MEATBALLS', 'Vino Volo', 'With shaved parmesan, mint parsley and cr&egrave;me fra&icirc;che') }}
+    {{ menu_listing('SASQUATCH&rsquo;S FAVORITE SALMON', 'Bigfoot Food and Spirits', 'Grilled and slathered with our BBQ sauce, topped with caramelized onions and fixin&rsquo;s on a fresh bun.  Served with house-made cole slaw &amp; lightly salted potato chips') }}
+    {{ menu_listing('SLOW-COOKED POT ROAST', 'Denny&rsquo;s', 'Slow-cooked pot roast, creamy mashed potatoes and herb-roasted carrots, celery, mushrooms and onions atop grilled ciabatta bread and covered in rich gravy') }}
+    {{ menu_listing('VEGGIE OMELET', 'Silver Dollar Casino', 'Spinach, diced tomato, sliced mushrooms, black olives, green onions, and Swiss cheese served with hash browns and choice of toast') }}
+  </div>
+  <div class="seatac-menu-section">
+    <div class="seatac-menu-section-headline">Appetizers and Side Items</div>
+    {{ menu_listing('ARROZ CON CAMARONES', 'Archie&rsquo;s Mexican', 'Prawns saut&eacute;ed with mushrooms and crispy vegetables in a unique sauce.  Served over a bed of rice with melted cheese and tortillas') }}
+    {{ menu_listing('BABY KALE &amp; QUINOA SALAD', 'Wolfgang Puck Gourmet Express', 'Golden raisins, apples, fennel, marinated tomatoes, chili flakes, parmesan, lemon vinaigrette') }}
+    {{ menu_listing('CALDO 7 MARES', 'Las Palmas', 'Crab, Mussels, Clams, Squid, Shrimp, Fish, Octopus, Peppers, Tomato Base') }}
+    {{ menu_listing('CHILAQUILES', 'Casa del Agave', 'Crispy corn tortilla chips layered with green chili sauce, a trio of melted cheeses, topped with two fried over-medium eggs, scallion and sour cream.  Served with fresh fruit') }}
+    {{ menu_listing('CHIPOTLE QUESADILLA', 'Seattle Seahawks 12 Club', 'Choice of grilled steak or fajita chicken with roasted corn and black bean relish mix, chipotle sauce, cheddar and jack cheese, grilled in a tortilla.  Finished with green onions, served with zesty salsa and sour cream') }}
+    {{ menu_listing('DUNGENESS CRAB BISQUE', 'Dungeness Bay Seafood House', 'A classic with sweet corn &amp; red pepper garnished with sour cream &amp; chives') }}
+    {{ menu_listing('PORTOBELLO MUSHROOMS', 'Galliano&rsquo;s Cucina', 'One large portobello mushroom stuffed with veggies and baked with mozzarella cheese.  Served over a bed of spicy panna rosa sauce') }}
+    {{ menu_listing('VEGGIE AND HUMMUS WRAP', 'Alaska Lodge', 'Baby spinach, hummus, roasted peppers, cucumber, tomato, flour tortilla with kettle chips or fresh fruit') }}
+  </div>
+  <div class="seatac-menu-section">
+    <div class="seatac-menu-section-headline">Desserts</div>
+    {{ menu_listing('DUTCH BABY PANCAKE', 'Copperleaf Restaurant', 'Honeycrisp Apples, Fromage Blanc, Apple Vanilla Syrup') }}
+    {{ menu_listing('FANTASY BERRY COBBLER', 'Dave&rsquo;s Diner and Brews', 'Tantalize your taste buds with this delightful combination of blackberries, raspberries, and blueberries topped with a Dutch topping') }}
+    {{ menu_listing('NEW YORK CHEESECAKE', 'Ivar&rsquo;s Seafood Bar', 'Passion fruit sauce, shaved white chocolate, honey whipped cream') }}
+    {{ menu_listing('PUMPKIN CR&Egrave;ME BR&Ucirc;L&Eacute;E', 'Seaports', 'Semi firm custard, caramelized sugar crust') }}
+    {{ menu_listing('SKILLET CHOCOLATE CHIP COOKIE', 'Chili&rsquo;s Too', 'Oven-baked chocolate chip cookie topped with vanilla ice cream &amp; drizzled with hot fudge') }}
+    {{ menu_listing('STRAWBERRY CHANTILLY', 'Dilettante Mocha Cafe', 'Vanilla genoise, vanilla whipped cream, strawberry preserves, fresh strawberries, white chocolate shavings') }}
+  </div>
+</div>
+{% endblock %}

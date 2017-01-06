@@ -1,0 +1,58 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'dynast' %}
+{% block title_block %}The Despondent Dynast: Solution{% endblock %}
+{% block puzzle_name_block %}The Despondent Dynast: Solution{% endblock %}
+{% block byline %}By Guy Jacobson{% endblock %}
+{% block solution %}FIND A FOURTH{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  #puzzle-content ul {
+    list-style-type: none;
+    padding-left: 0px;
+  }
+  #puzzle-content li {
+    padding-bottom: 3px;
+  }
+  #puzzle-content td {
+    padding: 4px;
+  }
+  #puzzle-content td.answer-listing {
+    font-family: monospace;
+  }
+  #puzzle-content span.highlight-group {
+    font-weight: bold;
+    color: blue;
+  }
+  #puzzle-content span.highlight-letter {
+    font-weight: bold;
+    color: red;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<div>
+  <p>
+    Each puzzle answer consists of 13 letters that are one letter away from forming a winning mahjong hand. (A winning mahjong hand consists of four melds of 3 tiles/letters and one pair of tiles/letters; a meld can consist of three of a kind or of a straight of three consecutive tiles/letters. So, for instance, MIDDLE KINGDOM gives DDD, EG, II, KLM, and MNO; add an F to form a winning hand.) Take the letter that can be added to each answer to give a winning hand, and the resulting letters spell the answer <b>FIND A FOURTH</b>.
+  </p>
+  <table>
+    <tr>
+      <th>Answer</th>
+      <th>Melds</th>
+      <th>Added Letter</th>
+    </tr>
+    <tr><td class="answer-listing">MIDDLE KINGDOM</td><td>DDD, EG, II, KLM, MNO</td><td>F</td></tr>
+    <tr><td class="answer-listing">FANTASMAGORIE</td><td>AAA, EFG, I, MNO, RST</td><td>I</td></tr>
+    <tr><td class="answer-listing">FIGHTING IRISH</td><td>FGH, GHI, III, N, RST</td><td>N</td></tr>
+    <tr><td class="answer-listing">CRANIOGRAPHER</td><td>AA, CE, GHI, NOP, RRR</td><td>D</td></tr>
+    <tr><td class="answer-listing">TONIGHT AT NOON</td><td>A, GHI, NNN, OOO, TTT</td><td>A</td></tr>
+    <tr><td class="answer-listing">BANK OF JAMAICA</td><td>AAA, ABC, F, IJK, MNO</td><td>F</td></tr>
+    <tr><td class="answer-listing">PEDIATRICIANS</td><td>AA, CDE, III, NP, RST</td><td>O</td></tr>
+    <tr><td class="answer-listing">NEVER FORGET ME</td><td>EEE, EFG, MNO, RR, TV</td><td>U</td></tr>
+    <tr><td class="answer-listing">BE OF GOOD CHEER</td><td>BCD, EEE, FGH, OOO, R</td><td>R</td></tr>
+    <tr><td class="answer-listing">NIL SINE NUMINE</td><td>EE, III, LMN, NNN, SU</td><td>T</td></tr>
+    <tr><td class="answer-listing">QUOTA SAMPLING</td><td>AA, GI, LMN, OPQ, STU</td><td>H</td></tr>
+  </table>
+</div>
+{% endblock %}

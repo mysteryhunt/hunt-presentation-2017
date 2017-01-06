@@ -1,8 +1,23 @@
 from admin import app
 
 from common import cube, login_required
-from flask import abort, redirect, render_template, request, session, url_for
+from flask import abort, flash, redirect, render_template, request, session, url_for
 from requests.exceptions import RequestException
+
+import time
+
+@app.context_processor
+def utility_processor():
+    def is_authorized(permission):
+        return cube.authorized(app, permission)
+
+    def current_timestamp():
+        return int(time.time() * 1000)
+
+    return {
+        "is_authorized": is_authorized,
+        "current_timestamp": current_timestamp,
+    }
 
 def get_puzzles():
     puzzles = cube.get_puzzles(app)
@@ -58,19 +73,29 @@ def interactionqueue():
 def submission(submission_id):
     if request.method == "POST":
         if "status" in request.form:
-            cube.update_submission_status(app, submission_id, request.form["status"])
+            try:
+                cube.update_submission_status(app, submission_id, request.form["status"])
+            except RequestException, e:
+                if e.response is None:
+                    raise e
+                flash("Failed to update submission: %s" % e.response.json())
+                return redirect(url_for("callqueue"))
+
             if request.form["status"] == "SUBMITTED":
                 return redirect(url_for("callqueue"))
         else:
             abort(400)
 
     submission = cube.get_submission(app, submission_id)
+    past_submissions = cube.get_submissions(app, submission['puzzleId'], submission['teamId'])
+    past_submissions = [s for s in past_submissions if s['submissionId'] != submission_id]
     puzzle = cube.get_puzzle(app, submission['puzzleId'])
     team = cube.get_team_properties(app, team_id=submission['teamId'])
 
     return render_template(
         "submission.html",
         submission=submission,
+        past_submissions=past_submissions,
         puzzle=puzzle,
         team=team)
 
@@ -82,7 +107,15 @@ def hintrequest(hint_request_id):
             response = ""
             if "response" in request.form:
                 response = request.form["response"]
-            cube.update_hint_request(app, hint_request_id, request.form["status"], response)
+
+            try:
+                cube.update_hint_request(app, hint_request_id, request.form["status"], response)
+            except RequestException, e:
+                if e.response is None:
+                    raise e
+                flash("Failed to update hint request: %s" % e.response.json())
+                return redirect(url_for("callqueue"))
+
             if request.form["status"] == "REQUESTED":
                 return redirect(url_for("callqueue"))
         else:
@@ -106,7 +139,15 @@ def interactionrequest(interaction_request_id):
             response = ""
             if "response" in request.form:
                 response = request.form["response"]
-            cube.update_interaction_request(app, interaction_request_id, request.form["status"], response)
+
+            try:
+                cube.update_interaction_request(app, interaction_request_id, request.form["status"], response)
+            except RequestException, e:
+                if e.response is None:
+                    raise e
+                flash("Failed to update interaction request: %s" % e.response.json())
+                return redirect(url_for("interactionqueue"))
+
             if request.form["status"] == "REQUESTED":
                 return redirect(url_for("interactionqueue"))
         else:
@@ -169,14 +210,23 @@ def team(team_id):
                 status)
         else:
             abort(400)
-        return redirect(url_for("teams"))
 
     team = cube.get_team(app, team_id)
+    puzzles = get_puzzles()
+
+    CHARACTER_ROUND_IDS = ["linguist", "economist", "chemist"]
+    CHARACTER_RESCUE_IDS = ["rescue_the_%s" % id for id in CHARACTER_ROUND_IDS]
+
+    rescue_visibilities = cube.get_puzzle_visibilities_for_list(
+        app,
+        CHARACTER_ROUND_IDS + CHARACTER_RESCUE_IDS,
+        team_id)
 
     return render_template(
         "team.html",
         team=team,
-        puzzles=get_puzzles())
+        puzzles=puzzles,
+        rescue_visibilities=rescue_visibilities)
 
 def build_roles_list(form):
     roles = []
@@ -209,10 +259,11 @@ def user(username):
             "username": username,
         }
 
-        user = cube.get_user(app, username)
-        roles = build_roles_list(request.form)
-        if user["roles"] != roles:
-            update["roles"] = roles
+        if cube.authorized(app, "userroles:update:%s" % username):
+            user = cube.get_user(app, username)
+            roles = build_roles_list(request.form)
+            if user["roles"] != roles:
+                update["roles"] = roles
 
         logout = False
         if request.form["password"]:
@@ -255,4 +306,5 @@ def admintools():
 
     return render_template(
         "admintools.html",
-        puzzles=get_puzzles())
+        puzzles=get_puzzles(),
+        is_hunt_started=cube.is_hunt_started_async(app).result())

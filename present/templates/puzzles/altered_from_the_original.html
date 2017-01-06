@@ -1,0 +1,19 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}Altered From The Original{% endblock %}
+{% block puzzle_name_block %}Altered From The Original{% endblock %}
+
+{% block puzzle_head_block %}
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+The broken bridge is pitched oddly, and you&rsquo;re not sure exactly what material it&rsquo;s composed of.
+{% endblock %}
+
+{% block puzzle_content_block %}
+<div>
+  <audio controls>
+    <source src="{{ asset_url_for('altered_from_the_original/puzzle.mp3') }}" type="audio/mp3"/>
+    Your browser does not support the audio tag. Click <a href="{{ asset_url_for('altered_from_the_original/puzzle.mp3') }}">here</a> to download.
+  </audio>
+</div>
+{% endblock %}

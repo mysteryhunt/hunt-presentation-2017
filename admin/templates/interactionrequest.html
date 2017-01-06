@@ -56,23 +56,64 @@
   {% if interaction_request.status == 'REQUESTED' %}
   <form action="{{ url_for('interactionrequest', interaction_request_id=interaction_request.interactionRequestId) }}" method="post">
     <input type="hidden" name="status" value="ASSIGNED">
-    <input type="submit" value="Claim">
+    <input type="submit" value="Assign to Me">
   </form>
   {% elif interaction_request.status in ['ASSIGNED', 'SCHEDULED'] %}
   {% if interaction_request.callerUsername == session['username'] %}
+  {% if interaction_request.status == 'ASSIGNED' %}
+  <h3>Call team {{ interaction_request.teamId }} at {{ team.primaryPhone }}.</h3>
+  <p>
+    If there's no answer, try their secondary phone number
+    {{ team.secondaryPhone }} or e-mail them at {{ team.email }} to try to get
+    updated contact info.
+  </p>
+  <p>
+    The team's request is &ldquo;{{ interaction_request.request }}&rdquo;. If
+    this request is to schedule a meeting, then find a time to meet the team,
+    enter the time and meeting instructions in the response box below, and mark
+    this request as Scheduled.
+  </p>
+  <p>
+    If this request can be handled over the phone right now and does not require
+    scheduling a future interaction, you can mark this request as Complete when
+    the call is over.
+  </p>
+  {% endif %}
+  {% if interaction_request.status == 'SCHEDULED' %}
+  <h3>An interaction is currently scheduled.</h3>
+  <p>
+    Details: &ldquo;{{ interaction_request.response }}&rdquo;
+  </p>
+  <p>
+    If you need to make changes to this scheduled interaction, call the team at
+    {{ team.primaryPhone }} to inform them of the change, then use the form
+    below to make the change. You may change this interaction request to
+    Assigned if you are not currently able to schedule it.
+  </p>
+  <p>
+    If this interaction is now over, use the form below to mark this interaction
+    as Complete.
+  </p>
+  {% endif %}
   <form action="{{ url_for('interactionrequest', interaction_request_id=interaction_request.interactionRequestId) }}" method="post">
-    <input type="text" name="response" size="100" value="{{ interaction_request.response }}"><br>
+    <p>
+      Response to the team (may include scheduling details like time and place):
+      <input type="text" name="response" size="100" value="{{ interaction_request.response }}">
+    </p>
     <select name="status">
-      <option value="ASSIGNED" {% if interaction_request.status == 'ASSIGNED' %}selected{% endif %}>ASSIGNED</option>
-      <option value="SCHEDULED" {% if interaction_request.status == 'SCHEDULED' %}selected{% endif %}>SCHEDULED</option>
-      <option value="COMPLETE" {% if interaction_request.status == 'COMPLETE' %}selected{% endif %}>COMPLETE</option>
+      <option value="ASSIGNED" {% if interaction_request.status == 'ASSIGNED' %}selected{% endif %}>Assigned</option>
+      <option value="SCHEDULED" {% if interaction_request.status == 'SCHEDULED' %}selected{% endif %}>Scheduled</option>
+      <option value="COMPLETE" {% if interaction_request.status == 'COMPLETE' %}selected{% endif %}>Complete</option>
     </select>
     <input type="submit" value="Respond">
   </form>
   {% endif %}
   <form action="{{ url_for('interactionrequest', interaction_request_id=interaction_request.interactionRequestId) }}" method="post">
     <input type="hidden" name="status" value="REQUESTED">
-    <input type="submit" value="Unassign">
+    <p>
+      If the assigned user is no longer able to handle this interaction request, please click
+      <input type="submit" value="Unassign">.
+    </p>
   </form>
   {% endif %}
 </div>

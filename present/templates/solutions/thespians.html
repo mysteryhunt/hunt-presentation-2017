@@ -1,0 +1,73 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'thespians' %}
+{% block title_block %}The Thrilling Thespians: Solution{% endblock %}
+{% block puzzle_name_block %}The Thrilling Thespians: Solution{% endblock %}
+{% block byline %}By Greg Pliska and Roger Ford</br>Based on an idea developed by Ben Monreal, Sarah Bagby, Guy Jacobson, Tanis O’Connor, and Jennifer Berk{% endblock %}
+{% block solution %}I AM BI{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  #puzzle-content ul {
+    list-style-type: none;
+    padding-left: 0px;
+  }
+  #puzzle-content li {
+    padding-bottom: 3px;
+  }
+  #puzzle-content td {
+    padding: 4px;
+    text-align: center;
+  }
+  #puzzle-content td.answer-listing {
+    font-family: monospace;
+  }
+  #puzzle-content span.highlight-group {
+    font-weight: bold;
+    color: blue;
+  }
+  #puzzle-content span.highlight-letter {
+    font-weight: bold;
+    color: red;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<div>
+  <p>
+    The five puzzles at stage left begin with the letters A through E, and the five puzzles at stage right end in A through E, suggesting that the the answers can be paired. Doing so, in each pair of answers the name of a Shakespeare can be read across the pair, with one letter omitted. The omitted letters spell the answer, <b>I AM BI</b>&mdash;a fitting trait for an actor able to play both men and women with ease.
+  </p>
+  <table>
+    <tr>
+      <th>Answer, Stage Left</th>
+      <th>Character</th>
+      <th>Answer, Stage Right</th>
+    </tr>
+    <tr>
+      <td class="answer-listing">ALLEGORICAL</td>
+      <td>CAL<span class="highlight-letter">I</span>BAN</td>
+      <td class="answer-listing">BANANARAMA</td>
+    </tr>
+    <tr>
+      <td class="answer-listing">BISTROS</td>
+      <td>ROS<span class="highlight-letter">A</span>LIND</td>
+      <td class="answer-listing">LINDEN LAB</td>
+    </tr>
+    <tr>
+      <td class="answer-listing">CAPTCHA</td>
+      <td>HA<span class="highlight-letter">M</span>LET</td>
+      <td class="answer-listing">LETHARGIC</td>
+    </tr>
+    <tr>
+      <td class="answer-listing">DWARF SUMAC</td>
+      <td>MAC<span class="highlight-letter">B</span>ETH</td>
+      <td class="answer-listing">ETHELRED</td>
+    </tr>
+    <tr>
+      <td class="answer-listing">EMAIL SCAM</td>
+      <td>CAM<span class="highlight-letter">I</span>LLO</td>
+      <td class="answer-listing">LLOYD GEORGE</td>
+    </tr>
+  </table>
+</div>
+{% endblock %}

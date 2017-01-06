@@ -1,0 +1,51 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'fighter' %}
+{% block title_block %}The Fighter: Solution{% endblock %}
+{% block puzzle_name_block %}The Fighter: Solution{% endblock %}
+{% block byline %}By Todd McClary{% endblock %}
+{% block solution %}ONE-TWO COMBO{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  #puzzle-content ul {
+    list-style-type: none;
+    padding-left: 0px;
+  }
+  #puzzle-content li {
+    padding-bottom: 3px;
+  }
+  ul.answer-listing {
+    font-family: monospace;
+  }
+  span.highlight-group {
+    font-weight: bold;
+    color: blue;
+  }
+  span.highlight-letter {
+    color: red;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<div>
+  <p>
+    Each answer contains a sequence of letters of the form ABAA. Put the answers in order by length and take the inside letter from each ABAA sequence, and they spell <b>ONE-TWO COMBO</b>.
+  </p>
+  <p>
+    <ul class="answer-listing">
+      <li><span class="highlight-group">L<span class="highlight-letter">O</span>LL</span></li>
+      <li>S<span class="highlight-group">A<span class="highlight-letter">N</span>AA</span></li>
+      <li>OB<span class="highlight-group">S<span class="highlight-letter">E</span>SS</span></li>
+      <li>PR<span class="highlight-group">E<span class="highlight-letter">T</span>EE</span>N</li>
+      <li>FIR<span class="highlight-group">E<span class="highlight-letter">W</span>EE</span>D</li>
+      <li><span class="highlight-group">D<span class="highlight-letter">O</span>DD</span>FRANK</li>
+      <li>HYDR<span class="highlight-group">O<span class="highlight-letter">C</span>OO</span>LS</li>
+      <li>MARY<span class="highlight-group">P<span class="highlight-letter">O</span>PP</span>INS</li>
+      <li>HOUS<span class="highlight-group">E<span class="highlight-letter">M</span>EE</span>TING</li>
+      <li>COULDHAV<span class="highlight-group">E<span class="highlight-letter">B</span>EE</span>N</li>
+      <li><span class="highlight-group">B<span class="highlight-letter">O</span>BB</span>YHENDRICKS</li>
+    </ul>
+  </p>
+</div>
+{% endblock %}

@@ -1,0 +1,129 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'chemist' %}
+{% block title_block %}Hand Them Over!: Solution{% endblock %}
+{% block puzzle_name_block %}Hand Them Over!: Solution{% endblock %}
+{% block byline %}By Dan Katz and Jackie Anderson{% endblock %}
+{% block solution %}NIOBE{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    table.a {
+      margin-bottom: 1em;
+    }
+    table.a td {
+      width: 100px;
+    }
+  </style>
+{% endblock %}
+
+{% block solution_content_block %}
+  <div>
+    <p>
+      Within each set of ten clues, the answers to the right clues could be
+      produced if you typed the answers to the left clues on a standard QWERTY
+      keyboard, but you accidentally positioned one of your hands one position
+      too far inward. For example, if you typed NOTE with your right hand
+      misplaced, the T and E typed by the left hand would be correct, but the N
+      and O would instead come out as B and I, producing the word BITE.
+    </p>
+    <p>
+      (This puzzle was inspired by one of the authors accidentally doing this
+      and noticing the result was still a word. The other author types with two
+      fingers and is subsequently immune.)
+    </p>
+    <p>
+      The intended clue answers are, in order:
+    </p>
+    <table class="a">
+      <tr><td>WAX</td><td>JET</td></tr>
+      <tr><td>HIM</td><td>ESC</td></tr>
+      <tr><td>PAL</td><td>GUN</td></tr>
+      <tr><td>KEY</td><td>OAK</td></tr>
+      <tr><td>ART</td><td>STY</td></tr>
+    </table>
+    <table class="a">
+      <tr><td>ROWS</td><td>DIRT</td></tr>
+      <tr><td>YULE</td><td>NOSY</td></tr>
+      <tr><td>DIVA</td><td>TYKE</td></tr>
+      <tr><td>BOAT</td><td>TOED</td></tr>
+      <tr><td>DORY</td><td>FIBS</td></tr>
+    </table>
+    <table class="a">
+      <tr><td>SOFA</td><td>DEBT</td></tr>
+      <tr><td>PAYS</td><td>SKAT</td></tr>
+      <tr><td>MILE</td><td>OATS</td></tr>
+      <tr><td>DENY</td><td>NUKE</td></tr>
+      <tr><td>SLAY</td><td>DOGS</td></tr>
+    </table>
+    <table class="a">
+      <tr><td>SWEET</td><td>DOTTY</td></tr>
+      <tr><td>AGORA</td><td>GRUNT</td></tr>
+      <tr><td>SORRY</td><td>SHOTS</td></tr>
+      <tr><td>GRIMY</td><td>DERRY</td></tr>
+      <tr><td>VEINY</td><td>BRINY</td></tr>
+    </table>
+    <table class="a">
+      <tr><td>FOLD</td><td>SORT</td></tr>
+      <tr><td>VISA</td><td>FURY</td></tr>
+      <tr><td>SPRY</td><td>BIDS</td></tr>
+      <tr><td>DUET</td><td>BITE</td></tr>
+      <tr><td>NOTE</td><td>GOLF</td></tr>
+    </table>
+    <p>
+      The right clues are alphabetized and the left clues are not, suggesting
+      that the order of the left clues is important. Here are the matched pairs
+      in left-clue order, along with the hand that moves:
+    </p>
+    <table class="a">
+      <tr><td>WAX</td><td>ESC</td><td>(L)</td></tr>
+      <tr><td>HIM</td><td>GUN</td><td>(R)</td></tr>
+      <tr><td>PAL</td><td>OAK</td><td>(R)</td></tr>
+      <tr><td>KEY</td><td>JET</td><td>(R)</td></tr>
+      <tr><td>ART</td><td>STY</td><td>(L)</td></tr>
+    </table>
+    <table class="a">
+      <tr><td>ROWS</td><td>TOED</td><td>(L)</td></tr>
+      <tr><td>YULE</td><td>TYKE</td><td>(R)</td></tr>
+      <tr><td>DIVA</td><td>FIBS</td><td>(L)</td></tr>
+      <tr><td>BOAT</td><td>NOSY</td><td>(L)</td></tr>
+      <tr><td>DORY</td><td>DIRT</td><td>(R)</td></tr>
+    </table>
+    <table class="a">
+      <tr><td>SOFA</td><td>DOGS</td><td>(L)</td></tr>
+      <tr><td>PAYS</td><td>OATS</td><td>(R)</td></tr>
+      <tr><td>MILE</td><td>NUKE</td><td>(R)</td></tr>
+      <tr><td>DENY</td><td>DEBT</td><td>(R)</td></tr>
+      <tr><td>SLAY</td><td>SKAT</td><td>(R)</td></tr>
+    </table>
+    <table class="a">
+      <tr><td>SWEET</td><td>DERRY</td><td>(L)</td></tr>
+      <tr><td>AGORA</td><td>SHOTS</td><td>(L)</td></tr>
+      <tr><td>SORRY</td><td>DOTTY</td><td>(L)</td></tr>
+      <tr><td>GRIMY</td><td>GRUNT</td><td>(R)</td></tr>
+      <tr><td>VEINY</td><td>BRINY</td><td>(L)</td></tr>
+    </table>
+    <table class="a">
+      <tr><td>FOLD</td><td>GOLF</td><td>(L)</td></tr>
+      <tr><td>VISA</td><td>BIDS</td><td>(L)</td></tr>
+      <tr><td>SPRY</td><td>SORT</td><td>(R)</td></tr>
+      <tr><td>DUET</td><td>FURY</td><td>(L)</td></tr>
+      <tr><td>NOTE</td><td>BITE</td><td>(R)</td></tr>
+    </table>
+    <p>
+      Finally, the image at the bottom of the page is roughly keyboard shaped,
+      with a 0 in the left-hand position and a 1 in the right-hand
+      position. Interpreting left-hand pairs as zeroes and right-hand pairs as
+      ones, and reading the result in binary gives:
+    </p>
+    <blockquote>
+      01110 = 14 = N<br>
+      01001 = 9 = I<br>
+      01111 = 15 = O<br>
+      00010 = 2 = B<br>
+      00101 = 5 = E
+    </blockquote>
+    <p>
+      So the answer is <b>NIOBE</b>, who, like the Chemist, is known for crying.
+    </p>
+  </div>
+{% endblock %}

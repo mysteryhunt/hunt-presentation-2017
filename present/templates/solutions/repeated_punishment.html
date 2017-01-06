@@ -24,8 +24,8 @@
       section, which has the same pattern of spaces, but is truncated.
     </p>
     <p>
-      There's also one additional line of text within a box at the bottom of the
-      puzzle that does not follow this pattern (we'll come back to this later).
+      There&rsquo;s also one additional line of text within a box at the bottom of the
+      puzzle that does not follow this pattern (we&rsquo;ll come back to this later).
     </p>
     <p>
       There are (at least) two different approaches to deciphering the encrypted
@@ -34,8 +34,8 @@
     <h3>Approach 1: The Known Plaintext Attack</h3>
     <p>
       The font, formatting and repeated nature of the sections of text may
-      suggest to a solver familiar with The Simpsons that the texts are taken
-      from the set of "chalkboard gags" that Bart is writing near the beginning
+      suggest to a solver familiar with <i>The Simpsons</i> that the texts are taken
+      from the set of &ldquo;chalkboard gags&rdquo; that Bart is writing near the beginning
       of the credits of most episodes. These phrases are usually different for
       each episode, and are well-documented online.
     </p>
@@ -43,9 +43,9 @@
       With the set of known plaintexts, the solver can figure out which
       plaintext corresponds with each ciphertext based on the lengths of the
       words. The next step is to break the ciphers. With some analysis of the
-      encrypted texts, the solver can determine that they're not encrypted with
+      encrypted texts, the solver can determine that they&rsquo;re not encrypted with
       a simple single-letter substitution cipher. The general flavor of
-      "repetition" in this puzzle may suggest a Vigenere cipher (where the key
+      &ldquo;repetition&rdquo; in this puzzle may suggest a Vigenere cipher (where the key
       is a repeated phrase).
     </p>
     <p>
@@ -61,7 +61,7 @@
       plaintext to break the cipher, without knowing the plaintexts.
     </p>
     <p>
-      Here's a Python program that does this by guessing key lengths, and then
+      Here&rsquo;s a Python program that does this by guessing key lengths, and then
       setting up the <a href="https://github.com/Z3Prover/z3">z3 theorem
       prover</a> to search for keys and plaintexts that would result in the
       given ciphertexts.
@@ -178,10 +178,10 @@ YVVMAVWWYVWYPLAVY BPBEEGXOXKPBGTGXFFR
     </p>
     <p>
       Then, by counting the number of letters used on the last truncated line of
-      each ciphertext, and indexing this many letters into that ciphertext's
-      character's name, the solver can extract the word KWYJIBO (famously played
-      by Bart in a Scrabble game in the second episode of the series, "Bart the
-      Genius").
+      each ciphertext, and indexing this many letters into that ciphertext&rsquo;s
+      character&rsquo;s name, the solver can extract the word KWYJIBO (famously played
+      by Bart in a Scrabble game in the second episode of the series, &ldquo;Bart the
+      Genius&rdquo;).
     </p>
     <p>
       Decrypting the final boxed line of the puzzle using KWYJIBO as the Vigenere key gives the answer <b>SUSPENDED SENTENCE</b>.
@@ -189,15 +189,15 @@ YVVMAVWWYVWYPLAVY BPBEEGXOXKPBGTGXFFR
     <table>
       <tr>
         <th>Chalkboard gag</th>
-        <th>Simpsons episode</th>
+        <th><i>Simpsons</i> episode</th>
         <th>Vigenere key</th>
-        <th>Simpsons character</th>
+        <th><i>Simpsons</i> character</th>
         <th>Number of last line letters</th>
         <th>Indexed letter</th>
       </tr>
       <tr>
         <td>I WILL NEVER WIN AN EMMY</td>
-        <td>Homer's Barbershop Quartet</td>
+        <td>Homer&rsquo;s Barbershop Quartet</td>
         <td>ROOFTOPPROPRIETOR</td>
         <td>Moe Szyslak</td>
         <td>10</td>
@@ -237,7 +237,7 @@ YVVMAVWWYVWYPLAVY BPBEEGXOXKPBGTGXFFR
       </tr>
       <tr>
         <td>UNDERWEAR SHOULD BE WORN ON THE INSIDE</td>
-        <td>Flaming Moe's</td>
+        <td>Flaming Moe&rsquo;s</td>
         <td>EYEONSPRINGFIELDHOST</td>
         <td>Kent Brockman</td>
         <td>5</td>

@@ -10,22 +10,28 @@
   td {
     padding-top: 4px;
   }
-table {
+#puzzle-content table {
   margin-left: auto;
   margin-right: auto;
+}
+#puzzle-content table#result-summary {
+  font-size: 90%;
+}
+#puzzle-content table#result-summary td {
+  padding: 5px;
 }
 </style>
 {% endblock %}
 {% block solution_content_block %}
 <div>
   <p>
-    For each of the given enumerations, five of the letter sequences below can be combined to form a clue of that enumeration. Each clue contains the word "this" and seems to reference something not given in the clue.
+    For each of the given enumerations, five of the letter sequences below can be combined to form a clue of that enumeration. Each clue contains the word &ldquo;this&rdquo; and seems to reference something not given in the clue.
   </p>
   <p>
-    For each clue, the lengths of the five pieces combined, in order, form the zip code for an American city, and the name of that city is what the clue is referring to. For example, the first clue, MADE-UP TOWN WHERE THIS OPERA'S SET, has pieces of lengths
-    4,8,7,4,5. 48745 is the zip code for Mikado, MI, so "this opera" refers to The Mikado, and the answer to the clue is Titipu.
+    For each clue, the lengths of the five pieces combined, in order, form the zip code for an American city, and the name of that city is what the clue is referring to. For example, the first clue, MADE-UP TOWN WHERE THIS OPERA&rsquo;S SET, has pieces of lengths
+    4,8,7,4,5. 48745 is the zip code for Mikado, MI, so &ldquo;this opera&rdquo; refers to <i>The Mikado</i>, and the answer to the clue is Titipu.
   </p>
-  <table>
+  <table id="result-summary">
     <tr>
       <td>MADE/UP TOWN WH/ERE THIS/ OPER/AS SET</td>
       <td>48745</td>
@@ -141,7 +147,7 @@ table {
       <td>DIE HARD</td>
     </tr>
     <tr>
-      <td>THEMID/DLENA/MEOFTHI/SGHOSTW/HENALIVE</td>
+      <td>THE MID/DLE NA/ME OF THI/S GHOST W/HEN ALIVE</td>
       <td>65778</td>
       <td>Myrtle, MO</td>
       <td>ELIZABETH</td>

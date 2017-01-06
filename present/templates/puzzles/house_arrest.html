@@ -1,0 +1,93 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}House Arrest{% endblock %}
+{% block puzzle_name_block %}House Arrest{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    .rediv {
+      padding-bottom: 6px;
+    }
+    .re {
+      vertical-align: middle;
+    }
+  </style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+  You decide to follow some of the criminal&rsquo;s underlings back to where they
+  live.
+{% endblock %}
+
+{% block puzzle_content_block %}
+  <div>
+    <p>
+      **Note: Do not go anywhere that you are not supposed to go! This should be solved from the comfort of your HQ.
+    </p>
+
+    <div class="rediv">
+      <audio controls class="re">
+        <source src="{{ asset_url_for('house_arrest/HouseArrest1.mp3') }}" type="audio/mpeg">Your browser does not support the audio tag. Click <a href="{{ asset_url_for('house_arrest/HouseArrest1.mp3') }}">here</a> to download.
+      </audio>
+      <span class="re">3</span>
+    </div>
+    <div class="rediv">
+      <audio controls class="re">
+        <source src="{{ asset_url_for('house_arrest/HouseArrest2.mp3') }}" type="audio/mpeg">Your browser does not support the audio tag. Click <a href="{{ asset_url_for('house_arrest/HouseArrest2.mp3') }}">here</a> to download.
+      </audio>
+      <span class="re">1, 2</span>
+    </div>
+    <div class="rediv">
+      <audio controls class="re">
+        <source src="{{ asset_url_for('house_arrest/HouseArrest3.mp3') }}" type="audio/mpeg">Your browser does not support the audio tag. Click <a href="{{ asset_url_for('house_arrest/HouseArrest3.mp3') }}">here</a> to download.
+      </audio>
+      <span class="re">2, 3</span>
+    </div>
+    <div class="rediv">
+      <audio controls class="re">
+        <source src="{{ asset_url_for('house_arrest/HouseArrest4.mp3') }}" type="audio/mpeg">Your browser does not support the audio tag. Click <a href="{{ asset_url_for('house_arrest/HouseArrest4.mp3') }}">here</a> to download.
+      </audio>
+      <span class="re">3</span>
+    </div>
+    <div class="rediv">
+      <audio controls class="re">
+        <source src="{{ asset_url_for('house_arrest/HouseArrest5.mp3') }}" type="audio/mpeg">Your browser does not support the audio tag. Click <a href="{{ asset_url_for('house_arrest/HouseArrest5.mp3') }}">here</a> to download.
+      </audio>
+      <span class="re">2, 1</span>
+    </div>
+    <div class="rediv">
+      <audio controls class="re">
+        <source src="{{ asset_url_for('house_arrest/HouseArrest6.mp3') }}" type="audio/mpeg">Your browser does not support the audio tag. Click <a href="{{ asset_url_for('house_arrest/HouseArrest6.mp3') }}">here</a> to download.
+      </audio>
+      <span class="re">3</span>
+    </div>
+    <div class="rediv">
+      <audio controls class="re">
+        <source src="{{ asset_url_for('house_arrest/HouseArrest7.mp3') }}" type="audio/mpeg">Your browser does not support the audio tag. Click <a href="{{ asset_url_for('house_arrest/HouseArrest7.mp3') }}">here</a> to download.
+      </audio>
+      <span class="re">2</span>
+    </div>
+    <div class="rediv">
+      <audio controls class="re">
+        <source src="{{ asset_url_for('house_arrest/HouseArrest8.mp3') }}" type="audio/mpeg">Your browser does not support the audio tag. Click <a href="{{ asset_url_for('house_arrest/HouseArrest8.mp3') }}">here</a> to download.
+      </audio>
+      <span class="re">3</span>
+    </div>
+    <div class="rediv">
+      <audio controls class="re">
+        <source src="{{ asset_url_for('house_arrest/HouseArrest9.mp3') }}" type="audio/mpeg">Your browser does not support the audio tag. Click <a href="{{ asset_url_for('house_arrest/HouseArrest9.mp3') }}">here</a> to download.
+      </audio>
+      <span class="re">2, 3</span>
+    </div>
+    <div class="rediv">
+      <audio controls class="re">
+        <source src="{{ asset_url_for('house_arrest/HouseArrest10.mp3') }}" type="audio/mpeg">Your browser does not support the audio tag. Click <a href="{{ asset_url_for('house_arrest/HouseArrest10.mp3') }}">here</a> to download.
+      </audio>
+      <span class="re">1, 3</span>
+    </div>
+    <div class="rediv">
+      <audio controls class="re">
+        <source src="{{ asset_url_for('house_arrest/HouseArrest11.mp3') }}" type="audio/mpeg">Your browser does not support the audio tag. Click <a href="{{ asset_url_for('house_arrest/HouseArrest11.mp3') }}">here</a> to download.
+      </audio>
+    </div>
+  </div>
+{% endblock %}

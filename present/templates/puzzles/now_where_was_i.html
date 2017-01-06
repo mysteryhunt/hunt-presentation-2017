@@ -1,0 +1,74 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}Now Where Was I?{% endblock %}
+{% block puzzle_name_block %}Now Where Was I?{% endblock %}
+
+{% block puzzle_head_block %}
+<script>
+$(document).ready(function() {
+  $('.puzzle-section').click(function() {
+    var $target = $(this);
+    var $puzzleSection = $target.closest('.puzzle-section');
+    $puzzleSection.toggleClass('closed');
+    $puzzleSection.toggleClass('open');
+  })
+});
+</script>
+<style>
+@media screen {
+  .puzzle-section.closed .puzzle-section-control-down {
+    display: none;
+  }
+  .puzzle-section.open .puzzle-section-control-right {
+    display: none;
+  }
+  .puzzle-section.closed .puzzle-section-content {
+    display: none;
+  }
+}
+@media print {
+  .puzzle-section-control-down {
+    display: none;
+  }
+  img {
+    max-height: 400px;
+  }
+}
+.puzzle-section-header {
+  font-size: 28px;
+  cursor: pointer;
+}
+.puzzle-section {
+  margin-bottom: 40px;
+  border-top: 3px solid black;
+}
+</style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+The Fighter has taken many blows, affecting her memory. So as she looks backward, reviewing pictures she has taken, she captions each one as a memento of the places she&rsquo;s been.
+{% endblock %}
+
+{% macro section_control() %}
+  <span class="puzzle-section-control">
+    <span class="puzzle-section-control-right"><a class="fa fa-caret-right" aria-hidden="true"></a></span>
+    <span class="puzzle-section-control-down"><a class="fa fa-caret-down" aria-hidden="true"></a></span>
+  </span>
+{% endmacro %}
+
+{% block puzzle_content_block %}
+  {% set image_count = {1:7, 2:6, 3:6, 4:8, 5:6, 6:5, 7:4} %}
+  {% for i in range(1,8) %}
+    <div class="puzzle-section closed">
+      <div class="puzzle-section-header">
+        {{ section_control() }}{{ i }}
+      </div>
+      <div class="puzzle-section-content">
+        {% for p in range(1,image_count[i]+1) %}
+          <div class="puzzle-section-content-image">
+            <img src="{{ asset_url_for('now_where_was_i/image0%s-0%s.jpg' % (i, p)) }}">
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  {% endfor %}
+{% endblock %}

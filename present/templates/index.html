@@ -1,12 +1,16 @@
 {% extends "overall_layout.html" %}
 
+{% block title_block %}Monsters et Manus{% endblock %}
+
 {% block styling_block %}
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='map.css') }}">
 {% endblock %}
 
 {% block overall_layout_body %}
-<div id="main-page-content">
+<!--<div id="announcements-and-errata"></div>-->
 
+<div id="main-page-content">
+  
   <div id="characters">
     <div id="character-header">
       <div class="small-horizontal-scroll">
@@ -14,7 +18,20 @@
       </div>
     </div>
     <div class="vertically-enscrolled">
-      <div id="total-character-level">Total: {{ core_display_data['total_character_level'] }}</div>
+      <div id="total-character-level">Total Level: {{ core_display_data['total_character_level'] }}</div>
+      {% if 'encounter' in visible_puzzle_ids %}
+        <div id="encounter-display" style="margin-bottom: 10px; position: relative;">
+          <a href="{{ url_for('puzzle', puzzle_id='encounter')}}">
+            <img id="group-image" src="{{ asset_url_for('general/characters/all-headshot.png')}}" style="width:100%;"/>
+            <div id="encounter-label" style="font-size:16px;">The Ensnaring Encounter</div>
+          </a>
+          {% if puzzle_visibilities['encounter'].get('status','INVISIBLE') == 'SOLVED' %}
+            <div class="quest-solve-icon">
+              <img src="{{ asset_url_for('general/icons/completion-logo.png') }}"/>
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
       <div id="character-displays">
         {% for character_class in core_display_data['visible_characters'] %}
           <a href="{{ url_for('round', round_id = character_class) }}">
@@ -58,7 +75,7 @@
       World Map
     </div>
     <div id="world-map">
-      <div id="world-map-background" style="content: url({{ asset_url_for('general/map/map-fog-%s.png' % fog_number)}});"></div>
+      <div id="world-map-background"><img src="{{ asset_url_for('general/map/map-fog-%s.png' % fog_number)}}"/></div>
         {% for quest in [('dynast',10,20,'The Despondent Dynast'),('dungeon',70,160,'The Dismal Dungeon'),('thespians',75,465,'The Thrilling Thespians'),('bridge',215,310,'The Broken Bridge'),('criminal',245,150,'The Crafty Criminal'),('minstrels',350,40,'The Modest Minstrels'),('cube',450,130,'The Curious Cube'),('warlord',360,250,'The Woeful Warlord')] if quest[0] in visible_puzzle_ids %}
           <a href="{{ url_for('round', round_id = quest[0]) }}">
             <div id="quest-map-{{ quest[0] }}" class="individual-quest" style="width:108px; height:81px; position:absolute; top:{{ quest[1] }}px; left:{{ quest[2] }}px; z-index:200;" data-toggle="tooltip" data-placement="bottom" title="{{ quest[3] }}">
@@ -127,22 +144,28 @@
       </div><div class="horizontal-enscrolled-right"></div>
     </div>
     <div class="vertically-enscrolled mostly-text">
-      <div class="event-entry">
-        <div class="event-name">Event the First</div>
-        <div class="event-time">Friday 6pm</div>
-        <div class="event-description">XXXXXXX XXXXXX XXXXX XXXXXXXXX XXXXXX XXXXX</div>
+      <div id="more-details">
+        More details on how to play Monsters et Manus and the events can be found in the <a class="standard-link" href="{{ url_for('handbook') }}">Player Handbook</a>.
       </div>
       <div class="event-entry">
-        <div class="event-name">Event the Second</div>
-        <div class="event-time">Friday 10pm</div>
+        <div class="event-name">Super-Speed Dating</div>
+        <div class="event-time">Friday, 7pm</div>
+        <div class="event-description">Lobdell<br/>Reward: All +1</div>
       </div>
       <div class="event-entry">
-        <div class="event-name">Event the Third</div>
-        <div class="event-time">Saturday 10am</div>
+        <div class="event-name">Running Techies</div>
+        <div class="event-time">Saturday, 8:30am</div>
+        <div class="event-description">Rockwell<br/>Reward: All +1</div>
       </div>
       <div class="event-entry">
-        <div class="event-name">Event the Fourth</div>
-        <div class="event-time">Saturday 2pm</div>
+        <div class="event-name">Hungry Hungry Humans</div>
+        <div class="event-time">Saturday, 1:30pm</div>
+        <div class="event-description">Walker<br/>Reward: All +2</div>
+      </div>
+      <div class="event-entry">
+        <div class="event-name">Quizardry</div>
+        <div class="event-time">Saturday, 6:30pm</div>
+        <div class="event-description">Lobdell<br/>Reward: All +2</div>
       </div>
     </div>
   </div>

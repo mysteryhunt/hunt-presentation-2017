@@ -1,8 +1,38 @@
-{% if error %}
-<p>{{ error }}</p>
-{% endif %}
-<form action="/login" method="post">
-    <p><input type="text" name="username"></p>
-    <p><input type="text" name="password"></p>
-    <p><input type="submit" value="Login"></p>
-</form>
+<html>
+  <head>
+    <title>Monsters et Manus - Login</title>
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('login.static', filename='login.css') }}">
+  </head>
+  <body>
+    <div class="center">
+      <div class="standard-horizontal-scroll">
+        Monsters et Manus
+      </div>
+      <div class="login-box">
+        <div class="parchmented">
+          {% if error %}
+          <div class="login-error">{{ error }}</div>
+          {% endif %}
+
+          <form action="/login" method="post">
+            <table class="login-form-table">
+              <tr>
+                <td class="login-form-label">User or team name:</td>
+                <td><input type="text" name="username"></td>
+              </tr>
+              <tr>
+                <td class="login-form-label">Password:</td>
+                <td><input type="password" name="password"></td>
+              </tr>
+            </table>
+            <div class="center">
+              <input type="submit" value="Login">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+

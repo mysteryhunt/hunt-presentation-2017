@@ -26,8 +26,14 @@
       page-break-inside: avoid;
       margin-bottom: 1em;
     }
+    table.t p {
+      margin: 0;
+    }
     table.t td {
-      padding: 0.75em;
+      padding-left: 0;
+      padding-right: 0.4em;
+      border-bottom: 1px solid black;
+      height: 40px;
     }
     table.t td.a {
       min-width: 3em;
@@ -37,6 +43,10 @@
     }
     table.t tr.b {
       border-top: 3px solid black;
+    }
+    .board-images-link {
+      text-align: center;
+      margin-bottom: 2em;
     }
   </style>
 {% endblock %}
@@ -76,6 +86,12 @@
         <td></td>
       </tr>
     </table>
+    <p class="board-images-link">
+      <a class="standard-link" href="{{ asset_url_for('marvels_of_the_ancient_world/BoardScans.pdf') }}">
+        Board images for reference
+      </a>
+    </p>
+    <p></p>
     <table class="t">
       <tr>
         <td class="a" rowspan="6">
@@ -393,16 +409,11 @@
         </td>
       </tr>
     </table>
+    <p>
+      <a class="standard-link" href="{{ asset_url_for('marvels_of_the_ancient_world/CardScans.pdf') }}">
+        Card images for reference
+      </a>
+    </p>
     <img src="{{ asset_url_for('marvels_of_the_ancient_world/image01.png') }}">
-    <p>
-      <a class="standard-link" href="{{ asset_url_for('marvels_of_the_ancient_world/cards.pdf') }}">
-        Cards (if needed)
-      </a>
-    </p>
-    <p>
-      <a class="standard-link" href="{{ asset_url_for('marvels_of_the_ancient_world/wonder.pdf') }}">
-        Wonders (if needed)
-      </a>
-    </p>
   </div>
 {% endblock %}

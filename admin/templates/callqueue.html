@@ -1,5 +1,8 @@
 {% extends "base.html" %}
 {% block page_body %}
+<div class="ha-control-boxes-container">
+  {{ autoRefreshWidget() }}
+</div>
 <div class="ha-page-section">
   <h2>Pending Submissions</h2>
   <table class="ha-table">
@@ -29,7 +32,7 @@
 	  {% if s.status == 'SUBMITTED' %}
 	  <form action="{{ url_for('submission', submission_id=s.submissionId) }}" method="post">
 	    <input type="hidden" name="status" value="ASSIGNED">
-	    <input type="submit" value="Claim">
+	    <input type="submit" value="Assign to Me">
 	  </form>
 	  {% elif s.status == 'ASSIGNED' %}
 	  <form action="{{ url_for('submission', submission_id=s.submissionId) }}" method="post">
@@ -73,7 +76,7 @@
 	  {% if h.status == 'REQUESTED' %}
 	  <form action="{{ url_for('hintrequest', hint_request_id=h.hintRequestId) }}" method="post">
 	    <input type="hidden" name="status" value="ASSIGNED">
-	    <input type="submit" value="Claim">
+	    <input type="submit" value="Assign to Me">
 	  </form>
 	  {% elif h.status == 'ASSIGNED' %}
 	  <form action="{{ url_for('hintrequest', hint_request_id=h.hintRequestId) }}" method="post">

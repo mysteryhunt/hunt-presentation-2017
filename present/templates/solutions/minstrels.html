@@ -1,0 +1,103 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'minstrels' %}
+{% block title_block %}The Modest Minstrels: Solution{% endblock %}
+{% block puzzle_name_block %}The Modest Minstrels: Solution{% endblock %}
+{% block byline %}By Greg Pliska and Guy Jacobson{% endblock %}
+{% block solution %}WE DON&rsquo;T TOOT OUR OWN HORNS{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  #puzzle-content ul {
+    list-style-type: none;
+    padding-left: 0px;
+  }
+  #puzzle-content li {
+    padding-bottom: 3px;
+  }
+  #puzzle-content td {
+    padding: 4px;
+    text-align: center;
+  }
+  #puzzle-content td.answer-listing {
+    font-family: monospace;
+  }
+  #puzzle-content span.highlight-letter {
+    font-weight: bold;
+    color: red;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<div>
+  <p>
+    Each of the seven tunes played by the minstrels is in a different musical mode (Ionian, Dorian, Phrygian, and so forth). There is a canonical order for the modes, which gives the ordering for the seven answers. In each piece of music, the finger cymbal plays three times, each time along with a specific note of the melody. Each of these notes is a numbered scale step in the mode played, so the cymbals identify three numbers in order. These three numbers are used to index into the seven-letter answer word. The extracted trigrams, placed in canonical mode order, spell a message when read down along the columns. That message is <b>WE DON'T TOOT OUR OWN HORNS</b>. Clues to the mechanism include the word &ldquo;MODEst&rdquo; and (more pointedly) the &ldquo;pie with ice cream&rdquo; (a la mode). The &ldquo;woman playing the finger cymbals&rdquo; is identified as the person who will &ldquo;tell you what you want to know.&rdquo;
+  </p>
+  <table>
+    <tr><th>Order</th><th>Mode</th><th>Cymbal Order</th><th>Answer</th><th></th><th></th><th></th></tr>
+    <tr>
+      <td>1</td>
+      <td>Ionian</td>
+      <td>267</td>
+      <td class="answer-listing">S<span class="highlight-letter">W</span>ALL<span class="highlight-letter">O</span><span class="highlight-letter">W</span></td>
+      <td>W</td>
+      <td>O</td>
+      <td>W</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Dorian</td>
+      <td>152</td>
+      <td class="answer-listing"><span class="highlight-letter">E</span><span class="highlight-letter">N</span>TR<span class="highlight-letter">O</span>PY</td>
+      <td>E</td>
+      <td>O</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Phrygian</td>
+      <td>361</td>
+      <td class="answer-listing"><span class="highlight-letter">H</span>Y<span class="highlight-letter">D</span>RA<span class="highlight-letter">T</span>E</td>
+      <td>D</td>
+      <td>T</td>
+      <td>H</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Lydian</td>
+      <td>742</td>
+      <td class="answer-listing">M<span class="highlight-letter">O</span>R<span class="highlight-letter">O</span>CC<span class="highlight-letter">O</span></td>
+      <td>O</td>
+      <td>O</td>
+      <td>O</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Mixolydian</td>
+      <td>437</td>
+      <td class="answer-listing">TH<span class="highlight-letter">U</span><span class="highlight-letter">N</span>DE<span class="highlight-letter">R</span></td>
+      <td>N</td>
+      <td>U</td>
+      <td>R</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Aeolian</td>
+      <td>517</td>
+      <td class="answer-listing"><span class="highlight-letter">R</span>IGH<span class="highlight-letter">T</span> O<span class="highlight-letter">N</span></td>
+      <td>T</td>
+      <td>R</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Locrian</td>
+      <td>625</td>
+      <td class="answer-listing">J<span class="highlight-letter">O</span>CA<span class="highlight-letter">S</span><span class="highlight-letter">T</span>A</td>
+      <td>T</td>
+      <td>O</td>
+      <td>S</td>
+    </tr>
+  </table>
+</div>
+{% endblock %}

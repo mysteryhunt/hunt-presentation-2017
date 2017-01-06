@@ -1,0 +1,58 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'bridge' %}
+{% block title_block %}Tree Rings: Solution{% endblock %}
+{% block puzzle_name_block %}Tree Rings: Solution{% endblock %}
+{% block byline %}By Trip Payne{% endblock %}
+{% block solution %}WINTER OLYMPICS{% endblock %}
+
+{% block solution_content_block %}
+  <div>
+    <p>
+      Each of the questions in the &ldquo;bull&rsquo;s-eye&rdquo; rings, when properly
+      answered, will cause two unrelated items to pop up around the tree stump:
+    </p>
+    <ol>
+      <li>&ldquo;BASAL METABOLISM&rdquo; is in <i>Funny Face</i>; that movie&rsquo;s first number is &ldquo;THINK PINK,&rdquo; which can have its PI changed to TA to become THINK TANK.  Photos: CORN and ARTICLE
+      <li>TALL can be placed inside MARIACHI and followed by EF to become MARIA TALLCHIEF, known for BALLET, which can have its fifth letter changed to become BALLOT.  Photos: CAR and PEAR
+      <li>The synonym for REMOVE is ELIMINATE; eliminate its vowels to get LMNT, then insert E three times to get ELEMENT.  Photos: PAN and (Burl) IVES
+      <li>The antonym for LOSES is WINS, which can be followed by antonyms LOW and HIGH to get WINSLOW HIGH, which was on BOSTON PUBLIC.  Photos: PHO and RING
+      <li>ALABAMA&rsquo;s third most populous city is MOBILE, whose letters appear in nonconsecutive order in SIMONE BILES, who was an athlete in GYMNASTICS.  Photos: CAP and CHI
+      <li>The <i>Voyager</i> episode &ldquo;INSIDE MAN&rdquo; preceded BODY AND SOUL, which was the title of a song that beat &ldquo;MOVES LIKE JAGGER&rdquo; at the Grammys, which contains JAG, which starred CATHERINE BELL.   Photos: HEELS and KING
+      <li>UNIONIZED, after moving the D to the seventh position and then changing the Z to an A, becomes UNIONIDAE, which is the family for a MUSSEL, whose homophone is MUSCLE.  Photos: FORT and ANT
+      <li>TRAIN&rsquo;s biggest hit was &ldquo;HEY, SOUL SISTER&rdquo; whose lyrics mention the band &ldquo;MR. MISTER&rdquo; who had the #1 hit &ldquo;BROKEN WINGS&rdquo; which appears in the lyrics of the 1968 Beatles song &ldquo;BLACKBIRD.&rdquo;  Photos: CAT and BRIDE
+      <li>HEALDSBURG, California, has radio station KNOB, which can have the B turned into a 3 to get KNO3, which is the formula for SALTPETER, which can have its third letter changed to an IN to form SAINT PETER.  Photos: ABS and BRA
+      <li>Hugh DOWNS hosted <i>CONCENTRATION</i> which contains CENTRA, an anagram of TRANCE, the British thriller, which can be replaced with Angry Bird STELLA to form CONSTELLATION.  Photos: BOB and STORM
+      <li><i>RENT</i> originally starred TAYE Diggs; TAYE + ABCDE anagrammed forms BETA DECAY.  Photos: TEE and HAM
+      <li>PACE is a brand of SALSA which can have its middle letter changed to get SAMSA, the hero of <i>The Metamorphosis</i> who becomes an INSECT (according to many translations and SparkNotes).  Photos: DISC and (Bill) GATES
+      <li>HURL is the beginning of minor planet HURLESS; ESS can be preceded by minor planet S&Oslash;REN (minus the slash) to get SORENESS.  Photos: PILLAR and ARM
+      <li><i>RED OAK VICTORY</i> is a ship at the ROSIE THE RIVETER/WORLD WAR II HOME FRONT NATIONAL HISTORICAL PARK; changing two vowels in HISTORICAL creates HYSTERICAL.  Photos: INK and HORUS
+    </ol>
+    <p>
+      Those answers are each suggestive of a word or phrase that can be spelled
+      out along the stump, using two of the images plus two letters between
+      them:
+    </p>
+    <blockquote>
+      think tank: BRA(IN)STORM<br>
+      ballot: ABS(EN)TEE<br>
+      element: PHO(SP)HORUS<br>
+      Boston Public: CHI (MC)BRIDE<br>
+      gymnastics: CAR(TW)HEELS<br>
+      Catherine Bell: ARM(Y W)IVES<br>
+      muscle: HAM(ST)RING<br>
+      blackbird: BOB(OL)INK<br>
+      Saint Peter: PEAR(LY) GATES<br>
+      constellation: CAP(RI)CORN<br>
+      beta decay: ANT(IP)ARTICLE<br>
+      insect: CAT(ER)PILLAR<br>
+      soreness: DISC(OM)FORT<br>
+      hysterical: PAN(IC)KING<br>
+    </blockquote>
+    <p>
+      Using the crossings to determine the placement of the interior letters
+      (each of which appears in exactly two entries), you get the answer
+      <b>WINTER OLYMPICS</b>.
+    </p>
+    <img src="{{ asset_url_for('tree_rings/solution.png') }}" width="600">
+  </div>
+{% endblock %}

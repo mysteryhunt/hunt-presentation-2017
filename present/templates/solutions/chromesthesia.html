@@ -80,11 +80,11 @@
     <p>
       The next step is to figure out how to use the colors of the letters. We
       can analyze the colors in the image using image editing tools
-      (e.g. Photoshop/GIMP, ImageMagick, Python Imaging Library). Depending on
+      (e.g., Photoshop/GIMP, ImageMagick, Python Imaging Library). Depending on
       the tools used, different clues might be noticed first.
     </p>
     <p>
-      When using tools that work with 8-bit color channels (e.g. GIMP, Python
+      When using tools that work with 8-bit color channels (e.g., GIMP, Python
       Imaging Library), examining a color histogram will reveal a
       disproportionate number of pixels with RGB value #010000. Highlighting
       these pixels produces the image below.
@@ -103,13 +103,13 @@
       which is a clue that the puzzle is
       a <a href="https://en.wikipedia.org/wiki/Color_depth#Deep_color_.2830.2F36.2F48-bit.29">deep
       color</a> image, with 16 bits of color per channel, for a total of 48. We
-      can check the color depth of the image e.g. by using the ImageMagick
+      can check the color depth of the image e.g., by using the ImageMagick
       identify command:
     </p>
     <pre>$ identify puzzle.png
 puzzle.png PNG 600x336 600x336+0+0 16-bit DirectClass 15.8KB 0.000u 0:00.000</pre>
     <p>
-      Using tools that support 16-bit color channels (e.g. Photoshop,
+      Using tools that support 16-bit color channels (e.g., Photoshop,
       ImageMagick), separating the color channels and examining the color
       histograms for each channel will reveal more high-frequency almost-black
       color values, specifically the colors #000000010000 and #000000000001.
@@ -133,7 +133,7 @@ puzzle.png PNG 600x336 600x336+0+0 16-bit DirectClass 15.8KB 0.000u 0:00.000</pr
     -depth 8 \
     puzzle_deep_blue_clues.png</pre>
     <p>
-      Let's consider the green clues first (green does come before blue in the
+      Let&rsquo;s consider the green clues first (green does come before blue in the
       red green blue pixel order, after all). The green words read:<br>
       ROWETEL CODEC2<br>
       INPUT:<br>
@@ -231,9 +231,9 @@ def GetCharColorTuple(char_img):
     <p>
       Playing back the sound associated with each line reveals a single spoken
       word. If we combine these words with the colors we found above, we get
-      titles of songs. In each case, we'll also figure out the artist that
-      created the song, and we'll look up their full birth name (just like the
-      actor names provided at the beginning). Finally, we'll use the blue
+      titles of songs. In each case, we&rsquo;ll also figure out the artist that
+      created the song, and we&rsquo;ll look up their full birth name (just like the
+      actor names provided at the beginning). Finally, we&rsquo;ll use the blue
       numbers associated with each name as indices into the full artist birth
       names for each song.
     </p>

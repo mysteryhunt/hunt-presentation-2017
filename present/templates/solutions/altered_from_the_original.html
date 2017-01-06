@@ -1,0 +1,152 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'bridge' %}
+{% block title_block %}Altered From The Original: Solution{% endblock %}
+{% block puzzle_name_block %}Altered From The Original: Solution{% endblock %}
+{% block byline %}By Greg Pliska{% endblock %}
+{% block solution %}COURTNEY LOVE{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  #puzzle-content table,
+  #puzzle-content th,
+  #puzzle-content td {
+    border: 1px solid;
+  }
+
+  #puzzle-content table {
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<div>
+  <p>The audio file is composed of 12 song clips of varying lengths, with the pitch having been altered on eleven of them.</p>
+  <p>
+    Solvers must ID the songs, and recognize that each one has been adapted from an earlier classical work (as clued by the flavortext phrase &ldquo;what material it’s composed of&rdquo;). Solvers need to identify the composers of these original works, and then index
+    into those composers&rsquo; surnames by the number of seconds in the clips.
+  </p>
+  <table>
+    <tr>
+      <th>Popular Song</th>
+      <th>Artist</th>
+      <th>Pitch Shift</th>
+      <th>No. of Secs.</th>
+      <th>Orig Composer</th>
+      <th>Original Work</th>
+      <th>Letter</th>
+    </tr>
+    <tr>
+      <td>American Tune</td>
+      <td>Paul Simon</td>
+      <td>0</td>
+      <td>3</td>
+      <td>BACH</td>
+      <td>St. Matthew Passion</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <td>This Night</td>
+      <td>Billy Joel</td>
+      <td>10</td>
+      <td>7</td>
+      <td>BEETHOVEN</td>
+      <td>Path&eacutetique</td>
+      <td>V</td>
+    </tr>
+    <tr>
+      <td>Could it Be Magic</td>
+      <td>Barry Manilow</td>
+      <td>9</td>
+      <td>3</td>
+      <td>CHOPIN</td>
+      <td>Prelude in C minor</td>
+      <td>O</td>
+    </tr>
+    <tr>
+      <td>A Groovy Kind of Love</td>
+      <td>Mindbenders</td>
+      <td>11</td>
+      <td>5</td>
+      <td>CLEMENTI</td>
+      <td>Rondo from Sonatina in G</td>
+      <td>E</td>
+    </tr>
+    <tr>
+      <td>My Reverie</td>
+      <td>Ella Fitzgerald</td>
+      <td>7</td>
+      <td>7</td>
+      <td>DEBUSSY</td>
+      <td>Reverie</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>It&rsquo;s Now Or Never</td>
+      <td>Elvis Presley</td>
+      <td>2</td>
+      <td>6</td>
+      <td>DI CAPUA</td>
+      <td>O Sole Mio</td>
+      <td>U</td>
+    </tr>
+    <tr>
+      <td>(I Can&rsquo;t Help) Falling in Love with You</td>
+      <td>UB40</td>
+      <td>5</td>
+      <td>6</td>
+      <td>MARTINI</td>
+      <td>Plaisir d&rsquo;Amour</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>I Don&rsquo;t Want to Walk Without You</td>
+      <td>Harry James &amp; His Orchestra</td>
+      <td>6</td>
+      <td>2</td>
+      <td>MENDELSSOHN</td>
+      <td>Allegretto grazioso in A major (Frühlingslied, or Spring Song) in Book 5 of Lieder ohne Worte (Songs Without Words)</td>
+      <td>E</td>
+    </tr>
+    <tr>
+      <td>Hate Me Now</td>
+      <td>Puff Daddy/Nas</td>
+      <td>3</td>
+      <td>2</td>
+      <td>ORFF</td>
+      <td>Carmina Burana</td>
+      <td>R</td>
+    </tr>
+    <tr>
+      <td>Hello Muddah, Hello Faddah</td>
+      <td>Alan Sherman</td>
+      <td>8</td>
+      <td>8</td>
+      <td>PONCHIELLI</td>
+      <td>Dance of the Hours</td>
+      <td>L</td>
+    </tr>
+    <tr>
+      <td>All by Myself</td>
+      <td>Eric Carmen</td>
+      <td>1</td>
+      <td>10</td>
+      <td>RACHMANINOFF</td>
+      <td>Piano Concerto No. 2 in C</td>
+      <td>O</td>
+    </tr>
+    <tr>
+      <td>Once Upon A Dream</td>
+      <td>Sleeping Beauty</td>
+      <td>4</td>
+      <td>1</td>
+      <td>TCHAIKOVSKY</td>
+      <td>Sleeping Beauty, Act I, The Garland Waltz</td>
+      <td>T</td>
+    </tr>
+  </table>
+  <p>Finally, ordering the extracted letters by the number of semitones the clip has been shifted (from 0 to +11) spells the answer <b>COURTNEY LOVE</b>.</p>
+</div>
+{% endblock %}

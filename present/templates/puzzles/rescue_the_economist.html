@@ -1,11 +1,20 @@
 {% extends "puzzles/puzzle_layout.html" %}
+{% set puzzle_round_id = 'economist' %}
+{% set suppress_display_solution = True %}
 {% block title_block %}Rescue the Economist{% endblock %}
 {% block puzzle_name_block %}Rescue the Economist{% endblock %}
-{% block header_content %}{% endblock %}
+
+{% block header_content %}
+  <div id="submit"><a href="{{ submit_url_for(puzzle_id) }}">Request interaction</a></div>
+{% endblock %}
 
 {% block puzzle_head_block %}
 {% endblock %}
 
 {% block puzzle_flavortext_block %}{% endblock %}
 
-{% block puzzle_content_block %}{% endblock %}
+{% block puzzle_content_block %}
+  <p>
+      <a class="standard-link" href="{{ submit_url_for(puzzle_id) }}">Contact HQ</a> to schedule the rescue.
+  </p>
+{% endblock %}

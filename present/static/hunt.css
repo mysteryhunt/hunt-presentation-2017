@@ -323,6 +323,21 @@ body {
   font-weight: bold;
 }
 
+#header-change-contact-info .modal-header {
+  background-image: url('https://assets-open.monsters-et-manus.com/general/wooden-background.png');
+  background-size: 100% auto;
+  border-bottom: none;
+}
+
+#header-change-contact-info table.centered {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#header-change-contact-info .text-align-right {
+  text-align: right;
+}
+
 /* Captions */
 
 .tooltip {
@@ -335,6 +350,18 @@ body {
   color: black;
   font-size: 20px;
   font-family: 'Lora', serif;
+}
+
+/* Announcements and Errata */
+
+#announcements-and-errata {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding: 0.5em;
+  display: inline-block;
+  background-color: rgba(255, 222, 173, 0.95);
+  border-radius: 10px;
+  border: 2px solid black;
 }
 
 /* Other */

@@ -1,0 +1,134 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'cube' %}
+{% block title_block %}Some Light Hacking: Solution{% endblock %}
+{% block puzzle_name_block %}Some Light Hacking: Solution{% endblock %}
+{% block byline %}By Tanis O'Connor and Chad Brown{% endblock %}
+{% block solution %}PETSIT{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  #puzzle-content table {
+    width: 100%;
+  }
+
+  #puzzle-content td {
+    height: 100px;
+  }
+
+  .o {
+    color: orange;
+  }
+
+  .p {
+    color: purple;
+  }
+
+  .r {
+    color: red;
+  }
+
+  .g {
+    color: green;
+  }
+
+  .b {
+    color: blue;
+  }
+
+  .y {
+    color: yellow;
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<div>
+  <p>This puzzle is based on the glyph language used in the augmented reality game <i>Ingress</i>. There&rsquo;s a canonical meaning for all the glyphs you can hack in the game (hacking is jargon for using the language in-game to get stuff) and it&rsquo;s detailed, among other
+    places, at <a href="http://glyphtionary.com">Glyphtionary</a>.</p>
+  <ul>
+    <li><span class="o">Incompatibility</span> - CONFLICT</li>
+    <li><span class="o">Quality represented by Crane badge</span> - COURAGE</li>
+    <li><span class="p">Keep enemies away from</span> - DEFEND</li>
+    <li><span class="r">Journey&rsquo;s end</span> - DESTINATION</li>
+    <li><span class="r">Science magazine "for the curious"</span> - DISCOVER</li>
+    <li><span class="r">Age of Reason</span> - ENLIGHTENMENT</li>
+    <li><span class="g">The mind-killer</span> - FEAR</li>
+    <li><span class="b">Position in which a golf ball sits</span> - LIE</li>
+    <li><span class="g">Captain Red Herring&rsquo;s <span class="answer-blank">_____</span> Island</span> - MYSTERY</li>
+    <li><span class="g">Obad-hai&rsquo;s portfolio</span> - NATURE</li>
+    <li><span class="b">Show set in Arkwright Provisions, with Hours</span> - OPEN ALL</li>
+    <li><span class="p">Point of view</span> - PERSPECTIVE</li>
+    <li><span class="o">Pin or dance?</span> - SAFETY</li>
+    <li><span class="b">Recently replaced Longhorns coach</span> - STRONG</li>
+    <li><span class="p">If sufficiently advanced, it&rsquo;s indistinguishable from magic</span> - TECHNOLOGY</li>
+    <li><span class="y">Hand in glove</span> - TOGETHER</li>
+    <li><span class="y">Like a set of real numbers not contained in any finiteinterval</span> - UNBOUNDED</li>
+    <li><span class="y">It merged with Sirius in 2008</span> - XM<br></li>
+  </ul>
+  <p>Each diagram has a base color that matches three clues in the list. Each diagram contains one bonus glyph. When lines of a glyph overlap, the color advances one step in ROYGBV for each glyph that overlaps. Enumerations below each glyph give the number
+    of &ldquo;strokes&rdquo; it takes to draw the glyphs (each &ldquo;stroke&rdquo; is a straight line that ends and/or begins in a change of direction.) In the game, you&rsquo;re drawing these continuously without lifting your finger/pen.
+  </p>
+  <p>Bonus glyphs (the first in each row below):</p>
+  <ul>
+    <li>Red - CONTEMPLATE</li>
+    <li>Orange - LIBERATE</li>
+    <li>Yellow - TRUTH</li>
+    <li>Green - SIMPLE</li>
+    <li>Blue - DESTINY</li>
+    <li>Violet - WORTH</li>
+  </ul>
+
+  <p>Each ? is the stroke enumeration for the missing glyph. Index into the glyph&rsquo;s definition by the stroke enumeration and you get <b>PETSIT</b>.</p>
+
+  <hr>
+  <table>
+    <tr>
+      <td><img src="{{ asset_url_for('some_light_hacking/s1.png')  }}"></td>
+      <td><img src="http://glyphtionary.com/glyphs/thumbs/Contemplate.png" alt="Contemplate"></td>
+      <td><img src="http://glyphtionary.com/glyphs/thumbs/Destination.png" alt="Destination"></td>
+      <td><img src="http://glyphtionary.com/glyphs/thumbs/Discover.png" alt="Discover"></td>
+      <td><img src="http://glyphtionary.com/glyphs/thumbs/Enlightened.png" alt="Enlightened"></td>
+    </tr>
+    <tr>
+      <td><img src="{{ asset_url_for('some_light_hacking/s2.png')  }}"></td>
+      <td><img src="http://glyphtionary.com/glyphs/thumbs/Liberate.png" alt="Liberate"></td>
+      <td><img src="http://glyphtionary.com/glyphs/thumbs/Conflict.png" alt="Conflict"></td>
+      <td><img src="http://glyphtionary.com/glyphs/thumbs/Courage.png" alt="Courage"></td>
+      <td><img src="http://glyphtionary.com/glyphs/thumbs/Safety.png" alt="EnlightenedSafety"></td>
+    </tr>
+    <tr>
+      <td><img src="{{ asset_url_for('some_light_hacking/s3.png')  }}"></td>
+      <td><img src="http://glyphtionary.com/glyphs/thumbs/Truth.png" alt="Truth"></td>
+      <td><img src="http://glyphtionary.com/glyphs/thumbs/Unbounded.png" alt="Unbounded"></td>
+      <td><img src="http://glyphtionary.com/glyphs/thumbs/Together.png" alt="Together"></td>
+      <td><img src="http://glyphtionary.com/glyphs/thumbs/XM.png" alt="XM"></td>
+    </tr>
+    <tr>
+      <td><img src="{{ asset_url_for('some_light_hacking/s4.png')  }}"></td>
+      <td><img src="http://glyphtionary.com/glyphs/thumbs/Simple.png" alt="Simple"></td>
+      <td><img src="http://glyphtionary.com/glyphs/thumbs/Fear.png" alt="Fear"></td>
+      <td><img src="http://glyphtionary.com/glyphs/thumbs/Mystery.png" alt="Mystery"></td>
+      <td><img src="http://glyphtionary.com/glyphs/thumbs/Nature.png" alt="Nature"></td>
+    </tr>
+    <tr>
+      <td><img src="{{ asset_url_for('some_light_hacking/s5.png')  }}"></td>
+      <td><img src="http://glyphtionary.com/glyphs/thumbs/Destiny.png" alt="Destiny"></td>
+      <td><img src="http://glyphtionary.com/glyphs/thumbs/Lie.png" alt="Destination"></td>
+      <td><img src="http://glyphtionary.com/glyphs/thumbs/Open-All.png" alt="Open All"></td>
+      <td><img src="http://glyphtionary.com/glyphs/thumbs/Strong.png" alt="Strong"></td>
+    </tr>
+    <tr>
+      <td><img src="{{ asset_url_for('some_light_hacking/s6.png')  }}"></td>
+      <td><img src="http://glyphtionary.com/glyphs/thumbs/Worth.png" alt="Worth"></td>
+      <td><img src="http://glyphtionary.com/glyphs/thumbs/Defend.png" alt="Defend"></td>
+      <td><img src="http://glyphtionary.com/glyphs/thumbs/Perspective.png" alt="Perspective"></td>
+      <td><img src="http://glyphtionary.com/glyphs/thumbs/Technology.png" alt="Technology"></td>
+    </tr>
+  </table>
+</div>
+{% endblock %}

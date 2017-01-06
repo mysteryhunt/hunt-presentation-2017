@@ -1,0 +1,54 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'criminal' %}
+{% block title_block %}The Crafty Criminal: Solution{% endblock %}
+{% block puzzle_name_block %}The Crafty Criminal: Solution{% endblock %}
+{% block byline %}By Dan Katz and Roger Barkan{% endblock %}
+{% block solution %}PEGMAN{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  #puzzle-content ul {
+    list-style-type: none;
+    padding-left: 0px;
+  }
+  #puzzle-content li {
+    padding-bottom: 3px;
+  }
+  #puzzle-content td {
+    padding: 4px;
+    text-align: center;
+  }
+  #puzzle-content span.answer-listing {
+    font-family: monospace;
+  }
+  #puzzle-content td.highlight-group {
+    font-weight: bold;
+    color: red;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<div>
+  <p>
+    Each answer consists of a two-word phrase with a six-letter first word and a shorter second word. Each letter from the second words is taken from the letters that spell either &ldquo;BLACK&rdquo; or &ldquo;WHITE.&rdquo; That, coupled with the six-letter first words (and the word &ldquo;mastermind&rdquo; in the story text), suggests a game of Mastermind to determine a six-letter answer, with the second word in each puzzle answer representing the responses to the guess. (A black peg represents a correct letter in the answer appearing in the correct position; a white peg represents a correct letter in the wrong position.)
+  </p>
+  <p>
+    <ul>
+      <li><span class="answer-listing">ANGKOR: WAT</span> = 1 black, 2 white</li>
+      <li><span class="answer-listing">KHAGAN: BEK</span> = 2 black, 1 white</li>
+      <li><span class="answer-listing">LEAVES: BE</span> = 1 black, 1 white</li>
+      <li><span class="answer-listing">MORGAN: HILL</span> = 2 black, 1 white</li>
+      <li><span class="answer-listing">PACKED: ICE</span> = 1 black, 2 white</li>
+      <li><span class="answer-listing">PAMPAS: CAT</span> = 2 black, 1 white</li>
+      <li><span class="answer-listing">PAVING: TILE</span> = 1 black, 3 white</li>
+      <li><span class="answer-listing">PIGEON: LAKE</span> = 3 black, 1 white</li>
+      <li><span class="answer-listing">RAPIER: WIT</span> = 0 black, 3 white</li>
+      <li><span class="answer-listing">TAMPER: WITH</span> = 0 black, 4 white</li>
+    </ul>
+  </p>
+  <p>
+    The only six-letter string satisfying all of these clues is <b>PEGMAN</b>, the stick figure mascot for Google Maps, who will be happy to help our heroes find their way through the city.
+  </p>
+</div>
+{% endblock %}

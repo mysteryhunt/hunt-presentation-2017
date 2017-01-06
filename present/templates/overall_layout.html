@@ -29,6 +29,7 @@
               <ul>
                 <li><a href="{{ url_for('index') }}">World Map</a></li>
                 <li><a href="{{ url_for('inventory') }}">Inventory</a></li>
+                <li><a href="{{ url_for('handbook') }}">Player Handbook</a></li>
                 <li><a href="{{ url_for('puzzle_list') }}">List of Puzzles</a></li>
               </ul>
             </div>
@@ -69,7 +70,44 @@
         </div>
       </div>
     </div>
-    
+
+    <div id="header-change-contact-info" class="modal fade" role="dialog" aria-labelledby="changeContactInfoModal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="small-horizontal-scroll">
+              Change Team Contact Info
+            </div>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            <form action="{{ url_for('change_contact_info') }}" method="post">
+              <table class="centered">
+                <tr>
+                  <td class="text-align-right">Email</td>
+                  <td><input type="text" name="email" value="{{ core_display_data.email }}"></td>
+                </tr>
+                <tr>
+                  <td class="text-align-right">Primary Phone</td>
+                  <td><input type="text" name="primaryPhone" value="{{ core_display_data.primaryPhone }}"></td>
+                </tr>
+                <tr>
+                  <td class="text-align-right">Secondary Phone</td>
+                  <td><input type="text" name="secondaryPhone" value="{{ core_display_data.secondaryPhone }}"></td>
+                </tr>
+              </table>
+              <p>
+                Clicking the button below will change the contact
+                information used for answer confirmation for your
+                entire team. Please double-check the information
+                entered before submitting a change.
+              </p>
+              <input type="submit" value="Change Team Contact Info">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
     
     <div id="overall-layout-header">
       <div id="header-navigation-links">
@@ -107,7 +145,13 @@
       
       <div id="header-session-control">
         {% if session["username"] %}
-          {{ session["username"] }} (<a href="{{ url_for('login.logout') }}">logout</a>)
+          {{ session["username"] }}
+          <a href="#" data-toggle="modal" data-target="#header-change-contact-info">
+            <span class="fa fa-pencil-square-o" data-toggle="tooltip" data-placement="bottom" title="Change Contact Info"></span>
+          </a>
+          <a href="{{ url_for('login.logout') }}">
+            <span class="fa fa-sign-out" data-toggle="tooltip" data-placement="bottom" title="Logout"></span>
+          </a>
         {% else %}
           Not logged in (<a href="{{ url_for('login.login') }}">login</a>)
         {% endif %}

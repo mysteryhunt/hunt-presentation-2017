@@ -1,0 +1,40 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'dungeon' %}
+{% block title_block %}The Dismal Dungeon: Solution{% endblock %}
+{% block puzzle_name_block %}The Dismal Dungeon: Solution{% endblock %}
+{% block byline %}By Roger Barkan{% endblock %}
+{% block solution %}CARRY A TORCH{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  #puzzle-content ul {
+    list-style-type: none;
+    padding-left: 0px;
+  }
+  #puzzle-content li {
+    padding-bottom: 3px;
+  }
+  #puzzle-content td {
+    padding: 4px;
+  }
+  #puzzle-content td.answer-listing {
+    font-family: monospace;
+  }
+  #puzzle-content span.highlight-group {
+    font-weight: bold;
+    color: blue;
+  }
+  #puzzle-content span.highlight-letter {
+    font-weight: bold;
+    color: red;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<div>
+  <p>
+    Each puzzle answer can be spelled out in the grid by starting at an appropriate cell, moving E, N, S, and W when those letters are encountered. (This is hinted by the fact that the grid contains all letters except those 4, while those letters are heavily present in the answers.) The paths begin on the letters A through L (minus E, which does not appear in the grid), providing an ordering. Taking the cells each path ends on, in the order given, spells the answer <b>CARRY A TORCH</b>.
+  </p>
+</div>
+{% endblock %}

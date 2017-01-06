@@ -1,0 +1,34 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}The Puzzle at the End of This Book{% endblock %}
+{% block puzzle_name_block %}The Puzzle at the End of This Book{% endblock %}
+
+{% block puzzle_head_block %}
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+If you want to defeat the cube, it&rsquo;s time to face your childhood fears.
+{% endblock %}
+
+{% block puzzle_content_block %}
+<div>
+  <p>
+    <a class="standard-link" href="{{ submit_url_for(puzzle_id) }}">Contact HQ</a> to request a copy of this puzzle.
+  </p>
+</div>
+<div style="margin-top: 60px;">
+  <p>
+    This puzzle is intended to be distributed to teams as a physical book. These are links to the pages.
+  </p>
+  <ul>
+    <li><a class="standard-link" href="{{ asset_url_for('the_puzzle_at_the_end_of_this_book/page00.pdf') }}">Cover</a></li>
+    <li><a class="standard-link" href="{{ asset_url_for('the_puzzle_at_the_end_of_this_book/page01.pdf') }}">Spread 1</a></li>
+    <li><a class="standard-link" href="{{ asset_url_for('the_puzzle_at_the_end_of_this_book/page02.pdf') }}">Spread 2</a></li>
+    <li><a class="standard-link" href="{{ asset_url_for('the_puzzle_at_the_end_of_this_book/page03.pdf') }}">Spread 3</a></li>
+    <li><a class="standard-link" href="{{ asset_url_for('the_puzzle_at_the_end_of_this_book/page04.pdf') }}">Spread 4</a></li>
+    <li><a class="standard-link" href="{{ asset_url_for('the_puzzle_at_the_end_of_this_book/page05.pdf') }}">Spread 5</a></li>
+    <li><a class="standard-link" href="{{ asset_url_for('the_puzzle_at_the_end_of_this_book/page06.pdf') }}">Spread 6</a></li>
+    <li><a class="standard-link" href="{{ asset_url_for('the_puzzle_at_the_end_of_this_book/page07.pdf') }}">Spread 7</a></li>
+    <li><a class="standard-link" href="{{ asset_url_for('the_puzzle_at_the_end_of_this_book/page08.pdf') }}">Spread 8</a></li>
+  </ul>
+</div>
+{% endblock %}

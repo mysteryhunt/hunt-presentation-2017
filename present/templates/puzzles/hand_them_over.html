@@ -1,0 +1,67 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}Hand Them Over!{% endblock %}
+{% block puzzle_name_block %}Hand Them Over!{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    table.a td {
+      width: 450px;
+    }
+    #puzzle-image {
+      margin-top: 80px;
+    }
+  </style>
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+  The Chemist often cries when she realizes she&rsquo;s typed in her data incorrectly.
+{% endblock %}
+
+{% block puzzle_content_block %}
+  <div>
+    <hr>
+    <table class="a">
+      <tr><td>Candle material</td><td>&ldquo;Are You Gonna Be My Girl?&rdquo; band</td></tr>
+      <tr><td>That guy</td><td>Button often used to quit a program (abbr.)</td></tr>
+      <tr><td>Buddy</td><td>Firearm</td></tr>
+      <tr><td>Part of a Florida archipelago</td><td>Former acorn</td></tr>
+      <tr><td>Portraits or sculptures, for example</td><td>Home for a hog</td></tr>
+    </table>
+    <hr>
+    <table class="a">
+      <tr><td>Column complements</td><td>Gossip or soil</td></tr>
+      <tr><td>Christmastime</td><td>Like a busybody</td></tr>
+      <tr><td>Prima donna</td><td>Small child</td></tr>
+      <tr><td>Slang term for a full house</td><td>Three-<span class="answer-blank">_____</span> sloth</td></tr>
+      <tr><td>Fictional blue tang</td><td>White lies</td></tr>
+    </table>
+    <hr>
+    <table class="a">
+      <tr><td>It&rsquo;s larger than a love seat</td><td>Financial obligation</td></tr>
+      <tr><td>Picks up the check</td><td>Game played by three players with 32 cards</td></tr>
+      <tr><td>About 1.6 kilometers</td><td>Grains packaged by Quaker</td></tr>
+      <tr><td>Challenge the existence of</td><td>Heat in a microwave</td></tr>
+      <tr><td>Kill a vampire or a dragon</td><td>Retrievers, for example</td></tr>
+    </table>
+    <hr>
+    <table class="a">
+      <tr><td><i>Dude, Where&rsquo;s My Car?</i> tattoo word</td><td>Eccentric or leopardlike?</td></tr>
+      <tr><td>Ancient Greek assembly area</td><td>Krogan team member in <i>Mass Effect 2</i></td></tr>
+      <tr><td>Apologetic</td><td>LMFAO song about drinking</td></tr>
+      <tr><td>Covered with filth or grease</td><td>New Hampshire&rsquo;s &ldquo;Spacetown&rdquo;</td></tr>
+      <tr><td>With many visible blood vessels</td><td>Salty, like seawater</td></tr>
+    </table>
+    <hr>
+    <table class="a">
+      <tr><td>Give up on a poker hand</td><td>Arrange in order</td></tr>
+      <tr><td>Mastercard alternative</td><td>David Ayer WWII film</td></tr>
+      <tr><td>Pretty fit for an old guy</td><td>Participates in an auction</td></tr>
+      <tr><td>&ldquo;The Boy is Mine&rdquo; or &ldquo;I Got You Babe,&rdquo; e.g.</td><td>Sink one&rsquo;s teeth into</td></tr>
+      <tr><td>One-third of a major or minor chord</td><td>Sorenstam&rsquo;s sport</td></tr>
+    </table>
+    <hr>
+    <div id="puzzle-image">
+      <img src="{{ asset_url_for('hand_them_over/image01.gif') }}">
+    </div>
+  </div>
+{% endblock %}
