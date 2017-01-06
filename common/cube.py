@@ -69,12 +69,16 @@ def get_visible_puzzle_ids(app):
     response = get(app, "/visibilities?teamId=%s" % session["username"])
     return [v["puzzleId"] for v in response["visibilities"]]
 
-def get_puzzle_visibilities(app):
-    response = get(app, "/visibilities?teamId=%s" % session["username"])
+def get_puzzle_visibilities(app, team_id=None):
+    if not team_id:
+        team_id = session["username"]
+    response = get(app, "/visibilities?teamId=%s" % team_id)
     return sorted(response["visibilities"], key=lambda v: v["puzzleId"])
 
-def get_puzzle_visibilities_async(app):
-    return get_async(app, "/visibilities?teamId=%s" % session["username"])
+def get_puzzle_visibilities_async(app, team_id=None):
+    if not team_id:
+        team_id = session["username"]
+    return get_async(app, "/visibilities?teamId=%s" % team_id)
 
 def get_puzzle_visibilities_for_list(app, puzzle_ids, team_id=None):
     if not team_id:
