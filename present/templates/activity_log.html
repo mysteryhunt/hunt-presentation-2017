@@ -1,0 +1,60 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}Activity Log{% endblock %}
+{% block puzzle_name_block %}Activity Log{% endblock %}
+{% block header_content %}{% endblock %}
+
+{% block styling_block %}
+    <style>
+      table.activitylog {
+        border-collapse: collapse;
+      }
+      table.activitylog td {
+        padding-right: 2em;
+        padding-top: 0.25em;
+        padding-bottom: 0.25em;
+        border-top: 1px solid #cccccc;
+        border-bottom: 1px solid #cccccc;
+      }
+      table.activitylog td.ts {
+        min-width: 10em;
+      }
+    </style>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='puzzle.css') }}">
+    {% block puzzle_head_block %}{% endblock %}
+{% endblock %}
+
+
+{% block puzzle_content_block %}
+<div>
+  <table class="activitylog">
+    {% for entry in activity_entries %}
+      <tr>
+        <td class="ts">{{ entry["timestamp"] | datetime }}</td>
+        <td>
+          {% set display_id = all_puzzles.get(entry["puzzleId"]).get('puzzleProperties',{}).get('DisplayIdProperty',{}).get('displayId',puzzle_id) %}
+          {% if entry["puzzleId"] in core_display_data["visible_characters"] or entry["puzzleId"] in core_display_data["visible_quests"] %}
+            {% set url = url_for('round', round_id=entry["puzzleId"]) %}
+          {% else %}
+            {% set url = url_for('puzzle', puzzle_id=display_id) %}
+          {% endif %}
+          <a class="standard-link" href="{{ url }}">
+            {{ handle_title_underscores(all_puzzles.get(entry["puzzleId"]).get('puzzleProperties',{}).get('DisplayNameProperty',{}).get('displayName',puzzle_id)) | safe }}
+          </a>
+        </td>
+        <td>{{ entry["status"] }}</td>
+        {% if "submissionId" in entry %}
+          <td>{{ entry["submission"] }}</td>
+        {% else %}
+          <td>
+            {% if entry["status"] == "SOLVED" %}
+              {% for answer in all_puzzles.get(entry["puzzleId"]).get('puzzleProperties',{}).get('AnswersProperty',{}).get('answers',[]) %}
+                {{ answer["canonicalAnswer"] }}
+              {% endfor %}
+            {% endif %}
+          </td>
+        {% endif %}
+      </tr>
+    {% endfor %}
+  </table>
+</div>
+{% endblock %}
