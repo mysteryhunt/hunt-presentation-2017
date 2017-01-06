@@ -9,7 +9,7 @@ import os
 @app.errorhandler(Exception)
 def handle_exception(error):
     error_string = str(error)
-    if isinstance(error, RequestException):
+    if isinstance(error, RequestException) and error.response is not None:
         error_string += ": " + error.response.json()
     return render_template(
         "error.html",

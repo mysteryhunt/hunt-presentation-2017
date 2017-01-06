@@ -4,8 +4,29 @@ from common import cube, login_required
 from flask import abort, redirect, render_template, request, session, url_for
 from requests.exceptions import RequestException
 
-@app.errorhandler(RequestException)
-def handle_request_exception(error):
+@app.errorhandler(Exception)
+def handle_exception(error):
+    error_string = str(error)
+    if isinstance(error, RequestException) and error.response is not None:
+        error_string += ": " + error.response.json()
+    return render_template(
+        "error.html",
+        error=error_string)
+
+@app.errorhandler(403)
+def handle_forbidden(error):
+    return render_template(
+        "error.html",
+        error=error)
+
+@app.errorhandler(404)
+def handle_not_found(error):
+    return render_template(
+        "error.html",
+        error=error)
+
+@app.errorhandler(500)
+def handle_internal_server_error(error):
     return render_template(
         "error.html",
         error=error)
@@ -22,8 +43,9 @@ def utility_processor():
 
 
 @app.route("/")
-@login_required.solvingteam
 def index():
+    # Disable this route, it's not styled.
+    abort(404)
     puzzle_visibilities = cube.get_puzzle_visibilities(app)
     puzzle_visibilities = [v for v in puzzle_visibilities if v.get('status','') in ['UNLOCKED','SOLVED']]
     puzzle_properties = cube.get_all_puzzle_properties(app)
