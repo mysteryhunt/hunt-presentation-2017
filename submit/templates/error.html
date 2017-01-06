@@ -1,10 +1,22 @@
 <!doctype html>
 <html>
   <head>
-    <title>Error</title>
+    <title>Monsters et Manus - Error</title>
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='submit.css') }}">
   </head>
   <body>
-    <p>An error has occurred:</p>
-    <p>{{ error }}</p>
+    <center>
+      <div style="margin-top: 3em">
+        <div class="small-horizontal-scroll">
+          Monsters et Manus
+        </div>
+      </div>
+      <p>
+        You died while exploring beyond safe territory.
+        <a class="standard-link" href="/">Return to your adventure</a>.
+      </p>
+      <p style="font-size: 0.75em">Error detail: {{ error }}</p>
+    </center>
   </body>
 </html>
