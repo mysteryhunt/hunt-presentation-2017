@@ -2,6 +2,14 @@
 {% block title_block %}Subservient Chicken vs Tim the Beaver{% endblock %}
 {% block puzzle_name_block %}Subservient Chicken vs Tim the Beaver{% endblock %}
 
+{% block puzzle_head_block %}
+  <style>
+    div.video-container {
+      margin-top: 5em;
+    }
+  </style>
+{% endblock %}
+
 {% block puzzle_flavortext_block %}
   The warlord warns you that someday you may have to fight .&nbsp;.&nbsp;. for
   your life. So don&rsquo;t mess it up.
@@ -20,7 +28,7 @@
       matched.
     </p>
     <p>
-      Or .&nbsp;.&nbsp;. could it??
+      Or&nbsp;.&nbsp;.&nbsp;. could it??
     </p>
     <p>
       As it turns out, one of Chuckie&rsquo;s closest friends is MIT&rsquo;s own
@@ -32,7 +40,7 @@
     <p>
       Enjoy, once again, the charisma and talent of Chuckie Chicken!
     </p>
-    <div>
+    <div class="video-container">
       <video width="720" height="405" controls="">
         <source src="{{ asset_url_for('subservient_chicken_vs_tim_the_beaver/Clip1.mp4') }}" type="video/mp4">
           <a href="{{ asset_url_for('subservient_chicken_vs_tim_the_beaver/Clip1.mp4') }}">Download</a><!-- This is a fallback for old browsers-->
@@ -43,7 +51,7 @@
         Singer: 4
       </p>
     </div>
-    <div>
+    <div class="video-container">
       <video width="720" height="405" controls="">
         <source src="{{ asset_url_for('subservient_chicken_vs_tim_the_beaver/Clip2.mp4') }}" type="video/mp4">
           <a href="{{ asset_url_for('subservient_chicken_vs_tim_the_beaver/Clip2.mp4') }}">Download</a><!-- This is a fallback for old browsers-->
@@ -54,7 +62,7 @@
         Winner: 12
       </p>
     </div>
-    <div>
+    <div class="video-container">
       <video width="720" height="405" controls="">
         <source src="{{ asset_url_for('subservient_chicken_vs_tim_the_beaver/Clip3.mp4') }}" type="video/mp4">
           <a href="{{ asset_url_for('subservient_chicken_vs_tim_the_beaver/Clip3.mp4') }}">Download</a><!-- This is a fallback for old browsers-->
@@ -65,7 +73,7 @@
         Loser: 3
       </p>
     </div>
-    <div>
+    <div class="video-container">
       <video width="720" height="405" controls="">
         <source src="{{ asset_url_for('subservient_chicken_vs_tim_the_beaver/Clip4.mp4') }}" type="video/mp4">
           <a href="{{ asset_url_for('subservient_chicken_vs_tim_the_beaver/Clip4.mp4') }}">Download</a><!-- This is a fallback for old browsers-->
@@ -76,7 +84,7 @@
         Winner: 13
       </p>
     </div>
-    <div>
+    <div class="video-container">
       <video width="720" height="405" controls="">
         <source src="{{ asset_url_for('subservient_chicken_vs_tim_the_beaver/Clip5.mp4') }}" type="video/mp4">
           <a href="{{ asset_url_for('subservient_chicken_vs_tim_the_beaver/Clip5.mp4') }}">Download</a><!-- This is a fallback for old browsers-->
@@ -87,7 +95,7 @@
         Winner: 6
       </p>
     </div>
-    <div>
+    <div class="video-container">
       <video width="720" height="405" controls="">
         <source src="{{ asset_url_for('subservient_chicken_vs_tim_the_beaver/Clip6.mp4') }}" type="video/mp4">
           <a href="{{ asset_url_for('subservient_chicken_vs_tim_the_beaver/Clip6.mp4') }}">Download</a><!-- This is a fallback for old browsers-->
@@ -98,7 +106,7 @@
         Loser: 8
       </p>
     </div>
-    <div>
+    <div class="video-container">
       <video width="720" height="405" controls="">
         <source src="{{ asset_url_for('subservient_chicken_vs_tim_the_beaver/Clip7.mp4') }}" type="video/mp4">
           <a href="{{ asset_url_for('subservient_chicken_vs_tim_the_beaver/Clip7.mp4') }}">Download</a><!-- This is a fallback for old browsers-->
