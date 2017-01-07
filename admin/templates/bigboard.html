@@ -1,0 +1,87 @@
+{%- macro visibility_class(team_id, puzzle_id) -%}
+  {%- set status = team_visibilities[team_id].get(puzzle_id,{}).get("status","INVISIBLE") -%}
+  {%- if status == "UNLOCKED" -%}
+    ha-bigboard-unlocked
+  {%- elif status == "SOLVED" -%}
+    ha-bigboard-solved
+  {%- else -%}
+    ha-bigboard-locked
+  {%- endif -%}
+{%- endmacro -%}
+
+{%- macro display_name(puzzle_id) -%}
+  {{ puzzles[puzzle_id].get("puzzleProperties",{}).get("DisplayNameProperty",{}).get("displayName",puzzle_id) }}
+{%- endmacro -%}
+
+{%- macro character_level(team, character) -%}
+  {{ team.get("teamProperties",{}).get("CharacterLevelsProperty",{}).get("levels",{}).get(character.upper(),0) }}
+{%- endmacro -%}
+
+{% macro round_box(team_id, round_id, text="") %}
+  <div class="ha-bigboard-round">
+    <div
+       class="ha-bigboard-meta-box {{ visibility_class(team_id, round_id) }}"
+       title="{{ puzzles[round_id].get("puzzleProperties",{}).get("DisplayNameProperty",{}).get("displayName",round_id) }}"
+    >
+       {{ text }}
+    </div>
+    {% for puzzle_id in round_puzzle_map[round_id] %}
+      <div
+         class="ha-bigboard-puzzle-box {{ visibility_class(team_id, puzzle_id) }}"
+         title="{{ puzzles[puzzle_id].get("puzzleProperties",{}).get("DisplayNameProperty",{}).get("displayName",puzzle_id) }}"
+      >
+      </div>
+    {% endfor %}
+  </div>
+{% endmacro %}
+
+{% extends "base.html" %}
+{% block page_body %}
+<div class="ha-control-boxes-container">
+  {{ autoRefreshWidget() }}
+</div>
+<div class="ha-page-section">
+  <div class="ha-bigboard-teams">
+    {% for team in teams %}
+      <div class="ha-bigboard-team">
+        <div class="ha-bigboard-team-id">
+          {{ team["teamId"] }}
+        </div>
+        <div class="ha-bigboard-character-rounds-plus">
+          <div class="ha-bigboard-character-rounds">
+            <div class="ha-bigboard-round-row">
+              {% for character in character_ids %}
+                {{ round_box(team["teamId"], character, character_level(team, character)) }}
+              {% endfor %}
+            </div>
+            <div
+               class="ha-bigboard-metameta-box {{ visibility_class(team["teamId"], "encounter") }}"
+               title="{{ display_name("encounter") }}"
+            >
+            </div>
+          </div>
+          <div class="ha-bigboard-misc">
+            <div>{{ team_level_sum[team["teamId"]] }} LEVELS</div>
+            <div class="ha-bigboard-merchants-box {{ visibility_class(team["teamId"], "merchants") }}">
+              {{ team.get('teamProperties',{}).get('InventoryProperty',{}).get('inventoryItems',[]) | length }} ITEMS
+            </div>
+            <div>
+              {{ team.get('teamProperties',{}).get('GoldProperty',{}).get('gold',0) }} GOLD
+            </div>
+          </div>
+        </div>
+        <div class="ha-bigboard-round-row">
+          {% for quest in quest_ids %}
+            {{ round_box(team["teamId"], quest) }}
+          {% endfor %}
+        </div>
+        <div
+           class="ha-bigboard-metameta-box {{ visibility_class(team["teamId"], "fortress") }}"
+           title="{{ display_name("fortress") }}"
+        >
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

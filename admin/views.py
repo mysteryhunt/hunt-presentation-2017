@@ -1,6 +1,7 @@
 from admin import app
 
 from common import cube, login_required
+from common.round_puzzle_map import CHARACTER_IDS, QUEST_IDS, ROUND_PUZZLE_MAP
 from flask import abort, flash, redirect, render_template, request, session, url_for
 from requests.exceptions import RequestException
 
@@ -308,3 +309,33 @@ def admintools():
         "admintools.html",
         puzzles=get_puzzles(),
         is_hunt_started=cube.is_hunt_started_async(app).result())
+
+@app.route("/bigboard")
+@login_required.writingteam
+def bigboard():
+    teams = cube.get_teams(app)
+
+    team_visibility_futures = {}
+    for team in teams:
+        team_visibility_futures[team["teamId"]] = cube.get_puzzle_visibilities_async(app, team["teamId"])
+
+    team_visibilities = {}
+    for team_id, future in team_visibility_futures.iteritems():
+        visibilities = future.result().json()["visibilities"]
+        team_visibilities[team_id] = { v["puzzleId"]: v for v in visibilities }
+        
+    team_level_sum = { team["teamId"]: \
+            sum([team.get("teamProperties",{}).get("CharacterLevelsProperty",{}).get("levels",{}).get(c.upper(),0) \
+                for c in [ch for ch in CHARACTER_IDS if team_visibilities.get(team["teamId"],{}).get(ch,{}).get("status","INVISIBLE") in ["UNLOCKED","SOLVED"] ]]) \
+                for team in teams }
+    teams.sort(key=lambda team: -team_level_sum[team["teamId"]])
+
+    return render_template(
+        "bigboard.html",
+        teams=teams,
+        team_level_sum=team_level_sum,
+        team_visibilities=team_visibilities,
+        puzzles=get_puzzle_id_to_puzzle(),
+        character_ids=CHARACTER_IDS,
+        quest_ids=QUEST_IDS,
+        round_puzzle_map=ROUND_PUZZLE_MAP)

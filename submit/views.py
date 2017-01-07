@@ -75,6 +75,7 @@ def puzzle(puzzle_id):
     visibility = cube.get_puzzle_visibility(app, puzzle_id)
     hints = cube.get_hints(app, puzzle_id)
     interactions = cube.get_interactions(app, puzzle_id)
+    team_properties = cube.get_team_properties(app)
 
     return render_template(
         "puzzle.html",
@@ -83,4 +84,5 @@ def puzzle(puzzle_id):
         submissions=submissions,
         visibility=visibility,
         hints=hints,
-        interactions=interactions)
+        interactions=interactions,
+        team_properties=team_properties)

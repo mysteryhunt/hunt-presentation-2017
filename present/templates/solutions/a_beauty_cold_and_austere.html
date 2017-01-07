@@ -11,6 +11,9 @@
       display: block;
       margin-bottom: 1em;
     }
+    #puzzle-content img.width-constrain {
+      max-width: 95%;
+    }
     #puzzle-content ul {
       list-style-type: none;
     }
@@ -36,7 +39,7 @@
     <p>
       Type or copy the equations into your favorite plotting
       routines. Mathematica will import MathML without much trouble, or you can
-      copy/paste into Python or C code with only light editing. Each set of
+      copy-paste into Matlab, Python, C, etc., with only light editing. Each set of
       equations is a 2D or 3D vector (xy or xyz) which you can plot over a
       parameter range. If there&rsquo;s one parameter, u, you&rsquo;ll get a
       line. If there are two (u,v) you&rsquo;ll get a surface. When
@@ -58,7 +61,7 @@
       limits. But any specific value of the parameter, between the limits,
       identifies a particular place along the curve. In this puzzle,
       you&rsquo;ll find that every &ldquo;parameter value you like&rdquo; is a
-      number between 1 and 26. Convert these to letters with A=1, etc., to get
+      number between 1 and 26. Convert these to letters with A&nbsp;=&nbsp;1, etc., to get
       the answer <b>ST ELSEWHERE</b>.
     </p>
     <p>
@@ -72,8 +75,7 @@
     </p>
     <h3><i>Non-Object (Plane)</i> by Anish Kapoor</h3>
     <p>
-      If you stand in the spot described, you see a picture of a pool reflected
-      near <i>u</i>&nbsp;=&nbsp;8, <i>v</i>&nbsp;=&nbsp;5, so <i>a<sub>8</sub></i>&nbsp;=&nbsp;H and <i>a<sub>9</sub></i>&nbsp;=&nbsp;E.
+      The equation should generate a rectangular segment of a 2D parabola, resembling the reflective Anish Kapoor work in the Stata east lobby. Near the easternmost door of the lobby is a cluster of fire-pulls and whatnot as described. If you stand with your head in this cluster and look at the Kapoor, you&rsquo;ll see a reflecting pool&mdash;i.e., the reflection of a pool in one of the large-format photographs that line the Stata first-floor street. The reflection is in the right center of the rectangle, i.e., the coordinate represented by u&nbsp;=&nbsp;8, v&nbsp;=&nbsp;5, so <i>a<sub>8</sub></i>&nbsp;=&nbsp;H and <i>a<sub>9</sub></i>&nbsp;=&nbsp;E.
     </p>
     <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_1.gif') }}">
     <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_2.png') }}">
@@ -127,7 +129,7 @@
       see what it looks like&rdquo; is a fine approach, especially if
       you&rsquo;ve realized that the parameter should fall between 1 and 26.
       But you can also inspect the expression.  Whatever value of <i>i<sub>max</sub></i> you
-      choose, you&rsquo;ll wind up drawing <i>i<sub>max</sub></i>+7 lines.  Choosing <i>i<sub>max</sub></i>&nbsp;=&nbsp;23
+      choose, you&rsquo;ll wind up drawing <i>i<sub>max</sub></i>&nbsp;+&nbsp;7 lines.  Choosing <i>i<sub>max</sub></i>&nbsp;=&nbsp;23
       will get you 30 lines, the number in the real Sol Lewitt wall drawing, so
       <i>a<sub>7</sub></i>&nbsp;=&nbsp;W.
     </p>
@@ -144,7 +146,7 @@
       that looks like the sculpture.  Setting <i>u<sub>min</sub></i> too low will make the second
       spiral crash into the first one; setting <i>u<sub>max</sub></i> too high will give it a
       slinky tail stretching far to one side.  To get the real thing you have to
-      plot from <i>u</i>&nbsp;=&nbsp;5 to <i>u</i>&nbsp;=&nbsp;12, so <i>a<sub>4</sub></i>&nbsp;=&nbsp;E and <i>a<sub>5</sub></i>&nbsp;=&nbsp;L.
+      plot from <i>u</i>&nbsp;=&nbsp;5 to <i>u</i>&nbsp;=&nbsp;12, so <i>a<sub>3</sub></i>&nbsp;=&nbsp;E and <i>a<sub>4</sub></i>&nbsp;=&nbsp;L.
     </p>
     <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_26.gif') }}">
     <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_27.png') }}">
@@ -184,6 +186,7 @@
     <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_39.gif') }}">
     <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_40.gif') }}">
     <img class="i" src="{{ asset_url_for('a_beauty_cold_and_austere/master_solution_notebook_41.gif') }}">
+    <img class="i width-constrain" src="{{ asset_url_for('a_beauty_cold_and_austere/solution-image-additional01.jpg') }}">
     <h3>Putting it all together</h3>
     <p>
       If you just typed all that math into plotting software by hand&nbsp;.&nbsp;.&nbsp;.
@@ -203,7 +206,7 @@
       <li><i>a<sub>7</sub></i>&nbsp=&nbsp;23&nbsp;=&nbsp;W from Lewitt line counting</li>
       <li><i>a<sub>8</sub></i>&nbsp=&nbsp;8&nbsp;=&nbsp;H from the x-coordinate and&nbsp;.&nbsp;.&nbsp;.</li>
       <li><i>a<sub>9</sub></i>&nbsp=&nbsp;5&nbsp;=&nbsp;E from the y-coordinate of the pool reflecting in the surface of the Kapoor</li>
-      <li><i>a<sub>10</sub></i>&nbsp= 18 = R from locating the gap in the Graham yin - yang</li>
+      <li><i>a<sub>10</sub></i>&nbsp= 18 = R from locating the gap in the Graham yin-yang</li>
       <li><i>a<sub>11</sub></i>&nbsp= 5 = E from finding the treeless link in the Qiang chain</li>
     </ul>
     <p>

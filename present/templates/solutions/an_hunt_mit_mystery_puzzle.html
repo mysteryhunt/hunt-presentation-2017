@@ -1,0 +1,121 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'bridge' %}
+{% block title_block %}An Hunt MIT Mystery Puzzle: Solution{% endblock %}
+{% block puzzle_name_block %}An Hunt MIT Mystery Puzzle: Solution{% endblock %}
+{% block byline %}
+  By Ben Monreal<br>
+  Featuring Sarah Bagby, Chad Brown, Corey O&rsquo;Connor, and Tanis O&rsquo;Connor
+{% endblock %}
+{% block solution %}DESPEREAUX{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+    ul {
+      list-style-type: none;
+    }
+  </style>
+{% endblock %}
+
+{% block solution_content_block %}
+  <div>
+    <p>
+      This puzzle presents you with video clips from four two-movie
+      mashups. Each mashup has a title card (alphabetized with the MGM lion
+      saying &ldquo;ROAR&rdquo;) with ten lines as though there were a missing
+      ten-word title. A few of the lines are highlighted on each clip&rsquo;s
+      title card.
+    </p>
+    <p>
+      Figure out the title of the mashup&mdash;by, in keeping with the theme of
+      the puzzle, alphabetizing all the words of the titles of the mashed-up
+      films. (Or by alphabetizing the full titles, that gives the same answer.)
+    </p>
+
+    <h3>Clip 1</h3>
+    <p>
+      Title card shows _______??_
+    </p>
+    <ul>
+      <li>Russell: You're going to South America, Mr. Quarich?</li>
+      <li>Carl Quarich: You gave me good, usable intel on this Tree of Souls place.</li>
+      <li>Russell: Will you sign my unobtanium badge?</li>
+    </ul>
+    <p>
+      which is AVATAR UP
+    </p>
+    <video controls width="900">
+      <source src="{{ asset_url_for('an_hunt_mit_mystery_puzzle/01solution.mp4') }}" type="video/mp4">
+    </video>
+
+    <h3>Clip 2</h3>
+    <p>
+      Title card shows ?__?_?___
+    </p>
+    <ul>
+      <li>Hitler: Steiner&rsquo;s attack was an order!</li>
+      <li>Ella Jodl: Steiner will NO LONGER BE OBEDIENT</li>
+      <li>Hitler: It is impossible, under these circumstances, to lead.  It&rsquo;s over.</li>
+      <li>Narrator: Now I've only two words left and they are, &ldquo;The End.&rdquo;</li>
+    </ul>
+    <p>
+      which is DOWNFALL: ELLA ENCHANTED
+    </p>
+    <video controls width="900">
+      <source src="{{ asset_url_for('an_hunt_mit_mystery_puzzle/02solution.mp4') }}" type="video/mp4">
+    </video>
+
+    <h3>Clip 3</h3>
+    <p>
+      Title card shows _??______?
+    </p>
+    <ul>
+      <li>Peg: Logan, this is our daughter Kim.</li>
+      <li><i>Kevin enters, skateboarding</i></li>
+      <li>Wolverine Scissorhands: What do they call you? &ldquo;Wheels&rdquo;?</li>
+      <li>Kevin: Hey, can I bring him to show and tell on Monday?</li>
+      <li>Wolverine Scissorhands: You&rsquo;re a dick.</li>
+    </ul>
+    <p>
+      which is EDWARD SCISSORHANDS X-MEN
+    </p>
+    <video controls width="900">
+      <source src="{{ asset_url_for('an_hunt_mit_mystery_puzzle/03solution.mp4') }}" type="video/mp4">
+    </video>
+
+    <h3>Clip 4</h3>
+    <p>
+      Title card shows ___?_?____
+    </p>
+    <ul>
+      <li>Morton: What are your prime directives?</li>
+      <li>Robo-Norman-Bates-Cop: A boy&rsquo;s best friend is his mother. I&rsquo;m not even going to swat that fly. Uphold the law.</li>
+    </ul>
+    <p>
+      which is PSYCHO ROBOCOP!
+    </p>
+    <video controls width="900">
+      <source src="{{ asset_url_for('an_hunt_mit_mystery_puzzle/04solution.mp4') }}" type="video/mp4">
+    </video>
+
+    <p>
+      There are specific lines on the title-cards where you could enter these
+      two- and three-word titles.
+    </p>
+
+    <img src="{{ asset_url_for('an_hunt_mit_mystery_puzzle/solution01.png') }}" width="900">
+
+    <p>
+      and if you put them all together on one title card, you&rsquo;d get:
+    </p>
+
+    <img src="{{ asset_url_for('an_hunt_mit_mystery_puzzle/solution02.png') }}">
+
+    <p>
+      DOWNFALL EDWARD SCISSORHANDS PSYCHO ELLA ROBOCOP ENCHANTED AVATAR UP XMEN
+    </p>
+
+    <p>
+      which is probably a terrible movie but whose initial letters are the answer, <b>DESPEREAUX</b>.
+    </p>
+  </div>
+{% endblock %}

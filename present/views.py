@@ -1,6 +1,7 @@
 from present import app
 
 from common import cube, login_required, metrics, s3
+from common.round_puzzle_map import CHARACTER_IDS, QUEST_IDS, ROUND_PUZZLE_MAP
 from flask import abort, redirect, render_template, request, send_from_directory, session, url_for
 from requests.exceptions import RequestException
 
@@ -65,27 +66,6 @@ def utility_processor():
         get_google_api_key=get_google_api_key,
         single_character_unlock_requirement=single_character_unlock_requirement,
         handle_title_underscores=handle_title_underscores)
-
-CHARACTER_IDS = ['fighter','wizard','cleric','linguist','economist','chemist']
-QUEST_IDS = ['dynast','dungeon','thespians','bridge','criminal','minstrels','cube','warlord']
-
-ROUND_PUZZLE_MAP = {
-  'index': CHARACTER_IDS + QUEST_IDS + ['rescue_the_linguist','rescue_the_economist','rescue_the_chemist','merchants','encounter','fortress'],
-  'fighter': ['f' + str(i) for i in range(1,11+1)],
-  'wizard': ['w' + str(i) for i in range(1,11+1)],
-  'cleric': ['cl-l' + str(i) for i in range(1,5+1)] + ['cl-r' + str(i) for i in range(1,5+1)],
-  'linguist': ['l' + str(i) for i in range(1,12+1)],
-  'economist': ['e' + str(i) for i in range(1,8+1)],
-  'chemist': ['ch' + str(i) for i in range(1,9+1)],
-  'dynast': ['dynast' + str(i) for i in range(1,11+1)],
-  'dungeon': ['dungeon' + str(i) for i in range(1,11+1)],
-  'thespians': ['thespians-l' + str(i) for i in range(1,5+1)] + ['thespians-r' + str(i) for i in range(1,5+1)],
-  'bridge': ['bridge' + str(i) for i in range(1,16+1)],
-  'criminal': ['criminal' + str(i) for i in range(1,10+1)],
-  'minstrels': ['minstrels' + str(i) for i in range(1,7+1)],
-  'cube': ['cube' + str(i) for i in range(1,8+1)],
-  'warlord': ['warlord-' + direction for direction in ['nw','nc','ne','cw','cc','ce','sw','sc','se']]
-}
 
 def make_core_display_data(visibilities_async, team_properties_async):
     visibilities = { v["puzzleId"]: v for v in visibilities_async.result().json().get("visibilities",[]) }
@@ -260,6 +240,31 @@ def change_contact_info():
     if request.referrer:
         return redirect(request.referrer)
     return redirect(url_for("index"))
+
+@app.route("/activity_log")
+@login_required.solvingteam
+@metrics.time("present.activity_log")
+def activity_log():
+    core_visibilities_async = cube.get_puzzle_visibilities_for_list_async(app, CHARACTER_IDS + QUEST_IDS + ['merchants','encounter'])
+    core_team_properties_async = cube.get_team_properties_async(app)
+    team_visibility_changes_async = cube.get_team_visibility_changes_async(app)
+    team_submissions_async = cube.get_team_submissions_async(app)
+    all_puzzles_async = cube.get_all_puzzle_properties_async(app)
+
+    core_display_data = make_core_display_data(core_visibilities_async, core_team_properties_async)
+
+    visibility_changes = [vc for vc in team_visibility_changes_async.result()
+                          if vc["status"] in ['UNLOCKED', 'SOLVED'] and not vc["puzzleId"].startswith("event")]
+    activity_entries = visibility_changes + team_submissions_async.result()
+    activity_entries.sort(key=lambda entry: entry["timestamp"])
+
+    all_puzzles = { v["puzzleId"]: v for v in all_puzzles_async.result().json()["puzzles"] }
+
+    return render_template(
+        "activity_log.html",
+        core_display_data=core_display_data,
+        activity_entries=activity_entries,
+        all_puzzles=all_puzzles)
 
 @app.route("/full/puzzle")
 @login_required.writingteam
