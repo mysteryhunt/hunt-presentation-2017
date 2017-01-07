@@ -80,9 +80,9 @@
         <div class="submission-section-header use-pointer"><span class="submission-section-closed-content"><a class="fa fa-caret-right" aria-hidden="true"></a></span><span class="submission-section-open-content"><a class="fa fa-caret-down" aria-hidden="true"></a></span>Hints</div>
         <div class="submission-section-open-content">
           <div class="submission-section-explanation">
-            With hints, you may ask a yes/no question about the puzzle. <b>Hints cost 100 Gold.</b>
+            With hints, you may ask a yes/no question about the puzzle. <b>Hints cost 100 Gold.</b> You currently have {{ team_properties.get('teamProperties',{}).get('GoldProperty',{}).get('gold',0) }} Gold.
           </div>
-          {% if visibility['status'] != 'SOLVED' %}
+          {% if visibility['status'] != 'SOLVED' and team_properties.get('teamProperties',{}).get('GoldProperty',{}).get('gold',0) >= 100 %}
           <div class="submission-section-form">
             <form action="{{ url_for('puzzle', puzzle_id=puzzle_id) }}" method="post">
               <span>Ask for a hint:</span>
