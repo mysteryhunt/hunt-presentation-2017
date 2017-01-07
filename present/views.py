@@ -1,6 +1,7 @@
 from present import app
 
 from common import cube, login_required, metrics, s3
+from common.round_puzzle_map import CHARACTER_IDS, QUEST_IDS, ROUND_PUZZLE_MAP
 from flask import abort, redirect, render_template, request, send_from_directory, session, url_for
 from requests.exceptions import RequestException
 
@@ -67,27 +68,6 @@ def utility_processor():
         get_google_api_key=get_google_api_key,
         single_character_unlock_requirement=single_character_unlock_requirement,
         handle_title_underscores=handle_title_underscores)
-
-CHARACTER_IDS = ['fighter','wizard','cleric','linguist','economist','chemist']
-QUEST_IDS = ['dynast','dungeon','thespians','bridge','criminal','minstrels','cube','warlord']
-
-ROUND_PUZZLE_MAP = {
-  'index': CHARACTER_IDS + QUEST_IDS + ['rescue_the_linguist','rescue_the_economist','rescue_the_chemist','merchants','encounter','fortress'],
-  'fighter': ['f' + str(i) for i in range(1,11+1)],
-  'wizard': ['w' + str(i) for i in range(1,11+1)],
-  'cleric': ['cl-l' + str(i) for i in range(1,5+1)] + ['cl-r' + str(i) for i in range(1,5+1)],
-  'linguist': ['l' + str(i) for i in range(1,12+1)],
-  'economist': ['e' + str(i) for i in range(1,8+1)],
-  'chemist': ['ch' + str(i) for i in range(1,9+1)],
-  'dynast': ['dynast' + str(i) for i in range(1,11+1)],
-  'dungeon': ['dungeon' + str(i) for i in range(1,11+1)],
-  'thespians': ['thespians-l' + str(i) for i in range(1,5+1)] + ['thespians-r' + str(i) for i in range(1,5+1)],
-  'bridge': ['bridge' + str(i) for i in range(1,16+1)],
-  'criminal': ['criminal' + str(i) for i in range(1,10+1)],
-  'minstrels': ['minstrels' + str(i) for i in range(1,7+1)],
-  'cube': ['cube' + str(i) for i in range(1,8+1)],
-  'warlord': ['warlord-' + direction for direction in ['nw','nc','ne','cw','cc','ce','sw','sc','se']]
-}
 
 def make_core_display_data(visibilities_async, team_properties_async):
     visibilities = { v["puzzleId"]: v for v in visibilities_async.result().json().get("visibilities",[]) }

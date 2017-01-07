@@ -165,3 +165,102 @@ form {
 .ha-call-queue-correct-answer {
     font-size: 0.75em;
 }
+
+.ha-bigboard-teams {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.ha-bigboard-team {
+    box-sizing: border-box;
+    margin: 8px;
+    border: 1px solid black;
+    width: 338px;
+    display: flex;
+    flex-direction: column;
+}
+
+.ha-bigboard-team-id {
+    box-sizing: border-box;
+    border-bottom: 1px solid black;
+    padding: 4px;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.ha-bigboard-round-row {
+    display: flex;
+}
+
+.ha-bigboard-character-rounds-plus {
+    display: flex;
+}
+
+.ha-bigboard-character-rounds {
+    display: flex;
+    flex-direction: column;
+    width: 252px;
+}
+
+.ha-bigboard-round {
+    box-sizing: border-box;
+    border: 1px solid #aaaaaa;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    margin: 2px;
+    width: 38px;
+}
+
+.ha-bigboard-meta-box {
+    box-sizing: border-box;
+    margin: 2px;
+    width: 32px;
+    height: 8px;
+    font-size: 7px;
+    text-align: center;
+}
+
+.ha-bigboard-puzzle-box {
+    box-sizing: border-box;
+    margin: 2px;
+    width: 8px;
+    height: 8px;
+}
+
+.ha-bigboard-metameta-box {
+    box-sizing: border-box;
+    margin: 2px;
+    height: 8px;
+}
+
+.ha-bigboard-locked {
+    border: 1px solid #aaaaaa;
+}
+
+.ha-bigboard-unlocked {
+    background-color: #aabbbb;
+}
+
+.ha-bigboard-solved {
+    background-color: #0000ff;
+}
+
+.ha-bigboard-misc {
+    width: 86px;
+    display: flex;
+    flex-direction: column;
+    font-size: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.ha-bigboard-merchants-box {
+   box-sizing: border-box;
+   margin: 2px;
+   padding: 2px;
+   height: 16px;
+   font-size: 10px;
+   text-align: center;
+}
