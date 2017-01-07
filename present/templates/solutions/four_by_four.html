@@ -1,0 +1,302 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'flex' %}
+{% block title_block %}Four by Four: Solution{% endblock %}
+{% block puzzle_name_block %}Four by Four: Solution{% endblock %}
+{% block byline %}By Chris Morse{% endblock %}
+{% block solution %}FLEX{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  #puzzle-content ul {
+    list-style-type: none;
+  }
+  #puzzle-content table.word-square {
+    margin-top: 1em;
+  }
+  #puzzle-content table.word-square td {
+    text-align: center;
+    padding: 3px;
+  }
+  #puzzle-content table.word-square tr:first-child td:first-child {
+    color: blue;
+    font-weight: bold;
+  }
+  #puzzle-content table.word-square tr:last-child td:last-child {
+    color: red;
+    font-weight: bold;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<div>
+  <p>
+    At the top there are 16 sets of 4 clues, each of which is alphabetized by clue in the set, and the sets are alphabetized by their first clues. All of these clues 4-letter words, as do all the down clues (which are listed in alphabetical order by answer). Each of these sets of four across clues makes a 4&times;4 word square, with four of the clues listed below.
+  </p>
+  <ul>
+    <li>Abbr. for <i>c</i> over  &#955; = freq.</li>
+    <li>Asian desert = Gobi</li>
+    <li>Mistress of Zeus = Leda</li>
+    <li>Stench = odor</li>
+  </ul>
+  <ul>
+    <li>Albanian patriot Lef = Nosi</li>
+    <li>Hawkeye&rsquo;s home = Iowa</li>
+    <li>Omidyar creation = eBay</li>
+    <li>Shakespearean king = Lear</li>
+  </ul>
+  <ul>
+    <li><i><span class="answer-blank">_____</span> and Lovers</i> = Sons</li>
+    <li>Concerning = in re</li>
+    <li>Roswell sightings = UFOs</li>
+    <li>Type of helmet = pith</li>
+  </ul>
+  <ul>
+    <li>Biblical twin = Esau</li>
+    <li>Hill in <i>The West Wing</i> = Dul&#233;</li>
+    <li>Nut&rsquo;s offspring= Isis</li>
+    <li>Silica-based gem = opal</li>
+  </ul>
+  <ul>
+    <li>Bread with dinner = roll</li>
+    <li>Hat for de Gaulle = kepi</li>
+    <li>Home of the Prancing Pony = Bree</li>
+    <li>Lev. preceder = Exod.</li>
+  </ul>
+  <ul>
+    <li>Brendon of Panic! = Urie</li>
+    <li>Flanders of literature = Moll</li>
+    <li>Magical sound = poof</li>
+    <li>Minus = less</li>
+  </ul>
+  <ul>
+    <li>Bubbly beverage = fizz</li>
+    <li>Cold, in Spanish = frio</li>
+    <li>Dialogue of Plato = Meno</li>
+    <li>Epps or Sharif, e.g. = Omar</li>
+  </ul>
+  <ul>
+    <li>Color of linen = ecru</li>
+    <li>Family consisting of Daza and Teda = Tebu</li>
+    <li>&ldquo;<span class="answer-blank">_____</span> not a Jew eyes?&rdquo; = Hath</li>
+    <li>Seed coating = aril</li>
+  </ul>
+  <ul>
+    <li>Designer from France = Dior</li>
+    <li>President Coin = Alma</li>
+    <li>S-shaped molding = ogee</li>
+    <li>Van Halen hit = Jump</li>
+  </ul>
+  <ul>
+    <li>Disney parrot = Iago</li>
+    <li>Eastern European = Slav</li>
+    <li>Picked a card = drew</li>
+    <li>Yield by treaty = cede</li>
+  </ul>
+  <ul>
+    <li>Divisive preposition? = into</li>
+    <li>New Mexican locale = Taos</li>
+    <li>Papal tribunal = Rota</li>
+    <li>Tarot card, with &ldquo;The&rdquo; = Fool</li>
+  </ul>
+  <ul>
+    <li>Dull, persistent pain = ache</li>
+    <li>Per <span class="answer-blank">_____</span> = diem</li>
+    <li>Peruse = read</li>
+    <li>Spanish cookware = olla</li>
+  </ul>
+  <ul>
+    <li>Egyptian cat goddess = Bast</li>
+    <li>European volcano = Etna</li>
+    <li>Roman wear = toga</li>
+    <li>Sirius, e.g. = Star</li>
+  </ul>
+  <ul>
+    <li>Former stadium = Shea</li>
+    <li>Old Roman road = iter</li>
+    <li>Scintilla = iota</li>
+    <li>Sharp projection = barb</li>
+  </ul>
+  <ul>
+    <li>Get new decor = redo</li>
+    <li>Mimic = aper</li>
+    <li>Canterbury pilgrim = Monk</li>
+    <li>Street reputation = cred</li>
+  </ul>
+  <ul>
+    <li>He &ldquo;wore a diamond&rdquo; = Rico</li>
+    <li>Massive in scope = epic</li>
+    <li>Molecular unit = atom</li>
+    <li>Power consumed by spells = mana</li>
+  </ul>
+  <ul>
+    </ul>
+    <ul>
+    <li>Precursor to Alakazam = Abra</li>
+    <li>43,560 square feet = acre</li>
+    <li>Maeby on TV = Alia</li>
+    <li>Yankee who retired in 2016 = ARod</li>
+    <li>Quintillionth prefix = atto</li>
+    <li>Early Beatle = Best</li>
+    <li>Fortell = bode</li>
+    <li>He played Largo = Celi</li>
+    <li>Robin Cook novel = Coma</li>
+    <li>Study hard = cram</li>
+    <li>Record = disc</li>
+    <li>Geek = dork</li>
+    <li>Type of cheese = Edam</li>
+    <li>Jeannie portrayer = Eden</li>
+    <li>Old interjection = egad</li>
+    <li>Islamic ruler = emir</li>
+    <li>Non sum qualis <span class="answer-blank">_____</span> = eram</li>
+    <li>Slangy suffix = eroo</li>
+    <li>Fiat owner = Exor</li>
+    <li>Porous glass used as a filter = frit</li>
+    <li>Volkswagen model = Golf</li>
+    <li>Grumby portrayer = Hale</li>
+    <li>In thermodynamics, it is <i>q</i> = heat</li>
+    <li>Oil company with toy trucks = Hess</li>
+    <li>TV streaming service = Hulu</li>
+    <li>Long-legged wading bird = ibis</li>
+    <li>File folder or trash can, e.g. = icon</li>
+    <li>Comic Eric = Idle</li>
+    <li>Data = info</li>
+    <li>Country bordering Syria = Iraq</li>
+    <li>Hebrew month = Iyar</li>
+    <li>Rose of Sharon, for one = Joad</li>
+    <li>Side of a UK road = Kerb</li>
+    <li>Country with the kip = Laos</li>
+    <li>People of New Ireland = Lesu</li>
+    <li>Sugar cube = lump</li>
+    <li>Note at the office = memo</li>
+    <li>Grand <span class="answer-blank">_____</span> Tarkin = Moff</li>
+    <li>German party during WWII = Nazi</li>
+    <li>Young or Diamond, e.g. = Neil</li>
+    <li>Craft pizza chain = Oath</li>
+    <li>Woodwind = Oboe</li>
+    <li>River that begins in Czechia = Oder</li>
+    <li>Garfield&rsquo;s foil = Odie</li>
+    <li>Geraldine&rsquo;s mother = Oona</li>
+    <li>Rice-shaped pasta = Orzo</li>
+    <li>Bart&rsquo;s bus driver = Otto</li>
+    <li>Bartlett, e.g. = Pear</li>
+    <li>Falafel holder = pita</li>
+    <li>One of 12 popes = Pius</li>
+    <li>Marie Curie, e.g. = Pole</li>
+    <li>Cat in boots? = Puss</li>
+    <li>Abnormal breath = rale</li>
+    <li>1984&rsquo;s <i><span class="answer-blank">_____</span> Man</i> = Repo</li>
+    <li>Actor Devon = Sawa</li>
+    <li>Women's magazine = Self</li>
+    <li>Home to a missile = silo</li>
+    <li>Catch, as clothing on a nail = snag</li>
+    <li>O&rsquo;Hara estate = tara</li>
+    <li>Elder, e.g. = tree</li>
+    <li>Chicago paper, for short = Trib</li>
+    <li>1982 Disney film = Tron</li>
+    <li>Type of tangelo = Ugli</li>
+    <li>Used a loom = wove</li>
+  </ul>
+  
+  <table class="word-square">
+    <tr><td>A</td><td>C</td><td>H</td><td>E</td></tr>
+    <tr><td>R</td><td>E</td><td>A</td><td>D</td></tr>
+    <tr><td>O</td><td>L</td><td>L</td><td>A</td></tr>
+    <tr><td>D</td><td>I</td><td>E</td><td>M</td></tr>
+  </table>
+  <table class="word-square">
+    <tr><td>B</td><td>A</td><td>S</td><td>T</td></tr>
+    <tr><td>E</td><td>T</td><td>N</td><td>A</td></tr>
+    <tr><td>S</td><td>T</td><td>A</td><td>R</td></tr>
+    <tr><td>T</td><td>O</td><td>G</td><td>A</td></tr>
+  </table>
+  <table class="word-square">
+    <tr><td>C</td><td>R</td><td>E</td><td>D</td></tr>
+    <tr><td>R</td><td>E</td><td>D</td><td>O</td></tr>
+    <tr><td>A</td><td>P</td><td>E</td><td>R</td></tr>
+    <tr><td>M</td><td>O</td><td>N</td><td>K</td></tr>
+  </table>
+  <table class="word-square">
+    <tr><td>D</td><td>R</td><td>E</td><td>W</td></tr>
+    <tr><td>I</td><td>A</td><td>G</td><td>O</td></tr>
+    <tr><td>S</td><td>L</td><td>A</td><td>V</td></tr>
+    <tr><td>C</td><td>E</td><td>D</td><td>E</td></tr>
+  </table>
+  <table class="word-square">
+    <tr><td>E</td><td>P</td><td>I</td><td>C</td></tr>
+    <tr><td>R</td><td>I</td><td>C</td><td>O</td></tr>
+    <tr><td>A</td><td>T</td><td>O</td><td>M</td></tr>
+    <tr><td>M</td><td>A</td><td>N</td><td>A</td></tr>
+  </table>
+  <table class="word-square">
+    <tr><td>F</td><td>O</td><td>O</td><td>L</td></tr>
+    <tr><td>R</td><td>O</td><td>T</td><td>A</td></tr>
+    <tr><td>I</td><td>N</td><td>T</td><td>O</td></tr>
+    <tr><td>T</td><td>A</td><td>O</td><td>S</td></tr>
+  </table>
+  <table class="word-square">
+    <tr><td>G</td><td>O</td><td>B</td><td>I</td></tr>
+    <tr><td>O</td><td>D</td><td>O</td><td>R</td></tr>
+    <tr><td>L</td><td>E</td><td>D</td><td>A</td></tr>
+    <tr><td>F</td><td>R</td><td>E</td><td>Q</td></tr>
+  </table>
+  <table class="word-square">
+    <tr><td>H</td><td>A</td><td>T</td><td>H</td></tr>
+    <tr><td>E</td><td>C</td><td>R</td><td>U</td></tr>
+    <tr><td>A</td><td>R</td><td>I</td><td>L</td></tr>
+    <tr><td>T</td><td>E</td><td>B</td><td>U</td></tr>
+  </table>
+  <table class="word-square">
+    <tr><td>I</td><td>O</td><td>T</td><td>A</td></tr>
+    <tr><td>B</td><td>A</td><td>R</td><td>B</td></tr>
+    <tr><td>I</td><td>T</td><td>E</td><td>R</td></tr>
+    <tr><td>S</td><td>H</td><td>E</td><td>A</td></tr>
+  </table>
+  <table class="word-square">
+    <tr><td>J</td><td>U</td><td>M</td><td>P</td></tr>
+    <tr><td>O</td><td>G</td><td>E</td><td>E</td></tr>
+    <tr><td>A</td><td>L</td><td>M</td><td>A</td></tr>
+    <tr><td>D</td><td>I</td><td>O</td><td>R</td></tr>
+  </table>
+  <table class="word-square">
+    <tr><td>K</td><td>E</td><td>P</td><td>I</td></tr>
+    <tr><td>E</td><td>X</td><td>O</td><td>D</td></tr>
+    <tr><td>R</td><td>O</td><td>L</td><td>L</td></tr>
+    <tr><td>B</td><td>R</td><td>E</td><td>E</td></tr>
+  </table>
+  <table class="word-square">
+    <tr><td>L</td><td>E</td><td>S</td><td>S</td></tr>
+    <tr><td>U</td><td>R</td><td>I</td><td>E</td></tr>
+    <tr><td>M</td><td>O</td><td>L</td><td>L</td></tr>
+    <tr><td>P</td><td>O</td><td>O</td><td>F</td></tr>
+  </table>
+  <table class="word-square">
+    <tr><td>M</td><td>E</td><td>N</td><td>O</td></tr>
+    <tr><td>O</td><td>M</td><td>A</td><td>R</td></tr>
+    <tr><td>F</td><td>I</td><td>Z</td><td>Z</td></tr>
+    <tr><td>F</td><td>R</td><td>I</td><td>O</td></tr>
+  </table>
+  <table class="word-square">
+    <tr><td>N</td><td>O</td><td>S</td><td>I</td></tr>
+    <tr><td>E</td><td>B</td><td>A</td><td>Y</td></tr>
+    <tr><td>I</td><td>O</td><td>W</td><td>A</td></tr>
+    <tr><td>L</td><td>E</td><td>A</td><td>R</td></tr>
+  </table>
+  <table class="word-square">
+    <tr><td>O</td><td>P</td><td>A</td><td>L</td></tr>
+    <tr><td>D</td><td>U</td><td>L</td><td>E</td></tr>
+    <tr><td>I</td><td>S</td><td>I</td><td>S</td></tr>
+    <tr><td>E</td><td>S</td><td>A</td><td>U</td></tr>
+  </table>
+  <table class="word-square">
+    <tr><td>P</td><td>I</td><td>T</td><td>H</td></tr>
+    <tr><td>I</td><td>N</td><td>R</td><td>E</td></tr>
+    <tr><td>U</td><td>F</td><td>O</td><td>S</td></tr>
+    <tr><td>S</td><td>O</td><td>N</td><td>S</td></tr>
+  </table>
+  
+  <p>
+    Each of these word squares has (in its upper left-hand corner a letter of the alphabet from A through P. Ordering the squares in that order (as they are above), their lower right-hand corners have the letters: MAKEASQUAREFORUS or <b>MAKE A SQUARE FOR US</b>. After a word square is provided, the answer <b>FLEX</b> will be given.
+  </p>
+</div>
+{% endblock %}
