@@ -104,6 +104,18 @@ def update_puzzle_visibility(app, team_id, puzzle_id, status):
         "status": status,
     })
 
+def get_team_visibility_changes_async(app, team_id=None):
+    if not team_id:
+        team_id = session["username"]
+    response = get_async(app, "/visibilitychanges?teamId=%s" % team_id)
+    class VisibilityChangesFutureWrapper(object):
+        def __init__(self, response_future):
+            self.response_future = response_future
+        def result(self):
+            json = self.response_future.result().json()
+            return json["visibilityChanges"]
+    return VisibilityChangesFutureWrapper(response)
+
 def is_puzzle_unlocked(app, puzzle_id):
     return get_puzzle_visibility(app, puzzle_id)["status"] in ["UNLOCKED", "SOLVED"]
 
@@ -146,6 +158,18 @@ def get_submissions(app, puzzle_id, team_id=None):
         team_id = session["username"]
     response = get(app, "/submissions?teamId=%s&puzzleId=%s" % (team_id, puzzle_id))
     return response["submissions"]
+
+def get_team_submissions_async(app, team_id=None):
+    if not team_id:
+        team_id = session["username"]
+    response = get_async(app, "/submissions?teamId=%s" % team_id)
+    class SubmissionsFutureWrapper(object):
+        def __init__(self, response_future):
+            self.response_future = response_future
+        def result(self):
+            json = self.response_future.result().json()
+            return json["submissions"]
+    return SubmissionsFutureWrapper(response)
 
 def get_all_pending_submissions(app):
     response = get(app, "/submissions?status=SUBMITTED,ASSIGNED")

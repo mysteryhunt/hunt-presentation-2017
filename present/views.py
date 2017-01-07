@@ -243,6 +243,31 @@ def change_contact_info():
         return redirect(request.referrer)
     return redirect(url_for("index"))
 
+@app.route("/activity_log")
+@login_required.solvingteam
+@metrics.time("present.activity_log")
+def activity_log():
+    core_visibilities_async = cube.get_puzzle_visibilities_for_list_async(app, CHARACTER_IDS + QUEST_IDS + ['merchants','encounter'])
+    core_team_properties_async = cube.get_team_properties_async(app)
+    team_visibility_changes_async = cube.get_team_visibility_changes_async(app)
+    team_submissions_async = cube.get_team_submissions_async(app)
+    all_puzzles_async = cube.get_all_puzzle_properties_async(app)
+
+    core_display_data = make_core_display_data(core_visibilities_async, core_team_properties_async)
+
+    visibility_changes = [vc for vc in team_visibility_changes_async.result()
+                          if vc["status"] in ['UNLOCKED', 'SOLVED'] and not vc["puzzleId"].startswith("event")]
+    activity_entries = visibility_changes + team_submissions_async.result()
+    activity_entries.sort(key=lambda entry: entry["timestamp"])
+
+    all_puzzles = { v["puzzleId"]: v for v in all_puzzles_async.result().json()["puzzles"] }
+
+    return render_template(
+        "activity_log.html",
+        core_display_data=core_display_data,
+        activity_entries=activity_entries,
+        all_puzzles=all_puzzles)
+
 @app.route("/full/puzzle")
 @login_required.writingteam
 def full_puzzle_index():
