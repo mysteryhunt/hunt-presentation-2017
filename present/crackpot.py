@@ -194,7 +194,7 @@ def getauthorlist(idstring):
     alist1 = [authorset[i] for i, val in enumerate(idstring[0:4]+ idstring[5:9]) if (int(val) != 0)]
     aset = [a for xset in alist1 for a in xset]
     saset = sorted(aset)
-    astring = ", ".join(saset[:-1]) + " and " + saset[-1]
+    astring = ", ".join(saset[:-1]) + ", and " + saset[-1]
     return astring
 
 
