@@ -5,13 +5,11 @@ from common.round_puzzle_map import CHARACTER_IDS, QUEST_IDS, ROUND_PUZZLE_MAP
 from flask import abort, redirect, render_template, request, send_from_directory, session, url_for
 from requests.exceptions import RequestException
 
-import os
-
 @app.errorhandler(Exception)
 def handle_exception(error):
     error_string = str(error)
     if isinstance(error, RequestException) and error.response is not None:
-        error_string += ": " + error.response.json()
+        error_string += ": %s" % error.response.json()
     return render_template(
         "error.html",
         error=error_string)
@@ -258,7 +256,7 @@ def activity_log():
     visibility_changes = [vc for vc in team_visibility_changes_async.result()
                           if vc["status"] in ['UNLOCKED', 'SOLVED'] and not vc["puzzleId"].startswith("event")]
     activity_entries = visibility_changes + team_submissions_async.result()
-    activity_entries.sort(key=lambda entry: entry["timestamp"])
+    activity_entries.sort(key=lambda entry: entry["timestamp"], reverse=True)
 
     all_puzzles = { v["puzzleId"]: v for v in all_puzzles_async.result().json()["puzzles"] }
 
@@ -331,4 +329,6 @@ def full_inventory():
     core_display_data = get_full_path_core_display_data()
     return render_template("inventory.html",
         core_display_data=core_display_data)
+
+
 

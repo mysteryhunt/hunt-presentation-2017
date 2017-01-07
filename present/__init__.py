@@ -4,3 +4,4 @@ app = Flask(__name__)
 
 import present.views
 import present.utils
+import present.crackpot
