@@ -1,0 +1,26 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}An Hunt MIT Mystery Puzzle{% endblock %}
+{% block puzzle_name_block %}An Hunt MIT Mystery Puzzle{% endblock %}
+
+{% block puzzle_flavortext_block %}
+  A bridge, broken, leads one past playhouses. Anything good showing? &ldquo;Get
+  lost,&rdquo; mutters the ticketseller. &ldquo;All four projectors screwed
+  up.&rdquo;
+{% endblock %}
+
+{% block puzzle_content_block %}
+  <div>
+    <video controls width="900">
+      <source src="{{ asset_url_for('an_hunt_mit_mystery_puzzle/01.mp4') }}" type="video/mp4">
+    </video>
+    <video controls width="900">
+      <source src="{{ asset_url_for('an_hunt_mit_mystery_puzzle/02.mp4') }}" type="video/mp4">
+    </video>
+    <video controls width="900">
+      <source src="{{ asset_url_for('an_hunt_mit_mystery_puzzle/03.mp4') }}" type="video/mp4">
+    </video>
+    <video controls width="900">
+      <source src="{{ asset_url_for('an_hunt_mit_mystery_puzzle/04.mp4') }}" type="video/mp4">
+    </video>
+  </div>
+{% endblock %}
