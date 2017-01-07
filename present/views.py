@@ -256,7 +256,7 @@ def activity_log():
     visibility_changes = [vc for vc in team_visibility_changes_async.result()
                           if vc["status"] in ['UNLOCKED', 'SOLVED'] and not vc["puzzleId"].startswith("event")]
     activity_entries = visibility_changes + team_submissions_async.result()
-    activity_entries.sort(key=lambda entry: entry["timestamp"])
+    activity_entries.sort(key=lambda entry: entry["timestamp"], reverse=True)
 
     all_puzzles = { v["puzzleId"]: v for v in all_puzzles_async.result().json()["puzzles"] }
 
