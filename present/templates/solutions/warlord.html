@@ -1,0 +1,156 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'warlord' %}
+{% block title_block %}The Woeful Warlord: Solution{% endblock %}
+{% block puzzle_name_block %}The Woeful Warlord: Solution{% endblock %}
+{% block byline %}By Brian Tivol{% endblock %}
+{% block solution %}ELLE KING{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  #puzzle-content ul {
+    list-style-type: none;
+    padding-left: 0px;
+  }
+  #puzzle-content li {
+    padding-bottom: 3px;
+  }
+  #puzzle-content table {
+    border-collapse: collapse;
+  }
+  #puzzle-content table tr:nth-child(2) td {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+  }
+  #puzzle-content table tr td:nth-child(2) {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+  }
+  #puzzle-content td, #puzzle-content th {
+    padding: 4px;
+    text-align: center;
+  }
+  #puzzle-content td.answer-listing {
+    font-family: monospace;
+  }
+  #puzzle-content td.highlight-letter {
+    font-weight: bold;
+    color: red;
+  }
+  #puzzle-content td.highlight-letter2 {
+    font-weight: bold;
+    color: blue;
+  }
+  .tic-container {
+    display: flex;
+    flex-flow: rows nowrap;
+    justify-content: center;
+    width: 100%;
+    margin-top: 1em;
+  }
+  .tic-container div {
+    margin-left: 2em;
+    margin-right: 2em;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<div>
+  <p>
+    Each answer consists of a four-letter word, several of which feature one or more &ldquo;X&rdquo;s or &ldquo;O&rdquo;s. That, plus the three-by-three grid, strongly suggests that this meta involves tic-tac-toe.
+  </p>
+  <p>
+    Since each answer is four letters long, we can divide the four letters into four independent games of tic-tac-toe. One game involves each first letter, one involves each second letter, and so forth. Doing this reveals that each game has two &ldquo;X&rdquo;s already placed and one &ldquo;O,&rdquo; and that the next two moves (&ldquo;O&rdquo; and &ldquo;X&rdquo;) are forced by the previous placements. Take the corresponding letter from each play, with the four &ldquo;O&rdquo; moves coming before the four &ldquo;X&rdquo; moves, and the answer <b>ELLE KING</b>&mdash;singer of &ldquo;Ex's & Oh's&rdquo;&mdash;is spelled out. Each of the eight possible winning lines in tic-tac-toe is used exactly once to produce a letter for the final answer.
+  </p>
+  <div class="tic-container">
+    <div><table>
+      <tr>
+        <td class="answer-listing">ULNA</td>
+        <td class="answer-listing">FOXY</td>
+        <td class="answer-listing">XING</td>
+      </tr>
+      <tr>
+        <td class="answer-listing">OXEN</td>
+        <td class="answer-listing">KILO</td>
+        <td class="answer-listing">EVIL</td>
+      </tr>
+      <tr>
+        <td class="answer-listing">AXLE</td>
+        <td class="answer-listing">REXX</td>
+        <td class="answer-listing">XBOX</td>
+      </tr>
+    </table></div>
+  </div>
+  <div class="tic-container">
+    <div><table>
+      <tr>
+        <td class="answer-listing">U</td>
+        <td class="answer-listing">F</td>
+        <td class="answer-listing">X</td>
+      </tr>
+      <tr>
+        <td class="answer-listing">O</td>
+        <td class="answer-listing highlight-letter2">K</td>
+        <td class="answer-listing highlight-letter">E</td>
+      </tr>
+      <tr>
+        <td class="answer-listing">A</td>
+        <td class="answer-listing">R</td>
+        <td class="answer-listing">X</td>
+      </tr>
+    </table></div>
+    <div><table>
+      <tr>
+        <td class="answer-listing highlight-letter">L</td>
+        <td class="answer-listing">O</td>
+        <td class="answer-listing highlight-letter2">I</td>
+      </tr>
+      <tr>
+        <td class="answer-listing">X</td>
+        <td class="answer-listing">I</td>
+        <td class="answer-listing">V</td>
+      </tr>
+      <tr>
+        <td class="answer-listing">X</td>
+        <td class="answer-listing">E</td>
+        <td class="answer-listing">B</td>
+      </tr>
+    </table></div>
+    <div><table>
+      <tr>
+        <td class="answer-listing highlight-letter2">N</td>
+        <td class="answer-listing">X</td>
+        <td class="answer-listing">N</td>
+      </tr>
+      <tr>
+        <td class="answer-listing">E</td>
+        <td class="answer-listing highlight-letter">L</td>
+        <td class="answer-listing">I</td>
+      </tr>
+      <tr>
+        <td class="answer-listing">L</td>
+        <td class="answer-listing">X</td>
+        <td class="answer-listing">O</td>
+      </tr>
+    </table></div>
+    <div><table>
+      <tr>
+        <td class="answer-listing">A</td>
+        <td class="answer-listing">Y</td>
+        <td class="answer-listing highlight-letter2">G</td>
+      </tr>
+      <tr>
+        <td class="answer-listing">N</td>
+        <td class="answer-listing">O</td>
+        <td class="answer-listing">L</td>
+      </tr>
+      <tr>
+        <td class="answer-listing highlight-letter">E</td>
+        <td class="answer-listing">X</td>
+        <td class="answer-listing">X</td>
+      </tr>
+    </table></div>
+  </div>
+  
+</div>
+{% endblock %}

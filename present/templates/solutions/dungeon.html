@@ -14,8 +14,9 @@
   #puzzle-content li {
     padding-bottom: 3px;
   }
-  #puzzle-content td {
+  #puzzle-content td, #puzzle-content th {
     padding: 4px;
+    text-align: center;
   }
   #puzzle-content td.answer-listing {
     font-family: monospace;
@@ -28,6 +29,10 @@
     font-weight: bold;
     color: red;
   }
+  #puzzle-content img#solved-grid {
+    max-width: 900px;
+    margin-top: 1em;
+  }
 </style>
 {% endblock %}
 
@@ -36,5 +41,20 @@
   <p>
     Each puzzle answer can be spelled out in the grid by starting at an appropriate cell, moving E, N, S, and W when those letters are encountered. (This is hinted by the fact that the grid contains all letters except those 4, while those letters are heavily present in the answers.) The paths begin on the letters A through L (minus E, which does not appear in the grid), providing an ordering. Taking the cells each path ends on, in the order given, spells the answer <b>CARRY A TORCH</b>.
   </p>
+  <table>
+    <tr><th>Start Letter</th><th>Answer</th><th>End Letter</th></tr>
+    <tr><td>A</td><td class="answer-listing">STEPSISTERS</td><td>C</td></tr>
+    <tr><td>B</td><td class="answer-listing">ERNIE ELS</td><td>A</td></tr>
+    <tr><td>C</td><td class="answer-listing">SINN FEIN</td><td>R</td></tr>
+    <tr><td>D</td><td class="answer-listing">NINE ONE ONE</td><td>R</td></tr>
+    <tr><td>F</td><td class="answer-listing">SUSPENDED SENTENCE</td><td>Y</td></tr>
+    <tr><td>G</td><td class="answer-listing">NEWBERN TENNESSEE</td><td>A</td></tr>
+    <tr><td>H</td><td class="answer-listing">SEAN LENNON</td><td>T</td></tr>
+    <tr><td>I</td><td class="answer-listing">WANDERERS</td><td>O</td></tr>
+    <tr><td>J</td><td class="answer-listing">EVEN STEVEN</td><td>R</td></tr>
+    <tr><td>K</td><td class="answer-listing">ST ELSEWHERE</td><td>C</td></tr>
+    <tr><td>L</td><td class="answer-listing">SEVEN WONDERS</td><td>H</td></tr>
+  </table>
+  <img id="solved-grid" src="{{ asset_url_for('general/quests/solutions/dungeon-solved.png') }}"/>
 </div>
 {% endblock %}

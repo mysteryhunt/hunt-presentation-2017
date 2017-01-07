@@ -8,6 +8,16 @@
   min-width: 451px;
 }
 
+#cube-map-container {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 451px;
+  height: 451px;
+  position: relative;
+}
+
 .cube-puzzle-link {
   width: 50px;
   height: 50px;
@@ -29,8 +39,10 @@
 
 {% block puzzle_content %}
 <div id="puzzle-content">
-  <div id="cube-map-container" style="width: 451px; height: 451px; margin: 0 auto; position: relative;">
-    <div id="cube-map" style="content: url({{ asset_url_for('curious-cube/curious-cube.png') }}); width: 451px; height: 451px; margin: 0 auto;"></div>
+  <div id="cube-map-container">
+    <div id="cube-map">
+      <img src="{{ asset_url_for('curious-cube/curious-cube.png') }}" style="width: 451px; height: 451px; margin: 0 auto;"/>
+    </div>
     {% for (puzzle_id, x, y) in [('cube1',3,0),('cube2',0,1),('cube3',2,1),('cube4',3,3),('cube5',6,3),('cube6',1,4),('cube7',5,5),('cube8',2,6)] %}
       {% set puzzle_link_action = 'full_puzzle' if full_access else 'puzzle' %}
       {% set link_puzzle_id = puzzle_properties.get(puzzle_id,{}).get('puzzleProperties',{}).get('DisplayIdProperty',{}).get('displayId',puzzle_id) %}
@@ -48,6 +60,7 @@
       
     {% endfor %}
   </div>
+  <div>[Hover over starred spaces for puzzle titles]</div>
 </div>
 {% endblock %}
 

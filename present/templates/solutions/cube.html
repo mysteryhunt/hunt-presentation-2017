@@ -1,0 +1,48 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'cube' %}
+{% block title_block %}The Curious Cube: Solution{% endblock %}
+{% block puzzle_name_block %}The Curious Cube: Solution{% endblock %}
+{% block byline %}By Connor Stokes{% endblock %}
+{% block solution %}FERMAT&rsquo;S LOST SERUM{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  #puzzle-content ul {
+    list-style-type: none;
+    padding-left: 0px;
+  }
+  #puzzle-content li {
+    padding-bottom: 3px;
+  }
+  #puzzle-content td, #puzzle-content th {
+    padding: 4px;
+    text-align: center;
+  }
+  #puzzle-content td.answer-listing {
+    font-family: monospace;
+  }
+  #puzzle-content span.highlight-group {
+    font-weight: bold;
+    color: blue;
+  }
+  #puzzle-content span.highlight-letter {
+    font-weight: bold;
+    color: red;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<div>
+  <p>
+    This round is presented as a dungeon map, with several colored dungeon cells and links to puzzles in eight of the cells. Each of the answers in this round is six letters long, and if you write them contiguously into the dungeon map starting at the cells linking to each puzzle, there is only one way to fill in the map.
+  </p>
+  <img src="{{ asset_url_for('general/quests/solutions/curious-cube-solved.png') }}">
+  <p>
+    Looking at the shapes each answer takes on when filled into the map, solvers will notice that they are all cube nets, meaning each answer can be folded into a three-dimensional cube. These eight cubes can then be combined into a 2&times;2&times;2 cube by matching faces that contain the same letter. (Colored faces are solving aids; the solution is unique without the colors, but they allow the meta to be solved without all eight answers and reinforce the matching idea.)
+  </p>
+  <p>
+    Once the 2&times;2&times;2 cube has been assembled, one face contains the letters in DOWN, and the opposite face contains the letters UPUP, indicating the proper orientation of the cube. Reading around the cube from the top left corner of one of the faces is the answer <b>FERMAT&rsquo;S LOST SERUM</b>, which prevents cubes from combining into a larger cube.
+  </p>
+</div>
+{% endblock %}
