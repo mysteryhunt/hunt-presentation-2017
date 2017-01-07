@@ -10,90 +10,13 @@
 
     .image {
       page-break-inside: avoid;
-      position: relative;
-      font-family: impact;
-      font-size: 48px;
-      text-transform: uppercase;
-      color: white;
-      letter-spacing: 1px;
-      text-shadow:
-        2px 2px 0 black,
-        2px 0px 0 black,
-        2px -2px 0 black,
-        0px 2px 0 black,
-        0px 0px 0 black,
-        0px -2px 0 black,
-        -2px 2px 0 black,
-        -2px 0px 0 black,
-        -2px -2px 0 black,
-        2px 2px 4px black;
       width: 550px;
       height: 300px;
       margin: 20px;
     }
 
-    @media print and (-webkit-min-device-pixel-ratio:0) {
-      .image {
-        -webkit-print-color-adjust: exact;
-      }
-    }
-
-    @-moz-document url-prefix() {
-      @media print {
-        .image {
-          color: rgba(0, 0, 0, 0);
-          text-shadow:
-            0 0 0 white,
-            2px 2px 0 black,
-            2px 0px 0 black,
-            2px -2px 0 black,
-            0px 2px 0 black,
-            0px 0px 0 black,
-            0px -2px 0 black,
-            -2px 2px 0 black,
-            -2px 0px 0 black,
-            -2px -2px 0 black,
-            2px 2px 4px black;
-        }
-      }
-    }
-
-    .image::before {
-      position: absolute;
-    }
-
-    .top::before {
-      content: url("{{ asset_url_for('the_most_interesting_puzzle_in_the_world/image01.jpg') | safe }}");
-    }
-
     .middle {
       height: 90px;
-    }
-
-    .middle::before {
-      content: url("{{ asset_url_for('the_most_interesting_puzzle_in_the_world/image02.jpg') | safe }}");
-    }
-
-    .bottom::before {
-      content: url("{{ asset_url_for('the_most_interesting_puzzle_in_the_world/image03.jpg') | safe }}");
-    }
-
-    .image > div {
-      width: 100%;
-      text-align: center;
-      position: absolute;
-    }
-
-    .top > div {
-      top: 0;
-    }
-
-    .middle > div {
-      top: 25%;
-    }
-
-    .bottom > div {
-      bottom: 0;
     }
   </style>
 {% endblock %}
@@ -104,36 +27,12 @@
 
 {% block puzzle_content_block %}
   <div>
-    <div class="image top"><div>I don&rsquo;t always play classic arcade games,</div></div>
-    <div class="image top"><div>I don&rsquo;t always give a gift to corrupt officials,</div></div>
-    <div class="image top"><div>I don&rsquo;t always act naked, painted gold,</div></div>
-    <div class="image top"><div>I don&rsquo;t always get thrown headlong,</div></div>
-    <div class="image top"><div>I don&rsquo;t always pay the large bill for you,</div></div>
-    <div class="image top"><div>I don&rsquo;t always babble,</div></div>
-    <div class="image top"><div>I don&rsquo;t always order at Subway,</div></div>
-    <div class="image top"><div>I don&rsquo;t always get typecast to play creepy German villains,</div></div>
-    <div class="image top"><div>I don&rsquo;t always train 12-year-old assassins,</div></div>
-    <div class="image top"><div>I don&rsquo;t always hold something for a dry sandwich,</div></div>
-    <div class="image top"><div>I don&rsquo;t always have magical influence,</div></div>
-    <div class="image top"><div>I don&rsquo;t always perform chores for Delia Ketchum,</div></div>
-    <div class="image top"><div>I don&rsquo;t always lurk in the Temple of Ahn&rsquo;Qiraj,</div></div>
-    <div class="image top"><div>I don&rsquo;t always sum the main diagonal of a matrix,</div></div>
-
-    <div class="image middle"><div>but when I do,</div></div>
-
-    <div class="image bottom"><div>I prefer an MTV Animation production.</div></div>
-    <div class="image bottom"><div>I prefer a Mexican convenience store chain.</div></div>
-    <div class="image bottom"><div>I prefer a Balhoonian.</div></div>
-    <div class="image bottom"><div>I prefer a Suzuki motorcycle.</div></div>
-    <div class="image bottom"><div>I prefer challenging Colony and Cephalo.</div></div>
-    <div class="image bottom"><div>I prefer a Looney Labs game.</div></div>
-    <div class="image bottom"><div>I prefer a member of 2 Live Crew.</div></div>
-    <div class="image bottom"><div>I prefer a sequel to &ldquo;BloodWych&rdquo;.</div></div>
-    <div class="image bottom"><div>I prefer a latecomer to &ldquo;In Living Color&rdquo;.</div></div>
-    <div class="image bottom"><div>I prefer a Danish Eurovision entry.</div></div>
-    <div class="image bottom"><div>I prefer one of Dr Jumba Jookiba&rsquo;s experiments.</div></div>
-    <div class="image bottom"><div>I prefer a brand of gas stations.</div></div>
-    <div class="image bottom"><div>I prefer the most powerful weapon of destruction in the two universes.</div></div>
-    <div class="image bottom"><div>I prefer a Texas cop who bakes boutique cookies.</div></div>
+    {% for i in ['01','02','03','04','05','06','07','08','09','10','11','12','13','14'] %}
+      <div class="image top"><img src="{{ asset_url_for('the_most_interesting_puzzle_in_the_world/top%s.png' % i) }}"/></div>
+    {% endfor %}
+    <div class="image middle"><img src="{{ asset_url_for('the_most_interesting_puzzle_in_the_world/middle.png') }}"/></div>
+    {% for i in ['01','02','03','04','05','06','07','08','09','10','11','12','13','14'] %}
+      <div class="image top"><img src="{{ asset_url_for('the_most_interesting_puzzle_in_the_world/bottom%s.png' % i) }}"/></div>
+    {% endfor %}
   </div>
 {% endblock %}
