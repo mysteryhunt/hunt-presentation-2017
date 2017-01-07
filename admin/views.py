@@ -314,8 +314,6 @@ def admintools():
 @login_required.writingteam
 def bigboard():
     teams = cube.get_teams(app)
-    team_level_sum = { team["teamId"]: sum([team.get("teamProperties",{}).get("CharacterLevelsProperty",{}).get("levels",{}).get(c.upper(),0) for c in CHARACTER_IDS]) for team in teams }
-    teams.sort(key=lambda team: -team_level_sum[team["teamId"]])
 
     team_visibility_futures = {}
     for team in teams:
@@ -325,6 +323,12 @@ def bigboard():
     for team_id, future in team_visibility_futures.iteritems():
         visibilities = future.result().json()["visibilities"]
         team_visibilities[team_id] = { v["puzzleId"]: v for v in visibilities }
+        
+    team_level_sum = { team["teamId"]: \
+            sum([team.get("teamProperties",{}).get("CharacterLevelsProperty",{}).get("levels",{}).get(c.upper(),0) \
+                for c in [ch for ch in CHARACTER_IDS if team_visibilities.get(team["teamId"],{}).get(ch,{}).get("status","INVISIBLE") in ["UNLOCKED","SOLVED"] ]]) \
+                for team in teams }
+    teams.sort(key=lambda team: -team_level_sum[team["teamId"]])
 
     return render_template(
         "bigboard.html",
