@@ -7,8 +7,19 @@
 
 {% block puzzle_head_block %}
   <style>
-    ul {
+    #puzzle-content ul {
       list-style-type: none;
+    }
+    #puzzle-content span.highlight-letter {
+      font-weight: bold;
+      color: red;
+    }
+    #puzzle-content table th {
+      text-align: left;
+      padding: 5px;
+    }
+    #puzzle-content table td {
+      padding: 5px;
     }
   </style>
 {% endblock %}
@@ -36,19 +47,72 @@
     <p>
       The recapped episodes, in the order given, which is alphabetical by show:
     </p>
-    <ul>
-      <li>Page Six / 30 Rock / MILF Isl<u>a</u>nd</li>
-      <li>Popular Mechanics / The Americans / Do <u>M</u>ail Robots Dream of Electric Sheep?</li>
-      <li>Dogster / The Blacklist / Alis<u>t</u>air Pitt (No. 103)</li>
-      <li>Fast Company / Community / App Development and Condi<u>m</u>ents</li>
-      <li>Us Weekly / House / Livin<u>g</u> the Dream</li>
-      <li>The Chronicle of Higher Education / How I Met Your Mother / D<u>e</u>finitions</li>
-      <li>AVN / Party Down / Sin Say Shu<u>n</u> Awards Afterparty</li>
-      <li>Psychology Today / Seinfeld / The Pe<u>z</u> Dispenser</li>
-      <li>Cosmopolitan / Sex and the City / Thr<u>e</u>e&rsquo;s a Crowd</li>
-      <li>The Nation / The Simpsons / L<u>a</u>st Exit to Springfield</li>
-      <li>2600 / The X-Files / Anasaz<u>i</u></li>
-      <li>Spin / You&rsquo;re The Worst / A R<u>i</u>ght Proper Story</li>
-    </ul>
+    <table>
+      <tr>
+        <th>Magazine</th>
+        <th>Show</th>
+        <th>Episode</th>
+      </tr>
+      <tr>
+        <td>Page Six</td>
+        <td>30 Rock</td>
+        <td>MILF Isl<span class="highlight-letter">a</span>nd</td>
+      </tr>
+      <tr>
+        <td>Popular Mechanics</td>
+        <td>The Americans</td>
+        <td>Do <span class="highlight-letter">M</span>ail Robots Dream of Electric Sheep?</td>
+      </tr>
+      <tr>
+        <td>Dogster</td>
+        <td>The Blacklist</td>
+        <td>Alis<span class="highlight-letter">t</span>air Pitt (No. 103)</td>
+      </tr>
+      <tr>
+        <td>Fast Company</td>
+        <td>Community</td>
+        <td>App Development and Condi<span class="highlight-letter">m</span>ents</td>
+      </tr>
+      <tr>
+        <td>Us Weekly</td>
+        <td>House</td>
+        <td>Livin<span class="highlight-letter">g</span> the Dream</td>
+      </tr>
+      <tr>
+        <td>The Chronicle of Higher Education</td>
+        <td>How I Met Your Mother</td>
+        <td>D<span class="highlight-letter">e</span>finitions</td>
+      </tr>
+      <tr>
+        <td>AVN</td>
+        <td>Party Down</td>
+        <td>Sin Say Shu<span class="highlight-letter">n</span> Awards Afterparty</td>
+      </tr>
+      <tr>
+        <td>Psychology Today</td>
+        <td>Seinfeld</td>
+        <td>The Pe<span class="highlight-letter">z</span> Dispenser</td>
+      </tr>
+      <tr>
+        <td>Cosmopolitan</td>
+        <td>Sex and the City</td>
+        <td>Thr<span class="highlight-letter">e</span>e&rsquo;s a Crowd</td>
+      </tr>
+      <tr>
+        <td>The Nation</td>
+        <td>The Simpsons</td>
+        <td>L<span class="highlight-letter">a</span>st Exit to Springfield</td>
+      </tr>
+      <tr>
+        <td>2600</td>
+        <td>The X-Files</td>
+        <td>Anasaz<span class="highlight-letter">i</span></td>
+      </tr>
+      <tr>
+        <td>Spin</td>
+        <td>You&rsquo;re The Worst</td>
+        <td>A R<span class="highlight-letter">i</span>ght Proper Story</td>
+      </tr>
+    </table>
   </div>
 {% endblock %}
