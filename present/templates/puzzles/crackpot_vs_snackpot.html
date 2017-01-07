@@ -5,7 +5,7 @@
 {% block puzzle_head_block %}
 <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
 <script>
-var baseServiceUrl = 'http://54.88.237.118/crackpot_vs_snackpot';
+var baseServiceUrl = '/crackpot_vs_snackpot';
 
 var getProblem = function(onSuccess) {
   $.get({
@@ -52,7 +52,6 @@ var getSolution = function(problemToken, answer, stateToken, onSuccess) {
 };
 
 var handleSolution = function(solutionData) {
-  console.log(solutionData);
   $('#crackpot-score-display span#crackpot-correct').text(solutionData.state.correct);
   $('#crackpot-score-display span#crackpot-total').text(solutionData.state.total);
   $('#live-problem-display').data('state-token', solutionData.state_token);
@@ -70,7 +69,6 @@ var handleSolution = function(solutionData) {
 };
 
 var populateSolutionDisplay = function($displayPanel, data) {
-  console.log(data);
   $displayPanel.append('<div class="archive-id">' + data.archive + ':' + data.archive_id + '</div>');
   $displayPanel.append('<div class="title">' + data.title + '</div>');
   $displayPanel.append('<div class="authors">' + data.authors + '</div>');
