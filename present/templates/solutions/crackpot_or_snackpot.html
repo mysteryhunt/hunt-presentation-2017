@@ -1,0 +1,117 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'bridge' %}
+{% block title_block %}Crackpot or Snackpot: Solution{% endblock %}
+{% block puzzle_name_block %}Crackpot or Snackpot: Solution{% endblock %}
+{% block byline %}By Ben Monreal<br/>Tech by TK Focht{% endblock %}
+{% block solution %}ABLATIVE{% endblock %}
+
+{% block puzzle_head_block %}
+  <style>
+  </style>
+{% endblock %}
+
+{% block solution_content_block %}
+<div>
+  <p>
+    The interface mimics the Markov-text-generator game <a href="http://snarxiv.org/vs-arxiv/">&ldquo;arXiv vs. snarXiv,&rdquo;</a> which has a random text generator that&rsquo;s been trained to produce fake string theory paper titles; the game is to compare them to real paper titles from <a href="http://arxiv.org">arXiv.org</a>. This puzzle is &ldquo;viXra vs sniXra,&rdquo; which is a text generator&mdash;but not a random one&mdash;trained to produce fake crackpot paper titles; the &ldquo;game&rdquo; element is to compare them to crackpot papers from <a href="http://www.vixra.org">viXra.org</a>, the &ldquo;alternative archive&rdquo; for amateur/outsider scientists. But as you play you&rsquo;ll accumulate a list of such fake papers and their fake author lists, and even fake &ldquo;sniXra&rdquo; eight-digit identifiers.
+  </p>
+  <p>
+    If you play the game for a while you will be encouraged to look up the AIP conference proceedings identified as &ldquo;4869.4736.&rdquo; That&rsquo;s not a real viXra identifier&mdash;the leading digits of an identifier are an upload date in YYMM format. What does it mean?
+  </p>
+  <p>
+    Here is a randomly-generated set of &ldquo;fake&rdquo; papers and the &rdquo;vixra identifiers&rdquo; I've assigned to them:
+  </p>
+  <ul>
+    <li>sniXra:0620.9800 <b>Between Force Fundamental Theory</b> <i>by Dingle, Herndon, Jovanovich, and Kodukula</i>
+    <li>sniXra:1000.0892 <b>Electrochemically Theory Beta Neutrino</b> <i>by Beckwith, Dingle, Fleischmann, Pons, and Yie</i>
+    <li>sniXra:6051.9071 <b>Deuterium: The Electromagnetic Fundamental Asymmetry Entropy</b> <i>by Beckwith, Fleischmann, Jovanovich, Khmelnik, Kodukula, Pons, and Yie</i>
+    <li>sniXra:0542.0409 <b>Connections To Energy Test Stars</b> <i>by Beckwith, Dingle, Herndon, Jovanovich, and Khmelnik</i>
+    <li>sniXra:0037.2098 <b>Approach And Unification Beta: Why?</b> <i>by Beckwith, Jovanovich, Khmelnik, Kodukula, and Yie</i>
+    <li>sniXra:0152.0270 <b>Questioning: The Energy Proposed Asymmetry</b> <i>by Dingle, Herndon, Jovanovich, Khmelnik, and Yie</i>
+    <li>sniXra:5058.5071 <b>Of The Milroy Bio-Force Asymmetry Entropy</b> <i>by Beckwith, Fleischmann, Jovanovich, Khmelnik, Kodukula, Pons, and Yie</i>
+    <li>sniXra:3024.9097 <b>Nuclear Force In Fundamental Beta Problem</b> <i>by Beckwith, Fleischmann, Jovanovich, Khmelnik, Kodukula, Pons, and Yie</i>
+    <li>sniXra:0020.0573 <b>Force Of Asymmetry Physics</b> <i>by Beckwith, Dingle, Jovanovich, and Yie</i>
+    <li>sniXra:0038.0878 <b>Approach Milroy Theory Asymmetry: Why?</b> <i>by Beckwith, Dingle, Jovanovich, Khmelnik, and Yie</i>
+    <li>sniXra:2236.0090 <b>Induced Astrophysics Approach Wire Beta</b> <i>by Fleischmann, Herndon, Jovanovich, Khmelnik, Pons, and Yie</i>
+    <li>sniXra:6400.5609 <b>Deuterium Revealing Bio-Force: The Stars</b> <i>by Beckwith, Dingle, Fleischmann, Herndon, Kodukula, and Pons</i>
+    <li>sniXra:5074.8009 <b>Of Propulsion In Fifth Stars</b> <i>by Beckwith, Fleischmann, Jovanovich, Khmelnik, Kodukula, and Pons</i>
+    <li>sniXra:2026.2422 <b>Induced Force Wire Unification Test Possible Neutrino</b> <i>by Beckwith, Dingle, Fleischmann, Jovanovich, Khmelnik, Kodukula, Pons, and Yie</i>
+    <li>sniXra:1503.1090 <b>Electrochemically Connections Flow Grand Beta</b> <i>by Fleischmann, Herndon, Khmelnik, Kodukula, Pons, and Yie</i>
+    <li>sniXra:1502.2000 <b>Electrochemically Connections Energy Unification</b> <i>by Fleischmann, Herndon, Khmelnik, Kodukula, and Pons</i>
+    <li>sniXra:1201.0003 <b>Electrochemically Astrophysics Electromagnetic Physics</b> <i>by Beckwith, Fleischmann, Herndon, Khmelnik, and Pons</i>
+    <li>sniXra:0977.0400 <b>Luminous Propulsion And Test</b> <i>by Dingle, Herndon, Jovanovich, and Khmelnik</i>
+    <li>sniXra:6530.0002 <b>Deuterium Connections Approach Neutrino</b> <i>by Beckwith, Fleischmann, Herndon, Jovanovich, and Pons</i>
+    <li>sniXra:5026.0001 <b>Of Force Wire Entropy</b> <i>by Beckwith, Fleischmann, Jovanovich, Khmelnik, and Pons</i>
+    <li>sniXra:2200.0091 <b>Induced Astrophysics Beta Entropy</b> <i>by Beckwith, Fleischmann, Herndon, Pons, and Yie</i>
+    <li>sniXra:0052.2002 <b>The Energy Unification Neutrino</b> <i>by Beckwith, Jovanovich, Khmelnik, and Kodukula</i>
+    <li>sniXra:0777.0008 <b>Stellar Propulsion And: Why?</b> <i>by Beckwith, Herndon, Jovanovich, and Khmelnik</i>
+    <li>sniXra:0142.3800 <b>Questioning To Energy Concept Theory</b> <i>by Dingle, Herndon, Jovanovich, Khmelnik, and Kodukula</i>
+    <li>sniXra:5075.3352 <b>Of Propulsion: The Concept Astronomical: The Neutrino</b> <i>by Beckwith, Dingle, Fleischmann, Jovanovich, Khmelnik, Kodukula, Pons, and Yie</i>
+    <li>sniXra:5525.2408 <b>Of Connections Force: The Unification Test: Why?</b> <i>by Beckwith, Dingle, Fleischmann, Herndon, Jovanovich, Khmelnik, Kodukula, and Pons</i>
+    <li>sniXra:2003.8883 <b>Induced Flow Fifth Theory Of Physics</b> <i>by Beckwith, Dingle, Fleischmann, Khmelnik, Kodukula, Pons, and Yie</i>
+    <li>sniXra:0970.7809 <b>Luminous Propulsion: The Theory Stars</b> <i>by Beckwith, Dingle, Herndon, Jovanovich, and Kodukula</i>
+    <li>sniXra:0533.0370 <b>Connections Approach Flow Astronomical Asymmetry</b> <i>by Dingle, Herndon, Jovanovich, Khmelnik, and Yie</i>
+    <li>sniXra:0403.3200 <b>Revealing Flow Concept Proposed</b> <i>by Dingle, Herndon, Khmelnik, and Kodukula</i>
+  </ul>
+  <p>
+    You&rsquo;re meant to notice that the sniXra number is correlated with the title in some way. Maybe the easiest thing to notice is that the number of nonzero ID digits is the number of title words. You&rsquo;ll also notice lots of recurring words, and that those words correlate with the ID&mdash;if the first digit is 3 then the first word is &ldquo;Nuclear,&rdquo; for example. If the last word is &ldquo;Entropy&rdquo; the last digit is 1. Indeed, each digit of the eight-bit ID corresponds to a fixed word list for that digit. If there&rsquo;s a zero in the ID, no word from that place&rsquo;s wordlist is present.
+  </p>
+  <p>
+    The authorlist may help, too. A nonzero value of the first digit will always mean Pons and Fleischmann are on the author list. A nonzero value of the 2nd digit will always mean Herndon is a coauthor.
+  </p>
+  <p>
+    Get to work decoding the sniXra identifiers. If you click on enough papers you will see that the 1st through 8th digits point to the <i>n</i>th word in the following eight wordlists:
+  </p>
+  <ol>
+    <li>Electrochemically induced nuclear ?? of deuterium ?? ?? ??</li>
+    <li>Questioning Astrophysics and Revealing Connections Between Stellar ?? Luminous</li>
+    <li>Airfoil Force Approach to the ???  Propulsion ?? ??</li>
+    <li>Electromagnetic Energy Flow in the Wire and Milroy ??</li>
+    <li>Grand Unification Concept ?? Bio-force as the Fifth Fundamental</li> 
+    <li>A proposed astronomical test of the ?? theory of</li>
+    <li>A Possible ??? to the Right-Left Asymmetry of Beta</li>
+    <li>Entropy Neutrino Physics ?? ?? ?? Problem Why Stars</li>
+  </ol>
+  <p>
+    and to the following eight sets of authors (always alphabetized)
+  </p>
+  <ol>
+    <li>&ldquo;Pons,&rdquo; &ldquo;Fleischmann&rdquo;</li>
+    <li>&ldquo;Herndon&rdquo;</li>
+    <li>&ldquo;Jovanovich&rdquo;</li>
+    <li>&ldquo;Khmelnik&rdquo;</li>
+    <li>&ldquo;Kodukula&rdquo;</li>
+    <li>&ldquo;Dingle&rdquo;</li>
+    <li>&ldquo;Yie&rdquo;</li>
+    <li>&ldquo;Beckwith&rdquo;</li>
+  </ol>
+  <p>
+    Notice that the hinted-at identifier 4869.4736 is still undecodeable. The game never gives you a paper with the first digit 4, or the second digit 8, etc.
+  </p>
+  <p>
+    However, these eight wordlists are the titles of eight actual papers by the eight authors or sets of authors&mdash;Pons and Fleischmann being the most famous. Find the real paper titles to complete the wordlists:
+  </p>
+  <ol>
+    <li>Electrochemically induced nuclear <b>fusion</b> of deuterium, J. Electroanol. Chem., 261 (1989) 301-308, Martin Fleischmann and Stanley Pons</li>
+    <li>Questioning Astrophysics and Revealing Connections Between Stellar <b>Ignition</b> Luminous Galactic Jets, and the Origin of Heavy Elements, viXra:0804.0001 by J Marvin Herndon</li>
+    <li>Airfoil force approach to the <b>rocket</b> propulsion, viXra:1509.0133 by Oliver R. Jovanovic</li>
+    <li>Electromagnetic Energy Flow in the Wire and Milroy <b>Engine</b>, viXra:1511.0130 by Solomon I. Khmelnik</li>
+    <li>Grand Unification Concept <b>with</b> Bio-force as the Fifth Fundamental Force, Int. J. High Energy Physics 3(3) 18-24 (2016) by Siva Prasad Kodokula</li>
+    <li>A proposed astronomical test of the <b>ballistic</b> theory of light, MNRAS vol 119 67 (1959) by Herbert Dingle</li>
+    <li>A Possible <b>Answer</b> to the Right-Left Asymmetry of Beta Decay, Physics Essays 18(1) (2005) by Shan-Noon Yie</li>
+    <li>Entropy, Neutrino Physics, and the <b>Lithium</b> Problem: Why Stars with no lithium in early universe exist, viXra:0909.0043 by Andrew Beckwith</li>
+  </ol>
+  <p>
+    Therefore the hinted identifier 4869.4736 would have the title &ldquo;Fusion Ignition Rocket Engine With Ballistic Answer Lithium.&rdquo; That happens to be almost the title of a real AIP conference proceedings:
+  </p>
+  <ul>
+    <li>FIREBALL: Fusion Ignition Rocket Engine with Ballistic Ablative Lithium Liner, AIP Conference Proceedings Volume 813(1), by Martin, Eskridge, Fimognari, and Lee</li>
+  </ul>
+  <p>
+    .&nbsp;.&nbsp;.&nbsp;except with ANSWER &#x2192 ABLATIVE. The answer is <b>ABLATIVE</b>.
+  </p>
+  <p>
+    Fleischmann, Pons, and Dingle are famously connected with crackpottery. Herndon, Jovanovic, Khmelnik, Kodokula, Yie, and Beckwith are mentioned purely due to the word-content of their paper titles. The puzzle&rsquo;s author has not read their papers and intends no comment. Martin, Eskridge, Fimognari, and Lee are not crackpots and I apologize for dragging them into this puzzle at all.
+  </p>
+</div>
+{% endblock %}

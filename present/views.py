@@ -5,8 +5,6 @@ from common.round_puzzle_map import CHARACTER_IDS, QUEST_IDS, ROUND_PUZZLE_MAP
 from flask import abort, redirect, render_template, request, send_from_directory, session, url_for
 from requests.exceptions import RequestException
 
-import os
-
 @app.errorhandler(Exception)
 def handle_exception(error):
     error_string = str(error)
@@ -331,4 +329,6 @@ def full_inventory():
     core_display_data = get_full_path_core_display_data()
     return render_template("inventory.html",
         core_display_data=core_display_data)
+
+
 
