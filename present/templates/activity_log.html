@@ -5,6 +5,9 @@
 
 {% block styling_block %}
     <style>
+      body {
+        background-image: url("{{ asset_url_for('general/wooden-background.png')|safe }}");
+      }
       table.activitylog {
         border-collapse: collapse;
       }
