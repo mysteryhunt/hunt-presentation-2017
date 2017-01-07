@@ -11,7 +11,7 @@ import random
 import os
 import re
 
-## CRACKPOT VS SNACKPOT
+## CRACKPOT OR SNACKPOT
 
 #More puzzle-ish stuff
 
@@ -259,7 +259,7 @@ HINTS = [
 def make_hint(correct, total):
   return HINTS[min(8,min(total-1,int(correct*1.0/total*9)))]
   
-@app.route('/crackpot_vs_snackpot/problem')
+@app.route('/crackpot_or_snackpot/problem')
 def problem():
   real = make_real()
   fake = make_fake()
@@ -282,7 +282,7 @@ def problem():
   
   return json.dumps(resp)
 
-@app.route('/crackpot_vs_snackpot/solution')
+@app.route('/crackpot_or_snackpot/solution')
 def solution():
   problem_spec = request.args.get('problem_token')
   if problem_spec is None:
