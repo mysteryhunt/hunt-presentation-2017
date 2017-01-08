@@ -1,6 +1,6 @@
 {% extends "overall_layout.html" %}
 
-{% macro generate_background(round_id) %}
+{% macro generate_background(round_id, puzzle_id) %}
   {% set character_colors = {'fighter': '#b49674', 'wizard': '#3079bd', 'cleric': '#853e3e',
           'linguist': '#594366', 'chemist': '#8ac664', 'economist':'#696969' } %}
   {% if round_id in ['fighter','wizard','cleric','linguist','chemist','economist'] %}
@@ -34,10 +34,22 @@
       background-image: url("{{ asset_url_for('general/quests/%s-background.png' % round_id)|safe }}");
     }
     </style>
+  {% elif round_id == 'index' and puzzle_id in ['battle','fortress'] %}
+    <style>
+    body {
+      background-image: url("{{ asset_url_for('general/quests/mysterio-background.png')|safe }}");
+    }
+    </style>
+  {% elif puzzle_id in ['merchants'] %}
+    <style>
+    body {
+      background-image: url("{{ asset_url_for('general/fabric-background.png')|safe }}");
+    }
+    </style>
   {% else %}
     <style>
     body {
-      background-color: navajowhite;
+      background-image: url("https://assets-open.monsters-et-manus.com/general/wooden-background.png");
     }
     </style>
   {% endif %}
@@ -50,7 +62,7 @@
 {% endblock %}
 
 {% block overall_layout_body %}
-  {{ generate_background(puzzle_round_id) }}
+  {{ generate_background(puzzle_round_id, puzzle_id) }}
   <div id="puzzle-container">
     <div id="header" class="standard-horizontal-scroll">
       {% block puzzle_name_block %}{% endblock %}

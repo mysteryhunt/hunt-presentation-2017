@@ -1,7 +1,6 @@
 {% extends "overall_layout.html" %}
 
 {% macro generate_background(round_id, puzzle_id) %}
-  <!-- round_id = {{ round_id }} -->
   {% set character_colors = {'fighter': '#b49674', 'wizard': '#3079bd', 'cleric': '#853e3e',
           'linguist': '#594366', 'chemist': '#8ac664', 'economist':'#696969' } %}
   {% if round_id in ['fighter','wizard','cleric','linguist','chemist','economist'] %}

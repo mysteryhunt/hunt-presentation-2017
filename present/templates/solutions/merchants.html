@@ -1,0 +1,170 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'index' %}
+{% block title_block %}The Maniacal Merchants: Solution{% endblock %}
+{% block puzzle_name_block %}The Maniacal Merchants: Solution{% endblock %}
+{% block byline %}By ??????{% endblock %}
+{% block solution %}SELL THIS USELESS JUNK AND GO ON A SHOPPING SPREE{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  #puzzle-content ul {
+    list-style-type: none;
+    padding-left: 0px;
+  }
+  #puzzle-content li {
+    padding-bottom: 3px;
+  }
+  #puzzle-content td {
+    padding: 4px;
+  }
+  #puzzle-content td.answer-listing {
+    font-family: monospace;
+  }
+  #puzzle-content span.highlight-group {
+    font-weight: bold;
+    color: blue;
+  }
+  #puzzle-content span.highlight-letter {
+    font-weight: bold;
+    color: red;
+  }
+  #puzzle-content table {
+    border-collapse: collapse;
+  }
+  #puzzle-content table td {
+    text-align: center;
+    padding: 4px;
+  }
+  #puzzle-content table.bordered td {
+    border: 1px solid black;
+  }
+  #puzzle-content table.unbordered td {
+    border: 0;
+  }
+  #puzzle-content td.items {
+    font-family: monospace;
+    white-space: nowrap;
+  }
+  #puzzle-content td.items table {
+    width: 100%;
+  }
+  #puzzle-content td.items img {
+    width: 100px;
+    display: inline-block;
+  }
+  #puzzle-content span.nowrap {
+    white-space: nowrap;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<div>
+  <p>
+    There are eight merchants, each looking to buy five items. This matches with the forty items you can acquire from quests. The five items each set a merchant wants share a property, and each set can be ordered. Match each item with the number in that box for the merchant, then extract that letter from the item name. The extracted letters read <b>SELL THIS USELESS JUNK AND GO ON A SHOPPING SPREE</b>. When solvers submit this answer, they receive six new items in exchange for their current inventory.
+  </p>
+  <table class="bordered">
+    <tr>
+      <th>Merchant</th>
+      <th>Items</th>
+      <th></th>
+    </tr>
+    <tr>
+      <td><span class="merchant-name">Facetious Frank</span><br/><br/>Frank&rsquo;s items each contain a single vowel repeated five times, ordered by the vowel.</td>
+      <td class="items">
+        <table class="unbordered">
+          <tr><td>7</td><td>Madman&rsquo;<span class="highlight-letter">s</span> Jackal Mask</td><td><img src="{{ asset_url_for('items/MadmansJackalMask.png') }}"/></td></tr>
+          <tr><td>8</td><td>Severe B<span class="highlight-letter">e</span>ret</td><td><img src="{{ asset_url_for('items/SevereBeret.png') }}"/></td></tr>
+          <tr><td>3</td><td>Li<span class="highlight-letter">l</span>&rsquo; String Bikini</td><td><img src="{{ asset_url_for('items/LilStringBikini.png') }}"/></td></tr>
+          <tr><td>5</td><td>Worn <span class="highlight-letter">L</span>oop of Gold</td><td><img src="{{ asset_url_for('items/WornLoopOfGold.png') }}"/></td></tr>
+          <tr><td>5</td><td>Burn<span class="highlight-letter">t</span> Sulfur Lugnut</td><td><img src="{{ asset_url_for('items/BurntSulfurLugnut.png') }}"/></td></tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td><span class="merchant-name">Suitable Sarah</span><br/><br/>Sarah&rsquo;s items each display a different suit from a deck of cards (including joker), ordered by the number of items of the suit displayed.</td>
+      <td class="items">
+        <table class="unbordered">
+          <tr><td>1</td><td><span class="highlight-letter">H</span>arlequin Doll</td><td><img src="{{ asset_url_for('items/HarlequinDoll.png') }}"/></td></tr>
+          <tr><td>5</td><td>Card<span class="highlight-letter">i</span>ac Devices</td><td><img src="{{ asset_url_for('items/CardiacDevices.png') }}"/></td></tr>
+          <tr><td>5</td><td>Iron <span class="highlight-letter">S</span>hovels</td><td><img src="{{ asset_url_for('items/IronShovels.png') }}"/></td></tr>
+          <tr><td>11</td><td>Officer's Tr<span class="highlight-letter">u</span>ncheons</td><td><img src="{{ asset_url_for('items/OfficersTruncheons.png') }}"/></td></tr>
+          <tr><td>1</td><td><span class="highlight-letter">S</span>parkling Necklace</td><td><img src="{{ asset_url_for('items/SparklingNecklace.png') }}"/></td></tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td><span class="merchant-name">Little Larry</span><br/><br/>Larry&rsquo;s items each include an SI prefix for a negative power of ten, ordered from <span class="nowrap">10<sup>-3</sup></span> to <span class="nowrap">10<sup>-15</sup></span>.</td>
+      <td class="items">
+        <table class="unbordered">
+          <tr><td>10</td><td>Tamil Liqu<span class="highlight-letter">e</span>ur</td><td><img src="{{ asset_url_for('items/TamilLiqueur.png') }}"/></td></tr>
+          <tr><td>3</td><td>Po<span class="highlight-letter">l</span>yatomic Robot</td><td><img src="{{ asset_url_for('items/PolyatomicRobot.png') }}"/></td></tr>
+          <tr><td>3</td><td>Si<span class="highlight-letter">e</span>nna Notebook</td><td><img src="{{ asset_url_for('items/SiennaNotebook.png') }}"/></td></tr>
+          <tr><td>6</td><td>Missi<span class="highlight-letter">s</span>sippi Collectible</td><td><img src="{{ asset_url_for('items/MississippiCollectible.png') }}"/></td></tr>
+          <tr><td>3</td><td>Un<span class="highlight-letter">s</span>afe Mtorolite</td><td><img src="{{ asset_url_for('items/UnsafeMtorolite.png') }}"/></td></tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td><span class="merchant-name">Star-Crossed Steve</span><br/><br/>Steve&rsquo;s items each have a hidden zodiac symbol in their picture and are ordered from Aquarius to Gemini.</td>
+      <td class="items">
+        <table class="unbordered">
+          <tr><td>9</td><td>Shield of <span class="highlight-letter">J</span>udgement</td><td><img src="{{ asset_url_for('items/ShieldOfJudgement.png') }}"/></td></tr>
+          <tr><td>3</td><td>Ne<span class="highlight-letter">u</span>ral Blade</td><td><img src="{{ asset_url_for('items/NeuralBlade.png') }}"/></td></tr>
+          <tr><td>1</td><td><span class="highlight-letter">N</span>ebular Gloves</td><td><img src="{{ asset_url_for('items/NebularGloves.png') }}"/></td></tr>
+          <tr><td>4</td><td>Tac<span class="highlight-letter">k</span>y Jeweled Helm</td><td><img src="{{ asset_url_for('items/TackyJeweledHelm.png') }}"/></td></tr>
+          <tr><td>5</td><td>Ultr<span class="highlight-letter">a</span>sonic Boots</td><td><img src="{{ asset_url_for('items/UltrasonicBoots.png') }}"/></td></tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td><span class="merchant-name">Holy Hannah</span><br/><br/>Hannah&rsquo;s items each contain one of the first five books of the Bible, ordered from Genesis to Deuteronomy.</td>
+      <td class="items">
+        <table class="unbordered">
+          <tr><td>7</td><td>Sega Ge<span class="highlight-letter">n</span>esis</td><td><img src="{{ asset_url_for('items/SegaGenesis.png') }}"/></td></tr>
+          <tr><td>13</td><td>Ultima III: Exo<span class="highlight-letter">d</span>us</td><td><img src="{{ asset_url_for('items/UltimaIIIExodus.png') }}"/></td></tr>
+          <tr><td>13</td><td>Leviticus Sin<span class="highlight-letter">g</span>le</td><td><img src="{{ asset_url_for('items/LeviticusSingle.png') }}"/></td></tr>
+          <tr><td>2</td><td>L<span class="highlight-letter">o</span>ttery Numbers</td><td><img src="{{ asset_url_for('items/LotteryNumbers.png') }}"/></td></tr>
+          <tr><td>1</td><td><span class="highlight-letter">O</span>ld Deuteronomy Sheet Music</td><td><img src="{{ asset_url_for('items/OldDeuteronomySheetMusic.png') }}"/></td></tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td><span class="merchant-name">Mourning Mike</span><br/><br/>Mike&rsquo;s items each contain a stage of grief, ordered from denial to acceptance.</td>
+      <td class="items">
+        <table class="unbordered">
+          <tr><td>3</td><td>De<span class="highlight-letter">n</span>ial of Service Attack Plan</td><td><img src="{{ asset_url_for('items/DenialOfServiceAttackPlan.png') }}"/></td></tr>
+          <tr><td>7</td><td>Anger M<span class="highlight-letter">a</span>nagement Book</td><td><img src="{{ asset_url_for('items/AngerManagementBook.png') }}"/></td></tr>
+          <tr><td>15</td><td>Bargaining Chip<span class="highlight-letter">s</span></td><td><img src="{{ asset_url_for('items/BargainingChips.png') }}"/></td></tr>
+          <tr><td>18</td><td>Depression-Era Clot<span class="highlight-letter">h</span>ing</td><td><img src="{{ asset_url_for('items/DepressionEraClothing.png') }}"/></td></tr>
+          <tr><td>18</td><td>Acceptance Letter t<span class="highlight-letter">o</span> MIT</td><td><img src="{{ asset_url_for('items/AcceptanceLetterToMIT.png') }}"/></td></tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td><span class="merchant-name">Flag-Bearing Flo</span><br/><br/>Flo&rsquo;s items each have a semaphore letter in their graphic, ordered from A to E.</td>
+      <td class="items">
+        <table class="unbordered">
+          <tr><td>14</td><td>Architect&rsquo;s Com<span class="highlight-letter">p</span>ass</td><td><img src="{{ asset_url_for('items/ArchitectsCompass.png') }}"/></td></tr>
+          <tr><td>3</td><td>Su<span class="highlight-letter">p</span>er-Accurate Tri-Square</td><td><img src="{{ asset_url_for('items/SuperAccurateTriSquare.png') }}"/></td></tr>
+          <tr><td>2</td><td>L<span class="highlight-letter">i</span>ttle Statue of Liberty</td><td><img src="{{ asset_url_for('items/LittleStatueOfLiberty.png') }}"/></td></tr>
+          <tr><td>3</td><td>Fa<span class="highlight-letter">n</span>cy Pocketwatch</td><td><img src="{{ asset_url_for('items/FancyPocketwatch.png') }}"/></td></tr>
+          <tr><td>10</td><td>Broken Twi<span class="highlight-letter">g</span></td><td><img src="{{ asset_url_for('items/BrokenTwig.png') }}"/></td></tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td><span class="merchant-name">Musical Maria</span><br/><br/>Maria&rsquo;s items each start and end with a solf&egrave;ge note, ordered from do to sol.</td>
+      <td class="items">
+        <table class="unbordered">
+          <tr><td>5</td><td>Dome<span class="highlight-letter">s</span>tic Avocado</td><td><img src="{{ asset_url_for('items/DomesticAvocado.png') }}"/></td></tr>
+          <tr><td>4</td><td>Red <span class="highlight-letter">P</span>inafore</td><td><img src="{{ asset_url_for('items/RedPinafore.png') }}"/></td></tr>
+          <tr><td>10</td><td>Mint-Flavo<span class="highlight-letter">r</span>ed Salami</td><td><img src="{{ asset_url_for('items/MintFlavoredSalami.png') }}"/></td></tr>
+          <tr><td>4</td><td>Fad<span class="highlight-letter">e</span>d Sofa</td><td><img src="{{ asset_url_for('items/FadedSofa.png') }}"/></td></tr>
+          <tr><td>6</td><td>Soldi<span class="highlight-letter">e</span>rly Parasol</td><td><img src="{{ asset_url_for('items/SoldierlyParasol.png') }}"/></td></tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</div>
+{% endblock %}
