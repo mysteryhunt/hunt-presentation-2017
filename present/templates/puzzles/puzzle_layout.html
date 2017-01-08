@@ -77,7 +77,12 @@
 {% endblock %}
 
 {% block header_content %}
-  <div id="submit"><a href="{{ submit_url_for(puzzle_id) }}">Check answer</a></div>
+  {% if site_mode() == 'live' %}
+    <div id="submit"><a href="{{ submit_url_for(puzzle_id) }}">Check answer</a></div>
+  {% endif %}
+  {% if site_mode() == 'solution' %}
+    <div id="submit"><a href="{{ url_for('puzzle_solution', puzzle_id=puzzle_id) }}">Solution</a></div>
+  {% endif %}
 {% endblock %}
 
 {% block overall_layout_body %}

@@ -63,11 +63,15 @@ def utility_processor():
     def handle_title_underscores(title):
       return title.replace('_____','<u>&emsp;&emsp;&emsp;&emsp;&emsp;</u>')
       pass
+      
+    def site_mode():
+      return app.config["SITE_MODE"] if app.config["SITE_MODE"] else 'live'
 
     return dict(submit_url_for=submit_url_for, asset_url_for=asset_url_for,
         get_google_api_key=get_google_api_key,
         single_character_unlock_requirement=single_character_unlock_requirement,
-        handle_title_underscores=handle_title_underscores)
+        handle_title_underscores=handle_title_underscores,
+        site_mode=site_mode)
 
 def make_core_display_data(visibilities_async, team_properties_async):
     visibilities = { v["puzzleId"]: v for v in visibilities_async.result().json().get("visibilities",[]) }
@@ -185,6 +189,37 @@ def puzzle(puzzle_id):
     with metrics.timer("present.puzzle_render"):
         return render_template(
             "puzzles/%s.html" % puzzle_id,
+            core_display_data=core_display_data,
+            puzzle_id=puzzle_id,
+            puzzle_round_id=puzzle_round_id,
+            puzzle=puzzle,
+            puzzle_visibility=puzzle_visibility)
+            
+@app.route("/solution/<puzzle_id>")
+@login_required.solvingteam
+@metrics.time("present.solution")
+def puzzle_solution(puzzle_id):
+    if app.config["SITE_MODE"] != 'solution':
+        abort(403)
+    
+    puzzle_visibility_async = cube.get_puzzle_visibility_async(app, puzzle_id)
+    core_visibilities_async = cube.get_puzzle_visibilities_for_list_async(app, CHARACTER_IDS + QUEST_IDS + ['merchants','battle'])
+    core_team_properties_async = cube.get_team_properties_async(app)
+    puzzle_async = cube.get_puzzle_async(app, puzzle_id)
+
+    puzzle_visibility = puzzle_visibility_async.result().json()
+    if puzzle_visibility['status'] not in ['UNLOCKED','SOLVED']:
+        abort(403)
+
+    core_display_data = make_core_display_data(core_visibilities_async, core_team_properties_async)
+    puzzle = puzzle_async.result().json()
+    canonical_puzzle_id = puzzle.get('puzzleId')
+    puzzle_round_id = [r_id for r_id, round_puzzle_ids in ROUND_PUZZLE_MAP.iteritems() if canonical_puzzle_id in round_puzzle_ids]
+    puzzle_round_id = puzzle_round_id[0] if len(puzzle_round_id) > 0 else None
+
+    with metrics.timer("present.puzzle_render"):
+        return render_template(
+            "solutions/%s.html" % puzzle_id,
             core_display_data=core_display_data,
             puzzle_id=puzzle_id,
             puzzle_round_id=puzzle_round_id,

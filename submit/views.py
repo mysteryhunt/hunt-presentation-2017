@@ -57,6 +57,9 @@ def index():
 @app.route("/puzzle/<puzzle_id>", methods=["GET", "POST"])
 @login_required.solvingteam
 def puzzle(puzzle_id):
+    if (app.config["SITE_MODE"] if app.config["SITE_MODE"] else 'live') not in ['live']:
+        abort(403)
+      
     if not cube.is_puzzle_unlocked(app, puzzle_id):
         abort(403)
 
