@@ -147,7 +147,7 @@
       
       <div id="header-session-control">
         {% if session["username"] %}
-          {{ session["username"] }}
+          {{ pretty_truncate(session["username"],15) }}
           <a href="#" data-toggle="modal" data-target="#header-change-contact-info">
             <span class="fa fa-pencil-square-o" data-toggle="tooltip" data-placement="bottom" title="Change Contact Info"></span>
           </a>

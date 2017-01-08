@@ -66,12 +66,18 @@ def utility_processor():
       
     def site_mode():
       return app.config["SITE_MODE"] if app.config["SITE_MODE"] else 'live'
+      
+    def pretty_truncate(value, length):
+      if len(value) <= length:
+        return value
+      return value[0:length] + '...'
 
     return dict(submit_url_for=submit_url_for, asset_url_for=asset_url_for,
         get_google_api_key=get_google_api_key,
         single_character_unlock_requirement=single_character_unlock_requirement,
         handle_title_underscores=handle_title_underscores,
-        site_mode=site_mode)
+        site_mode=site_mode,
+        pretty_truncate=pretty_truncate)
 
 def make_core_display_data(visibilities_async, team_properties_async):
     visibilities = { v["puzzleId"]: v for v in visibilities_async.result().json().get("visibilities",[]) }
