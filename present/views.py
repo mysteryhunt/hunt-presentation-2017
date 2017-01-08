@@ -121,6 +121,8 @@ def get_full_path_core_display_data():
 @login_required.solvingteam
 @metrics.time("present.index")
 def index():
+    if not cube.is_hunt_started_async(app).result():
+        return prehunt_index();
     round_puzzle_ids = ROUND_PUZZLE_MAP.get('index')
 
     core_visibilities_async = cube.get_puzzle_visibilities_for_list_async(app, CHARACTER_IDS + QUEST_IDS + ['merchants','battle'])
@@ -143,6 +145,9 @@ def index():
             visible_puzzle_ids=visible_puzzle_ids,
             fog_number=fog_number,
             puzzle_visibilities=puzzle_visibilities)
+
+def prehunt_index():
+    return render_template("prehunt_index.html")
 
 @app.route("/round/<round_id>")
 @login_required.solvingteam
@@ -249,6 +254,9 @@ def puzzle_solution(puzzle_id):
 @login_required.solvingteam
 @metrics.time("present.puzzle_list")
 def puzzle_list():
+    if not cube.is_hunt_started_async(app).result():
+        abort(403);
+  
     core_visibilities_async = cube.get_puzzle_visibilities_for_list_async(app, CHARACTER_IDS + QUEST_IDS + ['merchants','battle'])
     core_team_properties_async = cube.get_team_properties_async(app)
     all_visibilities_async = cube.get_puzzle_visibilities_async(app)
@@ -269,6 +277,9 @@ def puzzle_list():
 @app.route("/inventory")
 @login_required.solvingteam
 def inventory():
+    if not cube.is_hunt_started_async(app).result():
+        abort(403);
+  
     core_visibilities_async = cube.get_puzzle_visibilities_for_list_async(app, CHARACTER_IDS + QUEST_IDS + ['merchants','battle'])
     core_team_properties_async = cube.get_team_properties_async(app)
 
@@ -278,20 +289,28 @@ def inventory():
 @app.route("/handbook")
 @login_required.solvingteam
 def handbook():
+    is_hunt_started_async = cube.is_hunt_started_async(app)
     core_visibilities_async = cube.get_puzzle_visibilities_for_list_async(app, CHARACTER_IDS + QUEST_IDS + ['merchants','battle'])
     core_team_properties_async = cube.get_team_properties_async(app)
 
-    core_display_data = make_core_display_data(core_visibilities_async, core_team_properties_async)
-    return render_template("handbook.html", core_display_data=core_display_data)
+    if is_hunt_started_async.result():
+        core_display_data = make_core_display_data(core_visibilities_async, core_team_properties_async)
+        return render_template("handbook.html", core_display_data=core_display_data)
+    else:
+        return render_template("handbook.html")
 
 @app.route("/safety")
 @login_required.solvingteam
 def safety():
+    is_hunt_started_async = cube.is_hunt_started_async(app)
     core_visibilities_async = cube.get_puzzle_visibilities_for_list_async(app, CHARACTER_IDS + QUEST_IDS + ['merchants','battle'])
     core_team_properties_async = cube.get_team_properties_async(app)
 
-    core_display_data = make_core_display_data(core_visibilities_async, core_team_properties_async)
-    return render_template("safety.html", core_display_data=core_display_data)
+    if is_hunt_started_async.result():
+        core_display_data = make_core_display_data(core_visibilities_async, core_team_properties_async)
+        return render_template("safety.html", core_display_data=core_display_data)
+    else:
+        return render_template("safety.html")
 
 @app.route("/change_contact_info", methods=["POST"])
 @login_required.solvingteam

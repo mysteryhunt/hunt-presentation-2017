@@ -1,0 +1,54 @@
+{% extends "overall_layout.html" %}
+{% block title_block %}Monsters et Manus{% endblock %}
+{% block puzzle_name_block %}Monsters et Manus{% endblock %}
+{% block header_content %}{% endblock %}
+
+{% block styling_block %}
+    <style>
+    body {
+      background-image: url("{{ asset_url_for('general/wooden-background.png')|safe }}");
+    }
+    .center {
+      margin-top: 30px;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: flex-start;
+      align-items: center;
+    }
+    .message-box {
+      min-width: 450px;
+      min-height: 240px;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      align-items: center;
+    }
+    .message-box ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    </style>
+{% endblock %}
+
+
+{% block overall_layout_body %}
+    <div class="center">
+      <div class="standard-horizontal-scroll">
+        Monsters et Manus
+      </div>
+      <div class="message-box">
+        <div class="parchmented">
+          <p>
+            Monsters et Manus has not started yet.
+          </p>
+          <p>
+            Before it starts, you can review the following information:
+          </p>
+          <ul>
+            <li><a class="standard-link" href="{{ url_for('handbook') }}">Player Handbook</a></li>
+            <li><a class="standard-link" href="{{ url_for('safety') }}">Health and Safety</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+{% endblock %}
