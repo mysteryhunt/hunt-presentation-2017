@@ -16,6 +16,10 @@
         <input type="text" name="email" value="{{ team.email }}" {% if not editable %}disabled{% endif %}>
       </label>
       <label>
+        Headquarters
+        <input type="text" name="headquarters" value="{{ team.headquarters }}" {% if not editable %}disabled{% endif %}>
+      </label>
+      <label>
         Primary Phone
         <input type="text" name="primaryPhone" value="{{ team.primaryPhone }}" {% if not editable %}disabled{% endif %}>
       </label>

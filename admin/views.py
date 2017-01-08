@@ -172,6 +172,7 @@ def teams():
             "teamId": request.form["teamId"],
             "password": request.form["password"],
             "email": request.form["email"],
+            "headquarters": request.form["headquarters"],
             "primaryPhone": request.form["primaryPhone"],
             "secondaryPhone": request.form["secondaryPhone"],
         })
@@ -194,6 +195,7 @@ def team(team_id):
             cube.update_team(app, team_id, {
                 "teamId": team_id,
                 "email": request.form["email"],
+                "headquarters": request.form["headquarters"],
                 "primaryPhone": request.form["primaryPhone"],
                 "secondaryPhone": request.form["secondaryPhone"],
             })

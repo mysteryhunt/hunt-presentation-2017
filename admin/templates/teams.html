@@ -20,6 +20,10 @@
         <input type="text" name="email">
       </label>
       <label>
+        Headquarters
+        <input type="text" name="headquarters">
+      </label>
+      <label>
         Primary Phone
         <input type="text" name="primaryPhone">
       </label>
@@ -38,6 +42,7 @@
       <tr>
 	<th>Team ID</th>
 	<th>Email</th>
+	<th>Headquarters</th>
 	<th>Primary Phone</th>
 	<th>Secondary Phone</th>
       </tr>
@@ -47,6 +52,7 @@
       <tr>
 	<td><a href="{{ url_for('team', team_id=t.teamId) }}">{{ t.teamId }}</a></td>
 	<td>{{ t.email }}</td>
+	<td>{{ t.headquarters }}</td>
 	<td>{{ t.primaryPhone }}</td>
         <td>{{ t.secondaryPhone }}</td>
       </tr>
