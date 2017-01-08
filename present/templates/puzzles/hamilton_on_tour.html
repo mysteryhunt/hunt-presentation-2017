@@ -1,0 +1,189 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}Hamilton on Tour{% endblock %}
+{% block puzzle_name_block %}Hamilton on Tour{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  #puzzle-content .right {
+    text-align: right;
+  }
+  #puzzle-content #letter {
+    position: relative;
+    border: 2px solid black;
+    max-width: 700px;
+    padding: 70px;
+    margin: auto;
+  }
+  #puzzle-content #poster {
+    position: relative;
+    z-index: 0; 
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+  }
+  #puzzle-content #cassette {
+    position: absolute;
+    z-index: 1;
+    -ms-transform: rotate(15deg); /* IE 9 */
+    -webkit-transform: rotate(15deg); /* Chrome, Safari, Opera */
+    transform: rotate(15deg);
+    left: 50px;
+    bottom: 200px;
+    cursor: pointer;
+    -ms-transition: .25s ease-in-out;
+    -webkit-transition: .25s ease-in-out;
+    transition: .25s ease-in-out; 
+  }
+  #puzzle-content #cassette:hover {
+   -ms-transform: scale(1.2,1.2) rotate(15deg); 
+   -webkit-transform: scale(1.2,1.2) rotate(15deg); 
+   transform: scale(1.2,1.2) rotate(15deg); 
+  }
+  #puzzle-content #highlight {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 50px;
+    height: 50px;
+    padding: 0px;
+    visibility: hidden;
+    border: 3px solid red;
+    margin: 0px;
+}
+</style>
+
+<script>
+
+var signedClipUrls = {{ '{' }}
+{% for clip_id in ['preface','covert','lakegeorge','moira','orange','amity','schuyler','ramapo','wellsville','butternuts','somers','solon'] %}
+'{{ clip_id }}': '{{ asset_url_for("hamilton_on_tour/%s.mp3" % clip_id)|safe }}',
+{% endfor %}
+'galen': '{{ asset_url_for("hamilton_on_tour/galen.mp3")|safe }}'
+{{ '}' }};
+
+function playCassette() {
+  var c = document.getElementById('cassette').style;
+  c.filter = c.webkitFilter = 'opacity(50%)';
+
+  nowPlaying = 0;
+  playNextClip();
+}
+
+function playNextClip()
+{
+  var hi = document.getElementById('highlight').style;
+  hi.visibility = 'hidden';
+
+  if (nowPlaying < clips.length) {
+    var w = document.getElementById('poster').offsetWidth;
+    var cl = clips[nowPlaying]; 
+
+    hi.left = Math.round(cl[1] * w / 100.0) + 'px'; 
+    hi.top = Math.round(cl[2] * w / 100.0)  + 'px'; 
+    hi.width = Math.round(cl[3] * w / 100.0)  + 'px'; 
+    hi.height = Math.round(cl[4] * w / 100.0)  + 'px'; 
+    hi.visibility = 'visible';
+
+    cassette.src = signedClipUrls[cl[0]]; 
+    cassette.play();
+
+    nowPlaying++;
+
+  } else {
+    var c = document.getElementById('cassette').style;
+    c.filter = c.webkitFilter = 'none';
+
+    nowPlaying = -1;
+  }
+}
+
+var clips = [
+    ['preface', 35.5, 34.8, 43, 2.2], 
+    ['covert', 36.8, 67.2, 6.7, 2.1], 
+    ['lakegeorge', 51.1, 60, 11.4, 2.1], 
+    ['moira', 58.7, 47.7, 6, 2.1], 
+    ['orange', 42.9, 69.5, 6.6, 2.1], 
+    ['amity', 30, 70.3, 5.5, 2.1], 
+    ['schuyler', 55.3, 62.8, 8.3, 2.1], 
+    ['ramapo', 52.8, 80.2, 7.2, 2.1], 
+    ['wellsville', 37.1, 71.5, 10, 2.1], 
+    ['butternuts', 53.8, 68.5, 10.5, 2.1], 
+    ['somers', 64.4, 78, 6.9, 2.1], 
+    ['solon', 49.3, 66.6, 5.6, 2.1], 
+    ['galen', 43.9, 63.3, 5.5, 2.1]
+]; 
+
+var nowPlaying = -1; 
+
+var cassette = new Audio(); 
+cassette.addEventListener('ended', playNextClip);
+</script>
+
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+Glancing around the director&rsquo;s office, you notice a poster lying on the desk, along with a cassette tape and a letter.
+{% endblock %}
+
+{% block puzzle_content_block %}
+<div id='poster'>
+  <img src='{{ asset_url_for("hamilton_on_tour/poster.png") }}' width='100%'>
+  <img id='cassette' src='{{ asset_url_for("hamilton_on_tour/cassette.png") }}' onclick='playCassette();'>
+  <div id='highlight'>
+  </div>
+</div>
+
+<div id='letter'>
+  <p>
+    Lin:<br><br>Plans for the New York tour are firming up. Can you get back to me with
+    thoughts on this poster draft? We&rsquo;re still trying to figure out the route. Between
+    one thing and another we&rsquo;ve got some scheduling constraints:
+  </p>
+  <ul>
+    <li>Genre-bending cred. We&rsquo;ve got to secure sequential dates in the two towns
+    whose names can be anagrammed together to form the name of a popular
+    anime character.</li>
+    <li>Crossover appeal. We need to be able to swap the last part of one town&rsquo;s
+    name with the first part of the name of the next town visited to form two
+    new English words meaning &ldquo;do&rdquo; and &ldquo;hate.&rdquo;</li>
+    <li>Superstition. The cast is insisting that we travel between towns with
+    different numbers of letters in their names in exactly four out of the
+    eleven legs of the tour.</li>
+    <li>Classical grounding. We should visit one of the towns named for a Greek
+    towards each end of the tour—let&rsquo;s say either first and penultimate or
+    second and last.</li>
+    <li>Snob defense. We&rsquo;re stuck visiting two towns whose names are foods. We
+    need to fit exactly three other towns in between them so we don&rsquo;t look like dinner
+    theater.</li>
+    <li>Fuel economy. We need to hit the two southernmost towns in succession.
+    To keep everyone focused on reducing our footprint, the last letters of four
+    sequential stops on the tour should spell out the name of an oil and gas
+    company.</li>
+    <li>Producer whim. Can&rsquo;t say I see why, but all the towns on the tour with the
+    longest names are going to have to be scheduled in reverse alphabetic
+    order.</li>
+    <li>Uxoriousness. We all think it&rsquo;s sweet that we&rsquo;re visiting one town whose
+    name, minus its first and last letters, is your wife&rsquo;s alma mater, and
+    another whose first and last letters give her alma mater&rsquo;s location. But
+    let&rsquo;s not lay it on too thick. We should separate those towns by, say, seven
+    intervening stops.</li>
+    <li>Educational outreach. We need to be able to produce a two-word phrase
+    for a kind of early educational institution by changing an L to an R in one
+    town&rsquo;s name and anagramming it along with the next town on the tour.</li>
+    <li>Doing Hamilton proud. We should start off by visiting four towns that
+    contain the letters NEW YORK between them (though not in order).</li>
+    <li>Doing Hercules Mulligan proud. We need to be able to slip a synonym of
+    &ldquo;spy&rdquo; in between two adjacent towns on the tour to make familiar
+    two-word phrases with both town names.</li>
+  </ul>
+  <p>
+    Also, re: publicity. We&rsquo;re visiting some quaint little spots&mdash;what about going out and
+    finding a unique intersection in each town to put on a musical number?
+    I've pulled together some suggestions on this cassette&mdash;please take a listen.
+  </p>
+  <p class='right'>
+    I have the honor to be your obedient servant,<br><br>
+    E. Hunt
+  </p>
+</div>
+{% endblock %}

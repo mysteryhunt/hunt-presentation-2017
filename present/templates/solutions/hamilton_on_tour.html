@@ -1,0 +1,153 @@
+{% extends "solutions/solution_layout.html" %}
+{% set puzzle_round_id = 'flex' %}
+{% block title_block %}Hamilton on Tour: Solution{% endblock %}
+{% block puzzle_name_block %}Hamilton on Tour: Solution{% endblock %}
+{% block byline %}By Guy Jacobson and Sarah Bagby{% endblock %}
+{% block solution %}FLEX{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+  #puzzle-content table td, #puzzle-content table th {
+    text-align: center;
+    padding: 4px;
+  }
+  #puzzle-content table td:first-child {
+    white-space: nowrap;
+  }
+</style>
+{% endblock %}
+
+{% block solution_content_block %}
+<div>
+  <p>
+    Solvers are presented with (1) a memo to &ldquo;Lin&rdquo; that lays out the constraints involved in scheduling Hamilton&rsquo;s upcoming tour of New York, (2) a draft of the poster advertising the tour, and (3) an image of a cassette tape that plays a series of very short clips. The poster includes a map showing twelve towns in New York; each town is highlighted when the associated part of the audio file plays. The poster also gives a brief blurb from the <i>New York Post</i>.
+  </p>
+  <p>
+    The logic constraints allow solvers to construct a Hamiltonian path: an itinerary in which each node on the map is visited exactly once. (Alexander Hamilton was a polymath, but the path is named for William Rowan Hamilton.) This tour provides an ordering for the audio clip data.
+  </p>
+  <p>
+    Each audio clip is taken from a different track of the original Broadway cast recording of <i>Hamilton</i>. After a prefatory clip (&ldquo;My client needs a strong defense. You&rsquo;re the solution.&rdquo;), each of the remaining twelve clips includes a number. As hinted by the highlighted words in the ad copy at the bottom of the poster (TRACK NUMBER IN ORIGINAL BROADWAY CAST RECORDING), solvers need to identify the source tracks, to obtain twelve (number in lyrics, track number) pairs. The tracks associated with Schuyler and Amity may be tricky; they&rsquo;re both the word “four,” from the original statement of “The Story of Tonight” (track 4) and its reprise (track 12), but the accompaniment is different enough to assign clips to tracks unambiguously.
+  </p>
+  <p>
+    The <i>New York Post</i> blurb hints at what to do next: both <i>The Valley of Fear</i> and <i>A Perfect Spy</i> feature book ciphers as major plot devices. &ldquo;Take my word for it&rdquo; should also provide a strong indication that we&rsquo;re going to be counting words in a wordlist rather than letters in a word. Whose words are we taking? Publius, the purported author of the blurb, and of the Federalist Papers (&ldquo;a brilliant collaboration&rdquo; between Hamilton, Madison, and Jay).
+  </p>
+  <p>
+    The use of the Federalist Papers as the key text is also hinted by the prefatory audio clip, from &ldquo;Non-Stop&rdquo; (track 23), where Hamilton attempts to persuade Burr to contribute to the writing of the Federalist Papers by appealing to Burr&rsquo;s legal skills. As confirmation, solvers should notice that each of the Federalist Papers carries the salutation &ldquo;To the People of the State of New York,&rdquo; the text that&rsquo;s highlighted on the poster when the clip from &ldquo;Non-Stop&rdquo; plays.
+  </p>
+  <p>
+    The next aha is realizing how the book cipher works. For each (number in lyrics, track number) pair, the track number gives the number of the Federalist Paper, and the lyrics number indicates which word to extract from the body of the essay. (Counting starts after the salutation.) As confirmation, a sticky note shows “2/28 THERE” with an arrow pointing to the town of Moira; the clip associated with Moira is of the word &ldquo;two&rdquo; from track 28 (&ldquo;The Room Where It Happens&rdquo;), and the second word of Federalist No. 28 is &ldquo;there.&rdquo; (This example also serves to confirm that the track numbers used for the two-disc recording are 1&ndash;46, not 1&ndash;23, 1&ndash;23.)
+  </p>
+  <p>
+    The extraction is clued by the final bit of the memo: &ldquo;what about going out and finding a unique intersection in each town to put on a musical number?&rdquo; The word derived from each musical number matches the associated town name in length. The unique intersection is the one letter that&rsquo;s shared in position and identity between the two. That letter is what&rsquo;s needed.
+  </p>
+  <p>
+    Putting these letters into the order dictated by the Hamiltonian path logic puzzle, we get GIVE US A VERSE, John Laurens&rsquo;s request to Aaron Burr in &ldquo;Aaron Burr, Sir.&rdquo; Teams should give us a verse: perform a rap, hand us a stanza, cite a line from the Bible&mdash;lots of possibilities, but &ldquo;You spit, I&rsquo;m &rsquo;a sit&rdquo; is right out. Teams that successfully give us a verse will be given the answer <b>FLEX</b>.
+  </p>
+  <table>
+    <tr>
+      <th>Town</th>
+      <th>Number in Lyrics</th>
+      <th>Song</th>
+      <th>Track (=Fed. Paper)</th>
+      <th>FP Word</th>
+      <th>Common Letter</th>
+    </tr>
+    <tr>
+      <td>Galen</td>
+      <td>100</td>
+      <td>Stay Alive</td>
+      <td>14</td>
+      <td>great</td>
+      <td>G</td>
+    </tr>
+    <tr>
+      <td>Amity</td>
+      <td>4</td>
+      <td>The Story of Tonight (Reprise)</td>
+      <td>12</td>
+      <td>union</td>
+      <td>I</td>
+    </tr>
+    <tr>
+      <td>Wellsville</td>
+      <td>10</td>
+      <td>Ten Duel Commandments</td>
+      <td>15</td>
+      <td>endeavored</td>
+      <td>V</td>
+    </tr>
+    <tr>
+      <td>Lake George</td>
+      <td>2</td>
+      <td>Satisfied</td>
+      <td>11</td>
+      <td>importance</td>
+      <td>E</td>
+    </tr>
+    <tr>
+      <td>Butternuts</td>
+      <td>10</td>
+      <td>Alexander Hamilton</td>
+      <td>1</td>
+      <td>subsisting</td>
+      <td>U</td>
+    </tr>
+    <tr>
+      <td>Somers</td>
+      <td>20</td>
+      <td>My Shot</td>
+      <td>3</td>
+      <td>seldom</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <td>Ramapo</td>
+      <td>5</td>
+      <td>Take a Break</td>
+      <td>26</td>
+      <td>hardly</td>
+      <td>A</td>
+    </tr>
+    <tr>
+      <td>Covert</td>
+      <td>1</td>
+      <td>The World Was Wide Enough</td>
+      <td>45</td>
+      <td>having</td>
+      <td>V</td>
+    </tr>
+    <tr>
+      <td>Orange</td>
+      <td>3</td>
+      <td>Aaron Burr, Sir</td>
+      <td>2</td>
+      <td>people</td>
+      <td>E</td>
+    </tr>
+    <tr>
+      <td>Moira</td>
+      <td>2</td>
+      <td>The Room Where It Happens</td>
+      <td>28</td>
+      <td>there</td>
+      <td>R</td>
+    </tr>
+    <tr>
+      <td>Solon</td>
+      <td>45</td>
+      <td>One Last Time</td>
+      <td>32</td>
+      <td>sense</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <td>Schuyler</td>
+      <td>4</td>
+      <td>The Story of Tonight</td>
+      <td>4</td>
+      <td>assigned</td>
+      <td>E</td>
+    </tr>
+  </table>
+</div>
+{% endblock %}
