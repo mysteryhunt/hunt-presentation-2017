@@ -219,17 +219,19 @@ def team(team_id):
 
     CHARACTER_ROUND_IDS = ["linguist", "economist", "chemist"]
     CHARACTER_RESCUE_IDS = ["rescue_the_%s" % id for id in CHARACTER_ROUND_IDS]
+    EVENT_IDS = ["eventa","eventb","eventc","eventd"]
+    ENDGAME_IDS = ["battle","fortress"]
 
-    rescue_visibilities = cube.get_puzzle_visibilities_for_list(
+    completeable_puzzle_visibilities = cube.get_puzzle_visibilities_for_list(
         app,
-        CHARACTER_ROUND_IDS + CHARACTER_RESCUE_IDS,
+        CHARACTER_ROUND_IDS + CHARACTER_RESCUE_IDS + EVENT_IDS + ENDGAME_IDS,
         team_id)
 
     return render_template(
         "team.html",
         team=team,
         puzzles=puzzles,
-        rescue_visibilities=rescue_visibilities)
+        completeable_puzzle_visibilities=completeable_puzzle_visibilities)
 
 def build_roles_list(form):
     roles = []

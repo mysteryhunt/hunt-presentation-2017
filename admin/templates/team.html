@@ -34,6 +34,8 @@
 
   {% if is_authorized('visibilities:update:%s' % team.teamId) %}
   {% set rescuable_characters = ['linguist', 'economist', 'chemist'] %}
+  {% set events = ['eventa','eventb','eventc','eventd'] %}
+  {% set endgames = ['battle','fortress'] %}
   <form class="ha-column-control-box" action="{{ url_for('team', team_id=team.teamId) }}" method="post">
     <span class="ha-control-box-title">
       Complete Character Rescue
@@ -47,7 +49,7 @@
     {% for character in rescuable_characters %}
     <div>
       {% set puzzleId = 'rescue_the_%s' % character %}
-      {% set allow = rescue_visibilities.get(puzzleId, {}).get('status', 'INVISIBLE') == 'UNLOCKED' %}
+      {% set allow = completeable_puzzle_visibilities.get(puzzleId, {}).get('status', 'INVISIBLE') == 'UNLOCKED' %}
       <input
          type="button"
          value="Yes, I'm sure"
@@ -81,7 +83,7 @@
     {% for character in rescuable_characters %}
     <div>
       {% set puzzleId = character %}
-      {% set allow = rescue_visibilities.get(puzzleId, {}).get('status', 'INVISIBLE') == 'INVISIBLE' %}
+      {% set allow = completeable_puzzle_visibilities.get(puzzleId, {}).get('status', 'INVISIBLE') == 'INVISIBLE' %}
       <input
          type="button"
          value="Yes, I'm sure"
@@ -101,6 +103,75 @@
     <input type="hidden" name="action" value="SetPuzzleStatus">
     <input type="hidden" name="actionType" value="Unlock">
   </form>
+  
+  <form class="ha-column-control-box" action="{{ url_for('team', team_id=team.teamId) }}" method="post">
+    <span class="ha-control-box-title">
+      Complete Event
+    </span>
+    <div class="ha-labeled-input-form">
+      <label>
+        Team ID
+        <span>{{ team.teamId }}</span>
+      </label>
+    </div>
+    {% for event in events %}
+    <div>
+      {% set puzzleId = event %}
+      {% set allow = completeable_puzzle_visibilities.get(puzzleId, {}).get('status', 'INVISIBLE') == 'UNLOCKED' %}
+      <input
+         type="button"
+         value="Yes, I'm sure"
+         onclick="document.getElementById('{{ puzzleId }}_button').removeAttribute('disabled')"
+         {% if not allow %}disabled{% endif %}
+      >
+      <button
+         id="{{ puzzleId }}_button"
+         type="submit"
+         name="puzzleId"
+         value="{{ puzzleId }}"
+         disabled>
+        Complete {{ puzzleId | capitalize }}
+      </button>
+    </div>
+    {% endfor %}
+    <input type="hidden" name="action" value="SetPuzzleStatus">
+    <input type="hidden" name="actionType" value="Solve">
+  </form>
+  
+  <form class="ha-column-control-box" action="{{ url_for('team', team_id=team.teamId) }}" method="post">
+    <span class="ha-control-box-title">
+      Complete Endgame
+    </span>
+    <div class="ha-labeled-input-form">
+      <label>
+        Team ID
+        <span>{{ team.teamId }}</span>
+      </label>
+    </div>
+    {% for endgame in endgames %}
+    <div>
+      {% set puzzleId = endgame %}
+      {% set allow = completeable_puzzle_visibilities.get(puzzleId, {}).get('status', 'INVISIBLE') == 'UNLOCKED' %}
+      <input
+         type="button"
+         value="Yes, I'm sure"
+         onclick="document.getElementById('{{ puzzleId }}_button').removeAttribute('disabled')"
+         {% if not allow %}disabled{% endif %}
+      >
+      <button
+         id="{{ puzzleId }}_button"
+         type="submit"
+         name="puzzleId"
+         value="{{ puzzleId }}"
+         disabled>
+        Complete {{ puzzleId | capitalize }}
+      </button>
+    </div>
+    {% endfor %}
+    <input type="hidden" name="action" value="SetPuzzleStatus">
+    <input type="hidden" name="actionType" value="Solve">
+  </form>
+  
   {% endif %}
 
   {#
