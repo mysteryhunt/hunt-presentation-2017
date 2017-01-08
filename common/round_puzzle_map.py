@@ -2,7 +2,7 @@ CHARACTER_IDS = ['fighter','wizard','cleric','linguist','economist','chemist']
 QUEST_IDS = ['dynast','dungeon','thespians','bridge','criminal','minstrels','cube','warlord']
 
 ROUND_PUZZLE_MAP = {
-  'index': CHARACTER_IDS + QUEST_IDS + ['rescue_the_linguist','rescue_the_economist','rescue_the_chemist','merchants','encounter','fortress'],
+  'index': CHARACTER_IDS + QUEST_IDS + ['rescue_the_linguist','rescue_the_economist','rescue_the_chemist','merchants','battle','fortress'],
   'fighter': ['f' + str(i) for i in range(1,11+1)],
   'wizard': ['w' + str(i) for i in range(1,11+1)],
   'cleric': ['cl-l' + str(i) for i in range(1,5+1)] + ['cl-r' + str(i) for i in range(1,5+1)],

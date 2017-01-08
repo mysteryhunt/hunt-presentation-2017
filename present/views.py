@@ -81,7 +81,7 @@ def make_core_display_data(visibilities_async, team_properties_async):
     core_display_data['visible_quests'] = \
         [quest_id for quest_id in QUEST_IDS if visibilities.get(quest_id,{}).get('status','INVISIBLE') != 'INVISIBLE']
     core_display_data['merchants_solved'] = visibilities.get('merchants',{}).get('status','INVISIBLE') == 'SOLVED'
-    core_display_data['encounter_solved'] = visibilities.get('encounter',{}).get('status','INVISIBLE') == 'SOLVED'
+    core_display_data['battle_solved'] = visibilities.get('battle',{}).get('status','INVISIBLE') == 'SOLVED'
     core_display_data['character_levels'] = { \
         char_id: team_properties.get('teamProperties',{}).get('CharacterLevelsProperty',{}).get('levels',{}).get(char_id.upper(),0) \
         for char_id in core_display_data['visible_characters'] }
@@ -113,7 +113,7 @@ def get_full_path_core_display_data():
 def index():
     round_puzzle_ids = ROUND_PUZZLE_MAP.get('index')
 
-    core_visibilities_async = cube.get_puzzle_visibilities_for_list_async(app, CHARACTER_IDS + QUEST_IDS + ['merchants','encounter'])
+    core_visibilities_async = cube.get_puzzle_visibilities_for_list_async(app, CHARACTER_IDS + QUEST_IDS + ['merchants','battle'])
     core_team_properties_async = cube.get_team_properties_async(app)
     puzzle_visibilities_async = cube.get_puzzle_visibilities_for_list_async(app, round_puzzle_ids)
     puzzle_properties_async = cube.get_all_puzzle_properties_for_list_async(app, round_puzzle_ids)
@@ -141,7 +141,7 @@ def round(round_id):
     round_puzzle_ids = ROUND_PUZZLE_MAP.get(round_id,[]) + [round_id]
 
     round_visibility_async = cube.get_puzzle_visibility_async(app, round_id)
-    core_visibilities_async = cube.get_puzzle_visibilities_for_list_async(app, CHARACTER_IDS + QUEST_IDS + ['merchants','encounter'])
+    core_visibilities_async = cube.get_puzzle_visibilities_for_list_async(app, CHARACTER_IDS + QUEST_IDS + ['merchants','battle'])
     core_team_properties_async = cube.get_team_properties_async(app)
     puzzle_visibilities_async = cube.get_puzzle_visibilities_for_list_async(app, round_puzzle_ids)
     puzzle_properties_async = cube.get_all_puzzle_properties_for_list_async(app, round_puzzle_ids)
@@ -168,7 +168,7 @@ def round(round_id):
 @metrics.time("present.puzzle")
 def puzzle(puzzle_id):
     puzzle_visibility_async = cube.get_puzzle_visibility_async(app, puzzle_id)
-    core_visibilities_async = cube.get_puzzle_visibilities_for_list_async(app, CHARACTER_IDS + QUEST_IDS + ['merchants','encounter'])
+    core_visibilities_async = cube.get_puzzle_visibilities_for_list_async(app, CHARACTER_IDS + QUEST_IDS + ['merchants','battle'])
     core_team_properties_async = cube.get_team_properties_async(app)
     puzzle_async = cube.get_puzzle_async(app, puzzle_id)
 
@@ -195,7 +195,7 @@ def puzzle(puzzle_id):
 @login_required.solvingteam
 @metrics.time("present.puzzle_list")
 def puzzle_list():
-    core_visibilities_async = cube.get_puzzle_visibilities_for_list_async(app, CHARACTER_IDS + QUEST_IDS + ['merchants','encounter'])
+    core_visibilities_async = cube.get_puzzle_visibilities_for_list_async(app, CHARACTER_IDS + QUEST_IDS + ['merchants','battle'])
     core_team_properties_async = cube.get_team_properties_async(app)
     all_visibilities_async = cube.get_puzzle_visibilities_async(app)
     all_puzzles_async = cube.get_all_puzzle_properties_async(app)
@@ -215,7 +215,7 @@ def puzzle_list():
 @app.route("/inventory")
 @login_required.solvingteam
 def inventory():
-    core_visibilities_async = cube.get_puzzle_visibilities_for_list_async(app, CHARACTER_IDS + QUEST_IDS + ['merchants','encounter'])
+    core_visibilities_async = cube.get_puzzle_visibilities_for_list_async(app, CHARACTER_IDS + QUEST_IDS + ['merchants','battle'])
     core_team_properties_async = cube.get_team_properties_async(app)
 
     core_display_data = make_core_display_data(core_visibilities_async, core_team_properties_async)
@@ -224,7 +224,7 @@ def inventory():
 @app.route("/handbook")
 @login_required.solvingteam
 def handbook():
-    core_visibilities_async = cube.get_puzzle_visibilities_for_list_async(app, CHARACTER_IDS + QUEST_IDS + ['merchants','encounter'])
+    core_visibilities_async = cube.get_puzzle_visibilities_for_list_async(app, CHARACTER_IDS + QUEST_IDS + ['merchants','battle'])
     core_team_properties_async = cube.get_team_properties_async(app)
 
     core_display_data = make_core_display_data(core_visibilities_async, core_team_properties_async)
@@ -233,7 +233,7 @@ def handbook():
 @app.route("/safety")
 @login_required.solvingteam
 def safety():
-    core_visibilities_async = cube.get_puzzle_visibilities_for_list_async(app, CHARACTER_IDS + QUEST_IDS + ['merchants','encounter'])
+    core_visibilities_async = cube.get_puzzle_visibilities_for_list_async(app, CHARACTER_IDS + QUEST_IDS + ['merchants','battle'])
     core_team_properties_async = cube.get_team_properties_async(app)
 
     core_display_data = make_core_display_data(core_visibilities_async, core_team_properties_async)
@@ -256,7 +256,7 @@ def change_contact_info():
 @login_required.solvingteam
 @metrics.time("present.activity_log")
 def activity_log():
-    core_visibilities_async = cube.get_puzzle_visibilities_for_list_async(app, CHARACTER_IDS + QUEST_IDS + ['merchants','encounter'])
+    core_visibilities_async = cube.get_puzzle_visibilities_for_list_async(app, CHARACTER_IDS + QUEST_IDS + ['merchants','battle'])
     core_team_properties_async = cube.get_team_properties_async(app)
     team_visibility_changes_async = cube.get_team_visibility_changes_async(app)
     team_submissions_async = cube.get_team_submissions_async(app)

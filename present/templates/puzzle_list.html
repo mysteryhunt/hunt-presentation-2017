@@ -40,7 +40,7 @@ body {
 
   {% endfor %}
   
-  {% for puzzle_id in ['rescue_the_linguist','rescue_the_economist','rescue_the_chemist','encounter','merchants'] %}
+  {% for puzzle_id in ['rescue_the_linguist','rescue_the_economist','rescue_the_chemist','battle','merchants'] %}
     
     {% if all_visibilities.get(puzzle_id,{}).get('status','') in ['UNLOCKED','SOLVED'] %}
       <div class="round-list-item">

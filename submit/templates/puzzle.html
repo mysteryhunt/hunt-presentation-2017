@@ -21,7 +21,7 @@
     <div id="forms">
       <div id="title-header" class="small-horizontal-scroll">{{ puzzle.get('puzzleProperties',{}).get('DisplayNameProperty',{}).get('displayName',puzzle_id) }}</div>
 
-      {% if puzzle_id not in ['rescue_the_chemist','rescue_the_linguist','rescue_the_economist','encounter','fortress'] %}
+      {% if puzzle_id not in ['rescue_the_chemist','rescue_the_linguist','rescue_the_economist','battle','fortress'] %}
         <div class="submission-section">
           <div class="submission-section-header">Submissions</div>
           {% if visibility['status'] != 'SOLVED' %}

@@ -16,11 +16,11 @@
 {% endblock %}
 
 {% block puzzle_content_block %}
-  {% if core_display_data['merchants_solved'] and core_display_data['encounter_solved'] %}
+  {% if core_display_data['merchants_solved'] and core_display_data['battle_solved'] %}
     <p>
       <a class="standard-link" href="{{ submit_url_for(puzzle_id) }}">Contact HQ</a> to schedule your final showdown with the villain.
     </p>
-  {% elif not core_display_data['encounter_solved'] %}
+  {% elif not core_display_data['battle_solved'] %}
     <p>
       The villian is not at the fortress. You&rsquo;ll need to find him out in the world first.
     </p>

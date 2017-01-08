@@ -19,13 +19,13 @@
     </div>
     <div class="vertically-enscrolled">
       <div id="total-character-level">Total Level: {{ core_display_data['total_character_level'] }}</div>
-      {% if 'encounter' in visible_puzzle_ids %}
-        <div id="encounter-display" style="margin-bottom: 10px; position: relative;">
-          <a href="{{ url_for('puzzle', puzzle_id='encounter')}}">
+      {% if 'battle' in visible_puzzle_ids %}
+        <div id="battle-display" style="margin-bottom: 10px; position: relative;">
+          <a href="{{ url_for('puzzle', puzzle_id='battle')}}">
             <img id="group-image" src="{{ asset_url_for('general/characters/all-headshot.png')}}" style="width:100%;"/>
-            <div id="encounter-label" style="font-size:16px;">The Ensnaring Encounter</div>
+            <div id="battle-label" style="font-size:16px;">The Big Battle</div>
           </a>
-          {% if puzzle_visibilities['encounter'].get('status','INVISIBLE') == 'SOLVED' %}
+          {% if puzzle_visibilities['battle'].get('status','INVISIBLE') == 'SOLVED' %}
             <div class="quest-solve-icon">
               <img src="{{ asset_url_for('general/icons/completion-logo.png') }}"/>
             </div>
