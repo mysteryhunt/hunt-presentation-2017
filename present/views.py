@@ -183,14 +183,26 @@ def puzzle(puzzle_id):
     puzzle_async = cube.get_puzzle_async(app, puzzle_id)
 
     puzzle_visibility = puzzle_visibility_async.result().json()
-    if puzzle_visibility['status'] not in ['UNLOCKED','SOLVED']:
+    if puzzle_id != 'fortress' and puzzle_visibility['status'] not in ['UNLOCKED','SOLVED']:
         abort(403)
-
+    if puzzle_id == 'fortress' and puzzle_visibility['status'] not in ['VISIBLE','UNLOCKED','SOLVED']:
+        abort(403)
+        
     core_display_data = make_core_display_data(core_visibilities_async, core_team_properties_async)
     puzzle = puzzle_async.result().json()
     canonical_puzzle_id = puzzle.get('puzzleId')
     puzzle_round_id = [r_id for r_id, round_puzzle_ids in ROUND_PUZZLE_MAP.iteritems() if canonical_puzzle_id in round_puzzle_ids]
     puzzle_round_id = puzzle_round_id[0] if len(puzzle_round_id) > 0 else None
+
+    if puzzle_id == 'fortress' and puzzle_visibility['status'] in ['VISIBLE']:
+      with metrics.timer("present.puzzle_render"):
+          return render_template(
+              "puzzles/fortress_locked.html",
+              core_display_data=core_display_data,
+              puzzle_id=puzzle_id,
+              puzzle_round_id=puzzle_round_id,
+              puzzle=puzzle,
+              puzzle_visibility=puzzle_visibility)
 
     with metrics.timer("present.puzzle_render"):
         return render_template(
@@ -200,6 +212,7 @@ def puzzle(puzzle_id):
             puzzle_round_id=puzzle_round_id,
             puzzle=puzzle,
             puzzle_visibility=puzzle_visibility)
+
             
 @app.route("/solution/<puzzle_id>")
 @login_required.solvingteam

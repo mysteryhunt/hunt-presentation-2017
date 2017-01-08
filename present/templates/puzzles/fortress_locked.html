@@ -1,0 +1,30 @@
+{% extends "puzzles/puzzle_layout.html" %}
+{% block title_block %}The Final Fortress{% endblock %}
+{% block puzzle_name_block %}The Final Fortress{% endblock %}
+
+{% block puzzle_head_block %}
+<style>
+</style>
+{% endblock %}
+
+{% block header_content %}
+{% endblock %}
+
+{% block puzzle_flavortext_block %}
+{% endblock %}
+
+{% block puzzle_content_block %}
+  {% if not core_display_data['battle_solved'] and core_display_data['merchants_solved'] %}
+    <p>
+      You haven&rsquo;t demonstrated all of your characters&rsquo; special powers yet. Complete that, then come back here.
+    </p>
+  {% elif core_display_data['battle_solved'] and not core_display_data['merchants_solved'] %}
+    <p>
+      Your inventory is still just a bunch of items you&rsquo;ve found on your quests. You need something more useful! Upgrade your equipment, then come back here.
+    </p>
+  {% else %}
+    <p>
+      You haven&rsquo;t demonstrated all of your characters&rsquo; special powers, and your inventory is still just a bunch of items you&rsquo;ve found on your quests. Complete the powers and upgrade your equipment, then come back here.
+    </p>
+  {% endif %}
+{% endblock %}
