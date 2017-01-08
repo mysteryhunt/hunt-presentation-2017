@@ -16,7 +16,37 @@
       border: 1px solid black;
       padding: 4px;
     }
+    .play-button {
+      cursor: pointer;
+    }
   </style>
+  <script src="//www.midijs.net/lib/midi.js"></script>
+  <script>
+    function play(button, src) {
+      if ($(button).hasClass("fa-stop-circle")) {
+        $(button).removeClass("fa-stop-circle");
+        $(button).addClass("fa-play-circle");
+        MIDIjs.stop();
+      } else {
+        $(".play-button").removeClass("fa-stop-circle");
+        $(".play-button").addClass("fa-play-circle");
+        $(button).removeClass("fa-play-circle");
+        $(button).addClass("fa-stop-circle");
+        MIDIjs.play(src);
+      }
+    }
+    var playbackDoneTimeout;
+    MIDIjs.player_callback = function() {
+      if (playbackDoneTimeout) {
+        clearTimeout(playbackDoneTimeout);
+      }
+      playbackDoneTimeout = setTimeout(function() {
+        $(".play-button").removeClass("fa-stop-circle");
+        $(".play-button").addClass("fa-play-circle");
+        playbackDoneTimeout = undefined;
+      }, 1000);
+    };
+  </script>
 {% endblock %}
 
 {% block solution_content_block %}
@@ -54,7 +84,15 @@
         <th>Zodiac order</th>
       </tr>
       <tr>
-        <td>A Whole New World</td>
+        <td>
+          A Whole New World
+          <span
+             class="fa fa-play-circle play-button"
+             aria-hidden="true"
+             onClick="play(this, '{{ asset_url_for('star_search/a_whole_new_world.mid') }}')"
+          >
+          </span>
+        </td>
         <td>C6</td>
         <td>Phoenix</td>
         <td>5</td>
@@ -63,7 +101,15 @@
         <td>10</td>
       </tr>
       <tr>
-        <td>Can You Feel The Love Tonight</td>
+        <td>
+          Can You Feel The Love Tonight
+          <span
+             class="fa fa-play-circle play-button"
+             aria-hidden="true"
+             onClick="play(this, '{{ asset_url_for('star_search/can_you_feel_the_love_tonight.mid') }}')"
+          >
+          </span>
+        </td>
         <td>G5</td>
         <td>Ophiuchus</td>
         <td>7</td>
@@ -72,7 +118,15 @@
         <td>6</td>
       </tr>
       <tr>
-        <td>Don&rsquo;t Stop Me Now</td>
+        <td>
+          Don&rsquo;t Stop Me Now
+          <span
+             class="fa fa-play-circle play-button"
+             aria-hidden="true"
+             onClick="play(this, '{{ asset_url_for('star_search/dont_stop_me_now.mid') }}')"
+          >
+          </span>
+        </td>
         <td>F#5</td>
         <td>Octans</td>
         <td>3</td>
@@ -81,7 +135,15 @@
         <td>9</td>
       </tr>
       <tr>
-        <td>Drive My Car</td>
+        <td>
+          Drive My Car
+          <span
+             class="fa fa-play-circle play-button"
+             aria-hidden="true"
+             onClick="play(this, '{{ asset_url_for('star_search/drive_my_car.mid') }}')"
+          >
+          </span>
+        </td>
         <td>A#5</td>
         <td>Pegasus</td>
         <td>3</td>
@@ -90,7 +152,15 @@
         <td>5</td>
       </tr>
       <tr>
-        <td>Drops of Jupiter</td>
+        <td>
+          Drops of Jupiter
+          <span
+             class="fa fa-play-circle play-button"
+             aria-hidden="true"
+             onClick="play(this, '{{ asset_url_for('star_search/drops_of_jupiter.mid') }}')"
+          >
+          </span>
+        </td>
         <td>D#5</td>
         <td>Monoceros</td>
         <td>2</td>
@@ -99,7 +169,15 @@
         <td>12</td>
       </tr>
       <tr>
-        <td>Have Yourself A Merry Little Christmas</td>
+        <td>
+          Have Yourself A Merry Little Christmas
+          <span
+             class="fa fa-play-circle play-button"
+             aria-hidden="true"
+             onClick="play(this, '{{ asset_url_for('star_search/have_yourself_a_merry_little_christmas.mid') }}')"
+          >
+          </span>
+        </td>
         <td>D5</td>
         <td>Microscopium</td>
         <td>2</td>
@@ -108,7 +186,15 @@
         <td>4</td>
       </tr>
       <tr>
-        <td>Piano Man</td>
+        <td>
+          Piano Man
+          <span
+             class="fa fa-play-circle play-button"
+             aria-hidden="true"
+             onClick="play(this, '{{ asset_url_for('star_search/piano_man.mid') }}')"
+          >
+          </span>
+        </td>
         <td>D#2</td>
         <td>Centaurus</td>
         <td>4</td>
@@ -117,7 +203,15 @@
         <td>1</td>
       </tr>
       <tr>
-        <td>(The) Rainbow Connection</td>
+        <td>
+          (The) Rainbow Connection
+          <span
+             class="fa fa-play-circle play-button"
+             aria-hidden="true"
+             onClick="play(this, '{{ asset_url_for('star_search/rainbow_connection.mid') }}')"
+          >
+          </span>
+        </td>
         <td>C5</td>
         <td>Lyra</td>
         <td>4</td>
@@ -126,7 +220,15 @@
         <td>8</td>
       </tr>
       <tr>
-        <td>Sk8er Boi</td>
+        <td>
+          Sk8er Boi
+          <span
+             class="fa fa-play-circle play-button"
+             aria-hidden="true"
+             onClick="play(this, '{{ asset_url_for('star_search/sk8r_boi.mid') }}')"
+          >
+          </span>
+        </td>
         <td>C#4</td>
         <td>Horologium</td>
         <td>4</td>
@@ -135,7 +237,15 @@
         <td>11</td>
       </tr>
       <tr>
-        <td>So What</td>
+        <td>
+          So What
+          <span
+             class="fa fa-play-circle play-button"
+             aria-hidden="true"
+             onClick="play(this, '{{ asset_url_for('star_search/so_what.mid') }}')"
+          >
+          </span>
+        </td>
         <td>C#6</td>
         <td>Pictor</td>
         <td>4</td>
@@ -144,7 +254,15 @@
         <td>7</td>
       </tr>
       <tr>
-        <td>Twinkle Twinkle Little Star</td>
+        <td>
+          Twinkle Twinkle Little Star
+          <span
+             class="fa fa-play-circle play-button"
+             aria-hidden="true"
+             onClick="play(this, '{{ asset_url_for('star_search/twinkle_twinkle_little_star.mid') }}')"
+          >
+          </span>
+        </td>
         <td>C#5</td>
         <td>Mensa</td>
         <td>3</td>
@@ -153,7 +271,15 @@
         <td>3</td>
       </tr>
       <tr>
-        <td>Video Killed The Radio Star</td>
+        <td>
+          Video Killed The Radio Star
+          <span
+             class="fa fa-play-circle play-button"
+             aria-hidden="true"
+             onClick="play(this, '{{ asset_url_for('star_search/video_killed_the_radio_star.mid') }}')"
+          >
+          </span>
+        </td>
         <td>A3</td>
         <td>Fornax</td>
         <td>4</td>
@@ -162,7 +288,15 @@
         <td>13</td>
       </tr>
       <tr>
-        <td>When You Wish Upon A Star</td>
+        <td>
+          When You Wish Upon A Star
+          <span
+             class="fa fa-play-circle play-button"
+             aria-hidden="true"
+             onClick="play(this, '{{ asset_url_for('star_search/when_you_wish_upon_a_star.mid') }}')"
+          >
+          </span>
+        </td>
         <td>G#5</td>
         <td>Orion</td>
         <td>1</td>
