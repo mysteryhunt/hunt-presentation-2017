@@ -15,6 +15,17 @@
       border: 1px solid black;
       padding: 4px;
     }
+    .out, .in {
+      background-color: black;
+      font-weight: bold;
+      box-shadow: inset 0 0 2px 3px #ffffff;
+    }
+    .out {
+      color: #ff4040;
+    }
+    .in {
+      color: #40ff40;
+    }
   </style>
 {% endblock %}
 
@@ -37,105 +48,105 @@
     <table>
       <tr>
         <th>Club</th>
-        <th>Player Number 1</th>
-        <th>Player 1</th>
-        <th>Player Number 2</th>
-        <th>Player 2</th>
+        <th>Player<br>Leaving<br>Number</th>
+        <th>Player Leaving</th>
+        <th>Player<br>Joining<br>Number</th>
+        <th>Player Joining</th>
         <th>Bigram</th>
       </tr>
       <tr>
         <td>Middlesbrough</td>
-        <td>8</td>
+        <td class="out">8</td>
         <td>Adam Clayton</td>
-        <td>9</td>
+        <td class="in">9</td>
         <td>Jordan Rhodes</td>
         <td>TH</td>
       </tr>
       <tr>
         <td>Burnley</td>
-        <td>10</td>
+        <td class="out">10</td>
         <td>Ashley Barnes</td>
-        <td>5</td>
+        <td class="in">5</td>
         <td>Michael Keane</td>
         <td>EA</td>
       </tr>
       <tr>
         <td>Swansea City</td>
-        <td>9</td>
+        <td class="out">9</td>
         <td>Fernando Llorente</td>
-        <td>6</td>
+        <td class="in">6</td>
         <td>Alfie Mawson</td>
         <td>NS</td>
       </tr>
       <tr>
         <td>Leicester City</td>
-        <td>5</td>
+        <td class="out">5</td>
         <td>Wes Morgan</td>
-        <td>1</td>
+        <td class="in">1</td>
         <td>Kasper Schmeichel</td>
         <td>WE</td>
       </tr>
       <tr>
         <td>Stoke City</td>
-        <td>3</td>
+        <td class="out">3</td>
         <td>Erik Pieters</td>
-        <td>2</td>
-        <td>Phillip Bardsley</td>
+        <td class="in">2</td>
+        <td>Phil(lip) Bardsley</td>
         <td>RI</td>
       </tr>
       <tr>
         <td>Sunderland</td>
-        <td>7</td>
+        <td class="out">7</td>
         <td>Sebastian Larsson</td>
-        <td>13</td>
+        <td class="in">13</td>
         <td>Jordan Pickford</td>
         <td>SP</td>
       </tr>
       <tr>
         <td>Southampton</td>
-        <td>6</td>
-        <td>Jose Fonte</td>
-        <td>9</td>
+        <td class="out">6</td>
+        <td>Jos&eacute; Fonte</td>
+        <td class="in">9</td>
         <td>Jay Rodriguez</td>
         <td>ED</td>
       </tr>
       <tr>
         <td>Liverpool</td>
-        <td>2</td>
+        <td class="out">2</td>
         <td>Nathaniel Clyne</td>
-        <td>7</td>
+        <td class="in">7</td>
         <td>James Milner</td>
         <td>IA</td>
       </tr>
       <tr>
         <td>Hull City</td>
-        <td>6</td>
+        <td class="out">6</td>
         <td>Curtis Davies</td>
-        <td>4</td>
+        <td class="in">4</td>
         <td>Alex Bruce</td>
         <td>TR</td>
       </tr>
       <tr>
         <td>Chelsea</td>
-        <td>1</td>
-        <td>Asmir Begovic</td>
-        <td>4</td>
-        <td>Cesc Fabregas</td>
+        <td class="out">1</td>
+        <td>Asmir Begovi&#263;</td>
+        <td class="in">4</td>
+        <td>Cesc F&agrave;bregas</td>
         <td>IC</td>
       </tr>
       <tr>
         <td>West Ham United</td>
-        <td>2</td>
+        <td class="out">2</td>
         <td>Winston Reid</td>
-        <td>10</td>
+        <td class="in">10</td>
         <td>Manuel Lanzini</td>
         <td>IA</td>
       </tr>
       <tr>
         <td>Everton</td>
-        <td>14</td>
+        <td class="out">14</td>
         <td>Yannick Bolasie</td>
-        <td>3</td>
+        <td class="in">3</td>
         <td>Leighton Baines</td>
         <td>NS</td>
       </tr>
