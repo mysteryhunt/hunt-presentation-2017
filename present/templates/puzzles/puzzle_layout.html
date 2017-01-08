@@ -1,6 +1,7 @@
 {% extends "overall_layout.html" %}
 
-{% macro generate_background(round_id) %}
+{% macro generate_background(round_id, puzzle_id) %}
+  <!-- round_id = {{ round_id }} -->
   {% set character_colors = {'fighter': '#b49674', 'wizard': '#3079bd', 'cleric': '#853e3e',
           'linguist': '#594366', 'chemist': '#8ac664', 'economist':'#696969' } %}
   {% if round_id in ['fighter','wizard','cleric','linguist','chemist','economist'] %}
@@ -34,6 +35,12 @@
       background-image: url("{{ asset_url_for('general/quests/%s-background.png' % round_id)|safe }}");
     }
     </style>
+  {% elif round_id == 'index' and puzzle_id in ['battle','fortress'] %}
+    <style>
+    body {
+      background-image: url("{{ asset_url_for('general/quests/mysterio-background.png')|safe }}");
+    }
+    </style>
   {% else %}
     <style>
     body {
@@ -64,7 +71,7 @@
 {% endmacro %}
 
 {% block styling_block %}
-    {{ generate_background(puzzle_round_id) }}
+    {{ generate_background(puzzle_round_id, puzzle_id) }}
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='puzzle.css') }}">
     {% block puzzle_head_block %}{% endblock %}
 {% endblock %}

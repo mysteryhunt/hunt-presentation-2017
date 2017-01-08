@@ -18,15 +18,19 @@
 {% block puzzle_content_block %}
   {% if core_display_data['merchants_solved'] and core_display_data['battle_solved'] %}
     <p>
-      <a class="standard-link" href="{{ submit_url_for(puzzle_id) }}">Contact HQ</a> to schedule your final showdown with the villain.
+      Okay, now the time has actually come. For reals this time. You&rsquo;ve leveled up your heroes, you&rsquo;ve completed quests throughout the realm, and you&rsquo;ve picked up some useful items at the market. It&rsquo;s time for your last showdown with Mystereo Cantos, and your chance to locate the two-sided die. <a class="standard-link" href="{{ submit_url_for(puzzle_id) }}">Contact HQ</a> to schedule your final showdown with the villain.
     </p>
-  {% elif not core_display_data['battle_solved'] %}
+  {% elif not core_display_data['battle_solved'] and core_display_data['merchants_solved'] %}
     <p>
-      The villian is not at the fortress. You&rsquo;ll need to find him out in the world first.
+      You haven&rsquo;t demonstrated all of your characters&rsquo; special powers yet. Complete that, then come back here.
     </p>
-  {% elif not core_display_data['merchants_solved'] %}
+  {% elif core_display_data['battle_solved'] and not core_display_data['merchants_solved'] %}
     <p>
-      You can&rsquo;t take on the villain with the equipment you have now. You&rsquo;ll need to find better equipment first.
+      Your inventory is still just items you&rsquo;ve found on your quests. You need something more useful! Upgrade your equipment, then come back here.
+    </p>
+  {% else %}
+    <p>
+      You haven&rsquo;t demonstrated all of your characters&rsquo; special powers and your inventory is still just items you&ve found on your quests. Complete the powers and upgrade your equipment, then come back here.
     </p>
   {% endif %}
 {% endblock %}
