@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Deutsche Uncialis';
-  src: url('https://assets-open.monsters-et-manus.com/open/DeutscheSetec.ttf');;
+  src: url("DeutscheSetec.ttf");
 }
 
 @media all and (orientation: landscape) {
