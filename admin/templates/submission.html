@@ -91,6 +91,20 @@
     <b>{{ submission.submission }}</b> matches the expected correct answer
     <b>{{ puzzle.puzzleProperties.AnswersProperty.answers[0].canonicalAnswer }}</b>.
   </p>
+  {% if puzzle.puzzleProperties %}
+    <p>
+      If the team is correct, congratulate them on 
+      {% if puzzle.puzzleProperties.get('SolveRewardProperty',{}).get('characterLevels',{})|length > 0 %}
+      leveling up!
+      {% endif %}
+      {% if puzzle.puzzleProperties.get('SolveRewardProperty',{}).get('inventoryItem',None) %}
+      finding an item!
+      {% endif %}
+      {% if puzzle.puzzleProperties.get('SolveRewardProperty',{}).get('gold',0) > 0 %}
+      finding gold!
+      {% endif %}
+    </p>
+  {% endif %}
   <h3>Step 2: After the call, mark this submission as either Correct or Incorrect.</h3>
   <form action="{{ url_for('submission', submission_id=submission.submissionId) }}" method="post">
     <input type="hidden" name="status" value="CORRECT">
