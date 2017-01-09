@@ -19,7 +19,7 @@
       <div id="header-link"><a href="{{ puzzle_url_for(puzzle_id) }}">Return to Puzzle</a></div>
     </div>
     <div id="forms">
-      <div id="title-header" class="small-horizontal-scroll">{{ puzzle.get('puzzleProperties',{}).get('DisplayNameProperty',{}).get('displayName',puzzle_id) }}</div>
+      <div id="title-header" class="small-horizontal-scroll">{{ pretty_title(puzzle.get('puzzleProperties',{}).get('DisplayNameProperty',{}).get('displayName',puzzle_id))|safe }}</div>
 
       {% if puzzle_id not in ['rescue_the_chemist','rescue_the_linguist','rescue_the_economist','battle','fortress'] %}
         <div class="submission-section">

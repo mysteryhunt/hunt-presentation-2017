@@ -4,6 +4,8 @@ from common import cube, login_required
 from flask import abort, redirect, render_template, request, session, url_for
 from requests.exceptions import RequestException
 
+import re
+
 @app.errorhandler(Exception)
 def handle_exception(error):
     error_string = str(error)
@@ -39,7 +41,14 @@ def utility_processor():
             return '/round/' + puzzle_id
         return '/puzzle/' + puzzle_id
 
-    return dict(puzzle_url_for=puzzle_url_for)
+    def pretty_title(title):
+        title = re.sub('(_+)','<span class="answer-blank">\\1</span>',title)
+        title = re.sub("'", "&rsquo;",title) #Assumes there are no enclosed single quotes, i.e., all of these are apostrophes
+        title = re.sub('^\\.\\.\\.', '.&nbsp;.&nbsp;.&nbsp;',title)
+        title = re.sub('\\.\\.\\.', '&nbsp;.&nbsp;.&nbsp;.',title)
+        return title
+
+    return dict(puzzle_url_for=puzzle_url_for,pretty_title=pretty_title)
 
 
 @app.route("/")

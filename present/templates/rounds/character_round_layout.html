@@ -85,7 +85,7 @@
     <div class="puzzle-entry">
       <a href="{{ url_for(puzzle_link_action, puzzle_id = link_puzzle_id) }}">
         <span><img src="{{ asset_url_for('general/characters/%s-logo.png' % round_id) }}" style="width:24px;height:24px;vertical-align:bottom;"/></span>
-        <span class="puzzle-name">{{ puzzle_properties.get(puzzle_id).puzzleProperties.DisplayNameProperty.displayName }}</span>
+        <span class="puzzle-name">{{ pretty_title(puzzle_properties.get(puzzle_id).puzzleProperties.DisplayNameProperty.displayName)|safe }}</span>
       </a>
     </div>
   {% elif puzzle_visibilities.get(puzzle_id).status == 'SOLVED' %}

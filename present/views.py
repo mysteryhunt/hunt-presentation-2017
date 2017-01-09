@@ -6,6 +6,7 @@ from flask import abort, redirect, render_template, request, send_from_directory
 from requests.exceptions import RequestException
 
 import os
+import re
 
 @app.errorhandler(Exception)
 def handle_exception(error):
@@ -60,10 +61,13 @@ def utility_processor():
         return {}
       return {'character':sum_constraint.get('characters')[0],'levels':sum_constraint.get('levels')}
     
-    def handle_title_underscores(title):
-      return title.replace('_____','<u>&emsp;&emsp;&emsp;&emsp;&emsp;</u>')
-      pass
-      
+    def pretty_title(title):
+      title = re.sub('(_+)','<span class="answer-blank">\\1</span>',title)
+      title = re.sub("'", "&rsquo;",title) #Assumes there are no enclosed single quotes, i.e., all of these are apostrophes
+      title = re.sub('^\\.\\.\\.', '.&nbsp;.&nbsp;.&nbsp;',title)
+      title = re.sub('\\.\\.\\.', '&nbsp;.&nbsp;.&nbsp;.',title)
+      return title
+    
     def site_mode():
       return app.config["SITE_MODE"] if app.config["SITE_MODE"] else 'live'
       
@@ -75,7 +79,7 @@ def utility_processor():
     return dict(submit_url_for=submit_url_for, asset_url_for=asset_url_for,
         get_google_api_key=get_google_api_key,
         single_character_unlock_requirement=single_character_unlock_requirement,
-        handle_title_underscores=handle_title_underscores,
+        pretty_title=pretty_title,
         site_mode=site_mode,
         pretty_truncate=pretty_truncate)
 

@@ -41,7 +41,7 @@
             {% set url = url_for('puzzle', puzzle_id=display_id) %}
           {% endif %}
           <a class="standard-link" href="{{ url }}">
-            {{ handle_title_underscores(all_puzzles.get(entry["puzzleId"]).get('puzzleProperties',{}).get('DisplayNameProperty',{}).get('displayName',puzzle_id)) | safe }}
+            {{ pretty_title(all_puzzles.get(entry["puzzleId"]).get('puzzleProperties',{}).get('DisplayNameProperty',{}).get('displayName',puzzle_id)) | safe }}
           </a>
         </td>
         <td>{{ entry["status"] }}</td>
