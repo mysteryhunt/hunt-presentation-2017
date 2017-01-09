@@ -65,23 +65,31 @@
   {% elif interaction_request.status in ['ASSIGNED', 'SCHEDULED'] %}
   {% if interaction_request.callerUsername == session['username'] %}
   {% if interaction_request.status == 'ASSIGNED' %}
-  <h3>Call team {{ interaction_request.teamId }} at {{ team.primaryPhone }}.</h3>
-  <p>
-    If there's no answer, try their secondary phone number
-    {{ team.secondaryPhone }} or e-mail them at {{ team.email }} to try to get
-    updated contact info.
-  </p>
-  <p>
-    The team's request is &ldquo;{{ interaction_request.request }}&rdquo;. If
-    this request is to schedule a meeting, then find a time to meet the team,
-    enter the time and meeting instructions in the response box below, and mark
-    this request as Scheduled.
-  </p>
-  <p>
-    If this request can be handled over the phone right now and does not require
-    scheduling a future interaction, you can mark this request as Complete when
-    the call is over.
-  </p>
+    <h3>Call team {{ interaction_request.teamId }} at {{ team.primaryPhone }}.</h3>
+    <p>
+      If there's no answer, try their secondary phone number
+      {{ team.secondaryPhone }} or e-mail them at {{ team.email }} to try to get
+      updated contact info.
+    </p>
+    <p>
+      The team's request is &ldquo;{{ interaction_request.request }}&rdquo;. If
+      this request is to schedule a meeting, then find a time to meet the team,
+      enter the time and meeting instructions in the response box below, and mark
+      this request as Scheduled.
+    </p>
+    <p>
+      If this request can be handled over the phone right now and does not require
+      scheduling a future interaction, you can mark this request as Complete when
+      the call is over.
+    </p>
+    {% if puzzle.puzzleProperties.DisplayNameProperty.displayName == 'Swifties' %}
+      <h4>Instructions for Swifties</h4>
+      <p>
+        We are expecting the phrase <b>MAKE US A VIDEO OF YOUR TEAM SWIFTLY SINGING</b>. If the team provides that phrase, instruct them on the phone to upload their video via the Dropbox link you provide and to include their team name as the first name and their email as the email. Paste<br/><br/>
+        Upload your video to https://www.dropbox.com/request/s6NuHOcWgaiVADqtpAEb<br/><br/>
+        into the response box.
+      </p>
+    {% endif %}
   {% endif %}
   {% if interaction_request.status == 'SCHEDULED' %}
   <h3>An interaction is currently scheduled.</h3>
