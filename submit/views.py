@@ -66,10 +66,13 @@ def puzzle(puzzle_id):
     if request.method == "POST":
         if "submission" in request.form:
             cube.create_submission(app, puzzle_id, request.form["submission"])
+            return redirect(url_for('puzzle', puzzle_id = puzzle_id))
         elif "hintrequest" in request.form:
             cube.create_hint_request(app, puzzle_id, request.form["hintrequest"])
+            return redirect(url_for('puzzle', puzzle_id = puzzle_id))
         elif "interactionrequest" in request.form:
             cube.create_interaction_request(app, puzzle_id, request.form["interactionrequest"])
+            return redirect(url_for('puzzle', puzzle_id = puzzle_id))
         else:
             abort(400)
 
