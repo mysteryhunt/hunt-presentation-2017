@@ -51,8 +51,9 @@
       <div class="submission-section">
         <div class="submission-section-header">Requests</div>
         <div class="submission-section-explanation">
-          <p>Requests are your way to communicate with us about a particular puzzle. Examples include scheduling a time to give us something or reporting an erratum.</p>
-          <p>If you have found a message in a puzzle directing you to interact with us, please <b>include the message</b> from the puzzle in your request.</p>
+          <p>
+            This is the option you should use to ask HQ to do something or schedule something. If you want to bring us something, have us judge something, or want to schedule an activity, this is how to do it. [<b>IMPORTANT</b>: If you are contacting HQ to carry out an instruction that was revealed by a puzzle, you should submit <b>that exact instruction</b> as a request.] You can also report errata here. HQ will contact you to discuss the request and will then schedule or close the request as appropriate.
+          </p>
         </div>
         <div class="submission-section-form">
           <form action="{{ url_for('puzzle', puzzle_id=puzzle_id) }}" method="post">
@@ -80,7 +81,7 @@
         <div class="submission-section-header use-pointer"><span class="submission-section-closed-content"><a class="fa fa-caret-right" aria-hidden="true"></a></span><span class="submission-section-open-content"><a class="fa fa-caret-down" aria-hidden="true"></a></span>Hints</div>
         <div class="submission-section-open-content">
           <div class="submission-section-explanation">
-            With hints, you may ask a yes/no question about the puzzle. <b>Hints cost 100 Gold.</b> You currently have {{ team_properties.get('teamProperties',{}).get('GoldProperty',{}).get('gold',0) }} Gold.
+            This is the option you should use to spend 100 gold to ask a yes/no question about a puzzle. Hints are nonrefundable, so make sure your team is in agreement before asking a hint question! <b>Hints cost 100 Gold.</b> You currently have {{ team_properties.get('teamProperties',{}).get('GoldProperty',{}).get('gold',0) }} Gold.
           </div>
           {% if visibility['status'] != 'SOLVED' and team_properties.get('teamProperties',{}).get('GoldProperty',{}).get('gold',0) >= 100 %}
           <div class="submission-section-form">
