@@ -11,9 +11,6 @@ The emperor shows you a silent film he&rsquo;s been working on.
 
 {% block puzzle_content_block %}
 <div>
-  Note: The video has no sound.
-</div>
-<div>
   <video src="{{ asset_url_for('motion_picture/puzzle.mp4') }}" width="900" controls>
     Your browser does not support HTML5 video.
     <a href="{{ asset_url_for('motion_picture/puzzle.mp4') }}">Download Video</a>
