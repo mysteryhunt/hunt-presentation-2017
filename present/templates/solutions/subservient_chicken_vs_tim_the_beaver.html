@@ -17,6 +17,18 @@
     .standard-horizontal-scroll {
       font-size: 42px;
     }
+    span.highlight-letter {
+      font-weight: bold;
+      color: red;
+    }
+    #puzzle-content table {
+      border-collapse: collapse;
+    }
+    #puzzle-content table td {
+      padding: 5px;
+      border: 1px solid black;
+      text-align: center;
+    }
   </style>
 {% endblock %}
 
@@ -34,48 +46,92 @@
       to. Solvers must identify these and index according to the
       &ldquo;scores.&rdquo;
     </p>
-    <p>
-      Video 1<br>
-      Winner: Jinkx Monsoon (J)<br>
-      Loser: Detox (O)<br>
-      Singer: Yma Sumac (S)
-    </p>
-    <p>
-      Video 2<br>
-      Singer: Jennifer Holliday (L)<br>
-      Loser: Thorgy Thor (Y)<br>
-      Winner: Chi Chi DeVayne (N)
-    </p>
-    <p>
-      Video 3<br>
-      Winner: Coco Montese (S)<br>
-      Singer: Paula Abdul (A)<br>
-      Loser: Alyssa Edwards (Y)
-    </p>
-    <p>
-      Video 4<br>
-      Loser: Kenya Michaels (S)<br>
-      Singer: Aretha Franklin (K)<br>
-      Winner: Latrice Royale (E)
-    </p>
-    <p>
-      Video 5<br>
-      Singer: Natalie Cole (E)<br>
-      Loser: The Princess (P)<br>
-      Winner: Dida Ritz (I)
-    </p>
-    <p>
-      Video 6<br>
-      Singer: Faith Evans (T)<br>
-      Winner: Robbie Turner (B)<br>
-      Loser: Cynthia Lee Fontaine (L)
-    </p>
-    <p>
-      Video 7<br>
-      Loser: Katya (A)<br>
-      Winner: Kennedy Davenport (N)<br>
-      Singer: Katy Perry (K)
-    </p>
+    <table>
+      <tr>
+        <td>
+          Video 1<br/>
+          Season 5, Episode 11<br/>
+          &ldquo;Malambo No. 1&rdquo;
+        </td>
+        <td>
+          Winner: <span class="highlight-letter">J</span>inkx Monsoon<br/>
+          Loser: Det<span class="highlight-letter">o</span>x<br/>
+          Singer: Yma <span class="highlight-letter">S</span>umac
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Video 2<br/>
+          Season 8, Episode 7<br/>
+          &ldquo;And I Am Telling You I&rsquo;m Not Going&rdquo;
+        </td>
+        <td>
+          Singer: Jennifer Ho<span class="highlight-letter">l</span>liday<br/>
+          Loser: Thorg<span class="highlight-letter">y</span> Thor<br/>
+          Winner: Chi Chi DeVay<span class="highlight-letter">n</span>e
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Video 3<br/>
+          Season 5, Episode 9<br/>
+          &ldquo;Cold Hearted&rdquo;
+        </td>
+        <td>
+          Winner: Coco Montre<span class="highlight-letter">s</span>e<br/>
+          Singer: Paula <span class="highlight-letter">A</span>bdul<br/>
+          Loser: Al<span class="highlight-letter">y</span>ssa Edwards
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Video 4<br/>
+          Season 4, Episode 10<br/>
+          &ldquo;(You Make Me Feel Like) A Natural Woman&rdquo;
+        </td>
+        <td>
+          Loser: Kenya Michael<span class="highlight-letter">s</span><br/>
+          Singer: Aretha Fran<span class="highlight-letter">k</span>lin<br/>
+          Winner: Latrice Royal<span class="highlight-letter">e</span>
+        </td>
+      </tr>
+        <td>
+          Video 5<br/>
+          Season 4, Episode 3<br/>
+          &ldquo;This Will Be (An Everlasting Love)&rdquo;
+        </td>
+        <td>
+          Singer: Natali<span class="highlight-letter">e</span> Cole<br/>
+          Loser: The <span class="highlight-letter">P</span>rincess<br/>
+          Winner: DiDa R<span class="highlight-letter">i</span>tz
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Video 6<br/>
+          Season 8, Episode 3<br/>
+          &ldquo;Mesmerized&rdquo;
+        </td>
+        <td>
+          Singer: Fai<span class="highlight-letter">t</span>h Evans<br/>
+          Winner: Rob<span class="highlight-letter">b</span>ie Turner<br/>
+          Loser: Cynthia <span class="highlight-letter">L</span>ee Fontaine
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Video 7<br/>
+          Season 7, Episode 11<br/>
+          &ldquo;Roar&rdquo;
+        </td>
+        <td>
+          Loser: K<span class="highlight-letter">a</span>tya<br/>
+          Winner: Kennedy Dave<span class="highlight-letter">n</span>port<br/>
+          Singer: <span class="highlight-letter">K</span>aty Perry
+        </td>
+      </tr>
+    </table>
+
     <p>
       The indexed letters spell out the phrase JOSLYN SAYS KEEP IT
       BLANK. Contestant Joslyn Fox had the catchphrase &ldquo;Keep it
