@@ -1,0 +1,107 @@
+{%- macro visibility_class(team_id, puzzle_id) -%}
+  {%- set status = team_visibilities[team_id].get(puzzle_id,{}).get("status","INVISIBLE") -%}
+  {%- if status == "UNLOCKED" -%}
+    ha-bigboard-unlocked
+  {%- elif status == "SOLVED" -%}
+    ha-bigboard-solved
+  {%- else -%}
+    ha-bigboard-locked
+  {%- endif -%}
+{%- endmacro -%}
+
+{% extends "base.html" %}
+{% block page_body %}
+  <div class="ha-page-section">
+    <form action="{{ url_for('bulk_team_action') }}" method="post">
+      <h2>Select Teams</h2>
+      <div class="ha-team-selector-group">
+        {% for team_id in team_ids %}
+          <div class="ha-team-selector">
+            <label>
+              <div class="ha-team-selector-clickable-area">
+                <div class="ha-team-selector-status-line">
+                  <input type="checkbox" name="team_ids" value="{{ team_id }}">
+                  {{ team_id }}
+                </div>
+                <div class="ha-team-selector-status-line">
+                  <div
+                     class="ha-team-selector-status-box {{ visibility_class(team_id, 'eventa') }}"
+                  >
+                    A
+                  </div>
+                  <div
+                     class="ha-team-selector-status-box {{ visibility_class(team_id, 'eventb') }}"
+                  >
+                    B
+                  </div>
+                  <div
+                     class="ha-team-selector-status-box {{ visibility_class(team_id, 'eventc') }}"
+                  >
+                    C
+                  </div>
+                  <div
+                     class="ha-team-selector-status-box {{ visibility_class(team_id, 'eventd') }}"
+                  >
+                    D
+                  </div>
+                  <div class="ha-team-selector-status-box">{{ team_gold[team_id] }}</div>
+                </div>
+              </div>
+            </label>
+          </div>
+        {% endfor %}
+      </div>
+      <h2>Select Action</h2>
+      <div class="ha-control-boxes-container">
+        {% if is_authorized('events:create:GrantGoldEvent') %}
+          <div class="ha-column-control-box">
+            <span class="ha-control-box-title">
+              Grant Gold
+            </span>
+            <div>
+            </div>
+            {% for goldAmount in [10, 25, 50, 100] %}
+              <div>
+                <input
+                   type="button"
+                   value="Yes, I'm sure"
+                   onclick="$('#gold{{ goldAmount }}Button').removeAttr('disabled')"
+                >
+                <button id="gold{{ goldAmount }}Button" type="submit" name="gold" value="{{ goldAmount }}" disabled>{{ goldAmount }} Gold</button>
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        {% if is_authorized('visibilities:update:*') %}
+          {% set events = ['eventa','eventb','eventc','eventd'] %}
+          <div class="ha-column-control-box">
+            <span class="ha-control-box-title">
+              Complete Event
+            </span>
+            <div>
+            </div>
+            {% for event in events %}
+              <div>
+                <input
+                   type="button"
+                   value="Yes, I'm sure"
+                   onclick="$('#complete{{ event }}Button').removeAttr('disabled')"
+                >
+                <button
+                   type="submit"
+                   id="complete{{ event }}Button"
+                   name="solvePuzzle"
+                   value="{{ event }}"
+                   disabled
+                >
+                  Complete {{ event | capitalize }}
+                </button>
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+    </form>
+  </div>
+{% endblock %}

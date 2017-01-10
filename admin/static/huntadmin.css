@@ -265,3 +265,34 @@ form {
    font-size: 10px;
    text-align: center;
 }
+
+.ha-team-selector-group {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ha-team-selector {
+  margin-right: 1em;
+  margin-bottom: 0.5em;
+  border: 2px solid black;
+}
+
+.ha-team-selector-clickable-area {
+  padding: 0.5em;
+  display: flex;
+  flex-direction: column;
+}
+
+.ha-team-selector-status-line {
+  display: flex;
+  flex-direction: row;
+}
+
+.ha-team-selector-status-box {
+  font-size: 10px;
+  text-align: center;
+  height: 12px;
+  padding-top: 1px;
+  width: 24px;
+  margin-right: 2px;
+}
