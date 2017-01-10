@@ -265,3 +265,15 @@ form {
    font-size: 10px;
    text-align: center;
 }
+
+.ha-checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ha-checkbox-group label {
+  padding: 0.5em;
+  margin-right: 1em;
+  margin-bottom: 0.5em;
+  border: 2px solid black;
+}

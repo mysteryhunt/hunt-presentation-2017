@@ -349,3 +349,33 @@ def bigboard():
         character_ids=CHARACTER_IDS,
         quest_ids=QUEST_IDS,
         round_puzzle_map=ROUND_PUZZLE_MAP)
+
+@app.route("/bulk_team_action", methods=["GET", "POST"])
+@login_required.writingteam
+def bulk_team_action():
+    if request.method == "POST":
+        responses = []
+        for team_id in request.form.getlist("team_ids"):
+            if request.form.has_key("gold"):
+                responses.append(cube.create_event_async(app, {
+                    "eventType": "GrantGold",
+                    "teamId": team_id,
+                    "gold": request.form["gold"],
+                }))
+            elif request.form.has_key("solvePuzzle"):
+                responses.append(cube.update_puzzle_visibility_async(
+                    app,
+                    team_id,
+                    request.form["solvePuzzle"],
+                    "SOLVED"))
+            else:
+                abort(400)
+        for response in responses:
+            response.result()
+
+    teams = cube.get_teams(app)
+    team_ids = [team["teamId"] for team in teams]
+
+    return render_template(
+        "bulk_team_action.html",
+        team_ids=team_ids)

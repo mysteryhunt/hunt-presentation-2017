@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block page_body %}
+  <div class="ha-page-section">
+    <form action="{{ url_for('bulk_team_action') }}" method="post">
+      <h2>Select Teams</h2>
+      <div class="ha-checkbox-group">
+        {% for team_id in team_ids %}
+          <label>
+            <input type="checkbox" name="team_ids" value="{{ team_id }}">
+            {{ team_id }}
+          </label>
+        {% endfor %}
+      </div>
+      <h2>Select Action</h2>
+      <div class="ha-control-boxes-container">
+        {% if is_authorized('events:create:GrantGoldEvent') %}
+          <div class="ha-column-control-box">
+            <span class="ha-control-box-title">
+              Grant Gold
+            </span>
+            <div>
+              <button class="goldButton" type="submit" name="gold" value="10">10 Gold</button>
+              <button class="goldButton" type="submit" name="gold" value="25">25 Gold</button>
+              <button class="goldButton" type="submit" name="gold" value="50">50 Gold</button>
+            </div>
+          </div>
+        {% endif %}
+
+        {% if is_authorized('visibilities:update:*') %}
+          {% set events = ['eventa','eventb','eventc','eventd'] %}
+          <div class="ha-column-control-box">
+            <span class="ha-control-box-title">
+              Complete Event
+            </span>
+            {% for event in events %}
+              <div>
+                <button
+                   type="submit"
+                   name="solvePuzzle"
+                   value="{{ event }}"
+                   >
+                   Complete {{ event | capitalize }}
+                </button>
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+    </form>
+  </div>
+{% endblock %}
