@@ -72,29 +72,126 @@
       updated contact info.
     </p>
     <p>
-      The team's request is &ldquo;{{ interaction_request.request }}&rdquo;. If
-      this request is to schedule a meeting, then find a time to meet the team,
-      enter the time and meeting instructions in the response box below, and mark
-      this request as Scheduled.
+      <b>The team's request is &ldquo;{{ interaction_request.request }}&rdquo;</b>.
     </p>
+    <p>
+      If this request is to schedule a meeting, then find a time to meet the team,
+            enter the time and meeting instructions in the response box below, and mark
+            this request as Scheduled.
     <p>
       If this request can be handled over the phone right now and does not require
       scheduling a future interaction, you can mark this request as Complete when
       the call is over.
     </p>
+    <div class="line" style="width:100%; border-bottom: 1px solid black; margin: 1em auto;"></div>
     {% if puzzle.puzzleProperties.DisplayNameProperty.displayName == 'Swifties' %}
-      <h4>Instructions for Swifties</h4>
+      <h3>Instructions for Swifties</h3>
       <p>
-        We are expecting the phrase <b>MAKE US A VIDEO OF YOUR TEAM SWIFTLY SINGING</b>. If the team provides that phrase, instruct them on the phone to upload their video via the Dropbox link you provide and to include their team name as the first name and their email as the email. Paste<br/><br/>
-        Upload your video to https://www.dropbox.com/request/s6NuHOcWgaiVADqtpAEb<br/><br/>
-        into the response box.
+        We are expecting the phrase <b>MAKE US A VIDEO OF YOUR TEAM SWIFTLY SINGING</b>. If the team provides that phrase, instruct them on the phone to upload their video via the Dropbox link you provide and to include their team name as the first name and their email as the email. Paste this into the response box and mark the request as scheduled:
+        <blockquote>
+          Upload your video to https://www.dropbox.com/request/s6NuHOcWgaiVADqtpAEb
+        </blockquote>
       </p>
     {% elif puzzle.puzzleProperties.DisplayNameProperty.displayName == 'Elf/Dwarf Brawl' %}
       <h4>Instructions for Elf/Dwarf Brawl</h4>
       <p>
-        We are expecting the phrase <b>SEND TWO CLIPS USE MIT AND OLIN COLLEGE</b>. If the team provides that phrase, instruct them on the phone to upload their videos via the Dropbox link you provide and to include their team name as the first name and their email as the email. Paste<br/><br/>
-        Upload your videos to https://www.dropbox.com/request/bWZ5mVmJBQfQUJKs16OS<br/><br/>
-        into the response box.
+        We are expecting the phrase <b>SEND TWO CLIPS USE MIT AND OLIN COLLEGE</b>. If the team provides that phrase, instruct them on the phone to upload their videos via the Dropbox link you provide and to include their team name as the first name and their email as the email. Paste this into the response box and mark the request as scheduled:
+        <blockquote>
+          Upload your videos to https://www.dropbox.com/request/bWZ5mVmJBQfQUJKs16OS<br/><br/>
+        </blockquote>
+      </p>
+    {% elif puzzle.puzzleProperties.DisplayNameProperty.displayName == 'The Most Interesting Puzzle in the World' %}
+      <h4>Instructions for The Most Interesting Puzzle in the World</h4>
+      <p>
+        We are expecting the phrase <b>YOUR JOB BRING ME ROOT BEER AT ONCE</b>. If the team provides that phrase, call them and schedule their delivery of root beer. Put the time and location in the response box. Mark the request as scheduled.
+      </p>
+    {% elif puzzle.puzzleProperties.DisplayNameProperty.displayName == 'Stick the Landing' %}
+      <h4>Instructions for The Most Interesting Puzzle in the World</h4>
+      <p>
+        We are expecting the phrase <b>BRING US GUM DROPS</b>. If the team provides that phrase, call them and schedule their delivery of gum drops. They will be receiving an item from us in exchange for the gum drops, so be sure that the time and location matches where those items are. Put the time and location in the response box. Mark the request as scheduled.
+      </p>
+    {% elif puzzle.puzzleProperties.DisplayNameProperty.displayName == 'Hamilton on Tour' %}
+      <h4>Instructions for Hamilton on Tour</h4>
+      <p>
+        We are expecting the phrase <b>GIVE US A VERSE</b>. If the team provides that phrase, call them and schedule them to come to us to deliver or demonstrate a verse. Put the time and location in the response box. Mark the request as scheduled.
+      </p>
+    {% elif puzzle.puzzleProperties.DisplayNameProperty.displayName == 'Four by Four' %}
+      <h4>Instructions for Four by Four</h4>
+      <p>
+        We are expecting the phrase <b>MAKE A SQUARE FOR US</b>. If the team provides that phrase, call them and schedule them to come to us to deliver a square. Put the time and location in the response box. Mark the request as scheduled.
+      </p>
+    {% elif puzzle.puzzleProperties.DisplayNameProperty.displayName == 'Replenish the Treasury' %}
+      <h4>Instructions for Replenish the Treasury</h4>
+      <p>
+        We are expecting the word <b>JUDGE</b>. If the team provides that word, call them and schedule a time with them for us to judge their items in their headquarters. Put the time in the response box. Mark the request as scheduled.
+      </p>
+    {% elif puzzle.puzzleProperties.DisplayNameProperty.displayName == 'SeaTac Gastronomy' %}
+      <h4>Instructions for Four by Four</h4>
+      <p>
+        We are expecting the word <b>JUDGE</b>. If the team provides that word, call them and schedule them to come to us to deliver food and have it judged. Put the time and location in the response box. Mark the request as scheduled.
+      </p>
+    {% elif puzzle.puzzleProperties.DisplayNameProperty.displayName == 'You Blew It!' %}
+      <h4>Instructions for You Blew It!</h4>
+      <p>
+        We are expecting the word <b>JUDGE</b>. If the team provides that word, call them and schedule a time with them for us to judge their volcano in their headquarters. Put the time in the response box. Mark the request as scheduled.
+      </p>
+    {% elif puzzle.puzzleProperties.DisplayNameProperty.displayName == 'Rescue the Linguist' %}
+      <h4>Instructions for Rescue the Linguist</h4>
+      <p>
+        We are expecting the word <b>RESCUE</b>. If the team provides that word, call them and follow this script:
+      </p>
+      <blockquote>
+        On your quest, your party has encountered the LINGUIST. You can train her by solving puzzles just like your other characters, and she will help you unlock new Quest puzzles. However, in order to use her full abilities, you need to rescue her first.<br/><br/>
+        Send <b>TWO TEAM MEMBERS</b> to <b>LOBBY 13 (or alternate location)</b> and meet a member of our team, who will show you where the LINGUIST is imprisoned. Use the code word <b>PHONETICS</b>.
+      </blockquote>
+      <p>
+        When you are done with the call, put the location in the response box. Mark the request as scheduled.
+      </p>
+    {% elif puzzle.puzzleProperties.DisplayNameProperty.displayName == 'Rescue the Chemist' %}
+      <h4>Instructions for Rescue the Chemist</h4>
+      <p>
+        We are expecting the word <b>RESCUE</b>. If the team provides that word, call them and follow this script:
+      </p>
+      <blockquote>
+        On your quest your party has encountered the CHEMIST. You can train her by solving puzzles just like your other characters, and she will help you unlock new Quest puzzles. However, in order to use her full abilities, you need to rescue her first.<br/><br/>
+        Send <b>TWO TEAM MEMBERS</b> without allergies to <b>ROOM 32-D463</b>. We recommend sending people who are good at mixing potable potions. Use the code word <b>PHENOL</b>.
+      </blockquote>
+      <p>
+        When you are done with the call, put "ROOM 32-D463" in the response box. Mark the request as scheduled.
+      </p>
+    {% elif puzzle.puzzleProperties.DisplayNameProperty.displayName == 'Rescue the Economist' %}
+      <h4>Instructions for Rescue the Economist</h4>
+      <p>
+        We are expecting the word <b>RESCUE</b>. If the team provides that word, follow this script:
+      </p>
+      <blockquote>
+        On your quest your party has encountered the ECONOMIST. You can train them by solving puzzles just like your other characters, and they will help you unlock new Quest puzzles. However, they are still under the Sorcerer’s evil spell, which you need to break in order to use their full abilities.<br/><br/>
+        The ECONOMIST and a member of our team will be arriving at your team’s base shortly. <b>Be prepared to let them in</b>. When they arrive, the member of our team will explain what the Sorcerer has done and see if your team can break the spell.
+      </blockquote>
+      <p>
+        When you are done with the call, mark the request as scheduled.
+      </p>
+    {% elif puzzle.puzzleProperties.DisplayNameProperty.displayName == 'The Big Battle' %}
+      <h4>Instructions for The Big Battle</h4>
+      <p>
+        We are expecting the word <b>BATTLE</b>. If the team provides that word, follow this script:
+      </p>
+      <blockquote>
+        (Follow the script)
+      </blockquote>
+      <p>
+        When you are done with the call, put the location in the response box. Mark the request as scheduled.
+      </p>
+    {% elif puzzle.puzzleProperties.DisplayNameProperty.displayName == 'The Final Fortress' %}
+      <h4>Instructions for The Final Fortress</h4>
+      <p>
+        We are expecting the word <b>FORTRESS</b>. If the team provides that word, follow this script:
+      </p>
+      <blockquote>
+        (Follow the script)
+      </blockquote>
+      <p>
+        When you are done with the call, put the location in the response box. Mark the request as scheduled.
       </p>
     {% endif %}
   {% endif %}
@@ -114,6 +211,7 @@
     as Complete.
   </p>
   {% endif %}
+  <div class="line" style="width:100%; border-bottom: 1px solid black; margin: 1em auto;"></div>
   <form action="{{ url_for('interactionrequest', interaction_request_id=interaction_request.interactionRequestId) }}" method="post">
     <p>
       Response to the team (may include scheduling details like time and place):
