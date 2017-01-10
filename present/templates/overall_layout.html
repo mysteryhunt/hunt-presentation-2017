@@ -146,16 +146,18 @@
 
         {% block header_content %}
         {% endblock %}
-      
+
         <div id="header-session-control">
           {% if session["username"] %}
             {{ pretty_truncate(session["username"],15) }}
-            <a href="#" data-toggle="modal" data-target="#header-change-contact-info">
-              <span class="fa fa-pencil-square-o" data-toggle="tooltip" data-placement="bottom" title="Change Contact Info"></span>
-            </a>
-            <a href="{{ url_for('login.logout') }}">
-              <span class="fa fa-sign-out" data-toggle="tooltip" data-placement="bottom" title="Logout"></span>
-            </a>
+            {% if (not site_mode()) or site_mode() != 'solution' %}      
+              <a href="#" data-toggle="modal" data-target="#header-change-contact-info">
+                <span class="fa fa-pencil-square-o" data-toggle="tooltip" data-placement="bottom" title="Change Contact Info"></span>
+              </a>
+              <a href="{{ url_for('login.logout') }}">
+                <span class="fa fa-sign-out" data-toggle="tooltip" data-placement="bottom" title="Logout"></span>
+              </a>
+            {% endif %}
           {% else %}
             Not logged in (<a href="{{ url_for('login.login') }}">login</a>)
           {% endif %}

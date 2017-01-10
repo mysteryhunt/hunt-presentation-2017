@@ -17,7 +17,7 @@
       </tr>
     </thead>
     <tbody>
-      {% for h in pending_interaction_requests %}
+      {% for h in pending_interaction_requests if h.status in ['REQUESTED','SUBMITTED'] %}
       <tr>
 	<td>{{ h.timestamp | datetime }}</td>
 	<td>{{ h.teamId }}</td>
@@ -34,7 +34,7 @@
 	    <input type="hidden" name="status" value="ASSIGNED">
 	    <input type="submit" value="Assign to Me">
 	  </form>
-	  {% elif h.status in ['ASSIGNED', 'SCHEDULED'] %}
+	  {% elif h.status in ['ASSIGNED'] %}
 	  <form action="{{ url_for('interactionrequest', interaction_request_id=h.interactionRequestId) }}" method="post">
 	    <input type="hidden" name="status" value="REQUESTED">
 	    <input type="submit" value="Unassign">
@@ -46,4 +46,35 @@
     </tbody>
   </table>
 </div>
+
+<div class="ha-page-section">
+  <h2>Scheduled Interaction Requests</h2>
+  <table class="ha-table">
+    <thead>
+      <tr>
+	<th>Request Time</th>
+	<th>Team</th>
+	<th>Puzzle</th>
+	<th>Request</th>
+	<th>Last Caller</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for h in pending_interaction_requests if h.status in ['SCHEDULED'] %}
+      <tr>
+	<td>{{ h.timestamp | datetime }}</td>
+	<td>{{ h.teamId }}</td>
+	<td>{{ prettyPuzzleIdentifier(h.puzzleId) }}</td>
+	<td>
+	  <a href="{{ url_for('interactionrequest', interaction_request_id=h.interactionRequestId) }}">
+	    {{ h.request }}
+	  </a>
+	</td>
+	<td>{{ h.callerUsername }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
 {% endblock %}
