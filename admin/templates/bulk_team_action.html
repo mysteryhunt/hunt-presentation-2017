@@ -1,14 +1,50 @@
+{%- macro visibility_class(team_id, puzzle_id) -%}
+  {%- set status = team_visibilities[team_id].get(puzzle_id,{}).get("status","INVISIBLE") -%}
+  {%- if status == "UNLOCKED" -%}
+    ha-bigboard-unlocked
+  {%- elif status == "SOLVED" -%}
+    ha-bigboard-solved
+  {%- else -%}
+    ha-bigboard-locked
+  {%- endif -%}
+{%- endmacro -%}
+
 {% extends "base.html" %}
 {% block page_body %}
   <div class="ha-page-section">
     <form action="{{ url_for('bulk_team_action') }}" method="post">
       <h2>Select Teams</h2>
-      <div class="ha-checkbox-group">
+      <div class="ha-team-selector-group">
         {% for team_id in team_ids %}
-          <label>
-            <input type="checkbox" name="team_ids" value="{{ team_id }}">
-            {{ team_id }}
-          </label>
+          <div class="ha-team-selector">
+            <label>
+              <input type="checkbox" name="team_ids" value="{{ team_id }}">
+              {{ team_id }}
+            </label>
+            <div class="ha-team-selector-status-line">
+              <div
+                 class="ha-team-selector-status-box {{ visibility_class(team_id, 'eventa') }}"
+              >
+                A
+              </div>
+              <div
+                 class="ha-team-selector-status-box {{ visibility_class(team_id, 'eventb') }}"
+              >
+                B
+              </div>
+              <div
+                 class="ha-team-selector-status-box {{ visibility_class(team_id, 'eventc') }}"
+              >
+                C
+              </div>
+              <div
+                 class="ha-team-selector-status-box {{ visibility_class(team_id, 'eventd') }}"
+              >
+                D
+              </div>
+              <div class="ha-team-selector-status-box">{{ team_gold[team_id] }}</div>
+            </div>
+          </div>
         {% endfor %}
       </div>
       <h2>Select Action</h2>
@@ -19,15 +55,15 @@
               Grant Gold
             </span>
             <div>
-              <input
-                 type="button"
-                 value="Yes, I'm sure"
-                 onclick="$('.goldButton').removeAttr('disabled')"
-              >
             </div>
             {% for goldAmount in [10, 25, 50, 100] %}
               <div>
-                <button class="goldButton" type="submit" name="gold" value="{{ goldAmount }}" disabled>{{ goldAmount }} Gold</button>
+                <input
+                   type="button"
+                   value="Yes, I'm sure"
+                   onclick="$('#gold{{ goldAmount }}Button').removeAttr('disabled')"
+                >
+                <button id="gold{{ goldAmount }}Button" type="submit" name="gold" value="{{ goldAmount }}" disabled>{{ goldAmount }} Gold</button>
               </div>
             {% endfor %}
           </div>
@@ -40,17 +76,17 @@
               Complete Event
             </span>
             <div>
-              <input
-                 type="button"
-                 value="Yes, I'm sure"
-                 onclick="$('.completeEventButton').removeAttr('disabled')"
-              >
             </div>
             {% for event in events %}
               <div>
+                <input
+                   type="button"
+                   value="Yes, I'm sure"
+                   onclick="$('#complete{{ event }}Button').removeAttr('disabled')"
+                >
                 <button
                    type="submit"
-                   class="completeEventButton"
+                   id="complete{{ event }}Button"
                    name="solvePuzzle"
                    value="{{ event }}"
                    disabled

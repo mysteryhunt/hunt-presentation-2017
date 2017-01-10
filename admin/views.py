@@ -374,8 +374,26 @@ def bulk_team_action():
             response.result()
 
     teams = cube.get_teams(app)
+
     team_ids = [team["teamId"] for team in teams]
+    team_ids.sort()
+
+    team_gold = { team["teamId"]: team.get("teamProperties",{}).get("GoldProperty",{}).get("gold",0) for team in teams }
+
+    team_visibility_futures = {}
+    for team_id in team_ids:
+        team_visibility_futures[team_id] = cube.get_puzzle_visibilities_for_list_async(
+            app,
+            ["eventa", "eventb", "eventc", "eventd"],
+            team_id)
+
+    team_visibilities = {}
+    for team_id, future in team_visibility_futures.iteritems():
+        visibilities = future.result().json()["visibilities"]
+        team_visibilities[team_id] = { v["puzzleId"]: v for v in visibilities }
 
     return render_template(
         "bulk_team_action.html",
-        team_ids=team_ids)
+        team_ids=team_ids,
+        team_gold=team_gold,
+        team_visibilities=team_visibilities)
