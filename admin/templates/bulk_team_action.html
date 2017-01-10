@@ -18,32 +18,36 @@
         {% for team_id in team_ids %}
           <div class="ha-team-selector">
             <label>
-              <input type="checkbox" name="team_ids" value="{{ team_id }}">
-              {{ team_id }}
+              <div class="ha-team-selector-clickable-area">
+                <div class="ha-team-selector-status-line">
+                  <input type="checkbox" name="team_ids" value="{{ team_id }}">
+                  {{ team_id }}
+                </div>
+                <div class="ha-team-selector-status-line">
+                  <div
+                     class="ha-team-selector-status-box {{ visibility_class(team_id, 'eventa') }}"
+                  >
+                    A
+                  </div>
+                  <div
+                     class="ha-team-selector-status-box {{ visibility_class(team_id, 'eventb') }}"
+                  >
+                    B
+                  </div>
+                  <div
+                     class="ha-team-selector-status-box {{ visibility_class(team_id, 'eventc') }}"
+                  >
+                    C
+                  </div>
+                  <div
+                     class="ha-team-selector-status-box {{ visibility_class(team_id, 'eventd') }}"
+                  >
+                    D
+                  </div>
+                  <div class="ha-team-selector-status-box">{{ team_gold[team_id] }}</div>
+                </div>
+              </div>
             </label>
-            <div class="ha-team-selector-status-line">
-              <div
-                 class="ha-team-selector-status-box {{ visibility_class(team_id, 'eventa') }}"
-              >
-                A
-              </div>
-              <div
-                 class="ha-team-selector-status-box {{ visibility_class(team_id, 'eventb') }}"
-              >
-                B
-              </div>
-              <div
-                 class="ha-team-selector-status-box {{ visibility_class(team_id, 'eventc') }}"
-              >
-                C
-              </div>
-              <div
-                 class="ha-team-selector-status-box {{ visibility_class(team_id, 'eventd') }}"
-              >
-                D
-              </div>
-              <div class="ha-team-selector-status-box">{{ team_gold[team_id] }}</div>
-            </div>
           </div>
         {% endfor %}
       </div>

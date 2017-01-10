@@ -272,10 +272,13 @@ form {
 }
 
 .ha-team-selector {
-  padding: 0.5em;
   margin-right: 1em;
   margin-bottom: 0.5em;
   border: 2px solid black;
+}
+
+.ha-team-selector-clickable-area {
+  padding: 0.5em;
   display: flex;
   flex-direction: column;
 }
