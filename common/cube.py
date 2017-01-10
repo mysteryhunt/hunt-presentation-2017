@@ -51,6 +51,15 @@ def post(app, path, data, requests_session=None):
     response.raise_for_status()
     return response.json()
 
+def post_async(app, path, data, requests_session=None):
+    if not requests_session:
+        requests_session = create_requests_session()
+    futures_session = FuturesSession(session=requests_session, executor=THREAD_POOL)
+    url = get_url_for_path(app, path)
+    headers = { "Content-Type": "application/json" }
+    json_post_data = json.dumps(data)
+    return ResponseCheckingFutureWrapper(futures_session.post(url, data=json_post_data, headers=headers))
+
 def authorized(app, permission):
     response = get(app, "/authorized?permission=%s" % permission)
     return response["authorized"]
@@ -99,6 +108,13 @@ def get_puzzle_visibility_async(app, puzzle_id):
 
 def update_puzzle_visibility(app, team_id, puzzle_id, status):
     post(app, "/visibilities/%s/%s" % (team_id, puzzle_id), {
+        "teamId": team_id,
+        "puzzleId": puzzle_id,
+        "status": status,
+    })
+
+def update_puzzle_visibility_async(app, team_id, puzzle_id, status):
+    return post_async(app, "/visibilities/%s/%s" % (team_id, puzzle_id), {
         "teamId": team_id,
         "puzzleId": puzzle_id,
         "status": status,
@@ -266,3 +282,6 @@ def create_user(app, user):
 
 def create_event(app, event):
     post(app, "/events", event)
+
+def create_event_async(app, event):
+    return post_async(app, "/events", event)

@@ -349,3 +349,51 @@ def bigboard():
         character_ids=CHARACTER_IDS,
         quest_ids=QUEST_IDS,
         round_puzzle_map=ROUND_PUZZLE_MAP)
+
+@app.route("/bulk_team_action", methods=["GET", "POST"])
+@login_required.writingteam
+def bulk_team_action():
+    if request.method == "POST":
+        responses = []
+        for team_id in request.form.getlist("team_ids"):
+            if request.form.has_key("gold"):
+                responses.append(cube.create_event_async(app, {
+                    "eventType": "GrantGold",
+                    "teamId": team_id,
+                    "gold": request.form["gold"],
+                }))
+            elif request.form.has_key("solvePuzzle"):
+                responses.append(cube.update_puzzle_visibility_async(
+                    app,
+                    team_id,
+                    request.form["solvePuzzle"],
+                    "SOLVED"))
+            else:
+                abort(400)
+        for response in responses:
+            response.result()
+
+    teams = cube.get_teams(app)
+
+    team_ids = [team["teamId"] for team in teams]
+    team_ids.sort()
+
+    team_gold = { team["teamId"]: team.get("teamProperties",{}).get("GoldProperty",{}).get("gold",0) for team in teams }
+
+    team_visibility_futures = {}
+    for team_id in team_ids:
+        team_visibility_futures[team_id] = cube.get_puzzle_visibilities_for_list_async(
+            app,
+            ["eventa", "eventb", "eventc", "eventd"],
+            team_id)
+
+    team_visibilities = {}
+    for team_id, future in team_visibility_futures.iteritems():
+        visibilities = future.result().json()["visibilities"]
+        team_visibilities[team_id] = { v["puzzleId"]: v for v in visibilities }
+
+    return render_template(
+        "bulk_team_action.html",
+        team_ids=team_ids,
+        team_gold=team_gold,
+        team_visibilities=team_visibilities)
