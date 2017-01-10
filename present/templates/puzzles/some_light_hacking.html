@@ -4,12 +4,38 @@
 
 {% block puzzle_head_block %}
 <style>
+  @media print {
+      #puzzle-content table {
+        page-break-inside: avoid;
+      }
+  }
+  
   #puzzle-content table {
     width: 100%;
+    border-collapse: collapse;
   }
-
   #puzzle-content td {
     height: 100px;
+    text-align: center;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+  }
+  
+  #puzzle-content tr.image_row td {
+    border-top: 1px solid black;
+  }
+
+  #puzzle-content tr.enum_row td {
+    border-bottom: 1px solid black;
+  }
+  
+  #puzzle-content table img {
+    width: 280px;
+  }
+
+  #puzzle-content ul {
+    list-style-type: none;
+    padding-left: 0px;
   }
 
   .o {
@@ -45,35 +71,46 @@ colors. You wonder how many steps it would take to get around it.
 
 {% block puzzle_content_block %}
 <div>
-  <span class="o">Incompatibility</span><br>
-  <span class="o">Quality represented by Crane badge</span><br>
-  <span class="p">Keep enemies away from</span><br>
-  <span class="r">Journey&rsquo;s end</span><br>
-  <span class="r">Science magazine &ldquo;for the curious&rdquo;</span><br>
-  <span class="r">Age of Reason</span><br>
-  <span class="g">The mind-killer</span><br>
-  <span class="b">Position in which a golf ball sits</span><br>
-  <span class="g">Captain Red Herring&rsquo;s <span class="answer-blank">_____</span> Island</span><br>
-  <span class="g">Obad-hai&rsquo;s portfolio</span><br>
-  <span class="b">Show set in Arkwright Provisions, with Hours</span><br>
-  <span class="p">Point of view</span><br>
-  <span class="o">Pin or dance?</span><br>
-  <span class="b">Recently replaced Longhorns coach</span><br>
-  <span class="p">If sufficiently advanced, it&rsquo;s indistinguishable from magic</span><br>
-  <span class="y">Hand in glove</span><br>
-  <span class="y">Like a set of real numbers not contained in any finite interval</span><br>
-  <span class="y">It merged with Sirius in 2008</span><br>
-  <hr>
+  <ul>
+    <li><span class="o">Incompatibility</span></li>
+    <li><span class="o">Quality represented by Crane badge</span></li>
+    <li><span class="p">Keep enemies away from</span></li>
+    <li><span class="r">Journey&rsquo;s end</span></li>
+    <li><span class="r">Science magazine &ldquo;for the curious&rdquo;</span></li>
+    <li><span class="r">Age of Reason</span></li>
+    <li><span class="g">The mind-killer</span></li>
+    <li><span class="b">Position in which a golf ball sits</span></li>
+    <li><span class="g">Captain Red Herring&rsquo;s <span class="answer-blank">_____</span> Island</span></li>
+    <li><span class="g">Obad-hai&rsquo;s portfolio</span></li>
+    <li><span class="b">Show set in Arkwright Provisions, with Hours</span></li>
+    <li><span class="p">Point of view</span></li>
+    <li><span class="o">Pin or dance?</span></li>
+    <li><span class="b">Recently replaced Longhorns coach</span></li>
+    <li><span class="p">If sufficiently advanced, it&rsquo;s indistinguishable from magic</span></li>
+    <li><span class="y">Hand in glove</span></li>
+    <li><span class="y">Like a set of real numbers not contained in any finite interval</span></li>
+    <li><span class="y">It merged with Sirius in 2008</span></li>
+  </ul>
   <table>
-    <tr>
-      <td><img src="{{ asset_url_for('some_light_hacking/1.png')  }}"></td>
-      <td><img src="{{ asset_url_for('some_light_hacking/2.png')  }}"></td>
-      <td><img src="{{ asset_url_for('some_light_hacking/3.png')  }}"></td>
+    <tr class="image_row">
+      <td><img src="{{ asset_url_for('some_light_hacking/image01.png')  }}"></td>
+      <td><img src="{{ asset_url_for('some_light_hacking/image02.png')  }}"></td>
+      <td><img src="{{ asset_url_for('some_light_hacking/image03.png')  }}"></td>
     </tr>
-    <tr>
-      <td><img src="{{ asset_url_for('some_light_hacking/4.png')  }}"></td>
-      <td><img src="{{ asset_url_for('some_light_hacking/5.png')  }}"></td>
-      <td><img src="{{ asset_url_for('some_light_hacking/6.png')  }}"></td>
+    <tr class="enum_row">
+      <td>2,4,3,?</td>
+      <td>4,9,4,?</td>
+      <td>3,5,5,?</td>
+    </tr>
+    <tr class="image_row">
+      <td><img src="{{ asset_url_for('some_light_hacking/image04.png')  }}"></td>
+      <td><img src="{{ asset_url_for('some_light_hacking/image05.png')  }}"></td>
+      <td><img src="{{ asset_url_for('some_light_hacking/image06.png')  }}"></td>
+    </tr>
+    <tr class="enum_row">
+      <td>3,10,5,?</td>
+      <td>5,3,3,?</td>
+      <td>2,3,7,?</td>
     </tr>
   </table>
 </div>

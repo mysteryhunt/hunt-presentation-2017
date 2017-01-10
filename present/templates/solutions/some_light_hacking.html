@@ -9,10 +9,33 @@
 <style>
   #puzzle-content table {
     width: 100%;
+    border-collapse: collapse;
   }
-
+  
   #puzzle-content td {
     height: 100px;
+    text-align: center;
+  }
+  
+  #puzzle-content td:first-child {
+    border-left: 3px solid black;
+    border-right: 1px solid black;
+  }
+  
+  #puzzle-content td:last-child {
+    border-right: 3px solid black;
+  }
+  
+  #puzzle-content tr.image_row td {
+    border-top: 3px solid black;
+  }
+
+  #puzzle-content tr.enum_row td {
+    border-bottom: 3px solid black;
+  }
+
+  #puzzle-content table img {
+    width: 170px;
   }
 
   .o {
@@ -85,49 +108,90 @@
 
   <p>Each ? is the stroke enumeration for the missing glyph. Index into the glyph&rsquo;s definition by the stroke enumeration and you get <b>PETSIT</b>.</p>
 
-  <hr>
   <table>
-    <tr>
-      <td><img src="{{ asset_url_for('some_light_hacking/s1.png')  }}"></td>
+    <tr class="image_row">
+      <td><img src="{{ asset_url_for('some_light_hacking/solution-image01.png')  }}"></td>
       <td><img src="http://glyphtionary.com/glyphs/thumbs/Contemplate.png" alt="Contemplate"></td>
       <td><img src="http://glyphtionary.com/glyphs/thumbs/Destination.png" alt="Destination"></td>
       <td><img src="http://glyphtionary.com/glyphs/thumbs/Discover.png" alt="Discover"></td>
-      <td><img src="http://glyphtionary.com/glyphs/thumbs/Enlightened.png" alt="Enlightened"></td>
+      <td><img src="http://glyphtionary.com/glyphs/thumbs/Enlightened.png" alt="Enlightenment"></td>
     </tr>
-    <tr>
-      <td><img src="{{ asset_url_for('some_light_hacking/s2.png')  }}"></td>
+    <tr class="enum_row">
+      <td>2,3,7,?</td>
+      <td>Contemplate</td>
+      <td>Destination</td>
+      <td>Discover</td>
+      <td>Enlightenment</td>
+    </tr>
+    <tr class="image_row">
+      <td><img src="{{ asset_url_for('some_light_hacking/solution-image02.png')  }}"></td>
       <td><img src="http://glyphtionary.com/glyphs/thumbs/Liberate.png" alt="Liberate"></td>
       <td><img src="http://glyphtionary.com/glyphs/thumbs/Conflict.png" alt="Conflict"></td>
       <td><img src="http://glyphtionary.com/glyphs/thumbs/Courage.png" alt="Courage"></td>
-      <td><img src="http://glyphtionary.com/glyphs/thumbs/Safety.png" alt="EnlightenedSafety"></td>
+      <td><img src="http://glyphtionary.com/glyphs/thumbs/Safety.png" alt="Safety"></td>
     </tr>
-    <tr>
-      <td><img src="{{ asset_url_for('some_light_hacking/s3.png')  }}"></td>
+    <tr class="enum_row">
+      <td>5,3,3,?</td>
+      <td>Liberate</td>
+      <td>Conflict</td>
+      <td>Courage</td>
+      <td>Safety</td>
+    </tr>
+    <tr class="image_row">
+      <td><img src="{{ asset_url_for('some_light_hacking/solution-image03.png')  }}"></td>
       <td><img src="http://glyphtionary.com/glyphs/thumbs/Truth.png" alt="Truth"></td>
       <td><img src="http://glyphtionary.com/glyphs/thumbs/Unbounded.png" alt="Unbounded"></td>
       <td><img src="http://glyphtionary.com/glyphs/thumbs/Together.png" alt="Together"></td>
       <td><img src="http://glyphtionary.com/glyphs/thumbs/XM.png" alt="XM"></td>
     </tr>
-    <tr>
-      <td><img src="{{ asset_url_for('some_light_hacking/s4.png')  }}"></td>
+    <tr class="enum_row">
+      <td>3,10,5,?</td>
+      <td>Truth</td>
+      <td>Unbounded</td>
+      <td>Together</td>
+      <td>XM</td>
+    </tr>
+    <tr class="image_row">
+      <td><img src="{{ asset_url_for('some_light_hacking/solution-image04.png')  }}"></td>
       <td><img src="http://glyphtionary.com/glyphs/thumbs/Simple.png" alt="Simple"></td>
       <td><img src="http://glyphtionary.com/glyphs/thumbs/Fear.png" alt="Fear"></td>
       <td><img src="http://glyphtionary.com/glyphs/thumbs/Mystery.png" alt="Mystery"></td>
       <td><img src="http://glyphtionary.com/glyphs/thumbs/Nature.png" alt="Nature"></td>
     </tr>
-    <tr>
-      <td><img src="{{ asset_url_for('some_light_hacking/s5.png')  }}"></td>
+    <tr class="enum_row">
+      <td>3,5,5,?</td>
+      <td>Simple</td>
+      <td>Fear</td>
+      <td>Mystery</td>
+      <td>Nature</td>
+    </tr>
+    <tr class="image_row">
+      <td><img src="{{ asset_url_for('some_light_hacking/solution-image05.png')  }}"></td>
       <td><img src="http://glyphtionary.com/glyphs/thumbs/Destiny.png" alt="Destiny"></td>
       <td><img src="http://glyphtionary.com/glyphs/thumbs/Lie.png" alt="Destination"></td>
       <td><img src="http://glyphtionary.com/glyphs/thumbs/Open-All.png" alt="Open All"></td>
       <td><img src="http://glyphtionary.com/glyphs/thumbs/Strong.png" alt="Strong"></td>
     </tr>
-    <tr>
-      <td><img src="{{ asset_url_for('some_light_hacking/s6.png')  }}"></td>
+    <tr class="enum_row">
+      <td>4,9,4,?</td>
+      <td>Destiny</td>
+      <td>Destination</td>
+      <td>Open All</td>
+      <td>Strong</td>
+    </tr>
+    <tr class="image_row">
+      <td><img src="{{ asset_url_for('some_light_hacking/solution-image06.png')  }}"></td>
       <td><img src="http://glyphtionary.com/glyphs/thumbs/Worth.png" alt="Worth"></td>
       <td><img src="http://glyphtionary.com/glyphs/thumbs/Defend.png" alt="Defend"></td>
       <td><img src="http://glyphtionary.com/glyphs/thumbs/Perspective.png" alt="Perspective"></td>
       <td><img src="http://glyphtionary.com/glyphs/thumbs/Technology.png" alt="Technology"></td>
+    </tr>
+    <tr class="enum_row">
+      <td>2,4,3,?</td>
+      <td>Worth</td>
+      <td>Defend</td>
+      <td>Perspective</td>
+      <td>Technology</td>
     </tr>
   </table>
 </div>
