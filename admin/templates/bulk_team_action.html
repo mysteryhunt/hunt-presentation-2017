@@ -19,10 +19,17 @@
               Grant Gold
             </span>
             <div>
-              <button class="goldButton" type="submit" name="gold" value="10">10 Gold</button>
-              <button class="goldButton" type="submit" name="gold" value="25">25 Gold</button>
-              <button class="goldButton" type="submit" name="gold" value="50">50 Gold</button>
+              <input
+                 type="button"
+                 value="Yes, I'm sure"
+                 onclick="$('.goldButton').removeAttr('disabled')"
+              >
             </div>
+            {% for goldAmount in [10, 25, 50, 100] %}
+              <div>
+                <button class="goldButton" type="submit" name="gold" value="{{ goldAmount }}" disabled>{{ goldAmount }} Gold</button>
+              </div>
+            {% endfor %}
           </div>
         {% endif %}
 
@@ -32,14 +39,23 @@
             <span class="ha-control-box-title">
               Complete Event
             </span>
+            <div>
+              <input
+                 type="button"
+                 value="Yes, I'm sure"
+                 onclick="$('.completeEventButton').removeAttr('disabled')"
+              >
+            </div>
             {% for event in events %}
               <div>
                 <button
                    type="submit"
+                   class="completeEventButton"
                    name="solvePuzzle"
                    value="{{ event }}"
-                   >
-                   Complete {{ event | capitalize }}
+                   disabled
+                >
+                  Complete {{ event | capitalize }}
                 </button>
               </div>
             {% endfor %}
