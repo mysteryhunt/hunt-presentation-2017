@@ -174,6 +174,29 @@
   
   {% endif %}
 
+  {% if is_authorized('events:create:GrantGoldEvent') %}
+  <form class="ha-column-control-box" action="{{ url_for('team', team_id=team.teamId) }}" method="post">
+    <span class="ha-control-box-title">
+      Grant Gold
+    </span>
+    <div class="ha-labeled-input-form">
+      <label>
+        Team ID
+        <span>{{ team.teamId }}</span>
+      </label>
+    </div>
+    <input type="hidden" name="action" value="GrantGold">
+    <div>
+      <input type="button" value="Yes, I'm sure" onclick="$('.goldButton').removeAttr('disabled')">
+    </div>
+    <div>
+      <button class="goldButton" type="submit" name="gold" value="10" disabled>10 Gold</button>
+      <button class="goldButton" type="submit" name="gold" value="25" disabled>25 Gold</button>
+      <button class="goldButton" type="submit" name="gold" value="50" disabled>50 Gold</button>
+    </div>
+  </form>
+  {% endif %}
+
   {#
   Technically, anyone with visibility update access can use the below
   form, but we really only want admin users using it for safety

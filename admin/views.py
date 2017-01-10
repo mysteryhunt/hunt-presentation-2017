@@ -211,6 +211,12 @@ def team(team_id):
                 team_id,
                 request.form["puzzleId"],
                 status)
+        elif request.form["action"] == "GrantGold":
+            cube.create_event(app, {
+                "eventType": "GrantGold",
+                "teamId": team_id,
+                "gold": request.form["gold"],
+            })
         else:
             abort(400)
 
