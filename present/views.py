@@ -2,7 +2,7 @@ from present import app
 
 from common import cube, login_required, metrics, s3
 from common.round_puzzle_map import CHARACTER_IDS, QUEST_IDS, ROUND_PUZZLE_MAP
-from flask import abort, redirect, render_template, request, send_from_directory, session, url_for
+from flask import abort, make_response, redirect, render_template, request, send_from_directory, session, url_for
 import pyformance
 from requests.exceptions import RequestException
 
@@ -13,34 +13,44 @@ import re
 def handle_exception(error):
     error_string = str(error)
     if isinstance(error, RequestException) and error.response is not None:
+        status_code = error.response.status_code
         pyformance.global_registry().counter("present.error.%d" % error.response.status_code).inc()
         error_string += ": %s" % error.response.json()
     else:
+        status_code = 500
         pyformance.global_registry().counter("present.error.500").inc()
-    return render_template(
-        "error.html",
-        error=error_string)
+    return make_response(
+        render_template(
+            "error.html",
+            error=error_string),
+        status_code)
 
 @app.errorhandler(403)
 def handle_forbidden(error):
     pyformance.global_registry().counter("present.error.403").inc()
-    return render_template(
-        "error.html",
-        error=error)
+    return make_response(
+        render_template(
+            "error.html",
+            error=error),
+        403)
 
 @app.errorhandler(404)
 def handle_not_found(error):
     pyformance.global_registry().counter("present.error.404").inc()
-    return render_template(
-        "error.html",
-        error=error)
+    return make_response(
+        render_template(
+            "error.html",
+            error=error),
+        404)
 
 @app.errorhandler(500)
 def handle_internal_server_error(error):
     pyformance.global_registry().counter("present.error.500").inc()
-    return render_template(
-        "error.html",
-        error=error)
+    return make_response(
+        render_template(
+            "error.html",
+            error=error),
+        500)
 
 @app.context_processor
 def utility_processor():

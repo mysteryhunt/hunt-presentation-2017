@@ -39,6 +39,22 @@
 {% block page_body %}
 <div class="ha-control-boxes-container">
   {{ autoRefreshWidget() }}
+  <form class="ha-column-control-box" action="{{ url_for('bigboard') }}" method="get">
+    <span class="ha-control-box-title">
+      Sort Order
+    </span>
+    <div class="ha-labeled-input-form">
+      <label>
+        <input type="radio" name="sortBy" value="metas" {% if sortBy == 'metas' %}checked{% endif %}>
+        Metas solved, then levels
+      </label>
+      <label>
+        <input type="radio" name="sortBy" value="levels" {% if sortBy == 'levels' %}checked{% endif %}>
+        Levels, then metas solved
+      </label>
+    </div>
+    <input type="submit" value="Reload">
+  </form>
 </div>
 <div class="ha-page-section">
   <div class="ha-bigboard-teams">

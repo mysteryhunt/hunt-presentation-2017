@@ -55,6 +55,7 @@ def cloudfront_sign(asset_path, expiry=1485864000):
         return cached_url
     cached_url = persistent_cloudfront_url_cache.get(cache_key, None)
     if cached_url:
+        cloudfront_url_cache[cache_key] = cached_url
         return cached_url
 
     dist = Distribution(domain_name='d1gy1csjh89rhq.cloudfront.net')

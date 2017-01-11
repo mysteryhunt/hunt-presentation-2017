@@ -324,6 +324,8 @@ def admintools():
 @app.route("/bigboard")
 @login_required.writingteam
 def bigboard():
+    sortBy = request.args.get("sortBy", "metas")
+
     teams = cube.get_teams(app)
 
     team_visibility_futures = {}
@@ -334,15 +336,23 @@ def bigboard():
     for team_id, future in team_visibility_futures.iteritems():
         visibilities = future.result().json()["visibilities"]
         team_visibilities[team_id] = { v["puzzleId"]: v for v in visibilities }
-        
+
     team_level_sum = { team["teamId"]: \
             sum([team.get("teamProperties",{}).get("CharacterLevelsProperty",{}).get("levels",{}).get(c.upper(),0) \
                 for c in [ch for ch in CHARACTER_IDS if team_visibilities.get(team["teamId"],{}).get(ch,{}).get("status","INVISIBLE") in ["UNLOCKED","SOLVED"] ]]) \
                 for team in teams }
-    teams.sort(key=lambda team: -team_level_sum[team["teamId"]])
+    team_metas_solved = { team["teamId"]: sum(v["status"] == "SOLVED"
+                                              for v in team_visibilities[team["teamId"]].values()
+                                              if v["puzzleId"] in CHARACTER_IDS + QUEST_IDS + ["battle", "fortress"])
+                          for team in teams }
+    if sortBy == "metas":
+        teams.sort(key=lambda team: (team_metas_solved[team["teamId"]], team_level_sum[team["teamId"]]), reverse=True)
+    elif sortBy == "levels":
+        teams.sort(key=lambda team: (team_level_sum[team["teamId"]], team_metas_solved[team["teamId"]]), reverse=True)
 
     return render_template(
         "bigboard.html",
+        sortBy=sortBy,
         teams=teams,
         team_level_sum=team_level_sum,
         team_visibilities=team_visibilities,
