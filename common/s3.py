@@ -1,6 +1,7 @@
 import os
 import threading
 import time
+import boto3
 
 from boto.s3.connection import S3Connection
 from boto.cloudfront.distribution import Distribution
@@ -8,8 +9,6 @@ from boto.cloudfront.distribution import Distribution
 from flask import Blueprint
 
 blueprint = Blueprint("s3", __name__)
-
-cloudfront_url_cache = {}
 
 @blueprint.record_once
 def record(setup_state):
@@ -19,9 +18,11 @@ def record(setup_state):
     blueprint.s3_secret_key = app.config["AWS_ASSET_SECRET_KEY"]
     with open(os.path.join(os.path.dirname(app.root_path), "pk-APKAIQD6FQE7UOMX3R2Q.pem")) as private_key_file:
         blueprint.cloudfront_private_key = private_key_file.read()
-
-    print " * Prepopulating Cloudfront URL cache in background"
-    threading.Thread(target=prepopulate_cloudfront_url_cache).start()
+    
+    blueprint.dynamo_client = boto3.client('dynamodb',
+        aws_access_key_id = app.config["AWS_ASSET_ACCESS_KEY"],
+        aws_secret_access_key = app.config["AWS_ASSET_SECRET_KEY"],
+        region_name = 'us-east-1')
 
 def sign(bucket, path, https, expiry=631138519):
     c = S3Connection(blueprint.s3_access_key, blueprint.s3_secret_key)
@@ -45,8 +46,16 @@ def prepopulate_cloudfront_url_cache():
     print " * Done prepopulating Cloudfront URL cache"
 
 def cloudfront_sign(asset_path, expiry=1485864000):
-    cache_key = (asset_path, expiry)
-    cached_url = cloudfront_url_cache.get(cache_key, None)
+    dynamo_item = blueprint.dynamo_client.get_item(
+        TableName = 'cloudfront_signed',
+        Key = {
+            'asset_path': {
+                'S': asset_path + ',' + str(expiry)
+            }
+        }
+    )
+
+    cached_url = dynamo_item.get('Item', {}).get('signed_url', {}).get('S',None)
     if cached_url:
         return cached_url
 
@@ -55,7 +64,17 @@ def cloudfront_sign(asset_path, expiry=1485864000):
 
     http_resource = 'https://assets.monsters-et-manus.com/' + asset_path
     http_signed_url = dist.create_signed_url(http_resource, key_pair_id, expiry, private_key_string=blueprint.cloudfront_private_key)
-
-    cloudfront_url_cache[cache_key] = http_signed_url
+    
+    blueprint.dynamo_client.put_item(
+        TableName = 'cloudfront_signed',
+        Item = {
+            'asset_path': {
+                'S': asset_path + ',' + str(expiry)
+            },
+            'signed_url': {
+                'S': http_signed_url
+            }
+        }
+    )
 
     return http_signed_url
