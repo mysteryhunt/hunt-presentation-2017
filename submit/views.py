@@ -2,6 +2,7 @@ from submit import app
 
 from common import cube, login_required
 from flask import abort, redirect, render_template, request, session, url_for
+import pyformance
 from requests.exceptions import RequestException
 
 import re
@@ -10,25 +11,31 @@ import re
 def handle_exception(error):
     error_string = str(error)
     if isinstance(error, RequestException) and error.response is not None:
+        pyformance.global_registry().counter("submit.error.%d" % error.response.status_code).inc()
         error_string += ": %s" % error.response.json()
+    else:
+        pyformance.global_registry().counter("submit.error.500").inc()
     return render_template(
         "error.html",
         error=error_string)
 
 @app.errorhandler(403)
 def handle_forbidden(error):
+    pyformance.global_registry().counter("submit.error.403").inc()
     return render_template(
         "error.html",
         error=error)
 
 @app.errorhandler(404)
 def handle_not_found(error):
+    pyformance.global_registry().counter("submit.error.404").inc()
     return render_template(
         "error.html",
         error=error)
 
 @app.errorhandler(500)
 def handle_internal_server_error(error):
+    pyformance.global_registry().counter("submit.error.500").inc()
     return render_template(
         "error.html",
         error=error)
