@@ -17,7 +17,7 @@
       </tr>
     </thead>
     <tbody>
-      {% for h in pending_interaction_requests if h.status in ['REQUESTED','SUBMITTED'] %}
+      {% for h in pending_interaction_requests if h.status in ['REQUESTED','ASSIGNED'] %}
       <tr>
 	<td>{{ h.timestamp | datetime }}</td>
 	<td>{{ h.teamId }}</td>
