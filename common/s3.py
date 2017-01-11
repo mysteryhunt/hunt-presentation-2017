@@ -1,4 +1,5 @@
 import os
+import shelve
 import threading
 import time
 
@@ -9,6 +10,7 @@ from flask import Blueprint
 
 blueprint = Blueprint("s3", __name__)
 
+persistent_cloudfront_url_cache = shelve.open("/tmp/cloudfront_url_cache")
 cloudfront_url_cache = {}
 
 @blueprint.record_once
@@ -20,6 +22,8 @@ def record(setup_state):
     with open(os.path.join(os.path.dirname(app.root_path), "pk-APKAIQD6FQE7UOMX3R2Q.pem")) as private_key_file:
         blueprint.cloudfront_private_key = private_key_file.read()
 
+@blueprint.before_app_first_request
+def before_app_first_request():
     print " * Prepopulating Cloudfront URL cache in background"
     threading.Thread(target=prepopulate_cloudfront_url_cache).start()
 
@@ -45,8 +49,11 @@ def prepopulate_cloudfront_url_cache():
     print " * Done prepopulating Cloudfront URL cache"
 
 def cloudfront_sign(asset_path, expiry=1485864000):
-    cache_key = (asset_path, expiry)
+    cache_key = (u"%s_%s" % (asset_path, expiry)).encode("utf-8")
     cached_url = cloudfront_url_cache.get(cache_key, None)
+    if cached_url:
+        return cached_url
+    cached_url = persistent_cloudfront_url_cache.get(cache_key, None)
     if cached_url:
         return cached_url
 
@@ -57,5 +64,6 @@ def cloudfront_sign(asset_path, expiry=1485864000):
     http_signed_url = dist.create_signed_url(http_resource, key_pair_id, expiry, private_key_string=blueprint.cloudfront_private_key)
 
     cloudfront_url_cache[cache_key] = http_signed_url
+    persistent_cloudfront_url_cache[cache_key] = http_signed_url
 
     return http_signed_url
