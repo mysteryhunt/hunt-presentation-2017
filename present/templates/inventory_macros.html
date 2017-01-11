@@ -1,6 +1,6 @@
 {% macro filled_inventory_grid_space(item_id, item_name, asset_url_for) %}
     <div class="inventory-grid-cell-content">
-      <div class="inventory-grid-caption" id="inventory-grid-caption-{{ item_id }}">{{ item_name }}</div>
+      <div class="inventory-grid-caption" id="inventory-grid-caption-{{ item_id }}">{{ item_name|safe }}</div>
       <div class="inventory-grid-thumb-image" style="width: 60px; height: 60px;"><img src="{{ asset_url_for('items/' + item_id + '.png') }}" style="width: 60px; height: 60px;"/></div>
     </div>
 {% endmacro %}
@@ -102,7 +102,7 @@
 {% macro inventory_individual_listing(item_id, item_name, asset_url_for) %}
   <div style="font-size: 24px; margin-right: 20px; margin-bottom: 30px; text-align:center; display: inline-block; width: 200px;">
     <img src="{{ asset_url_for('items/' + item_id + '.png') }}" style="width: 200px"/><br/>
-    {{ item_name }}
+    {{ item_name|safe }}
   </div>
 {% endmacro %}
 
