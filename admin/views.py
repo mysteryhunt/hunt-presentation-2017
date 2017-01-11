@@ -178,7 +178,7 @@ def teams():
         })
 
     teams = cube.get_teams(app)
-    team_ids.sort()
+    teams.sort(key=lambda t: t.get('teamId',''))
 
     return render_template(
         "teams.html",
