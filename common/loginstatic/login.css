@@ -163,6 +163,15 @@ form {
   text-align: right;
 }
 
+#help-text {
+  font-size: 16px;
+  text-align: center;
+}
+
+#help-text a {
+  white-space: nowrap;
+}
+
 /* Other */
 
 a:link {
