@@ -23,7 +23,7 @@
         <div id="battle-display" style="margin-bottom: 10px; position: relative;">
           <a href="{{ url_for('puzzle', puzzle_id='battle')}}">
             <img id="group-image" src="{{ asset_url_for('general/characters/all-headshot.png')}}" style="width:100%;"/>
-            <div id="battle-label" style="font-size:16px;">The Big Battle</div>
+            <div id="battle-label" style="font-size:16px;">The Big Bad Battle</div>
           </a>
           {% if puzzle_visibilities['battle'].get('status','INVISIBLE') == 'SOLVED' %}
             <div class="quest-solve-icon">
@@ -114,7 +114,7 @@
         {% endif %}
         {% if 'fortress' in visible_puzzle_ids %}
           <a href="{{ url_for('puzzle', puzzle_id = 'fortress') }}">
-            <div class="individual-quest caption-control" style="width:108px; height:81px; position:absolute; top:470px; left:470px; z-index:200;" data-toggle="tooltip" data-placement="bottom" title="The Final Fortress">
+            <div class="individual-quest caption-control" style="width:108px; height:81px; position:absolute; top:470px; left:470px; z-index:200;" data-toggle="tooltip" data-placement="bottom" title="The Foreboding Final Fortress">
               <img src="{{ asset_url_for('general/quests/fortress-scene.png') }}"/>
               {% if puzzle_visibilities['fortress'].get('status','INVISIBLE') == 'SOLVED' %}
                 <div class="quest-solve-icon">
