@@ -106,11 +106,35 @@
     </p>
   {% endif %}
   <h3>Step 2: After the call, mark this submission as either Correct or Incorrect.</h3>
-  <form action="{{ url_for('submission', submission_id=submission.submissionId) }}" method="post">
+  <script>
+    function cleanAnswer(answer) {
+      return answer.toLowerCase().replace(/[^a-z0-9]/g,'');
+    }
+    function checkCorrect(expectCorrect) {
+      var submittedAnswer = cleanAnswer("{{ submission.submission }}");
+      var canonicalAnswer = cleanAnswer("{{ puzzle.puzzleProperties.AnswersProperty.answers[0].canonicalAnswer }}");
+      if (expectCorrect && submittedAnswer != canonicalAnswer) {
+        return confirm("Please DOUBLE CHECK that {{ submission.submission }} actually matches {{ puzzle.puzzleProperties.AnswersProperty.answers[0].canonicalAnswer }}! If it doesn't, press cancel.");
+      }
+      if (!expectCorrect && submittedAnswer == canonicalAnswer) {
+        return confirm("Please DOUBLE CHECK that {{ submission.submission }} does NOT MATCH {{ puzzle.puzzleProperties.AnswersProperty.answers[0].canonicalAnswer }}! If it DOES MATCH, press cancel.");
+      }
+      return true;
+    }
+  </script>
+  <form
+     action="{{ url_for('submission', submission_id=submission.submissionId) }}"
+     method="post"
+     onsubmit="return checkCorrect(true);"
+  >
     <input type="hidden" name="status" value="CORRECT">
     <input type="submit" value="Correct">
   </form>
-  <form action="{{ url_for('submission', submission_id=submission.submissionId) }}" method="post">
+  <form
+     action="{{ url_for('submission', submission_id=submission.submissionId) }}"
+     method="post"
+     onsubmit="return checkCorrect(false);"
+  >
     <input type="hidden" name="status" value="INCORRECT">
     <input type="submit" value="Incorrect">
   </form>
