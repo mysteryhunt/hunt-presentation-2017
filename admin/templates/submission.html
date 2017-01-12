@@ -108,7 +108,7 @@
   <h3>Step 2: After the call, mark this submission as either Correct or Incorrect.</h3>
   <script>
     function cleanAnswer(answer) {
-      return answer.toLowerCase().replace(/[^a-z]/g,'');
+      return answer.toLowerCase().replace(/[^a-z0-9]/g,'');
     }
     function checkCorrect(expectCorrect) {
       var submittedAnswer = cleanAnswer("{{ submission.submission }}");
