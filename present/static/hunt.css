@@ -185,6 +185,7 @@ body {
   z-index: 5000;
   justify-content: space-between;
   flex-wrap: nowrap;
+  min-width: 1024px;
 }
 
 #overall-layout-header div {
@@ -196,7 +197,11 @@ body {
 #header-navigation-links, #header-statuses {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+}
+
+span#header-session-team-name {
+  font-size: 14px;
 }
 
 /* Inventory Grid */
