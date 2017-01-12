@@ -252,7 +252,7 @@ form {
     width: 86px;
     display: flex;
     flex-direction: column;
-    font-size: 10px;
+    font-size: 13px;
     justify-content: center;
     align-items: center;
 }
@@ -261,8 +261,8 @@ form {
    box-sizing: border-box;
    margin: 2px;
    padding: 2px;
-   height: 16px;
-   font-size: 10px;
+   height: 19px;
+   font-size: 13px;
    text-align: center;
 }
 
