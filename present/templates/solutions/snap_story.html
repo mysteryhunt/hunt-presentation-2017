@@ -10,6 +10,10 @@
     #puzzle-content ul {
       list-style-type: none;
     }
+    #puzzle-content span.highlight-letter {
+      color: red;
+      font-weight: bold;
+    }
   </style>
 {% endblock %}
 
@@ -22,40 +26,97 @@
       is a &ldquo;cute boys&rdquo; puzzle.
     </p>
     <p>
-      The images are shown in a grid ordered left to right, top to bottom, and
-      they are alphabetized by the last name of the pictured boy.  Looking at
-      all the images, there are 16 different and distinct adaptations done to
-      the 70 images. Each one is used between 3 and 7 times. Each of these forms
-      a set, where a set is a group of men who were all on the same TV series,
-      in the same movie (series), or in the same musical group without overlaps.
-      However, each group has a member that doesn&rsquo;t belong in it, and one of its
-      members can be found in another group. These missing members form a 16
-      group loop.  Using the size of the group as an index into the SURNAME of
-      the member in the wrong set spells out a message.
+      The images are alphabetized by the last name of the boy pictured. There are sixteen different and distinct filters applied to the images. Each filter is used between three and seven times. Each filter group forms a set of men who were all on the same TV series, in the same movie (series), or in the same musical group, without overlaps. Each group also has a member that doesn't belong, and one of its members can be found in another group. These missing members form a 16-group loop. Using the size of the group as an index into the surname of the member in the wrong set spells out a message.
     </p>
-    <ul>
-      <li>Beverly Hills 90210 - Brian (Austin) Green - Group Size = 4 - E</li>
-      <li>One Direction - Liam Payne - Group Size = 4 - N</li>
-      <li>Buffy the Vampire Slayer - Nicholas Brendon - Group Size = 5 - D</li>
-      <li>School Ties - Chris  O&rsquo;Donnell - Group Size = 6 - E</li>
-      <li>Magic Mike - Adam Rodriguez - Group Size = 4 - R</li>
-      <li>Gossip Girl - Chase Crawford - Group Size = 4 - W</li>
-      <li>The Vampire Diaries - Matt Trevino - Group Size = 5 - I</li>
-      <li>Harry Potter Series - Sean Biggerstaff - Group Size = 4 - G</li>
-      <li>The Wanted - Jay McGuinnes - Group Size = 3 - G</li>
-      <li>Teen Wolf - Dylan O&rsquo;Brien - Group Size = 4 - I</li>
-      <li>X-Men Rebooted Series - Michael Fassbender - Group Size = 7 - N</li>
-      <li>True Blood - Ryan Kwanten - Group Size = 3 - A</li>
-      <li>Hunger Games Series - Josh Hutcherson - Group Size = 4 - C</li>
-      <li>Backstreet Boys - Nick Carter - Group Size = 4 - T</li>
-      <li>Dawson&rsquo;s Creek - Joshua  Jackson - Group Size = 6 - O</li>
-      <li>Westlife - Nicky Byrne - Group Size = 3 - R</li>
-    </ul>
+    <table>
+      <tr>
+        <th>Set</th>
+        <th>Group Size</th>
+        <th>Member in Wrong Set</th>
+      </tr>
+      <tr>
+        <td><i>Beverly Hills 90210</i></td>
+        <td>4</td>
+        <td>Brian (Austin) GRE<span class="highlight-letter">E</span>N</td>
+      </tr>
+      <tr>
+        <td>One Direction</td>
+        <td>4</td>
+        <td>Liam PAY<span class="highlight-letter">N</span>E</td>
+      </tr>
+      <tr>
+        <td><i>Buffy the Vampire Slayer</i> TV series</td>
+        <td>5</td>
+        <td>Nicholas BREN<span class="highlight-letter">D</span>ON</td>
+      </tr>
+      <tr>
+        <td><i>School Ties</i></td>
+        <td>6</td>
+        <td>Chris O'DONN<span class="highlight-letter">E</span>LL</td>
+      </tr>
+      <tr>
+        <td><i>Magic Mike</i> films</td>
+        <td>4</td>
+        <td>Adam ROD<span class="highlight-letter">R</span>IGUEZ</td>
+      </tr>
+      <tr>
+        <td><i>Gossip Girl</i></td>
+        <td>4</td>
+        <td>Chace CRA<span class="highlight-letter">W</span>FORD</td>
+      </tr>
+      <tr>
+        <td><i>The Vampire Diaries</i> TV series</td>
+        <td>5</td>
+        <td>Michael TREV<span class="highlight-letter">I</span>NO</td>
+      </tr>
+      <tr>
+        <td><i>Harry Potter</i> films</td>
+        <td>4</td>
+        <td>Sean BIG<span class="highlight-letter">G</span>ERSTAFF</td>
+      </tr>
+      <tr>
+        <td>The Wanted</td>
+        <td>3</td>
+        <td>Jay MC<span class="highlight-letter">G</span>UINESS</td>
+      </tr>
+      <tr>
+        <td><i>Teen Wolf</i> TV series</td>
+        <td>4</td>
+        <td>Dylan O'BR<span class="highlight-letter">I</span>EN</td>
+      </tr>
+      <tr>
+        <td><i>X-Men</i> films (reboot)</td>
+        <td>7</td>
+        <td>Michael FASSBE<span class="highlight-letter">N</span>DER</td>
+      </tr>
+      <tr>
+        <td><i>True Blood</i> TV series</td>
+        <td>3</td>
+        <td>Ryan KW<span class="highlight-letter">A</span>NTEN</td>
+      </tr>
+      <tr>
+        <td><i>The Hunger Games</i> films</td>
+        <td>4</td>
+        <td>Josh HUT<span class="highlight-letter">C</span>HERSON</td>
+      </tr>
+      <tr>
+        <td>Backstreet Boys</td>
+        <td>4</td>
+        <td>Nick CAR<span class="highlight-letter">T</span>ER</td>
+      </tr>
+      <tr>
+        <td><i>Dawson&rsquo;s Creek</i></td>
+        <td>6</td>
+        <td>Joshua JACKS<span class="highlight-letter">O</span>N</td>
+      </tr>
+      <tr>
+        <td>Westlife</td>
+        <td>3</td>
+        <td>Nicky BY<span class="highlight-letter">R</span>NE</td>
+      </tr>
+    </table>
     <p>
-      Since it forms a loop, you have to find the starting point which is
-      Beverly Hills 90210.  Reading the letters in order gives ENDER WIGGIN
-      ACTOR which, with only one film version of <i>Ender&rsquo;s Game</i> yields a
-      final answer of <b>ASA BUTTERFIELD</b> for the puzzle.
+      Since the filter group-mismatched members form a chain, you have to find the starting point (<i>Beverly Hills 90210</i>). Reading the letters in order gives ENDER WIGGIN ACTOR, which yields a final answer of <b>ASA BUTTERFIELD</b>.
     </p>
     <p>
       Shown below are all of the actors in order, with their set and a
@@ -63,77 +124,357 @@
       end indicates that this was the person that was placed in the wrong group
       Snapchat add-on.
     </p>
-    <ol>
-      <li>Penn Badgley - Gossip Girl - Sing Your Best*</li>
-      <li>Randall  Batinkoff - School Ties - Flower Garland</li>
-      <li>Sean Biggerstaff - Harry Potter Series - A few bubbles*</li>
-      <li>Marc Blucas - Buffy - Holly + Snow</li>
-      <li>Matt Bomer - Magic Mike - Snow + eyes</li>
-      <li>David Boreanaz - Buffy - Holly + Snow</li>
-      <li>Nicholas Brendon - Buffy - Flower Garland</li>
-      <li>Nicky Byrne - Westlife - Yellow Butterflies*</li>
-      <li>Nick Carter - Backstreet Boys - Reindeer</li>
-      <li>Sam Claflin - Hunger Games Series - Speed</li>
-      <li>Chace Crawford - Gossip Girl - Puppy Dog Ears</li>
-      <li>Matt Damon - School Ties - Flower Garland*</li>
-      <li>Howie Dorough - Backstreet Boys - Geometric Shapes</li>
-      <li>Michael Fassbender - X-Men Reboot - Snow and Stars</li>
-      <li>Tom Felton - Harry Potter Series - Davis Square Boston</li>
-      <li>Shane Filan - Westlife - Altitude</li>
-      <li>Brendan Fraser - School Ties - Flower Garland</li>
-      <li>Brian Green - 90210 - Falling Feathers*</li>
-      <li>Seth Green - Buffy - Holly + Snow*</li>
-      <li>Ben Hardy - X-Men Reboot - B+W + Sunglasses</li>
-      <li>Cole Hauser - School Ties - Flower Garland</li>
-      <li>Colton Haynes - Teen Wolf - Temperature</li>
-      <li>Liam Hemsworth - Hunger Games Series - Speed</li>
-      <li>Niall Horan - 1D - Falling Feathers*</li>
-      <li>Nicholas Hoult - X-Men Reboot - B+W + Sunglasses</li>
-      <li>Josh Hutcherson - Hunger Games Series - Geometric Shapes</li>
-      <li>Joshua Jackson - Dawson&rsquo;s Creek - Altitude</li>
-      <li>Siva Kaneswaran - The Wanted - A few bubbles*</li>
-      <li>Ryan Kwanten - True Blood - Speed</li>
-      <li>Tom Lenk - Buffy - Holly + Snow</li>
-      <li>Matthew Lewis - Harry Potter Series - Davis Square Boston</li>
-      <li>Brian Littrell - Backstreet Boys - Geometric Shapes</li>
-      <li>Alexander Ludwig - Hunger Games Series - Speed</li>
-      <li>Mark Matkevich - Dawson&rsquo;s Creek - Reindeer</li>
-      <li>James McAvoy - X-Men Reboot - B+W + Sunglasses</li>
-      <li>Brian McFadden - Westlife - Altitude</li>
-      <li>Jay McGuinness - The Wanted - Temperature*</li>
-      <li>Steven McQueen - Vampire Diaries - Puppy Dog Ears</li>
-      <li>Dylan Neal - Dawson&rsquo;s Creek - Reindeer</li>
-      <li>Dylan O&rsquo;Brien - Teen Wolf - B+W + Sunglasses</li>
-      <li>Chris O&rsquo;Donnell - School Ties - Snow + eyes</li>
-      <li>Connor Paolo - Gossip Girl - Sing Your Best*</li>
-      <li>Liam Payne - 1D - Holly + Snow*</li>
-      <li>Luke Perry - 90210 - Yellow Butterflies</li>
-      <li>Evan Peters - X-Men Reboot - B+W + Sunglasses*</li>
-      <li>Alex Pettyfer - Magic Mike - Snow + eyes</li>
-      <li>Michael Pitt - Dawson&rsquo;s Creek - Reindeer</li>
-      <li>Tyler Posey - Teen Wolf - Temperature</li>
-      <li>Jason Priestley - 90210 - Yellow Butterflies</li>
-      <li>Daniel Radcliffe - Harry Potter Series - Davis Square Boston*</li>
-      <li>Anthony Rapp - School Ties - Flower Garland</li>
-      <li>Kevin Richardson - Backstreet Boys - Geometric Shapes</li>
-      <li>Adam Rodriguez - Magic Mike - Sing Your Best*</li>
-      <li>Zach Roerig - Vampire Diaries - Puppy Dog Ears</li>
-      <li>Alexander Skarsgård - True Blood - Snow and Stars</li>
-      <li>Kerr Smith - Dawson&rsquo;s Creek - Reindeer</li>
-      <li>Kodi Smit-McPhee - X-Men Reboot - B+W + Sunglasses</li>
-      <li>Ian Somerhalder - Vampire Diaries - Puppy Dog Ears</li>
-      <li>Dylan Sprayberry - Teen Wolf - Temperature</li>
-      <li>Harry Styles - 1D - Falling Feathers*</li>
-      <li>Nathan Sykes - The Wanted - A few bubbles</li>
-      <li>Channing Tatum - Magic Mike - Snow + eyes</li>
-      <li>Lucas Till - X-Men Reboot - B+W + Sunglasses</li>
-      <li>Louis Tomlinson - 1D - Falling Feathers</li>
-      <li>Sam Trammell - True Blood - Snow and Stars</li>
-      <li>Michael Trevino - Vampire Diaries - Davis Square Boston</li>
-      <li>James Van Der Beek - Dawson&rsquo;s Creek - Reindeer*</li>
-      <li>Paul Wesley - Vampire Diaries - Puppy Dog Ears</li>
-      <li>Ed Westwick - Gossip Girl - Sing Your Best</li>
-      <li>Ian Ziering - 90210 - Yellow Butterflies</li>
-    </ol>
+    <table>
+      <tr>
+        <td>Penn Badgley</td>
+        <td><i>Gossip Girl</i></td>
+        <td>Sing Your Best</td>
+      </tr>
+      <tr>
+        <td>Randall Batinkoff</td>
+        <td><i>School Ties</i></td>
+        <td>Flower Garland</td>
+      </tr>
+      <tr>
+        <td>Sean Biggerstaff</td>
+        <td><i>Harry Potter</i></td>
+        <td>A Few Bubbles*</td>
+      </tr>
+      <tr>
+        <td>Marc Blucas</td>
+        <td><i>Buffy the Vampire Slayer</i></td>
+        <td>Holly and Snow</td>
+      </tr>
+      <tr>
+        <td>Matt Bomer</td>
+        <td><i>Magic Mike</i></td>
+        <td>Snow and Eyes</td>
+      </tr>
+      <tr>
+        <td>David Boreanaz</td>
+        <td><i>Buffy the Vampire Slayer</i></td>
+        <td>Holly and Snow</td>
+      </tr>
+      <tr>
+        <td>Nicholas Brendon</td>
+        <td><i>Buffy the Vampire Slayer</i></td>
+        <td>Flower Garland*</td>
+      </tr>
+      <tr>
+        <td>Nicky Byrne</td>
+        <td>Westlife</td>
+        <td>Yellow Butterflies*</td>
+      </tr>
+      <tr>
+        <td>Nick Carter</td>
+        <td>Backstreet Boys</td>
+        <td>Reindeer*</td>
+      </tr>
+      <tr>
+        <td>Sam Claflin</td>
+        <td><i>The Hunger Games</i></td>
+        <td>Speed</td>
+      </tr>
+      <tr>
+        <td>Chace Crawford</td>
+        <td><i>Gossip Girl</i></td>
+        <td>Puppy Dog Ears*</td>
+      </tr>
+      <tr>
+        <td>Matt Damon</td>
+        <td><i>School Ties</i></td>
+        <td>Flower Garland</td>
+      </tr>
+      <tr>
+        <td>Howie Dorough</td>
+        <td>Backstreet Boys</td>
+        <td>Geometric Shapes</td>
+      </tr>
+      <tr>
+        <td>Michael Fassbender</td>
+        <td><i>X-Men</i></td>
+        <td>Snow and Stars*</td>
+      </tr>
+      <tr>
+        <td>Tom Felton</td>
+        <td><i>Harry Potter</i></td>
+        <td>Davis Square Boston</td>
+      </tr>
+      <tr>
+        <td>Shane Filan</td>
+        <td>Westlife</td>
+        <td>Altitude</td>
+      </tr>
+      <tr>
+        <td>Brendan Fraser</td>
+        <td><i>School Ties</i></td>
+        <td>Flower Garland</td>
+      </tr>
+      <tr>
+        <td>Brian Green</td>
+        <td><i>Beverly Hills 90210</i></td>
+        <td>Falling Feathers*</td>
+      </tr>
+      <tr>
+        <td>Seth Green</td>
+        <td><i>Buffy the Vampire Slayer</i></td>
+        <td>Holly and Snow</td>
+      </tr>
+      <tr>
+        <td>Ben Hardy</td>
+        <td><i>X-Men</i></td>
+        <td>B+W and Sunglasses</td>
+      </tr>
+      <tr>
+        <td>Cole Hauser</td>
+        <td><i>School Ties</i></td>
+        <td>Flower Garland</td>
+      </tr>
+      <tr>
+        <td>Colton Haynes</td>
+        <td><i>Teen Wolf</i></td>
+        <td>Temperature</td>
+      </tr>
+      <tr>
+        <td>Liam Hemsworth</td>
+        <td><i>The Hunger Games</i></td>
+        <td>Speed</td>
+      </tr>
+      <tr>
+        <td>Niall Horan</td>
+        <td>One Direction</td>
+        <td>Falling Feathers</td>
+      </tr>
+      <tr>
+        <td>Nicholas Hoult</td>
+        <td><i>X-Men</i></td>
+        <td>B+W and Sunglasses</td>
+      </tr>
+      <tr>
+        <td>Josh Hutcherson</td>
+        <td><i>The Hunger Games</i></td>
+        <td>Geometric Shapes*</td>
+      </tr>
+      <tr>
+        <td>Joshua Jackson</td>
+        <td><i>Dawson&rsquo;s Creek</i></td>
+        <td>Altitude*</td>
+      </tr>
+      <tr>
+        <td>Siva Kaneswaran</td>
+        <td>The Wanted</td>
+        <td>A Few Bubbles</td>
+      </tr>
+      <tr>
+        <td>Ryan Kwanten</td>
+        <td><i>True Blood</i></td>
+        <td>Speed*</td>
+      </tr>
+      <tr>
+        <td>Tom Lenk</td>
+        <td><i>Buffy the Vampire Slayer</i></td>
+        <td>Holly and Snow</td>
+      </tr>
+      <tr>
+        <td>Matthew Lewis</td>
+        <td><i>Harry Potter</i></td>
+        <td>Davis Square Boston</td>
+      </tr>
+      <tr>
+        <td>Brian Littrell</td>
+        <td>Backstreet Boys</td>
+        <td>Geometric Shapes</td>
+      </tr>
+      <tr>
+        <td>Alexander Ludwig</td>
+        <td><i>The Hunger Games</i></td>
+        <td>Speed</td>
+      </tr>
+      <tr>
+        <td>Mark Matkevich</td>
+        <td><i>Dawson&rsquo;s Creek</i></td>
+        <td>Reindeer</td>
+      </tr>
+      <tr>
+        <td>James McAvoy</td>
+        <td><i>X-Men</i></td>
+        <td>B+W and Sunglasses</td>
+      </tr>
+      <tr>
+        <td>Brian McFadden</td>
+        <td>Westlife</td>
+        <td>Altitude</td>
+      </tr>
+      <tr>
+        <td>Jay McGuiness</td>
+        <td>The Wanted</td>
+        <td>Temperature*</td>
+      </tr>
+      <tr>
+        <td>Steven McQueen</td>
+        <td><i>The Vampire Diaries</i></td>
+        <td>Puppy Dog Ears</td>
+      </tr>
+      <tr>
+        <td>Dylan Neal</td>
+        <td><i>Dawson&rsquo;s Creek</i></td>
+        <td>Reindeer</td>
+      </tr>
+      <tr>
+        <td>Dylan O'Brien</td>
+        <td><i>Teen Wolf</i></td>
+        <td>B+W and Sunglasses*</td>
+      </tr>
+      <tr>
+        <td>Chris O'Donnell</td>
+        <td><i>School Ties</i></td>
+        <td>Snow and Eyes*</td>
+      </tr>
+      <tr>
+        <td>Connor Paolo</td>
+        <td><i>Gossip Girl</i></td>
+        <td>Sing Your Best</td>
+      </tr>
+      <tr>
+        <td>Liam Payne</td>
+        <td>One Direction</td>
+        <td>Holly and Snow*</td>
+      </tr>
+      <tr>
+        <td>Luke Perry</td>
+        <td><i>Beverly Hills 90210</i></td>
+        <td>Yellow Butterflies</td>
+      </tr>
+      <tr>
+        <td>Evan Peters</td>
+        <td><i>X-Men</i></td>
+        <td>B+W and Sunglasses</td>
+      </tr>
+      <tr>
+        <td>Alex Pettyfer</td>
+        <td><i>Magic Mike</i></td>
+        <td>Snow and Eyes</td>
+      </tr>
+      <tr>
+        <td>Michael Pitt</td>
+        <td><i>Dawson&rsquo;s Creek</i></td>
+        <td>Reindeer</td>
+      </tr>
+      <tr>
+        <td>Tyler Posey</td>
+        <td><i>Teen Wolf</i></td>
+        <td>Temperature</td>
+      </tr>
+      <tr>
+        <td>Jason Priestley</td>
+        <td><i>Beverly Hills 90210</i></td>
+        <td>Yellow Butterflies</td>
+      </tr>
+      <tr>
+        <td>Daniel Radcliffe</td>
+        <td><i>Harry Potter</i></td>
+        <td>Davis Square Boston</td>
+      </tr>
+      <tr>
+        <td>Anthony Rapp</td>
+        <td><i>School Ties</i></td>
+        <td>Flower Garland</td>
+      </tr>
+      <tr>
+        <td>Kevin Richardson</td>
+        <td>Backstreet Boys</td>
+        <td>Geometric Shapes</td>
+      </tr>
+      <tr>
+        <td>Adam Rodriguez</td>
+        <td><i>Magic Mike</i></td>
+        <td>Sing Your Best*</td>
+      </tr>
+      <tr>
+        <td>Zach Roerig</td>
+        <td><i>The Vampire Diaries</i></td>
+        <td>Puppy Dog Ears</td>
+      </tr>
+      <tr>
+        <td>Alexander Skarsg&aring;rd</td>
+        <td><i>True Blood</i></td>
+        <td>Snow and Stars</td>
+      </tr>
+      <tr>
+        <td>Kerr Smith</td>
+        <td><i>Dawson&rsquo;s Creek</i></td>
+        <td>Reindeer</td>
+      </tr>
+      <tr>
+        <td>Kodi Smit-McPhee</td>
+        <td><i>X-Men</i></td>
+        <td>B+W and Sunglasses</td>
+      </tr>
+      <tr>
+        <td>Ian Somerhalder</td>
+        <td><i>The Vampire Diaries</i></td>
+        <td>Puppy Dog Ears</td>
+      </tr>
+      <tr>
+        <td>Dylan Sprayberry</td>
+        <td><i>Teen Wolf</i></td>
+        <td>Temperature</td>
+      </tr>
+      <tr>
+        <td>Harry Styles</td>
+        <td>One Direction</td>
+        <td>Falling Feathers</td>
+      </tr>
+      <tr>
+        <td>Nathan Sykes</td>
+        <td>The Wanted</td>
+        <td>A Few Bubbles</td>
+      </tr>
+      <tr>
+        <td>Channing Tatum</td>
+        <td><i>Magic Mike</i></td>
+        <td>Snow and Eyes</td>
+      </tr>
+      <tr>
+        <td>Lucas Till</td>
+        <td><i>X-Men</i></td>
+        <td>B+W and Sunglasses</td>
+      </tr>
+      <tr>
+        <td>Louis Tomlinson</td>
+        <td>One Direction</td>
+        <td>Falling Feathers</td>
+      </tr>
+      <tr>
+        <td>Sam Trammell</td>
+        <td><i>True Blood</i></td>
+        <td>Snow and Stars</td>
+      </tr>
+      <tr>
+        <td>Michael Trevino</td>
+        <td><i>The Vampire Diaries</i></td>
+        <td>Davis Square Boston*</td>
+      </tr>
+      <tr>
+        <td>James Van Der Beek</td>
+        <td><i>Dawson&rsquo;s Creek</i></td>
+        <td>Reindeer</td>
+      </tr>
+      <tr>
+        <td>Paul Wesley</td>
+        <td><i>The Vampire Diaries</i></td>
+        <td>Puppy Dog Ears</td>
+      </tr>
+      <tr>
+        <td>Ed Westwick</td>
+        <td><i>Gossip Girl</i></td>
+        <td>Sing Your Best</td>
+      </tr>
+      <tr>
+        <td>Ian Ziering</td>
+        <td><i>Beverly Hills 90210</i></td>
+        <td>Yellow Butterflies</td>
+      </tr>
+    </table>
   </div>
 {% endblock %}
