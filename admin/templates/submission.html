@@ -80,6 +80,17 @@
   </form>
   {% elif submission.status == 'ASSIGNED' %}
   {% if submission.callerUsername == session['username'] %}
+  <h3>Step 0: Figure out if the answer is correct or incorrect.</h3>
+  <table id="submission-comparison">
+    <tr>
+      <td>Submission</td>
+      <td class="submission-entry">{{ submission.submission }}</td>
+    </tr>
+    <tr>
+      <td>Answer</td>
+      <td class="submission-entry">{{ puzzle.puzzleProperties.AnswersProperty.answers[0].canonicalAnswer }}</td>
+    </tr>
+  </table>
   <h3>Step 1: Call team {{ submission.teamId }} at {{ team.primaryPhone }}.</h3>
   <p>
     If there's no answer, try their secondary phone number
@@ -87,9 +98,10 @@
     updated contact info.
   </p>
   <p>
-    Tell the team whether or not their submitted answer
-    <b>{{ submission.submission }}</b> matches the expected correct answer
-    <b>{{ puzzle.puzzleProperties.AnswersProperty.answers[0].canonicalAnswer }}</b>.
+    Make sure you are talking to the correct team.
+  </p>
+  <p>
+    <b>Do not say either the team&rsquo;s submission or the answer</b>. Tell the team, &ldquo;I&rsquo;m calling about your submission for the puzzle {{ puzzle.puzzleProperties.DisplayNameProperty.displayName }}. [Break for acknowledgement.] Your answer to the puzzle {{ puzzle.puzzleProperties.DisplayNameProperty.displayName }} is [correct/incorrect].&rdquo;
   </p>
   {% if puzzle.puzzleProperties %}
     <p>

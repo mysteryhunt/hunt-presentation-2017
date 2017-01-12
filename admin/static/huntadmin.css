@@ -296,3 +296,16 @@ form {
   width: 24px;
   margin-right: 2px;
 }
+
+table#submission-comparison {
+  border-collapse: collapse;
+}
+
+table#submission-comparison td {
+  border: 2px solid black;
+  padding: 0.5em;
+}
+
+table#submission-comparison td.submission-entry {
+  font-family: monospace;
+}
