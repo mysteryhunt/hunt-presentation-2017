@@ -83,6 +83,9 @@
       scheduling a future interaction, you can mark this request as Complete when
       the call is over.
     </p>
+    <p>
+      If this request seems to be solving something to an instruction but this puzzle doesn&rsquo;t have a solvable instruction (e.g., bring us stuff), call the team. Tell them they have submitted an incorrect instruction. Then mark this request as Complete.
+    </p>
     <div class="line" style="width:100%; border-bottom: 1px solid black; margin: 1em auto;"></div>
     {% if puzzle.puzzleProperties.DisplayNameProperty.displayName == 'Swifties' %}
       <h3>Instructions for Swifties</h3>
@@ -92,6 +95,9 @@
           Upload your video to https://www.dropbox.com/request/s6NuHOcWgaiVADqtpAEb
         </blockquote>
       </p>
+      <p>
+        If this request is attempting to request about the instruction (as opposed to report an erratum or ask a question) but has the instruction incorrect, call the team and tell them they have submitted an incorrect instruction. Then mark this request as complete.
+      </p>
     {% elif puzzle.puzzleProperties.DisplayNameProperty.displayName == 'Elf/Dwarf Brawl' %}
       <h4>Instructions for Elf/Dwarf Brawl</h4>
       <p>
@@ -100,25 +106,40 @@
           Upload your videos to https://www.dropbox.com/request/bWZ5mVmJBQfQUJKs16OS<br/><br/>
         </blockquote>
       </p>
+      <p>
+        If this request is attempting to request about the instruction (as opposed to report an erratum or ask a question) but has the instruction incorrect, call the team and tell them they have submitted an incorrect instruction. Then mark this request as complete.
+      </p>
     {% elif puzzle.puzzleProperties.DisplayNameProperty.displayName == 'The Most Interesting Puzzle in the World' %}
       <h4>Instructions for The Most Interesting Puzzle in the World</h4>
       <p>
         We are expecting the phrase <b>YOUR JOB BRING ME ROOT BEER AT ONCE</b>. If the team provides that phrase, call them and schedule their delivery of root beer. Put the time and location in the response box. Mark the request as scheduled.
       </p>
+      <p>
+        If this request is attempting to request about the instruction (as opposed to report an erratum or ask a question) but has the instruction incorrect, call the team and tell them they have submitted an incorrect instruction. Then mark this request as complete.
+      </p>
     {% elif puzzle.puzzleProperties.DisplayNameProperty.displayName == 'Stick the Landing' %}
-      <h4>Instructions for The Most Interesting Puzzle in the World</h4>
+      <h4>Instructions for Stick the Landing</h4>
       <p>
         We are expecting the phrase <b>BRING US GUM DROPS</b>. If the team provides that phrase, call them and schedule their delivery of gum drops. They will be receiving an item from us in exchange for the gum drops, so be sure that the time and location matches where those items are. Put the time and location in the response box. Mark the request as scheduled.
       </p>
-    {% elif puzzle.puzzleProperties.DisplayNameProperty.displayName == 'Hamilton on Tour' %}
-      <h4>Instructions for Hamilton on Tour</h4>
       <p>
-        We are expecting the phrase <b>GIVE US A VERSE</b>. If the team provides that phrase, call them and schedule them to come to us to deliver or demonstrate a verse. Put the time and location in the response box. Mark the request as scheduled.
+        If this request is attempting to request about the instruction (as opposed to report an erratum or ask a question) but has the instruction incorrect, call the team and tell them they have submitted an incorrect instruction. Then mark this request as complete.
+      </p>
+    {% elif puzzle.puzzleProperties.DisplayNameProperty.displayName == 'Hamiltonian Path' %}
+      <h4>Instructions for Hamiltonian Path</h4>
+      <p>
+        We are expecting the phrase <b>GIVE US A VERSE</b>. If the team provides that phrase, call them and schedule them to come to us to deliver or demonstrate a verse. They will be receiving an item from us in exchange for the verse, so be sure that the time and location matches where those items are. Put the time and location in the response box. Mark the request as scheduled.
+      </p>
+      <p>
+        If this request is attempting to request about the instruction (as opposed to report an erratum or ask a question) but has the instruction incorrect, call the team and tell them they have submitted an incorrect instruction. Then mark this request as complete.
       </p>
     {% elif puzzle.puzzleProperties.DisplayNameProperty.displayName == 'Four by Four' %}
       <h4>Instructions for Four by Four</h4>
       <p>
         We are expecting the phrase <b>MAKE A SQUARE FOR US</b>. If the team provides that phrase, call them and schedule them to come to us to deliver a square. Put the time and location in the response box. Mark the request as scheduled.
+      </p>
+      <p>
+        If this request is attempting to request about the instruction (as opposed to report an erratum or ask a question) but has the instruction incorrect, call the team and tell them they have submitted an incorrect instruction. Then mark this request as complete.
       </p>
     {% elif puzzle.puzzleProperties.DisplayNameProperty.displayName == 'Replenish the Treasury' %}
       <h4>Instructions for Replenish the Treasury</h4>
@@ -135,7 +156,7 @@
       <p>
         We are expecting the word <b>JUDGE</b>. If the team provides that word, call them and schedule a time with them for us to judge their volcano in their headquarters. Put the time in the response box. Mark the request as scheduled.
       </p>
-    {% elif puzzle.puzzleProperties.DisplayNameProperty.displayName == 'Rescue the Linguist' %}
+    {% elif interaction_request.puzzleId == 'rescue_the_linguist' %}
       <h4>Instructions for Rescue the Linguist</h4>
       <p>
         We are expecting the word <b>RESCUE</b>. If the team provides that word, call them and follow this script:
@@ -147,7 +168,7 @@
       <p>
         When you are done with the call, put the location in the response box. Mark the request as scheduled.
       </p>
-    {% elif puzzle.puzzleProperties.DisplayNameProperty.displayName == 'Rescue the Chemist' %}
+    {% elif interaction_request.puzzleId == 'rescue_the_chemist' %}
       <h4>Instructions for Rescue the Chemist</h4>
       <p>
         We are expecting the word <b>RESCUE</b>. If the team provides that word, call them and follow this script:
@@ -159,7 +180,7 @@
       <p>
         When you are done with the call, put "ROOM 32-D463" in the response box. Mark the request as scheduled.
       </p>
-    {% elif puzzle.puzzleProperties.DisplayNameProperty.displayName == 'Rescue the Economist' %}
+    {% elif interaction_request.puzzleId == 'rescue_the_economist' %}
       <h4>Instructions for Rescue the Economist</h4>
       <p>
         We are expecting the word <b>RESCUE</b>. If the team provides that word, follow this script:
@@ -171,25 +192,28 @@
       <p>
         When you are done with the call, mark the request as scheduled.
       </p>
-    {% elif puzzle.puzzleProperties.DisplayNameProperty.displayName == 'The Big Battle' %}
+    {% elif interaction_request.puzzleId == 'battle' %}
       <h4>Instructions for The Big Battle</h4>
       <p>
         We are expecting the word <b>BATTLE</b>. If the team provides that word, follow this script:
       </p>
       <blockquote>
-        (Follow the script)
+        You have initiated the Big Battle, a confrontation with the evil sorcerer Mystereo Cantos. Mystereo will arrive at your headquarters at [TIME]. Please make sure you have six team members ready to participate in the battle, and all six of your character tokens.
       </blockquote>
       <p>
         When you are done with the call, put the location in the response box. Mark the request as scheduled.
       </p>
-    {% elif puzzle.puzzleProperties.DisplayNameProperty.displayName == 'The Final Fortress' %}
+    {% elif interaction_request.puzzleId == 'fortress' %}
       <h4>Instructions for The Final Fortress</h4>
       <p>
         We are expecting the word <b>FORTRESS</b>. If the team provides that word, follow this script:
       </p>
       <blockquote>
-        (Follow the script)
+        You have reached the Final Fortress! Please send six team members, along with any other teammates who would like to observe, to [ROOM] at [TIME] to face Mystereo Cantos. And this is important: you should bring any information and equipment you have gathered during your adventures. Good luck!
       </blockquote>
+      <p>
+        If the team says they need more time to make equipment, tell them they do not need to make equipment.
+      </p>
       <p>
         When you are done with the call, put the location in the response box. Mark the request as scheduled.
       </p>
