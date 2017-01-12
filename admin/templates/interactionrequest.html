@@ -147,7 +147,7 @@
         We are expecting the word <b>JUDGE</b>. If the team provides that word, call them and schedule a time with them for us to judge their items in their headquarters. Put the time in the response box. Mark the request as scheduled.
       </p>
     {% elif puzzle.puzzleProperties.DisplayNameProperty.displayName == 'SeaTac Gastronomy' %}
-      <h4>Instructions for Four by Four</h4>
+      <h4>Instructions for SeaTac Gastronomy</h4>
       <p>
         We are expecting the word <b>JUDGE</b>. If the team provides that word, call them and schedule them to come to us to deliver food and have it judged. Put the time and location in the response box. Mark the request as scheduled.
       </p>
@@ -159,14 +159,14 @@
     {% elif interaction_request.puzzleId == 'rescue_the_linguist' %}
       <h4>Instructions for Rescue the Linguist</h4>
       <p>
-        We are expecting the word <b>RESCUE</b>. If the team provides that word, call them and follow this script:
+        We are expecting the word <b>RESCUE</b>. If the team provides that word, check with dispatch to determine the time and location. Then call them and follow this script:
       </p>
       <blockquote>
         On your quest, your party has encountered the LINGUIST. You can train her by solving puzzles just like your other characters, and she will help you unlock new Quest puzzles. However, in order to use her full abilities, you need to rescue her first.<br/><br/>
-        Send <b>TWO TEAM MEMBERS</b> to <b>LOBBY 13 (or alternate location)</b> and meet a member of our team, who will show you where the LINGUIST is imprisoned. Use the code word <b>PHONETICS</b>.
+        Send <b>TWO TEAM MEMBERS</b> to <b>[LOCATION]</b> at <b>[TIME]</b> and meet a member of our team, who will show you where the LINGUIST is imprisoned. Use the code word <b>PHONETICS</b>.
       </blockquote>
       <p>
-        When you are done with the call, put the location in the response box. Mark the request as scheduled.
+        When you are done with the call, put the location and time in the response box. Mark the request as scheduled.
       </p>
     {% elif interaction_request.puzzleId == 'rescue_the_chemist' %}
       <h4>Instructions for Rescue the Chemist</h4>
@@ -174,7 +174,7 @@
         We are expecting the word <b>RESCUE</b>. If the team provides that word, call them and follow this script:
       </p>
       <blockquote>
-        On your quest your party has encountered the CHEMIST. You can train her by solving puzzles just like your other characters, and she will help you unlock new Quest puzzles. However, in order to use her full abilities, you need to rescue her first.<br/><br/>
+        On your quest your party has encountered the CHEMIST. You can train her by solving puzzles just like your other characters, and she will help you unlock new Quest puzzles. However, she is still under Mystereo Cantos’s evil spell, which you need to break in order to use her full abilities.<br/><br/>
         Send <b>TWO TEAM MEMBERS</b> without allergies to <b>ROOM 32-D463</b>. We recommend sending people who are good at mixing potable potions. Use the code word <b>PHENOL</b>.
       </blockquote>
       <p>
@@ -186,36 +186,36 @@
         We are expecting the word <b>RESCUE</b>. If the team provides that word, follow this script:
       </p>
       <blockquote>
-        On your quest your party has encountered the ECONOMIST. You can train them by solving puzzles just like your other characters, and they will help you unlock new Quest puzzles. However, they are still under the Sorcerer’s evil spell, which you need to break in order to use their full abilities.<br/><br/>
+        On your quest your party has encountered the ECONOMIST. You can train them by solving puzzles just like your other characters, and they will help you unlock new Quest puzzles. However, they are still under Mystereo Cantos’s evil spell, which you need to break in order to use their full abilities.<br/><br/>
         The ECONOMIST and a member of our team will be arriving at your team’s base shortly. <b>Be prepared to let them in</b>. When they arrive, the member of our team will explain what the Sorcerer has done and see if your team can break the spell.
       </blockquote>
       <p>
-        When you are done with the call, mark the request as scheduled.
+        When you are done with the call, put "At your headquarters" in the response box. Mark the request as scheduled.
       </p>
     {% elif interaction_request.puzzleId == 'battle' %}
       <h4>Instructions for The Big Battle</h4>
       <p>
-        We are expecting the word <b>BATTLE</b>. If the team provides that word, call them and follow this script:
+        We are expecting the word <b>BATTLE</b>. If the team provides that word, figure out what time we will schedule them for. Call them and follow this script:
       </p>
       <blockquote>
-        You have initiated the Big Battle, a confrontation with the evil sorcerer Mystereo Cantos. Mystereo will arrive at your headquarters at [TIME]. Please make sure you have six team members ready to participate in the battle, and all six of your character tokens.
+        You have initiated the Big Bad Battle, a confrontation with the evil sorcerer Mystereo Cantos. Mystereo will arrive at your headquarters at [TIME]. Please make sure you have six team members ready to participate in the battle, and all six of your character tokens.
       </blockquote>
       <p>
-        When you are done with the call, put the location in the response box. Mark the request as scheduled.
+        When you are done with the call, put "At your headquarters at [TIME]" in the response box. Mark the request as scheduled.
       </p>
     {% elif interaction_request.puzzleId == 'fortress' %}
       <h4>Instructions for The Final Fortress</h4>
       <p>
-        We are expecting the word <b>FORTRESS</b>. If the team provides that word, call them and follow this script:
+        We are expecting the word <b>FORTRESS</b>. If the team provides that word, figure out what time we will schedule them for. Call them and follow this script:
       </p>
       <blockquote>
-        You have reached the Final Fortress! Please send six team members, along with any other teammates who would like to observe, to [ROOM] at [TIME] to face Mystereo Cantos. And this is important: you should bring any information and equipment you have gathered during your adventures. Good luck!
+        You have reached the Foreboding Final Fortress! Please send six team members, along with any other teammates who would like to observe, to [ROOM] at [TIME] to face Mystereo Cantos. And this is important: you should bring any information and equipment you have gathered during your adventures. Good luck!
       </blockquote>
       <p>
         If the team says they need more time to make equipment, tell them they do not need to make equipment.
       </p>
       <p>
-        When you are done with the call, put the location in the response box. Mark the request as scheduled.
+        When you are done with the call, put the location and time in the response box. Mark the request as scheduled.
       </p>
     {% endif %}
   {% endif %}
