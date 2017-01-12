@@ -46,7 +46,7 @@ body {
     {% if all_visibilities.get(puzzle_id,{}).get('status','') in ['UNLOCKED','SOLVED'] %}
       <div class="round-list-item">
         <div class="round-list-header">
-          <a href="{{ url_for('puzzle', puzzle_id=all_puzzles.get(puzzle_id).get('puzzleProperties',{}).get('DisplayIdProperty',{}).get('displayId',puzzle_id)) }}">{{ all_puzzles.get(puzzle_id).get('puzzleProperties',{}).get('DisplayNameProperty',{}).get('displayName',puzzle_id) }}</a>
+          <a href="{{ url_for('puzzle', puzzle_id=puzzle_id) }}">{{ all_puzzles.get(puzzle_id).get('puzzleProperties',{}).get('DisplayNameProperty',{}).get('displayName',puzzle_id) }}</a>
         </div>
       </div>
     {% endif %}
