@@ -12,6 +12,10 @@
         <span>{{ team.teamId }}</span>
       </label>
       <label>
+        Team Name
+        <input type="text" name="teamName" value="{{ team.teamName }}" {% if not editable %}disabled{% endif %}>
+      </label>
+      <label>
         Email
         <input type="text" name="email" value="{{ team.email }}" {% if not editable %}disabled{% endif %}>
       </label>

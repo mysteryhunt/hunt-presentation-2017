@@ -8,8 +8,12 @@
         <td>{{ submission.timestamp | datetime }}</td>
       </tr>
       <tr>
-        <td>Team</td>
+        <td>Team ID</td>
         <td>{{ submission.teamId }}</td>
+      </tr>
+      <tr>
+        <td>Team Name</td>
+        <td>{{ team.teamName }}</td>
       </tr>
       <tr>
         <td>Team Primary Phone</td>
@@ -91,7 +95,7 @@
       <td class="submission-entry">{{ puzzle.puzzleProperties.AnswersProperty.answers[0].canonicalAnswer }}</td>
     </tr>
   </table>
-  <h3>Step 1: Call team {{ submission.teamId }} at {{ team.primaryPhone }}.</h3>
+  <h3>Step 1: Call {{ team.teamName }} at {{ team.primaryPhone }}.</h3>
   <p>
     If there's no answer, try their secondary phone number
     {{ team.secondaryPhone }} or e-mail them at {{ team.email }} to try to get
