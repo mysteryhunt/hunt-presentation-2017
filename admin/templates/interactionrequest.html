@@ -65,7 +65,7 @@
   {% elif interaction_request.status in ['ASSIGNED', 'SCHEDULED'] %}
   {% if interaction_request.callerUsername == session['username'] %}
   {% if interaction_request.status == 'ASSIGNED' %}
-    <h3>Call team {{ interaction_request.teamId }} at {{ team.primaryPhone }}.</h3>
+    <h3>The team {{ interaction_request.teamId }} has primary contact number {{ team.primaryPhone }}.</h3>
     <p>
       If there's no answer, try their secondary phone number
       {{ team.secondaryPhone }} or e-mail them at {{ team.email }} to try to get
@@ -73,18 +73,6 @@
     </p>
     <p>
       <b>The team's request is &ldquo;{{ interaction_request.request }}&rdquo;</b>.
-    </p>
-    <p>
-      If this request is to schedule a meeting, then find a time to meet the team,
-            enter the time and meeting instructions in the response box below, and mark
-            this request as Scheduled.
-    <p>
-      If this request can be handled over the phone right now and does not require
-      scheduling a future interaction, you can mark this request as Complete when
-      the call is over.
-    </p>
-    <p>
-      If this request seems to be solving something to an instruction but this puzzle doesn&rsquo;t have a solvable instruction (e.g., bring us stuff), call the team. Tell them they have submitted an incorrect instruction. Then mark this request as Complete.
     </p>
     <div class="line" style="width:100%; border-bottom: 1px solid black; margin: 1em auto;"></div>
     {% if puzzle.puzzleProperties.DisplayNameProperty.displayName == 'Swifties' %}
@@ -96,7 +84,10 @@
         </blockquote>
       </p>
       <p>
-        If this request is attempting to request about the instruction (as opposed to report an erratum or ask a question) but has the instruction incorrect, call the team and tell them they have submitted an incorrect instruction. Then mark this request as complete.
+        Our setec2017@gmail email will receive a notification when their video is uploaded, which is the prompt to start the process of completing this request.
+      </p>
+      <p>
+        If this request is attempting to request about the instruction (as opposed to report an erratum or ask a question) but has the instruction incorrect, call the team and tell them they have submitted an incorrect instruction. Put "Incorrect instruction" in the response box and mark this request as complete.
       </p>
     {% elif puzzle.puzzleProperties.DisplayNameProperty.displayName == 'Elf/Dwarf Brawl' %}
       <h4>Instructions for Elf/Dwarf Brawl</h4>
@@ -107,7 +98,10 @@
         </blockquote>
       </p>
       <p>
-        If this request is attempting to request about the instruction (as opposed to report an erratum or ask a question) but has the instruction incorrect, call the team and tell them they have submitted an incorrect instruction. Then mark this request as complete.
+        Our setec2017@gmail email will receive notifications when their videos are uploaded, which is the prompt to start the process of completing this request.
+      </p>
+      <p>
+        If this request is attempting to input the instruction (as opposed to report an erratum or ask a question) but has the instruction incorrect, call the team and tell them they have submitted an incorrect instruction. Put "Incorrect instruction" in the response box and mark this request as complete.
       </p>
     {% elif puzzle.puzzleProperties.DisplayNameProperty.displayName == 'The Most Interesting Puzzle in the World' %}
       <h4>Instructions for The Most Interesting Puzzle in the World</h4>
@@ -115,7 +109,7 @@
         We are expecting the phrase <b>YOUR JOB BRING ME ROOT BEER AT ONCE</b>. If the team provides that phrase, call them and schedule their delivery of root beer. Put the time and location in the response box. Mark the request as scheduled.
       </p>
       <p>
-        If this request is attempting to request about the instruction (as opposed to report an erratum or ask a question) but has the instruction incorrect, call the team and tell them they have submitted an incorrect instruction. Then mark this request as complete.
+        If this request is attempting to input the instruction (as opposed to report an erratum or ask a question) but has the instruction incorrect, call the team and tell them they have submitted an incorrect instruction. Put "Incorrect instruction" in the response box and mark this request as complete.
       </p>
     {% elif puzzle.puzzleProperties.DisplayNameProperty.displayName == 'Stick the Landing' %}
       <h4>Instructions for Stick the Landing</h4>
@@ -123,7 +117,7 @@
         We are expecting the phrase <b>BRING US GUM DROPS</b>. If the team provides that phrase, call them and schedule their delivery of gum drops. They will be receiving an item from us in exchange for the gum drops, so be sure that the time and location matches where those items are. Put the time and location in the response box. Mark the request as scheduled.
       </p>
       <p>
-        If this request is attempting to request about the instruction (as opposed to report an erratum or ask a question) but has the instruction incorrect, call the team and tell them they have submitted an incorrect instruction. Then mark this request as complete.
+        If this request is attempting to input the instruction (as opposed to report an erratum or ask a question) but has the instruction incorrect, call the team and tell them they have submitted an incorrect instruction. Put "Incorrect instruction" in the response box and mark this request as complete.
       </p>
     {% elif puzzle.puzzleProperties.DisplayNameProperty.displayName == 'Hamiltonian Path' %}
       <h4>Instructions for Hamiltonian Path</h4>
@@ -131,7 +125,7 @@
         We are expecting the phrase <b>GIVE US A VERSE</b>. If the team provides that phrase, call them and schedule them to come to us to deliver or demonstrate a verse. They will be receiving an item from us in exchange for the verse, so be sure that the time and location matches where those items are. Put the time and location in the response box. Mark the request as scheduled.
       </p>
       <p>
-        If this request is attempting to request about the instruction (as opposed to report an erratum or ask a question) but has the instruction incorrect, call the team and tell them they have submitted an incorrect instruction. Then mark this request as complete.
+        If this request is attempting to input the instruction (as opposed to report an erratum or ask a question) but has the instruction incorrect, call the team and tell them they have submitted an incorrect instruction. Put "Incorrect instruction" in the response box and mark this request as complete.
       </p>
     {% elif puzzle.puzzleProperties.DisplayNameProperty.displayName == 'Four by Four' %}
       <h4>Instructions for Four by Four</h4>
@@ -139,7 +133,7 @@
         We are expecting the phrase <b>MAKE A SQUARE FOR US</b>. If the team provides that phrase, call them and schedule them to come to us to deliver a square. Put the time and location in the response box. Mark the request as scheduled.
       </p>
       <p>
-        If this request is attempting to request about the instruction (as opposed to report an erratum or ask a question) but has the instruction incorrect, call the team and tell them they have submitted an incorrect instruction. Then mark this request as complete.
+        If this request is attempting to input the instruction (as opposed to report an erratum or ask a question) but has the instruction incorrect, call the team and tell them they have submitted an incorrect instruction. Put "Incorrect instruction" in the response box and mark this request as complete.
       </p>
     {% elif puzzle.puzzleProperties.DisplayNameProperty.displayName == 'Replenish the Treasury' %}
       <h4>Instructions for Replenish the Treasury</h4>
@@ -162,9 +156,17 @@
         We are expecting the word <b>RESCUE</b>. If the team provides that word, check with dispatch to determine the time and location. Then call them and follow this script:
       </p>
       <blockquote>
-        On your quest, your party has encountered the LINGUIST. You can train her by solving puzzles just like your other characters, and she will help you unlock new Quest puzzles. However, in order to use her full abilities, you need to rescue her first.<br/><br/>
+        On your quest, your party has encountered the LINGUIST. You can train her by solving puzzles just like your other characters, and she will help you unlock new Quest puzzles. You will have access to her puzzles at the end of this call. However, in order to use her full abilities, you need to rescue her first.<br/><br/>
         Send <b>TWO TEAM MEMBERS</b> to <b>[LOCATION]</b> at <b>[TIME]</b> and meet a member of our team, who will show you where the LINGUIST is imprisoned. Use the code word <b>PHONETICS</b>.
       </blockquote>
+      {% if is_authorized('visibilities:update:%s' % team.teamId) %}
+        <p>
+          Opens in a new tab: <a target="_blank" href="{{ url_for('team', team_id=interaction_request.teamId) }}">team page</a><br/>
+          Then Unlock Character Round > Unlock Linguist Round.
+        </p>
+      {% else %}
+        <p>You can't unlock the round for them, so what are you doing here? Get real Dispatch to do this.</p>
+      {% endif %}
       <p>
         When you are done with the call, put the location and time in the response box. Mark the request as scheduled.
       </p>
@@ -174,9 +176,17 @@
         We are expecting the word <b>RESCUE</b>. If the team provides that word, call them and follow this script:
       </p>
       <blockquote>
-        On your quest your party has encountered the CHEMIST. You can train her by solving puzzles just like your other characters, and she will help you unlock new Quest puzzles. However, she is still under Mystereo Cantos’s evil spell, which you need to break in order to use her full abilities.<br/><br/>
+        On your quest your party has encountered the CHEMIST. You can train her by solving puzzles just like your other characters, and she will help you unlock new Quest puzzles. You will have access to her puzzles at the end of this call. However, she is still under Mystereo Cantos’s evil spell, which you need to break in order to use her full abilities.<br/><br/>
         Send <b>TWO TEAM MEMBERS</b> without allergies to <b>ROOM 32-D463</b>. We recommend sending people who are good at mixing potable potions. Use the code word <b>PHENOL</b>.
       </blockquote>
+      {% if is_authorized('visibilities:update:%s' % team.teamId) %}
+        <p>
+          Opens in a new tab: <a target="_blank" href="{{ url_for('team', team_id=interaction_request.teamId) }}">team page</a><br/>
+          Then Unlock Character Round > Unlock Chemist Round.
+        </p>
+      {% else %}
+        <p>You can't unlock the round for them, so what are you doing here? Get real Dispatch to do this.</p>
+      {% endif %}
       <p>
         When you are done with the call, put "ROOM 32-D463" in the response box. Mark the request as scheduled.
       </p>
@@ -186,14 +196,22 @@
         We are expecting the word <b>RESCUE</b>. If the team provides that word, follow this script:
       </p>
       <blockquote>
-        On your quest your party has encountered the ECONOMIST. You can train them by solving puzzles just like your other characters, and they will help you unlock new Quest puzzles. However, they are still under Mystereo Cantos’s evil spell, which you need to break in order to use their full abilities.<br/><br/>
+        On your quest your party has encountered the ECONOMIST. You can train them by solving puzzles just like your other characters, and they will help you unlock new Quest puzzles. You will have access to their puzzles at the end of this call. However, they are still under Mystereo Cantos’s evil spell, which you need to break in order to use their full abilities.<br/><br/>
         The ECONOMIST and a member of our team will be arriving at your team’s base shortly. <b>Be prepared to let them in</b>. When they arrive, the member of our team will explain what the Sorcerer has done and see if your team can break the spell.
       </blockquote>
+      {% if is_authorized('visibilities:update:%s' % team.teamId) %}
+        <p>
+          Opens in a new tab: <a target="_blank" href="{{ url_for('team', team_id=interaction_request.teamId) }}">team page</a><br/>
+          Then Unlock Character Round > Unlock Economist Round.
+        </p>
+      {% else %}
+        <p>You can't unlock the round for them, so what are you doing here? Get real Dispatch to do this.</p>
+      {% endif %}
       <p>
         When you are done with the call, put "At your headquarters" in the response box. Mark the request as scheduled.
       </p>
     {% elif interaction_request.puzzleId == 'battle' %}
-      <h4>Instructions for The Big Battle</h4>
+      <h4>Instructions for The Big Bad Battle</h4>
       <p>
         We are expecting the word <b>BATTLE</b>. If the team provides that word, figure out what time we will schedule them for. Call them and follow this script:
       </p>
@@ -204,7 +222,7 @@
         When you are done with the call, put "At your headquarters at [TIME]" in the response box. Mark the request as scheduled.
       </p>
     {% elif interaction_request.puzzleId == 'fortress' %}
-      <h4>Instructions for The Final Fortress</h4>
+      <h4>Instructions for The Foreboding Final Fortress</h4>
       <p>
         We are expecting the word <b>FORTRESS</b>. If the team provides that word, figure out what time we will schedule them for. Call them and follow this script:
       </p>
@@ -217,24 +235,108 @@
       <p>
         When you are done with the call, put the location and time in the response box. Mark the request as scheduled.
       </p>
+    {% else %}
+      <h4>General instructions</h4>
+      <p>There is no planned interaction for this puzzle. This request is likely to be an incorrect instruction.
+      </p>
+      <p>
+        If this request seems to be the team solving to get an instruction (e.g., bring us stuff), call the team. Tell them they have submitted an incorrect instruction. Then mark this request as Complete.
+      </p>
+      <p>
+        If this request is about something else&mdash;errata or some sort of question&mdash;you will probably need to get advice from Puzzle Watch.
+      </p>
     {% endif %}
   {% endif %}
+
   {% if interaction_request.status == 'SCHEDULED' %}
-  <h3>An interaction is currently scheduled.</h3>
-  <p>
-    Details: &ldquo;{{ interaction_request.response }}&rdquo;
-  </p>
-  <p>
-    If you need to make changes to this scheduled interaction, call the team at
-    {{ team.primaryPhone }} to inform them of the change, then use the form
-    below to make the change. You may change this interaction request to
-    Assigned if you are not currently able to schedule it.
-  </p>
-  <p>
-    If this interaction is now over, use the form below to mark this interaction
-    as Complete.
-  </p>
+    <h3>An interaction is currently scheduled.</h3>
+    <p>
+      Details: &ldquo;{{ interaction_request.response }}&rdquo;
+    </p>
+    <p>
+      If you need to make changes to this scheduled interaction, call the team at
+      {{ team.primaryPhone }} to inform them of the change, then use the form
+      below to make the change. You may change this interaction request to
+      Assigned if you are not currently able to schedule it.
+    </p>
+    {% if interaction_request.puzzleId == 'rescue_the_linguist' %}
+      <h4>Instructions for completing Rescue the Linguist</h4>
+      {% if is_authorized('visibilities:update:%s' % team.teamId) %}
+        <p>
+          Opens in a new tab: <a target="_blank" href="{{ url_for('team', team_id=interaction_request.teamId) }}">team page</a><br/>
+          Then Complete Character Rescue > Rescue the Linguist.
+        </p>
+        <p>
+          Use the form below to mark this interaction complete.
+        </p>
+      {% else %}
+        <p>You can't complete the rescue for them, so what are you doing here? Get real Dispatch to do this.</p>
+      {% endif %}
+    {% elif interaction_request.puzzleId == 'rescue_the_chemist' %}
+      <h4>Instructions for completing Rescue the Chemist</h4>
+      {% if is_authorized('visibilities:update:%s' % team.teamId) %}
+        <p>
+          Opens in a new tab: <a target="_blank" href="{{ url_for('team', team_id=interaction_request.teamId) }}">team page</a><br/>
+          Then Complete Character Rescue > Rescue the Chemist.
+        </p>
+        <p>
+          Use the form below to mark this interaction complete.
+        </p>
+      {% else %}
+        <p>You can't complete the rescue for them, so what are you doing here? Get real Dispatch to do this.</p>
+      {% endif %}
+    {% elif interaction_request.puzzleId == 'rescue_the_econmist' %}
+      <h4>Instructions for completing Rescue the Economist</h4>
+      {% if is_authorized('visibilities:update:%s' % team.teamId) %}
+        <p>
+          Opens in a new tab: <a target="_blank" href="{{ url_for('team', team_id=interaction_request.teamId) }}">team page</a><br/>
+          Then Complete Character Rescue > Rescue the Economist.
+        </p>
+        <p>
+          Use the form below to mark this interaction complete.
+        </p>
+      {% else %}
+        <p>You can't complete the rescue for them, so what are you doing here? Get real Dispatch to do this.</p>
+      {% endif %}
+    {% elif puzzle.puzzleProperties.DisplayNameProperty.displayName == 'Stick the Landing' %}
+      <h4>Instructions for completing Stick the Landing</h4>
+      <p>
+        Teams should receive a pack of gum upon bringing us gum drops. If this interaction is now over, use the form below to mark this interaction as Complete.
+      </p>
+    {% elif puzzle.puzzleProperties.DisplayNameProperty.displayName == 'Hamiltonian Path' %}
+      <h4>Instructions for completing Hamiltonian Path</h4>
+      <p>
+        Teams should receive a CD upon giving us a verse. If this interaction is now over, use the form below to mark this interaction as Complete.
+      </p>
+    {% elif puzzle.puzzleProperties.DisplayNameProperty.displayName == 'The Most Interesting Puzzle in the World' %}
+      <h4>Instructions for completing The Most Interesting Puzzle in the World</h4>
+      <p>
+        Teams should receive the answer CROC upon bringing us root beer. They will need to submit it themselves. If this interaction is now over, use the form below to mark this interaction as Complete.
+      </p>
+    {% elif puzzle.puzzleProperties.DisplayNameProperty.displayName == 'Swifties' %}
+      <h4>Instructions for completing Swifties</h4>
+      <p>
+        When the team has uploaded a video and meets the criteria of Swiftly singing, call them at {{ team.primaryPhone }} to tell them the answer is OBSESS. They will need to submit it themselves. Use the form below to mark this interaction as Complete.
+      </p>
+      <p>
+        If the team's video does not meet the criteria (but be generous), call them to ask them to reshoot it. This interaction should remain in Scheduled.
+      </p>
+    {% elif puzzle.puzzleProperties.DisplayNameProperty.displayName == 'Elf/Dwarf Brawl' %}
+      <h4>Instructions for completing Swifties</h4>
+      <p>
+        When the team has uploaded their videos and meets the criteria of using MIT and Olin appropriately, call them at {{ team.primaryPhone }} to tell them the answer is SWALLOW. They will need to submit it themselves. Use the form below to mark this interaction as Complete.
+      </p>
+      <p>
+        If the team's videos do not meet the criteria (but be generous), call them to ask them to reshoot them. This interaction should remain in Scheduled.
+      </p>
+    {% else %}
+      <p>
+        If this interaction is now over, use the form below to mark this interaction
+        as Complete.
+      </p>
+    {% endif %}
   {% endif %}
+
   <div class="line" style="width:100%; border-bottom: 1px solid black; margin: 1em auto;"></div>
   <form action="{{ url_for('interactionrequest', interaction_request_id=interaction_request.interactionRequestId) }}" method="post">
     <p>
