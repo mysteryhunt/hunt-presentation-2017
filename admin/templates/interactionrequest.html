@@ -84,7 +84,7 @@
       <p>
         We are expecting the phrase <b>MAKE US A VIDEO OF YOUR TEAM SWIFTLY SINGING</b>. If the team provides that phrase, instruct them on the phone to upload their video via the Dropbox link you provide and to include their team name as the first name and their email as the email. Paste this into the response box and mark the request as scheduled:
         <blockquote>
-          Upload your video to https://www.dropbox.com/request/s6NuHOcWgaiVADqtpAEb
+          Upload your video to https://www.dropbox.com/request/s6NuHOcWgaiVADqtpAEb and use your team name as the first name and your email as the email
         </blockquote>
       </p>
       <p>
@@ -98,7 +98,7 @@
       <p>
         We are expecting the phrase <b>SEND TWO CLIPS USE MIT AND OLIN COLLEGE</b>. If the team provides that phrase, instruct them on the phone to upload their videos via the Dropbox link you provide and to include their team name as the first name and their email as the email. Paste this into the response box and mark the request as scheduled:
         <blockquote>
-          Upload your videos to https://www.dropbox.com/request/bWZ5mVmJBQfQUJKs16OS<br/><br/>
+          Upload your videos to https://www.dropbox.com/request/bWZ5mVmJBQfQUJKs16OS and use your team name as the first name and your email as the email
         </blockquote>
       </p>
       <p>
@@ -110,7 +110,7 @@
     {% elif puzzle.puzzleProperties.DisplayNameProperty.displayName == 'The Most Interesting Puzzle in the World' %}
       <h4>Instructions for The Most Interesting Puzzle in the World</h4>
       <p>
-        We are expecting the phrase <b>YOUR JOB BRING ME ROOT BEER AT ONCE</b>. If the team provides that phrase, call them and schedule their delivery of root beer. Put the time and location in the response box. Mark the request as scheduled.
+        We are expecting the phrase <b>YOUR JOB BRING ME ROOT BEER AT ONCE</b>. If the team provides that phrase, call them and schedule their delivery of root beer. Make sure they know how to get here. Put the time and location in the response box. Mark the request as scheduled.
       </p>
       <p>
         If this request is attempting to input the instruction (as opposed to report an erratum or ask a question) but has the instruction incorrect, call the team and tell them they have submitted an incorrect instruction. Put "Incorrect instruction" in the response box and mark this request as complete.
@@ -118,7 +118,7 @@
     {% elif puzzle.puzzleProperties.DisplayNameProperty.displayName == 'Stick the Landing' %}
       <h4>Instructions for Stick the Landing</h4>
       <p>
-        We are expecting the phrase <b>BRING US GUM DROPS</b>. If the team provides that phrase, call them and schedule their delivery of gum drops. They will be receiving an item from us in exchange for the gum drops, so be sure that the time and location matches where those items are. Put the time and location in the response box. Mark the request as scheduled.
+        We are expecting the phrase <b>BRING US GUM DROPS</b>. If the team provides that phrase, call them and schedule their delivery of gum drops. They will be receiving an item from us in exchange for the gum drops, so be sure that the time and location matches where those items are. Make sure they know how to get there. Put the time and location in the response box. Mark the request as scheduled.
       </p>
       <p>
         If this request is attempting to input the instruction (as opposed to report an erratum or ask a question) but has the instruction incorrect, call the team and tell them they have submitted an incorrect instruction. Put "Incorrect instruction" in the response box and mark this request as complete.
@@ -126,7 +126,7 @@
     {% elif puzzle.puzzleProperties.DisplayNameProperty.displayName == 'Hamiltonian Path' %}
       <h4>Instructions for Hamiltonian Path</h4>
       <p>
-        We are expecting the phrase <b>GIVE US A VERSE</b>. If the team provides that phrase, call them and schedule them to come to us to deliver or demonstrate a verse. They will be receiving an item from us in exchange for the verse, so be sure that the time and location matches where those items are. Put the time and location in the response box. Mark the request as scheduled.
+        We are expecting the phrase <b>GIVE US A VERSE</b>. If the team provides that phrase, call them and schedule them to come to us to deliver or demonstrate a verse. They will be receiving an item from us in exchange for the verse, so be sure that the time and location matches where those items are. Make sure they know how to get there. Put the time and location in the response box. Mark the request as scheduled.
       </p>
       <p>
         If this request is attempting to input the instruction (as opposed to report an erratum or ask a question) but has the instruction incorrect, call the team and tell them they have submitted an incorrect instruction. Put "Incorrect instruction" in the response box and mark this request as complete.
@@ -134,7 +134,7 @@
     {% elif puzzle.puzzleProperties.DisplayNameProperty.displayName == 'Four by Four' %}
       <h4>Instructions for Four by Four</h4>
       <p>
-        We are expecting the phrase <b>MAKE A SQUARE FOR US</b>. If the team provides that phrase, call them and schedule them to come to us to deliver a square. Put the time and location in the response box. Mark the request as scheduled.
+        We are expecting the phrase <b>MAKE A SQUARE FOR US</b>. If the team provides that phrase, call them and schedule them to come to us to deliver a square. Make sure they know how to get here. Put the time and location in the response box. Mark the request as scheduled.
       </p>
       <p>
         If this request is attempting to input the instruction (as opposed to report an erratum or ask a question) but has the instruction incorrect, call the team and tell them they have submitted an incorrect instruction. Put "Incorrect instruction" in the response box and mark this request as complete.
@@ -147,7 +147,7 @@
     {% elif puzzle.puzzleProperties.DisplayNameProperty.displayName == 'SeaTac Gastronomy' %}
       <h4>Instructions for SeaTac Gastronomy</h4>
       <p>
-        We are expecting the word <b>JUDGE</b>. If the team provides that word, call them and schedule them to come to us to deliver food and have it judged. Put the time and location in the response box. Mark the request as scheduled.
+        We are expecting the word <b>JUDGE</b>. If the team provides that word, call them and schedule them to come to us to deliver food and have it judged. Make sure they know how to get here. Put the time and location in the response box. Mark the request as scheduled.
       </p>
     {% elif puzzle.puzzleProperties.DisplayNameProperty.displayName == 'You Blew It!' %}
       <h4>Instructions for You Blew It!</h4>
@@ -163,6 +163,9 @@
         On your quest, your party has encountered the LINGUIST. You can train her by solving puzzles just like your other characters, and she will help you unlock new Quest puzzles. You will have access to her puzzles at the end of this call. However, in order to use her full abilities, you need to rescue her first.<br/><br/>
         Send <b>TWO TEAM MEMBERS</b> to <b>[LOCATION]</b> at <b>[TIME]</b> and meet a member of our team, who will show you where the LINGUIST is imprisoned. Use the code word <b>PHONETICS</b>.
       </blockquote>
+      <p>
+        Make sure they know how to get to [LOCATION].
+      </p>
       {% if is_authorized('visibilities:update:%s' % team.teamId) %}
         <p>
           Opens in a new tab: <a target="_blank" href="{{ url_for('team', team_id=interaction_request.teamId) }}">team page</a><br/>
@@ -183,6 +186,9 @@
         On your quest your party has encountered the CHEMIST. You can train her by solving puzzles just like your other characters, and she will help you unlock new Quest puzzles. You will have access to her puzzles at the end of this call. However, she is still under Mystereo Cantos’s evil spell, which you need to break in order to use her full abilities.<br/><br/>
         Send <b>TWO TEAM MEMBERS</b> without allergies to <b>ROOM 32-D463</b>. We recommend sending people who are good at mixing potable potions. Use the code word <b>PHENOL</b>.
       </blockquote>
+      <p>
+        Make sure they know how to get to ROOM 32-D463. (<a href="https://www.na-mic.org/Wiki/index.php/Meeting_Locations:MIT_CSAIL_Star">Directions</a>)
+      </p>
       {% if is_authorized('visibilities:update:%s' % team.teamId) %}
         <p>
           Opens in a new tab: <a target="_blank" href="{{ url_for('team', team_id=interaction_request.teamId) }}">team page</a><br/>
@@ -231,13 +237,21 @@
         We are expecting the word <b>FORTRESS</b>. If the team provides that word, figure out what time we will schedule them for. Call them and follow this script:
       </p>
       <blockquote>
-        You have reached the Foreboding Final Fortress! Please send six team members, along with any other teammates who would like to observe, to [ROOM] at [TIME] to face Mystereo Cantos. And this is important: you should bring any information and equipment you have gathered during your adventures. Good luck!
+        You have reached the Foreboding Final Fortress! Please send six team members, along with any other teammates who would like to observe, to [LOCATION] at [TIME] to face Mystereo Cantos. And this is important: you should bring any information and equipment you have gathered during your adventures. Good luck!
       </blockquote>
       <p>
         If the team says they need more time to make equipment, tell them they do not need to make equipment.
       </p>
       <p>
+        Make sure they know how to get to [LOCATION].
+      </p>
+      <p>
         When you are done with the call, put the location and time in the response box. Mark the request as scheduled.
+      </p>
+    {% elif interaction_request.puzzleId == 'merchants' %}
+      <h4>Instructions for The Maniacal Merchants</h4>
+      <p>
+        If they submit something similar to SELL THIS USELESS JUNK AND GO ON A SHOPPING SPREE, call them and tell them to submit their entry as an answer. (It looks like an instruction, so we are going to be helpful.) Put "Submit as answer" in the response box and mark this request complete.
       </p>
     {% else %}
       <h4>General instructions</h4>
