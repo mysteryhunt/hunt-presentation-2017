@@ -11,6 +11,15 @@
           $(this).closest('.submission-section').toggleClass('submission-section-open');
           $(this).closest('.submission-section').toggleClass('submission-section-closed');
         });
+        $('input.form-buttom').attr('disabled',true);
+        $('input.entry-field').keyup(function(e) {
+          var $relatedButton = $(this).siblings('input.form-button');
+          if ($(this).val().length > 0) {
+            $relatedButton.removeAttr('disabled');
+          } else {
+            $relatedButton.attr('disabled',true)
+          }
+        });
       });
     </script>
   </head>
@@ -28,8 +37,8 @@
           <div class="submission-section-form">
             <form action="{{ url_for('puzzle', puzzle_id=puzzle_id) }}" method="post">
               <span>Submit an answer:</span>
-              <input type="text" name="submission">
-              <input type="submit" value="Submit">
+              <input type="text" name="submission" class="entry-field">
+              <input type="submit" value="Submit" class="form-button" disabled/>
             </form>
           </div>
           {% endif %}
@@ -58,8 +67,8 @@
         <div class="submission-section-form">
           <form action="{{ url_for('puzzle', puzzle_id=puzzle_id) }}" method="post">
             <span>Request an interaction or report a problem:</span>
-            <input type="text" name="interactionrequest" size="100"/>
-            <input type="submit" value="Submit"/>
+            <input type="text" name="interactionrequest" size="100" class="entry-field"/>
+            <input type="submit" value="Submit" class="form-button" disabled/>
           </form>
         </div>
         {% if interactions %}
@@ -87,8 +96,8 @@
           <div class="submission-section-form">
             <form action="{{ url_for('puzzle', puzzle_id=puzzle_id) }}" method="post">
               <span>Ask for a hint:</span>
-              <input type="text" name="hintrequest" size="100">
-              <input type="submit" value="Submit and PAY 100 GOLD">
+              <input type="text" name="hintrequest" class="entry-field" size="100">
+              <input type="submit" value="Submit and PAY 100 GOLD" class="form-button" disabled/>
             </form>
           </div>
           {% endif %}
