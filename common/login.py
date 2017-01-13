@@ -18,7 +18,8 @@ def clear_session():
 @blueprint.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
-        session["username"] = request.form["username"]
+        username = str(request.form["username"].strip().lower()).translate(None, " &#+")
+        session["username"] = username
         session["password"] = request.form["password"]
         try:
             all_teams_permission = cube.authorized(blueprint, "teams:read:*")

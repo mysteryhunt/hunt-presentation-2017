@@ -149,7 +149,7 @@
 
         <div id="header-session-control">
           {% if session["username"] %}
-            <span id="header-session-team-name">{{ pretty_truncate(session["username"],12) }}</span>
+            <span id="header-session-team-name">{{ pretty_truncate(core_display_data["teamName"],12) }}</span>
             {% if (not site_mode()) or site_mode() != 'solution' %}      
               <a href="#" data-toggle="modal" data-target="#header-change-contact-info">
                 <span class="fa fa-pencil-square-o" data-toggle="tooltip" data-placement="bottom" title="Change Contact Info"></span>
