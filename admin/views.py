@@ -170,6 +170,7 @@ def teams():
     if request.method == "POST":
         cube.create_team(app, {
             "teamId": request.form["teamId"],
+            "teamName": request.form["teamName"],
             "password": request.form["password"],
             "email": request.form["email"],
             "headquarters": request.form["headquarters"],
@@ -195,6 +196,7 @@ def team(team_id):
                 abort(400)
             cube.update_team(app, team_id, {
                 "teamId": team_id,
+                "teamName": request.form["teamName"],
                 "email": request.form["email"],
                 "headquarters": request.form["headquarters"],
                 "primaryPhone": request.form["primaryPhone"],
