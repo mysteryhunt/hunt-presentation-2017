@@ -64,7 +64,7 @@ def interactionqueue():
     pending_interaction_requests = cube.get_all_pending_interaction_requests(app)
     puzzle_id_to_puzzle = get_puzzle_id_to_puzzle()
 
-    pending_interaction_requests.sort(key=lambda r: r.get("timestamp", 0))
+    pending_interaction_requests.sort(key=lambda r: r.get("timestamp", 0), reverse=True)
 
     return render_template(
         "interactionqueue.html",
