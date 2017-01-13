@@ -115,12 +115,12 @@
       If the team is correct, congratulate them on 
       {% if puzzle.puzzleProperties.get('SolveRewardProperty',{}).get('characterLevels',{})|length > 0 %}
       leveling up!
-      {% endif %}
-      {% if puzzle.puzzleProperties.get('SolveRewardProperty',{}).get('inventoryItem',None) %}
+      {% elif puzzle.puzzleProperties.get('SolveRewardProperty',{}).get('inventoryItem',None) %}
       finding an item!
-      {% endif %}
-      {% if puzzle.puzzleProperties.get('SolveRewardProperty',{}).get('gold',0) > 0 %}
+      {% elif puzzle.puzzleProperties.get('SolveRewardProperty',{}).get('gold',0) > 0 %}
       finding gold!
+      {% else %}
+      solving the puzzle!
       {% endif %}
     </p>
   {% endif %}
