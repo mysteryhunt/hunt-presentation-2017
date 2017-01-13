@@ -56,6 +56,7 @@
 	<th>Team</th>
 	<th>Puzzle</th>
 	<th>Request</th>
+	<th>Response Text</th>
 	<th>Last Caller</th>
       </tr>
     </thead>
@@ -70,6 +71,7 @@
 	    {{ h.request }}
 	  </a>
 	</td>
+	<td>{{ h.response }}</td>
 	<td>{{ h.callerUsername }}</td>
       </tr>
       {% endfor %}
