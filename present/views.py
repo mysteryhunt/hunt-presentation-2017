@@ -338,8 +338,11 @@ def safety():
 @app.route("/change_contact_info", methods=["POST"])
 @login_required.solvingteam
 def change_contact_info():
+    team = cube.get_team_properties(app)
     cube.update_team(app, session["username"], {
         "teamId": session["username"],
+        "teamName": team.get("teamName", ""),
+        "headquarters": team.get("headquarters", ""),
         "email": request.form["email"],
         "primaryPhone": request.form["primaryPhone"],
         "secondaryPhone": request.form["secondaryPhone"],
