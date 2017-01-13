@@ -89,6 +89,8 @@ def submission(submission_id):
         else:
             abort(400)
 
+    time.sleep(0.2)
+
     submission = cube.get_submission(app, submission_id)
     past_submissions = cube.get_submissions(app, submission['puzzleId'], submission['teamId'])
     past_submissions = [s for s in past_submissions if s['submissionId'] != submission_id]
