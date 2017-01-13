@@ -297,6 +297,10 @@ form {
   margin-right: 2px;
 }
 
+.ha-small-text {
+  font-size: 10px;
+}
+
 table#submission-comparison {
   border-collapse: collapse;
 }

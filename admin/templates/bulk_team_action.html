@@ -23,6 +23,9 @@
                   <input type="checkbox" name="team_ids" value="{{ team_id }}">
                   {{ team_id }}
                 </div>
+                <div class="ha-team-selector-status-line ha-small-text">
+                  {{ team_names.get(team_id, "") }}
+                </div>
                 <div class="ha-team-selector-status-line">
                   <div
                      class="ha-team-selector-status-box {{ visibility_class(team_id, 'eventa') }}"

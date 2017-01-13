@@ -391,6 +391,8 @@ def bulk_team_action():
     team_ids = [team["teamId"] for team in teams]
     team_ids.sort()
 
+    team_names = {team["teamId"]: team.get("teamName","") for team in teams}
+
     team_gold = { team["teamId"]: team.get("teamProperties",{}).get("GoldProperty",{}).get("gold",0) for team in teams }
 
     team_visibility_futures = {}
@@ -408,5 +410,6 @@ def bulk_team_action():
     return render_template(
         "bulk_team_action.html",
         team_ids=team_ids,
+        team_names=team_names,
         team_gold=team_gold,
         team_visibilities=team_visibilities)

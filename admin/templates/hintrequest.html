@@ -7,8 +7,12 @@
       <td>{{ hint_request.timestamp | datetime }}</td>
     </tr>
     <tr>
-      <td>Team</td>
+      <td>Team ID</td>
       <td>{{ hint_request.teamId }}</td>
+    </tr>
+    <tr>
+      <td>Team Name</td>
+      <td>{{ team.teamName }}</td>
     </tr>
     <tr>
       <td>Team Primary Phone</td>
@@ -64,7 +68,7 @@
   </form>
   {% elif hint_request.status == 'ASSIGNED' %}
   {% if hint_request.callerUsername == session['username'] %}
-  <h3>Step 1: Call team {{ hint_request.teamId }} at {{ team.primaryPhone }}.</h3>
+  <h3>Step 1: Call {{ team.teamName }} at {{ team.primaryPhone }}.</h3>
   <p>
     If there's no answer, try their secondary phone number
     {{ team.secondaryPhone }} or e-mail them at {{ team.email }} to try to get

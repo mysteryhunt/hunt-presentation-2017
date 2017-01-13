@@ -7,8 +7,12 @@
       <td>{{ interaction_request.timestamp | datetime }}</td>
     </tr>
     <tr>
-      <td>Team</td>
+      <td>Team ID</td>
       <td>{{ interaction_request.teamId }}</td>
+    </tr>
+    <tr>
+      <td>Team Name</td>
+      <td>{{ team.teamName }}</td>
     </tr>
     <tr>
       <td>Team Primary Phone</td>
@@ -65,7 +69,7 @@
   {% elif interaction_request.status in ['ASSIGNED', 'SCHEDULED'] %}
   {% if interaction_request.callerUsername == session['username'] %}
   {% if interaction_request.status == 'ASSIGNED' %}
-    <h3>The team {{ interaction_request.teamId }} has primary contact number {{ team.primaryPhone }}.</h3>
+    <h3>The team {{ team.teamName }} has primary contact number {{ team.primaryPhone }}.</h3>
     <p>
       If there's no answer, try their secondary phone number
       {{ team.secondaryPhone }} or e-mail them at {{ team.email }} to try to get

@@ -61,7 +61,7 @@
     {% for team in teams %}
       <div class="ha-bigboard-team">
         <div class="ha-bigboard-team-id">
-          {{ team["teamId"] }}
+          <span title="{{ team['teamId'] }}">{{ team["teamName"] }}</span>
         </div>
         <div class="ha-bigboard-character-rounds-plus">
           <div class="ha-bigboard-character-rounds">
