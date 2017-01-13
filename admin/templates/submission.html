@@ -85,6 +85,9 @@
   {% elif submission.status == 'ASSIGNED' %}
   {% if submission.callerUsername == session['username'] %}
   <h3>Step 0: Figure out if the answer is correct or incorrect.</h3>
+  <p>
+    Differences in spacing, casing, and punctuation are allowed.
+  </p>
   <table id="submission-comparison">
     <tr>
       <td>Submission</td>
