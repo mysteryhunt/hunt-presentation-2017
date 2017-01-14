@@ -37,6 +37,8 @@
           {% set display_id = all_puzzles.get(entry["puzzleId"]).get('puzzleProperties',{}).get('DisplayIdProperty',{}).get('displayId',puzzle_id) %}
           {% if entry["puzzleId"] in core_display_data["visible_characters"] or entry["puzzleId"] in core_display_data["visible_quests"] %}
             {% set url = url_for('round', round_id=entry["puzzleId"]) %}
+          {% elif entry["puzzleId"] in ["battle","fortress"] %}
+            {% set url = url_for('puzzle', puzzle_id=entry["puzzleId"]) %}
           {% else %}
             {% set url = url_for('puzzle', puzzle_id=display_id) %}
           {% endif %}
