@@ -171,6 +171,9 @@
       <p>
         Make sure they know how to get to [LOCATION].
       </p>
+      <p>
+        If the team is remote, when you instead tell them they can't do the rescue, also tell them that they can't do Dot Matrix, which immediately unlocks.
+      </p>
       {% if is_authorized('visibilities:update:%s' % team.teamId) %}
         <p>
           Opens in a new tab: <a target="_blank" href="{{ url_for('team', team_id=interaction_request.teamId) }}">team page</a><br/>
