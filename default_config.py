@@ -11,4 +11,4 @@ HEXEDADVENTURE_URL = "ws://localhost:8183"
 SHOWMETHEPROOF_URL = "http://localhost:8182"
 CHECKPOINT_URL = "http://localhost:8184"
 PROPAGATE_EXCEPTIONS = True
-SITE_MODE = 'live'
+SITE_MODE = 'closed'
