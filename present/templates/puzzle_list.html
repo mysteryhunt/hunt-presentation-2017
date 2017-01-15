@@ -41,12 +41,12 @@ body {
 
   {% endfor %}
   
-  {% for puzzle_id in ['rescue_the_linguist','rescue_the_economist','rescue_the_chemist','battle','merchants'] %}
+  {% for puzzle_id in ['rescue_the_linguist','rescue_the_economist','rescue_the_chemist','battle','merchants','fortress'] %}
     
     {% if all_visibilities.get(puzzle_id,{}).get('status','') in ['UNLOCKED','SOLVED'] %}
       <div class="round-list-item">
         <div class="round-list-header">
-          <a href="{{ url_for('puzzle', puzzle_id=puzzle_id) }}">{{ all_puzzles.get(puzzle_id).get('puzzleProperties',{}).get('DisplayNameProperty',{}).get('displayName',puzzle_id) }}</a>
+          <a href="{{ url_for('puzzle', puzzle_id=puzzle_id) }}">{{ all_puzzles.get(puzzle_id).get('puzzleProperties',{}).get('DisplayNameProperty',{}).get('displayName',puzzle_id) }}</a> - {{ all_visibilities.get(puzzle_id,{}).get('status','') }}
         </div>
       </div>
     {% endif %}
