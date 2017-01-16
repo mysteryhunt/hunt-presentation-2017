@@ -17,7 +17,19 @@
 {% block puzzle_content_block %}
 <div>
   <p>
-    This puzzle is handed to you when you complete Rescue the Linguist.
+    This puzzle was handed to teams when they completed Rescue the Linguist.
   </p>
 </div>
+<div>
+  <a href="{{ asset_url_for('dot_matrix/image01.jpg') }}">
+    <img class="page" src="{{ asset_url_for('dot_matrix/image01.jpg') }}">
+  </a>
+  <a href="{{ asset_url_for('dot_matrix/image02.jpg') }}">
+    <img class="page" src="{{ asset_url_for('dot_matrix/image02.jpg') }}">
+  </a>
+  <a href="{{ asset_url_for('dot_matrix/image03.jpg') }}">
+    <img class="page" src="{{ asset_url_for('dot_matrix/image03.jpg') }}">
+  </a>
+</div>
+  
 {% endblock %}

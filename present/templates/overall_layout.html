@@ -34,7 +34,7 @@
                   <li><a href="{{ url_for('handbook') }}">Player Handbook</a></li>
                   <li><a href="{{ url_for('safety') }}">Health &amp; Safety</a></li>
                   <li><a href="{{ url_for('puzzle_list') }}">List of Puzzles</a></li>
-                  <li><a href="{{ url_for('activity_log') }}">Activity Log</a></li>
+{#                  <li><a href="{{ url_for('activity_log') }}">Activity Log</a></li> #}
                 </ul>
               </div>
               <div class="navigation-column">
@@ -149,8 +149,8 @@
 
         <div id="header-session-control">
           {% if session["username"] %}
-            <span id="header-session-team-name" data-toggle="tooltip" data-placement="bottom" title="{{ core_display_data["teamName"] }}">
-              {{ pretty_truncate(core_display_data["teamName"],12) }}
+            <span id="header-session-team-name">
+              &nbsp;
             </span>
             {% if (not site_mode()) or site_mode() != 'solution' %}      
               <a href="#" data-toggle="modal" data-target="#header-change-contact-info">

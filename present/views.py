@@ -117,7 +117,7 @@ def make_core_display_data(visibilities_async, team_properties_async):
         char_id: team_properties.get('teamProperties',{}).get('CharacterLevelsProperty',{}).get('levels',{}).get(char_id.upper(),0) \
         for char_id in core_display_data['visible_characters'] }
     core_display_data['total_character_level'] = sum(core_display_data['character_levels'].itervalues())
-    core_display_data['inventory_items'] = team_properties.get('teamProperties',{}).get('InventoryProperty',{}).get('inventoryItems',[])
+    core_display_data['inventory_items'] = ['ITEM0' + str(i) for i in range(0,10)] + ['ITEM' + str(i) for i in range(10,40)]
     core_display_data['gold'] = team_properties.get('teamProperties',{}).get('GoldProperty',{}).get('gold',0)
     core_display_data['teamName'] = team_properties.get('teamName',session['username'])
     core_display_data['email'] = team_properties.get('email','')

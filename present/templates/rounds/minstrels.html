@@ -15,9 +15,6 @@
 
 {% block round_puzzle_entries %}
 <div class="puzzle-list-column">
-  <div id="announcements-and-errata">
-    The order of these puzzles, and their associations with the audio, have been corrected from a previous version.
-  </div>
   {% for (puzzle_id, audio_id) in [('minstrels2','audio02.mp3'),('minstrels3','audio03.mp3'),('minstrels1','audio01.mp3'),('minstrels4','audio05.mp3'),('minstrels5','audio04.mp3'),('minstrels6','audio06.mp3'),('minstrels7','audio07.mp3')] %}
     {{ puzzle_entry(puzzle_id, puzzle_properties, puzzle_visibilities, audio_id=audio_id) }}
   {% endfor %}

@@ -12,13 +12,13 @@ If you want to defeat the cube, it&rsquo;s time to face your childhood fears.
 {% block puzzle_content_block %}
 <div>
   <p>
-    <a class="standard-link" href="{{ submit_url_for(puzzle_id) }}">Contact HQ</a> to request a copy of this puzzle. Use the word &ldquo;COLLECTION&rdquo; as your request.
+    Contact HQ to request a copy of this puzzle. Use the word &ldquo;COLLECTION&rdquo; as your request.
   </p>
 </div>
-{#
+
 <div style="margin-top: 60px;">
   <p>
-    This puzzle is intended to be distributed to teams as a physical book. These are links to the pages.
+    This puzzle was distributed to teams as a physical book. These are links to the pages.
   </p>
   <ul>
     <li><a class="standard-link" href="{{ asset_url_for('the_puzzle_at_the_end_of_this_book/page00.pdf') }}">Cover</a></li>
@@ -32,5 +32,5 @@ If you want to defeat the cube, it&rsquo;s time to face your childhood fears.
     <li><a class="standard-link" href="{{ asset_url_for('the_puzzle_at_the_end_of_this_book/page08.pdf') }}">Spread 8</a></li>
   </ul>
 </div>
-#}
+
 {% endblock %}
