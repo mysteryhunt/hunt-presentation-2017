@@ -242,6 +242,16 @@
       <input id="solveButton" type="submit" name="actionType" value="Solve" disabled>
     </div>
   </form>
+  <form class="ha-column-control-box" action="{{ url_for('team', team_id=team.teamId) }}" method="post">
+    <span class="ha-control-box-title">
+      Unlock All
+    </span>
+    <input type="hidden" name="action" value="UnlockAll">
+    <div>
+      <input type="button" value="Yes, I'm sure" onclick="document.getElementById('unlockAllButton').removeAttribute('disabled')">
+      <input id="unlockAllButton" type="submit" name="actionType" value="Unlock All" disabled>
+    </div>
+  </form>
   {% endif %}
 </div>
 {% if team.teamProperties %}

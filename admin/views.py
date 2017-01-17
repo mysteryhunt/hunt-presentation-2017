@@ -224,6 +224,13 @@ def team(team_id):
                 "teamId": team_id,
                 "gold": request.form["gold"],
             })
+        elif request.form["action"] == "UnlockAll":
+            for puzzle_id in CHARACTER_IDS + QUEST_IDS + [puzzle_id for l in ROUND_PUZZLE_MAP.values() for puzzle_id in l]:
+                cube.update_puzzle_visibility(
+                    app,
+                    team_id,
+                    puzzle_id,
+                    "UNLOCKED")
         else:
             abort(400)
 
