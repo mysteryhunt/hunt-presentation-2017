@@ -13,6 +13,15 @@
     pre.code {
       font-size: 0.75em;
     }
+    ul {
+      list-style-type: none;
+    }
+    li {
+      margin-bottom: 0.5em;
+    }
+    span.largenumber {
+      font-size: 0.5em;
+    }
   </style>
 {% endblock %}
 
@@ -228,5 +237,136 @@ b = 8142956943362003016952573251436374452971226441401956885426102989827426583676
 print decodefrac (a, b, 1)
 print decodefrac (a, b, 1000)
 print decodefrac (a, b, 10**100)</pre>
+  </div>
+  <hr>
+  <h2>Construction Explanation</h2>
+  <div>
+    <p>
+      This is an explanation of how this puzzle was constructed. The knowledge
+      used here is not needed in order to solve the puzzle.
+    </p>
+    <p>
+      In order to realize the intended solution path, we needed to find a
+      rational number <i>r/s</i> with the following substrings in its decimal
+      expansion.
+    </p>
+    <ul>
+      <li>digits 1 to 44: 19110916201520081521190114042008040901092000</li>
+      <li>digits 1000 to 1039: 2008051420150715150715122008040901092000</li>
+      <li>digits 10<sup>100</sup> to 10<sup>100</sup>+19: 12091404051412010200</li>
+    </ul>
+    <p>
+      Furthermore, we wanted <i>r</i> and <i>s</i> not to be too large.
+    </p>
+    <p>
+      To simplify the process, we decided to construct <i>r/s</i> to have the
+      form <i>a/b</i> + <i>c/d</i> where the summands were subject to the following
+      conditions.
+    </p>
+    <ul>
+      <li>
+        The number <i>a/b</i> has a long period and has a substring matching the
+        first step of the path.
+      </li>
+      <li>
+        The number <i>c/d</i> has a short period, has zeroes at the location of the
+        first step of the path, and has substrings correctly complementing with
+        <i>a/b</i> to give the second and third steps (plus a trailing zero in
+        each case to prevent an unwanted carry into the final digit).
+      </li>
+    </ul>
+    <p>
+      The second condition on <i>a/b</i> states that this fraction is at least
+    </p>
+    <blockquote>
+      19110916201520081521190114042008040901092000 / 10<sup>44</sup>
+    </blockquote>
+    <p>
+      with the difference being no more than 1/10<sup>44</sup>. We got some
+      initial candidates from the convergents of the continued fraction of this
+      quantity, with <i>a</i> and <i>b</i> each having 22 digits or slightly
+      more, but these did not have as large a period as we wanted. (Reminder:
+      the period is the multiplicative order of 10 modulo <i>b</i>, that is, the
+      smallest positive integer <i>n</i> such that <i>b</i> divides
+      10<sup><i>n</i></sup>-1). However, standard heuristics (such as the prime
+      number theorem and Artin&rsquo;s conjecture on primitive roots) suggest
+      that trying replacing the original fraction with nearby values would, in a
+      reasonable time, yield a convergent with a suitable denominator.
+    </p>
+    <p>
+      To construct <i>c/d</i>, we took <i>d</i> to be a factor of
+      10<sup><i>p</i></sup>-1 for some relatively small prime <i>p</i>, so that
+      (as long as <i>d</i> &gt; 9) the period of <i>c/d</i> would equal
+      <i>p</i>. In order to execute the construction, we needed to ensure that
+      the three prescribed substrings correspond to distinct locations in the
+      period; that is, the quantities
+    </p>
+    <blockquote>
+      1 to 44, 1000 to 1040, 10<sup>100</sup> to 10<sup>100</sup>+20
+    </blockquote>
+    <p>
+      had to be pairwise distinct modulo <i>p</i>. This of course
+      forces <i>p</i> &gt;= 44+41+21 = 106. We took <i>p</i>=131, for which the
+      listed quantities correspond to
+    </p>
+    <blockquote>
+      1 to 44, 83 to 123, 52 to 72
+    </blockquote>
+    <p>
+      For convenience, we also imposed zeroes in positions 124 to 131. Now the
+      decimal expansion of (10<sup>8</sup>&middot;<i>c</i>)/<i>d</i>, ignoring
+      the digits before the decimal point, has zeroes in position 1 to 52 and
+      prescribed digits in positions 60 to 80.
+    </p>
+    <p>
+      If we had chosen the remaining digits randomly, we are likely to have a
+      denominator of 10<sup>131</sup>-1. However, since we had flexibility to
+      choose them, we looked for a choice that would make the numerator have a
+      common factor with 10<sup>131</sup>-1. The prime factorization of
+      10<sup>131</sup>-1 can be computed using any standard mathematical
+      software package (we used Magma and Sage, but Mathematica should also
+      work). Note that numbers of the form <i>m</i><sup><i>n</i></sup> - 1 are
+      easier to factor than random numbers using current techniques, but this is
+      a long story outside the scope of this explanation. In any case, the
+      factorization is
+    </p>
+    <blockquote>
+      3<sup>2</sup> &middot; 80173 &middot; 109517 &middot; 141811693 &middot;
+      446790173 &middot; 7370364319027 &middot; 15594845538029429933 &middot;
+      7317723970031057677693 &middot; 131758351065116151205213 &middot;
+      180222062287834025451247081
+    </blockquote>
+    <p>
+      We opted to search for a multiple of 80173&middot;109517. This amounted to
+      solving a linear Diophantine equation of the form
+    </p>
+    <blockquote>
+      <i>Ax</i> + <i>By</i> = <i>C</i> (mod 80173&middot;109517)
+    </blockquote>
+    <p>
+      for some <i>A</i>,<i>B</i>,<i>C</i>, where <i>x</i> is an integer from 0
+      to 10<sup>7</sup>-1 (representing the digits from 45 to 51) and <i>y</i>
+      is an integer from 0 to 10<sup>9</sup>-1 (representing the digits from 73
+      to 82). Given the small sizes of the numbers involved, we did this by
+      exhausting over the choices for <i>x</i>, and for each of these solving
+      for <i>y</i> (using standard modular arithmetic) to see if it fell into
+      the correct range.
+    </p>
+    <p>
+      In this way, we arrived at the values
+    </p>
+    <ul>
+      <li><i>a</i> = 122974716351446828004968</li>
+      <li><i>b</i> = 643478915687283605559691</li>
+      <li><i>c</i> = 130232918073045339638509705978224505361995762494579108317537000000000</li>
+      <li><i>d</i> = <span class="largenumber">1265458237223626203402473149639710975904321641786205068866013979603779880318998437005817381711485428451586671804079361871</span></li>
+    </ul>
+    <p>
+      yielding the values of <i>r</i> and <i>s</i> in the statement of the puzzle:
+    </p>
+    <ul>
+      <li><i>r</i> = <span class="largenumber">155619367777177344298579121640577930358466048997080741489502115154736052423438639656322566701951512888971130859442675019505459646950828457775128</span></li>
+      <li><i>s</i> = <span class="largenumber">814295694336200301695257325143637445297122644140195688542610298982742658367669506161728178242191616818890832959609127053599963426497407079941861</span></li>
+    </ul>
   </div>
 {% endblock %}
