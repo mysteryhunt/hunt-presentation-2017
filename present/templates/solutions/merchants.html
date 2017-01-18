@@ -55,6 +55,15 @@
   #puzzle-content span.nowrap {
     white-space: nowrap;
   }
+  #puzzle-content .final-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  #puzzle-content .final-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 </style>
 {% endblock %}
 
@@ -166,5 +175,32 @@
       </td>
     </tr>
   </table>
+  <h3>Six Final Items</h3>
+  <div class="final-container">
+    <div class="final-item">
+      <img src="{{ asset_url_for('items/character-items/WickedCursedBroadsword.png') }}"/>
+      <span>Wicked Cursed Broadsword -7</span>
+    </div>
+    <div class="final-item">
+      <img src="{{ asset_url_for('items/character-items/WandOfVanishing.png') }}"/>
+      <span>Wand of Vanishing +9</span>
+    </div>
+    <div class="final-item">
+      <img src="{{ asset_url_for('items/character-items/HolyWaterOfBlessing.png') }}"/>
+      <span>Holy Water of Blessing +7</span>
+    </div>
+    <div class="final-item">
+      <img src="{{ asset_url_for('items/character-items/DictionaryOfTranslating.png') }}"/>
+      <span>Dictionary of Translating +3</span>
+    </div>
+    <div class="final-item">
+      <img src="{{ asset_url_for('items/character-items/CursedBunsenBurner.png') }}"/>
+      <span>Cursed Bunsen Burner -1</span>
+    </div>
+    <div class="final-item">
+      <img src="{{ asset_url_for('items/character-items/CalculatorOfExtrapolating.png') }}"/>
+      <span>Calculator of Extrapolating +16</span>
+    </div>
+  </div>
 </div>
 {% endblock %}
