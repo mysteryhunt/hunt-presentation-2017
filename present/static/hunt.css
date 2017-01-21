@@ -422,3 +422,10 @@ span.puzzle-reward {
 span.underline, span.answer-blank {
   font-family: 'Times New Roman', serif;
 }
+
+#checkAnswerTextbox {
+  margin-top: 6px;
+  margin-bottom: 6px;
+  padding-left: 2px;
+  padding-right: 2px;
+}
